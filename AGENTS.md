@@ -2,20 +2,22 @@
 
 ## Zweck
 
-Diese Datei definiert verbindliche Arbeitsregeln für AI-/Code-Agents in diesem Repository. Sie legt fest, welche Dokumente vor Änderungen zu berücksichtigen sind, wie Regeln priorisiert werden und welche Qualitätskriterien für Code-Änderungen gelten.
+Diese Datei ist der verbindliche Einstiegspunkt für AI-/Code-Agents in diesem Repository. Sie legt fest, welche Dokumente vor Änderungen zu berücksichtigen sind, wie Regeln priorisiert werden und welche Qualitätskriterien für Code-Änderungen gelten.
 
-Projektspezifische Informationen stehen in `Repository.md`. Technologieübergreifende Architekturregeln stehen in `Architecture.md`. Technologiespezifische Regeln stehen in den passenden `Architecture.*.md`-Dateien.
+Projektspezifische Informationen stehen in `agents/Repository.md`. Technologieübergreifende Architekturregeln stehen in `agents/Architecture.md`. Technologiespezifische Regeln stehen in den passenden `agents/Architecture.*.md`-Dateien.
+
+Der Ordner `agents/` enthält bewusst gepflegte Agent- und Engineering-Regeln. Der Ordner `docs/` ist für ergänzende Langform-Dokumentation wie ADRs, API-Spezifikationen, Domänenbeschreibungen, Betriebsdokumentation oder Diagramme gedacht.
 
 ## Pflichtlektüre vor Änderungen
 
 Vor fachlichen oder strukturellen Änderungen gilt:
 
-1. `Repository.md` lesen, um Projektziel, Fachregeln, wichtige Pfade, Build-/Test-Kommandos und lokale Besonderheiten zu verstehen.
-2. `Architecture.md` lesen, um die allgemeinen Architektur-, Clean-Code- und Qualitätsregeln zu kennen.
-3. Die passende Technologie-Datei lesen, zum Beispiel `Architecture.Angular.md` für Angular oder `Architecture.NETConsole.md` für .NET-Konsolenanwendungen.
+1. `agents/Repository.md` lesen, um Projektziel, Fachregeln, wichtige Pfade, Build-/Test-Kommandos und lokale Besonderheiten zu verstehen.
+2. `agents/Architecture.md` lesen, um die allgemeinen Architektur-, Clean-Code- und Qualitätsregeln zu kennen.
+3. Die passende Technologie-Datei lesen, zum Beispiel `agents/Architecture.Angular.md` für Angular oder `agents/Architecture.NETConsole.md` für .NET-Konsolenanwendungen.
 4. Weitere lokale Dokumente wie `README.md`, `STRUCTURE.md`, ADRs, API-Spezifikationen oder Schema-Dateien lesen, wenn die Änderung deren Bereich berührt.
 
-Wenn eine passende `Architecture.*.md` fehlt, wird nach den vorhandenen Patterns des Repositories gearbeitet. Eine neue Technologie-Regeldatei wird nur ergänzt, wenn die Regel dauerhaft für mehrere Änderungen relevant ist.
+Wenn eine passende `agents/Architecture.*.md` fehlt, wird nach den vorhandenen Patterns des Repositories gearbeitet. Eine neue Technologie-Regeldatei wird nur ergänzt, wenn die Regel dauerhaft für mehrere Änderungen relevant ist.
 
 ## Regelpriorität
 
@@ -24,12 +26,12 @@ Bei widersprüchlichen Vorgaben gilt diese Reihenfolge:
 1. Direkte User-Anweisung im aktuellen Task.
 2. Sicherheits-, Datenschutz- und Plattformvorgaben der Arbeitsumgebung.
 3. `AGENTS.md`.
-4. `Repository.md`.
-5. `Architecture.md`.
-6. Passende `Architecture.*.md`.
+4. `agents/Repository.md`.
+5. `agents/Architecture.md`.
+6. Passende `agents/Architecture.*.md`.
 7. Bestehender Code-Stil und lokale Patterns.
 
-Repository-spezifische Regeln dürfen allgemeine Architekturregeln einschränken, müssen aber in `Repository.md` oder einer lokalen ADR begründet sein.
+Repository-spezifische Regeln dürfen allgemeine Architekturregeln einschränken, müssen aber in `agents/Repository.md` oder einer lokalen ADR begründet sein.
 
 ## Arbeitsmodus
 
@@ -59,8 +61,8 @@ Repository-spezifische Regeln dürfen allgemeine Architekturregeln einschränken
 
 ## Dokumentationspflege
 
-- `Repository.md` wird aktualisiert, wenn sich Projektziel, wichtige Pfade, Build-/Test-Kommandos, Fachregeln oder externe Verträge ändern.
-- `Architecture.md` und `Architecture.*.md` werden angepasst, wenn eine Regel allgemein gelten soll.
+- `agents/Repository.md` wird aktualisiert, wenn sich Projektziel, wichtige Pfade, Build-/Test-Kommandos, Fachregeln oder externe Verträge ändern.
+- `agents/Architecture.md` und `agents/Architecture.*.md` werden angepasst, wenn eine Regel allgemein gelten soll.
 - Struktur- oder Typenübersichten werden aktualisiert, wenn das Repository solche Dokumente verwendet.
 - Entscheidungen mit langfristiger Wirkung werden als ADR oder in der naheliegendsten Dokumentation festgehalten.
 
