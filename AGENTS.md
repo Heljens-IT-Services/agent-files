@@ -1,76 +1,68 @@
 # AGENTS.md
+Stand: April 2026
 
 ## Zweck
 
-Diese Datei definiert verbindliche Arbeitsregeln für AI-/Code-Agents in diesem Repository. Sie legt fest, welche Dokumente vor Änderungen zu berücksichtigen sind, wie Regeln priorisiert werden und welche Qualitätskriterien für Code-Änderungen gelten.
+Diese Datei definiert verbindliche Arbeitsregeln für AI-/Code-Agents in diesem Repository. 
 
-Projektspezifische Informationen stehen in `Repository.md`. Technologieübergreifende Architekturregeln stehen in `Architecture.md`. Technologiespezifische Regeln stehen in den passenden `Architecture.*.md`-Dateien.
+## Pflichtlektüre
 
-## Pflichtlektüre vor Änderungen
+| Pfad | Zweck |
+|---|---|
+| `README.md` | Liefert den kompakten Einstieg in das Repository. |
+| `agents/STRUCTURE.md` | Beschreibt die aktuelle Repository-Struktur. |
+| `agents/PROJECT.md` | Enthält projektspezifische Regeln, Fakten, sowie Domänwissen. |
+| `agents/DEVELOPER.md` | Definiert allgemeine Entwicklungsregeln für dieses Repository. |
+| `agents/DEVELOPER.*.md` | Ergänzt technologie- oder kontextspezifische Entwicklerregeln. |
 
-Vor fachlichen oder strukturellen Änderungen gilt:
+## Priorität von Anweisungen
 
-1. `Repository.md` lesen, um Projektziel, Fachregeln, wichtige Pfade, Build-/Test-Kommandos und lokale Besonderheiten zu verstehen.
-2. `Architecture.md` lesen, um die allgemeinen Architektur-, Clean-Code- und Qualitätsregeln zu kennen.
-3. Die passende Technologie-Datei lesen, zum Beispiel `Architecture.Angular.md` für Angular oder `Architecture.NETConsole.md` für .NET-Konsolenanwendungen.
-4. Weitere lokale Dokumente wie `README.md`, `STRUCTURE.md`, ADRs, API-Spezifikationen oder Schema-Dateien lesen, wenn die Änderung deren Bereich berührt.
-
-Wenn eine passende `Architecture.*.md` fehlt, wird nach den vorhandenen Patterns des Repositories gearbeitet. Eine neue Technologie-Regeldatei wird nur ergänzt, wenn die Regel dauerhaft für mehrere Änderungen relevant ist.
-
-## Regelpriorität
-
-Bei widersprüchlichen Vorgaben gilt diese Reihenfolge:
+Bei widersprüchlichen Vorgaben gilt die Reihenfolge:
 
 1. Direkte User-Anweisung im aktuellen Task.
 2. Sicherheits-, Datenschutz- und Plattformvorgaben der Arbeitsumgebung.
-3. `AGENTS.md`.
-4. `Repository.md`.
-5. `Architecture.md`.
-6. Passende `Architecture.*.md`.
+3. Passende `agents/DEVELOPER.*.md`.
+4. `agents/DEVELOPER.md`.
+5. `AGENTS.md`.
+6. `agents/PROJECT.md`.
 7. Bestehender Code-Stil und lokale Patterns.
 
-Repository-spezifische Regeln dürfen allgemeine Architekturregeln einschränken, müssen aber in `Repository.md` oder einer lokalen ADR begründet sein.
+## Dokumentenpflege
 
-## Arbeitsmodus
+| Pfad | Pflege-Regel |
+|---|---|
+| `README.md` | Bei Änderungen am Einstieg oder an den ersten Schritten. |
+| `agents/STRUCTURE.md` | Bei Änderungen an Struktur, Ordnern oder Ablagelogik. |
+| `agents/PROJECT.md` | Bei Änderungen an projektspezifischen Regeln, Fakten oder Pfaden. |
+| `agents/DEVELOPER.md` | Bei Änderungen an allgemeinen Entwicklungsregeln. |
+| `agents/DEVELOPER.*.md` | Bei Änderungen an technologie- oder kontextspezifischen Regeln. |
 
-- Erst Kontext lesen, dann ändern. Annahmen werden anhand vorhandener Dateien, Tests und Konfiguration geprüft.
-- Änderungen bleiben eng am Task. Keine beiläufigen Refactorings, Formatierungswellen oder Architekturumbauten ohne fachlichen Grund.
-- Vorhandene User-Änderungen werden nicht zurückgesetzt, außer der User verlangt es ausdrücklich.
-- Bestehende Patterns werden bevorzugt, solange sie nicht klar gegen dokumentierte Regeln verstoßen.
-- Öffentliche Schnittstellen, Exportformate, Datenbankschemas und Konfigurationsverträge werden nur bewusst geändert und dokumentiert.
-- Neue Abhängigkeiten brauchen einen klaren Nutzen, Wartbarkeitsperspektive und Kompatibilität mit der bestehenden Architektur.
+## README.md
 
-## Clean-Code-Erwartungen
+Eine gute `README.md` ist kurz, klar und auf schnellen Einstieg ausgelegt. Typische Struktur:
 
-- Code beschreibt Fachlichkeit über klare Namen, kleine Einheiten und explizite Modelle.
-- Funktionen und Methoden tun eine Sache auf einer Abstraktionsebene.
-- Komplexe Bedingungen werden benannt, extrahiert oder in fachliche Policies/Services verschoben.
-- Duplikation wird entfernt, wenn sie dieselbe fachliche Regel ausdrückt. Ähnliche, aber fachlich unterschiedliche Fälle werden nicht künstlich vereinheitlicht.
-- Kommentare erklären warum etwas nötig ist, nicht was offensichtlich im Code steht.
-- Fehlerfälle werden als Teil des normalen Designs behandelt, nicht als nachträgliche Sonderpfade.
+- Titel und Kurzbeschreibung
+- Zweck oder Nutzen des Projekts
+- Voraussetzungen
+- Installation oder Setup
+- Start, Build und Tests
+- Wichtige Links oder Verweise
 
-## Tests und Verifikation
+Abweichungen sind erlaubt, wenn sie für das konkrete Repository sinnvoller sind.
 
-- Tests werden passend zum Risiko ergänzt oder angepasst.
-- Fachlogik erhält schnelle Unit Tests.
-- Workflow-, Infrastruktur- und Integrationsverhalten erhält Tests mit Fakes, Testservern oder kontrollierten Testdaten.
-- Fehlerpfade, leere Daten, Timeouts, ungültige Eingaben und Berechtigungsfälle werden berücksichtigt, wenn sie vom Task berührt werden.
-- Relevante Prüfungen werden ausgeführt. Nicht ausgeführte Prüfungen werden mit Grund genannt.
+## STRUCTURE.md
 
-## Dokumentationspflege
+Index wichtiger Dateien und Einstiegspunkte.
 
-- `Repository.md` wird aktualisiert, wenn sich Projektziel, wichtige Pfade, Build-/Test-Kommandos, Fachregeln oder externe Verträge ändern.
-- `Architecture.md` und `Architecture.*.md` werden angepasst, wenn eine Regel allgemein gelten soll.
-- Struktur- oder Typenübersichten werden aktualisiert, wenn das Repository solche Dokumente verwendet.
-- Entscheidungen mit langfristiger Wirkung werden als ADR oder in der naheliegendsten Dokumentation festgehalten.
+Beispiel:
 
-## Abschlusskriterien
+| Pfad | Typ | Zweck |
+|---|---|---|
+| `Program.cs` | Program | Startet die Anwendung und verdrahtet zentrale Abhängigkeiten. |
 
-Eine Änderung gilt erst als abgeschlossen, wenn:
+## PROJECT.md
 
-- der Code kompiliert bzw. die relevanten statischen Checks laufen,
-- relevante Tests ausgeführt oder begründet ausgelassen wurden,
-- betroffene Dokumentation aktualisiert wurde,
-- Migrations-, Rollback- oder Kompatibilitätsfragen geklärt sind, sofern sie vom Task berührt werden,
-- neue oder geänderte Projektdateien keine unbeabsichtigten Template-Platzhalter wie `<...>`, `TODO`, `TBD` oder Beispielwerte enthalten,
-- offene Risiken oder nicht ausgeführte Prüfungen klar benannt sind.
+Hier befinden sich fachlicher Kontext und Domänenwissen. Keine Technikdetails, keine Strukturregeln, keine Implementierungsvorgaben.
+
+## DEVELOPER.md
+
