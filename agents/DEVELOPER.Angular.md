@@ -42,7 +42,7 @@ src/app/
     interfaces/
     layout/
     models/
-    resolver/
+    resolvers/
     services/
     state/
     util/
@@ -72,7 +72,7 @@ src/app/
 | `src/app/core/interfaces/` | `core` | Enthält zentrale Verträge und Schnittstellen. |
 | `src/app/core/layout/` | `core` | Enthält Shell, Layout und Rahmenelemente. |
 | `src/app/core/models/` | `core` | Enthält zentrale Modelle, keine rohen API-DTOs. |
-| `src/app/core/resolver/` | `core` | Enthält Route Resolver. |
+| `src/app/core/resolvers/` | `core` | Enthält Route Resolver. |
 | `src/app/core/services/` | `core` | Enthält globale Services. |
 | `src/app/core/state/` | `core` | Enthält App Store, Feature Store, Facade, Commands und Selectors. |
 | `src/app/core/util/` | `core` | Enthält zentrale Hilfen. |
@@ -108,7 +108,7 @@ Standalone Components, `app.config.ts` und funktionale Provider sind Standard. N
 - Signals sind die bevorzugte Primitive für synchronen UI-State. Öffentliche State-Reads werden als readonly Signals, Computed Signals oder klar benannte Selector-Methoden angeboten.
 - State wird nur über explizite Methoden geändert, zum Beispiel `loadBuildings()`, `selectBuilding(id)` oder `updateFilter(filter)`.
 - Komponenten mutieren keine Store-Interna.
-- Auf RxJS wird verzichtet, alles wird über Angular Signals implementiert. Lediglich das rxjs-interop-Paket wird verwendet, von und zu Signals zu übersetzen.
+- RxJS wird nicht als Anwendungs-State- oder Datenfluss-Primitive verwendet. Erlaubt ist nur Angular-/RxJS-Interop, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
 - Abgeleiteter State wird berechnet, nicht redundant gespeichert.
 - Lade-, Fehler- und Empty-States sind Teil des State-Modells.
 - Store-Methoden sind idempotent, wenn sie durch Routing, Retry oder erneute Nutzeraktion mehrfach ausgelöst werden können.
@@ -134,14 +134,15 @@ Standalone Components, `app.config.ts` und funktionale Provider sind Standard. N
 
 ## Web API und Worker
 
-- HTTP-Zugriff liegt in `data-access/` oder `core/http/`, nicht in Komponenten.
+- HTTP-Zugriff liegt in `core/data-access/`, nicht in Komponenten.
 - Für HTTP Requests wird Promise<T> oder Promise verwendet.
 - DTOs werden typisiert und an der Grenze in fachliche View- oder Domain-Modelle gemappt.
-- Interceptors behandeln Auth, Correlation IDs, Retry für idempotente Requests und technische Fehlerklassen- Cancellation ist für Requests, Worker-Jobs und längere Streams vorgesehen.
+- Interceptors behandeln Auth, Correlation IDs, Retry für idempotente Requests und technische Fehlerklassen.
+- Cancellation ist für Requests, Worker-Jobs und längere Streams vorgesehen.
 
 ## Forms und Validierung
 
-- Signal Forms sind trotz ihres experimentellen Status als Standard gesetzt.
+- Signal Forms sind bevorzugt, wenn die verwendete Angular-Version und das Projektsetup sie stabil genug unterstützen.
 - Fachliche Validierung gilt als wiederverwendbar und ist entsprechend auszuprogrammieren. Wiederverwendbare Validatoren liegen in `shared/util`.
 - Formularzustände wie `dirty`, `pending`, `invalid`, `saving` und `saved` werden explizit behandelt.
 
@@ -151,12 +152,13 @@ Standalone Components, `app.config.ts` und funktionale Provider sind Standard. N
 - Komponentenbibliothek sollen nicht eigenständig installiert werden, es sei denn es wird ausdrücklich erwünscht. Es soll vornehmlich mit den vorhandenen Designsystemen gearbeitet werden - sofern eines vorhanden.
 - Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusführung, Kontraste und semantische Elemente.
 - Responsiveness wird in Komponenten und Layouts aktiv berücksichtigt. Mobile-First wird bevorzugt.
-- UI-Texte sind fachlich präzise, technische Erklärtexte sind dort fatal.
+- UI-Texte sind fachlich präzise; technische Erklärtexte werden vermieden.
 - Wiederverwendbare UI-Komponenten kapseln Verhalten, aber keine Feature-Fachlogik.
 - ARIA wird gezielt eingesetzt, wenn semantisches HTML allein nicht reicht.
 
 ## Unit Tests und E2E
 
+- Unit Tests sichern Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen ab.
 - E2E-Tests, bevorzugt Playwright, decken kritische Nutzerflüsse ab.
 - Tests prüfen sichtbares Verhalten und fachliche Zustände, nicht private Implementierungsdetails.
 
