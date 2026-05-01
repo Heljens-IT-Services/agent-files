@@ -126,7 +126,7 @@ Die Methodennamen sind verbindlich:
 - `<Name>.Infrastructure/Module.cs`: `AddInfrastructure(...)`
 - `<Name>.Core/Module.cs`: `AddCore(...)`
 
-`Program.cs` registriert alle drei Module explizit.
+`Program.cs` darf wegen transitiver Referenzierung alle drei Module explizit registrieren. Die direkte Projektreferenz bleibt `Console -> Infrastructure -> Core`.
 
 ## Projekt- und Referenzregeln
 
