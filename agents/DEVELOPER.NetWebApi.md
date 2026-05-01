@@ -36,7 +36,7 @@ Die Referenzrichtung ist verbindlich:
 `Core` ist die fachliche Mitte mit Domain, Use Cases, Ports, Services, Ergebnisobjekten und fachlichen Fehlern. `Infrastructure` implementiert technische Details und Ports aus `Core`. `WebApi` ist Composition Root fuer Host, Konfiguration, DI, Middleware, Routing, HTTP-Endpoints und API-Vertraege.
 
 ```mermaid
-flowchart LR
+flowchart TD
     WebApi[WebApi] --> Infrastructure[Infrastructure]
     Infrastructure --> Core[Core]
 ```
