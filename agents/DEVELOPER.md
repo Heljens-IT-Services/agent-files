@@ -4,7 +4,7 @@ Stand: 2026-05-01
 
 ## Zweck
 
-Diese Datei definiert die technologieuebergreifenden Architektur-, Clean-Code-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln dieses Repositories. Technologiespezifische Details stehen in den passenden `DEVELOPER.<TECHNOLOGY>.md`-Dateien.
+Diese Datei definiert die technologieuebergreifenden Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln dieses Repositories. Technologiespezifische Details stehen in den passenden `DEVELOPER.<TECHNOLOGY>.md`-Dateien.
 
 Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische Datei eine engere Vorgabe macht.
 
@@ -32,9 +32,15 @@ Namen sind fachlich, praezise und konsistent. Ein Name soll erklaeren, warum ein
 
 Eine Funktion oder Methode erfuellt eine klar erkennbare Aufgabe auf einer Abstraktionsebene. Klassen, Komponenten und Services haben hohe Kohaesion und niedrige Kopplung. Oeffentliche Typen, zentrale Einstiegspunkte und wiederverwendbare Bausteine haben eine erkennbare, begrenzte Verantwortung.
 
-Kommentare sind an allgemeinen Einstiegspunkten, komplexeren Strukturen und an Infrastruktur-Objekten verpflichtend. Sie erklaeren Domaenenwissen, fachspezifisches Know-how, Absicht, Trade-offs oder nicht offensichtliche Constraints. Sie wiederholen nicht den Code.
-
 Dead Code, ungenutzte Feature-Flags, veraltete TODOs und auskommentierter Code werden vorzugsweise geloescht, mindestens gemeldet.
+
+## Dokumentation
+
+Dokumentation findet mindestens im Quellcode statt. Allgemeine Einstiegspunkte, komplexere Strukturen, Infrastruktur-Objekte, oeffentliche Vertraege und nicht offensichtliche fachliche Regeln werden kommentiert.
+
+Kommentare erklaeren Domaenenwissen, fachspezifisches Know-how, Absicht, Trade-offs oder nicht offensichtliche Constraints. Sie wiederholen nicht den Code.
+
+README-Dateien, Architektur-Notizen, API-Beschreibungen, Beispielaufrufe oder externe Dokumentation ergaenzen Quellcode-Kommentare, ersetzen sie aber nicht, wenn das notwendige Verstaendnis direkt am Code gebraucht wird.
 
 ## Design Patterns und Prinzipien
 
