@@ -66,3 +66,14 @@ Hier befinden sich fachlicher Kontext und Domänenwissen. Keine Technikdetails, 
 
 ## DEVELOPER.md
 
+`agents/DEVELOPER.md` enthält technologieübergreifende Architektur-, Clean-Code-, Qualitäts-, Security- und Testregeln. Diese Regeln gelten für alle Implementierungen, sofern keine passendere `agents/DEVELOPER.*.md` eine spezifischere Vorgabe macht.
+
+Technologie- und kontextspezifische Ergänzungen liegen in eigenen Dateien:
+
+| Pfad | Gilt für |
+|---|---|
+| `agents/DEVELOPER.Angular.md` | Angular-Anwendungen und Angular-nahe Frontend-Teile. |
+| `agents/DEVELOPER.NetConsole.md` | .NET-Konsolenanwendungen mit `Console -> Infrastructure -> Core`-Struktur. |
+| `agents/DEVELOPER.NetWebApi.md` | .NET-Web-APIs mit `WebApi -> Infrastructure -> Core`-Struktur. |
+
+Agents lesen zuerst `agents/DEVELOPER.md` und anschließend die passende spezifische Datei. Bei mehreren passenden Dateien gilt die Datei, die dem zu ändernden Projekt oder Technologie-Stack am nächsten liegt.
