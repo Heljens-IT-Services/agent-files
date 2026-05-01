@@ -36,7 +36,7 @@ Die Referenzrichtung ist verbindlich:
 `Core` ist die fachliche Mitte mit Domain, Use Cases, Ports, Services, Ergebnisobjekten und fachlichen Fehlern. `Infrastructure` implementiert technische Details und Ports aus `Core`. `Console` ist Composition Root fuer Host, Konfiguration, DI sowie Ein- und Ausgabe.
 
 ```mermaid
-flowchart LR
+flowchart TD
     Console[Console] --> Infrastructure[Infrastructure]
     Infrastructure --> Core[Core]
 ```
