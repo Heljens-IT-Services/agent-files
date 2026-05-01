@@ -4,9 +4,7 @@ Stand: 2026-05-01
 
 ## Zweck
 
-Diese Datei definiert die .NET-spezifischen Entwicklungsregeln fuer Konsolenanwendungen dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`.
-
-Sie ist fuer fachlich relevante Konsolenanwendungen gedacht: Eingaben entgegennehmen, Konfiguration laden, externe Datenquellen ansprechen, Daten parsen, fachliche Workflows ausfuehren, Ergebnisse berechnen und strukturierte Exporte erzeugen.
+Diese Datei definiert die .NET-spezifischen Entwicklungsregeln fuer Konsolenanwendungen dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Sie ist fuer fachlich relevante Konsolenanwendungen gedacht: Eingaben entgegennehmen, Konfiguration laden, externe Datenquellen ansprechen, Daten parsen, fachliche Workflows ausfuehren, Ergebnisse berechnen und strukturierte Exporte erzeugen.
 
 ## Versionsbasis
 
@@ -54,33 +52,24 @@ Die Projektstruktur richtet sich nach Domain-Driven Design auf Solution-Ebene. D
   GlobalUsings.cs
   Module.cs
   appsettings.json
-  Presentation/
-    Console/
+  Services/
 <Name>.Infrastructure/
   GlobalUsings.cs
   Module.cs
+  Common/
   Configuration/
-  ExternalServices/
-  Persistence/
-  Serialization/
-  Providers/
+  <Provider1>/
+  <Provider2>/
+  <Provider3>/
 <Name>.Core/
   GlobalUsings.cs
   Module.cs
-  Application/
-    Abstractions/
-    Workflows/
-    UseCases/
-    Dtos/
-  Domain/
-    Models/
-    ValueObjects/
-    Services/
-    Rules/
-    Exceptions/
-  Export/
-    Contracts/
-    Schemas/
+  Enums/
+  Interfaces/
+  Models/
+  Services/
+  Exceptions/
+  Utilities/
 tests/
   <Name>.Core.Tests/
   <Name>.Infrastructure.Tests/
@@ -92,30 +81,27 @@ tests/
 | `<Name>.sln` | Solution | Enthaelt genau die produktiven Projekte `Console`, `Infrastructure`, `Core` sowie passende Testprojekte. |
 | `<Name>.Console/` | Console | Startbares Projekt. Referenziert `Infrastructure`. |
 | `<Name>.Console/Program.cs` | Console | Composition Root. Baut Generic Host, Konfiguration, Logging und DI auf. Enthaelt keine Fachlogik. |
+| `<Name>.Console/GlobalUsings.cs` | Console | Enthaelt alle globalen `using`-Direktiven des Console-Projekts. |
 | `<Name>.Console/Module.cs` | Console | Enthaelt statische Extension-Methode `AddConsole(...)` fuer konsolenspezifische DI-Registrierung. |
 | `<Name>.Console/appsettings.json` | Console | Runtime-Konfiguration fuer Provider, Timeouts, Retry, Export und fachliche Settings. Keine vertraulichen Werte. |
-| `<Name>.Console/Presentation/Console/` | Console | Konsoleneingabe, Ausgabeformatierung, Statusmeldungen, Prompting und Exit-Kommandos. |
+| `<Name>.Console/Services/` | Console | Enthält Konsolen-nahe Services fuer Ein- und Ausgabe sowie Startlogik. |
 | `<Name>.Infrastructure/` | Infrastructure | Technische Implementierungen. Referenziert `Core`. Wird von `Console` referenziert. |
+| `<Name>.Infrastructure/GlobalUsings.cs` | Infrastructure | Enthaelt alle globalen `using`-Direktiven des Infrastructure-Projekts. |
 | `<Name>.Infrastructure/Module.cs` | Infrastructure | Enthaelt statische Extension-Methode `AddInfrastructure(...)` fuer technische DI-Registrierung. Ruft bei Bedarf `AddCore(...)` auf. |
+| `<Name>.Infrastructure/Common/` | Infrastructure | Enthaelt provideruebergreifende technische Hilfen und gemeinsame Adapterbausteine. |
 | `<Name>.Infrastructure/Configuration/` | Infrastructure | Typisierte Konfiguration und Validierung technischer Settings. |
-| `<Name>.Infrastructure/ExternalServices/` | Infrastructure | Clients fuer externe APIs, Geocoder, WFS/OGC, Dateisysteme oder andere Fremdsysteme. |
-| `<Name>.Infrastructure/Persistence/` | Infrastructure | Lokale Persistenz, Caches, temporaere Dateien und Dateisystemzugriffe. |
-| `<Name>.Infrastructure/Serialization/` | Infrastructure | JSON/XML/CSV-Serialisierung, Parser und Schema-nahe Logik. |
-| `<Name>.Infrastructure/Providers/` | Infrastructure | Regionale oder austauschbare technische Provider. |
+| `<Name>.Infrastructure/<Provider1>/` | Infrastructure | Enthaelt die technische Implementierung eines konkreten Providers oder Fremdsystems. |
+| `<Name>.Infrastructure/<Provider2>/` | Infrastructure | Enthaelt die technische Implementierung eines weiteren Providers oder Fremdsystems. |
+| `<Name>.Infrastructure/<Provider3>/` | Infrastructure | Enthaelt die technische Implementierung eines weiteren Providers oder Fremdsystems. |
 | `<Name>.Core/` | Core | Fachliche Mitte. Keine Referenz auf `Console` oder `Infrastructure`. |
+| `<Name>.Core/GlobalUsings.cs` | Core | Enthaelt alle globalen `using`-Direktiven des Core-Projekts. |
 | `<Name>.Core/Module.cs` | Core | Enthaelt statische Extension-Methode `AddCore(...)` fuer fachliche DI-Registrierung. |
-| `<Name>.Core/Application/` | Core | Orchestriert Use Cases, Workflows, Ports und Transaktionen zwischen Domain und technischer Aussenwelt. |
-| `<Name>.Core/Application/Abstractions/` | Core | Ports fuer externe Datenquellen, Export, Zeit, Dateisystem, HTTP-nahe Adapter und weitere Infrastruktur. |
-| `<Name>.Core/Application/Workflows/` | Core | Ablaufsteuerung komplexer Use Cases, z. B. Daten laden, parsen, matchen, berechnen und exportieren. |
-| `<Name>.Core/Application/UseCases/` | Core | Einzelne fachliche Anwendungsfaelle mit klaren Eingaben und Ergebnissen. |
-| `<Name>.Core/Application/Dtos/` | Core | Anwendungsnahe DTOs fuer Use-Case-Ergebnisse und interne Prozessgrenzen. Keine rohen API-DTOs. |
-| `<Name>.Core/Domain/` | Core | Fachliche Modelle, Value Objects, Regeln, Services, Fehler und Invarianten. |
-| `<Name>.Core/Domain/Models/` | Core | Aggregates, Entities und fachliche Datenmodelle. |
-| `<Name>.Core/Domain/ValueObjects/` | Core | Fachliche Primitive wie Adresse, Koordinate, Flaeche, Hoehe, Metrik oder Identifier. |
-| `<Name>.Core/Domain/Services/` | Core | Reine fachliche Berechnungen, Matching, Auswahl-, Bewertungs- und Ableitungslogik. |
-| `<Name>.Core/Domain/Rules/` | Core | Wiederverwendbare fachliche Regeln, Spezifikationen und Entscheidungslogik. |
-| `<Name>.Core/Domain/Exceptions/` | Core | Fachlich erwartbare Fehler, keine technischen Transportfehler. |
-| `<Name>.Core/Export/` | Core | Fachliche Exportvertraege, Export-DTOs und Schema-Definitionen, soweit sie das Austauschformat beschreiben. |
+| `<Name>.Core/Enums/` | Core | Enthaelt zentrale fachliche Enums. |
+| `<Name>.Core/Interfaces/` | Core | Enthaelt Ports, Vertraege und fachliche Schnittstellen. |
+| `<Name>.Core/Models/` | Core | Enthaelt fachliche Modelle, DTOs, Value Objects und Ergebnisobjekte. |
+| `<Name>.Core/Services/` | Core | Enthaelt fachliche Services, Use Cases und Workflows. |
+| `<Name>.Core/Exceptions/` | Core | Enthaelt fachlich erwartbare Fehler. |
+| `<Name>.Core/Utilities/` | Core | Enthaelt fachlich neutrale Hilfen mit Bezug zum Core-Projekt. |
 | `tests/<Name>.Core.Tests/` | Tests | Tests fuer Domain, Use Cases, Workflows, Ports und fachliche Regeln. |
 | `tests/<Name>.Infrastructure.Tests/` | Tests | Tests fuer Adapter, Provider, Parser, Retry, Serialisierung, Export und Konfigurationsbindung. |
 | `tests/<Name>.Console.Tests/` | Tests | Tests fuer Konsoleneingabe, Ausgabeformatierung, Host-Start und DI-Verkabelung. |
@@ -157,7 +143,7 @@ Die Methodennamen sind verbindlich:
 ## Console und Bootstrap
 
 - `Program.cs` baut Generic Host, Konfiguration, Logging und DI auf und startet genau eine Console Application oder einen Use Case Runner.
-- Konsoleneingabe und Konsolenausgabe liegen in `Presentation/Console/` und sind deterministisch testbar.
+- Konsoleneingabe und Konsolenausgabe liegen in `Services/` und sind deterministisch testbar.
 - Konsolentexte sind knapp, fachlich und frei von technischen Interna.
 
 ## Core-Regeln
