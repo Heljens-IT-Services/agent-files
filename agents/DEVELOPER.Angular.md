@@ -17,11 +17,16 @@ Nach offizieller Angular-Dokumentation ist Angular `^21.0.0` aktuell aktiv unter
 Angular-Anwendungen werden als reaktive, modulare Anwendungen gebaut. Komponenten zeigen Daten an und senden Nutzerintentionen. Feature-State, Datenzugriff, lokale Persistenz und Hintergrundarbeit liegen ausserhalb der Komponenten.
 
 ```mermaid
-flowchart LR
-    View[Component / View] --> Facade[Facade / Component Service]
-    Facade --> State[Signal State]
-    State --> DataAccess[Data Access]
-    DataAccess --> Api[Web API / Local Data]
+flowchart TD
+    Component[Component / View] --> ComponentService[Component Service / Facade]
+    ComponentService --> Store[Feature Store / State Service]
+    Store --> ComponentService
+    Store --> LocalData[IndexedDB / Local Cache]
+    LocalData --> Store
+    Store --> Worker[Worker / Background Task]
+    Worker --> WebApi[Web API]
+    WebApi --> Worker
+    Worker --> Store
 ```
 
 ## Standardstruktur
