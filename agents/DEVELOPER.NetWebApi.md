@@ -62,8 +62,6 @@ Die Projektstruktur folgt Domain-Driven Design auf Solution-Ebene. Die drei Haup
   Module.cs
   Common/
   Configuration/
-  Persistence/
-  Serialization/
   <Provider1>/
   <Provider2>/
   <Provider3>/
@@ -100,8 +98,6 @@ tests/
 | `<Name>.Infrastructure/Module.cs` | Infrastructure | Enthaelt `AddInfrastructure(...)` fuer technische DI-Registrierung. |
 | `<Name>.Infrastructure/Common/` | Infrastructure | Enthaelt provideruebergreifende technische Hilfen und Adapterbausteine. |
 | `<Name>.Infrastructure/Configuration/` | Infrastructure | Enthaelt typisierte Konfiguration und Validierung technischer Settings. |
-| `<Name>.Infrastructure/Persistence/` | Infrastructure | Datenbankzugriff, Repositories, Migrations, Unit-of-Work-nahe Implementierungen und Caches. |
-| `<Name>.Infrastructure/Serialization/` | Infrastructure | JSON/XML/CSV-Serialisierung, Parser und Schema-nahe Logik ausserhalb der HTTP-Vertraege. |
 | `<Name>.Infrastructure/<Provider1>/` | Infrastructure | Enthaelt die Implementierung eines konkreten Providers oder Fremdsystems. |
 | `<Name>.Infrastructure/<Provider2>/` | Infrastructure | Enthaelt die Implementierung eines weiteren Providers oder Fremdsystems. |
 | `<Name>.Infrastructure/<Provider3>/` | Infrastructure | Enthaelt die Implementierung eines weiteren Providers oder Fremdsystems. |
