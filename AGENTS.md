@@ -3,11 +3,9 @@ Stand: April 2026
 
 ## Zweck
 
-Diese Datei ist der verbindliche Einstiegspunkt für AI-/Code-Agents in diesem Repository. Sie legt fest, welche Dokumente vor Änderungen zu berücksichtigen sind, wie Regeln priorisiert werden und welche Qualitätskriterien für Code-Änderungen gelten.
+Diese Datei definiert verbindliche Arbeitsregeln für AI-/Code-Agents in diesem Repository. 
 
-Projektspezifische Informationen stehen in `agents/Repository.md`. Technologieübergreifende Architekturregeln stehen in `agents/Architecture.md`. Technologiespezifische Regeln stehen in den passenden `agents/Architecture.*.md`-Dateien.
-
-Der Ordner `agents/` enthält bewusst gepflegte Agent- und Engineering-Regeln. Der Ordner `docs/` ist für ergänzende Langform-Dokumentation wie ADRs, API-Spezifikationen, Domänenbeschreibungen, Betriebsdokumentation oder Diagramme gedacht.
+## Pflichtlektüre
 
 | Pfad | Zweck |
 |---|---|
@@ -19,26 +17,36 @@ Der Ordner `agents/` enthält bewusst gepflegte Agent- und Engineering-Regeln. D
 
 ## Priorität von Anweisungen
 
-1. `agents/Repository.md` lesen, um Projektziel, Fachregeln, wichtige Pfade, Build-/Test-Kommandos und lokale Besonderheiten zu verstehen.
-2. `agents/Architecture.md` lesen, um die allgemeinen Architektur-, Clean-Code- und Qualitätsregeln zu kennen.
-3. Die passende Technologie-Datei lesen, zum Beispiel `agents/Architecture.Angular.md` für Angular oder `agents/Architecture.NETConsole.md` für .NET-Konsolenanwendungen.
-4. Weitere lokale Dokumente wie `README.md`, `STRUCTURE.md`, ADRs, API-Spezifikationen oder Schema-Dateien lesen, wenn die Änderung deren Bereich berührt.
-
-Wenn eine passende `agents/Architecture.*.md` fehlt, wird nach den vorhandenen Patterns des Repositories gearbeitet. Eine neue Technologie-Regeldatei wird nur ergänzt, wenn die Regel dauerhaft für mehrere Änderungen relevant ist.
-
-## Regelpriorität
-
-Bei widersprüchlichen Vorgaben gilt diese Reihenfolge:
+Bei widersprüchlichen Vorgaben gilt die Reihenfolge:
 
 1. Direkte User-Anweisung im aktuellen Task.
 2. Sicherheits-, Datenschutz- und Plattformvorgaben der Arbeitsumgebung.
-3. `AGENTS.md`.
-4. `agents/Repository.md`.
-5. `agents/Architecture.md`.
-6. Passende `agents/Architecture.*.md`.
+3. Passende `agents/DEVELOPER.*.md`.
+4. `agents/DEVELOPER.md`.
+5. `AGENTS.md`.
+6. `agents/PROJECT.md`.
 7. Bestehender Code-Stil und lokale Patterns.
 
-Repository-spezifische Regeln dürfen allgemeine Architekturregeln einschränken, müssen aber in `agents/Repository.md` oder einer lokalen ADR begründet sein.
+## Dokumentenpflege
+
+| Pfad | Pflege-Regel |
+|---|---|
+| `README.md` | Bei Änderungen am Einstieg oder an den ersten Schritten. |
+| `agents/STRUCTURE.md` | Bei Änderungen an Struktur, Ordnern oder Ablagelogik. |
+| `agents/PROJECT.md` | Bei Änderungen an projektspezifischen Regeln, Fakten oder Pfaden. |
+| `agents/DEVELOPER.md` | Bei Änderungen an allgemeinen Entwicklungsregeln. |
+| `agents/DEVELOPER.*.md` | Bei Änderungen an technologie- oder kontextspezifischen Regeln. |
+
+## README.md
+
+Eine gute `README.md` ist kurz, klar und auf schnellen Einstieg ausgelegt. Typische Struktur:
+
+- Titel und Kurzbeschreibung
+- Zweck oder Nutzen des Projekts
+- Voraussetzungen
+- Installation oder Setup
+- Start, Build und Tests
+- Wichtige Links oder Verweise
 
 Abweichungen sind erlaubt, wenn sie für das konkrete Repository sinnvoller sind.
 
@@ -56,10 +64,7 @@ Beispiel:
 
 Hier befinden sich fachlicher Kontext und Domänenwissen. Keine Technikdetails, keine Strukturregeln, keine Implementierungsvorgaben.
 
-- `agents/Repository.md` wird aktualisiert, wenn sich Projektziel, wichtige Pfade, Build-/Test-Kommandos, Fachregeln oder externe Verträge ändern.
-- `agents/Architecture.md` und `agents/Architecture.*.md` werden angepasst, wenn eine Regel allgemein gelten soll.
-- Struktur- oder Typenübersichten werden aktualisiert, wenn das Repository solche Dokumente verwendet.
-- Entscheidungen mit langfristiger Wirkung werden als ADR oder in der naheliegendsten Dokumentation festgehalten.
+## DEVELOPER.md
 
 `agents/DEVELOPER.md` enthält technologieübergreifende Architektur-, Clean-Code-, Qualitäts-, Security- und Testregeln. Diese Regeln gelten für alle Implementierungen, sofern keine passendere `agents/DEVELOPER.*.md` eine spezifischere Vorgabe macht.
 
