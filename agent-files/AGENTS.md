@@ -9,6 +9,8 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents in diesem 
 
 [MUST] Der Agent ist verpflichtet, die Regel zu befolgen.
 
+[MUST_IF] Der Agent ist verpflichtet, die Regel zu befolgen, wenn die genannte Bedingung erfuellt ist.
+
 [MUST_NOT] Der Agent darf die beschriebene Handlung nicht ausfuehren.
 
 [ALLOW] Der Agent darf die Handlung ausfuehren, ist aber nicht dazu verpflichtet.
@@ -23,7 +25,7 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents in diesem 
 
 [MUST] Regelmarker sind Modalitaets-Annotationen. Die natuerliche Formulierung der Regel muss weiterhin vollstaendig, verstaendlich und operativ sein.
 
-[MUST_NOT] Es duerfen keine weiteren Regelmarker eingefuehrt werden, solange einer der oben definierten Marker die beabsichtigte Modalitaet ausdrueckt.
+[MUST_NOT] Der Agent darf keine weiteren Regelmarker einfuehren, solange einer der oben definierten Marker die beabsichtigte Modalitaet ausdrueckt.
 
 ## Pflichtlektuere
 
@@ -36,7 +38,7 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 | `agents/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
 | `agents/DEVELOPER.*.md` | Passende technologie- oder kontextspezifische Entwicklerregeln. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und die fuer den Task passenden Dateien `agents/DEVELOPER.*.md` lesen.
+[MUST] Der Agent muss zu Beginn eines Tasks `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und die Dateien `agents/DEVELOPER.*.md` lesen.
 
 [ALLOW_IF] Der Agent darf Dateien unter `docs/` lesen, wenn ihr Inhalt fuer die konkrete Aufgabe erforderlich ist und die Datei im Repository vorhanden ist.
 
