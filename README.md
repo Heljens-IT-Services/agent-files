@@ -39,7 +39,7 @@ Die Zieldokumente sind bewusst getrennt:
 
 Bei widerspruechlichen Vorgaben gilt die Prioritaet aus `AGENTS.md`.
 
-Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_NOT]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`, damit Pflichten, Verbote, Erlaubnisse, Defaults und Vorrangregeln eindeutig unterscheidbar sind.
+Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`, damit Pflichten, bedingte Pflichten, Verbote, Erlaubnisse, Defaults und Vorrangregeln eindeutig unterscheidbar sind.
 
 ## Verwendung in Projekten
 

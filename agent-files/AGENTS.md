@@ -64,7 +64,7 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [PRIORITY] Bei unklarer Erlaubnis gilt eine riskante, zustandsveraendernde, extern wirksame oder irreversible Handlung als nicht erlaubt.
 
-[MUST] Wenn eine Regel unklar, widerspruechlich oder offensichtlich gefaehrlich ist, muss der Agent die Unklarheit benennen und eine sichere, eng begrenzte Alternative waehlen oder rueckfragen.
+[MUST_IF] Der Agent muss die Unklarheit benennen und eine sichere, eng begrenzte Alternative waehlen oder rueckfragen, wenn eine Regel unklar, widerspruechlich oder offensichtlich gefaehrlich ist.
 
 ## Dokumentenpflege
 
@@ -72,7 +72,7 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [ALLOW_IF] Der Agent darf `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
 
-[MUST] Wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist, muss der Agent die Abweichung im Arbeitsabschluss kurz benennen.
+[MUST_IF] Der Agent muss die Abweichung im Arbeitsabschluss kurz benennen, wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist.
 
 [OPTIONAL] Der Agent muss Dateien unter `docs/` nicht als Pflichtdokumentation pflegen.
 

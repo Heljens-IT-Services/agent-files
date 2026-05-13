@@ -58,13 +58,13 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [SHOULD] Dead Code, ungenutzte Feature-Flags, veraltete TODOs und auskommentierter Code sollen geloescht werden, wenn sie im Scope der Aufgabe liegen.
 
-[MUST] Dead Code, ungenutzte Feature-Flags, veraltete TODOs und auskommentierter Code muessen im Arbeitsabschluss gemeldet werden, wenn sie auffallen und nicht im Scope der Aufgabe geloescht werden.
+[MUST_IF] Dead Code, ungenutzte Feature-Flags, veraltete TODOs und auskommentierter Code muessen im Arbeitsabschluss gemeldet werden, wenn sie auffallen und nicht im Scope der Aufgabe geloescht werden.
 
 ## Dokumentation
 
-[MUST] Notwendiges Verstaendnis muss mindestens im Quellcode dokumentiert werden, wenn es fuer Wartung, Nutzung oder Review einer Aenderung erforderlich ist.
+[MUST_IF] Notwendiges Verstaendnis muss mindestens im Quellcode dokumentiert werden, wenn es fuer Wartung, Nutzung oder Review einer Aenderung erforderlich ist.
 
-[MUST] Allgemeine Einstiegspunkte, komplexere Strukturen, Infrastruktur-Objekte, oeffentliche Vertraege und nicht offensichtliche fachliche Regeln muessen kommentiert werden, wenn ihr Zweck nicht aus Code und Namen hervorgeht.
+[MUST_IF] Allgemeine Einstiegspunkte, komplexere Strukturen, Infrastruktur-Objekte, oeffentliche Vertraege und nicht offensichtliche fachliche Regeln muessen kommentiert werden, wenn ihr Zweck nicht aus Code und Namen hervorgeht.
 
 [MUST] Kommentare muessen Domaenenwissen, fachspezifisches Know-how, Absicht, Trade-offs oder nicht offensichtliche Constraints erklaeren.
 
@@ -82,7 +82,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Anwendungsschichten muessen von Abstraktionen abhaengen; Infrastruktur muss diese Abstraktionen implementieren.
 
-[MUST] Mapper muessen externe DTOs von internen Modellen trennen, wenn Daten aus APIs, Dateien, Datenbanken oder UI-Formularen kommen.
+[MUST_IF] Mapper muessen externe DTOs von internen Modellen trennen, wenn Daten aus APIs, Dateien, Datenbanken oder UI-Formularen kommen.
 
 [SHOULD] Facades, Application Services, Use Cases oder Component Services sollen Ablaeufe koordinieren, wenn Views, Endpoints oder CLI-Einstiege sonst Wissen ueber Datenzugriff, Validierung, Status oder technische Ablaeufe enthalten wuerden.
 
@@ -110,7 +110,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST_NOT] Logs duerfen fachliche Status-, Ergebnis- oder Fehlerobjekte nicht ersetzen.
 
-[MUST] Fehlerpfade muessen getestet werden, wenn sie fachlich relevant, sicherheitsrelevant oder fuer Nutzer bzw. Clients sichtbar sind.
+[MUST_IF] Fehlerpfade muessen getestet werden, wenn sie fachlich relevant, sicherheitsrelevant oder fuer Nutzer bzw. Clients sichtbar sind.
 
 ## Security und Datenschutz
 
@@ -134,7 +134,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [SHOULD] Infrastruktur-, Adapter- und Integrationslogik soll mit kontrollierten Testdaten und ohne instabile Live-Dienste getestet werden. Abweichungen sind erlaubt, wenn ein Task ausdruecklich Live-Integrationstests verlangt und die benoetigten Zugangsdaten sowie Umgebung freigegeben sind.
 
-[MUST] Einstiegspunkte wie UI, CLI oder HTTP-API muessen getestet werden, wenn Routing, Eingabevalidierung, Ausgabeformat, Auth, Fehlerabbildung oder DI-Verkabelung projektrelevant sind.
+[MUST_IF] Einstiegspunkte wie UI, CLI oder HTTP-API muessen getestet werden, wenn Routing, Eingabevalidierung, Ausgabeformat, Auth, Fehlerabbildung oder DI-Verkabelung projektrelevant sind.
 
 [MUST] Tests muessen deterministisch, isoliert und lesbar sein.
 

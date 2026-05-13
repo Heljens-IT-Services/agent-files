@@ -186,7 +186,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses R
 
 [MUST] Breaking Changes muessen API-Versionierung oder eine klare Migration erhalten.
 
-[MUST] Beispiele, Fehlerantworten und Auth-Anforderungen muessen Teil der API-Dokumentation sein, wenn Clients darauf angewiesen sind.
+[MUST_IF] Beispiele, Fehlerantworten und Auth-Anforderungen muessen Teil der API-Dokumentation sein, wenn Clients darauf angewiesen sind.
 
 ## Code-Regeln
 

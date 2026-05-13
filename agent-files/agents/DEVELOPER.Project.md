@@ -66,7 +66,7 @@ Diese Datei definiert projektspezifische Entwicklungsregeln fuer dieses Reposito
 
 [MUST] Projektweite Konfiguration fuer Angular, Ignite UI, Styles und Build muss zentral gepflegt werden, insbesondere in `angular.json`, `src/app/app.config.ts` und `src/styles/`.
 
-[MUST] Vor der Einfuehrung neuer Abhaengigkeiten muss geprueft werden, ob sie zur Zielarchitektur und zum Ignite-UI-Ansatz des Projekts passen.
+[MUST_IF] Vor der Einfuehrung neuer Abhaengigkeiten muss geprueft werden, ob sie zur Zielarchitektur und zum Ignite-UI-Ansatz des Projekts passen.
 
 ## Remote- und Branch-Kontext
 
