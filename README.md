@@ -19,25 +19,23 @@ Typische Nutzung:
 
 | Pfad | Zweck |
 |---|---|
-| `AGENTS.md` | Einstiegspunkt fuer AI-/Code-Agents mit Pflichtlektuere, Prioritaeten und Pflege-Regeln. |
-| `agents/STRUCTURE.md` | Index der wichtigen Dateien und ihrer Rolle im Repository. |
-| `agents/PROJECT.md` | Platz fuer projektspezifische Regeln, Fakten und Domaenenwissen. |
-| `agents/DEVELOPER.md` | Technologieuebergreifende Architektur-, Clean-Code-, Security- und Testregeln. |
-| `agents/DEVELOPER.Angular.md` | Angular-spezifische Entwicklungsregeln. |
-| `agents/DEVELOPER.NetConsole.md` | Entwicklungsregeln fuer .NET-Konsolenanwendungen. |
-| `agents/DEVELOPER.NetWebApi.md` | Entwicklungsregeln fuer .NET-Web-APIs. |
+| `agent-files/AGENTS.md` | Einstiegspunkt fuer AI-/Code-Agents mit Pflichtlektuere, Prioritaeten und Pflege-Regeln. |
+| `agent-files/agents/PROJECT.md` | Platz fuer projektspezifische Regeln, Fakten und Domaenenwissen. |
+| `agent-files/agents/DEVELOPER.md` | Technologieuebergreifende Architektur-, Clean-Code-, Security- und Testregeln. |
+| `agent-files/agents/DEVELOPER.Angular.md` | Angular-spezifische Entwicklungsregeln. |
+| `agent-files/agents/DEVELOPER.NetConsole.md` | Entwicklungsregeln fuer .NET-Konsolenanwendungen. |
+| `agent-files/agents/DEVELOPER.NetWebApi.md` | Entwicklungsregeln fuer .NET-Web-APIs. |
 
 ## Dokumentenmodell
 
 Die Dokumente sind bewusst getrennt:
 
-- `AGENTS.md` beschreibt, welche Regeln Agents lesen muessen und welche Prioritaet sie haben.
-- `STRUCTURE.md` beschreibt, welche Dateien und Einstiegspunkte es gibt.
-- `PROJECT.md` enthaelt projektspezifisches Wissen, keine allgemeinen Technikregeln.
-- `DEVELOPER.md` enthaelt allgemeine Entwicklungsregeln.
-- `DEVELOPER.*.md` enthaelt spezifische Regeln fuer einen Technologie- oder Anwendungskontext.
+- `agent-files/AGENTS.md` beschreibt, welche Regeln Agents lesen muessen und welche Prioritaet sie haben.
+- `agent-files/agents/PROJECT.md` enthaelt projektspezifisches Wissen, keine allgemeinen Technikregeln.
+- `agent-files/agents/DEVELOPER.md` enthaelt allgemeine Entwicklungsregeln.
+- `agent-files/agents/DEVELOPER.*.md` enthaelt spezifische Regeln fuer einen Technologie- oder Anwendungskontext.
 
-Bei widerspruechlichen Vorgaben gilt die Prioritaet aus `AGENTS.md`.
+Bei widerspruechlichen Vorgaben gilt die Prioritaet aus `agent-files/AGENTS.md`.
 
 ## Verwendung in Projekten
 
@@ -47,19 +45,19 @@ Minimal empfohlen:
 
 ```text
 README.md
-AGENTS.md
-agents/
-  STRUCTURE.md
-  PROJECT.md
-  DEVELOPER.md
+agent-files/
+  AGENTS.md
+  agents/
+    PROJECT.md
+    DEVELOPER.md
 ```
 
 Je nach Technologie kommt mindestens eine passende spezifische Datei hinzu, z. B.:
 
 ```text
-agents/DEVELOPER.Angular.md
-agents/DEVELOPER.NetConsole.md
-agents/DEVELOPER.NetWebApi.md
+agent-files/agents/DEVELOPER.Angular.md
+agent-files/agents/DEVELOPER.NetConsole.md
+agent-files/agents/DEVELOPER.NetWebApi.md
 ```
 
 ## Pflege
@@ -68,11 +66,10 @@ Dieses Repository ist eine lebende Vorlage. Aenderungen an Architektur-, Struktu
 
 Pflegegrundsatz:
 
-- Allgemeine Regeln gehoeren in `agents/DEVELOPER.md`.
-- Technologiespezifische Regeln gehoeren in `agents/DEVELOPER.*.md`.
-- Projektspezifisches Wissen gehoert in `agents/PROJECT.md`.
-- Struktur- und Dateiuebersichten gehoeren in `agents/STRUCTURE.md`.
-- Agent-Prioritaeten und Pflichtlektuere gehoeren in `AGENTS.md`.
+- Allgemeine Regeln gehoeren in `agent-files/agents/DEVELOPER.md`.
+- Technologiespezifische Regeln gehoeren in `agent-files/agents/DEVELOPER.*.md`.
+- Projektspezifisches Wissen gehoert in `agent-files/agents/PROJECT.md`.
+- Agent-Prioritaeten und Pflichtlektuere gehoeren in `agent-files/AGENTS.md`.
 
 ## Status
 
