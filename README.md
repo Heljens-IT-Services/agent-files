@@ -19,37 +19,38 @@ Typische Nutzung:
 
 | Pfad | Zweck |
 |---|---|
-| `AGENTS.md` | Einstiegspunkt fuer AI-/Code-Agents mit Pflichtlektuere, Prioritaeten und Pflege-Regeln. |
-| `agents/STRUCTURE.md` | Index der wichtigen Dateien und ihrer Rolle im Repository. |
-| `agents/PROJECT.md` | Platz fuer projektspezifische Regeln, Fakten und Domaenenwissen. |
-| `agents/DEVELOPER.md` | Technologieuebergreifende Architektur-, Clean-Code-, Security- und Testregeln. |
-| `agents/DEVELOPER.Angular.md` | Angular-spezifische Entwicklungsregeln. |
-| `agents/DEVELOPER.NetConsole.md` | Entwicklungsregeln fuer .NET-Konsolenanwendungen. |
-| `agents/DEVELOPER.NetWebApi.md` | Entwicklungsregeln fuer .NET-Web-APIs. |
+| `agent-files/AGENTS.md` | Vorlage fuer `AGENTS.md` in Ziel-Repositories. |
+| `agent-files/agents/PROJECT.md` | Vorlage fuer projektspezifische Regeln, Fakten und Domaenenwissen. |
+| `agent-files/agents/DEVELOPER.md` | Vorlage fuer technologieuebergreifende Architektur-, Clean-Code-, Security- und Testregeln. |
+| `agent-files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
+| `agent-files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen. |
+| `agent-files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs. |
 
 ## Dokumentenmodell
 
-Die Dokumente sind bewusst getrennt:
+Die Vorlagen liegen in diesem Repository unter `agent-files/`. Beim Uebernehmen in ein Ziel-Repository werden sie in das Repository-Root kopiert: `agent-files/AGENTS.md` wird zu `AGENTS.md`, und `agent-files/agents/` wird zu `agents/`.
 
-- `AGENTS.md` beschreibt, welche Regeln Agents lesen muessen und welche Prioritaet sie haben.
-- `STRUCTURE.md` beschreibt, welche Dateien und Einstiegspunkte es gibt.
-- `PROJECT.md` enthaelt projektspezifisches Wissen, keine allgemeinen Technikregeln.
-- `DEVELOPER.md` enthaelt allgemeine Entwicklungsregeln.
-- `DEVELOPER.*.md` enthaelt spezifische Regeln fuer einen Technologie- oder Anwendungskontext.
+Die Zieldokumente sind bewusst getrennt:
+
+- `AGENTS.md` beschreibt, welche Regeln Agents lesen muessen, welche Prioritaet sie haben und welche deontischen Regelmarker verwendet werden.
+- `agents/PROJECT.md` enthaelt projektspezifisches Wissen, keine allgemeinen Technikregeln.
+- `agents/DEVELOPER.md` enthaelt allgemeine Entwicklungsregeln.
+- `agents/DEVELOPER.*.md` enthaelt spezifische Regeln fuer einen Technologie- oder Anwendungskontext.
 
 Bei widerspruechlichen Vorgaben gilt die Prioritaet aus `AGENTS.md`.
+
+Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`, damit Pflichten, bedingte Pflichten, Verbote, Erlaubnisse, Defaults und Vorrangregeln eindeutig unterscheidbar sind.
 
 ## Verwendung in Projekten
 
 Beim Aufsetzen eines neuen Projekts werden die relevanten Dateien aus diesem Repository uebernommen und an den Projektkontext angepasst.
 
-Minimal empfohlen:
+Minimal empfohlen im Ziel-Repository:
 
 ```text
 README.md
 AGENTS.md
 agents/
-  STRUCTURE.md
   PROJECT.md
   DEVELOPER.md
 ```
@@ -68,12 +69,11 @@ Dieses Repository ist eine lebende Vorlage. Aenderungen an Architektur-, Struktu
 
 Pflegegrundsatz:
 
-- Allgemeine Regeln gehoeren in `agents/DEVELOPER.md`.
-- Technologiespezifische Regeln gehoeren in `agents/DEVELOPER.*.md`.
-- Projektspezifisches Wissen gehoert in `agents/PROJECT.md`.
-- Struktur- und Dateiuebersichten gehoeren in `agents/STRUCTURE.md`.
-- Agent-Prioritaeten und Pflichtlektuere gehoeren in `AGENTS.md`.
+- Allgemeine Regeln gehoeren in der Vorlage nach `agent-files/agents/DEVELOPER.md` und im Ziel-Repository nach `agents/DEVELOPER.md`.
+- Technologiespezifische Regeln gehoeren in der Vorlage nach `agent-files/agents/DEVELOPER.*.md` und im Ziel-Repository nach `agents/DEVELOPER.*.md`.
+- Projektspezifisches Wissen gehoert in der Vorlage nach `agent-files/agents/PROJECT.md` und im Ziel-Repository nach `agents/PROJECT.md`.
+- Agent-Prioritaeten und Pflichtlektuere gehoeren in der Vorlage nach `agent-files/AGENTS.md` und im Ziel-Repository nach `AGENTS.md`.
 
 ## Status
 
-Stand: Mai 2026. Die aktuellen spezifischen Developer-Dateien decken Angular, .NET-Konsolenanwendungen und .NET-Web-APIs ab.
+Stand: Mai 2026. Die aktuellen spezifischen Developer-Vorlagen decken Angular, .NET-Konsolenanwendungen und .NET-Web-APIs ab. Die Vorlagen liegen unter `agent-files/` und sind fuer die Zielstruktur `AGENTS.md` plus `agents/` formuliert.
