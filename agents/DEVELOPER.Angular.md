@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-05-01
+Stand: 2026-05-12
 
 ## Zweck
 
@@ -8,9 +8,18 @@ Diese Datei definiert die Angular-spezifischen Entwicklungsregeln dieses Reposit
 
 ## Versionsbasis
 
-Angular-Projekte verwenden die neueste stabile, aktiv unterstuetzte Angular-Major-Version.
+Die Angular-Basis dieses Repositories richtet sich nach den im Projekt wirklich eingesetzten Versionen, nicht nach einer abstrakten Zielversion.
 
-Nach offizieller Angular-Dokumentation ist Angular `^21.0.0` aktuell aktiv unterstuetzt. Angular `^20.0.0` und `^19.0.0` sind noch in LTS; Angular `v22.0` ist fuer die Woche ab 2026-06-01 angekuendigt. Fuer Angular 21 gelten laut Kompatibilitaetstabelle Node.js `^20.19.0 || ^22.12.0 || ^24.0.0`, TypeScript `>=5.9.0 <6.0.0` und RxJS `^6.5.3 || ^7.4.0`.
+Aktuell verwendet das Repository:
+
+- Angular `21.2.0` fuer `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/router`
+- Angular CLI und Build `21.2.10`
+- TypeScript `5.9.2`
+- RxJS `7.8.0`
+- Standalone-Bootstrap mit `app.config.ts` und `app.routes.ts`
+- SCSS als Standard fuer Component-Styling
+
+Neue Angular-Implementierungen und Erweiterungen muessen zu dieser Versionsbasis passen. Abweichungen oder Upgrades werden bewusst als eigenes technisches Thema behandelt und nicht implizit innerhalb fachlicher Aenderungen mitgezogen.
 
 ## Zielbild
 
@@ -19,15 +28,26 @@ Angular-Anwendungen werden als reaktive, modulare Anwendungen gebaut. Komponente
 ```mermaid
 flowchart TD
     Component[Component / View] --> ComponentService[Component Service / Facade]
-    ComponentService --> Store[Feature Store / State Service]
-    Store --> ComponentService
-    Store --> LocalData[IndexedDB / Local Cache]
-    LocalData --> Store
-    Store --> Worker[Worker / Background Task]
-    Worker --> WebApi[Web API]
-    WebApi --> Worker
-    Worker --> Store
+    ComponentService --> FStore[Feature Store / Feature State Service]
+    FStore --> ComponentService
+    FStore --> GStore[Global Store / Global State Service]
+    GStore --> FStore
+    GStore --> LocalData[IndexedDB / Local Cache]
+    LocalData --> GStore
+    GStore --> WebApi[Web API]
+    WebApi --> GStore
 ```
+
+### Leitplanken:
+
+- Components und Views bleiben duenn. Sie binden Daten, behandeln UI-Events und delegieren fachliche Aktionen nach aussen.
+- Component Services oder Facades bilden die erste Koordinationsschicht hinter der View. Sie kapseln View-spezifische Orchestrierung und halten Komponenten frei von Datenzugriff und technischer Verdrahtung.
+- Feature State liegt fachlich nahe am jeweiligen Feature und verwaltet den lokalen Zustand eines abgegrenzten Anwendungsbereichs.
+- Globaler State ist nur fuer wirklich anwendungsweite Belange vorgesehen, etwa Session, globale Konfiguration, Shell-Zustand oder featureuebergreifende Synchronisation.
+- Lokale Persistenz, Cache und Offline-Datenzugriff liegen hinter klaren Services oder Repositories und werden nicht direkt aus Komponenten oder Templates angesprochen.
+- Web-APIs sind technische Grenzen. Rueckgaben werden vor der weiteren Verwendung in anwendungsinterne Modelle oder stabile View-Modelle ueberfuehrt.
+- Datenfluss verlaeuft grundsaetzlich von aussen nach innen und wieder zurueck: View -> Facade/Service -> State -> Datenquelle. Rueckkanal in die View erfolgt ueber klar definierte Read-APIs.
+- Direkte Kurzschluesse, etwa Component -> Web API, Component -> Local Storage oder Component -> globaler App-State, widersprechen dem Zielbild und sollen vermieden werden.
 
 ## Standardstruktur
 
@@ -56,6 +76,7 @@ src/app/
       components/
       models/
       services/
+      store/
       util/
   app.routes.ts
   app.config.ts
@@ -86,6 +107,7 @@ src/app/
 | `src/app/features/<feature>/components/` | `feature` | Enthaelt featurelokale UI-Bausteine und presentational Components. |
 | `src/app/features/<feature>/models/` | `feature` | Enthaelt featurelokale Modelle. |
 | `src/app/features/<feature>/services/` | `feature` | Enthaelt featurelokale Services. |
+| `src/app/features/<feature>/store/` | `feature` | Enthaelt featurelokale Store. |
 | `src/app/features/<feature>/util/` | `feature` | Enthaelt featurelokale Hilfen. |
 | `src/app/app.routes.ts` | `allgemein` | Definiert die Routen der Anwendung. |
 | `src/app/app.config.ts` | `allgemein` | Definiert Bootstrap und globale Provider. |
@@ -102,7 +124,7 @@ Standalone Components, `app.config.ts` und funktionale Provider sind Standard. N
 
 - Signals sind die bevorzugte Primitive fuer synchronen UI-State; oeffentliche State-Reads werden readonly oder ueber klar benannte Selector-Methoden angeboten.
 - State wird nur ueber explizite Methoden geaendert und abgeleiteter State wird berechnet, nicht redundant gespeichert.
-- RxJS wird nicht als Anwendungs-State- oder Datenfluss-Primitive verwendet. Erlaubt ist nur Angular-/RxJS-Interop, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
+- RxJS ist prinzipiell nicht erlaubt und wird nicht als Anwendungs-State- oder Datenfluss-Primitive verwendet. Erlaubt ist nur Angular-/RxJS-Interop, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
 
 ## Datenfluss
 
@@ -132,17 +154,22 @@ Standalone Components, `app.config.ts` und funktionale Provider sind Standard. N
 
 - Designsysteme und Komponentenbibliotheken werden nicht eigenstaendig installiert, ausser es wird ausdruecklich erwuenscht.
 - Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusfuehrung, Kontraste und semantische Elemente.
-- UI-Texte sind fachlich praezise; technische Erklaertexte werden vermieden.
+- UI-Texte sind fachlich praezise; technische Erklaertexte sind nicht erlaubt; Metadaten sind nicht erlaubt.
 
 ## Unit Tests und E2E
 
 - Unit Tests sichern Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen ab.
 - E2E-Tests, bevorzugt Playwright, decken kritische Nutzerfluesse ab.
 - Tests pruefen sichtbares Verhalten und fachliche Zustaende, nicht private Implementierungsdetails.
+- Playwright-Tests verwenden bevorzugt nutzerorientierte Selektoren wie `getByRole`, `getByLabel` und `getByText`.
+- `data-testid` wird nur gezielt eingesetzt, wenn semantische Selektoren durch Framework-Markup nicht robust genug sind.
+- Feste Wartezeiten wie `waitForTimeout` sind zu vermeiden; Tests warten auf sichtbare Nutzerzustaende, URLs oder Rollen.
+- E2E-Testfaelle bleiben klein und klar benannt. Grosse Sammeltests werden vermieden.
 
 ## Qualitaet und Code
 
 - TypeScript `strict` ist Pflicht; `any` ist nur an technischen Grenzen mit begruendeter Kapselung erlaubt.
-- Ein DTO bzw. ein Model in einem der `models/` Ordner wird bevorzugt als `type` definiert, nicht als `interface`.
+- TypeScript-Modelle, DTOs und Objektvertraege werden im Repository standardmaessig als `type` definiert, nicht als `interface`.
+- Diese Konvention wird ueber das ESLint-Regelwerk mit `@typescript-eslint/consistent-type-definitions` verbindlich erzwungen.
+- Abweichungen sind nur mit bewusstem technischem Grund zulaessig und muessen mit dem aktiven Lint-Regelwerk vereinbar sein.
 - Keine zirkulaeren Feature-Abhaengigkeiten; environment-spezifische Werte werden ueber Konfiguration bereitgestellt, nicht hart codiert.
-

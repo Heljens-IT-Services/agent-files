@@ -1,23 +1,26 @@
 # AGENTS.md
-Stand: April 2026
+Stand: 2026-05-07
 
 ## Zweck
 
-Diese Datei definiert verbindliche Arbeitsregeln für AI-/Code-Agents in diesem Repository. 
+Diese Datei definiert die verbindlichen Arbeitsregeln fuer AI-/Code-Agents in diesem Repository.
 
-## Pflichtlektüre
+## Pflichtlektuere
+
+Agents lesen zu Beginn eines Tasks diese Dateien:
 
 | Pfad | Zweck |
 |---|---|
-| `README.md` | Liefert den kompakten Einstieg in das Repository. |
-| `agents/STRUCTURE.md` | Beschreibt die aktuelle Repository-Struktur. |
-| `agents/PROJECT.md` | Enthält projektspezifische Regeln, Fakten, sowie Domänwissen. |
-| `agents/DEVELOPER.md` | Definiert allgemeine Entwicklungsregeln für dieses Repository. |
-| `agents/DEVELOPER.*.md` | Ergänzt technologie- oder kontextspezifische Entwicklerregeln. |
+| `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
+| `agents/PROJECT.md` | Projektspezifischer Arbeitskontext, fachliche Leitplanken und Begriffe. |
+| `agents/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
+| `agents/DEVELOPER.*.md` | Passende technologie- oder kontextspezifische Entwicklerregeln. |
 
-## Priorität von Anweisungen
+Dateien unter `docs/` sind optional. Sie duerfen nur gelesen werden, wenn sie noch existieren und fuer einen konkreten Task wirklich gebraucht werden.
 
-Bei widersprüchlichen Vorgaben gilt die Reihenfolge:
+## Prioritaet von Anweisungen
+
+Bei widerspruechlichen Vorgaben gilt die Reihenfolge:
 
 1. Direkte User-Anweisung im aktuellen Task.
 2. Sicherheits-, Datenschutz- und Plattformvorgaben der Arbeitsumgebung.
@@ -29,45 +32,31 @@ Bei widersprüchlichen Vorgaben gilt die Reihenfolge:
 
 ## Dokumentenpflege
 
-| Pfad | Pflege-Regel |
-|---|---|
-| `README.md` | Bei Änderungen am Einstieg oder an den ersten Schritten. |
-| `agents/STRUCTURE.md` | Bei Änderungen an Struktur, Ordnern oder Ablagelogik. |
-| `agents/PROJECT.md` | Bei Änderungen an projektspezifischen Regeln, Fakten oder Pfaden. |
-| `agents/DEVELOPER.md` | Bei Änderungen an allgemeinen Entwicklungsregeln. |
-| `agents/DEVELOPER.*.md` | Bei Änderungen an technologie- oder kontextspezifischen Regeln. |
+Dokumentation wird nicht automatisch mitgepflegt.
+
+- `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` werden nur angepasst, wenn der User es ausdruecklich anordnet.
+- Ausnahme: Wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist, soll der Agent die Abweichung kurz benennen.
+- Dateien unter `docs/` sind keine Pflichtdokumentation und werden nicht automatisch gepflegt.
 
 ## README.md
 
-Eine gute `README.md` ist kurz, klar und auf schnellen Einstieg ausgelegt. Typische Struktur:
+`README.md` ist fuer Menschen und den schnellen Einstieg gedacht. Sie bleibt kurz und fokussiert auf:
 
 - Titel und Kurzbeschreibung
-- Zweck oder Nutzen des Projekts
 - Voraussetzungen
-- Installation oder Setup
+- Setup
 - Start, Build und Tests
-- Wichtige Links oder Verweise
+- knappe technische Orientierung
 
-Abweichungen sind erlaubt, wenn sie für das konkrete Repository sinnvoller sind.
-
-## STRUCTURE.md
-
-Index wichtiger Dateien und Einstiegspunkte.
-
-Beispiel:
-
-| Pfad | Typ | Zweck |
-|---|---|---|
-| `Program.cs` | Program | Startet die Anwendung und verdrahtet zentrale Abhängigkeiten. |
+Keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdoku.
 
 ## PROJECT.md
 
-Hier befinden sich fachlicher Kontext und Domänenwissen. Keine Technikdetails, keine Strukturregeln, keine Implementierungsvorgaben.
+`agents/PROJECT.md` ist fuer den projektspezifischen Arbeitskontext gedacht. Sie enthaelt:
 
-## DEVELOPER.md
+- fachliche Leitplanken
+- stabile Begriffe und Abgrenzungen
+- projektspezifische Architekturgrenzen
+- Branching- und Arbeitskontext
 
-`agents/DEVELOPER.md` enthält technologieübergreifende Architektur-, Clean-Code-, Qualitäts-, Security- und Testregeln. Diese Regeln gelten für alle Implementierungen, sofern keine passendere `agents/DEVELOPER.*.md` eine spezifischere Vorgabe macht.
-
-Technologie- und kontextspezifische Ergänzungen liegen in eigenen Dateien.
-
-Agents lesen zuerst `agents/DEVELOPER.md` und anschließend die passende spezifische Datei. Bei mehreren passenden Dateien gilt die Datei, die dem zu ändernden Projekt oder Technologie-Stack am nächsten liegt.
+Keine README-Dopplung, keine allgemeine Technikdoku, keine Issue-Informationen und keine ausufernden Strukturindizes.

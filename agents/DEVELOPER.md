@@ -4,9 +4,9 @@ Stand: 2026-05-01
 
 ## Zweck
 
-Diese Datei definiert die technologieuebergreifenden Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln dieses Repositories. Technologiespezifische Details stehen in den passenden `DEVELOPER.<TECHNOLOGY>.md`-Dateien.
+Diese Datei definiert die technologieuebergreifenden Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln dieses Repositories. Technologiespezifische Details stehen in den passenden `DEVELOPER.<TECHNOLOGY>.md`-Dateien. Projektspezifische Technologie- und Architekturentscheidungen stehen in `DEVELOPER.Project.md`.
 
-Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische Datei eine engere Vorgabe macht.
+Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische oder projektspezifische Datei eine engere Vorgabe macht.
 
 ## Architekturprinzipien
 
@@ -87,3 +87,5 @@ Infrastruktur-, Adapter- und Integrationslogik wird mit kontrollierten Testdaten
 Einstiegspunkte wie UI, CLI oder HTTP-API werden dort getestet, wo Routing, Eingabevalidierung, Ausgabeformat, Auth, Fehlerabbildung oder DI-Verkabelung projektrelevant sind.
 
 Tests sollen deterministisch, isoliert und lesbar sein. Zufall, Uhrzeit, Netzwerk und Dateisystem werden kontrolliert. Tests pruefen sichtbares Verhalten und fachliche Zustaende, nicht private Implementierungsdetails.
+
+Tests werden risikobasiert ausgefuehrt. Agents sollen nicht nach jeder kleinen Aenderung automatisch volle Unit-, Build- oder E2E-Suites starten, sondern den kleinsten sinnvollen Checkumfang waehlen. Reine Dokumentationsaenderungen brauchen keine Tests. Content-Aenderungen brauchen nur dann Tests, wenn Rendering, Routing, Metadaten oder Linksyntax betroffen sind. Unit-Tests sind bevorzugt fuer isolierte Logik; E2E-Tests fuer sichtbare Nutzerflows, Navigation, Persistenz, Startup und domainuebergreifende Integration. Im Abschluss werden ausgefuehrte und bewusst ausgelassene Checks samt Begruendung genannt.
