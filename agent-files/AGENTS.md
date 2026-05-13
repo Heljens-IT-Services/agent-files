@@ -32,11 +32,11 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 | Pfad | Zweck |
 |---|---|
 | `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
-| `agent-files/agents/PROJECT.md` | Projektspezifischer Arbeitskontext, fachliche Leitplanken und Begriffe. |
-| `agent-files/agents/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
-| `agent-files/agents/DEVELOPER.*.md` | Passende technologie- oder kontextspezifische Entwicklerregeln. |
+| `agents/PROJECT.md` | Projektspezifischer Arbeitskontext, fachliche Leitplanken und Begriffe. |
+| `agents/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
+| `agents/DEVELOPER.*.md` | Passende technologie- oder kontextspezifische Entwicklerregeln. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks `README.md`, `agent-files/agents/PROJECT.md`, `agent-files/agents/DEVELOPER.md` und die fuer den Task passenden Dateien `agent-files/agents/DEVELOPER.*.md` lesen.
+[MUST] Der Agent muss zu Beginn eines Tasks `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und die fuer den Task passenden Dateien `agents/DEVELOPER.*.md` lesen.
 
 [ALLOW_IF] Der Agent darf Dateien unter `docs/` lesen, wenn ihr Inhalt fuer die konkrete Aufgabe erforderlich ist und die Datei im Repository vorhanden ist.
 
@@ -52,10 +52,10 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [PRIORITY] Bei widerspruechlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende `agent-files/agents/DEVELOPER.*.md`.
-2. `agent-files/agents/DEVELOPER.md`.
-3. `agent-files/AGENTS.md`.
-4. `agent-files/agents/PROJECT.md`.
+1. Passende `agents/DEVELOPER.*.md`.
+2. `agents/DEVELOPER.md`.
+3. `AGENTS.md`.
+4. `agents/PROJECT.md`.
 5. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
@@ -66,9 +66,9 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 ## Dokumentenpflege
 
-[MUST_NOT] Der Agent darf `README.md`, `agent-files/agents/PROJECT.md`, `agent-files/agents/DEVELOPER.md` und `agent-files/agents/DEVELOPER.*.md` nicht automatisch mitpflegen.
+[MUST_NOT] Der Agent darf `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` nicht automatisch mitpflegen.
 
-[ALLOW_IF] Der Agent darf `README.md`, `agent-files/agents/PROJECT.md`, `agent-files/agents/DEVELOPER.md` und `agent-files/agents/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
+[ALLOW_IF] Der Agent darf `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
 
 [MUST] Wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist, muss der Agent die Abweichung im Arbeitsabschluss kurz benennen.
 
@@ -80,10 +80,10 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten. Abweichungen sind erlaubt, wenn ein Repository einzelne Punkte nicht benoetigt oder anders dokumentiert.
 
-[MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in `agent-files/AGENTS.md`, `agent-files/agents/` oder `docs/` gehoeren.
+[MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in `AGENTS.md`, `agents/` oder `docs/` gehoeren.
 
 ## PROJECT.md
 
-[SHOULD] `agent-files/agents/PROJECT.md` soll projektspezifischen Arbeitskontext, fachliche Leitplanken, stabile Begriffe, Abgrenzungen, projektspezifische Architekturgrenzen sowie Branching- und Arbeitskontext enthalten. Abweichungen sind erlaubt, wenn der Projektkontext diese Inhalte noch nicht liefert.
+[SHOULD] `agents/PROJECT.md` soll projektspezifischen Arbeitskontext, fachliche Leitplanken, stabile Begriffe, Abgrenzungen, projektspezifische Architekturgrenzen sowie Branching- und Arbeitskontext enthalten. Abweichungen sind erlaubt, wenn der Projektkontext diese Inhalte noch nicht liefert.
 
-[MUST_NOT] `agent-files/agents/PROJECT.md` darf keine README-Dopplung, keine allgemeine Technikdokumentation, keine Issue-Informationen und keine ausufernden Strukturindizes enthalten.
+[MUST_NOT] `agents/PROJECT.md` darf keine README-Dopplung, keine allgemeine Technikdokumentation, keine Issue-Informationen und keine ausufernden Strukturindizes enthalten.
