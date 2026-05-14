@@ -109,6 +109,88 @@ src/app/
 
 [SHOULD] Presentational Components sollen frei von fachlicher Orchestrierung bleiben. Abweichungen sind erlaubt, wenn eine sehr kleine Komponente eine lokale, rein visuelle Entscheidung kapselt.
 
+## Templates und Component-Markup
+
+[MUST] Angular-Templates müssen schlank, lesbar und deklarativ bleiben.
+
+[MUST] Templates dürfen sichtbare Zustände rendern, Nutzeraktionen binden und einfache UI-Verzweigungen enthalten.
+
+[MUST_NOT] Templates dürfen keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
+
+[MUST] Wiederholte oder komplexe Template-Ausdrücke müssen in `computed`, klar benannte readonly Properties oder View-Modelle ausgelagert werden.
+
+[MUST_NOT] Methodenaufrufe im Template dürfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen auslösen.
+
+[MUST] Kontrollfluss im Template muss nachvollziehbar bleiben.
+
+[SHOULD] Mehrfach verschachtelte `@if`, `@for` oder `ng-template`-Strukturen sollen durch kleinere Presentational Components, benannte computed Values oder View-Modelle vereinfacht werden.
+
+[MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
+
+[MUST_NOT] Neue Wrapper-Elemente dürfen eingeführt werden, wenn sie keinen klaren Zweck erfüllen.
+
+[MUST] Listen müssen stabile fachliche `track`-Ausdrücke verwenden.
+
+[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schlüssel verfügbar sind.
+
+[MUST] Bedingte Darstellung muss alle relevanten Nutzerzustände abdecken, sofern diese im Flow auftreten können: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfügbar und regulärer Inhalt.
+
+## Styling, UI und Accessibility
+
+[MUST_NOT] Designsysteme und Komponentenbibliotheken dürfen nicht ohne ausdrückliche User-Anweisung installiert werden.
+
+[MUST] Bestehende UI-Konventionen des Projekts müssen vor neuen Styling-Konzepten verwendet werden.
+
+[MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
+
+[MUST_NOT] Component-SCSS darf keine globalen Seiteneffekte erzeugen.
+
+[MUST_NOT] Globale Styles dürfen nicht für lokale Component-Probleme erweitert werden.
+
+[MUST_NOT] Inline-Styles dürfen nicht verwendet werden, außer für dynamische Werte, die nicht sinnvoll über Klassen oder CSS Custom Properties abbildbar sind.
+
+[MUST] Layout muss mit möglichst wenigen DOM-Ebenen und klaren Verantwortlichkeiten umgesetzt werden.
+
+[MUST_NOT] Styling-Änderungen dürfen keine ungenutzten Klassen, doppelten Regeln oder widersprüchlichen Layout-Mechanismen einführen.
+
+[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen bestehenden Projektkonventionen folgen.
+
+[MUST_NOT] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
+
+[MUST] Responsive Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
+
+[MUST] Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusführung, Kontraste und semantische Elemente müssen berücksichtigt werden.
+
+[MUST] Interaktive Elemente müssen als passende semantische Elemente umgesetzt werden, z. B. `button` für Aktionen und `a` für Navigation.
+
+[MUST_NOT] Klickbare `div`- oder `span`-Elemente dürfen nicht eingeführt werden, wenn ein semantisches Element verwendet werden kann.
+
+[MUST] Formularfelder müssen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
+
+[MUST] Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand müssen visuell und semantisch nachvollziehbar sein.
+
+[MUST] UI-Texte müssen fachlich präzise sein.
+
+[MUST_NOT] Technische Erklärtexte und Metadaten dürfen nicht als sichtbare UI-Texte erscheinen.
+
+## UI-Änderungen durch Agents
+
+[MUST] UI-Änderungen müssen bevorzugt bestehende Strukturen vereinfachen, statt neue Wrapper, Sonderfälle oder Styling-Schichten hinzuzufügen.
+
+[MUST] Vor neuen Komponenten, Klassen oder Utilities muss geprüft werden, ob im Projekt bereits ein passendes Pattern existiert.
+
+[MUST_NOT] Agents dürfen UI-Code nicht nur lokal reparieren, wenn dadurch globale Inkonsistenz, doppelte Layoutlogik oder CSS-Wildwuchs entsteht.
+
+[MUST] Bei UI-Refactorings muss das sichtbare Verhalten erhalten bleiben, sofern die Aufgabe keine fachliche oder visuelle Änderung verlangt.
+
+[MUST] Der Arbeitsabschluss muss bei UI-Änderungen nennen:
+- welche sichtbaren Zustände betroffen sind,
+- ob Markup vereinfacht oder erweitert wurde,
+- ob Accessibility betroffen ist,
+- welche Tests oder manuellen Checks ausgeführt oder ausgelassen wurden.
+
+[MUST_IF] Screenshots, Storybook, Playwright oder vergleichbare visuelle Checks müssen genutzt werden, wenn die Änderung Layout, Responsiveness, Accessibility oder sichtbare Nutzerflows betrifft und diese Werkzeuge im Projekt verfügbar sind.
+
 ## State-Regeln
 
 [SHOULD] Signals sollen fuer synchronen UI-State verwendet werden. Abweichungen sind erlaubt, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
