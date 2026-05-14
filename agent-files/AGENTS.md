@@ -5,7 +5,7 @@ Stand: 2026-05-13
 
 Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents in diesem Repository.
 
-## Regelmarker
+## Definition Regelmarker
 
 [MUST] Der Agent ist verpflichtet, die Regel zu befolgen.
 
@@ -22,6 +22,8 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents in diesem 
 [OPTIONAL] Der Agent ist ausdruecklich nicht verpflichtet, die Handlung auszufuehren.
 
 [PRIORITY] Die Regel beschreibt einen Konflikt-, Auslegungs- oder Vorrangfall.
+
+## Arbeiten mit Regelmarker
 
 [MUST] Regelmarker sind Modalitaets-Annotationen. Die natuerliche Formulierung der Regel muss weiterhin vollstaendig, verstaendlich und operativ sein.
 
