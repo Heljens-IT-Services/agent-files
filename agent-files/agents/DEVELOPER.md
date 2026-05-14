@@ -88,6 +88,26 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Code muss SOLID beachten, insbesondere das Single-Responsibility-Prinzip.
 
+## UI- und Präsentationsregeln
+
+[MUST] UI-Code muss Nutzerintentionen, sichtbare Zustände und fachliche Abläufe klar trennen.
+
+[MUST] Views, Pages und Components dürfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
+
+[MUST] Sichtbare Zustände wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` müssen explizit modelliert werden, wenn sie für den Nutzer relevant sind.
+
+[MUST_NOT] UI-Code darf technische Fehler, interne IDs, Debug-Daten oder Infrastrukturdetails nicht ungefiltert sichtbar machen.
+
+[MUST] Layout- und Styling-Änderungen müssen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
+
+[MUST_NOT] UI-Änderungen dürfen keine unnötigen Wrapper, neuen Styling-Konzepte oder redundanten Komponentenvarianten einführen.
+
+[MUST] Interaktive UI muss semantische Elemente, Tastaturbedienung, Fokusführung, Labels und verständliche Fehlermeldungen berücksichtigen.
+
+[MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
+
+[MUST_NOT] UI-Tests dürfen nicht primär DOM-Struktur, CSS-Klassen oder private Implementierungsdetails prüfen.
+
 ## Fehlerbehandlung
 
 [SHOULD] Erwartbare fachliche Fehler sollen als explizite Ergebnis-, Status- oder Fehlerobjekte modelliert werden. Abweichungen sind erlaubt, wenn eine vorhandene API, Sprache oder Bibliothek einen anderen fachlich stabilen Fehlervertrag vorgibt.
