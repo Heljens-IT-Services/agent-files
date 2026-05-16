@@ -8,16 +8,6 @@ Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln dieses Reposito
 
 [PRIORITY] Diese Regeln gelten fuer .NET- und C#-Code, sofern keine passendere projektspezifische oder anwendungstypspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
 
-## Versionsbasis
-
-[MUST] .NET-Projekte muessen auf `net10.0` zielen.
-
-[MUST] Die Versionen in `global.json`, `.csproj`, `Directory.Build.props` und CI-Konfiguration sind verbindlich.
-
-[MUST] `Nullable` muss aktiviert sein.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
-
 ## Sprach- und Coderichtlinien
 
 [MUST] File-scoped namespaces muessen verwendet werden.

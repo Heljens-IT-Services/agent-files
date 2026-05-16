@@ -36,6 +36,7 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 | Pfad | Zweck |
 |---|---|
 | `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
+| `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken eines konkreten Repositories. |
 | `https://heljens-it-services.github.io/agent-files/AGENTS.md` | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
 | `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
 | `https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md` | Allgemeine C#- und .NET-Regeln. |
@@ -49,6 +50,8 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 [MUST] Der Agent muss zu Beginn eines Tasks `README.md` lesen, verstehen und befolgen.
 
 [MUST] Der Agent muss zu Beginn eines Tasks `https://heljens-it-services.github.io/agent-files/AGENTS.md` lesen, verstehen und befolgen.
+
+[MUST] Die Datei am Pfad `PROJECT.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden.
 
 [MUST] Der Agent muss zu Beginn eines Tasks `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` lesen, verstehen und befolgen.
 
@@ -83,7 +86,8 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 1. Passende `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md`.
 2. `https://heljens-it-services.github.io/agent-files/DEVELOPER.md`.
 3. `https://heljens-it-services.github.io/agent-files/AGENTS.md`.
-4. Bestehender Code-Stil und lokale Patterns.
+4. `PROJECT.md`, sofern im konkreten Repository vorhanden und fuer den Scope einschlaegig.
+5. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
 
@@ -93,9 +97,13 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 ## Dokumentenpflege
 
-[MUST_NOT] Der Agent darf `README.md`, `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` und `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md` nicht automatisch mitpflegen.
+[MUST_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdrücklich verlangt.
 
-[ALLOW_IF] Der Agent darf `README.md`, `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` und `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
+[MUST] Der Agent muss `PROJECT.md` anlegen, wenn sie im konkreten Repository noch nicht vorhanden ist.
+
+[MUST] Der Agent muss `PROJECT.md` mitpflegen, wenn die Versionsbasis des konkreten Repositories festgelegt, geaendert, praezisiert oder dokumentiert werden soll.
+
+[MUST_IF] Der Agent muss `PROJECT.md` mitpflegen, wenn im konkreten Repository fachliche oder technische projektspezifische Leitplanken festgelegt, geaendert, praezisiert oder dokumentiert werden sollen.
 
 [MUST_IF] Der Agent muss die Abweichung im Arbeitsabschluss kurz benennen, wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist.
 
@@ -109,3 +117,22 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in `https://heljens-it-services.github.io/agent-files/AGENTS.md` oder anderen veroeffentlichten Markdown-Dateien unter `https://heljens-it-services.github.io/agent-files/*.md` gehoeren.
 
+## PROJECT.md
+
+[MUST] Ein Repository muss eine Datei `PROJECT.md` halten und pflegen.
+
+[MUST] `PROJECT.md` muss mindestens die Versionsbasis des konkreten Repositories enthalten, auch wenn noch keine weiteren fachlichen oder technischen projektspezifischen Leitplanken festgelegt sind.
+
+[MUST] `PROJECT.md` muss diese Struktur verwenden:
+
+```md
+# PROJECT.md
+## Zweck
+## Versionsbasis
+## Fachliche Leitplanken
+## Technische Leitplanken
+```
+
+[MUST_NOT] `PROJECT.md` darf allgemeine technologieuebergreifende Regeln oder technologiespezifische Standardvorgaben nicht duplizieren, wenn diese bereits in `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` oder passenden `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md`-Dateien definiert sind.
+
+[SHOULD] `PROJECT.md` soll projektspezifische fachliche und technische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren, damit Agents repositoryspezifische Vorgaben lesen, verstehen und befolgen koennen.

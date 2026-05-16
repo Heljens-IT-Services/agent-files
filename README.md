@@ -29,6 +29,7 @@ Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit exp
 Typische Nutzung:
 
 - `AGENTS.md` als verbindliche Pflichtlektuere fuer Agents referenzieren
+- bei Bedarf eine zusaetzliche `PROJECT.md` im Ziel-Repository fuer fachliche und technische Projektspezifika pflegen
 - projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
 - andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
 
@@ -57,6 +58,8 @@ Die Dateien unter `docs/` sind die veroeffentlichten Quelldateien.
 Aenderungen an den Agent- und Developer-Anweisungen erfolgen direkt in diesen Markdown-Dateien. Es gibt bewusst keine separate Generierung und keinen zusaetzlichen Sync-Schritt.
 
 Die Regeln verwenden dazu Marker wie `MUST`, `MUST_IF`, `MUST_NOT`, `ALLOW`, `ALLOW_IF`, `SHOULD`, `OPTIONAL` und `PRIORITY`, damit die normative Bedeutung jeder Anweisung moeglichst eindeutig bleibt.
+
+Ein Ziel-Repository kann zusaetzlich eine eigene `PROJECT.md` halten, wenn fachliche oder technische Leitplanken nur fuer dieses konkrete Projekt gelten. Diese Datei ist nicht Teil der allgemeinen veroeffentlichten Referenz unter GitHub Pages, sondern bewusst als repositoryspezifische Ergaenzung gedacht.
 
 ## Verwendung in Projekten
 

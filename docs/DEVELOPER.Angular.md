@@ -8,23 +8,6 @@ Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories
 
 [PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
 
-## Versionsbasis
-
-[MUST] Angular-Implementierungen muessen zu den im Projekt wirklich eingesetzten Versionen passen.
-
-Aktuell verwendet das Repository:
-
-- Angular `21.2.0` fuer `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/router`
-- Angular CLI und Build `21.2.10`
-- TypeScript `5.9.2`
-- RxJS `7.8.0`
-- Standalone-Bootstrap mit `app.config.ts` und `app.routes.ts`
-- SCSS als Standard fuer Component-Styling
-
-[MUST] Abweichungen oder Upgrades muessen als eigenes technisches Thema behandelt werden.
-
-[MUST_NOT] Abweichungen oder Upgrades duerfen nicht implizit innerhalb fachlicher Aenderungen mitgezogen werden.
-
 ## Zielbild
 
 Angular-Anwendungen werden als reaktive, modulare Anwendungen gebaut. Components zeigen Daten an und senden Nutzerintentionen; fachlicher Zustand, Datenzugriff, lokale Persistenz und Hintergrundarbeit liegen ausserhalb der Components.
