@@ -34,6 +34,9 @@ Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
 | `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Leitplanken und Entwicklungsregeln. |
 | `files/agents/DEVELOPER.CSharpNet.md` | Vorlage fuer allgemeine C#- und .NET-Regeln unabhaengig vom Einstiegstyp. |
 | `files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
+| `files/agents/DEVELOPER.Html.md` | Vorlage fuer HTML- und Markup-Regeln. |
+| `files/agents/DEVELOPER.Css.md` | Vorlage fuer CSS-, Styling- und praesentationsnahe UI-Regeln. |
+| `files/agents/DEVELOPER.TypeScript.md` | Vorlage fuer TypeScript-spezifische Entwicklungsregeln. |
 | `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen auf Basis von `net10.0`. |
 | `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs auf Basis von `net10.0`. |
 
@@ -69,6 +72,9 @@ Je nach Projekt kommen weitere Dateien hinzu, zum Beispiel:
 agents/DEVELOPER.Project.md
 agents/DEVELOPER.CSharpNet.md
 agents/DEVELOPER.Angular.md
+agents/DEVELOPER.Html.md
+agents/DEVELOPER.Css.md
+agents/DEVELOPER.TypeScript.md
 agents/DEVELOPER.NetConsole.md
 agents/DEVELOPER.NetWebApi.md
 ```
@@ -97,5 +103,8 @@ Aktuell enthaelt das Repository Vorlagen fuer:
 - projektspezifische technische Leitplanken
 - allgemeine C#- und .NET-Regeln
 - Angular
+- HTML und Markup
+- CSS und Styling
+- TypeScript
 - .NET-Konsolenanwendungen
 - .NET-Web-APIs

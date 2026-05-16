@@ -1,10 +1,10 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-05-13
+Stand: 2026-05-16
 
 ## Zweck
 
-Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
+Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. HTML-, CSS- und TypeScript-spezifische Regeln stehen in `DEVELOPER.Html.md`, `DEVELOPER.Css.md` und `DEVELOPER.TypeScript.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
 
 [PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
 
@@ -27,11 +27,7 @@ Aktuell verwendet das Repository:
 
 ## Zielbild
 
-[MUST] Angular-Anwendungen muessen als reaktive, modulare Anwendungen gebaut werden.
-
-[MUST] Komponenten muessen Daten anzeigen und Nutzerintentionen senden.
-
-[MUST] Feature-State, Datenzugriff, lokale Persistenz und Hintergrundarbeit muessen ausserhalb der Komponenten liegen.
+Angular-Anwendungen werden als reaktive, modulare Anwendungen gebaut. Components zeigen Daten an und senden Nutzerintentionen; fachlicher Zustand, Datenzugriff, lokale Persistenz und Hintergrundarbeit liegen ausserhalb der Components.
 
 ```mermaid
 flowchart TD
@@ -45,6 +41,52 @@ flowchart TD
     GStore --> WebApi[Web API]
     WebApi --> GStore
 ```
+
+## Begriffe und Grenzen
+
+[MUST] Components und Views sind fuer Darstellung, Nutzerinteraktion und lokalen Template-Zustand verantwortlich.
+
+[ALLOW] Components duerfen Inputs lesen, Outputs senden, lokale UI-Signals halten, View-Modelle anzeigen und Methoden einer Facade oder eines Component Service aufrufen.
+
+[MUST_NOT] Components duerfen keine fachlichen Workflows, HTTP-Zugriffe, Persistenzzugriffe, DTO-Mappings, globale State-Aenderungen oder Worker-Aufgaben direkt ausfuehren.
+
+[MUST] Eine Facade oder ein Component Service ist die direkte Schnittstelle zwischen View und fachlichem Ablauf eines Features.
+
+[MUST] Bestehende Projektkonventionen muessen bestimmen, ob diese Schicht als Facade, Component Service, Feature Service oder Use Case benannt wird.
+
+[MUST] Facades oder Component Services muessen Nutzeraktionen aus der View in klar benannte Operationen uebersetzen, z. B. `saveDraft`, `loadDetails`, `confirmSelection` oder `refresh`.
+
+[MUST] Facades oder Component Services duerfen View-nahe Koordination enthalten, z. B. Laden, Speichern, Fehlerabbildung, Navigation nach erfolgreicher Aktion oder Zusammenbau eines View-Models.
+
+[MUST_NOT] Facades oder Component Services duerfen technische Details wie konkrete HTTP-Endpunkte, IndexedDB-Stores oder Storage-Schluessel offenlegen.
+
+[MUST] Ein Feature Store oder Feature State Service haelt den Zustand eines fachlichen Features.
+
+[MUST] Feature State muss ueber readonly Signals, computed Values oder klar benannte Selector-Methoden lesbar sein.
+
+[MUST] Feature State darf nur ueber explizite Methoden geaendert werden, z. B. `load`, `setFilter`, `markDirty`, `applyServerResult` oder `reset`.
+
+[MUST_NOT] Feature Stores duerfen keine Template-spezifischen Layout- oder Anzeigeentscheidungen enthalten.
+
+[MUST] Ein Global Store oder Global State Service darf nur app-weiten Zustand halten, der von mehreren Features benoetigt wird, z. B. angemeldeter Nutzer, Berechtigungen, Mandant, Sprache, Online-Status oder globale Konfiguration.
+
+[MUST_NOT] Feature-spezifischer Zustand darf nicht in globalen State verschoben werden, nur weil mehrere Komponenten desselben Features ihn brauchen.
+
+[MUST] Data-Access Services kapseln technische Kommunikation mit externen Systemen, z. B. HTTP APIs.
+
+[MUST] Data-Access Services muessen DTOs, Request-Parameter, technische Fehler und Transportdetails an der Systemgrenze behandeln.
+
+[MUST_NOT] Data-Access Services duerfen keine UI-Zustaende wie `selected`, `expanded`, `editing` oder `visible` modellieren.
+
+[MUST] Repository- oder Adapter-Services kapseln lokale Persistenz wie IndexedDB, LocalStorage oder Cache-Schichten.
+
+[MUST] Repository- oder Adapter-Services duerfen Speicherformat, Keys, Versionierung und Migration kennen.
+
+[MUST_NOT] Repository- oder Adapter-Services duerfen nicht entscheiden, welche Nutzeraktion fachlich erlaubt ist.
+
+[MUST] Worker-Services kapseln Hintergrundarbeit und stellen eine abbrechbare, klar benannte API bereit.
+
+[MUST_NOT] Worker-Aufrufe duerfen nicht direkt aus Components gestartet werden, wenn sie fachlichen Zustand, Persistenz oder API-Kommunikation beeinflussen.
 
 ## Standardstruktur
 
@@ -63,7 +105,7 @@ src/app/
     models/
     resolvers/
     services/
-    state/
+    store/
     util/
   shared/
     ui/
@@ -95,127 +137,35 @@ src/app/
 
 [SHOULD] Standalone Components, `app.config.ts` und funktionale Provider sollen verwendet werden. Abweichungen sind erlaubt, wenn Legacy-Integration oder Bibliotheken `NgModule` erfordern.
 
-## View-Regeln
-
-[MUST] Components und Views muessen duenn bleiben.
-
-[ALLOW] Komponenten duerfen Template-Zustand, Eingabe-/Ausgabe-Bindings und kleine UI-Entscheidungen enthalten.
-
-[MUST] Komponenten muessen fachliche Aktionen an Facades, Component Services oder Use Cases delegieren.
-
-[MUST_NOT] Komponenten duerfen Web APIs, IndexedDB, LocalStorage, Worker oder globale Stores nicht direkt aufrufen.
-
-[MUST] Smart Components muessen mit einer Feature-Facade oder einem Component Service sprechen.
-
-[SHOULD] Presentational Components sollen frei von fachlicher Orchestrierung bleiben. Abweichungen sind erlaubt, wenn eine sehr kleine Komponente eine lokale, rein visuelle Entscheidung kapselt.
-
 ## Templates und Component-Markup
 
-[MUST] Angular-Templates müssen schlank, lesbar und deklarativ bleiben.
+[MUST] Komplexe Angular-Template-Ausdruecke muessen in `computed`, readonly Properties oder View-Modelle ausgelagert werden.
 
-[MUST] Templates dürfen sichtbare Zustände rendern, Nutzeraktionen binden und einfache UI-Verzweigungen enthalten.
-
-[MUST_NOT] Templates dürfen keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
-
-[MUST] Wiederholte oder komplexe Template-Ausdrücke müssen in `computed`, klar benannte readonly Properties oder View-Modelle ausgelagert werden.
-
-[MUST_NOT] Methodenaufrufe im Template dürfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen auslösen.
-
-[MUST] Kontrollfluss im Template muss nachvollziehbar bleiben.
+[MUST_NOT] Methodenaufrufe im Template duerfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen ausloesen.
 
 [SHOULD] Mehrfach verschachtelte `@if`, `@for` oder `ng-template`-Strukturen sollen durch kleinere Presentational Components, benannte computed Values oder View-Modelle vereinfacht werden.
 
-[MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
+[MUST] Listen muessen stabile fachliche `track`-Ausdruecke verwenden.
 
-[MUST_NOT] Neue Wrapper-Elemente dürfen eingeführt werden, wenn sie keinen klaren Zweck erfüllen.
+[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schluessel verfuegbar sind.
 
-[MUST] Listen müssen stabile fachliche `track`-Ausdrücke verwenden.
+## UI-Aenderungen durch Agents
 
-[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schlüssel verfügbar sind.
+[MUST] Vor neuen Komponenten, Klassen oder Utilities muss geprueft werden, ob im Projekt bereits ein passendes Pattern existiert.
 
-[MUST] Bedingte Darstellung muss alle relevanten Nutzerzustände abdecken, sofern diese im Flow auftreten können: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfügbar und regulärer Inhalt.
+[MUST_IF] Wenn ein UI-Problem durch ein gemeinsames Pattern verursacht wird oder mehrfach vorkommt, muss die gemeinsame Stelle angepasst oder die lokale Ausnahme im Arbeitsabschluss begruendet werden.
 
-## Styling, UI und Accessibility
-
-[MUST_NOT] Designsysteme und Komponentenbibliotheken dürfen nicht ohne ausdrückliche User-Anweisung installiert werden.
-
-[MUST] Bestehende UI-Konventionen des Projekts müssen vor neuen Styling-Konzepten verwendet werden.
-
-[MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
-
-[MUST_NOT] Component-SCSS darf keine globalen Seiteneffekte erzeugen.
-
-[MUST_NOT] Globale Styles dürfen nicht für lokale Component-Probleme erweitert werden.
-
-[MUST_NOT] Inline-Styles dürfen nicht verwendet werden, außer für dynamische Werte, die nicht sinnvoll über Klassen oder CSS Custom Properties abbildbar sind.
-
-[MUST] Layout muss mit möglichst wenigen DOM-Ebenen und klaren Verantwortlichkeiten umgesetzt werden.
-
-[MUST_NOT] Styling-Änderungen dürfen keine ungenutzten Klassen, doppelten Regeln oder widersprüchlichen Layout-Mechanismen einführen.
-
-[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen bestehenden Projektkonventionen folgen.
-
-[MUST_NOT] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
-
-[MUST] Responsive Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
-
-[MUST] Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusführung, Kontraste und semantische Elemente müssen berücksichtigt werden.
-
-[MUST] Interaktive Elemente müssen als passende semantische Elemente umgesetzt werden, z. B. `button` für Aktionen und `a` für Navigation.
-
-[MUST_NOT] Klickbare `div`- oder `span`-Elemente dürfen nicht eingeführt werden, wenn ein semantisches Element verwendet werden kann.
-
-[MUST] Formularfelder müssen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
-
-[MUST] Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand müssen visuell und semantisch nachvollziehbar sein.
-
-[MUST] UI-Texte müssen fachlich präzise sein.
-
-[MUST_NOT] Technische Erklärtexte und Metadaten dürfen nicht als sichtbare UI-Texte erscheinen.
-
-## UI-Änderungen durch Agents
-
-[MUST] UI-Änderungen müssen bevorzugt bestehende Strukturen vereinfachen, statt neue Wrapper, Sonderfälle oder Styling-Schichten hinzuzufügen.
-
-[MUST] Vor neuen Komponenten, Klassen oder Utilities muss geprüft werden, ob im Projekt bereits ein passendes Pattern existiert.
-
-[MUST_NOT] Agents dürfen UI-Code nicht nur lokal reparieren, wenn dadurch globale Inkonsistenz, doppelte Layoutlogik oder CSS-Wildwuchs entsteht.
-
-[MUST] Bei UI-Refactorings muss das sichtbare Verhalten erhalten bleiben, sofern die Aufgabe keine fachliche oder visuelle Änderung verlangt.
-
-[MUST] Der Arbeitsabschluss muss bei UI-Änderungen nennen:
-- welche sichtbaren Zustände betroffen sind,
-- ob Markup vereinfacht oder erweitert wurde,
-- ob Accessibility betroffen ist,
-- welche Tests oder manuellen Checks ausgeführt oder ausgelassen wurden.
-
-[MUST_IF] Screenshots, Storybook, Playwright oder vergleichbare visuelle Checks müssen genutzt werden, wenn die Änderung Layout, Responsiveness, Accessibility oder sichtbare Nutzerflows betrifft und diese Werkzeuge im Projekt verfügbar sind.
+[MUST_IF] Screenshots, Storybook, Playwright oder vergleichbare visuelle Checks muessen genutzt werden, wenn Angular-UI-Aenderungen Layout, Responsiveness, Accessibility oder sichtbare Nutzerflows betreffen und diese Werkzeuge im Projekt verfuegbar sind.
 
 ## State-Regeln
 
 [SHOULD] Signals sollen fuer synchronen UI-State verwendet werden. Abweichungen sind erlaubt, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
 
-[MUST] Oeffentliche State-Reads muessen readonly oder ueber klar benannte Selector-Methoden angeboten werden.
-
-[ALLOW_IF] State darf geaendert werden, wenn die Aenderung ueber explizite Methoden erfolgt.
-
-[MUST] Abgeleiteter State muss berechnet werden.
-
-[MUST_NOT] Abgeleiteter State darf nicht redundant gespeichert werden.
+[MUST] Abgeleiteter Signal-State muss berechnet werden und darf nicht redundant gespeichert werden.
 
 [MUST_NOT] RxJS darf nicht als Anwendungs-State- oder Datenfluss-Primitive verwendet werden.
 
 [ALLOW_IF] Angular-/RxJS-Interop darf genutzt werden, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
-
-## Datenfluss
-
-[MUST] Nutzeraktionen in der View muessen Methoden der Facade oder des Component Service aufrufen.
-
-[MUST] Facade, Store oder Application Service muessen Validierung, Datenzugriff, lokale Persistenz und Worker-Aufgaben koordinieren.
-
-[ALLOW_IF] Die View darf Aenderungen erhalten, wenn sie ueber Signals, Computed Values oder klar benannte Read-APIs bereitgestellt werden.
-
-[MUST_NOT] Direkte Kurzschluesse wie Component -> Web API, Component -> Local Storage oder Component -> globaler App-State duerfen nicht eingefuehrt werden.
 
 ## Lokale Daten und Offline-Faehigkeit
 
@@ -229,8 +179,6 @@ src/app/
 
 [MUST] HTTP-Zugriff muss in `core/data-access/` liegen.
 
-[MUST_NOT] Komponenten duerfen HTTP-Zugriff nicht direkt enthalten.
-
 [MUST] Fuer HTTP Requests muss `Promise<T>` oder `Promise` verwendet werden.
 
 [MUST] DTOs muessen an der Grenze in fachliche View- oder Domain-Modelle gemappt werden.
@@ -243,21 +191,9 @@ src/app/
 
 [SHOULD] Signal Forms sollen verwendet werden, wenn die verwendete Angular-Version und das Projektsetup sie ohne experimentelle Flags, bekannte Blocker oder inkompatible Bibliotheken unterstuetzen.
 
-[MUST] Fachliche Validierung muss wiederverwendbar sein.
-
-[MUST] Geteilte fachliche Validierung muss in `shared/util` liegen.
+[MUST] Geteilte fachliche Formularvalidierung muss wiederverwendbar ausserhalb der Component liegen, z. B. in `shared/util`.
 
 [MUST] Formularzustaende wie `dirty`, `pending`, `invalid`, `saving` und `saved` muessen explizit behandelt werden.
-
-## Styling, UI und Accessibility
-
-[MUST_NOT] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
-
-[MUST] Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusfuehrung, Kontraste und semantische Elemente muessen beruecksichtigt werden.
-
-[MUST] UI-Texte muessen fachlich praezise sein.
-
-[MUST_NOT] Technische Erklaertexte und Metadaten duerfen nicht als sichtbare UI-Texte erscheinen.
 
 ## Unit Tests und E2E
 
@@ -265,38 +201,12 @@ src/app/
 
 [SHOULD] E2E-Tests sollen mit Playwright kritische Nutzerfluesse abdecken. Abweichungen sind erlaubt, wenn das Projekt einen anderen E2E-Runner vorgibt oder der Task keinen sichtbaren Nutzerflow betrifft.
 
-[MUST] Tests muessen sichtbares Verhalten und fachliche Zustaende pruefen.
+[SHOULD] Playwright-Tests sollen nutzerorientierte Selektoren wie `getByRole`, `getByLabel` und `getByText` verwenden.
 
-[MUST_NOT] Tests duerfen private Implementierungsdetails nicht als primaeren Vertrag pruefen.
-
-[SHOULD] Playwright-Tests sollen nutzerorientierte Selektoren wie `getByRole`, `getByLabel` und `getByText` verwenden. Abweichungen sind erlaubt, wenn Framework-Markup keine robuste semantische Auswahl ermoeglicht.
-
-[ALLOW_IF] `data-testid` darf eingesetzt werden, wenn semantische Selektoren durch Framework-Markup nicht robust genug sind.
+[ALLOW_IF] `data-testid` darf eingesetzt werden, wenn semantische Selektoren nicht robust genug sind.
 
 [MUST_NOT] Feste Wartezeiten wie `waitForTimeout` duerfen nicht verwendet werden.
 
-[MUST] Tests muessen auf sichtbare Nutzerzustaende, URLs oder Rollen warten.
-
-[MUST] E2E-Testfaelle muessen klein und klar benannt bleiben.
-
-[MUST_NOT] Grosse Sammeltests duerfen nicht eingefuehrt werden.
-
 ## Qualitaet und Code
 
-[MUST] TypeScript `strict` muss aktiviert bleiben.
-
-[ALLOW_IF] `any` darf nur an technischen Grenzen mit begruendeter Kapselung verwendet werden.
-
-[MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen standardmaessig als `type` definiert werden.
-
-[MUST_NOT] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
-
-[MUST] Die `type`-Konvention muss ueber `@typescript-eslint/consistent-type-definitions` erzwungen werden.
-
-[ALLOW_IF] Abweichungen von der `type`-Konvention sind erlaubt, wenn ein technischer Grund vorliegt und das aktive Lint-Regelwerk die Abweichung erlaubt.
-
 [MUST_NOT] Zirkulaere Feature-Abhaengigkeiten duerfen nicht eingefuehrt werden.
-
-[MUST] Environment-spezifische Werte muessen ueber Konfiguration bereitgestellt werden.
-
-[MUST_NOT] Environment-spezifische Werte duerfen nicht hart codiert werden.
