@@ -4,26 +4,9 @@ Stand: 2026-05-16
 
 ## Zweck
 
-Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. HTML-, CSS- und TypeScript-spezifische Regeln stehen in `DEVELOPER.Html.md`, `DEVELOPER.Css.md` und `DEVELOPER.TypeScript.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
+Diese Datei definiert Angular-spezifische Entwicklungsregeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md). HTML-, CSS- und TypeScript-spezifische Regeln stehen in [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md), [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) und [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md). Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
 
-[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
-
-## Versionsbasis
-
-[MUST] Angular-Implementierungen muessen zu den im Projekt wirklich eingesetzten Versionen passen.
-
-Aktuell verwendet das Repository:
-
-- Angular `21.2.0` fuer `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/router`
-- Angular CLI und Build `21.2.10`
-- TypeScript `5.9.2`
-- RxJS `7.8.0`
-- Standalone-Bootstrap mit `app.config.ts` und `app.routes.ts`
-- SCSS als Standard fuer Component-Styling
-
-[MUST] Abweichungen oder Upgrades muessen als eigenes technisches Thema behandelt werden.
-
-[MUST_NOT] Abweichungen oder Upgrades duerfen nicht implizit innerhalb fachlicher Aenderungen mitgezogen werden.
+[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
 
 ## Zielbild
 
@@ -36,10 +19,12 @@ flowchart TD
     FStore --> ComponentService
     FStore --> GStore[Global Store / Global State Service]
     GStore --> FStore
-    GStore --> LocalData[IndexedDB / Local Cache]
-    LocalData --> GStore
-    GStore --> WebApi[Web API]
-    WebApi --> GStore
+    FStore --> DataAccess[core/data-access]
+    GStore --> DataAccess
+    DataAccess --> LocalData[IndexedDB / Local Cache]
+    LocalData --> DataAccess
+    DataAccess --> WebApi[Web API]
+    WebApi --> DataAccess
 ```
 
 ## Begriffe und Grenzen
@@ -179,7 +164,9 @@ src/app/
 
 [MUST] HTTP-Zugriff muss in `core/data-access/` liegen.
 
-[MUST] Fuer HTTP Requests muss `Promise<T>` oder `Promise` verwendet werden.
+[SHOULD] Fuer einmalige HTTP Requests soll `Promise<T>` oder `Promise` verwendet werden.
+
+[ALLOW_IF] `Observable` darf fuer HTTP Requests verwendet werden, wenn Angular APIs, Interceptors, Cancellation, Progress Events, Streams oder externe Bibliotheken dies vorgeben oder fachlich sinnvoll machen.
 
 [MUST] DTOs muessen an der Grenze in fachliche View- oder Domain-Modelle gemappt werden.
 

@@ -4,15 +4,15 @@ Stand: 2026-05-13
 
 ## Zweck
 
-Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md` und `DEVELOPER.CSharpNet.md`. Sie gilt fuer fachlich relevante HTTP-APIs mit Routing, Authentifizierung, Validierung, externer Integration, Workflows, Persistenz, Berechnungen und strukturierten API-Antworten.
+Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) und [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md). Sie gilt fuer fachlich relevante HTTP-APIs mit Routing, Authentifizierung, Validierung, externer Integration, Workflows, Persistenz, Berechnungen und strukturierten API-Antworten.
 
-[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
+[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
 
 ## Zielbild
 
-[MUST] .NET-Web-API-Anwendungen muessen aus genau drei produktiven Projekten innerhalb einer Solution bestehen: `<Name>.WebApi`, `<Name>.Infrastructure` und `<Name>.Core`.
+[MUST] .NET-Web-API-Anwendungen muessen mindestens diese drei produktiven Hauptprojekte innerhalb einer Solution enthalten: `<Name>.WebApi`, `<Name>.Infrastructure` und `<Name>.Core`.
 
-[ALLOW] Testprojekte duerfen zusaetzlich angelegt werden.
+[ALLOW] Testprojekte und weitere produktive Projekte duerfen zusaetzlich angelegt werden, wenn sie eine klar begrenzte Verantwortung haben und die Abhaengigkeitsrichtung respektieren.
 
 [MUST] Die Referenzrichtung muss `WebApi -> Infrastructure -> Core` sein.
 
@@ -27,6 +27,8 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses R
 [SHOULD] Die Projektstruktur soll Domain-Driven Design auf Solution-Ebene folgen. Abweichungen sind erlaubt, wenn ein bestehendes Projekt eine andere stabile Struktur vorgibt und die konkrete Aufgabe keine Strukturmigration ist.
 
 [MUST] Die drei Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
+
+[MUST] Zusaetzliche produktive Projekte muessen fachlich oder technisch klar begruendet sein und duerfen keine Rueckreferenzen in `Core` erzwingen.
 
 [MUST] `<Name>.WebApi/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging, DI, Middleware und Routing sein.
 
@@ -142,7 +144,11 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses R
 
 ## Konfiguration
 
-[MUST] Konfiguration muss in `WebApi` geladen und in `Infrastructure` typisiert gebunden und validiert werden.
+[MUST] Runtime-Konfiguration muss in `WebApi` geladen werden.
+
+[MUST] Technische Provider-, Persistenz-, Retry-, Timeout- und Integrationskonfiguration muss in `Infrastructure` typisiert gebunden und validiert werden.
+
+[MUST] Fachlich relevante Konfiguration muss nach der Validierung als explizite Parameter, Value Objects oder fachliche Optionsmodelle an `Core` uebergeben werden.
 
 [MUST] Pflichtkonfiguration muss beim Start mit klarer Fehlermeldung scheitern.
 
