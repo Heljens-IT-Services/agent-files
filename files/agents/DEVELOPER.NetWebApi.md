@@ -4,23 +4,9 @@ Stand: 2026-05-13
 
 ## Zweck
 
-Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Sie gilt fuer fachlich relevante HTTP-APIs mit Routing, Authentifizierung, Validierung, externer Integration, Workflows, Persistenz, Berechnungen und strukturierten API-Antworten.
+Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md` und `DEVELOPER.CSharpNet.md`. Sie gilt fuer fachlich relevante HTTP-APIs mit Routing, Authentifizierung, Validierung, externer Integration, Workflows, Persistenz, Berechnungen und strukturierten API-Antworten.
 
 [PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
-
-## Versionsbasis
-
-[MUST] .NET-Web-API-Anwendungen muessen auf `net10.0` zielen.
-
-[MUST] Die Versionen in `global.json`, `.csproj`, `Directory.Build.props` und CI-Konfiguration sind verbindlich.
-
-[MUST] `Nullable` muss aktiviert sein.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
-
-[MUST] File-scoped namespaces muessen verwendet werden.
-
-[MUST] Projektweite Namespaces muessen ausschliesslich ueber `GlobalUsings.cs` verwaltet werden.
 
 ## Zielbild
 
@@ -40,9 +26,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses R
 
 [SHOULD] Die Projektstruktur soll Domain-Driven Design auf Solution-Ebene folgen. Abweichungen sind erlaubt, wenn ein bestehendes Projekt eine andere stabile Struktur vorgibt und die konkrete Aufgabe keine Strukturmigration ist.
 
-[MUST] Die drei Hauptprojekte muessen direkt auf oberster Ebene der Solution liegen.
-
-[MUST_NOT] Die drei Hauptprojekte duerfen nicht unterhalb eines `src/`-Ordners liegen.
+[MUST] Die drei Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
 
 [MUST] `<Name>.WebApi/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging, DI, Middleware und Routing sein.
 
@@ -189,16 +173,6 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs dieses R
 [MUST_IF] Beispiele, Fehlerantworten und Auth-Anforderungen muessen Teil der API-Dokumentation sein, wenn Clients darauf angewiesen sind.
 
 ## Code-Regeln
-
-[MUST] File-scoped namespaces und `Nullable` muessen verwendet werden.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
-
-[MUST] Namespaces muessen ueber `GlobalUsings.cs` verwaltet werden.
-
-[MUST] Jeder oeffentliche Typ muss in einer eigenen Datei liegen.
-
-[SHOULD] Records sollen fuer immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Vertraege Klassen erfordern.
 
 [MUST_NOT] Rohe API-DTOs duerfen nicht in `Core` verwendet werden.
 
