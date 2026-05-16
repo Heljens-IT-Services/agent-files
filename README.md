@@ -1,8 +1,8 @@
 # agent-files
 
-`agent-files` enthaelt wiederverwendbare Vorlagen fuer `AGENTS.md` sowie projekt- und technologiespezifische Developer-Dateien bei Heljens IT Services.
+`agent-files` enthaelt wiederverwendbare Vorlagen fuer `AGENTS.md` sowie projekt-, technologie- und kontextspezifische Dateien unter `agents/` bei Heljens IT Services.
 
-Das Repository dient als Vorlage fuer Ziel-Repositories, in denen AI-/Code-Agents klare Pflichtlektuere, Prioritaeten und Entwicklungsregeln erhalten sollen.
+Das Repository dient als Vorlage fuer Ziel-Repositories, in denen AI-/Code-Agents klare Pflichtlektuere, Prioritaeten, Projektkontext und Entwicklungsregeln erhalten sollen.
 
 ## Zweck
 
@@ -29,21 +29,22 @@ Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
 | Pfad | Zweck |
 |---|---|
 | `files/AGENTS.md` | Vorlage fuer `AGENTS.md` in Ziel-Repositories. |
-| `files/agents/PROJECT.md` | Vorlage fuer projektspezifischen Arbeitskontext und fachliche Leitplanken. |
+| `files/agents/PROJECT.md` | Vorlage fuer projektspezifischen Arbeitskontext, Begriffe, Abgrenzungen und fachliche Leitplanken. |
 | `files/agents/DEVELOPER.md` | Vorlage fuer allgemeine Architektur-, Qualitaets-, Security- und Testregeln. |
-| `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Entscheidungen. |
+| `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Leitplanken und Entwicklungsregeln. |
+| `files/agents/DEVELOPER.CSharpNet.md` | Vorlage fuer allgemeine C#- und .NET-Regeln unabhaengig vom Einstiegstyp. |
 | `files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
-| `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen. |
-| `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs. |
+| `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen auf Basis von `net10.0`. |
+| `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs auf Basis von `net10.0`. |
 
 ## Dokumentenmodell
 
 Die Zieldokumente sind bewusst getrennt:
 
 - `AGENTS.md` definiert Pflichtlektuere, Prioritaeten und die verwendeten Regelmarker.
-- `agents/PROJECT.md` enthaelt projektspezifisches Wissen und fachliche Leitplanken.
+- `agents/PROJECT.md` enthaelt projektspezifischen Arbeitskontext, stabile Begriffe, Abgrenzungen und fachliche Leitplanken.
 - `agents/DEVELOPER.md` enthaelt technologieuebergreifende Entwicklungsregeln.
-- `agents/DEVELOPER.Project.md` enthaelt projektspezifische technische Entscheidungen.
+- `agents/DEVELOPER.Project.md` enthaelt projektspezifische technische Leitplanken und Entwicklungsregeln.
 - `agents/DEVELOPER.*.md` enthaelt technologiespezifische Regeln fuer passende Kontexte.
 
 Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`.
@@ -66,6 +67,7 @@ Je nach Projekt kommen weitere Dateien hinzu, zum Beispiel:
 
 ```text
 agents/DEVELOPER.Project.md
+agents/DEVELOPER.CSharpNet.md
 agents/DEVELOPER.Angular.md
 agents/DEVELOPER.NetConsole.md
 agents/DEVELOPER.NetWebApi.md
@@ -85,12 +87,15 @@ Pflegegrundsatz:
 
 ## Status
 
-Stand: Mai 2026.
+Stand: 2026-05-16.
 
 Aktuell enthaelt das Repository Vorlagen fuer:
 
-- allgemeine Agent- und Developer-Regeln
-- projektspezifische Developer-Regeln
+- allgemeine Agent-Regeln
+- allgemeine technologieuebergreifende Developer-Regeln
+- projektspezifischen Projektkontext
+- projektspezifische technische Leitplanken
+- allgemeine C#- und .NET-Regeln
 - Angular
 - .NET-Konsolenanwendungen
 - .NET-Web-APIs
