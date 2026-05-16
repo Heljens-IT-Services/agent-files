@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEVELOPER.Css | Heljens Agent Files</title>
+  <meta
+    name="description"
+    content="Verbindlich veroeffentlichte Agent- und Developer-Anweisungen von Heljens IT Services."
+  >
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="doc-page">
+  <header class="doc-hero">
+    <div class="doc-hero__inner">
+      <p class="eyebrow">Heljens Agent Files</p>
+      <h1>DEVELOPER.Css</h1>
+      <p class="lead">
+        Diese Seite wird aus dem Repository generiert und spiegelt den aktuell veroeffentlichten Stand
+        der verbindlichen Agent- und Developer-Anweisungen.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="../../index.html">Zur Startseite</a>
+        <a class="button button--secondary" href="../../reference/index.html">Alle Dateien</a>
+        <a class="button button--secondary" href="https://github.com/Heljens-IT-Services/agent-files/blob/main/files/agents/DEVELOPER.Css.md">Quelle auf GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-meta card">
+      <h2>Metadaten</h2>
+      <p><strong>Quelle:</strong> <code>files/agents/DEVELOPER.Css.md</code></p>
+      <p><strong>Veroeffentlicht ueber:</strong> <a href="https://heljens-it-services.github.io/agent-files/">https://heljens-it-services.github.io/agent-files/</a></p>
+      <p><strong>Pflege:</strong> Aenderungen erfolgen im Repository und werden danach nach <code>docs/</code> synchronisiert.</p>
+    </aside>
+
+    <article class="doc-content card markdown-body">
+<pre><code># DEVELOPER.Css.md
+
+Stand: 2026-05-16
+
+## Zweck
+
+Diese Datei definiert CSS-, Styling- und praesentationsnahe UI-Regeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Framework- oder technologiespezifische Regeln stehen in passenderen `DEVELOPER.*.md`-Dateien.
+
+[PRIORITY] Diese Regeln gelten fuer CSS-, SCSS- und Styling-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+
+## Styling, UI und Accessibility
+
+[MUST] Bestehende UI-Konventionen des Projekts muessen vor neuen Styling-Konzepten verwendet werden.
+
+[MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
+
+[MUST_NOT] Component-SCSS darf keine globalen Seiteneffekte erzeugen.
+
+[MUST_NOT] Globale Styles duerfen nicht fuer lokale Component-Probleme erweitert werden.
+
+[MUST_NOT] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
+
+[MUST_NOT] Styling-Aenderungen duerfen keine ungenutzten Klassen, doppelten Regeln oder widerspruechlichen Layout-Mechanismen einfuehren.
+
+[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints muessen bestehenden Projektkonventionen folgen.
+
+[MUST_NOT] Magic Numbers in CSS duerfen nicht eingefuehrt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
+
+[MUST] Responsive Verhalten muss bei layoutrelevanten Aenderungen beruecksichtigt werden.
+
+[MUST] Kontraste, Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand muessen visuell nachvollziehbar sein.
+</code></pre>
+    </article>
+  </main>
+</body>
+</html>

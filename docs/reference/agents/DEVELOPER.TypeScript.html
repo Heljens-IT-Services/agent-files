@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEVELOPER.TypeScript | Heljens Agent Files</title>
+  <meta
+    name="description"
+    content="Verbindlich veroeffentlichte Agent- und Developer-Anweisungen von Heljens IT Services."
+  >
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="doc-page">
+  <header class="doc-hero">
+    <div class="doc-hero__inner">
+      <p class="eyebrow">Heljens Agent Files</p>
+      <h1>DEVELOPER.TypeScript</h1>
+      <p class="lead">
+        Diese Seite wird aus dem Repository generiert und spiegelt den aktuell veroeffentlichten Stand
+        der verbindlichen Agent- und Developer-Anweisungen.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="../../index.html">Zur Startseite</a>
+        <a class="button button--secondary" href="../../reference/index.html">Alle Dateien</a>
+        <a class="button button--secondary" href="https://github.com/Heljens-IT-Services/agent-files/blob/main/files/agents/DEVELOPER.TypeScript.md">Quelle auf GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-meta card">
+      <h2>Metadaten</h2>
+      <p><strong>Quelle:</strong> <code>files/agents/DEVELOPER.TypeScript.md</code></p>
+      <p><strong>Veroeffentlicht ueber:</strong> <a href="https://heljens-it-services.github.io/agent-files/">https://heljens-it-services.github.io/agent-files/</a></p>
+      <p><strong>Pflege:</strong> Aenderungen erfolgen im Repository und werden danach nach <code>docs/</code> synchronisiert.</p>
+    </aside>
+
+    <article class="doc-content card markdown-body">
+<pre><code># DEVELOPER.TypeScript.md
+
+Stand: 2026-05-16
+
+## Zweck
+
+Diese Datei definiert TypeScript-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Framework- oder technologiespezifische Regeln stehen in passenderen `DEVELOPER.*.md`-Dateien.
+
+[PRIORITY] Diese Regeln gelten fuer TypeScript-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+
+## Qualitaet und Code
+
+[MUST] TypeScript `strict` muss aktiviert bleiben.
+
+[ALLOW_IF] `any` darf nur an technischen Grenzen mit begruendeter Kapselung verwendet werden.
+
+[MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen standardmaessig als `type` definiert werden.
+
+[MUST_NOT] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
+
+[MUST] Die `type`-Konvention muss ueber `@typescript-eslint/consistent-type-definitions` erzwungen werden.
+
+[ALLOW_IF] Abweichungen von der `type`-Konvention sind erlaubt, wenn ein technischer Grund vorliegt und das aktive Lint-Regelwerk die Abweichung erlaubt.
+</code></pre>
+    </article>
+  </main>
+</body>
+</html>

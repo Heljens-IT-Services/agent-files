@@ -4,6 +4,21 @@
 
 Das Repository dient als Vorlage fuer Ziel-Repositories, in denen AI-/Code-Agents klare Pflichtlektuere, Prioritaeten, Projektkontext und Entwicklungsregeln erhalten sollen.
 
+## GitHub Pages
+
+Die veroeffentlichte Referenzansicht liegt unter:
+
+`https://heljens-it-services.github.io/agent-files/`
+
+Diese GitHub Page ist die zentrale, online referenzierbare Single Source of Truth fuer den aktuell veroeffentlichten Stand der Agent- und Developer-Anweisungen von Heljens IT Services.
+
+GitHub Pages ist bereits wie folgt konfiguriert:
+
+- Branch: `main`
+- Source folder: `/docs`
+
+Andere Repositories sollen auf diese Pages-URL verweisen, wenn sie die gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
+
 ## Zweck
 
 Dieses Repository vereinheitlicht die Grundstruktur fuer Agent-Regeln und Developer-Leitplanken in Projekten.
@@ -39,6 +54,25 @@ Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
 | `files/agents/DEVELOPER.TypeScript.md` | Vorlage fuer TypeScript-spezifische Entwicklungsregeln. |
 | `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen auf Basis von `net10.0`. |
 | `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs auf Basis von `net10.0`. |
+
+## Veroeffentlichung nach docs/
+
+Die inhaltlich verbindlichen Quelldateien werden ausschliesslich unter `files/` gepflegt.
+
+Die GitHub-Page-Ausgabe unter `docs/` wird daraus erzeugt, damit keine zweite manuell gepflegte Version derselben Inhalte entsteht.
+
+Dafuer steht das Script `scripts/sync-docs.ps1` bereit. Es erzeugt:
+
+- `docs/index.html` als Startseite der Referenzdokumentation
+- `docs/reference/*.html` als lesbare HTML-Seiten fuer die relevanten Markdown-Dateien
+
+Nach Aenderungen an Agent-/Developer-Anweisungen sollte das Script erneut ausgefuehrt werden:
+
+```powershell
+./scripts/sync-docs.ps1
+```
+
+Inhaltliche Aenderungen erfolgen im Repository und nicht direkt auf der Webseite.
 
 ## Dokumentenmodell
 
