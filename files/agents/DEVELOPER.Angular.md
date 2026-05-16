@@ -1,10 +1,10 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-05-13
+Stand: 2026-05-16
 
 ## Zweck
 
-Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
+Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. HTML-, CSS- und TypeScript-spezifische Regeln stehen in `DEVELOPER.Html.md`, `DEVELOPER.Css.md` und `DEVELOPER.TypeScript.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
 
 [PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
 
@@ -111,85 +111,33 @@ src/app/
 
 ## Templates und Component-Markup
 
-[MUST] Angular-Templates müssen schlank, lesbar und deklarativ bleiben.
+[MUST] Wiederholte oder komplexe Template-Ausdruecke muessen in `computed`, klar benannte readonly Properties oder View-Modelle ausgelagert werden.
 
-[MUST] Templates dürfen sichtbare Zustände rendern, Nutzeraktionen binden und einfache UI-Verzweigungen enthalten.
-
-[MUST_NOT] Templates dürfen keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
-
-[MUST] Wiederholte oder komplexe Template-Ausdrücke müssen in `computed`, klar benannte readonly Properties oder View-Modelle ausgelagert werden.
-
-[MUST_NOT] Methodenaufrufe im Template dürfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen auslösen.
-
-[MUST] Kontrollfluss im Template muss nachvollziehbar bleiben.
+[MUST_NOT] Methodenaufrufe im Template duerfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen ausloesen.
 
 [SHOULD] Mehrfach verschachtelte `@if`, `@for` oder `ng-template`-Strukturen sollen durch kleinere Presentational Components, benannte computed Values oder View-Modelle vereinfacht werden.
 
-[MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
+[MUST] Listen muessen stabile fachliche `track`-Ausdruecke verwenden.
 
-[MUST_NOT] Neue Wrapper-Elemente dürfen eingeführt werden, wenn sie keinen klaren Zweck erfüllen.
+[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schluessel verfuegbar sind.
 
-[MUST] Listen müssen stabile fachliche `track`-Ausdrücke verwenden.
+## UI-Aenderungen durch Agents
 
-[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schlüssel verfügbar sind.
+[MUST] UI-Aenderungen muessen bevorzugt bestehende Strukturen vereinfachen, statt neue Wrapper, Sonderfaelle oder Styling-Schichten hinzuzufuegen.
 
-[MUST] Bedingte Darstellung muss alle relevanten Nutzerzustände abdecken, sofern diese im Flow auftreten können: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfügbar und regulärer Inhalt.
+[MUST] Vor neuen Komponenten, Klassen oder Utilities muss geprueft werden, ob im Projekt bereits ein passendes Pattern existiert.
 
-## Styling, UI und Accessibility
+[MUST_NOT] Agents duerfen UI-Code nicht nur lokal reparieren, wenn dadurch globale Inkonsistenz, doppelte Layoutlogik oder CSS-Wildwuchs entsteht.
 
-[MUST_NOT] Designsysteme und Komponentenbibliotheken dürfen nicht ohne ausdrückliche User-Anweisung installiert werden.
+[MUST] Bei UI-Refactorings muss das sichtbare Verhalten erhalten bleiben, sofern die Aufgabe keine fachliche oder visuelle Aenderung verlangt.
 
-[MUST] Bestehende UI-Konventionen des Projekts müssen vor neuen Styling-Konzepten verwendet werden.
-
-[MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
-
-[MUST_NOT] Component-SCSS darf keine globalen Seiteneffekte erzeugen.
-
-[MUST_NOT] Globale Styles dürfen nicht für lokale Component-Probleme erweitert werden.
-
-[MUST_NOT] Inline-Styles dürfen nicht verwendet werden, außer für dynamische Werte, die nicht sinnvoll über Klassen oder CSS Custom Properties abbildbar sind.
-
-[MUST] Layout muss mit möglichst wenigen DOM-Ebenen und klaren Verantwortlichkeiten umgesetzt werden.
-
-[MUST_NOT] Styling-Änderungen dürfen keine ungenutzten Klassen, doppelten Regeln oder widersprüchlichen Layout-Mechanismen einführen.
-
-[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen bestehenden Projektkonventionen folgen.
-
-[MUST_NOT] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
-
-[MUST] Responsive Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
-
-[MUST] Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusführung, Kontraste und semantische Elemente müssen berücksichtigt werden.
-
-[MUST] Interaktive Elemente müssen als passende semantische Elemente umgesetzt werden, z. B. `button` für Aktionen und `a` für Navigation.
-
-[MUST_NOT] Klickbare `div`- oder `span`-Elemente dürfen nicht eingeführt werden, wenn ein semantisches Element verwendet werden kann.
-
-[MUST] Formularfelder müssen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
-
-[MUST] Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand müssen visuell und semantisch nachvollziehbar sein.
-
-[MUST] UI-Texte müssen fachlich präzise sein.
-
-[MUST_NOT] Technische Erklärtexte und Metadaten dürfen nicht als sichtbare UI-Texte erscheinen.
-
-## UI-Änderungen durch Agents
-
-[MUST] UI-Änderungen müssen bevorzugt bestehende Strukturen vereinfachen, statt neue Wrapper, Sonderfälle oder Styling-Schichten hinzuzufügen.
-
-[MUST] Vor neuen Komponenten, Klassen oder Utilities muss geprüft werden, ob im Projekt bereits ein passendes Pattern existiert.
-
-[MUST_NOT] Agents dürfen UI-Code nicht nur lokal reparieren, wenn dadurch globale Inkonsistenz, doppelte Layoutlogik oder CSS-Wildwuchs entsteht.
-
-[MUST] Bei UI-Refactorings muss das sichtbare Verhalten erhalten bleiben, sofern die Aufgabe keine fachliche oder visuelle Änderung verlangt.
-
-[MUST] Der Arbeitsabschluss muss bei UI-Änderungen nennen:
-- welche sichtbaren Zustände betroffen sind,
+[MUST] Der Arbeitsabschluss muss bei UI-Aenderungen nennen:
+- welche sichtbaren Zustaende betroffen sind,
 - ob Markup vereinfacht oder erweitert wurde,
 - ob Accessibility betroffen ist,
-- welche Tests oder manuellen Checks ausgeführt oder ausgelassen wurden.
+- welche Tests oder manuellen Checks ausgefuehrt oder ausgelassen wurden.
 
-[MUST_IF] Screenshots, Storybook, Playwright oder vergleichbare visuelle Checks müssen genutzt werden, wenn die Änderung Layout, Responsiveness, Accessibility oder sichtbare Nutzerflows betrifft und diese Werkzeuge im Projekt verfügbar sind.
+[MUST_IF] Screenshots, Storybook, Playwright oder vergleichbare visuelle Checks muessen genutzt werden, wenn die Aenderung Layout, Responsiveness, Accessibility oder sichtbare Nutzerflows betrifft und diese Werkzeuge im Projekt verfuegbar sind.
 
 ## State-Regeln
 
@@ -249,16 +197,6 @@ src/app/
 
 [MUST] Formularzustaende wie `dirty`, `pending`, `invalid`, `saving` und `saved` muessen explizit behandelt werden.
 
-## Styling, UI und Accessibility
-
-[MUST_NOT] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
-
-[MUST] Accessibility ist Teil der Definition of Done: Labels, Tastaturbedienung, Fokusfuehrung, Kontraste und semantische Elemente muessen beruecksichtigt werden.
-
-[MUST] UI-Texte muessen fachlich praezise sein.
-
-[MUST_NOT] Technische Erklaertexte und Metadaten duerfen nicht als sichtbare UI-Texte erscheinen.
-
 ## Unit Tests und E2E
 
 [MUST_IF] Unit Tests muessen Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen absichern, wenn diese im Task geaendert oder neu erstellt werden.
@@ -282,18 +220,6 @@ src/app/
 [MUST_NOT] Grosse Sammeltests duerfen nicht eingefuehrt werden.
 
 ## Qualitaet und Code
-
-[MUST] TypeScript `strict` muss aktiviert bleiben.
-
-[ALLOW_IF] `any` darf nur an technischen Grenzen mit begruendeter Kapselung verwendet werden.
-
-[MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen standardmaessig als `type` definiert werden.
-
-[MUST_NOT] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
-
-[MUST] Die `type`-Konvention muss ueber `@typescript-eslint/consistent-type-definitions` erzwungen werden.
-
-[ALLOW_IF] Abweichungen von der `type`-Konvention sind erlaubt, wenn ein technischer Grund vorliegt und das aktive Lint-Regelwerk die Abweichung erlaubt.
 
 [MUST_NOT] Zirkulaere Feature-Abhaengigkeiten duerfen nicht eingefuehrt werden.
 
