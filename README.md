@@ -32,6 +32,7 @@ Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
 | `files/agents/PROJECT.md` | Vorlage fuer projektspezifischen Arbeitskontext, Begriffe, Abgrenzungen und fachliche Leitplanken. |
 | `files/agents/DEVELOPER.md` | Vorlage fuer allgemeine Architektur-, Qualitaets-, Security- und Testregeln. |
 | `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Leitplanken und Entwicklungsregeln. |
+| `files/agents/DEVELOPER.CSharpNet.md` | Vorlage fuer allgemeine C#- und .NET-Regeln unabhaengig vom Einstiegstyp. |
 | `files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
 | `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen auf Basis von `net10.0`. |
 | `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs auf Basis von `net10.0`. |
@@ -66,12 +67,11 @@ Je nach Projekt kommen weitere Dateien hinzu, zum Beispiel:
 
 ```text
 agents/DEVELOPER.Project.md
+agents/DEVELOPER.CSharpNet.md
 agents/DEVELOPER.Angular.md
 agents/DEVELOPER.NetConsole.md
 agents/DEVELOPER.NetWebApi.md
 ```
-
-Die .NET-Vorlagen in diesem Branch beschreiben direkt .NET-spezifische Regeln fuer Console und Web API. Eine zusaetzliche gemeinsame `DEVELOPER.CSharpNet.md` ist in `develop` aktuell nicht Teil des Template-Sets.
 
 ## Pflege
 
@@ -95,6 +95,7 @@ Aktuell enthaelt das Repository Vorlagen fuer:
 - allgemeine technologieuebergreifende Developer-Regeln
 - projektspezifischen Projektkontext
 - projektspezifische technische Leitplanken
+- allgemeine C#- und .NET-Regeln
 - Angular
 - .NET-Konsolenanwendungen
 - .NET-Web-APIs
