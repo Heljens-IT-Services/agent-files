@@ -4,9 +4,6 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 $docsRoot = Join-Path $repoRoot "docs"
 $referenceRoot = Join-Path $docsRoot "reference"
 $sourceRoot = Join-Path $repoRoot "files"
-$repoUrl = "https://github.com/Heljens-IT-Services/agent-files"
-$pagesUrl = "https://heljens-it-services.github.io/agent-files/"
-
 $sourceFiles = Get-ChildItem -Path $sourceRoot -Recurse -File -Filter *.md | Sort-Object FullName
 
 if (Test-Path $referenceRoot) {
@@ -48,14 +45,8 @@ function New-DocumentHtml {
     [Parameter(Mandatory = $true)]
     [string] $Title,
     [Parameter(Mandatory = $true)]
-    [string] $RelativeSourcePath,
-    [Parameter(Mandatory = $true)]
-    [string] $ContentHtml,
-    [Parameter(Mandatory = $true)]
-    [string] $RelativeRoot
+    [string] $ContentHtml
   )
-
-  $sourceUrl = "$repoUrl/blob/main/$RelativeSourcePath".Replace("\", "/")
 
   @"
 <!DOCTYPE html>
@@ -63,42 +54,10 @@ function New-DocumentHtml {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>$Title | Heljens Agent Files</title>
-  <meta
-    name="description"
-    content="Verbindlich veroeffentlichte Agent- und Developer-Anweisungen von Heljens IT Services."
-  >
-  <link rel="stylesheet" href="${RelativeRoot}styles.css">
+  <title>$Title</title>
 </head>
-<body class="doc-page">
-  <header class="doc-hero">
-    <div class="doc-hero__inner">
-      <p class="eyebrow">Heljens Agent Files</p>
-      <h1>$Title</h1>
-      <p class="lead">
-        Diese Seite wird aus dem Repository generiert und spiegelt den aktuell veroeffentlichten Stand
-        der verbindlichen Agent- und Developer-Anweisungen.
-      </p>
-      <div class="hero__actions">
-        <a class="button button--primary" href="${RelativeRoot}index.html">Zur Startseite</a>
-        <a class="button button--secondary" href="${RelativeRoot}reference/index.html">Alle Dateien</a>
-        <a class="button button--secondary" href="$sourceUrl">Quelle auf GitHub</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="doc-layout">
-    <aside class="doc-meta card">
-      <h2>Metadaten</h2>
-      <p><strong>Quelle:</strong> <code>$($RelativeSourcePath.Replace("\", "/"))</code></p>
-      <p><strong>Veroeffentlicht ueber:</strong> <a href="$pagesUrl">$pagesUrl</a></p>
-      <p><strong>Pflege:</strong> Aenderungen erfolgen im Repository und werden danach nach <code>docs/</code> synchronisiert.</p>
-    </aside>
-
-    <article class="doc-content card markdown-body">
+<body>
 $ContentHtml
-    </article>
-  </main>
 </body>
 </html>
 "@
@@ -119,13 +78,9 @@ foreach ($sourceFile in $sourceFiles) {
 
   $markdown = Get-Content -LiteralPath $sourceFile.FullName -Raw
   $contentHtml = Convert-MarkdownToHtml -Markdown $markdown
-  $depth = ([IO.Path]::GetDirectoryName($targetRelativePath) -split "[\\/]" | Where-Object { $_ }).Count
-  $relativeRoot = if ($depth -eq 0) { "../" } else { "../" + ("../" * $depth) }
   $documentHtml = New-DocumentHtml `
     -Title $sourceFile.BaseName `
-    -RelativeSourcePath $relativeSourcePath `
-    -ContentHtml $contentHtml `
-    -RelativeRoot $relativeRoot
+    -ContentHtml $contentHtml
 
   Set-Content -LiteralPath $targetPath -Value $documentHtml -Encoding UTF8
 
@@ -137,7 +92,7 @@ foreach ($sourceFile in $sourceFiles) {
 }
 
 $referenceLinks = ($referenceItems | ForEach-Object {
-  "        <li><a href=""../$($_.PublishPath)"">$($_.Title)</a><span><code>$($_.SourcePath)</code></span></li>"
+  "    <li><a href=""$($_.PublishPath)"">$($_.Title)</a></li>"
 }) -join [Environment]::NewLine
 
 $referenceIndex = @"
@@ -146,37 +101,13 @@ $referenceIndex = @"
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Referenzdateien | Heljens Agent Files</title>
-  <meta
-    name="description"
-    content="Uebersicht der veroeffentlichten Agent- und Developer-Dateien von Heljens IT Services."
-  >
-  <link rel="stylesheet" href="../styles.css">
+  <title>Heljens Agent Files</title>
 </head>
-<body class="doc-page">
-  <header class="doc-hero">
-    <div class="doc-hero__inner">
-      <p class="eyebrow">Heljens Agent Files</p>
-      <h1>Veroeffentlichte Referenzdateien</h1>
-      <p class="lead">
-        Diese Liste verweist auf die aktuell veroeffentlichten Agent- und Developer-Anweisungen,
-        die aus den Quelldateien im Repository generiert wurden.
-      </p>
-      <div class="hero__actions">
-        <a class="button button--primary" href="../index.html">Zur Startseite</a>
-        <a class="button button--secondary" href="$repoUrl">Repository</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="section">
-    <div class="card reference-card">
-      <h2>Dateiliste</h2>
-      <ul class="reference-list">
+<body>
+  <h1>Heljens Agent Files</h1>
+  <ul>
 $referenceLinks
-      </ul>
-    </div>
-  </main>
+  </ul>
 </body>
 </html>
 "@
