@@ -4,7 +4,7 @@ Stand: 2026-05-13
 
 ## Zweck
 
-Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln dieses Repositories. Technologiespezifische Details stehen in den passenden `DEVELOPER.<TECHNOLOGY>.md`-Dateien.
+Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln. Technologiespezifische Details stehen in den passenden [DEVELOPER.<TECHNOLOGY>.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.%3CTECHNOLOGY%3E.md)-Dateien.
 
 [PRIORITY] Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische oder projektspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
 

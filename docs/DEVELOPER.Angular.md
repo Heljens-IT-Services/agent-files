@@ -4,9 +4,9 @@ Stand: 2026-05-16
 
 ## Zweck
 
-Diese Datei definiert Angular-spezifische Entwicklungsregeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. HTML-, CSS- und TypeScript-spezifische Regeln stehen in `DEVELOPER.Html.md`, `DEVELOPER.Css.md` und `DEVELOPER.TypeScript.md`. Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
+Diese Datei definiert Angular-spezifische Entwicklungsregeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md). HTML-, CSS- und TypeScript-spezifische Regeln stehen in [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md), [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) und [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md). Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
 
-[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
+[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
 
 ## Zielbild
 
