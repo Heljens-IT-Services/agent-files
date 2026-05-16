@@ -1,49 +1,56 @@
-# engineering-blueprint
+# agent-files
 
-`engineering-blueprint` enthaelt wiederverwendbare Arbeitsregeln, Strukturvorgaben und Entwicklerleitlinien fuer Softwareprojekte bei Heljens IT Services.
+`agent-files` enthaelt wiederverwendbare Vorlagen fuer `AGENTS.md` sowie projekt- und technologiespezifische Developer-Dateien bei Heljens IT Services.
 
-Das Repository dient als Vorlage und Referenz fuer Menschen und AI-/Code-Agents. Es beschreibt, welche Dokumente in Projekten vorhanden sein sollen, wie diese Dokumente gepflegt werden und welche technologieuebergreifenden bzw. technologiespezifischen Entwicklungsregeln gelten.
+Das Repository dient als Vorlage fuer Ziel-Repositories, in denen AI-/Code-Agents klare Pflichtlektuere, Prioritaeten und Entwicklungsregeln erhalten sollen.
 
 ## Zweck
 
-Dieses Repository soll Projektstarts, Refactorings und Agent-Arbeit vereinheitlichen. Es definiert einen kompakten Dokumentationsrahmen fuer Architektur, Projektwissen, Struktur, Coding-Regeln und technologiespezifische Patterns.
+Dieses Repository vereinheitlicht die Grundstruktur fuer Agent-Regeln und Developer-Leitplanken in Projekten.
 
 Typische Nutzung:
 
-- neue Repositories mit konsistenten Agent- und Developer-Regeln aufsetzen
-- bestehende Repositories auf klare Struktur- und Architekturvorgaben ausrichten
-- AI-/Code-Agents mit eindeutiger Pflichtlektuere und Prioritaeten steuern
-- wiederverwendbare Regeln fuer Angular, .NET Console und .NET Web API bereitstellen
+- neue Repositories mit konsistenten Agent- und Developer-Dateien aufsetzen
+- bestehende Repositories auf klare Regeldateien und Verantwortlichkeiten ausrichten
+- AI-/Code-Agents mit eindeutiger Pflichtlektuere und Konfliktlogik steuern
+- wiederverwendbare allgemeine, projektbezogene und technologiespezifische Regeln bereitstellen
+
+## Struktur
+
+Die Vorlagen liegen in diesem Repository unter `files/`.
+
+Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
+
+- `files/AGENTS.md` wird zu `AGENTS.md`
+- `files/agents/` wird zu `agents/`
 
 ## Wichtige Dateien
 
 | Pfad | Zweck |
 |---|---|
-| `agent-files/AGENTS.md` | Vorlage fuer `AGENTS.md` in Ziel-Repositories. |
-| `agent-files/agents/PROJECT.md` | Vorlage fuer projektspezifische Regeln, Fakten und Domaenenwissen. |
-| `agent-files/agents/DEVELOPER.md` | Vorlage fuer technologieuebergreifende Architektur-, Clean-Code-, Security- und Testregeln. |
-| `agent-files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
-| `agent-files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen. |
-| `agent-files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs. |
+| `files/AGENTS.md` | Vorlage fuer `AGENTS.md` in Ziel-Repositories. |
+| `files/agents/PROJECT.md` | Vorlage fuer projektspezifischen Arbeitskontext und fachliche Leitplanken. |
+| `files/agents/DEVELOPER.md` | Vorlage fuer allgemeine Architektur-, Qualitaets-, Security- und Testregeln. |
+| `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Entscheidungen. |
+| `files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
+| `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen. |
+| `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs. |
 
 ## Dokumentenmodell
 
-Die Vorlagen liegen in diesem Repository unter `agent-files/`. Beim Uebernehmen in ein Ziel-Repository werden sie in das Repository-Root kopiert: `agent-files/AGENTS.md` wird zu `AGENTS.md`, und `agent-files/agents/` wird zu `agents/`.
-
 Die Zieldokumente sind bewusst getrennt:
 
-- `AGENTS.md` beschreibt, welche Regeln Agents lesen muessen, welche Prioritaet sie haben und welche deontischen Regelmarker verwendet werden.
-- `agents/PROJECT.md` enthaelt projektspezifisches Wissen, keine allgemeinen Technikregeln.
-- `agents/DEVELOPER.md` enthaelt allgemeine Entwicklungsregeln.
-- `agents/DEVELOPER.*.md` enthaelt spezifische Regeln fuer einen Technologie- oder Anwendungskontext.
+- `AGENTS.md` definiert Pflichtlektuere, Prioritaeten und die verwendeten Regelmarker.
+- `agents/PROJECT.md` enthaelt projektspezifisches Wissen und fachliche Leitplanken.
+- `agents/DEVELOPER.md` enthaelt technologieuebergreifende Entwicklungsregeln.
+- `agents/DEVELOPER.Project.md` enthaelt projektspezifische technische Entscheidungen.
+- `agents/DEVELOPER.*.md` enthaelt technologiespezifische Regeln fuer passende Kontexte.
 
-Bei widerspruechlichen Vorgaben gilt die Prioritaet aus `AGENTS.md`.
+Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`.
 
-Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`, damit Pflichten, bedingte Pflichten, Verbote, Erlaubnisse, Defaults und Vorrangregeln eindeutig unterscheidbar sind.
+Bei widerspruechlichen Vorgaben gilt die Prioritaetslogik aus `AGENTS.md`.
 
 ## Verwendung in Projekten
-
-Beim Aufsetzen eines neuen Projekts werden die relevanten Dateien aus diesem Repository uebernommen und an den Projektkontext angepasst.
 
 Minimal empfohlen im Ziel-Repository:
 
@@ -55,9 +62,10 @@ agents/
   DEVELOPER.md
 ```
 
-Je nach Technologie kommt mindestens eine passende spezifische Datei hinzu, z. B.:
+Je nach Projekt kommen weitere Dateien hinzu, zum Beispiel:
 
 ```text
+agents/DEVELOPER.Project.md
 agents/DEVELOPER.Angular.md
 agents/DEVELOPER.NetConsole.md
 agents/DEVELOPER.NetWebApi.md
@@ -65,15 +73,24 @@ agents/DEVELOPER.NetWebApi.md
 
 ## Pflege
 
-Dieses Repository ist eine lebende Vorlage. Aenderungen an Architektur-, Struktur- oder Coding-Regeln sollen direkt in den passenden Dateien dokumentiert werden.
+Dieses Repository ist eine lebende Vorlage. Regel- und Strukturaenderungen sollen direkt in der jeweils passenden Datei gepflegt werden.
 
 Pflegegrundsatz:
 
-- Allgemeine Regeln gehoeren in der Vorlage nach `agent-files/agents/DEVELOPER.md` und im Ziel-Repository nach `agents/DEVELOPER.md`.
-- Technologiespezifische Regeln gehoeren in der Vorlage nach `agent-files/agents/DEVELOPER.*.md` und im Ziel-Repository nach `agents/DEVELOPER.*.md`.
-- Projektspezifisches Wissen gehoert in der Vorlage nach `agent-files/agents/PROJECT.md` und im Ziel-Repository nach `agents/PROJECT.md`.
-- Agent-Prioritaeten und Pflichtlektuere gehoeren in der Vorlage nach `agent-files/AGENTS.md` und im Ziel-Repository nach `AGENTS.md`.
+- allgemeine Regeln in `files/agents/DEVELOPER.md`
+- projektspezifisches Fachwissen in `files/agents/PROJECT.md`
+- projektspezifische technische Entscheidungen in `files/agents/DEVELOPER.Project.md`
+- technologiespezifische Regeln in `files/agents/DEVELOPER.*.md`
+- Agent-Prioritaeten und Pflichtlektuere in `files/AGENTS.md`
 
 ## Status
 
-Stand: Mai 2026. Die aktuellen spezifischen Developer-Vorlagen decken Angular, .NET-Konsolenanwendungen und .NET-Web-APIs ab. Die Vorlagen liegen unter `agent-files/` und sind fuer die Zielstruktur `AGENTS.md` plus `agents/` formuliert.
+Stand: Mai 2026.
+
+Aktuell enthaelt das Repository Vorlagen fuer:
+
+- allgemeine Agent- und Developer-Regeln
+- projektspezifische Developer-Regeln
+- Angular
+- .NET-Konsolenanwendungen
+- .NET-Web-APIs
