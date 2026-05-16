@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>agent-files</title>
+  <title>Heljens Agent Files</title>
   <meta
     name="description"
-    content="Vorlagen fuer AGENTS.md sowie projekt- und technologiespezifische Developer-Dateien."
+    content="Verbindliche Referenzseite fuer Agent- und Developer-Anweisungen von Heljens IT Services."
   >
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -14,14 +14,19 @@
   <header class="hero">
     <div class="hero__inner">
       <p class="eyebrow">Heljens IT Services</p>
-      <h1>agent-files</h1>
+      <h1>Heljens Agent Files</h1>
       <p class="lead">
-        Wiederverwendbare Vorlagen fuer AI- und Code-Agenten mit klarer Pflichtlektuere,
-        Prioritaetslogik und technologiespezifischen Entwicklungsregeln.
+        Diese GitHub Page ist die verbindliche Single Source of Truth fuer die aktuell
+        veroeffentlichten Agent- und Developer-Anweisungen von Heljens IT Services.
+      </p>
+      <p class="hero__note">
+        Andere Repositories und Projekte sollen auf diese Seite verweisen, wenn sie die
+        gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare
+        Entwicklungsassistenten referenzieren.
       </p>
       <div class="hero__actions">
-        <a class="button button--primary" href="#zweck">Ueberblick</a>
-        <a class="button button--secondary" href="#struktur">Struktur ansehen</a>
+        <a class="button button--primary" href="./reference/index.html">Zu den Dateien</a>
+        <a class="button button--secondary" href="#zweck">Ueberblick</a>
       </div>
     </div>
   </header>
@@ -29,35 +34,38 @@
   <main>
     <section class="section" id="zweck">
       <div class="section__intro">
-        <p class="section-label">Zweck</p>
-        <h2>Ein konsistenter Einstieg fuer neue Repositories</h2>
+        <p class="section-label">Verbindlichkeit</p>
+        <h2>Zentrale Referenz fuer aktuelle Agent- und Developer-Anweisungen</h2>
         <p>
-          Dieses Repository liefert eine Grundstruktur, mit der Ziel-Repositories
-          ihre Agent-Regeln, Projektkontexte und Developer-Leitplanken sauber
-          aufbauen koennen.
+          Diese Seite stellt den aktuellen verbindlichen Stand der Agent- und
+          Developer-Anweisungen von Heljens IT Services bereit. Aenderungen werden
+          im Repository gepflegt und anschliessend nach <code>docs/</code>
+          veroeffentlicht.
         </p>
       </div>
 
       <div class="grid grid--three">
         <article class="card">
-          <h3>Pflichtlektuere</h3>
+          <h3>Single Source of Truth</h3>
           <p>
-            Eine Vorlage fuer <code>AGENTS.md</code> definiert Prioritaeten,
-            Konfliktlogik und den Einstieg fuer Agents.
+            Die eigentlichen Quelldateien liegen im Repository unter
+            <code>files/</code>. Die GitHub Page zeigt den aktuell
+            veroeffentlichten Stand dieser Inhalte.
           </p>
         </article>
         <article class="card">
-          <h3>Projektkontext</h3>
+          <h3>Referenzierbar</h3>
           <p>
-            <code>PROJECT.md</code> und <code>DEVELOPER.Project.md</code> trennen
-            fachliche von technischen Projektspezifika.
+            Andere Repositories muessen nur noch auf
+            <code>https://heljens-it-services.github.io/agent-files/</code>
+            verweisen.
           </p>
         </article>
         <article class="card">
-          <h3>Technologie-Regeln</h3>
+          <h3>Nachvollziehbare Pflege</h3>
           <p>
-            Spezifische Dateien wie fuer Angular, HTML, CSS, TypeScript oder .NET
-            erweitern die allgemeine Basis gezielt pro Stack.
+            Die veroeffentlichten HTML-Seiten werden aus den Markdown-Quelldateien
+            erzeugt, damit keine zweite manuell gepflegte Version entsteht.
           </p>
         </article>
       </div>
@@ -65,54 +73,61 @@
 
     <section class="section section--accent">
       <div class="section__intro">
-        <p class="section-label">Inhalt</p>
-        <h2>Aktuelle Vorlagen im Repository</h2>
+        <p class="section-label">Referenzdateien</p>
+        <h2>Wichtige veroeffentlichte Arbeitsanweisungen</h2>
       </div>
 
       <div class="template-list">
         <article class="template-item">
           <h3>AGENTS.md</h3>
-          <p>Pflichtlektuere, Regelmarker und Vorranglogik fuer Agents.</p>
+          <p>Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents.</p>
+          <a class="text-link" href="./reference/AGENTS.html">Datei oeffnen</a>
         </article>
         <article class="template-item">
           <h3>PROJECT.md</h3>
           <p>Fachlicher Kontext, stabile Begriffe und Abgrenzungen.</p>
+          <a class="text-link" href="./reference/agents/PROJECT.html">Datei oeffnen</a>
         </article>
         <article class="template-item">
           <h3>DEVELOPER.md</h3>
           <p>Allgemeine Architektur-, Qualitaets-, Security- und Testregeln.</p>
+          <a class="text-link" href="./reference/agents/DEVELOPER.html">Datei oeffnen</a>
         </article>
         <article class="template-item">
           <h3>DEVELOPER.*.md</h3>
           <p>Technologie- und kontextspezifische Regeln fuer konkrete Stacks.</p>
+          <a class="text-link" href="./reference/index.html">Alle Developer-Dateien</a>
         </article>
       </div>
     </section>
 
     <section class="section" id="struktur">
       <div class="section__intro">
-        <p class="section-label">Startpunkt</p>
-        <h2>Empfohlene Minimalstruktur</h2>
+        <p class="section-label">Pflegeprozess</p>
+        <h2>Quelle im Repository, Ausgabe unter docs/</h2>
       </div>
 
       <div class="layout">
         <div class="card card--code">
-          <pre><code>README.md
-AGENTS.md
-agents/
-  PROJECT.md
-  DEVELOPER.md</code></pre>
+          <pre><code>files/
+  AGENTS.md
+  agents/
+docs/
+  index.html
+  reference/
+scripts/
+  sync-docs.ps1</code></pre>
         </div>
         <div class="notes">
           <p>
-            Darauf aufbauend kommen je nach Projekt weitere
-            <code>DEVELOPER.*.md</code>-Dateien hinzu, um Framework-, UI- oder
-            Backend-spezifische Regeln zu konkretisieren.
+            Inhaltliche Aenderungen erfolgen ausschliesslich in den Markdown-Dateien
+            unter <code>files/</code>. Das Script <code>scripts/sync-docs.ps1</code>
+            erzeugt daraus die veroeffentlichten Referenzseiten unter
+            <code>docs/reference/</code>.
           </p>
           <p>
-            Die Seite ist bewusst als erste statische Startseite angelegt. Sie
-            kann spaeter problemlos um Doku-Navigation, Beispiele oder eine
-            uebersichtliche Katalogansicht erweitert werden.
+            Dadurch bleibt die Website lesbar und referenzierbar, ohne dass dieselben
+            Anweisungen an zwei Stellen manuell gepflegt werden muessen.
           </p>
         </div>
       </div>

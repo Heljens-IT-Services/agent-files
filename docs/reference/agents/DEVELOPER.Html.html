@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEVELOPER.Html | Heljens Agent Files</title>
+  <meta
+    name="description"
+    content="Verbindlich veroeffentlichte Agent- und Developer-Anweisungen von Heljens IT Services."
+  >
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="doc-page">
+  <header class="doc-hero">
+    <div class="doc-hero__inner">
+      <p class="eyebrow">Heljens Agent Files</p>
+      <h1>DEVELOPER.Html</h1>
+      <p class="lead">
+        Diese Seite wird aus dem Repository generiert und spiegelt den aktuell veroeffentlichten Stand
+        der verbindlichen Agent- und Developer-Anweisungen.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="../../index.html">Zur Startseite</a>
+        <a class="button button--secondary" href="../../reference/index.html">Alle Dateien</a>
+        <a class="button button--secondary" href="https://github.com/Heljens-IT-Services/agent-files/blob/main/files/agents/DEVELOPER.Html.md">Quelle auf GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-meta card">
+      <h2>Metadaten</h2>
+      <p><strong>Quelle:</strong> <code>files/agents/DEVELOPER.Html.md</code></p>
+      <p><strong>Veroeffentlicht ueber:</strong> <a href="https://heljens-it-services.github.io/agent-files/">https://heljens-it-services.github.io/agent-files/</a></p>
+      <p><strong>Pflege:</strong> Aenderungen erfolgen im Repository und werden danach nach <code>docs/</code> synchronisiert.</p>
+    </aside>
+
+    <article class="doc-content card markdown-body">
+<pre><code># DEVELOPER.Html.md
+
+Stand: 2026-05-16
+
+## Zweck
+
+Diese Datei definiert HTML- und Markup-Regeln dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Framework- oder technologiespezifische Regeln stehen in passenderen `DEVELOPER.*.md`-Dateien.
+
+[PRIORITY] Diese Regeln gelten fuer HTML-, Template- und Markup-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+
+## HTML und Markup
+
+[MUST] Markup muss schlank, lesbar und semantisch passend bleiben.
+
+[MUST] Markup darf sichtbare Zustaende, Nutzeraktionen und einfache UI-Verzweigungen abbilden.
+
+[MUST_NOT] Markup darf keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
+
+[MUST] Komplexe Darstellungslogik muss aus dem Markup in klar benannte View-Modelle, Properties oder Hilfsstrukturen ausgelagert werden.
+
+[MUST] Kontrollfluss im Markup muss nachvollziehbar bleiben.
+
+[MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
+
+[MUST_NOT] Neue Wrapper-Elemente duerfen nicht eingefuehrt werden, wenn sie keinen klaren Zweck erfuellen.
+
+[MUST] Interaktive Elemente muessen als passende semantische Elemente umgesetzt werden, z. B. `button` fuer Aktionen und `a` fuer Navigation.
+
+[MUST_NOT] Klickbare `div`- oder `span`-Elemente duerfen nicht eingefuehrt werden, wenn ein semantisches Element verwendet werden kann.
+
+[MUST] Formularfelder muessen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
+
+[MUST] Bedingte Darstellung muss alle relevanten Nutzerzustaende abdecken, sofern diese im Flow auftreten koennen: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfuegbar und regulaerer Inhalt.
+</code></pre>
+    </article>
+  </main>
+</body>
+</html>

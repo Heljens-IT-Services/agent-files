@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEVELOPER.CSharpNet | Heljens Agent Files</title>
+  <meta
+    name="description"
+    content="Verbindlich veroeffentlichte Agent- und Developer-Anweisungen von Heljens IT Services."
+  >
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="doc-page">
+  <header class="doc-hero">
+    <div class="doc-hero__inner">
+      <p class="eyebrow">Heljens Agent Files</p>
+      <h1>DEVELOPER.CSharpNet</h1>
+      <p class="lead">
+        Diese Seite wird aus dem Repository generiert und spiegelt den aktuell veroeffentlichten Stand
+        der verbindlichen Agent- und Developer-Anweisungen.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="../../index.html">Zur Startseite</a>
+        <a class="button button--secondary" href="../../reference/index.html">Alle Dateien</a>
+        <a class="button button--secondary" href="https://github.com/Heljens-IT-Services/agent-files/blob/main/files/agents/DEVELOPER.CSharpNet.md">Quelle auf GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-layout">
+    <aside class="doc-meta card">
+      <h2>Metadaten</h2>
+      <p><strong>Quelle:</strong> <code>files/agents/DEVELOPER.CSharpNet.md</code></p>
+      <p><strong>Veroeffentlicht ueber:</strong> <a href="https://heljens-it-services.github.io/agent-files/">https://heljens-it-services.github.io/agent-files/</a></p>
+      <p><strong>Pflege:</strong> Aenderungen erfolgen im Repository und werden danach nach <code>docs/</code> synchronisiert.</p>
+    </aside>
+
+    <article class="doc-content card markdown-body">
+<pre><code># DEVELOPER.CSharpNet.md
+
+Stand: 2026-05-15
+
+## Zweck
+
+Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln dieses Repositories. Sie gilt fuer .NET-Projekte unabhaengig vom konkreten Einstiegstyp wie Worker, Console, WebApi, Bibliothek oder Testprojekt. Anwendungs- oder hostspezifische Regeln stehen in passenderen `DEVELOPER.*.md`-Dateien.
+
+[PRIORITY] Diese Regeln gelten fuer .NET- und C#-Code, sofern keine passendere projektspezifische oder anwendungstypspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+
+## Versionsbasis
+
+[MUST] .NET-Projekte muessen auf `net10.0` zielen.
+
+[MUST] Die Versionen in `global.json`, `.csproj`, `Directory.Build.props` und CI-Konfiguration sind verbindlich.
+
+[MUST] `Nullable` muss aktiviert sein.
+
+[MUST] `ImplicitUsings` muss deaktiviert sein.
+
+## Sprach- und Coderichtlinien
+
+[MUST] File-scoped namespaces muessen verwendet werden.
+
+[MUST] Projektweite Namespaces muessen ausschliesslich ueber `GlobalUsings.cs` verwaltet werden.
+
+[MUST] Jeder oeffentliche Typ muss in einer eigenen Datei liegen.
+
+[SHOULD] Records sollen fuer immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Vertraege Klassen erfordern.
+
+## Module.cs und DI
+
+[MUST] Produktive .NET-Projekte mit eigener DI-Registrierung muessen eine `Module.cs` als zentralen Einstiegspunkt fuer diese Registrierungen verwenden.
+
+[MUST] Wiederverwendbare Schichten oder Projekte mit eigener Registrierungsverantwortung muessen ihre DI-Registrierung ueber klar benannte Erweiterungsmethoden kapseln.
+
+[MUST_IF] Der Methodenname einer DI-Erweiterungsmethode muss zur Projektrolle passen, zum Beispiel `AddCore(...)`, `AddInfrastructure(...)`, `AddConsole(...)`, `AddWebApi(...)` oder `AddWorker(...)`.
+
+[ALLOW] `Program.cs` oder ein anderer Composition Root darf Module wegen transitiver Referenzierung explizit registrieren.
+
+[MUST] Direkte Projektreferenzen muessen die vorgesehenen Architekturgrenzen respektieren und duerfen nicht allein fuer bequeme DI-Registrierung aufgeweicht werden.
+</code></pre>
+    </article>
+  </main>
+</body>
+</html>
