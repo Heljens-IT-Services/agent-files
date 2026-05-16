@@ -36,11 +36,41 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 | Pfad | Zweck |
 |---|---|
 | `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
-| `agents/PROJECT.md` | Projektspezifischer Arbeitskontext, fachliche Leitplanken und Begriffe. |
-| `agents/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
-| `agents/DEVELOPER.*.md` | Passende technologie- oder kontextspezifische Entwicklerregeln. |
+| `https://heljens-it-services.github.io/agent-files/AGENTS.md` | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
+| `https://heljens-it-services.github.io/agent-files/PROJECT.md` | Projektspezifischer Arbeitskontext, fachliche Leitplanken und Begriffe. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` | Technologieuebergreifende Entwicklungsregeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.Project.md` | Projektspezifische technische Leitplanken und Entwicklungsregeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md` | Allgemeine C#- und .NET-Regeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md` | Angular-spezifische Entwicklungsregeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md` | HTML- und Markup-Regeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md` | CSS-, Styling- und UI-nahe Regeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md` | TypeScript-spezifische Entwicklungsregeln. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md` | Regeln fuer .NET-Konsolenanwendungen. |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md` | Regeln fuer .NET-Web-APIs. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und die Dateien `agents/DEVELOPER.*.md` lesen.
+[MUST] Der Agent muss zu Beginn eines Tasks `README.md` lesen, verstehen und befolgen.
+
+[MUST] Der Agent muss zu Beginn eines Tasks `https://heljens-it-services.github.io/agent-files/AGENTS.md` lesen, verstehen und befolgen.
+
+[MUST] Der Agent muss zu Beginn eines Tasks `https://heljens-it-services.github.io/agent-files/PROJECT.md` lesen, verstehen und befolgen.
+
+[MUST] Der Agent muss zu Beginn eines Tasks `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` lesen, verstehen und befolgen.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.Project.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn projektspezifische technische Entscheidungen, projektspezifische Architekturvorgaben oder projektspezifische Entwicklungsregeln fuer das Repository relevant sind.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn C# oder .NET fuer das Repository relevant sind.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn Angular fuer das Repository relevant ist.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn HTML oder Markup fuer das Repository relevant sind.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn CSS, Styling oder UI-nahe Praesentationsregeln fuer das Repository relevant sind.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn TypeScript fuer das Repository relevant ist.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn eine .NET-Konsolenanwendung fuer das Repository relevant ist.
+
+[MUST_IF] Die Datei am Pfad `https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn eine .NET-Web-API fuer das Repository relevant ist.
 
 [ALLOW_IF] Der Agent darf Dateien unter `docs/` lesen, wenn ihr Inhalt fuer die konkrete Aufgabe erforderlich ist und die Datei im Repository vorhanden ist.
 
@@ -56,10 +86,10 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [PRIORITY] Bei widerspruechlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende `agents/DEVELOPER.*.md`.
-2. `agents/DEVELOPER.md`.
-3. `AGENTS.md`.
-4. `agents/PROJECT.md`.
+1. Passende `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md`.
+2. `https://heljens-it-services.github.io/agent-files/DEVELOPER.md`.
+3. `https://heljens-it-services.github.io/agent-files/AGENTS.md`.
+4. `https://heljens-it-services.github.io/agent-files/PROJECT.md`.
 5. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
@@ -70,9 +100,9 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 ## Dokumentenpflege
 
-[MUST_NOT] Der Agent darf `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` nicht automatisch mitpflegen.
+[MUST_NOT] Der Agent darf `README.md`, `https://heljens-it-services.github.io/agent-files/PROJECT.md`, `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` und `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md` nicht automatisch mitpflegen.
 
-[ALLOW_IF] Der Agent darf `README.md`, `agents/PROJECT.md`, `agents/DEVELOPER.md` und `agents/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
+[ALLOW_IF] Der Agent darf `README.md`, `https://heljens-it-services.github.io/agent-files/PROJECT.md`, `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` und `https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md` anpassen, wenn der User die Anpassung ausdruecklich anordnet oder wenn die konkrete Aufgabe die Anpassung dieser Dateien zum Ziel hat.
 
 [MUST_IF] Der Agent muss die Abweichung im Arbeitsabschluss kurz benennen, wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist.
 
@@ -84,10 +114,10 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten. Abweichungen sind erlaubt, wenn ein Repository einzelne Punkte nicht benoetigt oder anders dokumentiert.
 
-[MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in `AGENTS.md`, `agents/` oder `docs/` gehoeren.
+[MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in `https://heljens-it-services.github.io/agent-files/AGENTS.md` oder anderen veroeffentlichten Markdown-Dateien unter `https://heljens-it-services.github.io/agent-files/*.md` gehoeren.
 
 ## PROJECT.md
 
-[SHOULD] `agents/PROJECT.md` soll projektspezifischen Arbeitskontext, fachliche Leitplanken, stabile Begriffe, Abgrenzungen, projektspezifische Architekturgrenzen sowie Branching- und Arbeitskontext enthalten. Abweichungen sind erlaubt, wenn der Projektkontext diese Inhalte noch nicht liefert.
+[SHOULD] `https://heljens-it-services.github.io/agent-files/PROJECT.md` soll projektspezifischen Arbeitskontext, fachliche Leitplanken, stabile Begriffe, Abgrenzungen, projektspezifische Architekturgrenzen sowie Branching- und Arbeitskontext enthalten. Abweichungen sind erlaubt, wenn der Projektkontext diese Inhalte noch nicht liefert.
 
-[MUST_NOT] `agents/PROJECT.md` darf keine README-Dopplung, keine allgemeine Technikdokumentation, keine Issue-Informationen und keine ausufernden Strukturindizes enthalten.
+[MUST_NOT] `https://heljens-it-services.github.io/agent-files/PROJECT.md` darf keine README-Dopplung, keine allgemeine Technikdokumentation, keine Issue-Informationen und keine ausufernden Strukturindizes enthalten.
