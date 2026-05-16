@@ -4,23 +4,9 @@ Stand: 2026-05-13
 
 ## Zweck
 
-Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendungen dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md`. Sie gilt fuer fachlich relevante Konsolenanwendungen mit Eingabe, Konfiguration, externen Datenquellen, Parsing, Workflows, Berechnungen und strukturierten Exporten.
+Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendungen dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md` und `DEVELOPER.CSharpNet.md`. Sie gilt fuer fachlich relevante Konsolenanwendungen mit Eingabe, Konfiguration, externen Datenquellen, Parsing, Workflows, Berechnungen und strukturierten Exporten.
 
 [PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
-
-## Versionsbasis
-
-[MUST] .NET-Konsolenanwendungen muessen auf `net10.0` zielen.
-
-[MUST] Die Versionen in `global.json`, `.csproj`, `Directory.Build.props` und CI-Konfiguration sind verbindlich.
-
-[MUST] `Nullable` muss aktiviert sein.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
-
-[MUST] File-scoped namespaces muessen verwendet werden.
-
-[MUST] Projektweite Namespaces muessen ausschliesslich ueber `GlobalUsings.cs` verwaltet werden.
 
 ## Zielbild
 
@@ -40,9 +26,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 [SHOULD] Die Projektstruktur soll Domain-Driven Design auf Solution-Ebene folgen. Abweichungen sind erlaubt, wenn ein bestehendes Projekt eine andere stabile Struktur vorgibt und die konkrete Aufgabe keine Strukturmigration ist.
 
-[MUST] Die drei Hauptprojekte muessen direkt auf oberster Ebene der Solution liegen.
-
-[MUST_NOT] Die drei Hauptprojekte duerfen nicht unterhalb eines `src/`-Ordners liegen.
+[MUST] Die drei Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
 
 [MUST] `<Name>.Console/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging und DI sein.
 
@@ -143,16 +127,6 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 [MUST_NOT] Logs duerfen fachliche Statusobjekte nicht ersetzen.
 
 ## Code-Regeln
-
-[MUST] File-scoped namespaces und `Nullable` muessen verwendet werden.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
-
-[MUST] Namespaces muessen ueber `GlobalUsings.cs` verwaltet werden.
-
-[MUST] Jeder oeffentliche Typ muss in einer eigenen Datei liegen.
-
-[SHOULD] Records sollen fuer immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Vertraege Klassen erfordern.
 
 [MUST_NOT] Rohe API-DTOs duerfen nicht in `Core` oder `Console` verwendet werden.
 
