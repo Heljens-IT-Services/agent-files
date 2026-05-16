@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>agent-files</title>
+  <meta
+    name="description"
+    content="Vorlagen fuer AGENTS.md sowie projekt- und technologiespezifische Developer-Dateien."
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">Heljens IT Services</p>
+      <h1>agent-files</h1>
+      <p class="lead">
+        Wiederverwendbare Vorlagen fuer AI- und Code-Agenten mit klarer Pflichtlektuere,
+        Prioritaetslogik und technologiespezifischen Entwicklungsregeln.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#zweck">Ueberblick</a>
+        <a class="button button--secondary" href="#struktur">Struktur ansehen</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="zweck">
+      <div class="section__intro">
+        <p class="section-label">Zweck</p>
+        <h2>Ein konsistenter Einstieg fuer neue Repositories</h2>
+        <p>
+          Dieses Repository liefert eine Grundstruktur, mit der Ziel-Repositories
+          ihre Agent-Regeln, Projektkontexte und Developer-Leitplanken sauber
+          aufbauen koennen.
+        </p>
+      </div>
+
+      <div class="grid grid--three">
+        <article class="card">
+          <h3>Pflichtlektuere</h3>
+          <p>
+            Eine Vorlage fuer <code>AGENTS.md</code> definiert Prioritaeten,
+            Konfliktlogik und den Einstieg fuer Agents.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Projektkontext</h3>
+          <p>
+            <code>PROJECT.md</code> und <code>DEVELOPER.Project.md</code> trennen
+            fachliche von technischen Projektspezifika.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Technologie-Regeln</h3>
+          <p>
+            Spezifische Dateien wie fuer Angular, HTML, CSS, TypeScript oder .NET
+            erweitern die allgemeine Basis gezielt pro Stack.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--accent">
+      <div class="section__intro">
+        <p class="section-label">Inhalt</p>
+        <h2>Aktuelle Vorlagen im Repository</h2>
+      </div>
+
+      <div class="template-list">
+        <article class="template-item">
+          <h3>AGENTS.md</h3>
+          <p>Pflichtlektuere, Regelmarker und Vorranglogik fuer Agents.</p>
+        </article>
+        <article class="template-item">
+          <h3>PROJECT.md</h3>
+          <p>Fachlicher Kontext, stabile Begriffe und Abgrenzungen.</p>
+        </article>
+        <article class="template-item">
+          <h3>DEVELOPER.md</h3>
+          <p>Allgemeine Architektur-, Qualitaets-, Security- und Testregeln.</p>
+        </article>
+        <article class="template-item">
+          <h3>DEVELOPER.*.md</h3>
+          <p>Technologie- und kontextspezifische Regeln fuer konkrete Stacks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="struktur">
+      <div class="section__intro">
+        <p class="section-label">Startpunkt</p>
+        <h2>Empfohlene Minimalstruktur</h2>
+      </div>
+
+      <div class="layout">
+        <div class="card card--code">
+          <pre><code>README.md
+AGENTS.md
+agents/
+  PROJECT.md
+  DEVELOPER.md</code></pre>
+        </div>
+        <div class="notes">
+          <p>
+            Darauf aufbauend kommen je nach Projekt weitere
+            <code>DEVELOPER.*.md</code>-Dateien hinzu, um Framework-, UI- oder
+            Backend-spezifische Regeln zu konkretisieren.
+          </p>
+          <p>
+            Die Seite ist bewusst als erste statische Startseite angelegt. Sie
+            kann spaeter problemlos um Doku-Navigation, Beispiele oder eine
+            uebersichtliche Katalogansicht erweitert werden.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
