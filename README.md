@@ -17,6 +17,7 @@ Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 - [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md)
 - [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md)
 - [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md)
+- [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md)
 
 Andere Repositories und Projekte sollen auf diese URLs verweisen, wenn sie die aktuell gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
 
@@ -28,7 +29,8 @@ Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit exp
 
 Typische Nutzung:
 
-- `AGENTS.md` als verbindliche Pflichtlektuere fuer Agents referenzieren
+- `AGENTS.md` und `DEVELOPER.md` als allgemeine Pflichtlektuere fuer Agents referenzieren
+- technologiespezifische `DEVELOPER.*.md`-Dateien nur bei Relevanz fuer den aktuellen Task einlesen
 - eine zusaetzliche `PROJECT.md` fuer Versionsbasis sowie fachliche und technische Projektspezifika pflegen
 - projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
 - andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
@@ -39,7 +41,7 @@ Die veroeffentlichten Dokumente liegen direkt unter `docs/` in flacher Hierarchi
 
 Aktuell relevante Dateien sind:
 
-| Pfad | Url | Zweck |
+| Pfad | URL | Zweck |
 |---|---|---|
 | `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents. |
 | `docs/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
@@ -59,10 +61,10 @@ Aenderungen an den Agent- und Developer-Anweisungen erfolgen direkt in diesen Ma
 
 Die Regeln verwenden dazu Marker wie `MUST`, `MUST_IF`, `MUST_NOT`, `ALLOW`, `ALLOW_IF`, `SHOULD`, `OPTIONAL` und `PRIORITY`, damit die normative Bedeutung jeder Anweisung moeglichst eindeutig bleibt.
 
-Zusaetzlich muss eine eigene `PROJECT.md` gehalten werden. Diese Datei enthaelt mindestens die Versionsbasis des konkreten Projekts und kann fachliche oder technische Leitplanken festhalten, die nur fuer dieses Projekt gelten. Sie ist nicht Teil der allgemeinen veroeffentlichten Referenz unter GitHub Pages, sondern bewusst als projektspezifische Ergaenzung gedacht.
+Konsumierende Projekt-Repositories muessen zusaetzlich eine eigene `PROJECT.md` halten. Diese Datei enthaelt mindestens die Versionsbasis des konkreten Projekts und kann fachliche oder technische Leitplanken festhalten, die nur fuer dieses Projekt gelten. Sie ist nicht Teil der allgemeinen veroeffentlichten Referenz unter GitHub Pages, sondern bewusst als projektspezifische Ergaenzung gedacht.
 
 ## Verwendung in Projekten
 
-Andere Repositories koennen direkt auf die benoetigten Dokumente unter GitHub Pages verweisen, zum Beispiel [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) oder [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md).
+Andere Repositories koennen direkt auf die benoetigten Dokumente unter GitHub Pages verweisen, zum Beispiel [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md), [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) oder [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md).
 
 Damit ist klar, welche Fassung jeweils veroeffentlicht und referenziert wird.

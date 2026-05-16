@@ -88,27 +88,27 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Code muss SOLID beachten, insbesondere das Single-Responsibility-Prinzip.
 
-## UI- und Präsentationsregeln
+## UI- und Praesentationsregeln
 
-[MUST] UI-Code muss Nutzerintentionen, sichtbare Zustände und fachliche Abläufe klar trennen.
+[MUST] UI-Code muss Nutzerintentionen, sichtbare Zustaende und fachliche Ablaeufe klar trennen.
 
-[MUST] Views, Pages und Components dürfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
+[MUST] Views, Pages und Components duerfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
 
-[MUST] Sichtbare Zustände wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` müssen explizit modelliert werden, wenn sie für den Nutzer relevant sind.
+[MUST] Sichtbare Zustaende wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` muessen explizit modelliert werden, wenn sie fuer den Nutzer relevant sind.
 
 [MUST_NOT] UI-Code darf technische Fehler, interne IDs, Debug-Daten oder Infrastrukturdetails nicht ungefiltert sichtbar machen.
 
 [MUST_NOT] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
 
-[MUST] Layout- und Styling-Änderungen müssen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
+[MUST] Layout- und Styling-Aenderungen muessen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
 
-[MUST_NOT] UI-Änderungen dürfen keine unnötigen Wrapper, neuen Styling-Konzepte oder redundanten Komponentenvarianten einführen.
+[MUST_NOT] UI-Aenderungen duerfen keine unnoetigen Wrapper, neuen Styling-Konzepte oder redundanten Komponentenvarianten einfuehren.
 
-[MUST] Interaktive UI muss semantische Elemente, Tastaturbedienung, Fokusführung, Labels und verständliche Fehlermeldungen berücksichtigen.
+[MUST] Interaktive UI muss semantische Elemente, Tastaturbedienung, Fokusfuehrung, Labels und verstaendliche Fehlermeldungen beruecksichtigen.
 
-[MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
+[MUST] UI-Tests muessen sichtbares Verhalten, Nutzerzustaende, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse pruefen.
 
-[MUST_NOT] UI-Tests dürfen nicht primär DOM-Struktur, CSS-Klassen oder private Implementierungsdetails prüfen.
+[MUST_NOT] UI-Tests duerfen nicht primaer DOM-Struktur, CSS-Klassen oder private Implementierungsdetails pruefen.
 
 ## Fehlerbehandlung
 

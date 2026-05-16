@@ -31,7 +31,7 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 ## Pflichtlektuere
 
-Agents lesen zu Beginn eines Tasks diese Dateien:
+Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Allgemeine Pflichtdateien muessen immer gelesen werden; technologiespezifische Dateien muessen nur gelesen werden, wenn ihr Scope fuer den aktuellen Task relevant ist.
 
 | Pfad | Zweck |
 |---|---|
@@ -79,10 +79,10 @@ Agents lesen zu Beginn eines Tasks diese Dateien:
 
 [PRIORITY] Bei widerspruechlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md).
-2. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
-3. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
-4. `PROJECT.md`, sofern im konkreten Repository vorhanden und fuer den Scope einschlaegig.
+1. `PROJECT.md`, sofern im konkreten Repository vorhanden und fuer den Scope einschlaegig.
+2. Passende [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md).
+3. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
+4. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
 5. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
