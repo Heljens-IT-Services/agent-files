@@ -15,7 +15,6 @@ Dieses Repository ist ein GitHub-Pages-Projekt. Die Pages-Ausgabe wird aus dem B
 Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 
 - `https://heljens-it-services.github.io/agent-files/AGENTS.md`
-- `https://heljens-it-services.github.io/agent-files/PROJECT.md`
 - `https://heljens-it-services.github.io/agent-files/DEVELOPER.md`
 - `https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md`
 
@@ -42,9 +41,7 @@ Aktuell relevante Dateien sind:
 | Pfad | Url | Zweck |
 |---|---|---|
 | `docs/AGENTS.md` | `https://heljens-it-services.github.io/agent-files/AGENTS.md` | Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents. |
-| `docs/PROJECT.md` | `https://heljens-it-services.github.io/agent-files/PROJECT.md` | Projektspezifischer Arbeitskontext, Begriffe und fachliche Leitplanken. |
 | `docs/DEVELOPER.md` | `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` | Allgemeine technologieuebergreifende Entwicklungsregeln. |
-| `docs/DEVELOPER.Project.md` | `https://heljens-it-services.github.io/agent-files/DEVELOPER.Project.md` | Projektspezifische technische Leitplanken und Entwicklungsregeln. |
 | `docs/DEVELOPER.CSharpNet.md` | `https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md` | Allgemeine C#- und .NET-Regeln. |
 | `docs/DEVELOPER.Angular.md` | `https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md` | Angular-spezifische Entwicklungsregeln. |
 | `docs/DEVELOPER.Html.md` | `https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md` | HTML- und Markup-Regeln. |
