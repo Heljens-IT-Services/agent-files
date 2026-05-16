@@ -1,28 +1,20 @@
-﻿<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DEVELOPER.NetConsole</title>
-</head>
-<body>
-<pre><code># DEVELOPER.NetConsole.md
+# DEVELOPER.NetConsole.md
 
 Stand: 2026-05-13
 
 ## Zweck
 
-Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendungen dieses Repositories. Allgemeine Regeln stehen in `DEVELOPER.md` und `DEVELOPER.CSharpNet.md`. Sie gilt fuer fachlich relevante Konsolenanwendungen mit Eingabe, Konfiguration, externen Datenquellen, Parsing, Workflows, Berechnungen und strukturierten Exporten.
+Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendungen. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) und [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md). Sie gilt fuer fachlich relevante Konsolenanwendungen mit Eingabe, Konfiguration, externen Datenquellen, Parsing, Workflows, Berechnungen und strukturierten Exporten.
 
-[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus `DEVELOPER.md`.
+[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
 
 ## Zielbild
 
-[MUST] .NET-Konsolenanwendungen muessen aus genau drei produktiven Projekten innerhalb einer Solution bestehen: `&lt;Name&gt;.Console`, `&lt;Name&gt;.Infrastructure` und `&lt;Name&gt;.Core`.
+[MUST] .NET-Konsolenanwendungen muessen aus genau drei produktiven Projekten innerhalb einer Solution bestehen: `<Name>.Console`, `<Name>.Infrastructure` und `<Name>.Core`.
 
 [ALLOW] Testprojekte duerfen zusaetzlich angelegt werden.
 
-[MUST] Die Referenzrichtung muss `Console -&gt; Infrastructure -&gt; Core` sein.
+[MUST] Die Referenzrichtung muss `Console -> Infrastructure -> Core` sein.
 
 [MUST] `Core` muss die fachliche Mitte mit Domain, Use Cases, Ports, Services, Ergebnisobjekten und fachlichen Fehlern sein.
 
@@ -36,19 +28,19 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 [MUST] Die drei Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
 
-[MUST] `&lt;Name&gt;.Console/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging und DI sein.
+[MUST] `<Name>.Console/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging und DI sein.
 
-[MUST_NOT] `&lt;Name&gt;.Console/Program.cs` darf keine Fachlogik enthalten.
+[MUST_NOT] `<Name>.Console/Program.cs` darf keine Fachlogik enthalten.
 
-[ALLOW] `&lt;Name&gt;.Console/appsettings.json` darf Runtime-Konfiguration fuer Provider, Timeouts, Retry, Export und fachliche Settings enthalten.
+[ALLOW] `<Name>.Console/appsettings.json` darf Runtime-Konfiguration fuer Provider, Timeouts, Retry, Export und fachliche Settings enthalten.
 
-[MUST_NOT] `&lt;Name&gt;.Console/appsettings.json` darf keine Secrets enthalten.
+[MUST_NOT] `<Name>.Console/appsettings.json` darf keine Secrets enthalten.
 
-[MUST] `&lt;Name&gt;.Infrastructure/` muss technische Implementierungen enthalten, `Core` referenzieren und von `Console` referenziert werden.
+[MUST] `<Name>.Infrastructure/` muss technische Implementierungen enthalten, `Core` referenzieren und von `Console` referenziert werden.
 
-[MUST] `&lt;Name&gt;.Core/` muss fachliche Modelle, Ports, Use Cases, Workflows und fachliche Regeln enthalten.
+[MUST] `<Name>.Core/` muss fachliche Modelle, Ports, Use Cases, Workflows und fachliche Regeln enthalten.
 
-[MUST_NOT] `&lt;Name&gt;.Core/` darf `Console` oder `Infrastructure` nicht referenzieren.
+[MUST_NOT] `<Name>.Core/` darf `Console` oder `Infrastructure` nicht referenzieren.
 
 ## Module.cs und DI
 
@@ -58,7 +50,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 [ALLOW] `Program.cs` darf wegen transitiver Referenzierung alle drei Module explizit registrieren.
 
-[MUST] Die direkte Projektreferenz muss `Console -&gt; Infrastructure -&gt; Core` bleiben.
+[MUST] Die direkte Projektreferenz muss `Console -> Infrastructure -> Core` bleiben.
 
 ## Projekt- und Referenzregeln
 
@@ -145,6 +137,3 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 [MUST] Infrastrukturtests muessen Adapter, Provider, Parser, Retry, Serialisierung, Export und Konfigurationsbindung ohne instabile Live-Dienste pruefen.
 
 [MUST] Konsolentests muessen Eingabe, Ausgabe, Host-Start und DI-Verkabelung deterministisch pruefen.
-</code></pre>
-</body>
-</html>

@@ -1,144 +1,70 @@
 # agent-files
 
-`agent-files` enthaelt wiederverwendbare Vorlagen fuer `AGENTS.md` sowie projekt-, technologie- und kontextspezifische Dateien unter `agents/` bei Heljens IT Services.
+`agent-files` enthaelt die verbindlich veroeffentlichten Agent- und Developer-Anweisungen von Heljens IT Services.
 
-Das Repository dient als Vorlage fuer Ziel-Repositories, in denen AI-/Code-Agents klare Pflichtlektuere, Prioritaeten, Projektkontext und Entwicklungsregeln erhalten sollen.
+Das Repository ist bewusst einfach aufgebaut: Die relevanten Markdown-Dateien liegen direkt unter `docs/` und werden von GitHub Pages unmittelbar veroeffentlicht. Es gibt keine separate HTML-, CSS- oder Build-Schicht.
 
 ## GitHub Pages
 
-Die veroeffentlichte Referenzansicht liegt unter:
+Die veroeffentlichte Referenz liegt unter:
 
-`https://heljens-it-services.github.io/agent-files/`
+[GitHub Pages](https://heljens-it-services.github.io/agent-files/)
 
-Diese GitHub Page ist die zentrale, online referenzierbare Single Source of Truth fuer den aktuell veroeffentlichten Stand der Agent- und Developer-Anweisungen von Heljens IT Services.
+Dieses Repository ist ein GitHub-Pages-Projekt. Die Pages-Ausgabe wird aus dem Branch `main` und dem Ordner `docs/` bereitgestellt.
 
-GitHub Pages ist bereits wie folgt konfiguriert:
+Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 
-- Branch: `main`
-- Source folder: `/docs`
+- [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md)
+- [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md)
+- [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md)
+- [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md)
 
-Andere Repositories sollen auf diese Pages-URL verweisen, wenn sie die gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
+Andere Repositories und Projekte sollen auf diese URLs verweisen, wenn sie die aktuell gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
 
 ## Zweck
 
-Dieses Repository vereinheitlicht die Grundstruktur fuer Agent-Regeln und Developer-Leitplanken in Projekten.
+Das Repository dient als zentrale, online referenzierbare Single Source of Truth fuer Agent- und Developer-Anweisungen.
+
+Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit expliziten Regelmarkern, um Verpflichtungen, Verbote, Erlaubnisse, Prioritaeten und bedingte Geltungsbereiche fuer Agents und Entwicklungsassistenten klar und maschinenlesbar zu formulieren.
 
 Typische Nutzung:
 
-- neue Repositories mit konsistenten Agent- und Developer-Dateien aufsetzen
-- bestehende Repositories auf klare Regeldateien und Verantwortlichkeiten ausrichten
-- AI-/Code-Agents mit eindeutiger Pflichtlektuere und Konfliktlogik steuern
-- wiederverwendbare allgemeine, projektbezogene und technologiespezifische Regeln bereitstellen
+- `AGENTS.md` und `DEVELOPER.md` als allgemeine Pflichtlektuere fuer Agents referenzieren
+- technologiespezifische `DEVELOPER.*.md`-Dateien nur bei Relevanz fuer den aktuellen Task einlesen
+- eine zusaetzliche `PROJECT.md` fuer Versionsbasis sowie fachliche und technische Projektspezifika pflegen
+- projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
+- andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
 
 ## Struktur
 
-Die Vorlagen liegen in diesem Repository unter `files/`.
+Die veroeffentlichten Dokumente liegen direkt unter `docs/` in flacher Hierarchie.
 
-Beim Uebernehmen in ein Ziel-Repository werden sie in die Zielstruktur kopiert:
+Aktuell relevante Dateien sind:
 
-- `files/AGENTS.md` wird zu `AGENTS.md`
-- `files/agents/` wird zu `agents/`
-
-## Wichtige Dateien
-
-| Pfad | Zweck |
-|---|---|
-| `files/AGENTS.md` | Vorlage fuer `AGENTS.md` in Ziel-Repositories. |
-| `files/agents/PROJECT.md` | Vorlage fuer projektspezifischen Arbeitskontext, Begriffe, Abgrenzungen und fachliche Leitplanken. |
-| `files/agents/DEVELOPER.md` | Vorlage fuer allgemeine Architektur-, Qualitaets-, Security- und Testregeln. |
-| `files/agents/DEVELOPER.Project.md` | Vorlage fuer projektspezifische technische Leitplanken und Entwicklungsregeln. |
-| `files/agents/DEVELOPER.CSharpNet.md` | Vorlage fuer allgemeine C#- und .NET-Regeln unabhaengig vom Einstiegstyp. |
-| `files/agents/DEVELOPER.Angular.md` | Vorlage fuer Angular-spezifische Entwicklungsregeln. |
-| `files/agents/DEVELOPER.Html.md` | Vorlage fuer HTML- und Markup-Regeln. |
-| `files/agents/DEVELOPER.Css.md` | Vorlage fuer CSS-, Styling- und praesentationsnahe UI-Regeln. |
-| `files/agents/DEVELOPER.TypeScript.md` | Vorlage fuer TypeScript-spezifische Entwicklungsregeln. |
-| `files/agents/DEVELOPER.NetConsole.md` | Vorlage fuer .NET-Konsolenanwendungen auf Basis von `net10.0`. |
-| `files/agents/DEVELOPER.NetWebApi.md` | Vorlage fuer .NET-Web-APIs auf Basis von `net10.0`. |
-
-## Veroeffentlichung nach docs/
-
-Die inhaltlich verbindlichen Quelldateien werden ausschliesslich unter `files/` gepflegt.
-
-Die GitHub-Page-Ausgabe unter `docs/` wird daraus erzeugt, damit keine zweite manuell gepflegte Version derselben Inhalte entsteht.
-
-Dafuer steht das Script `scripts/sync-docs.ps1` bereit. Es erzeugt:
-
-- `docs/index.html` als Startseite der Referenzdokumentation
-- `docs/reference/*.html` als lesbare HTML-Seiten fuer die relevanten Markdown-Dateien
-
-Nach Aenderungen an Agent-/Developer-Anweisungen sollte das Script erneut ausgefuehrt werden:
-
-```powershell
-./scripts/sync-docs.ps1
-```
-
-Inhaltliche Aenderungen erfolgen im Repository und nicht direkt auf der Webseite.
-
-## Dokumentenmodell
-
-Die Zieldokumente sind bewusst getrennt:
-
-- `AGENTS.md` definiert Pflichtlektuere, Prioritaeten und die verwendeten Regelmarker.
-- `agents/PROJECT.md` enthaelt projektspezifischen Arbeitskontext, stabile Begriffe, Abgrenzungen und fachliche Leitplanken.
-- `agents/DEVELOPER.md` enthaelt technologieuebergreifende Entwicklungsregeln.
-- `agents/DEVELOPER.Project.md` enthaelt projektspezifische technische Leitplanken und Entwicklungsregeln.
-- `agents/DEVELOPER.*.md` enthaelt technologiespezifische Regeln fuer passende Kontexte.
-
-Die Agent-Dateien verwenden ein kompaktes Marker-System wie `[MUST]`, `[MUST_IF]`, `[MUST_NOT]`, `[ALLOW]`, `[ALLOW_IF]`, `[SHOULD]`, `[OPTIONAL]` und `[PRIORITY]`.
-
-Bei widerspruechlichen Vorgaben gilt die Prioritaetslogik aus `AGENTS.md`.
-
-## Verwendung in Projekten
-
-Minimal empfohlen im Ziel-Repository:
-
-```text
-README.md
-AGENTS.md
-agents/
-  PROJECT.md
-  DEVELOPER.md
-```
-
-Je nach Projekt kommen weitere Dateien hinzu, zum Beispiel:
-
-```text
-agents/DEVELOPER.Project.md
-agents/DEVELOPER.CSharpNet.md
-agents/DEVELOPER.Angular.md
-agents/DEVELOPER.Html.md
-agents/DEVELOPER.Css.md
-agents/DEVELOPER.TypeScript.md
-agents/DEVELOPER.NetConsole.md
-agents/DEVELOPER.NetWebApi.md
-```
+| Pfad | URL | Zweck |
+|---|---|---|
+| `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents. |
+| `docs/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
+| `docs/DEVELOPER.CSharpNet.md` | [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) | Allgemeine C#- und .NET-Regeln. |
+| `docs/DEVELOPER.Angular.md` | [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) | Angular-spezifische Entwicklungsregeln. |
+| `docs/DEVELOPER.Html.md` | [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) | HTML- und Markup-Regeln. |
+| `docs/DEVELOPER.Css.md` | [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) | CSS-, Styling- und UI-nahe Regeln. |
+| `docs/DEVELOPER.TypeScript.md` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) | TypeScript-spezifische Entwicklungsregeln. |
+| `docs/DEVELOPER.NetConsole.md` | [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
+| `docs/DEVELOPER.NetWebApi.md` | [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
 
 ## Pflege
 
-Dieses Repository ist eine lebende Vorlage. Regel- und Strukturaenderungen sollen direkt in der jeweils passenden Datei gepflegt werden.
+Die Dateien unter `docs/` sind die veroeffentlichten Quelldateien.
 
-Pflegegrundsatz:
+Aenderungen an den Agent- und Developer-Anweisungen erfolgen direkt in diesen Markdown-Dateien. Es gibt bewusst keine separate Generierung und keinen zusaetzlichen Sync-Schritt.
 
-- allgemeine Regeln in `files/agents/DEVELOPER.md`
-- projektspezifisches Fachwissen in `files/agents/PROJECT.md`
-- projektspezifische technische Entscheidungen in `files/agents/DEVELOPER.Project.md`
-- technologiespezifische Regeln in `files/agents/DEVELOPER.*.md`
-- Agent-Prioritaeten und Pflichtlektuere in `files/AGENTS.md`
+Die Regeln verwenden dazu Marker wie `MUST`, `MUST_IF`, `MUST_NOT`, `ALLOW`, `ALLOW_IF`, `SHOULD`, `OPTIONAL` und `PRIORITY`, damit die normative Bedeutung jeder Anweisung moeglichst eindeutig bleibt.
 
-## Status
+Konsumierende Projekt-Repositories muessen zusaetzlich eine eigene `PROJECT.md` halten. Diese Datei enthaelt mindestens die Versionsbasis des konkreten Projekts und kann fachliche oder technische Leitplanken festhalten, die nur fuer dieses Projekt gelten. Sie ist nicht Teil der allgemeinen veroeffentlichten Referenz unter GitHub Pages, sondern bewusst als projektspezifische Ergaenzung gedacht.
 
-Stand: 2026-05-16.
+## Verwendung in Projekten
 
-Aktuell enthaelt das Repository Vorlagen fuer:
+Andere Repositories koennen direkt auf die benoetigten Dokumente unter GitHub Pages verweisen, zum Beispiel [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md), [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) oder [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md).
 
-- allgemeine Agent-Regeln
-- allgemeine technologieuebergreifende Developer-Regeln
-- projektspezifischen Projektkontext
-- projektspezifische technische Leitplanken
-- allgemeine C#- und .NET-Regeln
-- Angular
-- HTML und Markup
-- CSS und Styling
-- TypeScript
-- .NET-Konsolenanwendungen
-- .NET-Web-APIs
+Damit ist klar, welche Fassung jeweils veroeffentlicht und referenziert wird.

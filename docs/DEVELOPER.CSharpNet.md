@@ -4,19 +4,9 @@ Stand: 2026-05-15
 
 ## Zweck
 
-Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln dieses Repositories. Sie gilt fuer .NET-Projekte unabhaengig vom konkreten Einstiegstyp wie Worker, Console, WebApi, Bibliothek oder Testprojekt. Anwendungs- oder hostspezifische Regeln stehen in passenderen `DEVELOPER.*.md`-Dateien.
+Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln. Sie gilt fuer .NET-Projekte unabhaengig vom konkreten Einstiegstyp wie Worker, Console, WebApi, Bibliothek oder Testprojekt. Anwendungs- oder hostspezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien.
 
 [PRIORITY] Diese Regeln gelten fuer .NET- und C#-Code, sofern keine passendere projektspezifische oder anwendungstypspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
-
-## Versionsbasis
-
-[MUST] .NET-Projekte muessen auf `net10.0` zielen.
-
-[MUST] Die Versionen in `global.json`, `.csproj`, `Directory.Build.props` und CI-Konfiguration sind verbindlich.
-
-[MUST] `Nullable` muss aktiviert sein.
-
-[MUST] `ImplicitUsings` muss deaktiviert sein.
 
 ## Sprach- und Coderichtlinien
 
