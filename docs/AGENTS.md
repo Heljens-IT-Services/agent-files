@@ -31,11 +31,11 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 ## Pflichtlektuere
 
-Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Allgemeine Pflichtdateien muessen immer gelesen werden; technologiespezifische Dateien muessen nur gelesen werden, wenn ihr Scope fuer den aktuellen Task relevant ist.
+Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgemeine Regeldateien muessen immer gelesen werden; kontextabhaengige oder technologiespezifische Dateien muessen gelesen werden, wenn ihr Scope fuer den aktuellen Task relevant ist.
 
 | Pfad | Zweck |
 |---|---|
-| `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
+| `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos; bei Task-Relevanz zu beruecksichtigen. |
 | `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken. |
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
 | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Technologieuebergreifende Entwicklungsregeln. |
@@ -47,13 +47,13 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Allgemeine Pflichtda
 | [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
 | [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks `README.md` lesen, verstehen und befolgen.
-
 [MUST] Der Agent muss zu Beginn eines Tasks [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) lesen, verstehen und befolgen.
 
 [MUST] Die Datei am Pfad `PROJECT.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden.
 
 [MUST] Der Agent muss zu Beginn eines Tasks [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) lesen, verstehen und befolgen.
+
+[MUST_IF] Der Agent muss pruefen, ob `README.md` fuer den aktuellen Task relevant ist, und sie bei Bedarf lesen, verstehen und beruecksichtigen.
 
 [MUST_IF] Die Datei [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn C# oder .NET relevant sind.
 
