@@ -72,7 +72,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [ALLOW] README-Dateien, Architektur-Notizen, API-Beschreibungen, Beispielaufrufe oder externe Dokumentation duerfen Quellcode-Kommentare ergaenzen.
 
-[MUST_NOT] Externe Dokumentation darf notwendiges Verstaendnis nicht ersetzen, wenn dieses Verstaendnis direkt am Code gebraucht wird.
+[MUST_NOT_IF] Externe Dokumentation darf notwendiges Verstaendnis nicht ersetzen, wenn dieses Verstaendnis direkt am Code gebraucht wird.
 
 ## Design Patterns und Prinzipien
 
@@ -94,11 +94,11 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Views, Pages und Components duerfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
 
-[MUST] Sichtbare Zustaende wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` muessen explizit modelliert werden, wenn sie fuer den Nutzer relevant sind.
+[MUST_IF] Sichtbare Zustaende wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` muessen explizit modelliert werden, wenn sie fuer den Nutzer relevant sind.
 
 [MUST_NOT] UI-Code darf technische Fehler, interne IDs, Debug-Daten oder Infrastrukturdetails nicht ungefiltert sichtbar machen.
 
-[MUST_NOT] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
+[MUST_NOT_IF] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
 
 [MUST] Layout- und Styling-Aenderungen muessen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
 
