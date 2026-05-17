@@ -12,7 +12,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs. Allgeme
 
 [MUST] .NET-Web-API-Anwendungen muessen mindestens diese drei produktiven Hauptprojekte innerhalb einer Solution enthalten: `<Name>.WebApi`, `<Name>.Infrastructure` und `<Name>.Core`.
 
-[ALLOW] Testprojekte und weitere produktive Projekte duerfen zusaetzlich angelegt werden, wenn sie eine klar begrenzte Verantwortung haben und die Abhaengigkeitsrichtung respektieren.
+[ALLOW_IF] Testprojekte und weitere produktive Projekte duerfen zusaetzlich angelegt werden, wenn sie eine klar begrenzte Verantwortung haben und die Abhaengigkeitsrichtung respektieren.
 
 [MUST] Die Referenzrichtung muss `WebApi -> Infrastructure -> Core` sein.
 
@@ -166,7 +166,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Web APIs. Allgeme
 
 [MUST_NOT] Logs duerfen stabile Client-Fehlervertraege nicht ersetzen.
 
-[MUST] Correlation IDs, strukturierte Logs und Health Checks muessen fuer produktionsnahe Web APIs vorhanden sein.
+[MUST_IF] Correlation IDs, strukturierte Logs und Health Checks muessen vorhanden sein, wenn Web APIs produktionsnah sind.
 
 ## OpenAPI und API-Versionierung
 

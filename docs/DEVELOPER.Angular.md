@@ -41,7 +41,7 @@ flowchart TD
 
 [MUST] Facades oder Component Services muessen Nutzeraktionen aus der View in klar benannte Operationen uebersetzen, z. B. `saveDraft`, `loadDetails`, `confirmSelection` oder `refresh`.
 
-[MUST] Facades oder Component Services duerfen View-nahe Koordination enthalten, z. B. Laden, Speichern, Fehlerabbildung, Navigation nach erfolgreicher Aktion oder Zusammenbau eines View-Models.
+[ALLOW] Facades oder Component Services duerfen View-nahe Koordination enthalten, z. B. Laden, Speichern, Fehlerabbildung, Navigation nach erfolgreicher Aktion oder Zusammenbau eines View-Models.
 
 [MUST_NOT] Facades oder Component Services duerfen technische Details wie konkrete HTTP-Endpunkte, IndexedDB-Stores oder Storage-Schluessel offenlegen.
 
@@ -53,7 +53,7 @@ flowchart TD
 
 [MUST_NOT] Feature Stores duerfen keine Template-spezifischen Layout- oder Anzeigeentscheidungen enthalten.
 
-[MUST] Ein Global Store oder Global State Service darf nur app-weiten Zustand halten, der von mehreren Features benoetigt wird, z. B. angemeldeter Nutzer, Berechtigungen, Mandant, Sprache, Online-Status oder globale Konfiguration.
+[MUST] Ein Global Store oder Global State Service muss auf app-weiten Zustand beschraenkt bleiben, der von mehreren Features benoetigt wird, z. B. angemeldeter Nutzer, Berechtigungen, Mandant, Sprache, Online-Status oder globale Konfiguration.
 
 [MUST_NOT] Feature-spezifischer Zustand darf nicht in globalen State verschoben werden, nur weil mehrere Komponenten desselben Features ihn brauchen.
 
@@ -65,13 +65,13 @@ flowchart TD
 
 [MUST] Repository- oder Adapter-Services kapseln lokale Persistenz wie IndexedDB, LocalStorage oder Cache-Schichten.
 
-[MUST] Repository- oder Adapter-Services duerfen Speicherformat, Keys, Versionierung und Migration kennen.
+[ALLOW] Repository- oder Adapter-Services duerfen Speicherformat, Keys, Versionierung und Migration kennen.
 
 [MUST_NOT] Repository- oder Adapter-Services duerfen nicht entscheiden, welche Nutzeraktion fachlich erlaubt ist.
 
 [MUST] Worker-Services kapseln Hintergrundarbeit und stellen eine abbrechbare, klar benannte API bereit.
 
-[MUST_NOT] Worker-Aufrufe duerfen nicht direkt aus Components gestartet werden, wenn sie fachlichen Zustand, Persistenz oder API-Kommunikation beeinflussen.
+[MUST_NOT_IF] Worker-Aufrufe duerfen nicht direkt aus Components gestartet werden, wenn sie fachlichen Zustand, Persistenz oder API-Kommunikation beeinflussen.
 
 ## Standardstruktur
 
@@ -132,7 +132,7 @@ src/app/
 
 [MUST] Listen muessen stabile fachliche `track`-Ausdruecke verwenden.
 
-[MUST_NOT] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schluessel verfuegbar sind.
+[MUST_NOT_IF] Array-Index darf nicht als `track` verwendet werden, wenn fachliche IDs oder stabile Schluessel verfuegbar sind.
 
 ## UI-Aenderungen durch Agents
 

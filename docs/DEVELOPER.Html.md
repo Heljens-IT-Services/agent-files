@@ -12,7 +12,7 @@ Diese Datei definiert HTML- und Markup-Regeln. Allgemeine Regeln stehen in [DEVE
 
 [MUST] Markup muss schlank, lesbar und semantisch passend bleiben.
 
-[MUST] Markup darf sichtbare Zustaende, Nutzeraktionen und einfache UI-Verzweigungen abbilden.
+[ALLOW] Markup darf sichtbare Zustaende, Nutzeraktionen und einfache UI-Verzweigungen abbilden.
 
 [MUST_NOT] Markup darf keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
 
@@ -22,12 +22,12 @@ Diese Datei definiert HTML- und Markup-Regeln. Allgemeine Regeln stehen in [DEVE
 
 [MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
 
-[MUST_NOT] Neue Wrapper-Elemente duerfen nicht eingefuehrt werden, wenn sie keinen klaren Zweck erfuellen.
+[MUST_NOT_IF] Neue Wrapper-Elemente duerfen nicht eingefuehrt werden, wenn sie keinen klaren Zweck erfuellen.
 
 [MUST] Interaktive Elemente muessen als passende semantische Elemente umgesetzt werden, z. B. `button` fuer Aktionen und `a` fuer Navigation.
 
-[MUST_NOT] Klickbare `div`- oder `span`-Elemente duerfen nicht eingefuehrt werden, wenn ein semantisches Element verwendet werden kann.
+[MUST_NOT_IF] Klickbare `div`- oder `span`-Elemente duerfen nicht eingefuehrt werden, wenn ein semantisches Element verwendet werden kann.
 
 [MUST] Formularfelder muessen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
 
-[MUST] Bedingte Darstellung muss alle relevanten Nutzerzustaende abdecken, sofern diese im Flow auftreten koennen: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfuegbar und regulaerer Inhalt.
+[MUST_IF] Bedingte Darstellung muss alle relevanten Nutzerzustaende abdecken, sofern diese im Flow auftreten koennen: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfuegbar und regulaerer Inhalt.
