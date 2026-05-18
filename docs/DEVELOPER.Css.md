@@ -18,14 +18,14 @@ Diese Datei definiert CSS-, Styling- und praesentationsnahe UI-Regeln. Allgemein
 
 [MUST_NOT] Globale Styles duerfen nicht fuer lokale Component-Probleme erweitert werden.
 
-[MUST_NOT] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
+[MUST_NOT_IF] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
 
 [MUST_NOT] Styling-Aenderungen duerfen keine ungenutzten Klassen, doppelten Regeln oder widerspruechlichen Layout-Mechanismen einfuehren.
 
 [MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints muessen bestehenden Projektkonventionen folgen.
 
-[MUST_NOT] Magic Numbers in CSS duerfen nicht eingefuehrt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
+[MUST_NOT_IF] Magic Numbers in CSS duerfen nicht eingefuehrt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
 
-[MUST] Responsive Verhalten muss bei layoutrelevanten Aenderungen beruecksichtigt werden.
+[MUST_IF] Responsive Verhalten muss bei layoutrelevanten Aenderungen beruecksichtigt werden.
 
 [MUST] Kontraste, Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand muessen visuell nachvollziehbar sein.

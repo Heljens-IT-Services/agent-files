@@ -13,6 +13,8 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 [MUST_NOT] Der Agent darf die beschriebene Handlung nicht ausfuehren.
 
+[MUST_NOT_IF] Der Agent darf die beschriebene Handlung nicht ausfuehren, wenn die genannte Bedingung erfuellt ist.
+
 [ALLOW] Der Agent darf die Handlung ausfuehren, ist aber nicht dazu verpflichtet.
 
 [ALLOW_IF] Der Agent darf die Handlung nur ausfuehren, wenn die genannte Bedingung erfuellt ist.
@@ -27,7 +29,7 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 [MUST] Regelmarker sind Modalitaets-Annotationen. Die natuerliche Formulierung der Regel muss weiterhin vollstaendig, verstaendlich und operativ sein.
 
-[MUST_NOT] Der Agent darf keine weiteren Regelmarker einfuehren, solange einer der oben definierten Marker die beabsichtigte Modalitaet ausdrueckt.
+[MUST_NOT_IF] Der Agent darf keine weiteren Regelmarker einfuehren, solange einer der oben definierten Marker die beabsichtigte Modalitaet ausdrueckt.
 
 ## Pflichtlektuere
 
@@ -93,11 +95,11 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 
 ## Dokumentenpflege
 
-[MUST_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdruecklich verlangt.
+[ALLOW_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdruecklich verlangt.
 
-[MUST] Der Agent muss `PROJECT.md` anlegen, wenn sie im konkreten Repository noch nicht vorhanden ist.
+[MUST_IF] Der Agent muss `PROJECT.md` anlegen, wenn sie im konkreten Repository noch nicht vorhanden ist.
 
-[MUST] Der Agent muss `PROJECT.md` mitpflegen, wenn die Versionsbasis des konkreten Projekts festgelegt, geaendert, praezisiert oder dokumentiert werden soll.
+[MUST_IF] Der Agent muss `PROJECT.md` mitpflegen, wenn die Versionsbasis des konkreten Projekts festgelegt, geaendert, praezisiert oder dokumentiert werden soll.
 
 [MUST_IF] Der Agent muss `PROJECT.md` mitpflegen, wenn im konkreten Repository fachliche oder technische projektspezifische Leitplanken festgelegt, geaendert, praezisiert oder dokumentiert werden sollen.
 
@@ -109,7 +111,7 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 
 [SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten. Abweichungen sind erlaubt, wenn ein Repository einzelne Punkte nicht benoetigt oder anders dokumentiert.
 
-[MUST_NOT] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder anderen veroeffentlichten Markdown-Dateien unter [agent-files/*.md](https://heljens-it-services.github.io/agent-files/) gehoeren.
+[MUST_NOT_IF] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder anderen veroeffentlichten Markdown-Dateien unter [agent-files/*.md](https://heljens-it-services.github.io/agent-files/) gehoeren.
 
 ## PROJECT.md
 
@@ -127,6 +129,6 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 ## Technische Leitplanken
 ```
 
-[MUST_NOT] `PROJECT.md` darf allgemeine technologieuebergreifende Regeln oder technologiespezifische Standardvorgaben nicht duplizieren, wenn diese bereits in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) oder passenden [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien definiert sind.
+[MUST_NOT_IF] `PROJECT.md` darf allgemeine technologieuebergreifende Regeln oder technologiespezifische Standardvorgaben nicht duplizieren, wenn diese bereits in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) oder passenden [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien definiert sind.
 
 [SHOULD] `PROJECT.md` soll projektspezifische fachliche und technische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren, damit Agents repositoryspezifische Vorgaben lesen, verstehen und befolgen koennen.
