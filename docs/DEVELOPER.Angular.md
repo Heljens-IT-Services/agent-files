@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-05-16
+Stand: 2026-05-20
 
 ## Zweck
 
@@ -98,8 +98,9 @@ src/app/
     pipes/
   features/
     <feature>/
-      pages/
+      page/
       components/
+        <component-name>/
       models/
       services/
       store/
@@ -115,6 +116,14 @@ src/app/
 [MUST] `src/app/features/` muss fachliche Features enthalten.
 
 [MUST] Feature-Ordner muessen UI, Logik und lokale Modelle eines Features kapseln.
+
+[MUST] Jedes Feature muss genau eine fachliche Hauptkomponente unter `<feature>/page/` enthalten. Diese Komponente repraesentiert den primaeren Einstiegspunkt des Features.
+
+[SHOULD] Die Hauptkomponente des Features soll bevorzugt per Route angesteuert werden.
+
+[MUST] Hilfskomponenten, Teilansichten und Subkomponenten eines Features muessen unter `<feature>/components/` liegen.
+
+[MUST] Feature-Komponenten unter `<feature>/components/` muessen jeweils in einem eigenen Ordner nach dem Schema `<feature>/components/<component-name>/` organisiert werden.
 
 [MUST] `src/app/app.routes.ts` muss die Routen der Anwendung definieren.
 
