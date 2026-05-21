@@ -10,57 +10,61 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 ## Zielbild
 
-[MUST] .NET-Konsolenanwendungen muessen aus genau drei produktiven Projekten innerhalb einer Solution bestehen: `<Name>.Console`, `<Name>.Infrastructure` und `<Name>.Core`.
+[MUST] .NET-Konsolenanwendungen muessen mindestens diese produktiven Hauptprojekte innerhalb einer Solution enthalten: mindestens ein Entry-Projekt fuer die Konsolenanwendung, `<Name>.Infrastructure` und `<Name>.Core`.
 
-[ALLOW] Testprojekte duerfen zusaetzlich angelegt werden.
+[ALLOW_IF] Testprojekte und weitere produktive Projekte duerfen zusaetzlich angelegt werden, wenn sie eine klar begrenzte Verantwortung haben und die Abhaengigkeitsrichtung respektieren.
 
-[MUST] Die Referenzrichtung muss `Console -> Infrastructure -> Core` sein.
+[ALLOW_IF] Mehrere Entry-Projekte duerfen angelegt werden, wenn sie klar getrennte Use-Case- oder Streckenverantwortung haben.
+
+[MUST] Die Referenzrichtung muss `Entry -> Infrastructure -> Core` sein.
 
 [MUST] `Core` muss die fachliche Mitte mit Domain, Use Cases, Ports, Services, Ergebnisobjekten und fachlichen Fehlern sein.
 
 [MUST] `Infrastructure` muss technische Details und Ports aus `Core` implementieren.
 
-[MUST] `Console` muss Composition Root fuer Host, Konfiguration, DI sowie Ein- und Ausgabe sein.
+[MUST] Jedes Entry-Projekt muss Composition Root fuer Host, Konfiguration, DI sowie Ein- und Ausgabe sein.
 
 ## Standardstruktur
 
 [SHOULD] Die Projektstruktur soll Domain-Driven Design auf Solution-Ebene folgen. Abweichungen sind erlaubt, wenn ein bestehendes Projekt eine andere stabile Struktur vorgibt und die konkrete Aufgabe keine Strukturmigration ist.
 
-[MUST] Die drei Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
+[MUST] Die Hauptprojekte muessen als klar getrennte produktive Projekte innerhalb der Solution angelegt werden.
 
-[MUST] `<Name>.Console/Program.cs` muss Composition Root fuer Host, Konfiguration, Logging und DI sein.
+[MUST] Zusaetzliche produktive Projekte muessen fachlich oder technisch klar begruendet sein und duerfen keine Rueckreferenzen in `Core` erzwingen.
 
-[MUST_NOT] `<Name>.Console/Program.cs` darf keine Fachlogik enthalten.
+[MUST] Jedes Entry-Projekt muss eine `Program.cs` als Composition Root fuer Host, Konfiguration, Logging und DI enthalten.
 
-[ALLOW] `<Name>.Console/appsettings.json` darf Runtime-Konfiguration fuer Provider, Timeouts, Retry, Export und fachliche Settings enthalten.
+[MUST_NOT] `Program.cs` in einem Entry-Projekt darf keine Fachlogik enthalten.
 
-[MUST_NOT] `<Name>.Console/appsettings.json` darf keine Secrets enthalten.
+[ALLOW] Jedes Entry-Projekt darf eine eigene `appsettings.json` mit Runtime-Konfiguration fuer Provider, Timeouts, Retry, Export und fachliche Settings enthalten.
 
-[MUST] `<Name>.Infrastructure/` muss technische Implementierungen enthalten, `Core` referenzieren und von `Console` referenziert werden.
+[MUST_NOT] `appsettings.json` in einem Entry-Projekt darf keine Secrets enthalten.
+
+[MUST] `<Name>.Infrastructure/` muss technische Implementierungen enthalten, `Core` referenzieren und von jedem Entry-Projekt referenziert werden.
 
 [MUST] `<Name>.Core/` muss fachliche Modelle, Ports, Use Cases, Workflows und fachliche Regeln enthalten.
 
-[MUST_NOT] `<Name>.Core/` darf `Console` oder `Infrastructure` nicht referenzieren.
+[MUST_NOT] `<Name>.Core/` darf kein Entry-Projekt oder `Infrastructure` referenzieren.
 
 ## Module.cs und DI
 
-[MUST] Jedes der drei Hauptprojekte muss eine `Module.cs` als zentralen Einstiegspunkt fuer die DI-Registrierung enthalten.
+[MUST] `Infrastructure`, `Core` und jedes Entry-Projekt muessen eine `Module.cs` als zentralen Einstiegspunkt fuer die DI-Registrierung enthalten.
 
 [MUST] Die Methodennamen muessen `AddConsole(...)`, `AddInfrastructure(...)` und `AddCore(...)` lauten.
 
-[ALLOW] `Program.cs` darf wegen transitiver Referenzierung alle drei Module explizit registrieren.
+[ALLOW] `Program.cs` eines Entry-Projekts darf wegen transitiver Referenzierung die benoetigten Module explizit registrieren.
 
-[MUST] Die direkte Projektreferenz muss `Console -> Infrastructure -> Core` bleiben.
+[MUST] Die direkte Projektreferenz muss `Entry -> Infrastructure -> Core` bleiben.
 
 ## Projekt- und Referenzregeln
 
-[MUST] `Console` muss `Infrastructure` referenzieren.
+[MUST] Jedes Entry-Projekt muss `Infrastructure` referenzieren.
 
 [MUST] `Infrastructure` muss `Core` referenzieren.
 
 [MUST_NOT] `Core` darf kein produktives Projekt referenzieren.
 
-[MUST] `Console` muss technische Implementierungen ueber DI kennen.
+[MUST] Jedes Entry-Projekt muss technische Implementierungen ueber DI kennen.
 
 [MUST] Ports muessen in `Core` liegen.
 
@@ -82,7 +86,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 ## Console und Bootstrap
 
-[MUST] `Program.cs` muss Generic Host, Konfiguration, Logging und DI aufbauen und genau eine Console Application oder einen Use Case Runner starten.
+[MUST] `Program.cs` in jedem Entry-Projekt muss Generic Host, Konfiguration, Logging und DI aufbauen und genau eine Console Application oder einen Use Case Runner starten.
 
 [MUST] Ein- und Ausgabelogik muss in `Services/` liegen und deterministisch testbar sein.
 
@@ -108,7 +112,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 ## Konfiguration
 
-[MUST] Konfiguration muss in `Console` geladen und in `Infrastructure` typisiert gebunden und validiert werden.
+[MUST] Konfiguration muss in jedem Entry-Projekt geladen und in `Infrastructure` typisiert gebunden und validiert werden.
 
 [MUST] Pflichtkonfiguration muss frueh mit klarer Fehlermeldung scheitern.
 
@@ -128,7 +132,7 @@ Diese Datei definiert .NET-spezifische Entwicklungsregeln fuer Konsolenanwendung
 
 ## Code-Regeln
 
-[MUST_NOT] Rohe API-DTOs duerfen nicht in `Core` oder `Console` verwendet werden.
+[MUST_NOT] Rohe API-DTOs duerfen nicht in `Core` oder in Entry-Projekten verwendet werden.
 
 ## Unit Tests, Workflow-Tests und Infrastrukturtests
 
