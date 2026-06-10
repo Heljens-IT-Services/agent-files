@@ -52,9 +52,17 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Eine Funktion oder Methode muss eine klar erkennbare Aufgabe auf einer Abstraktionsebene erfuellen.
 
+[SHOULD] Funktionen und Methoden sollen in der Regel nicht mehr als ca. 15 Zeilen fachlich relevanten Code enthalten.
+
+[SHOULD] Wird dieser Richtwert ueberschritten, soll geprueft werden, ob Verantwortlichkeiten getrennt oder Hilfsmethoden extrahiert werden sollten.
+
 [MUST] Klassen, Komponenten und Services muessen hohe Kohaesion und niedrige Kopplung haben.
 
 [MUST] Oeffentliche Typen, zentrale Einstiegspunkte und wiederverwendbare Bausteine muessen eine erkennbare, begrenzte Verantwortung haben.
+
+[SHOULD] Klassen, Komponenten und Services sollen eine klar benennbare Hauptverantwortung haben. Wenn ein Typ mehrere fachlich oder technisch getrennte Gruende zur Aenderung enthaelt, soll geprueft werden, ob er aufgeteilt werden sollte.
+
+[MUST_NOT] Klassen, Komponenten und Services duerfen nicht allein zur Einhaltung numerischer Groessenrichtwerte so aufgeteilt werden, dass fachliche Zusammenhaenge, Lesefluss oder Wartbarkeit schlechter werden.
 
 [SHOULD] Dead Code, ungenutzte Feature-Flags, veraltete TODOs und auskommentierter Code sollen geloescht werden, wenn sie im Scope der Aufgabe liegen.
 
