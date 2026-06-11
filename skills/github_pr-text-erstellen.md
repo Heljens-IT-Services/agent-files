@@ -23,6 +23,31 @@ Erzeuge einen klaren Pull-Request-Text fuer Review und Merge.
 3. Test- und Verifikationsstatus angeben.
 4. Risiken, offene Punkte oder Review-Fokus ergaenzen.
 
+## Empfohlene Kommandos
+
+```powershell
+git status --short --branch
+git diff --stat
+git log --oneline --decorate -5
+gh pr status
+gh pr list --head <branch-name>
+```
+
+Wenn ein Pull Request erstellt werden soll:
+
+```powershell
+gh pr create --draft --title "<pr-titel>" --body "<pr-body>" --base <basis-branch> --head <branch-name>
+gh pr view --json title,body,state,url,baseRefName,headRefName
+```
+
+Wenn ein Issue als Kontext dient:
+
+```powershell
+gh issue view <issue-nummer> --comments
+```
+
+`<branch-name>`, `<basis-branch>`, `<pr-titel>`, `<pr-body>` und `<issue-nummer>` muessen aus dem aktuellen Repository-Kontext abgeleitet werden.
+
 ## Output
 
 - PR-Titel

@@ -25,6 +25,20 @@ Erstelle und wechsle auf einen geeigneten Arbeitsbranch, ausgehend von der Defau
 5. Den neuen Branch von der Basis erstellen und auschecken.
 6. Ergebnis verifizieren und die verwendete Basis festhalten.
 
+## Empfohlene Kommandos
+
+```powershell
+git status --short --branch
+git fetch origin
+git rev-parse <basis-branch> origin/<basis-branch>
+git switch <basis-branch>
+git merge --ff-only origin/<basis-branch>
+git switch -c <neuer-branch> <basis-branch>
+git status --short --branch
+```
+
+`<basis-branch>` ist typischerweise `develop` oder `main`. `<neuer-branch>` soll aus Aufgabe und Scope abgeleitet werden.
+
 ## Output
 
 - verwendete Basis-Branch

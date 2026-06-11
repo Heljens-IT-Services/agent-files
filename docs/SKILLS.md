@@ -20,6 +20,16 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 [MUST_IF] Der Agent muss Abweichungen von einem passenden Skill oder Workflow kurz begruenden, wenn der aktuelle Task einen konkreten fachlichen, technischen oder sicherheitsrelevanten Grund dafuer liefert.
 
+## Skripte und Kommandos
+
+[ALLOW] Skills duerfen CLI-, PowerShell- oder Shell-Kommandos direkt in der jeweiligen Skill-Markdown-Datei dokumentieren.
+
+[MUST_IF] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Arbeitskontext pruefen und Parameter wie Branch-Namen, Pfade oder Remote-Namen passend ersetzen.
+
+[MUST_NOT] Der Agent darf dokumentierte Kommandos nicht blind ausfuehren, wenn sie destruktiv, extern wirksam oder fuer den aktuellen Kontext unpassend sind.
+
+[SHOULD] Dokumentierte Kommandos sollen als Beispiele oder empfohlene Pruefschritte formuliert werden und nicht als separate Script-Dateien ausgelagert werden, solange der Skill mit wenigen Kommandos auskommt.
+
 
 ## Skills
 

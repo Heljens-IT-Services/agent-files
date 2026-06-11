@@ -22,6 +22,25 @@ Pruefe einen Aenderungssatz auf Korrektheit, Scope-Treue und unerwuenschte Neben
 3. Risiken, Regressionen und fehlende Absicherungen markieren.
 4. Falls sinnvoll konkrete Nachbesserungen empfehlen.
 
+## Empfohlene Kommandos
+
+```powershell
+git status --short --branch
+git diff --stat
+git diff
+git diff --cached --stat
+git diff --cached
+```
+
+Bei groesseren Aenderungen koennen gezielte Datei- oder Suchkommandos helfen:
+
+```powershell
+git diff -- <pfad>
+rg "<symbol-oder-begriff>"
+```
+
+`<pfad>` und `<symbol-oder-begriff>` muessen aus dem aktuellen Review-Scope abgeleitet werden.
+
 ## Output
 
 - Kurzbewertung

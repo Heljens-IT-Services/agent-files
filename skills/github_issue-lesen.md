@@ -23,6 +23,23 @@ Uebersetze ein bestehendes Ticket in eine klare, technisch verwertbare Arbeitsgr
 4. Technische Annahmen und betroffene Bereiche ableiten.
 5. Einen sinnvollen naechsten Arbeitsschritt empfehlen.
 
+## Empfohlene Kommandos
+
+```powershell
+gh issue view <issue-nummer> --comments
+gh issue view <issue-nummer> --json title,body,state,labels,assignees,comments,url
+gh issue list --state open --limit 20
+```
+
+Wenn das Issue mit Pull Requests oder Branches verknuepft ist:
+
+```powershell
+gh issue view <issue-nummer> --web
+gh pr list --search "<issue-nummer>"
+```
+
+`<issue-nummer>` muss aus User-Anweisung, Branch-Namen, Commit-Text oder Repository-Kontext abgeleitet werden.
+
 ## Output
 
 - Kurzfassung

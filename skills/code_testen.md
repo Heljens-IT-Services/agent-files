@@ -23,6 +23,17 @@ Pruefe, ob eine Aenderung technisch und funktional wie erwartet wirkt.
 3. Ergebnisse auf Fehler, Warnungen oder Luecken bewerten.
 4. Nicht ausgefuehrte Pruefungen transparent benennen.
 
+## Empfohlene Kommandos
+
+```powershell
+dotnet test
+npm test
+npm run test
+npm run build
+```
+
+Die tatsaechlichen Kommandos muessen aus Projektdateien, README, Package-Skripten, Solution-Dateien oder bestehenden CI-Konfigurationen abgeleitet werden. Nicht passende Beispielkommandos duerfen nicht ausgefuehrt werden.
+
 ## Output
 
 - ausgefuehrte Pruefungen
