@@ -2,25 +2,20 @@
 
 ## Zweck
 
-Pruefe einen Aenderungssatz auf Korrektheit, Scope-Treue und unerwuenschte Nebeneffekte.
+Einen Aenderungssatz auf Scope, Korrektheit und Risiken pruefen.
 
-## Wann verwenden
+## Verwenden
 
 - Vor Commit oder Pull Request.
-- Nach groesseren oder riskanten Aenderungen.
-- Wenn unbeabsichtigte Formatierungs- oder Nebenaenderungen moeglich sind.
-
-## Input
-
-- aktueller Diff oder Change-Set
-- optional: Ziel des Tickets oder Implementierungsplans
+- Nach riskanten oder groesseren Aenderungen.
+- Wenn unbeabsichtigte Neben- oder Formatierungsaenderungen moeglich sind.
 
 ## Vorgehen
 
 1. Diff gegen Ziel und Scope abgleichen.
-2. Unerwartete Dateiaenderungen oder Scope-Ausweitung suchen.
-3. Risiken, Regressionen und fehlende Absicherungen markieren.
-4. Falls sinnvoll konkrete Nachbesserungen empfehlen.
+2. Unerwartete Dateien, Hunks und Nebeneffekte suchen.
+3. Regressionen, fehlende Tests und riskante Annahmen markieren.
+4. Versandbereitschaft knapp bewerten.
 
 ## Empfohlene Kommandos
 
@@ -30,26 +25,21 @@ git diff --stat
 git diff
 git diff --cached --stat
 git diff --cached
-```
-
-Bei groesseren Aenderungen koennen gezielte Datei- oder Suchkommandos helfen:
-
-```powershell
 git diff -- <pfad>
 rg "<symbol-oder-begriff>"
 ```
 
-`<pfad>` und `<symbol-oder-begriff>` muessen aus dem aktuellen Review-Scope abgeleitet werden.
+Platzhalter aus dem Review-Scope ableiten.
 
 ## Output
 
-- Kurzbewertung
-- auffaellige Dateien oder Hunks
-- Risiken oder Inkonsistenzen
-- empfohlene Nacharbeiten
+- Bewertung: versandbereit oder nicht
+- relevante Befunde
+- Risiken
+- notwendige Nacharbeit
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Fokus auf echte Risiken statt Stilkleinigkeiten.
+- Echte Risiken vor Stilfragen.
 - Scope-Abweichungen klar benennen.
-- Review soll die Frage beantworten, ob der Aenderungssatz versandbereit ist.
+- Nicht nur zusammenfassen, sondern bewerten.

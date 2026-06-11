@@ -30,22 +30,21 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 [SHOULD] Dokumentierte Kommandos sollen als Beispiele oder empfohlene Pruefschritte formuliert werden und nicht als separate Script-Dateien ausgelagert werden, solange der Skill mit wenigen Kommandos auskommt.
 
-
 ## Skills
 
 | Skill | Pfad | Zweck |
 |---|---|---|
-| Code Analyse | `../skills/code_analyse.md` | Problem, Ursache, Auswirkungen und Risiken untersuchen. |
+| Code Analyse | `../skills/code_analyse.md` | Ursache, Auswirkungen und Risiken eines Code-Problems klaeren. |
 | Code Brainstorming | `../skills/code_brainstorming.md` | Loesungsoptionen erzeugen und vergleichen. |
 | Code Diff Review | `../skills/code_diff-review.md` | Aenderungssatz auf Scope, Risiken und Nebeneffekte pruefen. |
-| Code Implementieren | `../skills/code_implementieren.md` | Geplante Codeaenderung umsetzen. |
-| Code Implementierungsplanung | `../skills/code_implementierungsplanung.md` | Technischen Umsetzungsplan erstellen. |
-| Code Refactoring | `../skills/code_refactoring.md` | Struktur verbessern, ohne Verhalten unbeabsichtigt zu aendern. |
-| Code Testen | `../skills/code_testen.md` | Aenderung technisch und funktional pruefen. |
-| Code Verstehen | `../skills/code_verstehen.md` | Bestehenden Code, Struktur und Datenfluss erklaeren. |
+| Code Implementieren | `../skills/code_implementieren.md` | Geklaerte Codeaenderung mit minimalem Scope umsetzen. |
+| Code Implementierungsplanung | `../skills/code_implementierungsplanung.md` | Anforderung in konkrete Umsetzungsschritte und Verifikation ueberfuehren. |
+| Code Refactoring | `../skills/code_refactoring.md` | Struktur verbessern, ohne beabsichtigtes Verhalten zu aendern. |
+| Code Testen | `../skills/code_testen.md` | Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifizieren. |
+| Code Verstehen | `../skills/code_verstehen.md` | Bestehenden Code erklaeren, ohne Ursachen oder Loesungen zu bewerten. |
 | GitHub Branch Checkout From Default | `../skills/github_branch-checkout-from-default.md` | Arbeitsbranch von der Standardbasis erstellen und auschecken. |
-| GitHub Commit Vorbereiten | `../skills/github_commit-vorbereiten.md` | Commit logisch schneiden und Commit-Message vorbereiten. |
-| GitHub Issue Erstellen | `../skills/github_issue-erstellen.md` | Aus Kontext ein umsetzbares GitHub-Issue formulieren. |
+| GitHub Commit Vorbereiten | `../skills/github_commit-vorbereiten.md` | Aenderungssatz logisch schneiden und committen. |
+| GitHub Issue Erstellen | `../skills/github_issue-erstellen.md` | GitHub-Issue mit Typ und relevanten Relationen erstellen. |
 | GitHub Issue Lesen | `../skills/github_issue-lesen.md` | GitHub-Issue in Ziel, Scope und offene Fragen uebersetzen. |
 | GitHub PR Text Erstellen | `../skills/github_pr-text-erstellen.md` | Pull-Request-Titel und Beschreibung vorbereiten. |
 

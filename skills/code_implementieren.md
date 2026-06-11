@@ -2,38 +2,35 @@
 
 ## Zweck
 
-Setze eine geplante Aenderung im Code zielgerichtet um.
+Eine geklaerte Aenderung mit minimalem Scope im Code umsetzen.
 
-## Wann verwenden
+## Verwenden
 
 - Wenn Ziel, Scope und Richtung ausreichend klar sind.
-- Wenn aus einem Plan oder Ticket konkrete Codeaenderungen folgen sollen.
-
-## Input
-
-- Implementierungsziel oder Ticket
-- optional: Implementierungsplan, betroffene Dateien, Tests
-- optional: betroffener Sprachtyp, zum Beispiel Backend-Code oder HTML/CSS
+- Nicht verwenden, wenn erst Ursache, Optionen oder Plan geklaert werden muessen.
 
 ## Vorgehen
 
-1. Ziel und betroffene Bereiche verifizieren.
-2. Aenderung mit minimal notwendigem Scope umsetzen.
-3. Die Struktur an den betroffenen Sprachtyp anpassen.
-4. Bestehende Patterns und Konventionen einhalten.
-5. Relevante Tests oder Verifikation ausfuehren.
-6. Ergebnis kurz gegen Ziel und Risiken pruefen.
+1. Ziel, Scope und betroffene Dateien pruefen.
+2. Aenderung entlang bestehender Patterns umsetzen.
+3. Struktur an den Sprachtyp anpassen.
+4. Relevante Verifikation ausfuehren.
+5. Ergebnis gegen Ziel, Scope und Risiken pruefen.
+
+## Sprachtyp-Regel
+
+- Backend: Logik, Orchestrierung, Datenzugriff und Hilfen trennen, wenn Verantwortungen sonst vermischt werden.
+- HTML/CSS: DOM und Styling direkt halten; unnoetige Wrapper, Helferklassen und tiefe Verschachtelung vermeiden.
 
 ## Output
 
-- umgesetzte Codeaenderung
-- kurze Aenderungszusammenfassung
-- Test- oder Verifikationsstatus
+- umgesetzte Aenderung
+- kurze Zusammenfassung
+- Verifikationsstatus
 - bekannte Restpunkte
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
 - Keine ungeplanten Nebenaenderungen.
-- Bestehende Architektur und Stilregeln respektieren.
-- Verifikation nicht ueberspringen, wenn sie moeglich ist.
-- Die gewaehlte Struktur muss zum Sprachtyp passen: mehr Trennung im Backend, weniger Overhead in HTML/CSS.
+- Bestehende Architektur und Konventionen respektieren.
+- Nicht behaupten, etwas sei getestet, ohne die Pruefung zu nennen.

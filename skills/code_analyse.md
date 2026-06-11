@@ -2,37 +2,31 @@
 
 ## Zweck
 
-Untersuche ein Problem systematisch und leite daraus belastbare Schlussfolgerungen ab.
+Ursachen, Auswirkungen und Risiken eines konkreten Code-Problems klaeren.
 
-## Wann verwenden
+## Verwenden
 
-- Bei Bugs, Fehlverhalten oder unklaren Seiteneffekten.
-- Vor groesseren Aenderungen oder Architekturentscheidungen.
-- Wenn Ursachen, Auswirkungen oder Risiken verstanden werden muessen.
-
-## Input
-
-- Problemstellung oder Beobachtung
-- optional: Reproduktion, Logs, betroffene Dateien, Ticket oder Fehlermeldung
+- Bei Bugs, Fehlverhalten, unklaren Seiteneffekten oder Architekturfragen.
+- Nicht verwenden, wenn nur bestehender Code erklaert werden soll. Dann `code_verstehen` nutzen.
 
 ## Vorgehen
 
-1. Problem und beobachtetes Verhalten praezisieren.
-2. Relevante Codebereiche und technische Zusammenhaenge identifizieren.
-3. Ursachenhypothesen ableiten und gegeneinander pruefen.
-4. Betroffene Seiteneffekte, Schnittstellen und Risiken bewerten.
-5. Ergebnis in umsetzbare Erkenntnisse ueberfuehren.
+1. Beobachtung, erwartetes Verhalten und betroffenen Scope trennen.
+2. Relevante Codepfade, Datenfluesse und Abhaengigkeiten pruefen.
+3. Ursachenhypothesen bilden und mit Evidenz abgleichen.
+4. Risiken, Seiteneffekte und betroffene Schnittstellen benennen.
+5. Ergebnis als Befund mit naechstem Schritt formulieren.
 
 ## Output
 
 - Problemdefinition
-- relevante Befunde
-- wahrscheinlichste Ursache oder Ursachen
-- Auswirkungen und Risiken
+- Befunde mit Evidenz
+- wahrscheinlichste Ursache
+- Risiken und Auswirkungen
 - empfohlener naechster Schritt
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Analyse von Loesungsentwurf trennen.
-- Unsicherheit klar markieren.
-- Keine Scheingenauigkeit bei unvollstaendiger Evidenz.
+- Keine Loesung verkaufen, bevor die Ursache belastbar ist.
+- Unsicherheit explizit markieren.
+- Dateipfade, Symbole oder Logs nennen, wenn sie die Aussage stuetzen.

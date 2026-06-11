@@ -2,38 +2,31 @@
 
 ## Zweck
 
-Erzeuge, erweitere und bewerte moegliche Loesungsoptionen zu einer Fragestellung.
+Mehrere plausible Loesungsrichtungen erzeugen und gegeneinander bewerten.
 
-## Wann verwenden
+## Verwenden
 
-- Wenn noch keine klare Loesungsrichtung feststeht.
-- Wenn mehrere technische oder fachliche Wege verglichen werden sollen.
-- Wenn Risiken, Alternativen oder Chancen gesammelt werden sollen.
-
-## Input
-
-- Fragestellung oder Ziel
-- bekannte Randbedingungen
-- optional: bestehende Optionen oder Praeferenzen
+- Wenn Ziel oder Loesungsweg offen ist.
+- Wenn Tradeoffs zwischen mehreren technischen oder fachlichen Optionen gebraucht werden.
+- Nicht verwenden, wenn bereits implementiert werden soll. Dann planen oder umsetzen.
 
 ## Vorgehen
 
-1. Problem oder Ziel knapp zusammenfassen.
-2. Mehrere plausible Optionen erzeugen.
-3. Optionen nach Aufwand, Risiko, Nutzen und Passung vergleichen.
-4. Offene Fragen und Annahmen sichtbar machen.
-5. Falls sinnvoll eine bevorzugte Richtung empfehlen.
+1. Ziel und Randbedingungen knapp fixieren.
+2. Drei bis fuenf realistische Optionen bilden.
+3. Optionen nach Nutzen, Aufwand, Risiko und Passung vergleichen.
+4. Annahmen und offene Fragen sichtbar machen.
+5. Eine Richtung empfehlen, wenn die Evidenz reicht.
 
 ## Output
 
-- Kurzfassung der Fragestellung
-- Optionenliste
-- Vor- und Nachteile je Option
+- Optionen
+- Tradeoffs
 - Empfehlung
-- offene Fragen oder Risiken
+- offene Fragen
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Nicht vorschnell auf eine einzige Loesung verengen.
-- Unterschiede zwischen Optionen explizit machen.
+- Keine Scheinvielfalt durch Varianten derselben Idee.
+- Empfehlung nur mit Begruendung.
 - Annahmen klar von Fakten trennen.

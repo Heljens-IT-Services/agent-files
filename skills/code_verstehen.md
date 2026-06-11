@@ -2,37 +2,36 @@
 
 ## Zweck
 
-Erklaere bestehenden Code, seine Struktur, Verantwortlichkeiten und Datenfluesse.
+Bestehenden Code erklaeren: Einstiegspunkte, Verantwortlichkeiten, Ablauf und Abhaengigkeiten.
 
-## Wann verwenden
+## Verwenden
 
-- Wenn ein unbekannter Codebereich verstanden werden soll.
-- Wenn vor Analyse, Planung oder Umsetzung zuerst Orientierung noetig ist.
-- Wenn Zusammenhaenge zwischen Dateien oder Modulen erklaert werden sollen.
-
-## Input
-
-- Datei, Verzeichnis, Modul oder Featurebereich
-- optional: konkrete Frage zum Verhalten oder Design
+- Wenn Orientierung in einem unbekannten Codebereich gebraucht wird.
+- Wenn der User fragt, wie etwas funktioniert.
+- Nicht verwenden, wenn Ursachen, Risiken oder Loesungen bewertet werden sollen. Dann `code_analyse` nutzen.
 
 ## Vorgehen
 
-1. Relevante Dateien und Einstiegspunkte identifizieren.
-2. Hauptverantwortlichkeiten benennen.
-3. Datenfluss, Kontrollfluss und Abhaengigkeiten erklaeren.
-4. Wichtige Typen, Schnittstellen, Services oder Komponenten hervorheben.
-5. Unklare oder riskante Stellen markieren.
+1. Relevante Dateien und Einstiegspunkte finden.
+2. Verantwortlichkeiten und Grenzen benennen.
+3. Kontrollfluss, Datenfluss und Abhaengigkeiten erklaeren.
+4. Auffaellige oder unklare Stellen markieren.
+
+## Sprachtyp-Hinweise
+
+- Backend: Verantwortlichkeiten, Schnittstellen, Seiteneffekte und Datenfluss betonen.
+- HTML/CSS: DOM-Struktur, Semantik, Selektoren, Layout-Verantwortung und Verschachtelung betonen.
 
 ## Output
 
 - Kurzueberblick
-- zentrale Dateien oder Module
+- zentrale Dateien oder Symbole
 - Ablaufbeschreibung
-- wichtige Abhaengigkeiten
-- offene Fragen oder Auffaelligkeiten
+- Abhaengigkeiten
+- offene Fragen
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Erklaerung auf den relevanten Scope begrenzen.
-- Zwischen beobachtetem Verhalten und Vermutungen unterscheiden.
-- Wenn moeglich mit konkreten Dateipfaden oder Symbolen arbeiten.
+- Nur den relevanten Scope erklaeren.
+- Beobachtung und Vermutung trennen.
+- Konkrete Dateipfade oder Symbole verwenden, wenn moeglich.

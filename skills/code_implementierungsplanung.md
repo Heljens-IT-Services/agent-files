@@ -2,44 +2,26 @@
 
 ## Zweck
 
-Ueberfuehre Anforderungen oder Analyseergebnisse in einen konkreten technischen Umsetzungsplan.
+Eine Anforderung in einen konkreten, testbaren Umsetzungsplan ueberfuehren.
 
-## Wann verwenden
+## Verwenden
 
 - Vor nicht-trivialen Codeaenderungen.
-- Wenn mehrere Dateien, Schichten oder Systeme betroffen sind.
-- Wenn Tests, Rollout oder Risiken vorab strukturiert werden sollen.
-
-## Input
-
-- Zielbild, Issue oder Analyseergebnis
-- optional: bekannte Einschraenkungen oder Architekturvorgaben
-- optional: betroffener Sprachtyp, zum Beispiel Backend-Code oder HTML/CSS
+- Wenn mehrere Dateien, Schichten oder Risiken betroffen sind.
+- Nicht verwenden, wenn der naechste Schritt offensichtlich und klein ist.
 
 ## Vorgehen
 
-1. Zielzustand und Definition of Done festhalten.
-2. Betroffene Dateien, Module oder Schichten identifizieren.
-3. Den Sprachtyp beruecksichtigen und die Zielstruktur daran ausrichten.
-4. Aenderungsschritte in sinnvoller Reihenfolge formulieren.
-5. Test- und Verifikationsstrategie festlegen.
-6. Risiken, Abhaengigkeiten und Rueckfalloptionen benennen.
+1. Zielzustand und Definition of Done fixieren.
+2. Betroffene Bereiche und Schnittstellen benennen.
+3. Strukturentscheidung an den Sprachtyp anpassen.
+4. Umsetzungsschritte in Ausfuehrungsreihenfolge formulieren.
+5. Verifikation und Risiken festlegen.
 
-## Sprachtyp-Leitlinien
+## Sprachtyp-Regel
 
-### Backend-Sprachen
-
-- Verantwortlichkeiten frueh trennen, wenn Logik sonst unklar oder zu eng gekoppelt wuerde.
-- Abhaengigkeiten und Schnittstellen bewusst planen.
-- Verschachtelung oder zusätzliche Abstraktion ist akzeptabel, wenn sie Verantwortungen sauber trennt.
-- Auf Wartbarkeit, Testbarkeit und Erweiterbarkeit optimieren.
-
-### HTML und CSS
-
-- Struktur moeglichst flach und direkt halten.
-- Zusätzliche Wrapper, Hilfskonstrukte oder Selektor-Komplexitaet nur einfuehren, wenn sie einen klaren Nutzen haben.
-- Auf geringe Verschachtelung, niedrigen Overhead und klare Lesbarkeit im Markup oder Styling optimieren.
-- Verantwortlichkeiten eher ueber semantische Struktur und einfache Klassenzustaendigkeiten trennen als ueber tiefe Schachtelung.
+- Backend: Verantwortlichkeiten, Abhaengigkeiten und testbare Grenzen bewusst trennen. Mehr Struktur ist akzeptabel, wenn sie Kopplung reduziert.
+- HTML/CSS: Markup und Styling flach halten. Wrapper, Selektorketten und Abstraktion nur einfuehren, wenn sie konkret vereinfachen.
 
 ## Output
 
@@ -47,11 +29,10 @@ Ueberfuehre Anforderungen oder Analyseergebnisse in einen konkreten technischen 
 - betroffene Bereiche
 - Umsetzungsschritte
 - Testplan
-- Risiken und offene Punkte
+- Risiken oder offene Punkte
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Schritte muessen konkret genug fuer die Umsetzung sein.
-- Plan soll auf den kleinsten sinnvollen Scope optimieren.
-- Tests und Verifikation nicht auslassen.
-- Strukturentscheidungen sollen zum betroffenen Sprachtyp passen und nicht pauschal aus einem anderen Bereich uebernommen werden.
+- Plan muss direkt umsetzbar sein.
+- Scope klein halten.
+- Tests oder Verifikation immer benennen.

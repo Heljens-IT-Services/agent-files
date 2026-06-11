@@ -2,26 +2,20 @@
 
 ## Zweck
 
-Erzeuge einen klaren Pull-Request-Text fuer Review und Merge.
+Pull-Request-Titel und Beschreibung fuer Review und Merge erstellen.
 
-## Wann verwenden
+## Verwenden
 
-- Vor dem Erstellen eines Pull Requests.
-- Wenn Reviewer schnell verstehen sollen, warum und wie sich etwas geaendert hat.
-
-## Input
-
-- Ticket, Ziel oder Problem
-- Aenderungszusammenfassung
-- Teststatus
-- optional: Risiken, offene Punkte, Screenshots
+- Vor dem Erstellen oder Aktualisieren eines Pull Requests.
+- Wenn Reviewer Kontext, Aenderung, Tests und Risiken schnell verstehen muessen.
 
 ## Vorgehen
 
-1. Motivation und Ziel der Aenderung beschreiben.
-2. Wesentliche Codeaenderungen knapp zusammenfassen.
-3. Test- und Verifikationsstatus angeben.
-4. Risiken, offene Punkte oder Review-Fokus ergaenzen.
+1. Ziel und Ausgangsproblem bestimmen.
+2. Diff, Commits und verknuepfte Issues pruefen.
+3. Wesentliche Aenderungen zusammenfassen.
+4. Teststatus und Risiken nennen.
+5. PR-Titel und Body formulieren.
 
 ## Empfohlene Kommandos
 
@@ -29,34 +23,20 @@ Erzeuge einen klaren Pull-Request-Text fuer Review und Merge.
 git status --short --branch
 git diff --stat
 git log --oneline --decorate -5
-gh pr status
-gh pr list --head <branch-name>
-```
-
-Wenn ein Pull Request erstellt werden soll:
-
-```powershell
+gh issue view <issue-nummer> --comments
 gh pr create --draft --title "<pr-titel>" --body "<pr-body>" --base <basis-branch> --head <branch-name>
 gh pr view --json title,body,state,url,baseRefName,headRefName
 ```
-
-Wenn ein Issue als Kontext dient:
-
-```powershell
-gh issue view <issue-nummer> --comments
-```
-
-`<branch-name>`, `<basis-branch>`, `<pr-titel>`, `<pr-body>` und `<issue-nummer>` muessen aus dem aktuellen Repository-Kontext abgeleitet werden.
 
 ## Output
 
 - PR-Titel
 - PR-Beschreibung
 - Teststatus
-- offene Punkte oder Review-Hinweise
+- Risiken oder Review-Hinweise
 
-## Qualitätskriterien
+## Qualitaetskriterien
 
-- Reviewer sollen ohne Diff-Einstieg den Kontext verstehen.
-- Kein Changelog-Stil, sondern fokussierte Zusammenfassung.
-- Risiken und Luecken nicht verstecken.
+- Kein Changelog-Ersatz.
+- Motivation, Aenderung und Verifikation muessen erkennbar sein.
+- Risiken und Testluecken nicht verstecken.
