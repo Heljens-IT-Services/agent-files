@@ -18,6 +18,7 @@ Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 - [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md)
 - [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md)
 - [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md)
+- [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md)
 
 Andere Repositories und Projekte sollen auf diese URLs verweisen, wenn sie die aktuell gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
 
@@ -37,7 +38,7 @@ Typische Nutzung:
 
 ## Struktur
 
-Die veroeffentlichten Dokumente liegen direkt unter `docs/` in flacher Hierarchie.
+Die veroeffentlichten Einstiegsdokumente liegen direkt unter `docs/`. Wiederverwendbare Skills und Workflows liegen unter `docs/skills/` und `docs/workflows/`, damit sie ueber GitHub Pages direkt referenzierbar sind.
 
 Aktuell relevante Dateien sind:
 
@@ -52,6 +53,9 @@ Aktuell relevante Dateien sind:
 | `docs/DEVELOPER.TypeScript.md` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) | TypeScript-spezifische Entwicklungsregeln. |
 | `docs/DEVELOPER.NetConsole.md` | [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
 | `docs/DEVELOPER.NetWebApi.md` | [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
+| `docs/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Einstiegspunkt fuer Skills und Workflows. |
+| `docs/skills/README.md` | [skills/README.md](https://heljens-it-services.github.io/agent-files/skills/README.md) | Einstiegspunkt fuer atomare Agenten-Skills. |
+| `docs/workflows/README.md` | [workflows/README.md](https://heljens-it-services.github.io/agent-files/workflows/README.md) | Einstiegspunkt fuer Workflows aus mehreren Skills. |
 
 ## Pflege
 

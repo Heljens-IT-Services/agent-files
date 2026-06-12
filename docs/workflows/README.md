@@ -9,7 +9,7 @@ Ein Workflow:
 
 Empfohlene Nutzung:
 - Einen Workflow verwenden, wenn mehrere zusammenhaengende Arbeitsschritte als ein konsistenter Ablauf ausgefuehrt werden sollen.
-- Fuer Sonderfaelle einzelne Skills aus `skills/` direkt einsetzen.
+- Fuer Sonderfaelle einzelne Skills aus `../skills/` direkt einsetzen.
 
 ## Verfuegbare Workflows
 

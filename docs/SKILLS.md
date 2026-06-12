@@ -8,11 +8,11 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 ## Verwendung
 
-[MUST_IF] Der Agent muss diese Datei lesen, wenn ein Task einer wiederkehrenden Aufgabe entspricht, fuer die unter `../skills/` oder `../workflows/` eine passende Beschreibung existiert.
+[MUST_IF] Der Agent muss diese Datei lesen, wenn ein Task einer wiederkehrenden Aufgabe entspricht, fuer die unter `skills/` oder `workflows/` eine passende Beschreibung existiert.
 
-[MUST_IF] Der Agent muss einen passenden Workflow unter `../workflows/` verwenden, wenn der Task mehrere zusammenhaengende Skills benoetigt.
+[MUST_IF] Der Agent muss einen passenden Workflow unter `workflows/` verwenden, wenn der Task mehrere zusammenhaengende Skills benoetigt.
 
-[MUST_IF] Der Agent muss die in einem verwendeten Workflow referenzierten Skill-Dateien unter `../skills/` lesen und befolgen.
+[MUST_IF] Der Agent muss die in einem verwendeten Workflow referenzierten Skill-Dateien unter `skills/` lesen und befolgen.
 
 [MUST_IF] Der Agent muss einen passenden Skill direkt verwenden, wenn kein Workflow erforderlich ist oder der User explizit einen einzelnen Arbeitsschritt verlangt.
 
@@ -32,29 +32,32 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 ## Skills
 
-| Skill | Pfad | Zweck |
+| Skill | URL | Zweck |
 |---|---|---|
-| Code Analyse | `../skills/code_analyse.md` | Ursache, Auswirkungen und Risiken eines Code-Problems klaeren. |
-| Code Brainstorming | `../skills/code_brainstorming.md` | Loesungsoptionen erzeugen und vergleichen. |
-| Code Diff Review | `../skills/code_diff-review.md` | Aenderungssatz auf Scope, Risiken und Nebeneffekte pruefen. |
-| Code Implementieren | `../skills/code_implementieren.md` | Geklaerte Codeaenderung mit minimalem Scope umsetzen. |
-| Code Implementierungsplanung | `../skills/code_implementierungsplanung.md` | Anforderung in konkrete Umsetzungsschritte und Verifikation ueberfuehren. |
-| Code Refactoring | `../skills/code_refactoring.md` | Struktur verbessern, ohne beabsichtigtes Verhalten zu aendern. |
-| Code Testen | `../skills/code_testen.md` | Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifizieren. |
-| Code Verstehen | `../skills/code_verstehen.md` | Bestehenden Code erklaeren, ohne Ursachen oder Loesungen zu bewerten. |
-| GitHub Branch Checkout From Default | `../skills/github_branch-checkout-from-default.md` | Arbeitsbranch von der Standardbasis erstellen und auschecken. |
-| GitHub Commit Vorbereiten | `../skills/github_commit-vorbereiten.md` | Aenderungssatz logisch schneiden und committen. |
-| GitHub Issue Erstellen | `../skills/github_issue-erstellen.md` | GitHub-Issue mit Typ und relevanten Relationen erstellen. |
-| GitHub Issue Lesen | `../skills/github_issue-lesen.md` | GitHub-Issue in Ziel, Scope und offene Fragen uebersetzen. |
-| GitHub PR Text Erstellen | `../skills/github_pr-text-erstellen.md` | Pull-Request-Titel und Beschreibung vorbereiten. |
+| Anforderungsklaerung | [anforderungsklaerung.md](https://heljens-it-services.github.io/agent-files/skills/anforderungsklaerung.md) | Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen klaeren. |
+| Brainstorming | [brainstorming.md](https://heljens-it-services.github.io/agent-files/skills/brainstorming.md) | Interaktiv Denk- oder Loesungsrichtungen entwickeln und abwaegen. |
+| Code Analyse | [code_analyse.md](https://heljens-it-services.github.io/agent-files/skills/code_analyse.md) | Code, Branches, Legacy-Bereiche oder Fehlverhalten bewerten und einordnen. |
+| Code Diff Review | [code_diff-review.md](https://heljens-it-services.github.io/agent-files/skills/code_diff-review.md) | Aenderungssatz auf Scope, Risiken und Nebeneffekte pruefen. |
+| Code Implementieren | [code_implementieren.md](https://heljens-it-services.github.io/agent-files/skills/code_implementieren.md) | Geklaerte Verhaltens-, Logik-, Feature- oder API-Aenderung umsetzen. |
+| Code Implementierungsplanung | [code_implementierungsplanung.md](https://heljens-it-services.github.io/agent-files/skills/code_implementierungsplanung.md) | Vorhandenen Kontext in einen konkreten technischen Umsetzungsplan ueberfuehren. |
+| Code Lesen | [code_lesen.md](https://heljens-it-services.github.io/agent-files/skills/code_lesen.md) | Bestehenden Code gezielt in den Agenten-Kontext laden. |
+| Code Refactoring | [code_refactoring.md](https://heljens-it-services.github.io/agent-files/skills/code_refactoring.md) | Struktur verbessern, ohne beabsichtigtes Verhalten zu aendern. |
+| Code Testen | [code_testen.md](https://heljens-it-services.github.io/agent-files/skills/code_testen.md) | Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifizieren. |
+| Dokumentation | [dokumentation.md](https://heljens-it-services.github.io/agent-files/skills/dokumentation.md) | Dokumentationsdateien gezielt erstellen oder aktualisieren. |
+| GitHub Branch Checkout From Default | [github_branch-checkout-from-default.md](https://heljens-it-services.github.io/agent-files/skills/github_branch-checkout-from-default.md) | Arbeitsbranch von aktueller Standardbasis erstellen oder bestaetigen. |
+| GitHub Commit Push | [github_commit-push.md](https://heljens-it-services.github.io/agent-files/skills/github_commit-push.md) | Aenderungssatz logisch schneiden, committen und pushen. |
+| GitHub Issue Erstellen | [github_issue-erstellen.md](https://heljens-it-services.github.io/agent-files/skills/github_issue-erstellen.md) | GitHub-Issue erstellen, Issue-Type setzen und Relationships pflegen. |
+| GitHub Issue Lesen | [github_issue-lesen.md](https://heljens-it-services.github.io/agent-files/skills/github_issue-lesen.md) | GitHub-Issue und Kommentare atomar lesen. |
+| GitHub PR Erstellen | [github_pr-erstellen.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-erstellen.md) | Pull Request mit Titel, Body, Base und Head in GitHub erstellen. |
+| Research | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Web-, Repo-, Issue- oder PR-Kontext recherchieren und zusammenfassen. |
 
 ## Workflows
 
-| Workflow | Pfad | Zweck |
+| Workflow | URL | Zweck |
 |---|---|---|
-| Analyse To Issue | `../workflows/analyse-to-issue.md` | Aus Idee, Beobachtung oder Analyse ein Issue erzeugen. |
-| Bugfix | `../workflows/bugfix.md` | Fehler analysieren, beheben und absichern. |
-| Feature Umsetzung | `../workflows/feature-umsetzung.md` | Feature von Anforderung bis verifizierter Implementierung bearbeiten. |
-| Issue To PR | `../workflows/issue-to-pr.md` | Ticket bis zur Pull-Request-Vorbereitung ueberfuehren. |
-| Issue Umsetzung | `../workflows/issue-umsetzung.md` | Issue End-to-End bearbeiten. |
-| Refactoring Mit Absicherung | `../workflows/refactoring-mit-absicherung.md` | Code strukturieren und Verhalten absichern. |
+| Analyse To Issue | [analyse-to-issue.md](https://heljens-it-services.github.io/agent-files/workflows/analyse-to-issue.md) | Aus Idee, Beobachtung oder Analyse ein Issue erzeugen. |
+| Bugfix | [bugfix.md](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) | Fehler analysieren, beheben und absichern. |
+| Feature Umsetzung | [feature-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/feature-umsetzung.md) | Feature von Anforderung bis verifizierter Implementierung bearbeiten. |
+| Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ticket bis zur Pull-Request-Erstellung ueberfuehren. |
+| Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Issue End-to-End bearbeiten. |
+| Refactoring Mit Absicherung | [refactoring-mit-absicherung.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-mit-absicherung.md) | Code strukturieren und Verhalten absichern. |
