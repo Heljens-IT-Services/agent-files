@@ -37,6 +37,8 @@ Skill-Dateien folgen dieser Struktur:
 
 ## Vorgehen
 
+## Kommandos
+
 ## Grenzen
 
 ## Artefakt
@@ -51,6 +53,7 @@ Skill-Dateien folgen dieser Struktur:
 - `Zweck`: ein bis zwei Saetze zum fachlichen Nutzen.
 - `Verwenden`: Trigger, Nicht-Trigger und Abgrenzung zu verwandten Skills oder Workflows.
 - `Vorgehen`: konkrete Arbeitsschritte in Ausfuehrungsreihenfolge.
+- `Kommandos`: optional; konkrete Tool- oder CLI-Kommandos fuer Skills, bei denen die korrekte Ausfuehrung wichtig ist.
 - `Grenzen`: erlaubte und verbotene Aktionen, besonders bei Schreibzugriffen, GitHub, Docker, Datenbanken, externen Systemen oder Online-Recherche.
 - `Artefakt`: nur verwenden, wenn der Skill Dateien erzeugt oder aktualisiert. Dann Pfad, Namensschema, Inhalt und Stil festlegen.
 - `Output`: erwartete Chat-Ausgabe oder Datei-Ausgabe.

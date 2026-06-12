@@ -25,6 +25,42 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelage
 10. Nachgelagert den korrekten GitHub-Issue-Type setzen.
 11. Nachgelagert vorhandene Relationships setzen, z. B. Parent/Child oder Blocked-by.
 
+## Kommandos
+
+```powershell
+Get-ChildItem .github/ISSUE_TEMPLATE -File
+Get-Content .github/ISSUE_TEMPLATE/<template-datei>
+gh issue list --search "<suchbegriff>" --state open
+gh issue create --title "<titel>" --body-file <body-datei>
+gh issue view <issue-nummer> --json id,number,title,url
+```
+
+GitHub-Issue-Type nachtraeglich setzen:
+
+```powershell
+$issueId = gh issue view <issue-nummer> --json id --jq .id
+$issueTypeId = gh api orgs/<org>/issue-types --jq '.[] | select(.name == "<issue-type>") | .node_id'
+gh api graphql -f issueId="$issueId" -f issueTypeId="$issueTypeId" -f query='mutation($issueId:ID!, $issueTypeId:ID!) { updateIssueIssueType(input: { issueId: $issueId, issueTypeId: $issueTypeId }) { issue { number issueType { name } } } }'
+```
+
+Parent/Child setzen:
+
+```powershell
+$parentIssueId = gh issue view <parent-issue-nummer> --json id --jq .id
+$childIssueId = gh issue view <child-issue-nummer> --json id --jq .id
+gh api graphql -f parentIssueId="$parentIssueId" -f childIssueId="$childIssueId" -f query='mutation($parentIssueId:ID!, $childIssueId:ID!) { addSubIssue(input: { issueId: $parentIssueId, subIssueId: $childIssueId, replaceParent: false }) { issue { number } subIssue { number } } }'
+```
+
+Blocked-by setzen:
+
+```powershell
+$blockedIssueId = gh issue view <blocked-issue-nummer> --json id --jq .id
+$blockingIssueId = gh issue view <blocking-issue-nummer> --json id --jq .id
+gh api graphql -f blockedIssueId="$blockedIssueId" -f blockingIssueId="$blockingIssueId" -f query='mutation($blockedIssueId:ID!, $blockingIssueId:ID!) { addBlockedBy(input: { issueId: $blockedIssueId, blockingIssueId: $blockingIssueId }) { issue { number } blockingIssue { number } } }'
+```
+
+Platzhalter aus Repository, Organisation, Issue-Type und Beziehungen ableiten.
+
 ## Grenzen
 
 - Extern wirksam arbeiten: Issue wird tatsaechlich in GitHub erstellt.
@@ -43,7 +79,6 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelage
 - Labels nur setzen, wenn der User oder das Issue-Template sie explizit vorgibt.
 - Relationships nur setzen, wenn sie aus vorhandenem Kontext hervorgehen.
 - Fehlende GitHub-Authentifizierung, fehlende Repository-Zuordnung oder fehlende Rechte als Blocker melden.
-- Geeignete GitHub-Kommandos oder API-Aufrufe verwenden, z. B. `gh issue create`, `gh api` oder GraphQL fuer Issue-Type und Relationships.
 
 ## Output
 

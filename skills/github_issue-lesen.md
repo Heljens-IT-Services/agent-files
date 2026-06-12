@@ -22,6 +22,16 @@ Ein GitHub-Issue und seine Kommentare atomar lesen und den enthaltenen Kontext s
 7. Nur bei explizit verlangtem Output Inhalt strukturiert nach vorhandenen Informationen wiedergeben.
 8. Widersprueche, fehlende Informationen oder offene Stellen markieren, ohne sie zu klaeren.
 
+## Kommandos
+
+```powershell
+gh issue view <issue-nummer> --comments
+gh issue view <issue-nummer> --json title,body,state,labels,assignees,milestone,comments,url
+gh issue view <issue-nummer> --json id,number,title,body,state,comments,url
+```
+
+Fuer explizit angeforderten Beziehungskontext passende `gh api`- oder GraphQL-Leseaufrufe nutzen.
+
 ## Grenzen
 
 - Read-only arbeiten.
@@ -31,7 +41,6 @@ Ein GitHub-Issue und seine Kommentare atomar lesen und den enthaltenen Kontext s
 - Ohne explizite Anweisung keine Issue-Beziehungen aktiv verfolgen.
 - Auch im erweiterten Lesemodus Beziehungen nur wiedergeben, nicht Scope oder Reihenfolge daraus ableiten.
 - PRs nur lesen, wenn der User sie explizit als Kontext nennt.
-- Geeignete Lesekommandos nutzen, z. B. `gh issue view <issue-nummer> --comments` oder `gh issue view <issue-nummer> --json title,body,state,labels,assignees,comments,url`.
 - Fehlende GitHub-Authentifizierung, fehlende Repository-Zuordnung oder nicht auffindbare Issues als Blocker melden.
 
 ## Output
