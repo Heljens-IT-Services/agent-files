@@ -15,3 +15,44 @@ In diesem Repository gelten Branch-Checkout und Commit-Vorbereitung als GitHub-n
 - Einzelnen Skill nutzen, wenn genau ein Arbeitsschritt gebraucht wird.
 - Workflow nutzen, wenn mehrere Skills zusammenhaengend ausgefuehrt werden sollen.
 - Skill-Dateien knapp halten: nur Zweck, Einsatzgrenze, Ablauf, Output und harte Qualitaetskriterien.
+
+## Verbindliche Skill-Struktur
+
+Skill-Dateien folgen dieser Struktur:
+
+```markdown
+# Skill: <Name>
+
+## Zweck
+
+## Verwenden
+
+## Vorgehen
+
+## Grenzen
+
+## Artefakt
+
+## Output
+
+## Qualitaetskriterien
+```
+
+### Abschnittsregeln
+
+- `Zweck`: ein bis zwei Saetze zum fachlichen Nutzen.
+- `Verwenden`: Trigger, Nicht-Trigger und Abgrenzung zu verwandten Skills oder Workflows.
+- `Vorgehen`: konkrete Arbeitsschritte in Ausfuehrungsreihenfolge.
+- `Grenzen`: erlaubte und verbotene Aktionen, besonders bei Schreibzugriffen, GitHub, Docker, Datenbanken, externen Systemen oder Online-Recherche.
+- `Artefakt`: nur verwenden, wenn der Skill Dateien erzeugt oder aktualisiert. Dann Pfad, Namensschema, Inhalt und Stil festlegen.
+- `Output`: erwartete Chat-Ausgabe oder Datei-Ausgabe.
+- `Qualitaetskriterien`: kurze, harte und pruefbare Regeln.
+
+Wenn kein Artefakt entsteht, wird der Abschnitt `Artefakt` weggelassen.
+
+## Schreibstil
+
+- Knapp, operativ und eindeutig formulieren.
+- Bulletpoints und nummerierte Schritte bevorzugen.
+- Keine allgemeinen Agentenphilosophien dokumentieren.
+- Bestehende ASCII-Schreibweise beibehalten: `ae`, `oe`, `ue`, `ss`.

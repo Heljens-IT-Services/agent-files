@@ -7,7 +7,7 @@ Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderun
 ## Verwendete Skills
 
 - `github_branch-checkout-from-default`
-- `code_verstehen`
+- `code_lesen`
 - `code_analyse`
 - `code_implementierungsplanung`
 - `code_refactoring`
@@ -18,7 +18,7 @@ Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderun
 ## Ablauf
 
 1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Mit `code_verstehen` den bestehenden Codepfad und seine Verantwortung erfassen.
+2. Mit `code_lesen` den bestehenden Codepfad und seine Verantwortung erfassen.
 3. Mit `code_analyse` Problemstellen und Refactoring-Ziel schaerfen.
 4. Mit `code_implementierungsplanung` den kleinsten sicheren Umbau planen.
 5. Mit `code_refactoring` die Strukturverbesserung umsetzen.
@@ -28,7 +28,7 @@ Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderun
 
 ## Ruecksprungregeln
 
-- Wenn Verhalten unklar ist, zurueck zu `code_verstehen`.
+- Wenn Verhalten unklar ist, zurueck zu `code_lesen`.
 - Wenn das Refactoring fachliche Aenderungen erzwingt, zurueck zu `code_implementierungsplanung`.
 
 ## Endergebnis

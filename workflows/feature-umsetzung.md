@@ -8,8 +8,8 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 
 - `github_branch-checkout-from-default`
 - `github_issue-lesen`
-- `code_brainstorming`
-- `code_verstehen`
+- `brainstorming`
+- `code_lesen`
 - `code_implementierungsplanung`
 - `code_implementieren`
 - `code_testen`
@@ -20,8 +20,8 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 
 1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
 2. Feature-Anforderung mit `github_issue-lesen` oder vorhandener Beschreibung verdichten.
-3. Falls die Richtung noch offen ist, mit `code_brainstorming` Optionen vergleichen.
-4. Bestehende Architektur mit `code_verstehen` einordnen.
+3. Falls die Richtung noch offen ist, mit `brainstorming` Optionen vergleichen.
+4. Bestehende Architektur mit `code_lesen` einordnen.
 5. Mit `code_implementierungsplanung` Zielzustand, Schritte und Tests festlegen.
 6. Mit `code_implementieren` das Feature umsetzen.
 7. Mit `code_testen` die Funktion und angrenzende Risiken pruefen.
@@ -30,7 +30,7 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 
 ## Ruecksprungregeln
 
-- Bei Architekturkonflikten zurueck zu `code_brainstorming` oder `code_implementierungsplanung`.
+- Bei Architekturkonflikten zurueck zu `brainstorming` oder `code_implementierungsplanung`.
 - Bei unklaren Anforderungen zurueck zu `github_issue-lesen`.
 
 ## Endergebnis
