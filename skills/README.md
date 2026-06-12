@@ -16,6 +16,14 @@ In diesem Repository gelten Branch-Checkout und Commit-Vorbereitung als GitHub-n
 - Workflow nutzen, wenn mehrere Skills zusammenhaengend ausgefuehrt werden sollen.
 - Skill-Dateien knapp halten: nur Zweck, Einsatzgrenze, Ablauf, Output und harte Qualitaetskriterien.
 
+## Grundprinzip: atomare Skills
+
+- Ein Skill verantwortet genau eine klar abgegrenzte Faehigkeit.
+- Ein Skill fuehrt keine vorgelagerten oder nachgelagerten Skills heimlich mit aus.
+- Wenn ein Arbeitsschritt weiteren Kontext, Klaerung, Analyse, Recherche, Planung, Umsetzung, Test oder Review braucht, wird der passende Skill explizit vorgelagert oder nachgelagert.
+- Workflows kombinieren atomare Skills zu laengeren Ablaeufen.
+- Skills duerfen fehlende Vorarbeit benennen, aber sie nicht stillschweigend ersetzen.
+
 ## Verbindliche Skill-Struktur
 
 Skill-Dateien folgen dieser Struktur:
