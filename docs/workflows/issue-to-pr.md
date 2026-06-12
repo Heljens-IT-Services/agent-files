@@ -2,41 +2,46 @@
 
 ## Ziel
 
-Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Erstellung ueberfuehren.
+Eine bereits umgesetzte Aenderung mit Issue-Kontext committen, pushen und als Pull Request erstellen.
 
 ## Verwenden
 
-- Wenn ein einzelnes, ausreichend klares Issue umgesetzt und als Pull Request bereitgestellt werden soll.
-- Wenn keine komplexen Issue-Beziehungen oder mehrere Arbeitseinheiten im Scope liegen.
-- Nicht verwenden, wenn ein Issue-Graph oder mehrere verwandte Issues koordiniert werden muessen. Dann `issue-umsetzung.md` nutzen.
+- Wenn eine Aenderung bereits umgesetzt ist und aus dem Issue-Kontext ein Pull Request entstehen soll.
+- Wenn relevante Issue-Relationships fuer PR-Kontext oder Verlinkung einbezogen werden sollen.
+- Nicht verwenden, wenn die Aenderung erst geplant oder implementiert werden muss. Dann `issue-umsetzung.md`, `feature-umsetzung.md` oder `bugfix.md` nutzen.
 
 ## Verwendete Skills
 
-- `github_branch-checkout-from-default`
 - `github_issue-lesen`
-- `code_implementierungsplanung`
-- `code_implementieren`
 - `code_testen`
+- `code_diff-review`
 - `github_commit-push`
 - `github_pr-erstellen`
 
 ## Ablauf
 
-1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Mit `github_issue-lesen` das Ticket in klare Arbeitsanforderungen uebersetzen.
-3. Mit `code_implementierungsplanung` Schritte und Verifikation festlegen.
-4. Mit `code_implementieren` die Aenderung umsetzen.
-5. Mit `code_testen` die Aenderung pruefen.
-6. Mit `github_commit-push` den Commit sauber schneiden, benennen und pushen.
-7. Mit `github_pr-erstellen` den Pull Request erstellen.
+1. Mit `github_issue-lesen` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
+2. Mit `code_testen` vorhandene Verifikation ausfuehren oder Testluecken benennen.
+3. Mit `code_diff-review` den Aenderungssatz auf Scope, Nebeneffekte und Versandbereitschaft pruefen.
+4. Mit `github_commit-push` den Commit sauber schneiden, benennen und pushen.
+5. Mit `github_pr-erstellen` den Pull Request erstellen und Issue-Kontext verlinken.
 
 ## Ruecksprungregeln
 
-- Bei unklaren Anforderungen zurueck zu `github_issue-lesen`.
-- Bei unerwarteten Umsetzungsproblemen zurueck zu `code_implementierungsplanung`.
+- Bei unklarem Issue-Kontext zurueck zu `github_issue-lesen`.
+- Bei fehlender oder gescheiterter Verifikation zurueck zu `code_testen`.
+- Bei nicht versandbereitem Diff zurueck zu passendem Umsetzungs- oder Refactoring-Workflow.
+
+## Grenzen
+
+- Fehlende oder gescheiterte Verifikation blockiert Commit, Push und Pull-Request-Erstellung.
+- Keine Pull-Request-Erstellung auf Basis ungetesteter Aenderungen.
+- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
+- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.
 
 ## Endergebnis
 
-- umgesetzte Aenderung
+- gelesener Issue- und Relationship-Kontext
+- gepruefte Aenderung
 - Commit und Push
 - erstellter Pull Request
