@@ -4,6 +4,12 @@
 
 Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderungen einzufuehren.
 
+## Verwenden
+
+- Wenn Code wartbarer, lesbarer oder klarer strukturiert werden soll, ohne Verhalten zu aendern.
+- Wenn Refactoring, Verifikation, Diff-Review und Pull Request zusammenhaengend bearbeitet werden sollen.
+- Nicht verwenden, wenn fachliches Verhalten geaendert werden soll. Dann `feature-umsetzung.md` oder `bugfix.md` nutzen.
+
 ## Verwendete Skills
 
 - `github_branch-checkout-from-default`

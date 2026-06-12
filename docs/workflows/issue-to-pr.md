@@ -2,7 +2,13 @@
 
 ## Ziel
 
-Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Vorbereitung ueberfuehren.
+Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Erstellung ueberfuehren.
+
+## Verwenden
+
+- Wenn ein einzelnes, ausreichend klares Issue umgesetzt und als Pull Request bereitgestellt werden soll.
+- Wenn keine komplexen Issue-Beziehungen oder mehrere Arbeitseinheiten im Scope liegen.
+- Nicht verwenden, wenn ein Issue-Graph oder mehrere verwandte Issues koordiniert werden muessen. Dann `issue-umsetzung.md` nutzen.
 
 ## Verwendete Skills
 
@@ -32,5 +38,5 @@ Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Vorbereitun
 ## Endergebnis
 
 - umgesetzte Aenderung
-- Commit-Vorschlag
-- PR-fertige Beschreibung
+- Commit und Push
+- erstellter Pull Request

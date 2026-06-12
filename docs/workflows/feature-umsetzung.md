@@ -4,6 +4,12 @@
 
 Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implementierung bearbeiten.
 
+## Verwenden
+
+- Wenn ein neues Feature fachlich und technisch umgesetzt werden soll.
+- Wenn Anforderung, Richtung, Implementierung, Verifikation und Pull Request zusammenhaengend bearbeitet werden sollen.
+- Nicht verwenden, wenn nur Optionen abgewogen werden sollen. Dann `brainstorming` nutzen.
+
 ## Verwendete Skills
 
 - `github_branch-checkout-from-default`
@@ -37,4 +43,4 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 
 - verifizierte Feature-Aenderung
 - dokumentierter Teststatus
-- PR-fertige Beschreibung
+- erstellter Pull Request

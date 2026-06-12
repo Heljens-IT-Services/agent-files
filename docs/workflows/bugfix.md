@@ -4,6 +4,12 @@
 
 Einen Fehler zielgerichtet analysieren, beheben und absichern.
 
+## Verwenden
+
+- Wenn ein konkretes Fehlverhalten behoben werden soll.
+- Wenn Ursache, Fix, Verifikation und Pull Request zusammenhaengend bearbeitet werden sollen.
+- Nicht verwenden, wenn nur eine Ursache analysiert werden soll. Dann `code_analyse` nutzen.
+
 ## Verwendete Skills
 
 - `github_branch-checkout-from-default`

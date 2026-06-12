@@ -55,9 +55,11 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 | Workflow | URL | Zweck |
 |---|---|---|
-| Analyse To Issue | [analyse-to-issue.md](https://heljens-it-services.github.io/agent-files/workflows/analyse-to-issue.md) | Aus Idee, Beobachtung oder Analyse ein Issue erzeugen. |
 | Bugfix | [bugfix.md](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) | Fehler analysieren, beheben und absichern. |
 | Feature Umsetzung | [feature-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/feature-umsetzung.md) | Feature von Anforderung bis verifizierter Implementierung bearbeiten. |
+| Instruction Improvement Issue | [instruction-improvement-issue.md](https://heljens-it-services.github.io/agent-files/workflows/instruction-improvement-issue.md) | Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows im `agent-files`-Repository erfassen. |
+| Insight To Issue | [insight-to-issue.md](https://heljens-it-services.github.io/agent-files/workflows/insight-to-issue.md) | Erkenntnis aus Brainstorming, Analyse, Research oder Nutzungskontext in ein GitHub-Issue ueberfuehren. |
+| Issue To Sub Issues | [issue-to-sub-issues.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) | Grosses GitHub-Issue in mehrere Sub-Issues schneiden und als Child-Issues anlegen. |
 | Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ticket bis zur Pull-Request-Erstellung ueberfuehren. |
 | Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Issue End-to-End bearbeiten. |
 | Refactoring Mit Absicherung | [refactoring-mit-absicherung.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-mit-absicherung.md) | Code strukturieren und Verhalten absichern. |

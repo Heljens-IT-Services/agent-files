@@ -6,6 +6,12 @@ Ein bestehendes Issue von der Anforderungsaufnahme bis zur versandbereiten Aende
 
 Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbeitsumfang ziehen, zum Beispiel durch `parent`, `child`, `blocks`, `blocked by`, `related`, Checklisten oder Kommentarverweise.
 
+## Verwenden
+
+- Wenn ein bestehendes Issue inklusive relevanter Issue-Beziehungen end-to-end bearbeitet werden soll.
+- Wenn Parent/Child-, Blocked-by-, Related- oder Checklisten-Kontext den Scope oder die Reihenfolge beeinflussen kann.
+- Nicht verwenden, wenn ein einzelnes klares Issue ohne Beziehungskontext umgesetzt werden soll. Dann `issue-to-pr.md` nutzen.
+
 ## Verwendete Skills
 
 - `github_branch-checkout-from-default`
@@ -66,6 +72,6 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 - geklaerter Issue-Scope inklusive relevanter Beziehungen
 - begruendete Umsetzungsreihenfolge
 - umgesetzte und verifizierte Aenderung je Arbeitseinheit
-- Commit-Vorschlag oder Commit-Scope je Arbeitseinheit
+- Commit und Push je Arbeitseinheit
 - kommentierte und geschlossene Issues, soweit ihr Scope erfuellt ist
-- PR-fertige Beschreibung
+- erstellter Pull Request
