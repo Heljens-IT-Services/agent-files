@@ -12,7 +12,7 @@ Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Vorbereitun
 - `code_implementieren`
 - `code_testen`
 - `github_commit-push`
-- `github_pr-text-erstellen`
+- `github_pr-erstellen`
 
 ## Ablauf
 
@@ -22,7 +22,7 @@ Ein Ticket in einen durchgaengigen Lieferablauf bis zur Pull-Request-Vorbereitun
 4. Mit `code_implementieren` die Aenderung umsetzen.
 5. Mit `code_testen` die Aenderung pruefen.
 6. Mit `github_commit-push` den Commit sauber schneiden, benennen und pushen.
-7. Mit `github_pr-text-erstellen` den PR-Text vorbereiten.
+7. Mit `github_pr-erstellen` den Pull Request erstellen.
 
 ## Ruecksprungregeln
 

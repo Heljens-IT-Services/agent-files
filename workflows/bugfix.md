@@ -14,7 +14,7 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 - `code_implementieren`
 - `code_testen`
 - `code_diff-review`
-- `github_pr-text-erstellen`
+- `github_pr-erstellen`
 
 ## Ablauf
 
@@ -26,7 +26,7 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 6. Mit `code_implementieren` den Fix umsetzen.
 7. Mit `code_testen` Reproduktion und Regression pruefen.
 8. Mit `code_diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
-9. Mit `github_pr-text-erstellen` Ursache, Fix und Absicherung zusammenfassen.
+9. Mit `github_pr-erstellen` den Pull Request mit Ursache, Fix und Absicherung erstellen.
 
 ## Ruecksprungregeln
 

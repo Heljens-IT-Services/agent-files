@@ -13,7 +13,7 @@ Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderun
 - `code_refactoring`
 - `code_testen`
 - `code_diff-review`
-- `github_pr-text-erstellen`
+- `github_pr-erstellen`
 
 ## Ablauf
 
@@ -24,7 +24,7 @@ Bestehenden Code strukturell verbessern, ohne unbeabsichtigte Verhaltensaenderun
 5. Mit `code_refactoring` die Strukturverbesserung umsetzen.
 6. Mit `code_testen` Verhalten und Regressionen pruefen.
 7. Mit `code_diff-review` sicherstellen, dass keine verdeckte Fachlogik veraendert wurde.
-8. Mit `github_pr-text-erstellen` Strukturgewinn, Risiken und Teststatus dokumentieren.
+8. Mit `github_pr-erstellen` den Pull Request mit Strukturgewinn, Risiken und Teststatus erstellen.
 
 ## Ruecksprungregeln
 

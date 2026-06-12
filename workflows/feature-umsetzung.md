@@ -14,7 +14,7 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 - `code_implementieren`
 - `code_testen`
 - `code_diff-review`
-- `github_pr-text-erstellen`
+- `github_pr-erstellen`
 
 ## Ablauf
 
@@ -26,7 +26,7 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 6. Mit `code_implementieren` das Feature umsetzen.
 7. Mit `code_testen` die Funktion und angrenzende Risiken pruefen.
 8. Mit `code_diff-review` den Scope und Nebeneffekte kontrollieren.
-9. Mit `github_pr-text-erstellen` den Review-Kontext vorbereiten.
+9. Mit `github_pr-erstellen` den Pull Request mit Review-Kontext erstellen.
 
 ## Ruecksprungregeln
 

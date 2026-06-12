@@ -17,7 +17,7 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 - `code_testen`
 - `code_diff-review`
 - `github_commit-push`
-- `github_pr-text-erstellen`
+- `github_pr-erstellen`
 
 ## Ablauf
 
@@ -50,7 +50,7 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 14. Falls mehrere Arbeits-Issues im Scope liegen, die Schritte 6 bis 13 je Arbeitseinheit in der festgelegten Reihenfolge wiederholen.
 15. Umgesetzte Arbeits-Issues knapp mit Ergebnis, Commit und Teststatus kommentieren und schliessen, wenn ihre Akzeptanzkriterien erfuellt sind.
 16. Ausgangs-Issue abschliessend pruefen, bei erfuelltem Scope knapp kommentieren und schliessen.
-17. Mit `github_pr-text-erstellen` den PR-Text formulieren.
+17. Mit `github_pr-erstellen` den Pull Request erstellen.
 
 ## Ruecksprungregeln
 
