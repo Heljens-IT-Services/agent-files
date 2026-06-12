@@ -2,64 +2,63 @@
 
 ## Zweck
 
-Ein GitHub-Issue mit Typ und relevanten Beziehungen erstellen.
+Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelagerte GitHub-Metadaten setzen.
 
 ## Verwenden
 
 - Wenn aus Kontext ein neues GitHub-Issue entstehen soll.
 - Wenn `Task`, `Story`, `Spike` oder `Epic` samt GitHub-Metadaten gesetzt werden muessen.
+- Wenn vorhandene Parent/Child-, Blocked-by- oder andere relevante Issue-Beziehungen gesetzt werden muessen.
+- Nicht verwenden, wenn Anforderungen oder Scope erst geklaert werden muessen. Dann `anforderungsklaerung` nutzen.
 
 ## Vorgehen
 
-1. Titel, Problem, Ziel, Scope und Akzeptanzkriterien formulieren.
-2. Issue-Typ festlegen: `Task`, `Story`, `Spike` oder `Epic`.
-3. Parent/Child- und Blocked-by-Beziehungen aus dem Kontext bestimmen.
-4. Duplikate oder bestehende verwandte Issues pruefen.
-5. Issue erstellen.
-6. Typ und Beziehungen als GitHub-Relationen setzen.
+1. Zugrundeliegenden Kontext, Repository und Ziel des neuen Issues pruefen.
+2. Vorhandene GitHub-Issue-Templates aus `.github/ISSUE_TEMPLATE` verpflichtend lesen.
+3. Passendes GitHub-Issue-Template ermitteln und dessen Struktur fuer den Body verwenden; falls kein Template vorhanden ist, ein strukturiertes Standard-Issue erstellen.
+4. Duplikate oder sehr aehnliche offene Issues mit gezielter Suche pruefen.
+5. Bei moeglichem Duplikat Optionen vorschlagen und User-Entscheidung abwarten.
+6. Titel, Problem, Ziel, Scope, Nicht-Ziele und Akzeptanzkriterien aus dem vorhandenen Kontext formulieren.
+7. GitHub-Issue-Type festlegen: `Task`, `Story`, `Spike` oder `Epic`.
+8. Relevante Beziehungen aus vorhandenem Kontext bestimmen.
+9. Issue erstellen.
+10. Nachgelagert den korrekten GitHub-Issue-Type setzen.
+11. Nachgelagert vorhandene Relationships setzen, z. B. Parent/Child oder Blocked-by.
 
-## Empfohlene Kommandos
+## Grenzen
 
-```powershell
-gh issue list --search "<suchbegriff>" --state open
-gh api repos/<owner>/<repo>/issues -f title="<titel>" -f body="<body>" -f type="<issue-type>"
-```
-
-Typ nachtraeglich setzen:
-
-```powershell
-$issueId = gh issue view <issue-nummer> --json id --jq .id
-$issueTypeId = gh api orgs/<org>/issue-types --jq '.[] | select(.name == "<issue-type>") | .node_id'
-gh api graphql -f issueId="$issueId" -f issueTypeId="$issueTypeId" -f query='mutation($issueId:ID!, $issueTypeId:ID!) { updateIssueIssueType(input: { issueId: $issueId, issueTypeId: $issueTypeId }) { issue { number issueType { name } } } }'
-```
-
-Parent/Child setzen:
-
-```powershell
-$parentIssueId = gh issue view <parent-issue-nummer> --json id --jq .id
-$childIssueId = gh issue view <child-issue-nummer> --json id --jq .id
-gh api graphql -f parentIssueId="$parentIssueId" -f childIssueId="$childIssueId" -f query='mutation($parentIssueId:ID!, $childIssueId:ID!) { addSubIssue(input: { issueId: $parentIssueId, subIssueId: $childIssueId, replaceParent: false }) { issue { number } subIssue { number } } }'
-```
-
-Blocked-by setzen:
-
-```powershell
-$blockedIssueId = gh issue view <blocked-issue-nummer> --json id --jq .id
-$blockingIssueId = gh issue view <blocking-issue-nummer> --json id --jq .id
-gh api graphql -f blockedIssueId="$blockedIssueId" -f blockingIssueId="$blockingIssueId" -f query='mutation($blockedIssueId:ID!, $blockingIssueId:ID!) { addBlockedBy(input: { issueId: $blockedIssueId, blockingIssueId: $blockingIssueId }) { issue { number } blockingIssue { number } } }'
-```
+- Extern wirksam arbeiten: Issue wird tatsaechlich in GitHub erstellt.
+- Keine Anforderungen oder Beziehungen erfinden.
+- Keine fehlenden Anforderungen klaeren. Dann `anforderungsklaerung` nutzen.
+- Keine technische Planung ersetzen. Dann `code_implementierungsplanung` nutzen.
+- Issue-Templates aus `.github/ISSUE_TEMPLATE` verpflichtend lesen und beruecksichtigen.
+- Wenn kein Issue-Template vorhanden ist, kein Blocker; stattdessen Standardstruktur verwenden.
+- Vor Erstellung gezielte Duplikatpruefung durchfuehren.
+- Bei moeglichem Duplikat nicht automatisch erstellen.
+- Bei moeglichem Duplikat Optionen vorschlagen: vorhandenes Issue verfeinern, neues Issue verlinkt erstellen, neues Issue als Beziehung erstellen, gefundenes Duplikat schliessen und neues Issue erstellen, oder Erstellung abbrechen.
+- Bestehende Issues nur nach expliziter User-Entscheidung aktualisieren oder schliessen.
+- GitHub-Issue-Type immer explizit setzen; damit ist nicht ein Label gemeint.
+- Bei unklarem GitHub-Issue-Type nachfragen, nicht raten.
+- Labels sind nicht praeferiert und ersetzen keine Issue-Type- oder Relationship-Pflege.
+- Labels nur setzen, wenn der User oder das Issue-Template sie explizit vorgibt.
+- Relationships nur setzen, wenn sie aus vorhandenem Kontext hervorgehen.
+- Fehlende GitHub-Authentifizierung, fehlende Repository-Zuordnung oder fehlende Rechte als Blocker melden.
+- Geeignete GitHub-Kommandos oder API-Aufrufe verwenden, z. B. `gh issue create`, `gh api` oder GraphQL fuer Issue-Type und Relationships.
 
 ## Output
 
 - Titel
-- Issue-Typ
+- GitHub-Issue-Type
 - Body
 - Parent/Child-Beziehungen
 - Blocked-by-Beziehungen
-- offene Fragen
+- Issue-URL oder Issue-Nummer
+- gesetzte Metadaten
+- nicht gesetzte Metadaten mit Grund, falls relevant
 
 ## Qualitaetskriterien
 
-- Issue-Typ immer explizit setzen.
+- GitHub-Issue-Type immer explizit setzen; Label ersetzen den Issue-Type nicht.
 - Beziehungen setzen, wenn sie aus dem Kontext hervorgehen.
-- Extern wirksame Erstellung nur mit finalem Titel und Body.
+- Issue-Body muss zur Template-Struktur passen.
+- Fehlende Kontextteile nicht auffuellen oder verstecken.
