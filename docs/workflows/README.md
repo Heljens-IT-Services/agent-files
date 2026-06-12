@@ -44,6 +44,13 @@ Wenn keine besonderen Workflow-Grenzen existieren, wird der Abschnitt `Grenzen` 
 
 Alle anderen Abschnitte sind verpflichtend.
 
+Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn sie den Ablauf konkret pruefbar machen, zum Beispiel:
+
+- `Reifekriterien`
+- `Schnittkriterien`
+- `Entscheidungskriterien`
+- `Priorisierung`
+
 ## Abschnittsregeln
 
 - `Ziel`: ein bis zwei Saetze zum End-to-End-Zweck.
@@ -53,6 +60,7 @@ Alle anderen Abschnitte sind verpflichtend.
 - `Ruecksprungregeln`: festlegen, wann zu welchem vorherigen Skill zurueckgegangen wird.
 - `Endergebnis`: erwarteter Abschlusszustand des Workflows.
 - `Grenzen`: workflow-spezifische Verbote oder Stop-Regeln, besonders bei extern wirksamen GitHub- oder Produktionsschritten.
+- Zusatzabschnitte: nur verwenden, wenn sie konkrete Entscheidungen im Workflow steuern und nicht nur allgemeine Erklaerung liefern.
 
 ## Workflow-Regeln
 
