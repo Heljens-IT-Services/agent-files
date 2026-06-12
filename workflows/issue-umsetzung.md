@@ -16,7 +16,7 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 - `code_implementieren`
 - `code_testen`
 - `code_diff-review`
-- `github_commit-vorbereiten`
+- `github_commit-push`
 - `github_pr-text-erstellen`
 
 ## Ablauf
@@ -46,7 +46,7 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 10. Mit `code_testen` die Aenderung verifizieren.
 11. Mit `code_diff-review` den Aenderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests pruefen.
 12. Kritische Funde korrigieren und die passende Pruefung wiederholen.
-13. Mit `github_commit-vorbereiten` den Commit fuer die abgeschlossene Arbeitseinheit vorbereiten.
+13. Mit `github_commit-push` Commit und Push fuer die abgeschlossene Arbeitseinheit ausfuehren.
 14. Falls mehrere Arbeits-Issues im Scope liegen, die Schritte 6 bis 13 je Arbeitseinheit in der festgelegten Reihenfolge wiederholen.
 15. Umgesetzte Arbeits-Issues knapp mit Ergebnis, Commit und Teststatus kommentieren und schliessen, wenn ihre Akzeptanzkriterien erfuellt sind.
 16. Ausgangs-Issue abschliessend pruefen, bei erfuelltem Scope knapp kommentieren und schliessen.
