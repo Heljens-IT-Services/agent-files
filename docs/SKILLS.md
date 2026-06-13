@@ -61,5 +61,5 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 | Insight To Issue | [insight-to-issue.md](https://heljens-it-services.github.io/agent-files/workflows/insight-to-issue.md) | Erkenntnis aus Brainstorming, Analyse, Research oder Nutzungskontext in ein GitHub-Issue ueberfuehren. |
 | Issue To Sub Issues | [issue-to-sub-issues.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) | Grosses GitHub-Issue in mehrere Sub-Issues schneiden und als Child-Issues anlegen. |
 | Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ticket bis zur Pull-Request-Erstellung ueberfuehren. |
-| Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Issue End-to-End bearbeiten. |
+| Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Einzelnes Issue oder Arbeitspaket umsetzen, verifizieren, committen und pushen. |
 | Refactoring Secure | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Code strukturieren und Verhalten absichern. |

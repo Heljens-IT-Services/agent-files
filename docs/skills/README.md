@@ -8,7 +8,7 @@ Atomare Agentenfaehigkeiten. Workflows kombinieren mehrere Skills.
 - `github_`: GitHub-nahe Skills.
 - Dateinamen beschreiben den fachlichen Scope.
 
-In diesem Repository gelten Branch-Checkout und Commit-Vorbereitung als GitHub-nahe Skills.
+In diesem Repository gelten Branch-Checkout und Commit/Push als GitHub-nahe Skills.
 
 ## Verwendung
 

@@ -32,16 +32,16 @@ Eine bereits umgesetzte Aenderung mit Issue-Kontext committen, pushen und als Pu
 - Bei fehlender oder gescheiterter Verifikation zurueck zu `code_testen`.
 - Bei nicht versandbereitem Diff zurueck zu passendem Umsetzungs- oder Refactoring-Workflow.
 
-## Grenzen
-
-- Fehlende oder gescheiterte Verifikation blockiert Commit, Push und Pull-Request-Erstellung.
-- Keine Pull-Request-Erstellung auf Basis ungetesteter Aenderungen.
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.
-
 ## Endergebnis
 
 - gelesener Issue- und Relationship-Kontext
 - gepruefte Aenderung
 - Commit und Push
 - erstellter Pull Request
+
+## Grenzen
+
+- Fehlende oder gescheiterte Verifikation blockiert Commit, Push und Pull-Request-Erstellung.
+- Keine Pull-Request-Erstellung auf Basis ungetesteter Aenderungen.
+- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
+- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.

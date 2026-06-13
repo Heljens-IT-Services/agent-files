@@ -25,7 +25,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu veraendern, und die A
 ## Ablauf
 
 1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Mit `code_analyse` im Modus `context only` bestehenden Code, aktuelles Verhalten, Refactoring-Ziele und Verhaltensgrenzen erfassen.
+2. Mit `code_analyse` im `Context-only-Modus` bestehenden Code, aktuelles Verhalten, Refactoring-Ziele und Verhaltensgrenzen erfassen.
 3. Verhaltensbasis festhalten:
    - vorhandene Tests
    - relevante User-Flows
@@ -44,7 +44,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu veraendern, und die A
 
 ## Ruecksprungregeln
 
-- Wenn bestehendes Verhalten unklar ist, zurueck zu `code_analyse` im Modus `context only`.
+- Wenn bestehendes Verhalten unklar ist, zurueck zu `code_analyse` im `Context-only-Modus`.
 - Wenn Tests fehlen oder zu schwach sind, zurueck zur Testabsicherung im Ablauf.
 - Wenn Tests wegen Refactoring fehlschlagen, zurueck zu `code_refactoring`.
 - Wenn Tests wegen Umgebung nicht ausfuehrbar sind, Workflow blockieren, ausser der User erlaubt ausdruecklich einen PR mit dokumentiertem Verifikationsdefizit.

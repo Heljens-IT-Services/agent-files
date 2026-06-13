@@ -87,3 +87,13 @@ Epic:
 - Issue-Link
 - klarer Scope
 - nachvollziehbarer fachlicher und technischer Kontext
+
+## Grenzen
+
+- Kein Issue erstellen, wenn die passenden Reifekriterien nicht erfuellt sind.
+- GitHub-Issue-Type nicht raten.
+- Ziel-Repository nicht still wechseln; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
+- Duplikatregeln aus `github_issue-erstellen` beachten.
+- Labels nicht als Ersatz fuer GitHub-Issue-Type oder Relationships verwenden.
+- Relationships nur setzen, wenn sie aus dem Kontext hervorgehen.
+- Keine Erkenntnisse zu Agent Instructions, Skills oder Workflows in diesem Workflow erfassen; dafuer `instruction-improvement-issue.md` verwenden.
