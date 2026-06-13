@@ -42,14 +42,6 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 - Wenn der Fix groesser als erwartet wird, zurueck zu `code_implementierungsplanung`.
 - Bei fehlgeschlagenen Tests zurueck zu `code_implementierungsplanung`.
 
-## Grenzen
-
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.
-- Bugfix-Planung und Implementierung duerfen erst beginnen, wenn der Bug reproduziert wurde.
-- Nach der Implementierung muss die urspruengliche Reproduktion erfolgreich sein.
-- Relevante Regressionen muessen geprueft werden.
-
 ## Endergebnis
 
 - behobener Fehler
@@ -57,3 +49,11 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 - nachvollziehbarer Test- und Review-Kontext
 - Commit und Push
 - erstellter Pull Request
+
+## Grenzen
+
+- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
+- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.
+- Bugfix-Planung und Implementierung duerfen erst beginnen, wenn der Bug reproduziert wurde.
+- Nach der Implementierung muss die urspruengliche Reproduktion erfolgreich sein.
+- Relevante Regressionen muessen geprueft werden.
