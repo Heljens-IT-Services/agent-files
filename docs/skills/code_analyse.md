@@ -8,6 +8,8 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 
 - Bei Analysefragen zu Bugs, Fehlverhalten, Seiteneffekten, Legacy-Code, Branches, Architektur, Wartbarkeit oder konkreten Code-Stellen.
 - Verwenden, wenn eine Bewertung oder Einordnung erwartet wird.
+- Default-Modus: mit Artefakt.
+- Context-only-Modus: ohne Artefakt, wenn ein Workflow oder User dies explizit verlangt.
 - Nicht automatisch bei "Fix bug X" verwenden. Das gehoert in einen Bugfix-Workflow, der Analyse explizit als Schritt benennt.
 - Nicht verwenden, wenn Code nur gelesen oder als Kontext erklaert werden soll. Dann `code_lesen` nutzen.
 
@@ -19,19 +21,21 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 4. Bei Docker-Projekten Container-Logs und Datenbankinhalte nur lesend pruefen, wenn sie fuer die Analyse relevant sind.
 5. Befunde mit Evidenz abgleichen und Unsicherheiten markieren.
 6. Bewertung nach Ursache/Verhalten, Auswirkungen, Risiken, Wartbarkeit/Komplexitaet, Architekturgrenzen, Testbarkeit und Abhaengigkeiten/Schnittstellen strukturieren.
-7. Analyseartefakt unter `docs/analysis-<scope>.md` erstellen.
+7. Im Default-Modus Analyseartefakt unter `docs/analysis-<scope>.md` erstellen.
+8. Im Context-only-Modus Analyse nur in den Agenten-Kontext laden und knapp zusammenfassen.
 
 ## Grenzen
 
 - Hauptsaechlich read-only arbeiten.
 - Keine Produktivcode-Aenderungen vornehmen.
 - Keine Debug-Logs, Repro-Skripte oder Tests anlegen, ausser der User fordert es explizit.
-- Schreibend ist nur das Analyseartefakt unter `docs/` vorgesehen.
-- Bei unklarem Auftrag selbststaendig mit naheliegenden Annahmen starten und diese im Artefakt markieren.
+- Schreibend ist nur das Analyseartefakt unter `docs/` vorgesehen, falls der Modus ein Artefakt verlangt.
+- Bei unklarem Auftrag selbststaendig mit naheliegenden Annahmen starten und diese im Artefakt oder im Context-only-Ergebnis markieren.
 
 ## Artefakt
 
-- Immer ein Markdown-Artefakt direkt unter `docs/` erstellen.
+- Default: Markdown-Artefakt direkt unter `docs/` erstellen.
+- Im Context-only-Modus kein Artefakt erstellen.
 - Dateiname: `analysis-<scope>.md`, ohne Timestamp und ohne Unterordner.
 - Minimalistisch und scharf formulieren.
 - Bulletpoint-Listen und Tabellen bevorzugen.
@@ -50,7 +54,7 @@ Standardabschnitte:
 
 ## Output
 
-- Analyseartefakt unter `docs/analysis-<scope>.md`
+- Analyseartefakt unter `docs/analysis-<scope>.md`, ausser im Context-only-Modus
 - kurze Chat-Zusammenfassung
 - Ausgangsfrage und Scope
 - Befunde mit Evidenz
