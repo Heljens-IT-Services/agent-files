@@ -62,4 +62,4 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 | Issue To Sub Issues | [issue-to-sub-issues.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) | Grosses GitHub-Issue in mehrere Sub-Issues schneiden und als Child-Issues anlegen. |
 | Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ticket bis zur Pull-Request-Erstellung ueberfuehren. |
 | Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Issue End-to-End bearbeiten. |
-| Refactoring Mit Absicherung | [refactoring-mit-absicherung.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-mit-absicherung.md) | Code strukturieren und Verhalten absichern. |
+| Refactoring Secure | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Code strukturieren und Verhalten absichern. |

@@ -84,4 +84,4 @@ Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn si
 | Issue To Sub Issues | [issue-to-sub-issues.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) | Grosses GitHub-Issue in mehrere Sub-Issues schneiden und als Child-Issues anlegen. |
 | Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ein einzelnes Ticket bis zur Pull-Request-Erstellung bearbeiten. |
 | Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Ein bestehendes Issue inklusive relevanter Issue-Beziehungen bis zur versandbereiten Aenderung bearbeiten. |
-| Refactoring Mit Absicherung | [refactoring-mit-absicherung.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-mit-absicherung.md) | Refactoring mit Analyse, Tests und Review absichern. |
+| Refactoring Secure | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Refactoring mit Verhaltenserhalt, Tests, Review und PR absichern. |

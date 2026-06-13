@@ -2,7 +2,7 @@
 
 ## Offene Workflow-Iterationen
 
-- `refactoring-mit-absicherung.md`
+Keine.
 
 ## Bereits iteriert
 
@@ -13,3 +13,4 @@
 - `issue-umsetzung.md`
 - `issue-to-pr.md`
 - `issue-to-sub-issues.md`
+- `refactoring-secure.md`
