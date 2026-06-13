@@ -15,13 +15,11 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 - `github_branch-checkout-from-default`
 - `github_issue-lesen`
 - `brainstorming`
-- `code_lesen`
-- `code_implementierungsplanung`
-- `code_implementieren`
-- `code_testen`
-- `code_diff-review`
-- `github_commit-push`
 - `github_pr-erstellen`
+
+## Verwendete Workflows
+
+- `issue-umsetzung.md`
 
 ## Ablauf
 
@@ -32,23 +30,16 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 5. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
 6. Falls die Richtung noch offen ist, mit `brainstorming` Optionen vergleichen.
 7. Arbeitspakete aus Story- und Child-Issues in Umsetzungsreihenfolge festlegen.
-8. Je Arbeitspaket iterieren:
-   - mit `code_lesen` relevante Architektur und Code-Kontext einordnen
-   - mit `code_implementierungsplanung` Zielzustand, Schritte, Abhaengigkeiten und Tests festlegen
-   - mit `code_implementieren` das Arbeitspaket umsetzen
-   - mit `code_testen` Funktion und angrenzende Risiken pruefen
-   - mit `code_diff-review` Scope und Nebeneffekte kontrollieren
-   - mit `github_commit-push` Commit und Push ausfuehren
-   - umgesetztes Child-Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schliessen, falls das Arbeitspaket ein Child-Issue abschliesst
+8. Je Arbeitspaket den Workflow `issue-umsetzung.md` ausfuehren.
 9. Mit `github_pr-erstellen` den Pull Request mit Review-Kontext und Issue-Verknuepfungen erstellen; Story-Issue so verlinken, dass GitHub es beim Merge schliessen kann.
 
 ## Ruecksprungregeln
 
-- Bei Architekturkonflikten zurueck zu `brainstorming` oder `code_implementierungsplanung`.
+- Bei Architekturkonflikten zurueck zu `brainstorming` oder zur Arbeitspaket-Planung in `issue-umsetzung.md`.
 - Bei unklaren Anforderungen zurueck zu `github_issue-lesen`.
 - Bei unklaren Issue-Beziehungen zurueck zu `github_issue-lesen`.
-- Bei widerspruechlichen Abhaengigkeiten zurueck zu `code_implementierungsplanung`.
-- Bei fehlgeschlagenen Tests zurueck zu `code_implementierungsplanung`.
+- Bei widerspruechlichen Abhaengigkeiten zurueck zur Arbeitspaket-Reihenfolge.
+- Bei fehlgeschlagenen Tests gelten die Ruecksprungregeln aus `issue-umsetzung.md`.
 - Wenn ein Blocker nicht selbststaendig geloest werden kann, Workflow blockieren und Grund nennen.
 
 ## Endergebnis

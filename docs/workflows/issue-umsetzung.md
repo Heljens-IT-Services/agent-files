@@ -2,19 +2,16 @@
 
 ## Ziel
 
-Ein bestehendes Issue von der Anforderungsaufnahme bis zur versandbereiten Aenderung bearbeiten.
-
-Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbeitsumfang ziehen, zum Beispiel durch `parent`, `child`, `blocks`, `blocked by`, `related`, Checklisten oder Kommentarverweise.
+Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket umsetzen, verifizieren, reviewen, committen und pushen.
 
 ## Verwenden
 
-- Wenn ein bestehendes Issue inklusive relevanter Issue-Beziehungen end-to-end bearbeitet werden soll.
-- Wenn Parent/Child-, Blocked-by-, Related- oder Checklisten-Kontext den Scope oder die Reihenfolge beeinflussen kann.
-- Nicht verwenden, wenn ein einzelnes klares Issue ohne Beziehungskontext umgesetzt werden soll. Dann `issue-to-pr.md` nutzen.
+- Wenn ein einzelnes Issue oder Arbeitspaket innerhalb eines groesseren Workflows umgesetzt werden soll.
+- Wenn der Scope bereits aus Issue, Story, Planung oder Workflow-Kontext klar ist.
+- Nicht verwenden, wenn ein Issue-Graph koordiniert, eine Gesamt-Reihenfolge bestimmt oder ein Pull Request erstellt werden soll. Dann `feature-umsetzung.md` oder `issue-to-pr.md` nutzen.
 
 ## Verwendete Skills
 
-- `github_branch-checkout-from-default`
 - `github_issue-lesen`
 - `code_lesen`
 - `code_analyse`
@@ -23,55 +20,47 @@ Das Issue kann alleine stehen oder ueber Beziehungen weitere Issues in den Arbei
 - `code_testen`
 - `code_diff-review`
 - `github_commit-push`
-- `github_pr-erstellen`
 
 ## Ablauf
 
-1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Ausgangs-Issue mit `github_issue-lesen` in Ziel, Scope und offene Fragen uebersetzen.
-3. Relevante Issue-Beziehungen erfassen:
-   - direkte Beziehungen aus GitHub-Metadaten, Issue-Body, Kommentaren und Checklisten lesen
-   - `blocks` und `blocked by` als harte Reihenfolge-Abhaengigkeiten behandeln
-   - `parent` und `child` als Strukturhinweise behandeln und mit fachlichen Abhaengigkeiten abgleichen
-   - `related` oder reine Kommentarverweise nur aufnehmen, wenn sie fuer Scope, Reihenfolge oder Verifikation relevant sind
-   - einzeln stehende Issues ohne relevante Beziehungen als eigenstaendige Arbeitseinheit behandeln
-4. Arbeitsumfang festlegen:
-   - Arbeits-Issues bestimmen, die im Rahmen des Ausgangs-Issues umgesetzt werden muessen
-   - reine Kontext-Issues von umzusetzenden Arbeits-Issues trennen
-   - Issues ausserhalb des Scopes ausdruecklich ausschliessen
-   - fehlende oder falsche Issue-Metadaten nur korrigieren, wenn der Prompt dies verlangt oder die Korrektur fuer den Ablauf erforderlich ist
-5. Umsetzungsreihenfolge bestimmen:
-   - harte Abhaengigkeiten zuerst aufloesen
-   - fachliche und technische Vorarbeiten vor darauf aufbauenden Aenderungen einordnen
-   - explizite Reihenfolge aus Prompt, Issue-Body oder Kommentaren beruecksichtigen, sofern sie keine Abhaengigkeiten verletzt
-   - bei Gleichstand kleine, isolierte oder niedrigere Issue-Nummern zuerst bearbeiten
-6. Mit `code_lesen` relevanten Code fuer die naechste Arbeitseinheit einordnen.
-7. Mit `code_analyse` Risiken, Ursachen oder Auswirkungen klaeren.
-8. Mit `code_implementierungsplanung` den Umsetzungsweg fuer die naechste Arbeitseinheit festlegen.
-9. Mit `code_implementieren` die Aenderung umsetzen.
-10. Mit `code_testen` die Aenderung verifizieren.
-11. Mit `code_diff-review` den Aenderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests pruefen.
-12. Kritische Funde korrigieren und die passende Pruefung wiederholen.
-13. Mit `github_commit-push` Commit und Push fuer die abgeschlossene Arbeitseinheit ausfuehren.
-14. Falls mehrere Arbeits-Issues im Scope liegen, die Schritte 6 bis 13 je Arbeitseinheit in der festgelegten Reihenfolge wiederholen.
-15. Umgesetzte Arbeits-Issues knapp mit Ergebnis, Commit und Teststatus kommentieren und schliessen, wenn ihre Akzeptanzkriterien erfuellt sind.
-16. Ausgangs-Issue abschliessend pruefen, bei erfuelltem Scope knapp kommentieren und schliessen.
-17. Mit `github_pr-erstellen` den Pull Request erstellen.
+1. Arbeitseinheit aus vorhandenem Kontext uebernehmen.
+2. Pruefen, ob der aktuelle Arbeitsbranch zur Arbeitseinheit passt; keinen Branch erstellen.
+3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `github_issue-lesen` das konkrete Issue lesen.
+4. Akzeptanzkriterien, Nicht-Ziele und Abschlussbedingung der Arbeitseinheit festhalten.
+5. Mit `code_lesen` relevanten Code und angrenzende Kontextdateien laden.
+6. Mit `code_implementierungsplanung` den Umsetzungsweg fuer diese Arbeitseinheit festlegen.
+7. Mit `code_implementieren` die Aenderung umsetzen.
+8. Mit `code_testen` die Aenderung verifizieren.
+9. Mit `code_diff-review` den Aenderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests pruefen.
+10. Kritische Funde korrigieren und die passende Pruefung wiederholen.
+11. Akzeptanzkriterien und Nicht-Ziele gegen den finalen Aenderungsstand pruefen.
+12. Mit `github_commit-push` Commit und Push fuer die abgeschlossene Arbeitseinheit ausfuehren.
+13. Falls die Arbeitseinheit ein Issue abschliesst und der Kontext das Schliessen erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schliessen.
 
 ## Ruecksprungregeln
 
-- Bei unklarem Issue zurueck zu `github_issue-lesen`.
-- Bei unklaren Issue-Beziehungen zurueck zu `github_issue-lesen` und GitHub-Kontext erneut lesen.
-- Bei widerspruechlichen Abhaengigkeiten zurueck zur Scope- und Reihenfolgeplanung.
-- Bei unerwartetem Verhalten oder Seiteneffekten zurueck zu `code_analyse`.
-- Bei zu grossem Scope zurueck zu `code_implementierungsplanung`.
-- Bei nicht automatisierbaren GitHub-Metadaten die Implementierung nicht blockieren, aber den fehlenden Pflege-Schritt im Issue- oder PR-Kommentar transparent nennen.
+- Bei unklarem Issue-Kontext zurueck zu `github_issue-lesen`.
+- Bei unklarem Code-Kontext zurueck zu `code_lesen`.
+- Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code_analyse`.
+- Bei zu grossem oder unscharfem Scope zurueck zu `code_implementierungsplanung`.
+- Bei fehlgeschlagenen Tests zurueck zu `code_implementierungsplanung` oder `code_implementieren`.
+- Bei `code_diff-review` mit Bewertung `nicht versandbereit` zurueck zur passenden Umsetzung oder Planung.
 
 ## Endergebnis
 
-- geklaerter Issue-Scope inklusive relevanter Beziehungen
-- begruendete Umsetzungsreihenfolge
-- umgesetzte und verifizierte Aenderung je Arbeitseinheit
-- Commit und Push je Arbeitseinheit
-- kommentierte und geschlossene Issues, soweit ihr Scope erfuellt ist
-- erstellter Pull Request
+- umgesetzte und verifizierte Arbeitseinheit
+- erfuellte Akzeptanzkriterien
+- dokumentierter Teststatus
+- Commit und Push
+- kommentiertes und geschlossenes Issue, falls die Arbeitseinheit ein Issue abschliesst und der Kontext das Schliessen erlaubt
+
+## Grenzen
+
+- Keinen Pull Request erstellen.
+- Keinen Issue-Graph koordinieren.
+- Keine Gesamt-Reihenfolge ueber mehrere Issues bestimmen.
+- Keine Branch-Erstellung ausfuehren.
+- Keine Nebenfunde umsetzen, ausser sie blockieren die Arbeitseinheit.
+- Issue nicht schliessen, wenn der Abschluss ueber einen spaeteren PR-Merge erfolgen soll.
+- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
+- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit und Push.

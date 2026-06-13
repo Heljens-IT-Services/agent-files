@@ -31,6 +31,8 @@ Workflow-Dateien folgen dieser Struktur:
 
 ## Verwendete Skills
 
+## Verwendete Workflows
+
 ## Ablauf
 
 ## Ruecksprungregeln
@@ -42,7 +44,7 @@ Workflow-Dateien folgen dieser Struktur:
 
 Wenn keine besonderen Workflow-Grenzen existieren, wird der Abschnitt `Grenzen` weggelassen.
 
-Alle anderen Abschnitte sind verpflichtend.
+Der Abschnitt `Verwendete Workflows` wird nur verwendet, wenn ein Workflow andere Workflows orchestriert. Alle anderen Abschnitte sind verpflichtend.
 
 Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn sie den Ablauf konkret pruefbar machen, zum Beispiel:
 
@@ -56,6 +58,7 @@ Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn si
 - `Ziel`: ein bis zwei Saetze zum End-to-End-Zweck.
 - `Verwenden`: Trigger, Nicht-Trigger und Abgrenzung zu verwandten Workflows.
 - `Verwendete Skills`: alle Skills in Ausfuehrungsnaehe auffuehren.
+- `Verwendete Workflows`: andere Workflows auffuehren, wenn sie als abgegrenzte Teilschritte verwendet werden.
 - `Ablauf`: Skill-Schritte in Ausfuehrungsreihenfolge benennen.
 - `Ruecksprungregeln`: festlegen, wann zu welchem vorherigen Skill zurueckgegangen wird.
 - `Endergebnis`: erwarteter Abschlusszustand des Workflows.
