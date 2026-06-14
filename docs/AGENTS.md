@@ -39,7 +39,7 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 |---|---|
 | `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos; bei Task-Relevanz zu beruecksichtigen. |
 | `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Zentraler Einstiegspunkt fuer wiederkehrende Agenten-Skills und Workflows; bei Task-Relevanz zu beruecksichtigen. |
+| [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Zentraler Einstiegspunkt fuer Agenten-Skills und Workflows; bei Task-Relevanz zu beruecksichtigen. |
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
 | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Technologieuebergreifende Entwicklungsregeln. |
 | [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) | Allgemeine C#- und .NET-Regeln. |
@@ -58,7 +58,7 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 
 [MUST_IF] Der Agent muss pruefen, ob `README.md` fuer den aktuellen Task relevant ist, und sie bei Bedarf lesen, verstehen und beruecksichtigen.
 
-[MUST_IF] Der Agent muss pruefen, ob [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) fuer den aktuellen Task relevant ist, und sie bei wiederkehrenden Agentenaufgaben lesen, verstehen und beruecksichtigen.
+[MUST_IF] Der Agent muss pruefen, ob [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) fuer den aktuellen Task relevant ist, und sie lesen, verstehen und beruecksichtigen, wenn der Task eine konkrete Arbeitsaufgabe, Aenderung, Recherche, Analyse oder extern wirksame Aktion verlangt und ein passender Skill oder Workflow existieren koennte.
 
 [MUST_IF] Die Datei [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn C# oder .NET relevant sind.
 

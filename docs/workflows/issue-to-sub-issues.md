@@ -8,6 +8,7 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 
 - Wenn ein bestehendes Issue zu gross ist und in mehrere Teilaufgaben zerlegt werden soll.
 - Wenn aus einem Epic, einer Story oder einem grossen Task umsetzbare Sub-Issues entstehen sollen.
+- Dieser Workflow muss verwendet werden, wenn ein User verlangt, ein Epic, eine Story oder ein grosses GitHub-Issue in Sub-Issues, Child-Issues oder Teil-Issues zu zerlegen.
 - Nicht verwenden, wenn das Ausgangs-Issue direkt umgesetzt werden soll. Dann `issue-to-pr.md` oder `issue-umsetzung.md` nutzen.
 
 ## Verwendete Skills
@@ -25,9 +26,9 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 4. Sub-Issue-Schnitt eigenstaendig festlegen: jedes Sub-Issue muss eigenstaendig verstaendlich, umsetzbar und verifizierbar sein.
 5. GitHub-Issue-Type je Sub-Issue kontextbasiert bestimmen.
 6. Mit `github_issue-erstellen` die Sub-Issues erstellen.
-7. Die erstellten Issues als Child-Issues des Ausgangs-Issues setzen.
+7. Die erstellten Issues als native GitHub-Child-Issues des Ausgangs-Issues setzen.
 8. Reihenfolge und Abhaengigkeiten der Sub-Issues bestimmen.
-9. Relationships wie Blocked-by setzen, wenn Abhaengigkeiten aus dem Schnitt hervorgehen.
+9. Native GitHub-Relationships wie Blocked-by setzen, wenn Abhaengigkeiten aus dem Schnitt hervorgehen.
 
 ## Schnittkriterien
 
@@ -41,6 +42,7 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Sub-Issues sollen klein genug sein, dass sie sinnvoll in einem Pull Request bearbeitet werden koennen.
 - Parent-Issue-Type gibt eine Default-Tendenz, bestimmt den Sub-Issue-Type aber nicht automatisch.
 - Jedes Sub-Issue bekommt einen eigenen kontextbasierten GitHub-Issue-Type.
+- GitHub-Issue-Type und Relationships sind native GitHub-Metadaten und duerfen nicht durch Labels, Body-Links oder reine Textverweise ersetzt werden.
 - Parent `Epic` fuehrt haeufig zu `Story` oder `Task`.
 - Parent `Story` fuehrt haeufig zu `Task`.
 - Recherche-, Entscheidungs- oder Klaerungsanteile koennen `Spike` sein.
@@ -56,8 +58,8 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 ## Endergebnis
 
 - mehrere erstellte Sub-Issues
-- gesetzte Parent/Child-Beziehungen zum Ausgangs-Issue
-- gesetzte Blocked-by-Beziehungen, falls vorhanden
+- gesetzte native GitHub-Parent/Child-Beziehungen zum Ausgangs-Issue
+- gesetzte native GitHub-Blocked-by-Beziehungen, falls vorhanden
 - Liste der erstellten Issue-Links
 
 ## Grenzen
@@ -65,6 +67,7 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Ausgangs-Issue nicht automatisch schliessen.
 - Ausgangs-Issue nicht automatisch kommentieren.
 - Keine Umsetzung der Sub-Issues starten.
+- Keine Labels, Body-Links oder Textverweise als Ersatz fuer native GitHub-Issue-Types oder native GitHub-Relationships verwenden.
 - Keine Sub-Issues erstellen, wenn Ziel, Scope oder Zuschnitt nicht ausreichend geklaert sind.
 - Keine Bestaetigungsschleife vor Erstellung, wenn der Zuschnitt plausibel und ausreichend geklaert ist.
 - Sub-Issues muessen kleiner sein als das Ausgangs-Issue und jeweils einen klaren eigenen Scope haben.

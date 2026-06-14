@@ -23,7 +23,7 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelage
 8. Relevante Beziehungen aus vorhandenem Kontext bestimmen.
 9. Issue erstellen.
 10. Nachgelagert den korrekten GitHub-Issue-Type setzen.
-11. Nachgelagert vorhandene Relationships setzen, z. B. Parent/Child oder Blocked-by.
+11. Nachgelagert vorhandene native GitHub-Relationships setzen, z. B. Parent/Child oder Blocked-by. Es können auch beide Arten der Relationships existieren.
 
 ## Kommandos
 
@@ -76,8 +76,9 @@ Platzhalter aus Repository, Organisation, Issue-Type und Beziehungen ableiten.
 - GitHub-Issue-Type immer explizit setzen; damit ist nicht ein Label gemeint.
 - Bei unklarem GitHub-Issue-Type nachfragen, nicht raten.
 - Labels sind nicht praeferiert und ersetzen keine Issue-Type- oder Relationship-Pflege.
+- Body-Links oder Textverweise ersetzen keine native GitHub-Relationship-Pflege.
 - Labels nur setzen, wenn der User oder das Issue-Template sie explizit vorgibt.
-- Relationships nur setzen, wenn sie aus vorhandenem Kontext hervorgehen.
+- Native GitHub-Relationships nur setzen, wenn sie aus vorhandenem Kontext hervorgehen.
 - Fehlende GitHub-Authentifizierung, fehlende Repository-Zuordnung oder fehlende Rechte als Blocker melden.
 
 ## Output
@@ -94,6 +95,6 @@ Platzhalter aus Repository, Organisation, Issue-Type und Beziehungen ableiten.
 ## Qualitaetskriterien
 
 - GitHub-Issue-Type immer explizit setzen; Label ersetzen den Issue-Type nicht.
-- Beziehungen setzen, wenn sie aus dem Kontext hervorgehen.
+- Native GitHub-Relationships setzen, wenn sie aus dem Kontext hervorgehen; Labels, Body-Links oder Textverweise ersetzen sie nicht.
 - Issue-Body muss zur Template-Struktur passen.
 - Fehlende Kontextteile nicht auffuellen oder verstecken.
