@@ -2,13 +2,15 @@
 
 ## Zweck
 
-Diese Datei ist der zentrale Einstiegspunkt fuer wiederkehrende Agenten-Skills und Workflows.
+Diese Datei ist der zentrale Einstiegspunkt fuer Agenten-Skills und Workflows.
 
 Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehrere Skills zu einem zusammenhaengenden Ablauf.
 
 ## Verwendung
 
-[MUST_IF] Der Agent muss diese Datei lesen, wenn ein Task einer wiederkehrenden Aufgabe entspricht, fuer die unter `skills/` oder `workflows/` eine passende Beschreibung existiert.
+[MUST_IF] Der Agent muss diese Datei lesen, wenn ein konkreter Task eine Arbeitsaufgabe, Aenderung, Recherche, Analyse oder extern wirksame Aktion verlangt und unter `skills/` oder `workflows/` eine passende Beschreibung existieren koennte.
+
+[MUST_IF] Der Agent muss die Tabellen in dieser Datei verwenden, um passende Skills oder Workflows zu finden, bevor er eine solche Aufgabe eigenstaendig ausfuehrt.
 
 [MUST_IF] Der Agent muss einen passenden Workflow unter `workflows/` verwenden, wenn der Task mehrere zusammenhaengende Skills benoetigt.
 
