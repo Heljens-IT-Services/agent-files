@@ -12,6 +12,10 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 [MUST] Der Agent muss die Tabellen in dieser Datei verwenden, um passende Skills oder Workflows zu finden, bevor er eine konkrete Arbeitsaufgabe, Aenderung, Recherche, Analyse oder extern wirksame Aktion eigenstaendig ausfuehrt.
 
+[MUST_IF] Wenn der Agent einen Skill oder Workflow auswaehlt, muss er dem User vor der Ausfuehrung kurz mitteilen, welchen Skill oder Workflow er verwendet und welchen Task-Aspekt dieser abdeckt.
+
+[MUST_NOT] Die Auswahlmitteilung darf nicht als Bitte um Erlaubnis formuliert werden. Der Agent setzt die Arbeit nach der Mitteilung fort, ausser eine gesonderte Regel oder eine konkrete Unklarheit verlangt eine Rueckfrage.
+
 [MUST_IF] Der Agent muss einen passenden Workflow unter `workflows/` verwenden, wenn der Task mehrere zusammenhaengende Skills benoetigt.
 
 [MUST_IF] Der Agent muss die in einem verwendeten Workflow referenzierten Skill-Dateien unter `skills/` lesen und befolgen.
