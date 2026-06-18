@@ -17,6 +17,8 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - `anforderungsklaerung`
 - `brainstorming`
 - `github_issue-erstellen`
+- `github_type-setzen`
+- `github_relationship-setzen`
 
 ## Ablauf
 
@@ -26,9 +28,10 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 4. Sub-Issue-Schnitt eigenstaendig festlegen: jedes Sub-Issue muss eigenstaendig verstaendlich, umsetzbar und verifizierbar sein.
 5. GitHub-Issue-Type je Sub-Issue kontextbasiert bestimmen.
 6. Mit `github_issue-erstellen` die Sub-Issues erstellen.
-7. Die erstellten Issues als native GitHub-Child-Issues des Ausgangs-Issues setzen.
-8. Reihenfolge und Abhaengigkeiten der Sub-Issues bestimmen.
-9. Native GitHub-Relationships wie Blocked-by setzen, wenn Abhaengigkeiten aus dem Schnitt hervorgehen.
+7. Mit `github_type-setzen` den nativen GitHub-Issue-Type je Sub-Issue setzen.
+8. Mit `github_relationship-setzen` die erstellten Issues als native GitHub-Child-Issues des Ausgangs-Issues setzen.
+9. Reihenfolge und Abhaengigkeiten der Sub-Issues bestimmen.
+10. Mit `github_relationship-setzen` native GitHub-Relationships wie Blocked-by setzen, wenn Abhaengigkeiten aus dem Schnitt hervorgehen.
 
 ## Schnittkriterien
 
@@ -53,6 +56,7 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Bei unklarem Ausgangs-Issue zurueck zu `github_issue-lesen`.
 - Bei unklaren Anforderungen zurueck zu `anforderungsklaerung`.
 - Bei unklarem Zuschnitt zurueck zu `brainstorming`.
+- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurueck zu `anforderungsklaerung` oder `brainstorming`.
 - Bei moeglichen Duplikaten den Duplikatregeln aus `github_issue-erstellen` folgen.
 
 ## Endergebnis

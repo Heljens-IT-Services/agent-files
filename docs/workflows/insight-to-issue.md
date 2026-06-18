@@ -18,6 +18,8 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 - `anforderungsklaerung`
 - `code_analyse`
 - `github_issue-erstellen`
+- `github_type-setzen`
+- `github_relationship-setzen`
 
 ## Ablauf
 
@@ -26,7 +28,9 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 3. GitHub-Issue-Type als Empfehlung aus dem Kontext ableiten, wenn die Reifekriterien klar auf `Task`, `Story`, `Spike` oder `Epic` zeigen.
 4. Ziel-Repository bestimmen; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
 5. Falls Kontext fehlt, den passenden vorgelagerten Skill nutzen: `anforderungsklaerung`, `brainstorming`, `research` oder `code_analyse`.
-6. Mit `github_issue-erstellen` daraus ein GitHub-Issue erstellen und den GitHub-Issue-Type final setzen.
+6. Mit `github_issue-erstellen` daraus ein GitHub-Issue erstellen.
+7. Mit `github_type-setzen` den finalen nativen GitHub-Issue-Type setzen.
+8. Mit `github_relationship-setzen` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
 
 ## Reifekriterien
 
@@ -79,6 +83,7 @@ Epic:
 - Bei fehlender technischer Bewertung zurueck zu `code_analyse`.
 - Wenn die passenden Reifekriterien nicht erfuellt sind, zurueck zu `anforderungsklaerung`.
 - Bei unklarem GitHub-Issue-Type nicht raten, sondern zurueck zu `anforderungsklaerung`.
+- Bei unklarer Relationship-Richtung nicht raten, sondern zurueck zu `anforderungsklaerung`.
 - Wenn die Erkenntnis Agent Instructions, Skills oder Workflows betrifft, zu `instruction-improvement-issue.md` wechseln; dort ist das Ziel-Repository festgelegt.
 
 ## Endergebnis
@@ -95,5 +100,6 @@ Epic:
 - Ziel-Repository nicht still wechseln; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
 - Duplikatregeln aus `github_issue-erstellen` beachten.
 - Labels nicht als Ersatz fuer GitHub-Issue-Type oder Relationships verwenden.
-- Relationships nur setzen, wenn sie aus dem Kontext hervorgehen.
+- GitHub-Issue-Type ueber `github_type-setzen` setzen.
+- Relationships ueber `github_relationship-setzen` nur setzen, wenn sie aus dem Kontext hervorgehen.
 - Keine Erkenntnisse zu Agent Instructions, Skills oder Workflows in diesem Workflow erfassen; dafuer `instruction-improvement-issue.md` verwenden.

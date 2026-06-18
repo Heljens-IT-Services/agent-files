@@ -22,8 +22,8 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelage
 7. GitHub-Issue-Type festlegen: `Task`, `Story`, `Spike` oder `Epic`.
 8. Relevante Beziehungen aus vorhandenem Kontext bestimmen.
 9. Issue erstellen.
-10. Nachgelagert den korrekten GitHub-Issue-Type setzen.
-11. Nachgelagert vorhandene native GitHub-Relationships setzen, z. B. Parent/Child oder Blocked-by. Es können auch beide Arten der Relationships existieren.
+10. Nachgelagert den korrekten GitHub-Issue-Type mit `github_type-setzen` setzen.
+11. Nachgelagert vorhandene native GitHub-Relationships mit `github_relationship-setzen` setzen, z. B. Parent/Child oder Blocked-by. Es koennen auch beide Arten der Relationships existieren.
 
 ## Kommandos
 
@@ -35,7 +35,7 @@ gh issue create --title "<titel>" --body-file <body-datei>
 gh issue view <issue-nummer> --json id,number,title,url
 ```
 
-GitHub-Issue-Type nachtraeglich setzen:
+GitHub-Issue-Type nachtraeglich mit `github_type-setzen` setzen:
 
 ```powershell
 $issueId = gh issue view <issue-nummer> --json id --jq .id
@@ -43,7 +43,7 @@ $issueTypeId = gh api orgs/<org>/issue-types --jq '.[] | select(.name == "<issue
 gh api graphql -f issueId="$issueId" -f issueTypeId="$issueTypeId" -f query='mutation($issueId:ID!, $issueTypeId:ID!) { updateIssueIssueType(input: { issueId: $issueId, issueTypeId: $issueTypeId }) { issue { number issueType { name } } } }'
 ```
 
-Parent/Child setzen:
+Parent/Child mit `github_relationship-setzen` setzen:
 
 ```powershell
 $parentIssueId = gh issue view <parent-issue-nummer> --json id --jq .id
@@ -51,7 +51,7 @@ $childIssueId = gh issue view <child-issue-nummer> --json id --jq .id
 gh api graphql -f parentIssueId="$parentIssueId" -f childIssueId="$childIssueId" -f query='mutation($parentIssueId:ID!, $childIssueId:ID!) { addSubIssue(input: { issueId: $parentIssueId, subIssueId: $childIssueId, replaceParent: false }) { issue { number } subIssue { number } } }'
 ```
 
-Blocked-by setzen:
+Blocked-by mit `github_relationship-setzen` setzen:
 
 ```powershell
 $blockedIssueId = gh issue view <blocked-issue-nummer> --json id --jq .id
@@ -59,7 +59,7 @@ $blockingIssueId = gh issue view <blocking-issue-nummer> --json id --jq .id
 gh api graphql -f blockedIssueId="$blockedIssueId" -f blockingIssueId="$blockingIssueId" -f query='mutation($blockedIssueId:ID!, $blockingIssueId:ID!) { addBlockedBy(input: { issueId: $blockedIssueId, blockingIssueId: $blockingIssueId }) { issue { number } blockingIssue { number } } }'
 ```
 
-Platzhalter aus Repository, Organisation, Issue-Type und Beziehungen ableiten.
+Platzhalter aus Repository, Organisation, Issue-Type und Beziehungen ableiten und an die atomaren Skills uebergeben.
 
 ## Grenzen
 
