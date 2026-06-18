@@ -2,13 +2,14 @@
 
 ## Ziel
 
-Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus einem konsumierenden Repository als GitHub-Issue in diesem Repository erfassen.
+Einen Verbesserungsvorschlag oder eine Schwachstelle an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen, damit die zentrale Instruktionsbasis gezielt verbessert werden kann.
 
 ## Verwenden
 
 - Wenn waehrend der Nutzung der zentralen `agent-files` Agent Instructions, Skills oder Workflows ein Verbesserungsvorschlag entsteht.
 - Wenn der Vorschlag aus einem anderen Repository kommt, das diese Instruktionen referenziert.
 - Wenn ein Agent eine Leitplanke als potenziell unsinnig, kontraproduktiv, widerspruechlich oder zielverfehlend erkennt.
+- Wenn ein Agent eine Schwachstelle in Agent-Files, Leitplanken, Skills oder Workflows erkennt, die Qualitaet, Sicherheit, Nachvollziehbarkeit, Governance, Wiederverwendbarkeit oder Zielerreichung beeintraechtigen kann.
 - Nicht verwenden fuer projektspezifische Agent- oder Developer-Instruktionen anderer Repositories.
 - Nicht verwenden, wenn direkt an den Instruktionsdateien gearbeitet werden soll. Dann passenden Skill oder Workflow im `agent-files`-Repository verwenden.
 
@@ -21,7 +22,7 @@ Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus 
 
 ## Ablauf
 
-1. Verbesserungsvorschlag, betroffene Instruktion und Ursprungskontext knapp erfassen.
+1. Verbesserungsvorschlag oder Schwachstelle, betroffene Instruktion und Ursprungskontext knapp erfassen.
 2. Aktuelle Regelbefolgung und zukuenftigen Verbesserungsvorschlag trennen: Die geltende Leitplanke bleibt fuer den aktuellen Task bindend, solange keine hoeherrangige Sicherheits-, Datenschutz- oder Plattformvorgabe entgegensteht.
 3. Reflexionskriterium bestimmen: unsinnig, kontraproduktiv, widerspruechlich, zielverfehlend oder nicht ausreichend operationalisierbar.
 4. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewuenschter Zielzustand ausreichend klar sind.
@@ -47,6 +48,7 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 - betroffene Datei, Regel, Skill oder Workflow
 - Ursprungskontext und beobachtetes Problem
+- Art des Befunds: Verbesserungsvorschlag, Schwachstelle, Widerspruch, Luecke, Risiko oder unklare Operationalisierung
 - aktuelles Verhalten oder aktuelle Regelwirkung
 - erwarteter Zielzustand
 - vorgeschlagene Aenderungsrichtung
