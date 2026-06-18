@@ -15,6 +15,8 @@ Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus 
 
 - `anforderungsklaerung`
 - `github_issue-erstellen`
+- `github_type-setzen`
+- `github_relationship-setzen`
 
 ## Ablauf
 
@@ -22,9 +24,11 @@ Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus 
 2. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewuenschter Zielzustand ausreichend klar sind.
 3. Ziel-Repository explizit auf `Heljens-IT-Services/agent-files` setzen.
 4. Im Issue das konsumierende Repository, die betroffene referenzierte Datei oder URL und den konkreten Nutzungskontext verlinken oder beschreiben, wenn bekannt.
-5. GitHub-Issue-Type passend zum Kontext setzen: `Task`, `Story`, `Spike` oder `Epic`.
-6. Relationships setzen, wenn aus dem Kontext ein Parent, Child oder Blocker hervorgeht.
+5. GitHub-Issue-Type passend zum Kontext bestimmen: `Task`, `Story`, `Spike` oder `Epic`.
+6. Relationships bestimmen, wenn aus dem Kontext ein Parent, Child oder Blocker hervorgeht.
 7. Mit `github_issue-erstellen` ein strukturiertes Issue in `Heljens-IT-Services/agent-files` erstellen.
+8. Mit `github_type-setzen` den nativen GitHub-Issue-Type setzen.
+9. Mit `github_relationship-setzen` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
 
 ## Ruecksprungregeln
 
@@ -32,6 +36,7 @@ Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus 
 - Wenn Ziel, Scope, betroffene Instruktion oder Zielzustand nicht klaerbar sind, Workflow blockieren.
 - Bei fehlenden GitHub-Rechten oder unklarer Repository-Zuordnung stoppen und Blocker melden.
 - Bei moeglichem Duplikat den Duplikatregeln aus `github_issue-erstellen` folgen.
+- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurueck zu `anforderungsklaerung`.
 
 ## Endergebnis
 
@@ -48,3 +53,4 @@ Einen Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows aus 
 - Keine Umsetzung planen, wenn nur ein Verbesserungsvorschlag erfasst werden soll.
 - Kein Issue aus einem unscharfen Verbesserungsvorschlag erstellen.
 - Fehlendes konsumierendes Repository, fehlende Referenzdatei oder fehlender Nutzungskontext blockiert die Issue-Erstellung nicht.
+- Labels, Body-Links oder Textverweise ersetzen weder native GitHub-Issue-Types noch native GitHub-Relationships.
