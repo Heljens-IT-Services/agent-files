@@ -51,6 +51,8 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 | GitHub Issue Erstellen | [github_issue-erstellen.md](https://heljens-it-services.github.io/agent-files/skills/github_issue-erstellen.md) | GitHub-Issue erstellen, Issue-Type setzen und Relationships pflegen. |
 | GitHub Issue Lesen | [github_issue-lesen.md](https://heljens-it-services.github.io/agent-files/skills/github_issue-lesen.md) | GitHub-Issue und Kommentare atomar lesen. |
 | GitHub PR Erstellen | [github_pr-erstellen.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-erstellen.md) | Pull Request mit Titel, Body, Base und Head in GitHub erstellen. |
+| GitHub Relationship Setzen | [github_relationship-setzen.md](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setzen.md) | Native GitHub-Relationships wie Blocked-by und Parent/Child gezielt setzen. |
+| GitHub Type Setzen | [github_type-setzen.md](https://heljens-it-services.github.io/agent-files/skills/github_type-setzen.md) | Nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen. |
 | Research | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Web-, Repo-, Issue- oder PR-Kontext recherchieren und zusammenfassen. |
 
 ## Workflows
