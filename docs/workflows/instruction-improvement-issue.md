@@ -2,14 +2,13 @@
 
 ## Ziel
 
-Einen Verbesserungsvorschlag oder eine Schwachstelle an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen, damit die zentrale Instruktionsbasis gezielt verbessert werden kann.
+Schwachstellen und Verbesserungsvorschlaege an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen.
 
 ## Verwenden
 
-- Wenn waehrend der Nutzung der zentralen `agent-files` Agent Instructions, Skills oder Workflows ein Verbesserungsvorschlag entsteht.
-- Wenn der Vorschlag aus einem anderen Repository kommt, das diese Instruktionen referenziert.
-- Wenn ein Agent eine Leitplanke als potenziell unsinnig, kontraproduktiv, widerspruechlich oder zielverfehlend erkennt.
-- Wenn ein Agent eine Schwachstelle in Agent-Files, Leitplanken, Skills oder Workflows erkennt, die Qualitaet, Sicherheit, Nachvollziehbarkeit, Governance, Wiederverwendbarkeit oder Zielerreichung beeintraechtigen kann.
+- Wenn waehrend der Nutzung der zentralen `agent-files` ein Verbesserungsvorschlag entsteht.
+- Wenn ein Agent eine Schwachstelle, Luecke, unklare Regel, widerspruechliche Leitplanke oder kontraproduktiven Workflow erkennt.
+- Wenn der Vorschlag aus einem konsumierenden Repository kommt, das diese Instruktionen referenziert.
 - Nicht verwenden fuer projektspezifische Agent- oder Developer-Instruktionen anderer Repositories.
 - Nicht verwenden, wenn direkt an den Instruktionsdateien gearbeitet werden soll. Dann passenden Skill oder Workflow im `agent-files`-Repository verwenden.
 
@@ -22,8 +21,8 @@ Einen Verbesserungsvorschlag oder eine Schwachstelle an Agent-Files, Leitplanken
 
 ## Ablauf
 
-1. Verbesserungsvorschlag oder Schwachstelle, betroffene Instruktion und Ursprungskontext knapp erfassen.
-2. Aktuelle Regelbefolgung und zukuenftigen Verbesserungsvorschlag trennen: Die geltende Leitplanke bleibt fuer den aktuellen Task bindend, solange keine hoeherrangige Sicherheits-, Datenschutz- oder Plattformvorgabe entgegensteht.
+1. Verbesserungsvorschlag oder Schwachstelle, betroffene Instruktion und Ursprungskontext erfassen.
+2. Aktuelle Regelbefolgung und zukuenftige Regelverbesserung trennen: Die geltende Leitplanke bleibt fuer den aktuellen Task bindend, solange keine hoeherrangige Vorgabe entgegensteht.
 3. Reflexionskriterium bestimmen: unsinnig, kontraproduktiv, widerspruechlich, zielverfehlend oder nicht ausreichend operationalisierbar.
 4. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewuenschter Zielzustand ausreichend klar sind.
 5. Ziel-Repository explizit auf `Heljens-IT-Services/agent-files` setzen.
@@ -36,11 +35,13 @@ Einen Verbesserungsvorschlag oder eine Schwachstelle an Agent-Files, Leitplanken
 
 ## Reflexionskriterien
 
-- Eine Leitplanke ist potenziell unsinnig, wenn sie keinen erkennbaren Zweck fuer Sicherheit, Qualitaet, Wartbarkeit, Governance oder Nutzerziel erfuellt.
-- Eine Leitplanke ist potenziell kontraproduktiv, wenn ihre Befolgung regelmaessig zu schlechteren Ergebnissen, hoeherem Risiko, unnoetiger Reibung oder schlechterer Nachvollziehbarkeit fuehrt.
-- Eine Leitplanke ist potenziell widerspruechlich, wenn sie mit einer gleich- oder hoeherpriorisierten Regel, einem projektspezifischen Constraint oder dem dokumentierten Workflow nicht konsistent vereinbar ist.
-- Eine Leitplanke ist potenziell zielverfehlend, wenn sie das beschriebene Ziel nicht erreicht oder wichtige Faelle systematisch offenlaesst.
-- Eine Leitplanke ist potenziell nicht ausreichend operationalisierbar, wenn ein Agent sie nicht verlaesslich anwenden kann, weil Begriffe, Ausnahmen, Prioritaeten oder Abschlussbedingungen fehlen.
+Ein Issue ist sinnvoll, wenn eine Leitplanke oder ein Workflow mindestens eines davon zeigt:
+
+- kein klarer Zweck fuer Sicherheit, Qualitaet, Wartbarkeit, Governance oder Nutzerziel
+- schlechtere Ergebnisse, hoeheres Risiko, unnoetige Reibung oder schlechtere Nachvollziehbarkeit
+- Widerspruch zu gleich- oder hoeherpriorisierten Regeln
+- Ziel wird nicht erreicht oder wichtige Faelle bleiben offen
+- Begriffe, Ausnahmen, Prioritaeten oder Abschlussbedingungen sind nicht operationalisierbar
 
 ## Vorschlagsformat
 
@@ -57,23 +58,9 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 ## Zielkanaele
 
-GitHub-Issue im Repository `Heljens-IT-Services/agent-files`:
-
-- Vorteil: versionierbar, reviewbar, nachvollziehbar, mit nativen Issue-Types und Relationships integrierbar.
-- Nachteil: benoetigt GitHub-Zugriff und kann bei sehr kleinen Beobachtungen mehr Prozessgewicht haben.
-- Bewertung: empfohlener erster Mechanismus.
-
-MCP-Tool oder spezialisiertes Review-Backend:
-
-- Vorteil: kann strukturierte Felder, Deduplizierung, Routing und Governance-Automatisierung erzwingen.
-- Nachteil: benoetigt zusaetzliche Infrastruktur, Rechteverwaltung und Betriebsverantwortung.
-- Bewertung: spaetere Ausbaustufe, wenn GitHub-Issues zu wenig Struktur liefern.
-
-Zentrales Review-Postfach:
-
-- Vorteil: niedrigschwelliger Eingangskanal fuer Umgebungen ohne GitHub-Zugriff.
-- Nachteil: schlechtere Nachverfolgbarkeit, Deduplizierung, Statuspflege und Relationship-Pflege.
-- Bewertung: Fallback fuer eingeschraenkte Umgebungen, nicht bevorzugter Standard.
+- GitHub-Issue in `Heljens-IT-Services/agent-files`: Standard, weil reviewbar, versionierbar und gut nachverfolgbar.
+- MCP-Tool oder Review-Backend: spaetere Option fuer strukturierte Felder, Routing und Deduplizierung.
+- Zentrales Review-Postfach: Fallback fuer Umgebungen ohne GitHub-Zugriff.
 
 ## Minimalprozess
 
@@ -106,7 +93,7 @@ Zentrales Review-Postfach:
 - Keine Aenderungen an Instruktionsdateien vornehmen.
 - Keine Umsetzung planen, wenn nur ein Verbesserungsvorschlag erfasst werden soll.
 - Kein Issue aus einem unscharfen Verbesserungsvorschlag erstellen.
-- Keine geltende Leitplanke im aktuellen Task eigenmaechtig umgehen, nur weil ein Verbesserungsvorschlag erstellt wird.
+- Keine geltende Leitplanke im aktuellen Task umgehen, nur weil ein Verbesserungsvorschlag erstellt wird.
 - Keine automatische Aenderung verbindlicher Leitplanken ohne menschliches Review.
 - Keine Verbesserungsvorschlaege erzeugen, die nur die eigene Bequemlichkeit optimieren und Sicherheit, Qualitaet, Nachvollziehbarkeit oder Nutzerziel verschlechtern.
 - Kein Spam: aehnliche Beobachtungen buendeln oder vorhandene offene Issues weiterverwenden, wenn sie denselben Verbesserungsbedarf abdecken.
@@ -115,8 +102,8 @@ Zentrales Review-Postfach:
 
 ## Risiken
 
-- Regelumgehung: Agenten koennten eine Verbesserungsidee als Begruendung missbrauchen, um aktuelle Regeln nicht zu befolgen.
-- Spam: zu viele kleinteilige oder doppelte Vorschlaege koennen Review-Kapazitaet binden.
-- Falsche Optimierungsziele: Vorschlaege koennen auf Geschwindigkeit oder Bequemlichkeit optimieren und dabei Qualitaet, Sicherheit oder Governance schwaechen.
-- Fehlende Verantwortlichkeit: Ohne Human-Review waere unklar, wer Regelwirkungen bewertet und freigibt.
-- Kontextverlust: Vorschlaege ohne konkrete Ausgangssituation sind schwer pruefbar.
+- Regelumgehung
+- Spam oder Duplikate
+- falsche Optimierungsziele
+- fehlende Verantwortlichkeit ohne Human-Review
+- Kontextverlust durch unkonkrete Vorschlaege
