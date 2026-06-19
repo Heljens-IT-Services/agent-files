@@ -22,8 +22,14 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen und nachgelage
 7. GitHub-Issue-Type festlegen: `Task`, `Story`, `Spike` oder `Epic`.
 8. Relevante Beziehungen aus vorhandenem Kontext bestimmen.
 9. Issue erstellen.
-10. Nachgelagert den korrekten GitHub-Issue-Type mit `github_type-setzen` setzen.
+10. Unmittelbar nachgelagert den korrekten nativen GitHub-Issue-Type mit `github_type-setzen` setzen.
 11. Nachgelagert vorhandene native GitHub-Relationships mit `github_relationship-setzen` setzen, z. B. Parent/Child oder Blocked-by. Es koennen auch beide Arten der Relationships existieren.
+
+## Nachgelagerte Metadaten
+
+[MUST] Jedes neu erstellte GitHub-Issue muss unmittelbar nach der Erstellung mit `github_type-setzen` einen nativen GitHub-Issue-Type erhalten.
+
+[MUST_NOT] Labels, Body-Text, Links oder Namenskonventionen duerfen nicht als Ersatz fuer den nativen GitHub-Issue-Type verwendet werden.
 
 ## Kommandos
 
