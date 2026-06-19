@@ -10,6 +10,16 @@ Einen aufgabenbezogenen Arbeitsbranch von einer aktuellen Standardbasis erstelle
 - Wenn Arbeit von `develop`, `main` oder einer expliziten Basis starten soll.
 - Nicht verwenden, wenn bewusst auf dem aktuellen Branch weitergearbeitet werden soll.
 
+## Arbeitsbranch-Regeln
+
+[MUST] Vor jeder zustandsveraendernden Implementierung muss der Agent pruefen, ob ein aufgabenbezogener Arbeitsbranch aktiv ist.
+
+[SHOULD] Implementierungen sollen auf einem aufgabenbezogenen Branch erfolgen, nicht direkt auf `main`, `develop`, `master` oder einem anderen Integrationsbranch.
+
+[MUST_IF] Wenn der aktuelle Branch `main`, `develop`, `master` oder ein anderer Integrationsbranch ist und der User keine ausdruecklich abweichende Anweisung gegeben hat, muss vor der Implementierung ein aufgabenbezogener Arbeitsbranch erstellt werden.
+
+[MUST_IF] Wenn der User ausdruecklich verlangt, auf `main`, `develop`, `master` oder einem anderen Integrationsbranch zu arbeiten, muss der Agent diese Abweichung vor zustandsveraendernden Aenderungen kurz benennen.
+
 ## Vorgehen
 
 1. Aktuellen Branch und Arbeitsstatus pruefen, z. B. `git status --short --branch`.
