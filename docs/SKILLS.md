@@ -8,7 +8,11 @@ Skills sind atomare, wiederverwendbare Faehigkeiten. Workflows kombinieren mehre
 
 ## Verwendung
 
-[MUST] Der Agent muss diese Datei zu Beginn eines Tasks lesen, verstehen und im Kontext halten, damit passende Skills und Workflows vor der eigenstaendigen Ausfuehrung erkannt werden koennen.
+[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass diese Datei im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, damit passende Skills und Workflows vor der eigenstaendigen Ausfuehrung erkannt werden koennen.
+
+[ALLOW_IF] Wenn diese Datei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
+
+[MUST_IF] Der Agent muss diese Datei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
 [MUST] Der Agent muss die Tabellen in dieser Datei verwenden, um passende Skills oder Workflows zu finden, bevor er eine konkrete Arbeitsaufgabe, Aenderung, Recherche, Analyse oder extern wirksame Aktion eigenstaendig ausfuehrt.
 

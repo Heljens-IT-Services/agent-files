@@ -33,13 +33,13 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 ## Pflichtlektuere
 
-Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgemeine Regeldateien muessen immer gelesen werden; kontextabhaengige oder technologiespezifische Dateien muessen gelesen werden, wenn ihr Scope fuer den aktuellen Task relevant ist.
+Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgemeine Regeldateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein; kontextabhaengige oder technologiespezifische Dateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein, wenn ihr Scope fuer den aktuellen Task relevant ist.
 
 | Pfad | Zweck |
 |---|---|
 | `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos; bei Task-Relevanz zu beruecksichtigen. |
 | `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Zentraler Einstiegspunkt fuer Agenten-Skills und Workflows; immer zu lesen und fuer die Arbeitsweise zu beruecksichtigen. |
+| [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Zentraler Einstiegspunkt fuer Agenten-Skills und Workflows; im aktuellen Kontext bekannt zu halten und fuer die Arbeitsweise zu beruecksichtigen. |
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
 | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Technologieuebergreifende Entwicklungsregeln. |
 | [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) | Allgemeine C#- und .NET-Regeln. |
@@ -50,29 +50,33 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 | [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
 | [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) lesen, verstehen und befolgen.
+[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
 
-[MUST] Die Datei am Pfad `PROJECT.md` muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden.
+[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass die Datei am Pfad `PROJECT.md` im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
 
-[MUST] Der Agent muss zu Beginn eines Tasks [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) lesen, verstehen und befolgen.
+[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
 
 [MUST_IF] Der Agent muss pruefen, ob `README.md` fuer den aktuellen Task relevant ist, und sie bei Bedarf lesen, verstehen und beruecksichtigen.
 
-[MUST] Der Agent muss zu Beginn eines Tasks [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) lesen, verstehen und fuer die Auswahl passender Skills und Workflows beruecksichtigen.
+[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie fuer die Auswahl passender Skills und Workflows beruecksichtigen.
 
-[MUST_IF] Die Datei [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn C# oder .NET relevant sind.
+[ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
 
-[MUST_IF] Die Datei [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn Angular relevant ist.
+[MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
-[MUST_IF] Die Datei [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn HTML oder Markup relevant sind.
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn C# oder .NET relevant sind.
 
-[MUST_IF] Die Datei [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn CSS, Styling oder UI-nahe Praesentationsregeln relevant sind.
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn Angular relevant ist.
 
-[MUST_IF] Die Datei [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn TypeScript relevant ist.
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn HTML oder Markup relevant sind.
 
-[MUST_IF] Die Datei [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn eine .NET-Konsolenanwendung relevant ist.
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn CSS, Styling oder UI-nahe Praesentationsregeln relevant sind.
 
-[MUST_IF] Die Datei [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) muss zu Beginn eines Tasks gelesen, verstanden und befolgt werden, wenn eine .NET-Web-API relevant ist.
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn TypeScript relevant ist.
+
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn eine .NET-Konsolenanwendung relevant ist.
+
+[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn eine .NET-Web-API relevant ist.
 
 ## Prioritaet von Anweisungen
 
