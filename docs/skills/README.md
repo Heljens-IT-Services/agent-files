@@ -9,6 +9,7 @@ Die verbindliche Situationstabelle fuer die Auswahl einzelner Skills steht in [S
 - `code_`: programmiernahe Skills.
 - `github_`: GitHub-nahe Skills.
 - Dateinamen beschreiben den fachlichen Scope.
+- Command-IDs verwenden Kleinbuchstaben und Bindestriche; Dateinamen duerfen bestehende Unterstrich-Konventionen beibehalten.
 
 In diesem Repository gelten Branch-Checkout und Commit/Push als GitHub-nahe Skills.
 

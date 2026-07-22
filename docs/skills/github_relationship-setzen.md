@@ -72,7 +72,6 @@ Platzhalter:
 - Extern wirksam arbeiten: Native GitHub-Relationships werden tatsaechlich in GitHub gesetzt.
 - Relationships nur setzen, wenn Art und Richtung aus User-Anweisung, Issue-Kontext oder Workflow eindeutig hervorgehen; andernfalls nachfragen.
 - Bei bestehendem anderem Parent `replaceParent: false` beibehalten und den Konflikt melden.
-- Labels, Body-Links oder Textverweise nicht als Ersatz fuer native Relationships verwenden.
 - Keine Issue-Types setzen.
 - Fehlende GitHub-Authentifizierung, fehlende Rechte, fehlende Repository-Zuordnung oder nicht auffindbare Issues als Blocker melden.
 - Bei GraphQL-Fehlern nicht auf Labels oder Body-Text ausweichen.

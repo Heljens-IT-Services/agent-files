@@ -12,10 +12,6 @@ Diese Datei definiert TypeScript-spezifische Entwicklungsregeln. Allgemeine Rege
 
 [ALLOW_IF] `any` darf nur an technischen Grenzen mit begruendeter Kapselung verwendet werden.
 
-[MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen standardmaessig als `type` definiert werden.
-
-[MUST_NOT] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
+[MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen als `type` definiert werden, ausser ein technischer Grund liegt vor und das aktive Lint-Regelwerk erlaubt ein `interface`.
 
 [MUST] Die `type`-Konvention muss ueber `@typescript-eslint/consistent-type-definitions` erzwungen werden.
-
-[ALLOW_IF] Abweichungen von der `type`-Konvention sind erlaubt, wenn ein technischer Grund vorliegt und das aktive Lint-Regelwerk die Abweichung erlaubt.
