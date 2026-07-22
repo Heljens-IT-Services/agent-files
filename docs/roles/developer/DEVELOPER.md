@@ -1,12 +1,21 @@
 # DEVELOPER.md
 
-Stand: 2026-05-13
+Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln. Technologiespezifische Details stehen in den passenden [DEVELOPER.<TECHNOLOGY>.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.%3CTECHNOLOGY%3E.md)-Dateien.
+Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln. Technologiespezifische Details stehen in den passenden [DEVELOPER.<TECHNOLOGY>.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.%3CTECHNOLOGY%3E.md)-Dateien.
 
 [PRIORITY] Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische oder projektspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+
+## Prioritaet innerhalb der Developer-Rolle
+
+[PRIORITY] Bei widerspruechlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
+
+1. Passende [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.*.md).
+2. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md).
+
+[PRIORITY] Bei mehreren passenden `DEVELOPER.*.md`-Dateien hat die spezifischere Regel nur innerhalb ihres ausdruecklich beschriebenen Scopes Vorrang vor einer allgemeineren Regel.
 
 ## Architekturprinzipien
 

@@ -2,6 +2,8 @@
 
 Atomare Agentenfaehigkeiten. Workflows kombinieren mehrere Skills.
 
+Die verbindliche Situationstabelle fuer die Auswahl einzelner Skills steht in [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md).
+
 ## Namenskonvention
 
 - `code_`: programmiernahe Skills.
