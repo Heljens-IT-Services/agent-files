@@ -73,6 +73,5 @@ Platzhalter aus Aufgabe, Basisbranch und Branch-Namenskonvention ableiten.
 
 ## Qualitaetskriterien
 
-- Basis nicht raten, wenn sie unklar ist.
-- Keine lokalen Aenderungen verwerfen.
 - Branch-Name muss Aufgabe und Scope erkennen lassen.
+- Der neue Branch muss auf der geprueften aktuellen Basis starten.

@@ -45,4 +45,3 @@ Eine Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifiz
 - Testluecken offenlegen.
 - Fehler nicht relativieren.
 - Fehlgeschlagene Pruefungen knapp melden und nicht in Analyse ausweiten.
-- Bei mehreren passenden Pruefschritten breit testen, solange Aufwand und Projektscope angemessen bleiben.

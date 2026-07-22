@@ -62,12 +62,8 @@ Platzhalter:
 ## Grenzen
 
 - Extern wirksam arbeiten: Der native GitHub-Issue-Type wird tatsaechlich in GitHub gesetzt.
-- GitHub-Issue-Type ist kein Label und darf nicht durch ein Label ersetzt werden.
-- Keine Labels setzen oder empfehlen.
-- Keine Relationships setzen oder pflegen.
-- Keine Issue-Erstellung in diesen Skill ziehen.
-- Keinen Type raten, wenn der Kontext unklar ist.
-- Bei unklarer Organisation, unklarem Repository, unklarer Issue-Nummer oder unklarem Type-Namen nachfragen.
+- Keine Labels, Relationships oder Issues erstellen bzw. pflegen.
+- Organisation, Repository, Issue und Type muessen eindeutig sein; andernfalls nachfragen.
 - Fehlende GitHub-Authentifizierung, fehlende Rechte, unbekannte Issue-Types oder fehlende Repository-Zuordnung als Blocker melden.
 - Wenn der Type-Name mehrfach oder nicht eindeutig aufloesbar ist, nicht setzen und die Mehrdeutigkeit melden.
 
@@ -80,7 +76,5 @@ Platzhalter:
 
 ## Qualitaetskriterien
 
-- Der Skill behandelt ausschliesslich native GitHub-Issue-Types.
 - Der gesetzte Type wird nach der Mutation geprueft.
 - Beobachtung und Aenderung werden getrennt: erst lesen, dann setzen, dann verifizieren.
-- Labels, Body-Links oder Textverweise werden nicht als Ersatz fuer den nativen Issue-Type verwendet.

@@ -55,5 +55,3 @@ Ein neues Feature strukturiert von Idee oder Ticket bis zur verifizierten Implem
 - Story-Issue nicht manuell schliessen.
 - Story-Issue ueber PR-Verlinkung schliessen lassen, wenn der PR gemergt wird.
 - Wenn automatisches Schliessen nicht sicher ist, im PR-Kontext sichtbar machen.
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.

@@ -6,8 +6,6 @@ Stand: 2026-07-22
 
 Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokumentations-, Qualitaets-, Fehlerbehandlungs-, Security- und Testregeln. Technologiespezifische Details stehen in den passenden [DEVELOPER.<TECHNOLOGY>.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.%3CTECHNOLOGY%3E.md)-Dateien.
 
-[PRIORITY] Diese Regeln gelten fuer alle Implementierungen, sofern keine passendere technologiespezifische oder projektspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
-
 ## Prioritaet innerhalb der Developer-Rolle
 
 [PRIORITY] Bei widerspruechlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
@@ -25,7 +23,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Technische Details wie UI, HTTP, CLI, Persistenz, Dateisystem, externe APIs, Worker, Frameworks, Logging, Konfiguration und Dependency Injection muessen an den Systemraendern bleiben.
 
-[MUST_NOT] Einstiegspunkte wie Components, Pages, Controllers, Endpoints, `Program.cs`, Worker-Handler oder CLI-Kommandos duerfen keine Fachlogik enthalten.
+[MUST_NOT] Technische Einstiegspunkte wie Controllers, Endpoints, `Program.cs`, Worker-Handler oder CLI-Kommandos duerfen keine Fachlogik enthalten.
 
 [MUST] Einstiegspunkte muessen Eingaben validieren, Use Cases oder Services aufrufen und Ergebnisse in die passende Ausgabeform mappen.
 
@@ -61,15 +59,11 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Eine Funktion oder Methode muss eine klar erkennbare Aufgabe auf einer Abstraktionsebene erfuellen.
 
-[SHOULD] Funktionen und Methoden sollen in der Regel nicht mehr als ca. 15 Zeilen fachlich relevanten Code enthalten.
-
-[SHOULD] Wird dieser Richtwert ueberschritten, soll geprueft werden, ob Verantwortlichkeiten getrennt oder Hilfsmethoden extrahiert werden sollten.
+[SHOULD] Funktionen und Methoden sollen in der Regel nicht mehr als ca. 15 Zeilen fachlich relevanten Code enthalten; bei Ueberschreitung soll eine Trennung von Verantwortlichkeiten oder Extraktion von Hilfsmethoden geprueft werden.
 
 [MUST] Klassen, Komponenten und Services muessen hohe Kohaesion und niedrige Kopplung haben.
 
-[MUST] Oeffentliche Typen, zentrale Einstiegspunkte und wiederverwendbare Bausteine muessen eine erkennbare, begrenzte Verantwortung haben.
-
-[SHOULD] Klassen, Komponenten und Services sollen eine klar benennbare Hauptverantwortung haben. Wenn ein Typ mehrere fachlich oder technisch getrennte Gruende zur Aenderung enthaelt, soll geprueft werden, ob er aufgeteilt werden sollte.
+[MUST] Oeffentliche Typen, zentrale Einstiegspunkte, Klassen, Komponenten und Services muessen eine klar benennbare und begrenzte Hauptverantwortung haben.
 
 [MUST_NOT] Klassen, Komponenten und Services duerfen nicht allein zur Einhaltung numerischer Groessenrichtwerte so aufgeteilt werden, dass fachliche Zusammenhaenge, Lesefluss oder Wartbarkeit schlechter werden.
 
@@ -79,9 +73,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 ## Dokumentation
 
-[MUST_IF] Notwendiges Verstaendnis muss mindestens im Quellcode dokumentiert werden, wenn es fuer Wartung, Nutzung oder Review einer Aenderung erforderlich ist.
-
-[MUST_IF] Allgemeine Einstiegspunkte, komplexere Strukturen, Infrastruktur-Objekte, oeffentliche Vertraege und nicht offensichtliche fachliche Regeln muessen kommentiert werden, wenn ihr Zweck nicht aus Code und Namen hervorgeht.
+[MUST_IF] Allgemeine Einstiegspunkte, komplexe Strukturen, Infrastruktur-Objekte, oeffentliche Vertraege und fachliche Regeln muessen im Quellcode dokumentiert werden, wenn ihr fuer Wartung, Nutzung oder Review notwendiger Zweck nicht aus Code und Namen hervorgeht.
 
 [MUST] Kommentare muessen Domaenenwissen, fachspezifisches Know-how, Absicht, Trade-offs oder nicht offensichtliche Constraints erklaeren.
 
@@ -97,13 +89,9 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [ALLOW_IF] Vererbung darf genutzt werden, wenn echte Substituierbarkeit vorliegt.
 
-[MUST] Anwendungsschichten muessen von Abstraktionen abhaengen; Infrastruktur muss diese Abstraktionen implementieren.
-
 [MUST_IF] Mapper muessen externe DTOs von internen Modellen trennen, wenn Daten aus APIs, Dateien, Datenbanken oder UI-Formularen kommen.
 
 [SHOULD] Facades, Application Services, Use Cases oder Component Services sollen Ablaeufe koordinieren, wenn Views, Endpoints oder CLI-Einstiege sonst Wissen ueber Datenzugriff, Validierung, Status oder technische Ablaeufe enthalten wuerden.
-
-[MUST] Code muss SOLID beachten, insbesondere das Single-Responsibility-Prinzip.
 
 ## UI- und Praesentationsregeln
 
@@ -115,7 +103,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST_NOT] UI-Code darf technische Fehler, interne IDs, Debug-Daten oder Infrastrukturdetails nicht ungefiltert sichtbar machen.
 
-[MUST_NOT_IF] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
+[MUST_NOT] Designsysteme und Komponentenbibliotheken duerfen nicht ohne ausdrueckliche User-Anweisung installiert werden.
 
 [MUST] Layout- und Styling-Aenderungen muessen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
 
@@ -133,7 +121,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [MUST] Erwartbare fachliche Fehler muessen Teil des normalen fachlichen Kontrollflusses bleiben.
 
-[ALLOW_IF] Exceptions duerfen fuer unerwartete technische Fehler, verletzte Invarianten oder nicht sinnvoll lokal behandelbare Fehler verwendet werden.
+[ALLOW_IF] Exceptions duerfen verwendet werden, wenn technische Fehler unerwartet sind, Invarianten verletzt wurden oder eine lokale Behandlung nicht sinnvoll ist.
 
 [MUST] Validierungsfehler muessen nahe an der Eingabe erkannt und in eine stabile, fachlich verstaendliche Fehlerform uebersetzt werden.
 
@@ -185,9 +173,7 @@ Diese Datei definiert technologieuebergreifende Architektur-, Clean-Code-, Dokum
 
 [SHOULD] Agents sollen den kleinsten sinnvollen Checkumfang ausfuehren. Abweichungen sind erlaubt, wenn die Aenderung gemeinsame Vertrage, Startup, Routing, Persistenz, Security oder breite Nutzerflows betrifft.
 
-[OPTIONAL] Reine Dokumentationsaenderungen muessen nicht getestet werden.
-
-[ALLOW_IF] Content-Aenderungen duerfen ohne Tests abgeschlossen werden, wenn sie Rendering, Routing, Metadaten und Linksyntax nicht betreffen.
+[ALLOW_IF] Reine Dokumentations- und Content-Aenderungen duerfen ohne Tests abgeschlossen werden, wenn sie Rendering, Routing, Metadaten und Linksyntax nicht betreffen.
 
 [SHOULD] Unit-Tests sollen fuer isolierte Logik eingesetzt werden; E2E-Tests sollen fuer sichtbare Nutzerflows, Navigation, Persistenz, Startup und domainuebergreifende Integration eingesetzt werden.
 

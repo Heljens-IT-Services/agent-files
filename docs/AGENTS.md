@@ -33,30 +33,32 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 ## Pflichtlektuere
 
-Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgemeine Regeldateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein; kontextabhaengige oder technologiespezifische Dateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein, wenn ihr Scope fuer den aktuellen Task relevant ist.
+Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
-| Pfad | Zweck |
-|---|---|
-| `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos; bei Task-Relevanz zu beruecksichtigen. |
-| `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken. |
-| [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
-| [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Lookup-Datei fuer Rollen und die Situationen, in denen ihre Regeldateien gelesen werden muessen. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Lookup-Datei fuer Skills und die Situationen, in denen ihre Regeldateien gelesen werden muessen. |
-| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Lookup-Datei fuer Workflows und die Situationen, in denen ihre Regeldateien gelesen werden muessen. |
+| Pfad | Geltung | Zweck |
+|---|---|---|
+| [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflicht | Allgemeine Arbeitsregeln, Regelmarker und Prioritaetslogik. |
+| `PROJECT.md` | Pflicht | Projektspezifische Versionsbasis und Leitplanken. |
+| [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Lookup fuer kontextabhaengige Rollenregeln. |
+| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup fuer atomare Skills. |
+| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup fuer zusammengesetzte Workflows. |
+| `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
+[MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass die Datei am Pfad `PROJECT.md` im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
-
-[MUST_IF] Der Agent muss pruefen, ob `README.md` fuer den aktuellen Task relevant ist, und sie bei Bedarf lesen, verstehen und beruecksichtigen.
-
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug sind, und sie als Lookup-Dateien beruecksichtigen.
+[MUST_IF] Der Agent muss `README.md` lesen und beruecksichtigen, wenn ihr Inhalt fuer den aktuellen Task relevant ist.
 
 [ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
-[MUST_IF] Der Agent muss die in den Lookup-Dateien verlinkten Rollen-, Skill- und Workflow-Dateien lesen und befolgen, wenn die dort beschriebene Situation fuer den aktuellen Task eintritt.
+[MUST_IF] Wenn eine in den Lookup-Dateien beschriebene Situation fuer den aktuellen Task eintritt, muss der Agent die dort verlinkte Detaildatei lesen und befolgen.
+
+## Dokumentierte Kommandos
+
+[MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter wie Branch-Namen, Pfade oder Remote-Namen passend ersetzen.
+
+[MUST_NOT_IF] Der Agent darf dokumentierte Kommandos nicht ausfuehren, wenn Platzhalter unaufgeloest sind, ein destruktives Ziel nicht eindeutig geprueft ist oder die Zustandsaenderung den autorisierten Task-Scope ueberschreitet.
 
 ## Prioritaet von Anweisungen
 
@@ -80,8 +82,6 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 [PRIORITY] Bei unklarer Erlaubnis gilt eine riskante, zustandsveraendernde, extern wirksame oder irreversible Handlung als nicht erlaubt.
 
 [MUST_IF] Der Agent muss die Unklarheit benennen und eine sichere, eng begrenzte Alternative waehlen oder rueckfragen, wenn eine Regel unklar, widerspruechlich oder offensichtlich gefaehrlich ist.
-
-## Dokumentenpflege
 
 [MUST_IF] Der Agent muss die Abweichung im Arbeitsabschluss kurz benennen, wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist.
 

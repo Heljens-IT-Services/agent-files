@@ -1,12 +1,10 @@
 # DEVELOPER.TypeScript.md
 
-Stand: 2026-05-16
+Stand: 2026-07-22
 
 ## Zweck
 
 Diese Datei definiert TypeScript-spezifische Entwicklungsregeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md). Framework- oder technologiespezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.*.md)-Dateien.
-
-[PRIORITY] Diese Regeln gelten fuer TypeScript-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
 
 ## Qualitaet und Code
 
@@ -16,7 +14,7 @@ Diese Datei definiert TypeScript-spezifische Entwicklungsregeln. Allgemeine Rege
 
 [MUST] TypeScript-Modelle, DTOs und Objektvertraege muessen standardmaessig als `type` definiert werden.
 
-[MUST_NOT_IF] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
+[MUST_NOT] TypeScript-Modelle, DTOs und Objektvertraege duerfen nicht ohne technischen Grund als `interface` definiert werden.
 
 [MUST] Die `type`-Konvention muss ueber `@typescript-eslint/consistent-type-definitions` erzwungen werden.
 

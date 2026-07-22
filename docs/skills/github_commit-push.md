@@ -74,9 +74,5 @@ Platzhalter aus aktuellem Branch und Commit-Scope ableiten.
 
 ## Qualitaetskriterien
 
-- Kein Sammelcommit fuer unzusammenhaengende Aenderungen.
 - Commit-Message beschreibt konkrete Aenderung, nicht Aktivitaet.
 - Ungetestete oder offene Risiken nennen.
-- Gestagter Diff muss vor Commit geprueft werden.
-- Push nur nach erfolgreichem Commit.
-- Keine zusaetzliche Arbeitsbaum-Statusausgabe nach erfolgreichem Push erforderlich.

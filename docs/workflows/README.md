@@ -6,20 +6,6 @@ Die verbindliche Situationstabelle fuer die Auswahl einzelner Workflows steht in
 
 Workflows beschreiben zusammengesetzte Agentenablaeufe fuer Aufgaben, die mehrere atomare Skills in einer festen Reihenfolge kombinieren.
 
-## Verwendung
-
-- Einen Workflow verwenden, wenn mehrere zusammenhaengende Arbeitsschritte als ein konsistenter Ablauf ausgefuehrt werden sollen.
-- Fuer Sonderfaelle einzelne Skills aus `../skills/` direkt einsetzen.
-- Einen Skill direkt verwenden, wenn genau ein atomarer Arbeitsschritt gebraucht wird.
-
-## Grundprinzip: Workflows kombinieren atomare Skills
-
-- Ein Workflow orchestriert Skills, ersetzt aber deren Regeln nicht.
-- Die im Workflow referenzierten Skills muessen gelesen und befolgt werden.
-- Ein Workflow darf fehlende Vorarbeit, Blocker oder Rueckspruenge sichtbar machen.
-- Wenn ein Workflow-Schritt unklar, blockiert oder nicht belastbar ist, greift die passende Ruecksprungregel.
-- Extern wirksame Schritte bleiben an die Grenzen des jeweiligen Skills gebunden.
-
 ## Verbindliche Workflow-Struktur
 
 Workflow-Dateien folgen dieser Struktur:
@@ -69,8 +55,7 @@ Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn si
 
 ## Workflow-Regeln
 
-- Workflows duerfen Skill-Regeln nicht duplizieren, abschwaechen oder ueberschreiben.
-- Workflows orchestrieren Reihenfolge, Bedingungen und Rueckspruenge.
-- Extern wirksame Schritte bleiben an die Grenzen des jeweiligen Skills gebunden.
+- Workflows orchestrieren Reihenfolge, Bedingungen und Rueckspruenge, ohne Skill-Regeln zu duplizieren, abzuschwaechen oder zu ueberschreiben.
+- Referenzierte Skills muessen gelesen und befolgt werden; extern wirksame Schritte bleiben an deren Grenzen gebunden.
 - Wenn ein Workflow-Schritt blockiert, nicht improvisieren; Ruecksprungregel anwenden oder Blocker melden.
 - Wenn ein benoetigter Skill nicht im Workflow steht, den Workflow nachschaerfen oder Abweichung begruenden.

@@ -6,21 +6,7 @@ Diese Datei ist die Lookup-Datei fuer Workflows, die mehrere atomare Skills zu e
 
 ## Verwendung
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass diese Datei im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, damit passende Workflows vor der eigenstaendigen Ausfuehrung erkannt werden koennen.
-
-[ALLOW_IF] Wenn diese Datei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
-
-[MUST_IF] Der Agent muss diese Datei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
-
-[MUST] Der Agent muss die Situationstabelle in dieser Datei verwenden, um passende Workflows zu bestimmen.
-
-[MUST_IF] Der Agent muss die verlinkte Workflow-Datei vor der Ausfuehrung lesen und befolgen, wenn die beschriebene Situation fuer den aktuellen Task eintritt.
-
-[MUST_IF] Der Agent muss die in einem verwendeten Workflow referenzierten Skill-Dateien lesen und befolgen.
-
-[SHOULD] Der Agent soll einen Workflow fuer zusammenhaengende End-to-End-Aufgaben und einen Skill fuer einzelne Arbeitsschritte verwenden.
-
-[MUST_IF] Der Agent muss Abweichungen von einem passenden Workflow kurz begruenden, wenn der aktuelle Task einen konkreten fachlichen, technischen oder sicherheitsrelevanten Grund dafuer liefert.
+[MUST_IF] Der Agent muss alle referenzierten Skill-Dateien lesen und befolgen, wenn er einen Workflow verwendet.
 
 ## Workflows
 

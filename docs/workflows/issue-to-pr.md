@@ -42,6 +42,3 @@ Eine bereits umgesetzte Aenderung mit Issue-Kontext committen, pushen und als Pu
 ## Grenzen
 
 - Fehlende oder gescheiterte Verifikation blockiert Commit, Push und Pull-Request-Erstellung.
-- Keine Pull-Request-Erstellung auf Basis ungetesteter Aenderungen.
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.

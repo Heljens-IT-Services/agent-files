@@ -23,11 +23,13 @@ Einen Aenderungssatz auf Scope, Korrektheit und Risiken pruefen.
 
 - Read-only arbeiten.
 - Keine Dateien aendern.
+- Die Bewertung `nicht versandbereit` blockiert Commit, Push, Pull Request und andere extern wirksame Folgeschritte.
+- Bei `versandbereit mit Hinweisen` muessen die Hinweise im Arbeitsabschluss sichtbar bleiben.
 - Keine Tests, Builds oder Anwendungen ausfuehren. Das gehoert zu `code_testen`.
 - Keine Fehler beheben. Dafuer `code_implementieren` oder `code_refactoring` nutzen.
 - Keine Formatierungs-, Whitespace-, Line-ending- oder Encoding-Probleme selbst korrigieren.
 - Keine breite Analyse ersetzen. Tiefergehende Ursachen- oder Risikoanalyse gehoert zu `code_analyse`.
-- Untracked files nicht reviewen, aber kurz erwaehnen, wenn sie im Arbeitsstatus auftauchen.
+- Untracked files muessen im Arbeitsstatus benannt und bei Task-Relevanz separat gelesen und reviewt werden, weil sie im regulaeren Git-Diff fehlen.
 
 ## Output
 

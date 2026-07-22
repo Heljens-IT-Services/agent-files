@@ -52,8 +52,6 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 
 ## Grenzen
 
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit, Push und Pull-Request-Erstellung.
 - Bugfix-Planung und Implementierung duerfen erst beginnen, wenn der Bug reproduziert wurde.
 - Nach der Implementierung muss die urspruengliche Reproduktion erfolgreich sein.
 - Relevante Regressionen muessen geprueft werden.

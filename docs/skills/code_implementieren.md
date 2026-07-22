@@ -47,13 +47,11 @@ Eine geklaerte Aenderung mit minimalem Scope im Code umsetzen.
 
 - umgesetzte Aenderung
 - kurze Zusammenfassung
-- geaenderte Dateien, wenn hilfreich
 - Hinweis auf erforderliche nachgelagerte Verifikation
 - offene Punkte, falls nach der Implementierung sichtbar
 
 ## Qualitaetskriterien
 
-- Keine ungeplanten Nebenaenderungen.
 - Bestehende Architektur und Konventionen respektieren.
 - Nicht behaupten, etwas sei getestet.
 - Offene Punkte nur benennen, wenn sie sichtbar sind; nicht als eigene Analyse ausweiten.

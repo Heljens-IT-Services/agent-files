@@ -72,7 +72,6 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kon
 
 ## Qualitaetskriterien
 
-- Kein Changelog-Ersatz.
 - Motivation, Aenderung und Verifikation muessen erkennbar sein.
 - Risiken und Testluecken nicht verstecken.
 - PR-Titel muss Review-Scope knapp beschreiben.

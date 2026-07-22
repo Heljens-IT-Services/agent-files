@@ -1,12 +1,10 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-05-15
+Stand: 2026-07-22
 
 ## Zweck
 
 Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln. Sie gilt fuer .NET-Projekte unabhaengig vom konkreten Einstiegstyp wie Worker, Console, WebApi, Bibliothek oder Testprojekt. Anwendungs- oder hostspezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.*.md)-Dateien.
-
-[PRIORITY] Diese Regeln gelten fuer .NET- und C#-Code, sofern keine passendere projektspezifische oder anwendungstypspezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
 
 ## Sprach- und Coderichtlinien
 
@@ -24,7 +22,7 @@ Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln. Sie gilt fuer 
 
 [MUST] Wiederverwendbare Schichten oder Projekte mit eigener Registrierungsverantwortung muessen ihre DI-Registrierung ueber klar benannte Erweiterungsmethoden kapseln.
 
-[MUST_IF] Der Methodenname einer DI-Erweiterungsmethode muss zur Projektrolle passen, zum Beispiel `AddCore(...)`, `AddInfrastructure(...)`, `AddConsole(...)`, `AddWebApi(...)` oder `AddWorker(...)`.
+[MUST] Der Methodenname einer DI-Erweiterungsmethode muss zur Projektrolle passen, zum Beispiel `AddCore(...)`, `AddInfrastructure(...)`, `AddConsole(...)`, `AddWebApi(...)` oder `AddWorker(...)`.
 
 [ALLOW] `Program.cs` oder ein anderer Composition Root darf Module wegen transitiver Referenzierung explizit registrieren.
 

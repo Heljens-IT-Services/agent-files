@@ -12,19 +12,11 @@ Die verbindliche Situationstabelle fuer die Auswahl einzelner Skills steht in [S
 
 In diesem Repository gelten Branch-Checkout und Commit/Push als GitHub-nahe Skills.
 
-## Verwendung
-
-- Einzelnen Skill nutzen, wenn genau ein Arbeitsschritt gebraucht wird.
-- Workflow nutzen, wenn mehrere Skills zusammenhaengend ausgefuehrt werden sollen.
-- Skill-Dateien knapp halten: nur Zweck, Einsatzgrenze, Ablauf, Output und harte Qualitaetskriterien.
-
 ## Grundprinzip: atomare Skills
 
-- Ein Skill verantwortet genau eine klar abgegrenzte Faehigkeit.
-- Ein Skill fuehrt keine vorgelagerten oder nachgelagerten Skills heimlich mit aus.
-- Wenn ein Arbeitsschritt weiteren Kontext, Klaerung, Analyse, Recherche, Planung, Umsetzung, Test oder Review braucht, wird der passende Skill explizit vorgelagert oder nachgelagert.
+- Ein Skill verantwortet genau eine klar abgegrenzte Faehigkeit und fuehrt keine vor- oder nachgelagerten Skills stillschweigend mit aus.
+- Benoetigte Vor- oder Nacharbeit wird mit dem passenden Skill explizit benannt, aber nicht ersetzt.
 - Workflows kombinieren atomare Skills zu laengeren Ablaeufen.
-- Skills duerfen fehlende Vorarbeit benennen, aber sie nicht stillschweigend ersetzen.
 
 ## Verbindliche Skill-Struktur
 

@@ -45,7 +45,6 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Sub-Issues sollen klein genug sein, dass sie sinnvoll in einem Pull Request bearbeitet werden koennen.
 - Parent-Issue-Type gibt eine Default-Tendenz, bestimmt den Sub-Issue-Type aber nicht automatisch.
 - Jedes Sub-Issue bekommt einen eigenen kontextbasierten GitHub-Issue-Type.
-- GitHub-Issue-Type und Relationships sind native GitHub-Metadaten und duerfen nicht durch Labels, Body-Links oder reine Textverweise ersetzt werden.
 - Parent `Epic` fuehrt haeufig zu `Story` oder `Task`.
 - Parent `Story` fuehrt haeufig zu `Task`.
 - Recherche-, Entscheidungs- oder Klaerungsanteile koennen `Spike` sein.
@@ -71,7 +70,6 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Ausgangs-Issue nicht automatisch schliessen.
 - Ausgangs-Issue nicht automatisch kommentieren.
 - Keine Umsetzung der Sub-Issues starten.
-- Keine Labels, Body-Links oder Textverweise als Ersatz fuer native GitHub-Issue-Types oder native GitHub-Relationships verwenden.
 - Keine Sub-Issues erstellen, wenn Ziel, Scope oder Zuschnitt nicht ausreichend geklaert sind.
 - Keine Bestaetigungsschleife vor Erstellung, wenn der Zuschnitt plausibel und ausreichend geklaert ist.
 - Sub-Issues muessen kleiner sein als das Ausgangs-Issue und jeweils einen klaren eigenen Scope haben.

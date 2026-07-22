@@ -64,5 +64,3 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github_branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, ausser sie blockieren die Arbeitseinheit.
 - Issue nicht schliessen, wenn der Abschluss ueber einen spaeteren PR-Merge erfolgen soll.
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit und Push.

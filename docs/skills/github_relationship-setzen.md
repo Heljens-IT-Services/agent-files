@@ -67,21 +67,13 @@ Platzhalter:
 - `<parent-issue-nummer>`: uebergeordnetes Issue.
 - `<child-issue-nummer>`: untergeordnetes Issue.
 
-## Regeln
-
-- Native Relationships duerfen nur gesetzt werden, wenn sie aus User-Anweisung, Issue-Body, Kommentaren oder eindeutigem Workflow-Kontext hervorgehen.
-- Bei unklarem Parent/Child-Verhaeltnis nachfragen.
-- Bei unklarer Blockierungsrichtung nachfragen: `blocked Issue` ist das wartende Issue, `blocking Issue` ist der Blocker.
-- Wenn ein Issue bereits einen anderen Parent hat, `replaceParent: false` beibehalten und den Konflikt melden, statt den Parent stillschweigend zu ersetzen.
-- Labels, Body-Links und reine Textverweise duerfen nicht als Ersatz fuer native GitHub-Relationships verwendet werden.
-
 ## Grenzen
 
 - Extern wirksam arbeiten: Native GitHub-Relationships werden tatsaechlich in GitHub gesetzt.
-- Keine Relationships erfinden.
-- Keine Labels als Relationship-Ersatz verwenden.
-- Keine reinen Body-Links oder Textverweise als Relationship-Ersatz akzeptieren.
-- Kein GitHub-Issue-Type-Setzen in diesen Skill ziehen.
+- Relationships nur setzen, wenn Art und Richtung aus User-Anweisung, Issue-Kontext oder Workflow eindeutig hervorgehen; andernfalls nachfragen.
+- Bei bestehendem anderem Parent `replaceParent: false` beibehalten und den Konflikt melden.
+- Labels, Body-Links oder Textverweise nicht als Ersatz fuer native Relationships verwenden.
+- Keine Issue-Types setzen.
 - Fehlende GitHub-Authentifizierung, fehlende Rechte, fehlende Repository-Zuordnung oder nicht auffindbare Issues als Blocker melden.
 - Bei GraphQL-Fehlern nicht auf Labels oder Body-Text ausweichen.
 
@@ -94,7 +86,5 @@ Platzhalter:
 
 ## Qualitaetskriterien
 
-- Der Skill behandelt ausschliesslich native GitHub-Relationships.
 - `blocked by` und Parent/Child werden getrennt und richtungsstabil behandelt.
 - Ergebnis der Mutation wird geprueft.
-- Labels, Body-Links oder Textverweise werden nicht als Ersatz fuer native GitHub-Relationships verwendet.

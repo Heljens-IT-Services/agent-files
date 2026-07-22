@@ -20,7 +20,6 @@ Bestehenden Code gezielt lesen, damit relevante Dateien, Symbole und Ablaeufe im
 5. Bei Backend-Code Verantwortlichkeiten, Schnittstellen, Seiteneffekte und Datenfluss erfassen.
 6. Bei HTML/CSS DOM-Struktur, Semantik, Selektoren, Layout-Verantwortung und Verschachtelung erfassen.
 7. Bei Bedarf reine Lese- und Suchkommandos verwenden, z. B. `rg`, `Get-Content`, `git diff`, `git log` oder `git show`.
-8. Nur bei Bedarf eine knappe Chat-Zusammenfassung geben.
 
 ## Grenzen
 
