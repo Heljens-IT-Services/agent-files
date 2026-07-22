@@ -18,10 +18,11 @@ Einen Pull Request mit passendem Titel, Body, Base und Head in GitHub erstellen.
 4. Commits und relevanten Diff-Kontext lesen.
 5. Bestehende offene Pull Requests fuer den aktuellen Branch suchen.
 6. Wenn ein offener PR fuer den Branch existiert, PR-URL melden und bei zusaetzlichem Kontext einen Kommentar ergaenzen.
-7. Wenn kein offener PR existiert, PR-Titel und Body mit Issue-Verknuepfungen formulieren.
-8. Teststatus, Risiken und Review-Hinweise nennen.
-9. Pull Request standardmaessig als Draft in GitHub erstellen.
-10. Erstellten Pull Request mit URL, Base und Head ausgeben.
+7. Wenn der User den Ready-for-Review-Zustand ausdruecklich beauftragt hat, einen vorhandenen Draft-Pull-Request als Ready markieren.
+8. Wenn kein offener PR existiert, PR-Titel und Body mit Issue-Verknuepfungen formulieren.
+9. Teststatus, Risiken und Review-Hinweise nennen.
+10. Pull Request standardmaessig als Draft, bei ausdruecklicher Ready-for-Review-Anweisung direkt als Ready erstellen.
+11. Pull Request mit URL, Base, Head und Draft-/Ready-Status ausgeben.
 
 ## Kommandos
 
@@ -34,7 +35,9 @@ gh issue view <issue-nummer> --comments
 gh pr list --head <branch-name> --state open
 gh pr comment <pr-nummer> --body "<kommentar>"
 gh pr create --draft --title "<pr-titel>" --body "<pr-body>" --base <basis-branch> --head <branch-name>
-gh pr view --json title,body,state,url,baseRefName,headRefName
+gh pr create --title "<pr-titel>" --body "<pr-body>" --base <basis-branch> --head <branch-name>
+gh pr ready <pr-nummer>
+gh pr view --json title,body,state,isDraft,url,baseRefName,headRefName
 ```
 
 Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kontext ableiten.
@@ -49,6 +52,7 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kon
 - PR nur erstellen, wenn Branch gepusht ist und Base/Head eindeutig sind.
 - Wenn Base-Branch nach Prioritaetenliste unklar bleibt, nachfragen.
 - Wenn bereits ein offener PR fuer den Branch existiert, keinen zweiten PR erstellen und PR-URL melden.
+- Einen vorhandenen Draft nur bei ausdruecklicher Ready-for-Review-Anweisung als Ready markieren.
 - Bestehenden PR-Titel oder PR-Body nicht aktualisieren.
 - Bei zusaetzlichem Kontext zum bestehenden PR einen Kommentar ergaenzen.
 - Vorhandene Issue-Kontexte immer im PR-Body verlinken.
