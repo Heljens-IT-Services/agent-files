@@ -52,9 +52,13 @@ spacing     = { " " | tab } ;
 
 [MUST] Die kanonischen Aufrufe eines Katalogeintrags muessen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-lesen` oder `/workflows run bugfix`.
 
-[ALLOW] Ein Katalogeintrag darf zusaetzlich einen direkten Alias wie `/finish` besitzen.
+[ALLOW] Ein Katalogeintrag darf zusaetzlich einen direkten Alias aus einem oder mehreren Tokens wie `/finish` oder `/finish release` besitzen.
 
 [MUST] Direkte Aliase muessen global eindeutig sein und duerfen weder Root-Commands noch Help-Aliase verdecken.
+
+[MUST] Direkte Aliase muessen vor der Root-Command-Aufloesung gegen die vollstaendige normalisierte Eingabe abgeglichen werden. Beispielsweise bezeichnet `/finish` den Workflow `finish`, waehrend `/finish release` den Workflow `release` bezeichnet.
+
+[MUST_IF] Wenn ein direkter Alias ein vollstaendiges Praefix eines anderen Alias ist, darf nur die exakte vollstaendige Tokenfolge ausgefuehrt werden. Nicht dokumentierte nachgestellte Tokens muessen als ungueltige Eingabe behandelt werden.
 
 [MUST] Ein direkter Alias muss dieselbe Semantik und dieselben Grenzen wie der kanonische Aufruf seines Katalogeintrags behalten.
 
@@ -98,7 +102,7 @@ spacing     = { " " | tab } ;
 
 [MUST] `/help` muss die verfuegbaren Root-Commands, Help-Aliase, die Grundsyntax und mindestens je ein Beispiel fuer `list`, `show` und `run` nennen.
 
-[MUST] Direkte Aliase muessen in der allgemeinen Hilfe getrennt von Root-Commands mit ihrem Katalogtyp und kanonischen Aufruf ausgewiesen werden, beispielsweise `/finish` als Workflow-Alias fuer `/workflows run finish`.
+[MUST] Direkte Aliase muessen in der allgemeinen Hilfe getrennt von Root-Commands mit ihrem Katalogtyp und kanonischen Aufruf ausgewiesen werden, beispielsweise `/finish` als Workflow-Alias fuer `/workflows run finish` und `/finish release` als Workflow-Alias fuer `/workflows run release`.
 
 [MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
 
@@ -141,5 +145,6 @@ spacing     = { " " | tab } ;
 /workflows show finish
 /workflows run finish
 /finish
+/finish release
 /technologies show csharp-net
 ```
