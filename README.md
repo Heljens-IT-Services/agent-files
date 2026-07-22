@@ -15,6 +15,11 @@ Dieses Repository ist ein GitHub-Pages-Projekt. Die Pages-Ausgabe wird aus dem B
 Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 
 - [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md)
+- [TASK.Coding.md](https://heljens-it-services.github.io/agent-files/TASK.Coding.md)
+- [TASK.Testing.md](https://heljens-it-services.github.io/agent-files/TASK.Testing.md)
+- [TASK.GitHub.md](https://heljens-it-services.github.io/agent-files/TASK.GitHub.md)
+- [TASK.Issue.md](https://heljens-it-services.github.io/agent-files/TASK.Issue.md)
+- [TASK.General.md](https://heljens-it-services.github.io/agent-files/TASK.General.md)
 - [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md)
 - [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md)
 - [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md)
@@ -29,28 +34,55 @@ Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit exp
 
 Typische Nutzung:
 
-- `AGENTS.md` sowie die Lookup-Dateien `ROLES.md`, `SKILLS.md` und `WORKFLOWS.md` als Pflichtlektuere referenzieren
-- Rollen-, Skill- und Workflow-Dateien anhand der beschriebenen Situationen nur bei Task-Relevanz einlesen
-- eine zusaetzliche `PROJECT.md` fuer Versionsbasis sowie fachliche und technische Projektspezifika pflegen
+- `AGENTS.md` und eine projektspezifische `PROJECT.md` als Pflichtlektuere referenzieren
+- anhand des Hauptergebnisses genau einen primaeren Task-Typ bestimmen und die passende `TASK.*.md` laden
+- hoechstens einen sekundaeren Task-Typ fuer ein eindeutig abgrenzbares zweites Ergebnis verwenden
+- Rollen-, Technologie-, Skill- und Workflow-Dateien nur anhand der Task-Datei und bei konkreter Relevanz einlesen
 - projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
 - andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
 
 ## Struktur
 
-Die allgemeinen Arbeitsregeln liegen unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und sind ueber verpflichtende Lookup-Dateien erschlossen.
+Die allgemeinen Arbeitsregeln und Task-Dateien liegen direkt unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und werden von den Task-Dateien situationsbezogen referenziert. Ihre Lookup-Dateien dienen als optionale Gesamtindizes.
 
 Aktuell relevante Dateien sind:
 
 | Pfad | URL | Zweck |
 |---|---|---|
 | `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents. |
-| `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Lookup-Datei fuer Rollen. |
+| `docs/TASK.*.md` | [Task-Auswahl](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Primaerer oder optionaler sekundaerer Kontext fuer Coding, Testing, GitHub, Issue und General. |
+| `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Optionaler Gesamtindex fuer Rollen. |
 | `docs/roles/developer/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
 | `docs/roles/developer/DEVELOPER.*.md` | [Developer-Rollen](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Technologiespezifische Entwicklungsregeln. |
-| `docs/skills/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Lookup-Datei fuer atomare Agenten-Skills. |
+| `docs/skills/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Optionaler Gesamtindex fuer atomare Agenten-Skills. |
 | `docs/skills/README.md` | [skills/README.md](https://heljens-it-services.github.io/agent-files/skills/README.md) | Struktur- und Stilvorgaben fuer Skills. |
-| `docs/workflows/WORKFLOWS.md` | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Lookup-Datei fuer Workflows. |
+| `docs/workflows/WORKFLOWS.md` | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Optionaler Gesamtindex fuer Workflows. |
 | `docs/workflows/README.md` | [workflows/README.md](https://heljens-it-services.github.io/agent-files/workflows/README.md) | Struktur- und Stilvorgaben fuer Workflows. |
+
+## Kontextmodell
+
+Der primaere Task-Typ richtet sich nach dem beabsichtigten Hauptergebnis:
+
+| Beispiel | Primaerer Task-Typ | Sekundaerer Task-Typ |
+|---|---|---|
+| Feature implementieren und gemaess Workflow verifizieren | `Coding` | keiner |
+| Bestehende Test-Suite ausfuehren und Ergebnis berichten | `Testing` | keiner |
+| Fertigen Aenderungssatz committen und pushen | `GitHub` | keiner |
+| GitHub-Issue lesen oder issue-getrieben umsetzen | `Issue` | keiner |
+| Dokumentation pflegen oder eine Frage beantworten | `General` | keiner |
+| Dokumentation aktualisieren und anschliessend als separaten Auftrag einen Pull Request erstellen | `General` | `GitHub` fuer den Veroeffentlichungs-Scope |
+
+Ein Workflow darf Schritte aus mehreren Bereichen kombinieren, ohne dadurch weitere Task-Typen vorzuladen. Ein sekundaerer Task-Typ ist nur fuer ein eigenstaendiges, klar abgegrenztes zweites Ergebnis vorgesehen.
+
+## Migration veroeffentlichter Pfade
+
+Die frueher direkt unter `docs/` veroeffentlichten Developer- und Skill-Pfade besitzen keine dauerhaften Alias-Dateien. Konsumierende Repositories muessen ihre Links wie folgt aktualisieren:
+
+| Alter Pfad | Neuer Pfad |
+|---|---|
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.md` | `https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md` |
+| `https://heljens-it-services.github.io/agent-files/DEVELOPER.<TECHNOLOGY>.md` | `https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.<TECHNOLOGY>.md` |
+| `https://heljens-it-services.github.io/agent-files/SKILLS.md` | `https://heljens-it-services.github.io/agent-files/skills/SKILLS.md` |
 
 ## Pflege
 
@@ -64,6 +96,6 @@ Konsumierende Projekt-Repositories muessen zusaetzlich eine eigene `PROJECT.md` 
 
 ## Verwendung in Projekten
 
-Andere Repositories koennen direkt auf die Pflichtlektuere unter GitHub Pages verweisen: [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
+Andere Repositories sollen [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) als globale Pflichtlektuere referenzieren und eine lokale `PROJECT.md` bereitstellen. Der Agent waehlt danach genau einen primaeren Task-Typ aus der Tabelle in `AGENTS.md` und laedt nur dessen Task-Datei sowie den dort situationsbezogen geforderten Zusatzkontext.
 
 Damit ist klar, welche Fassung jeweils veroeffentlicht und referenziert wird.

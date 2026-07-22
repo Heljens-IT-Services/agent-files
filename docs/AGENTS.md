@@ -39,9 +39,6 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 |---|---|---|
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflicht | Allgemeine Arbeitsregeln, Regelmarker und Prioritaetslogik. |
 | `PROJECT.md` | Pflicht | Projektspezifische Versionsbasis und Leitplanken. |
-| [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Lookup fuer kontextabhaengige Rollenregeln. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup fuer atomare Skills. |
-| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup fuer zusammengesetzte Workflows. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
@@ -52,7 +49,29 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
-[MUST_IF] Wenn eine in den Lookup-Dateien beschriebene Situation fuer den aktuellen Task eintritt, muss der Agent die dort verlinkte Detaildatei lesen und befolgen.
+## Task-Typ-basierte Kontextsteuerung
+
+[MUST] Der Agent muss vor der eigenstaendigen Task-Ausfuehrung genau einen primaeren Task-Typ anhand des beabsichtigten Hauptergebnisses bestimmen und die zugehoerige Task-Datei lesen und befolgen.
+
+| Task-Typ | Task-Datei | Als primaeren Typ verwenden, wenn |
+|---|---|---|
+| `Coding` | [TASK.Coding.md](https://heljens-it-services.github.io/agent-files/TASK.Coding.md) | Codeaenderung, technischer Plan oder technische Codebewertung das Hauptergebnis ist. |
+| `Testing` | [TASK.Testing.md](https://heljens-it-services.github.io/agent-files/TASK.Testing.md) | Test-, Build- oder Verifikationsstatus ohne beabsichtigte Aenderung das Hauptergebnis ist. |
+| `GitHub` | [TASK.GitHub.md](https://heljens-it-services.github.io/agent-files/TASK.GitHub.md) | Branch-, Commit-, Push- oder Pull-Request-Aktion das Hauptergebnis ist. |
+| `Issue` | [TASK.Issue.md](https://heljens-it-services.github.io/agent-files/TASK.Issue.md) | GitHub-Issue-Arbeit oder issue-getriebene Umsetzung das Hauptergebnis ist. |
+| `General` | [TASK.General.md](https://heljens-it-services.github.io/agent-files/TASK.General.md) | Erklaerung, Klaerung, Brainstorming, Research oder Dokumentation das Hauptergebnis ist. |
+
+[MUST] Der Agent muss den primaeren Task-Typ nach dem Hauptergebnis und nicht allein nach verwendeten Tools, erwaehnten Technologien oder einzelnen Arbeitsschritten waehlen.
+
+[ALLOW_IF] Der Agent darf genau einen sekundaeren Task-Typ bestimmen, wenn der Task ein eindeutig abgrenzbares zweites Ergebnis erfordert, das der primaere Task-Typ nicht abdeckt.
+
+[MUST_IF] Der Agent muss die zustaendigen Teil-Scope-Grenzen im Arbeitskontext festhalten und auch die sekundaere Task-Datei lesen und befolgen, wenn er einen sekundaeren Task-Typ verwendet.
+
+[MUST_NOT] Der Agent darf keinen sekundaeren Task-Typ allein deshalb waehlen, weil ein passender Skill oder Workflow Arbeitsschritte aus einem anderen Task-Typ enthaelt.
+
+[MUST_NOT] Der Agent darf nicht mehr als einen sekundaeren Task-Typ verwenden.
+
+[MUST_IF] Wenn eine in einer geladenen Task- oder Lookup-Datei beschriebene Situation eintritt, muss der Agent den dort verlinkten Zusatzkontext lesen und befolgen.
 
 ## Dokumentierte Kommandos
 
@@ -73,9 +92,13 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 [PRIORITY] Bei widerspruechlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
 1. `PROJECT.md`, sofern sie fuer den konkreten Scope einschlaegig ist.
-2. Passende rollenbasierte Regeldateien gemaess der Prioritaetsreihenfolge ihrer Rolle.
-3. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
-4. Bestehender Code-Stil und lokale Patterns.
+2. Primaere Task-Datei.
+3. Sekundaere Task-Datei innerhalb ihres ausdruecklich abgegrenzten Teil-Scopes.
+4. Passende rollen- und technologiebasierte Regeldateien gemaess der Prioritaetsreihenfolge ihrer Rolle.
+5. Passende Skill-Datei innerhalb ihrer atomaren Handlung.
+6. Passende Workflow-Datei fuer Reihenfolge und Rueckspruenge des Gesamtablaufs.
+7. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
+8. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
 
