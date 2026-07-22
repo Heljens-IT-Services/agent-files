@@ -6,8 +6,7 @@ Nach einem verifizierten Pull-Request-Merge auf den Default-Branch zurueckkehren
 
 ## Verwenden
 
-- Nach einem erfolgreichen, verifizierten Merge des aktuellen Arbeitsbranches.
-- Wenn der lokale Checkout wieder auf die aktuelle Standardbasis wechseln soll.
+- Nach einem erfolgreichen, verifizierten Merge, wenn der lokale Checkout auf die aktuelle Standardbasis wechseln soll.
 - Nicht verwenden, solange der Merge nicht bestaetigt oder der Arbeitsbaum nicht sauber ist.
 
 ## Vorgehen
@@ -49,6 +48,4 @@ git status --short --branch
 
 ## Qualitaetskriterien
 
-- Nur nach verifiziertem Merge ausfuehren.
-- Keine lokalen Aenderungen verlieren.
-- Ausschliesslich Fast-Forward-Aktualisierung verwenden.
+- Der Abschluss muss einen sauberen Arbeitsbaum auf dem mit dem Remote synchronisierten Default-Branch nachweisen.

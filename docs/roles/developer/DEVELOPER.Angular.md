@@ -161,8 +161,6 @@ src/app/
 
 ## Lokale Daten und Offline-Faehigkeit
 
-[MUST] IndexedDB und LocalStorage muessen ueber Adapter oder Repository-Services gekapselt werden.
-
 [MUST] Offline- und Sync-Zustaende muessen explizit modelliert werden, z. B. `idle`, `loading`, `synced`, `dirty`, `conflict`, `failed`.
 
 [MUST_IF] Cache-Invalidierung, TTL, Konfliktloesung und manuelles Refresh-Verhalten muessen fachlich geregelt und getestet werden, wenn lokale Daten oder Offline-Faehigkeit Teil des Tasks sind.

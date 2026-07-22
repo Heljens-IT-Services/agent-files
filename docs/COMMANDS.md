@@ -46,6 +46,8 @@ spacing     = { " " | tab } ;
 
 ## Stabile IDs und Aliase
 
+[MUST] Jeder veroeffentlichte Katalogeintrag muss genau eine stabile ID im zustaendigen Katalog besitzen.
+
 [MUST] Eine stabile ID muss dem Muster `^[a-z0-9]+(?:-[a-z0-9]+)*$` entsprechen und innerhalb ihres Katalogs eindeutig sein.
 
 [MUST] Die kanonischen Aufrufe eines Katalogeintrags muessen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-lesen` oder `/workflows run bugfix`.
@@ -53,6 +55,8 @@ spacing     = { " " | tab } ;
 [ALLOW] Ein Katalogeintrag darf zusaetzlich einen direkten Alias wie `/finish` besitzen.
 
 [MUST] Direkte Aliase muessen global eindeutig sein und duerfen weder Root-Commands noch Help-Aliase verdecken.
+
+[MUST] Ein direkter Alias muss dieselbe Semantik und dieselben Grenzen wie der kanonische Aufruf seines Katalogeintrags behalten.
 
 [MUST_NOT] Bei einer mehrdeutigen ID oder einem mehrdeutigen Alias darf der Agent keine Auswahl raten.
 
@@ -66,8 +70,6 @@ spacing     = { " " | tab } ;
 | Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id>` | Listet, beschreibt oder startet einen Workflow. |
 | Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt technologiespezifische Regeln. |
 
-`/?` und `/hilfe` sind Aliase fuer `/help`.
-
 ## Semantik
 
 ### `list`
@@ -80,7 +82,7 @@ spacing     = { " " | tab } ;
 
 [MUST] `show` muss den durch die ID bezeichneten Katalogeintrag laden und dessen Zweck, Verwendung, Grenzen und Quelle knapp wiedergeben.
 
-[MUST_NOT] `show` darf den bezeichneten Skill oder Workflow ausfuehren.
+[MUST_NOT] `show` darf den bezeichneten Skill oder Workflow nicht ausfuehren.
 
 ### `run`
 
@@ -90,11 +92,23 @@ spacing     = { " " | tab } ;
 
 [MUST_IF] Wenn die ID gueltig ist, aber die Verwendungskriterien des Skills oder Workflows im aktuellen Kontext nicht erfuellt sind, muss der Agent die Ausfuehrung stoppen, die Unpassung benennen und auf einen passenden Eintrag oder eine natuerliche Anfrage verweisen.
 
-[MUST_NOT] `run` darf Grenzen des ausgewaehlten Eintrags oder hoeherrangige Regeln umgehen.
+[MUST_NOT] `run` darf Grenzen des ausgewaehlten Eintrags oder hoeherrangige Regeln nicht umgehen.
 
 ## Hilfe und Fehlerverhalten
 
 [MUST] `/help` muss die verfuegbaren Root-Commands, Help-Aliase, die Grundsyntax und mindestens je ein Beispiel fuer `list`, `show` und `run` nennen.
+
+[MUST] Direkte Aliase muessen in der allgemeinen Hilfe getrennt von Root-Commands mit ihrem Katalogtyp und kanonischen Aufruf ausgewiesen werden, beispielsweise `/finish` als Workflow-Alias fuer `/workflows run finish`.
+
+[MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
+
+[MUST] `/help`, `/hilfe` und `/?` muessen ohne weiteres Argument zusaetzlich `README.md` und `PROJECT.md` lesen und unter `Repository-Kontext` deren aktuell relevante Kernaussagen knapp zusammenfassen.
+
+[MUST] Der Repository-Kontext muss sich auf Zweck, Versionsbasis und fuer die Nutzung wesentliche fachliche oder technische Leitplanken beschraenken und in der Regel zwei bis vier kurze Punkte umfassen.
+
+[MUST_NOT] Der Repository-Kontext darf ganze Abschnitte, Detailstrukturen oder fuer die aktuelle Orientierung irrelevante Inhalte aus `README.md` oder `PROJECT.md` nicht wiederholen.
+
+[MUST_IF] Wenn `README.md` oder `PROJECT.md` fehlt oder nicht gelesen werden kann, muss die Hilfe dies knapp benennen und darf fehlende Inhalte nicht erfinden.
 
 [MUST] `/help <command>` muss den Namen mit oder ohne fuehrenden Slash akzeptieren und die kanonische Syntax, Subcommands, Argumente, Aliase und Beispiele des Ziels nennen.
 
@@ -114,7 +128,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Die Root-Namen `roles` und `actions` bleiben fuer spaetere Kataloge reserviert.
 
-[MUST_NOT] Ein Host darf eine abweichende Bedeutung fuer einen dokumentierten Command oder Alias einfuehren.
+[MUST_NOT] Ein Host darf keine abweichende Bedeutung fuer einen dokumentierten Command oder Alias einfuehren.
 
 ## Beispiele
 
@@ -129,5 +143,3 @@ spacing     = { " " | tab } ;
 /finish
 /technologies show csharp-net
 ```
-
-`/finish` ist ein direkter Alias des im Workflow-Katalog registrierten `finish`-Workflows. Der Alias behaelt alle Grenzen und Stop-Regeln dieses Workflows bei.

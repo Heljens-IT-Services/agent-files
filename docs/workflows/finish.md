@@ -58,9 +58,5 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 ## Grenzen
 
-- `/finish` umgeht keine Sicherheits-, Review-, Berechtigungs-, Branch- oder Check-Regeln.
-- Keine fremden oder nicht taskbezogenen Aenderungen committen.
-- Kein Force-Push, kein `--admin`, kein ausdrueckliches Auto-Merge und keine Umgehung erforderlicher Checks.
-- Keine festen Annahmen zu Remote, Default-Branch, PR-Basis oder Merge-Methode treffen.
-- Keine beliebigen CI-Fehler ausserhalb des Task-Scopes reparieren.
-- Bei jedem Fehler oder Blocker bleibt der Arbeitsbranch erhalten; lokale oder entfernte Branches werden nicht automatisch geloescht.
+- Kein Force-Push, kein `--admin` und keine Umgehung erforderlicher Checks oder Reviews.
+- Bei Fehlern oder Blockern bleibt der Arbeitsbranch erhalten; lokale und entfernte Branches werden nicht automatisch geloescht.

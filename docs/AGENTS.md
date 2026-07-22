@@ -54,10 +54,6 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Wenn ein Technologie-Command verwendet wird, muss der Agent [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) im aktuellen Kontext vollstaendig und aktuell genug kennen und den dort bezeichneten Technologieeintrag aufloesen.
 
-[MUST] Slash-Commands muessen als optionale, explizite Form einer User-Anweisung behandelt werden; natuerliche Sprache und die automatische kontextbezogene Auswahl bleiben gleichwertig unterstuetzt.
-
-[MUST_NOT] Slash-Commands duerfen Sicherheits-, Berechtigungs-, Prioritaets-, Scope- oder Rueckfrageregeln umgehen.
-
 [ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.

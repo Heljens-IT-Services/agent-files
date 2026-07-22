@@ -6,11 +6,9 @@ Diese Datei ist der Katalog fuer technologiespezifische Developer-Regeln. Die st
 
 ## Verwendung
 
-[MUST] Eine Technologie-ID muss stabil, eindeutig und in kanonischer Kleinschreibung gepflegt werden.
-
 [MUST] `/technologies show <technology-id>` muss die verknuepfte Regeldatei laden, ohne dadurch ihre bedingte Relevanz oder ihren Scope zu erweitern.
 
-[MUST_NOT] Der Technologiekatalog darf allgemeine Developer-Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) duplizieren.
+[MUST_NOT] Der Technologiekatalog darf allgemeine Developer-Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) nicht duplizieren.
 
 ## Technologien
 

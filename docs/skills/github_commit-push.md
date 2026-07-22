@@ -61,7 +61,6 @@ Platzhalter aus aktuellem Branch und Commit-Scope ableiten.
 - Nicht pushen, wenn kein Commit erstellt wurde.
 - Keinen Upstream automatisch setzen. Wenn kein Upstream existiert, stoppen und Blocker melden oder User-Entscheidung einholen.
 - Nicht pushen, wenn der User explizit nur committen will.
-- Keinen Pull Request erstellen.
 
 ## Output
 

@@ -8,16 +8,6 @@ Diese Datei ist die Lookup-Datei fuer Workflows, die mehrere atomare Skills zu e
 
 [MUST_IF] Der Agent muss alle referenzierten Skill-Dateien lesen und befolgen, wenn er einen Workflow verwendet.
 
-## Slash-Commands
-
-[MUST] Die allgemeine Syntax, Aufloesung und Fehlerbehandlung fuer Slash-Commands muss [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) folgen.
-
-[MUST] Jeder Workflow muss in der folgenden Tabelle eine stabile ID besitzen. Der kanonische Aufruf lautet `/workflows run <workflow-id>`.
-
-[ALLOW] Ein Workflow darf einen global eindeutigen direkten Alias besitzen, wenn dieser in der Tabelle registriert ist.
-
-[MUST_NOT] Slash-Commands duerfen die automatische kontextbezogene Auswahl, natuerliche User-Anfragen oder die explizite Namensnennung nicht ersetzen oder einschraenken.
-
 ## Workflows
 
 | ID | Workflow | Direkter Alias | Lesen und verwenden, wenn | URL | Zweck |

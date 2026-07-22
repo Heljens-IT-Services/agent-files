@@ -6,9 +6,6 @@ Die verbindliche Situationstabelle fuer die Auswahl einzelner Workflows steht in
 
 Workflows beschreiben zusammengesetzte Agentenablaeufe fuer Aufgaben, die mehrere atomare Skills in einer festen Reihenfolge kombinieren.
 
-- Jeder veroeffentlichte Workflow wird mit einer stabilen Command-ID in `WORKFLOWS.md` registriert.
-- Direkte Aliase wie `/finish` werden nur global eindeutig und gemaess `../COMMANDS.md` registriert.
-
 ## Verbindliche Workflow-Struktur
 
 Workflow-Dateien folgen dieser Struktur:

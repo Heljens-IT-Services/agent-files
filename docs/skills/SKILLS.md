@@ -10,16 +10,6 @@ Diese Datei ist die Lookup-Datei fuer atomare, wiederverwendbare Agenten-Skills.
 
 [MUST] Der Agent muss `github_type-setzen` unmittelbar nach `github_issue-erstellen` verwenden, weil jedes neu erstellte GitHub-Issue einen nativen Issue-Type erhalten muss.
 
-## Slash-Commands
-
-[MUST] Die allgemeine Syntax, Aufloesung und Fehlerbehandlung fuer Slash-Commands muss [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) folgen.
-
-[MUST] Jeder Skill muss in der folgenden Tabelle eine stabile ID besitzen. Der kanonische Aufruf lautet `/skills run <skill-id>`.
-
-[ALLOW] Ein Skill darf einen global eindeutigen direkten Alias besitzen, wenn dieser in der Tabelle registriert ist.
-
-[MUST_NOT] Slash-Commands duerfen die automatische kontextbezogene Auswahl, natuerliche User-Anfragen oder die explizite Namensnennung nicht ersetzen oder einschraenken.
-
 ## Skills
 
 | ID | Skill | Direkter Alias | Lesen und verwenden, wenn | URL | Zweck |

@@ -7,7 +7,6 @@ Einen freigegebenen Pull Request mit der konfigurierten Merge-Methode zusammenfu
 ## Verwenden
 
 - Wenn der User den Merge ausdruecklich beauftragt hat.
-- Wenn erforderliche Checks erfolgreich und Repository-Regeln erfuellt sind.
 - Nicht verwenden, um Checks, Reviews, Konflikte oder Branch-Regeln zu umgehen.
 
 ## Vorgehen
@@ -16,8 +15,8 @@ Einen freigegebenen Pull Request mit der konfigurierten Merge-Methode zusammenfu
 2. Pull-Request-Status, Draft-Status, Review-Entscheidung, Mergebarkeit und Head-Commit lesen.
 3. Sicherstellen, dass das erfolgreiche Check-Ergebnis zum aktuellen Head-Commit gehoert.
 4. Merge-Methode nach Prioritaet bestimmen: User-Vorgabe, `PROJECT.md`, eindeutige etablierte Repository-Konvention, eindeutige Repository-Konfiguration.
-5. Stoppen, wenn erforderliche Reviews, Checks oder andere Branch-Regeln nicht erfuellt sind, Konflikte bestehen oder die Merge-Methode mehrdeutig bleibt.
-6. Pull Request ohne administrative Umgehung und gebunden an den geprueften Head-Commit mit der bestimmten Methode mergen oder in eine erforderliche Merge Queue einreihen.
+5. Stoppen, wenn der Pull Request ein Draft ist, erforderliche Reviews, Checks oder andere Branch-Regeln nicht erfuellt sind, Konflikte bestehen oder die Merge-Methode mehrdeutig bleibt.
+6. Pull Request gebunden an den geprueften Head-Commit mit der bestimmten Methode mergen oder in eine erforderliche Merge Queue einreihen.
 7. Wenn GitHub eine Merge Queue verlangt, deren erforderliche Checks und Pull-Request-Zustand bis zu einem terminalen Ergebnis beobachten.
 8. Zustand erneut lesen und nur `MERGED` mit Merge-Zeitpunkt und Merge-Commit als Erfolg bewerten.
 
@@ -39,9 +38,6 @@ Nur genau eine zur aufgeloesten Merge-Methode passende `gh pr merge`-Variante au
 
 - Extern wirksam arbeiten: Der Pull Request wird tatsaechlich gemergt.
 - Kein `--admin`, kein ausdrueckliches `--auto` und keine Umgehung erforderlicher Checks oder Reviews verwenden.
-- Eine vom Zielbranch vorgeschriebene Merge Queue darf erst nach erfolgreichen bisherigen Pflichtchecks verwendet werden und muss bis zum terminalen Ergebnis beobachtet werden.
-- Draft-Pull-Requests nicht mergen.
-- Keine Merge-Methode raten, wenn mehrere Methoden erlaubt und keine Praeferenz dokumentiert ist.
 - Keine Konflikte beheben und keine neuen Commits erstellen.
 - Den Source-Branch nicht automatisch loeschen.
 - Bei unklarem oder veraendertem Head-Commit stoppen.
