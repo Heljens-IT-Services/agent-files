@@ -150,6 +150,10 @@ spacing     = { " " | tab } ;
 /skills list
 /skills show code-lesen
 /skills run code-lesen
+/skills run code-refactoring
+/refactor
+/skills run code-testen
+/testing
 /workflows show feature-finish
 /workflows run feature-finish
 /workflows run issue-graph-umsetzung 123

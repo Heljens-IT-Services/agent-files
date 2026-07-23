@@ -10,6 +10,12 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu aendern.
 - Wenn das zu erhaltende Verhalten durch vorhandenen Kontext oder `code_lesen` ausreichend verstanden ist.
 - Nicht verwenden, wenn fachliches Verhalten geaendert werden soll. Dann Implementierung planen.
 
+## Direkter Alias
+
+- `/refactor`
+
+`/refactor` verwendet den aktuellen Task- und Aenderungskontext als Refactoring-Scope. Wenn der Alias unmittelbar nach `/umsetzen <issue-nummer>` aufgerufen wird, bilden die durch diesen Workflow geaenderten produktiven Dateien und zugehoerigen Tests den Default-Scope; spaetere oder nicht taskbezogene Aenderungen gehoeren nicht automatisch dazu. Wenn das zu erhaltende Verhalten oder die Zuordnung zum vorausgegangenen Aenderungssatz nicht eindeutig ist, muss der fehlende Kontext vor dem Refactoring geklaert werden.
+
 ## Vorgehen
 
 1. Verhalten benennen, das erhalten bleiben muss.
