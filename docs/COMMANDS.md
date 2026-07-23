@@ -52,13 +52,17 @@ spacing     = { " " | tab } ;
 
 [MUST] Die kanonischen Aufrufe eines Katalogeintrags muessen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-lesen` oder `/workflows run bugfix`.
 
-[ALLOW] Ein Katalogeintrag darf zusaetzlich einen direkten Alias aus einem oder mehreren Tokens wie `/finish` oder `/finish release` besitzen.
+[ALLOW] Ein Katalogeintrag darf zusaetzlich einen oder mehrere direkte Aliase aus einem oder mehreren Tokens wie `/finish` oder `/finish release` besitzen.
 
 [MUST] Direkte Aliase muessen global eindeutig sein und duerfen weder Root-Commands noch Help-Aliase verdecken.
 
-[MUST] Direkte Aliase muessen vor der Root-Command-Aufloesung gegen die vollstaendige normalisierte Eingabe abgeglichen werden.
+[ALLOW] Ein direkter Alias darf erforderliche Positionsargumente als Platzhalter wie `<issue-nummer>` dokumentieren.
 
-[MUST_IF] Wenn ein Alias Praefix eines anderen Alias ist, darf nur eine exakte vollstaendige Tokenfolge aufgeloest werden; weitere Tokens sind ungueltig.
+[MUST] Direkte Aliase muessen vor der Root-Command-Aufloesung gegen die vollstaendige normalisierte Eingabe und die dokumentierte Alias-Syntax abgeglichen werden.
+
+[MUST_IF] Wenn ein Alias Positionsargumente definiert, muessen Anzahl, Reihenfolge und Format der Argumente in der Detaildatei des Katalogeintrags dokumentiert und bei der Aufloesung validiert werden.
+
+[MUST_IF] Wenn ein Alias Praefix eines anderen Alias ist, darf nur eine exakte vollstaendige Tokenfolge oder eine vollstaendig passende dokumentierte Alias-Syntax aufgeloest werden; nicht dokumentierte weitere Tokens sind ungueltig.
 
 [MUST] Ein direkter Alias muss dieselbe Semantik und dieselben Grenzen wie der kanonische Aufruf seines Katalogeintrags behalten.
 
@@ -71,7 +75,7 @@ spacing     = { " " | tab } ;
 | Help | `/help`, `/?`, `/hilfe` | Zeigt die allgemeine Hilfe. |
 | Kontext-Hilfe | `/help <command>` | Zeigt Syntax, Subcommands und Beispiele fuer einen Root-Command oder direkten Alias. |
 | Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id>` | Listet, beschreibt oder waehlt einen Skill aus. |
-| Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id>` | Listet, beschreibt oder startet einen Workflow. |
+| Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen Workflow. Zusaetzliche Argumente sind nur zulaessig, wenn der Workflow sie dokumentiert. |
 | Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt technologiespezifische Regeln. |
 
 ## Semantik
@@ -93,6 +97,10 @@ spacing     = { " " | tab } ;
 [MUST] `run` muss den bezeichneten Skill oder Workflow bewusst auswaehlen und nach dessen vollstaendigen Regeln ausfuehren.
 
 [MUST] Fehlender Task-Kontext oder eine durch den ausgewaehlten Eintrag vorgeschriebene Rueckfrage muss weiterhin geklaert werden.
+
+[MUST_IF] Wenn ein Workflow Positionsargumente dokumentiert, muss `run` sie in derselben Anzahl, Reihenfolge und demselben Format wie seine direkten Aliase akzeptieren.
+
+[MUST_NOT] Nicht dokumentierte Positionsargumente duerfen an `run` oder direkte Aliase uebergeben werden.
 
 [MUST_IF] Wenn die Verwendungskriterien einer gueltigen ID nicht erfuellt sind, muss der Agent stoppen, die Unpassung benennen und auf einen passenden Eintrag oder eine natuerliche Anfrage verweisen.
 
@@ -144,6 +152,9 @@ spacing     = { " " | tab } ;
 /skills run code-lesen
 /workflows show feature-finish
 /workflows run feature-finish
+/workflows run issue-graph-umsetzung 123
+/umsetzen #123
+/umsetzung 123
 /finish
 /finish release
 /technologies show csharp-net
