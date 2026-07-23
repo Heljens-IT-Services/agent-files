@@ -8,7 +8,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 - Wenn der User `/finish` oder gleichbedeutend den vollstaendigen Branch-Abschluss beauftragt.
 - Fuer den Abschluss eines Feature- oder Task-Branches nach `develop`.
-- Nicht fuer die Freigabe von `develop` nach `main`; dafuer `/finish release` beziehungsweise den Workflow `release` verwenden.
+- Nicht fuer die Freigabe von `develop` nach `main`; dafuer `/release` beziehungsweise den Workflow `release` verwenden.
 - Wenn Implementierung und taskbezogene lokale Verifikation bereits abgeschlossen sind oder im Workflow abgeschlossen werden koennen.
 - Nicht verwenden, um Implementierung, Fehlerbehebung oder fachliche Freigabe zu ersetzen.
 

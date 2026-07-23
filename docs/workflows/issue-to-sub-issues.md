@@ -11,6 +11,12 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Dieser Workflow muss verwendet werden, wenn ein User verlangt, ein Epic, eine Story oder ein grosses GitHub-Issue in Sub-Issues, Child-Issues oder Teil-Issues zu zerlegen.
 - Nicht verwenden, wenn das Ausgangs-Issue direkt umgesetzt werden soll. Dann `issue-to-pr.md` oder `issue-umsetzung.md` nutzen.
 
+## Direkter Alias
+
+- `/sub-issues <issue-nummer>`
+
+`<issue-nummer>` muss als positive Ganzzahl mit optional vorangestelltem `#` angegeben werden, zum Beispiel `/sub-issues #123` oder `/sub-issues 123`.
+
 ## Verwendete Skills
 
 - `github_issue-lesen`
