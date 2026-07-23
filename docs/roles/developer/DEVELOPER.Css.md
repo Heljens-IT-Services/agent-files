@@ -1,12 +1,10 @@
 # DEVELOPER.Css.md
 
-Stand: 2026-05-16
+Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert CSS-, Styling- und praesentationsnahe UI-Regeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md). Framework- oder technologiespezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien.
-
-[PRIORITY] Diese Regeln gelten fuer CSS-, SCSS- und Styling-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+Diese Datei gilt fuer CSS, Styling und praesentationsnahe UI-Regeln. Zugehoerige allgemeine und technologiespezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## Styling, UI und Accessibility
 
@@ -18,7 +16,7 @@ Diese Datei definiert CSS-, Styling- und praesentationsnahe UI-Regeln. Allgemein
 
 [MUST_NOT] Globale Styles duerfen nicht fuer lokale Component-Probleme erweitert werden.
 
-[MUST_NOT_IF] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
+[MUST_NOT] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
 
 [MUST_NOT] Styling-Aenderungen duerfen keine ungenutzten Klassen, doppelten Regeln oder widerspruechlichen Layout-Mechanismen einfuehren.
 

@@ -19,8 +19,11 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu veraendern, und die A
 - `code_refactoring`
 - `code_testen`
 - `code_diff-review`
-- `github_commit-push`
 - `github_pr-erstellen`
+
+## Verwendete Workflows
+
+- `commit-push.md`
 
 ## Ablauf
 
@@ -39,7 +42,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu veraendern, und die A
 7. Mit `code_testen` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis pruefen.
 8. Mit `code_diff-review` sicherstellen, dass keine verdeckte Fachlogik oder unbeabsichtigte Verhaltensaenderung entstanden ist.
 9. Kritische Funde korrigieren und die passende Pruefung wiederholen.
-10. Erst nach bestandener Absicherung mit `github_commit-push` Commit und Push ausfuehren.
+10. Erst nach bestandener Absicherung mit dem Workflow `commit-push.md` Commit und Push ausfuehren.
 11. Mit `github_pr-erstellen` den Pull Request mit Refactoring-Zielen, Verhaltenserhalt, Teststatus und Review-Kontext erstellen.
 
 ## Ruecksprungregeln

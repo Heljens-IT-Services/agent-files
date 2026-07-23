@@ -20,7 +20,10 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - `code_implementieren`
 - `code_testen`
 - `code_diff-review`
-- `github_commit-push`
+
+## Verwendete Workflows
+
+- `commit-push.md`
 
 ## Ablauf
 
@@ -35,7 +38,7 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 9. Mit `code_diff-review` den Aenderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests pruefen.
 10. Kritische Funde korrigieren und die passende Pruefung wiederholen.
 11. Akzeptanzkriterien und Nicht-Ziele gegen den finalen Aenderungsstand pruefen.
-12. Mit `github_commit-push` Commit und Push fuer die abgeschlossene Arbeitseinheit ausfuehren.
+12. Mit dem Workflow `commit-push.md` Commit und Push fuer die abgeschlossene Arbeitseinheit ausfuehren.
 13. Falls die Arbeitseinheit ein Issue abschliesst und der Kontext das Schliessen erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schliessen.
 
 ## Ruecksprungregeln
@@ -64,5 +67,3 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github_branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, ausser sie blockieren die Arbeitseinheit.
 - Issue nicht schliessen, wenn der Abschluss ueber einen spaeteren PR-Merge erfolgen soll.
-- `code_diff-review` mit Bewertung `versandbereit mit Hinweisen` darf fortfahren.
-- `code_diff-review` mit Bewertung `nicht versandbereit` blockiert Commit und Push.

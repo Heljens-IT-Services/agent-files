@@ -56,20 +56,6 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 - Risiken, Nicht-Ziele und offene Fragen
 - Hinweis, dass die geltende Regel im aktuellen Task weiterhin befolgt wurde oder warum eine hoeherrangige Vorgabe abweichendes Verhalten erzwungen hat
 
-## Zielkanaele
-
-- GitHub-Issue in `Heljens-IT-Services/agent-files`: Standard, weil reviewbar, versionierbar und gut nachverfolgbar.
-- MCP-Tool oder Review-Backend: spaetere Option fuer strukturierte Felder, Routing und Deduplizierung.
-- Zentrales Review-Postfach: Fallback fuer Umgebungen ohne GitHub-Zugriff.
-
-## Minimalprozess
-
-1. Agent erkennt einen plausiblen Verbesserungsbedarf anhand der Reflexionskriterien.
-2. Agent befolgt die geltenden Regeln im aktuellen Task weiter.
-3. Agent erstellt ohne vorherige Human-Bestaetigung ein GitHub-Issue in `Heljens-IT-Services/agent-files`, sofern der Vorschlag ausreichend klar und GitHub-Zugriff vorhanden ist.
-4. Agent setzt den passenden nativen GitHub-Issue-Type und relevante native Relationships.
-5. Ein Human reviewed, priorisiert, entscheidet und merged eine spaetere Aenderung an den Instruktionsdateien.
-
 ## Ruecksprungregeln
 
 - Bei unklarem Verbesserungsvorschlag zurueck zu `anforderungsklaerung`.
@@ -88,22 +74,10 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 ## Grenzen
 
-- Das Issue immer in `Heljens-IT-Services/agent-files` erstellen, nicht im konsumierenden Repository.
-- Ausschliesslich fuer zentrale `agent-files`-Instruktionen verwenden.
+- Das Issue ausschliesslich in `Heljens-IT-Services/agent-files` erstellen.
 - Keine Aenderungen an Instruktionsdateien vornehmen.
 - Keine Umsetzung planen, wenn nur ein Verbesserungsvorschlag erfasst werden soll.
-- Kein Issue aus einem unscharfen Verbesserungsvorschlag erstellen.
 - Keine geltende Leitplanke im aktuellen Task umgehen, nur weil ein Verbesserungsvorschlag erstellt wird.
-- Keine automatische Aenderung verbindlicher Leitplanken ohne menschliches Review.
 - Keine Verbesserungsvorschlaege erzeugen, die nur die eigene Bequemlichkeit optimieren und Sicherheit, Qualitaet, Nachvollziehbarkeit oder Nutzerziel verschlechtern.
 - Kein Spam: aehnliche Beobachtungen buendeln oder vorhandene offene Issues weiterverwenden, wenn sie denselben Verbesserungsbedarf abdecken.
 - Fehlendes konsumierendes Repository, fehlende Referenzdatei oder fehlender Nutzungskontext blockiert die Issue-Erstellung nicht.
-- Labels, Body-Links oder Textverweise ersetzen weder native GitHub-Issue-Types noch native GitHub-Relationships.
-
-## Risiken
-
-- Regelumgehung
-- Spam oder Duplikate
-- falsche Optimierungsziele
-- fehlende Verantwortlichkeit ohne Human-Review
-- Kontextverlust durch unkonkrete Vorschlaege

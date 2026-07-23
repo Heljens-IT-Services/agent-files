@@ -39,13 +39,11 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Jedes Sub-Issue ist einzeln umsetzbar.
 - Jedes Sub-Issue ist einzeln verifizierbar.
 - Jedes Sub-Issue hat klaren Scope und Nicht-Scope.
-- Harte Abhaengigkeiten zwischen Sub-Issues moeglichst vermeiden.
+- Harte Abhaengigkeiten zwischen Sub-Issues nur zulassen, wenn der fachliche oder technische Schnitt sie erfordert.
 - Wenn Abhaengigkeiten nicht vermeidbar sind, muessen sie als Reihenfolge und Relationship sichtbar werden.
 - Pro Sub-Issue nur ein fachliches oder technisches Ziel verfolgen.
-- Sub-Issues sollen klein genug sein, dass sie sinnvoll in einem Pull Request bearbeitet werden koennen.
 - Parent-Issue-Type gibt eine Default-Tendenz, bestimmt den Sub-Issue-Type aber nicht automatisch.
 - Jedes Sub-Issue bekommt einen eigenen kontextbasierten GitHub-Issue-Type.
-- GitHub-Issue-Type und Relationships sind native GitHub-Metadaten und duerfen nicht durch Labels, Body-Links oder reine Textverweise ersetzt werden.
 - Parent `Epic` fuehrt haeufig zu `Story` oder `Task`.
 - Parent `Story` fuehrt haeufig zu `Task`.
 - Recherche-, Entscheidungs- oder Klaerungsanteile koennen `Spike` sein.
@@ -71,7 +69,6 @@ Ein vorhandenes grosses GitHub-Issue in mehrere klare Sub-Issues schneiden und a
 - Ausgangs-Issue nicht automatisch schliessen.
 - Ausgangs-Issue nicht automatisch kommentieren.
 - Keine Umsetzung der Sub-Issues starten.
-- Keine Labels, Body-Links oder Textverweise als Ersatz fuer native GitHub-Issue-Types oder native GitHub-Relationships verwenden.
-- Keine Sub-Issues erstellen, wenn Ziel, Scope oder Zuschnitt nicht ausreichend geklaert sind.
-- Keine Bestaetigungsschleife vor Erstellung, wenn der Zuschnitt plausibel und ausreichend geklaert ist.
+- Keine Sub-Issues erstellen, solange Ziel, Scope oder Schnittkriterien nicht erfuellt sind.
+- Keine Bestaetigungsschleife verlangen, wenn Ziel, Scope und Schnittkriterien erfuellt sind.
 - Sub-Issues muessen kleiner sein als das Ausgangs-Issue und jeweils einen klaren eigenen Scope haben.

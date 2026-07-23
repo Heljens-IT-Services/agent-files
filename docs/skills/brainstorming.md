@@ -59,10 +59,8 @@ Interaktiv mehrere plausible Denk- oder Loesungsrichtungen entwickeln, vergleich
 
 - Keine Scheinvielfalt durch Varianten derselben Idee.
 - Empfehlung nur mit Begruendung.
-- Empfehlung nur geben, wenn Ziel, Randbedingungen und User-Praeferenzen ausreichend klar sind.
 - Annahmen klar von Fakten trennen.
 - Interaktiv bleiben und den User nicht mit einer fertigen Entscheidung ueberfahren.
-- Pro Antwort wenige Optionen und wenige Fragen bevorzugen.
 - Fragen muessen entscheidungsrelevant sein.
 - Praeferenz als Tendenz formulieren, nicht als endgueltige Entscheidung.
 - Blinde Flecken aktiv ansprechen, aber keine kuenstlichen Fragen stellen.

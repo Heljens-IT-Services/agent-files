@@ -1,12 +1,10 @@
 # DEVELOPER.Html.md
 
-Stand: 2026-05-16
+Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert HTML- und Markup-Regeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md). Framework- oder technologiespezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien.
-
-[PRIORITY] Diese Regeln gelten fuer HTML-, Template- und Markup-Code, sofern keine passendere technologiespezifische Regel innerhalb ihres ausdruecklichen Scopes eine engere Vorgabe macht.
+Diese Datei gilt fuer HTML und Markup. Zugehoerige allgemeine und technologiespezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## HTML und Markup
 

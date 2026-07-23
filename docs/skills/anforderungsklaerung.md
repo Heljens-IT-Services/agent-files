@@ -30,13 +30,11 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 ## Grenzen
 
 - Keine Dateien aendern.
-- Kein Artefakt erstellen, ausser der User fordert es explizit.
 - Keine technische Umsetzung planen, bevor Ziel und Scope ausreichend klar sind.
 - Keine Anforderungen stillschweigend erweitern.
 - Keine Issues, Research-Ergebnisse oder Code-Analysen selbst lesen. Nur vorhandenen Kontext verwenden.
 - Wenn Kontext fehlt, vorgelagert `github_issue-lesen`, `research`, `code_lesen` oder `code_analyse` nutzen.
 - Annahmen duerfen vorgeschlagen, aber nicht stillschweigend als bestaetigt behandelt werden.
-- Nicht mehr als wenige gezielte Fragen pro Antwort stellen.
 - Im stillen Modus keine offenen Punkte klaeren, sondern nur markieren.
 - Wenn entscheidende Informationen fehlen und nicht geklaert werden koennen, mit `BLOCKED` enden.
 - `BLOCKED` muss die konkreten fehlenden Entscheidungen oder Informationen nennen.
@@ -62,6 +60,6 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 
 - Ziel, Scope und Nicht-Ziele klar trennen.
 - Annahmen explizit markieren.
-- Fragen muessen klaerungsrelevant sein.
+- Fragen muessen klaerungsrelevant und auf wenige pro Antwort begrenzt sein.
 - Keine Loesung vorwegnehmen, wenn die Anforderung noch unklar ist.
 - Knapp und interaktiv arbeiten.

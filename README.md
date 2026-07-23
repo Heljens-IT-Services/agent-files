@@ -2,7 +2,7 @@
 
 `agent-files` enthaelt die verbindlich veroeffentlichten Agent- und Developer-Anweisungen von Heljens IT Services.
 
-Das Repository ist bewusst einfach aufgebaut: Die relevanten Markdown-Dateien liegen direkt unter `docs/` und werden von GitHub Pages unmittelbar veroeffentlicht. Es gibt keine separate HTML-, CSS- oder Build-Schicht.
+Das Repository ist bewusst einfach aufgebaut: Die relevanten Markdown-Dateien liegen unter `docs/` und werden von GitHub Pages unmittelbar veroeffentlicht. Es gibt keine separate HTML-, CSS- oder Build-Schicht.
 
 ## GitHub Pages
 
@@ -15,10 +15,9 @@ Dieses Repository ist ein GitHub-Pages-Projekt. Die Pages-Ausgabe wird aus dem B
 Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
 
 - [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md)
-- [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md)
-- [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md)
-- [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md)
-- [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md)
+- [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md)
+- [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md)
+- [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md)
 
 Andere Repositories und Projekte sollen auf diese URLs verweisen, wenn sie die aktuell gueltigen Arbeitsanweisungen fuer KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
 
@@ -30,32 +29,28 @@ Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit exp
 
 Typische Nutzung:
 
-- `AGENTS.md` und `DEVELOPER.md` als allgemeine Pflichtlektuere fuer Agents referenzieren
-- technologiespezifische `DEVELOPER.*.md`-Dateien nur bei Relevanz fuer den aktuellen Task einlesen
+- `AGENTS.md` sowie die Lookup-Dateien `ROLES.md`, `SKILLS.md` und `WORKFLOWS.md` als Pflichtlektuere referenzieren
+- Rollen-, Skill- und Workflow-Dateien anhand der beschriebenen Situationen nur bei Task-Relevanz einlesen
 - eine zusaetzliche `PROJECT.md` fuer Versionsbasis sowie fachliche und technische Projektspezifika pflegen
 - projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
 - andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
 
 ## Struktur
 
-Die veroeffentlichten Einstiegsdokumente liegen direkt unter `docs/`. Wiederverwendbare Skills und Workflows liegen unter `docs/skills/` und `docs/workflows/`, damit sie ueber GitHub Pages direkt referenzierbar sind.
+Die allgemeinen Arbeitsregeln liegen unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und sind ueber verpflichtende Lookup-Dateien erschlossen.
 
 Aktuell relevante Dateien sind:
 
 | Pfad | URL | Zweck |
 |---|---|---|
 | `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflichtlektuere, Prioritaeten und Konfliktlogik fuer Agents. |
-| `docs/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
-| `docs/DEVELOPER.CSharpNet.md` | [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) | Allgemeine C#- und .NET-Regeln. |
-| `docs/DEVELOPER.Angular.md` | [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) | Angular-spezifische Entwicklungsregeln. |
-| `docs/DEVELOPER.Html.md` | [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) | HTML- und Markup-Regeln. |
-| `docs/DEVELOPER.Css.md` | [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) | CSS-, Styling- und UI-nahe Regeln. |
-| `docs/DEVELOPER.TypeScript.md` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) | TypeScript-spezifische Entwicklungsregeln. |
-| `docs/DEVELOPER.NetConsole.md` | [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
-| `docs/DEVELOPER.NetWebApi.md` | [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
-| `docs/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Einstiegspunkt fuer Skills und Workflows. |
-| `docs/skills/README.md` | [skills/README.md](https://heljens-it-services.github.io/agent-files/skills/README.md) | Einstiegspunkt fuer atomare Agenten-Skills. |
-| `docs/workflows/README.md` | [workflows/README.md](https://heljens-it-services.github.io/agent-files/workflows/README.md) | Einstiegspunkt fuer Workflows aus mehreren Skills. |
+| `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Lookup-Datei fuer Rollen. |
+| `docs/roles/developer/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
+| `docs/roles/developer/DEVELOPER.*.md` | [Developer-Rollen](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Technologiespezifische Entwicklungsregeln. |
+| `docs/skills/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Lookup-Datei fuer atomare Agenten-Skills. |
+| `docs/skills/README.md` | [skills/README.md](https://heljens-it-services.github.io/agent-files/skills/README.md) | Struktur- und Stilvorgaben fuer Skills. |
+| `docs/workflows/WORKFLOWS.md` | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Lookup-Datei fuer Workflows. |
+| `docs/workflows/README.md` | [workflows/README.md](https://heljens-it-services.github.io/agent-files/workflows/README.md) | Struktur- und Stilvorgaben fuer Workflows. |
 
 ## Pflege
 
@@ -69,6 +64,6 @@ Konsumierende Projekt-Repositories muessen zusaetzlich eine eigene `PROJECT.md` 
 
 ## Verwendung in Projekten
 
-Andere Repositories koennen direkt auf die benoetigten Dokumente unter GitHub Pages verweisen, zum Beispiel [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md), [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) oder [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md).
+Andere Repositories koennen direkt auf die Pflichtlektuere unter GitHub Pages verweisen: [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
 
 Damit ist klar, welche Fassung jeweils veroeffentlicht und referenziert wird.

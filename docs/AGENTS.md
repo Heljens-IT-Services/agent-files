@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-05-13
+Stand: 2026-07-23
 
 ## Zweck
 
@@ -33,52 +33,38 @@ Diese Datei definiert verbindliche Arbeitsregeln fuer AI-/Code-Agents.
 
 ## Pflichtlektuere
 
-Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgemeine Regeldateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein; kontextabhaengige oder technologiespezifische Dateien muessen im aktuellen Kontext bekannt, vollstaendig und aktuell genug sein, wenn ihr Scope fuer den aktuellen Task relevant ist.
+Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
-| Pfad | Zweck |
-|---|---|
-| `README.md` | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos; bei Task-Relevanz zu beruecksichtigen. |
-| `PROJECT.md` | Verbindliche projektspezifische Datei fuer Versionsbasis sowie fachliche und technische Leitplanken. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) | Zentraler Einstiegspunkt fuer Agenten-Skills und Workflows; im aktuellen Kontext bekannt zu halten und fuer die Arbeitsweise zu beruecksichtigen. |
-| [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Verbindliche Arbeitsregeln, Pflichtlektuere, Regelmarker und Prioritaetslogik. |
-| [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) | Technologieuebergreifende Entwicklungsregeln. |
-| [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) | Allgemeine C#- und .NET-Regeln. |
-| [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) | Angular-spezifische Entwicklungsregeln. |
-| [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) | HTML- und Markup-Regeln. |
-| [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) | CSS-, Styling- und UI-nahe Regeln. |
-| [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) | TypeScript-spezifische Entwicklungsregeln. |
-| [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) | Regeln fuer .NET-Konsolenanwendungen. |
-| [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) | Regeln fuer .NET-Web-APIs. |
+| Pfad | Geltung | Zweck |
+|---|---|---|
+| [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflicht | Allgemeine Arbeitsregeln, Regelmarker und Prioritaetslogik. |
+| `PROJECT.md` | Pflicht | Projektspezifische Versionsbasis und Leitplanken. |
+| [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Lookup fuer kontextabhaengige Rollenregeln. |
+| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup fuer atomare Skills. |
+| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup fuer zusammengesetzte Workflows. |
+| [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) | Bei Slash-Commands | Grammatik, Aufloesung und Fehlerbehandlung fuer Slash-Commands. |
+| [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands | IDs fuer technologiespezifische Developer-Regeln. |
+| `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
+[MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass die Datei am Pfad `PROJECT.md` im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
+[MUST_IF] Wenn die in der Spalte `Geltung` genannte Bedingung eintritt, muss der Agent die betreffende Einstiegsdatei im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen.
-
-[MUST_IF] Der Agent muss pruefen, ob `README.md` fuer den aktuellen Task relevant ist, und sie bei Bedarf lesen, verstehen und beruecksichtigen.
-
-[MUST] Der Agent muss zu Beginn eines Tasks sicherstellen, dass [SKILLS.md](https://heljens-it-services.github.io/agent-files/SKILLS.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie fuer die Auswahl passender Skills und Workflows beruecksichtigen.
-
-[ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
+[ALLOW_IF] Bereits gelesene verbindliche Regeldateien duerfen wiederverwendet werden, wenn kein Hinweis auf eine zwischenzeitliche Aenderung besteht.
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.CSharpNet.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn C# oder .NET relevant sind.
+[MUST_IF] Wenn eine in den Lookup-Dateien beschriebene Situation fuer den aktuellen Task eintritt, muss der Agent die dort verlinkte Detaildatei lesen und befolgen.
 
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Angular.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn Angular relevant ist.
+## Dokumentierte Kommandos
 
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn HTML oder Markup relevant sind.
+[MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter durch konkrete Werte ersetzen.
 
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn CSS, Styling oder UI-nahe Praesentationsregeln relevant sind.
-
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn TypeScript relevant ist.
-
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.NetConsole.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetConsole.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn eine .NET-Konsolenanwendung relevant ist.
-
-[MUST_IF] Der Agent muss sicherstellen, dass [DEVELOPER.NetWebApi.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.NetWebApi.md) im aktuellen Kontext bekannt, vollstaendig und aktuell genug ist, und sie befolgen, wenn eine .NET-Web-API relevant ist.
+[MUST_NOT_IF] Dokumentierte Kommandos duerfen bei unaufgeloesten Platzhaltern, ungeprueften destruktiven Zielen oder einer Zustandsaenderung ausserhalb des autorisierten Task-Scopes nicht ausgefuehrt werden.
 
 ## Prioritaet von Anweisungen
+
+### Globale Prioritaet
 
 [PRIORITY] Sicherheits-, Datenschutz- und Plattformvorgaben der Arbeitsumgebung haben Vorrang vor User-Anweisungen und Repository-Regeln.
 
@@ -88,11 +74,10 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 
 [PRIORITY] Bei widerspruechlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. `PROJECT.md`, sofern im konkreten Repository vorhanden und fuer den Scope einschlaegig.
-2. Passende [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md).
-3. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
-4. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
-5. Bestehender Code-Stil und lokale Patterns.
+1. `PROJECT.md`, sofern sie fuer den konkreten Scope einschlaegig ist.
+2. Passende rollenbasierte Regeldateien gemaess der Prioritaetsreihenfolge ihrer Rolle.
+3. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
+4. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, ausser die Erlaubnis ist ausdruecklich als Ausnahme von genau diesem Verbot formuliert.
 
@@ -100,31 +85,21 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 
 [MUST_IF] Der Agent muss die Unklarheit benennen und eine sichere, eng begrenzte Alternative waehlen oder rueckfragen, wenn eine Regel unklar, widerspruechlich oder offensichtlich gefaehrlich ist.
 
-## Dokumentenpflege
-
-[ALLOW_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdruecklich verlangt.
-
-[MUST_IF] Der Agent muss `PROJECT.md` anlegen, wenn sie im konkreten Repository noch nicht vorhanden ist.
-
-[MUST_IF] Der Agent muss `PROJECT.md` mitpflegen, wenn die Versionsbasis des konkreten Projekts festgelegt, geaendert, praezisiert oder dokumentiert werden soll.
-
-[MUST_IF] Der Agent muss `PROJECT.md` mitpflegen, wenn im konkreten Repository fachliche oder technische projektspezifische Leitplanken festgelegt, geaendert, praezisiert oder dokumentiert werden sollen.
-
 [MUST_IF] Der Agent muss die Abweichung im Arbeitsabschluss kurz benennen, wenn eine vorhandene Anweisung offensichtlich falsch, gefaehrlich oder irrefuehrend geworden ist.
 
 ## README.md
 
 [SHOULD] `README.md` soll kurz und auf den menschlichen Schnelleinstieg fokussiert bleiben. Abweichungen sind erlaubt, wenn der User ausdruecklich eine ausfuehrlichere README-Dokumentation verlangt.
 
-[SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten. Abweichungen sind erlaubt, wenn ein Repository einzelne Punkte nicht benoetigt oder anders dokumentiert.
+[SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten, soweit diese Punkte fuer das Repository relevant sind.
 
-[MUST_NOT_IF] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder anderen veroeffentlichten Markdown-Dateien unter [agent-files/*.md](https://heljens-it-services.github.io/agent-files/) gehoeren.
+[ALLOW_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdruecklich verlangt.
+
+[MUST_NOT_IF] `README.md` darf keine Inhalte duplizieren, die in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder andere veroeffentlichte Agent Files gehoeren.
 
 ## PROJECT.md
 
-[MUST] Eine Datei `PROJECT.md` muss vorhanden sein und gepflegt werden.
-
-[MUST] `PROJECT.md` muss mindestens die Versionsbasis des konkreten Projekts enthalten, auch wenn noch keine weiteren fachlichen oder technischen projektspezifischen Leitplanken festgelegt sind.
+[MUST] `PROJECT.md` muss vorhanden sein und mindestens die Versionsbasis des konkreten Projekts enthalten.
 
 [MUST] `PROJECT.md` muss diese Struktur verwenden:
 
@@ -136,6 +111,8 @@ Agents verwenden zu Beginn eines Tasks diesen Regelkatalog. Verbindliche allgeme
 ## Technische Leitplanken
 ```
 
-[MUST_NOT_IF] `PROJECT.md` darf allgemeine technologieuebergreifende Regeln oder technologiespezifische Standardvorgaben nicht duplizieren, wenn diese bereits in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md) oder passenden [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.*.md)-Dateien definiert sind.
+[MUST_IF] `PROJECT.md` muss mitgepflegt werden, wenn die Versionsbasis oder fachliche bzw. technische projektspezifische Leitplanken festgelegt, geaendert, praezisiert oder dokumentiert werden.
 
-[SHOULD] `PROJECT.md` soll projektspezifische fachliche und technische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren, damit Agents repositoryspezifische Vorgaben lesen, verstehen und befolgen koennen.
+[MUST_NOT_IF] `PROJECT.md` darf keine bereits in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder Rollenregeldateien definierten Standardvorgaben duplizieren.
+
+[SHOULD] `PROJECT.md` soll projektspezifische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren.

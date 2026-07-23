@@ -17,7 +17,7 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 
 1. Auftrag, Ausgangsfrage und naheliegende Annahmen knapp festhalten.
 2. Betroffenen Scope bestimmen: Dateien, Symbole, Branches, Module, Datenfluesse, Schnittstellen oder Laufzeitkontext.
-3. Read-only Evidenz sammeln: Code lesen, suchen, Diffs/Historie pruefen, Logs lesen, Tests oder Builds ausfuehren, Online-Dokumentation recherchieren.
+3. Read-only Evidenz aus Code, Diffs, Historie und vorhandenen Logs sammeln.
 4. Bei Docker-Projekten Container-Logs und Datenbankinhalte nur lesend pruefen, wenn sie fuer die Analyse relevant sind.
 5. Befunde mit Evidenz abgleichen und Unsicherheiten markieren.
 6. Bewertung nach Ursache/Verhalten, Auswirkungen, Risiken, Wartbarkeit/Komplexitaet, Architekturgrenzen, Testbarkeit und Abhaengigkeiten/Schnittstellen strukturieren.
@@ -29,6 +29,7 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 - Hauptsaechlich read-only arbeiten.
 - Keine Produktivcode-Aenderungen vornehmen.
 - Keine Debug-Logs, Repro-Skripte oder Tests anlegen, ausser der User fordert es explizit.
+- Keine Tests oder Builds ausfuehren und keine externe Recherche durchfuehren; benoetigte Ergebnisse vorgelagert mit `code_testen` bzw. `research` laden.
 - Schreibend ist nur das Analyseartefakt unter `docs/` vorgesehen, falls der Modus ein Artefakt verlangt.
 - Bei unklarem Auftrag selbststaendig mit naheliegenden Annahmen starten und diese im Artefakt oder im Context-only-Ergebnis markieren.
 
@@ -55,12 +56,7 @@ Standardabschnitte:
 ## Output
 
 - Analyseartefakt unter `docs/analysis-<scope>.md`, ausser im Context-only-Modus
-- kurze Chat-Zusammenfassung
-- Ausgangsfrage und Scope
-- Befunde mit Evidenz
-- Bewertung
-- Risiken/Auswirkungen
-- offene Fragen
+- kurze Chat-Zusammenfassung der zentralen Befunde, Bewertung, Risiken und offenen Fragen
 
 ## Qualitaetskriterien
 

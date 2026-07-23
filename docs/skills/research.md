@@ -36,7 +36,6 @@ Websuche oder Browser-Werkzeuge verwenden, wenn Online-Quellen benoetigt werden.
 ## Grenzen
 
 - Keine Dateien aendern.
-- Kein Artefakt erstellen, ausser der User fordert es explizit.
 - Keine unsicheren Informationen als Fakt darstellen.
 - Keine veralteten Informationen verwenden, wenn Aktualitaet fuer die Frage relevant ist.
 - Bei aktuellen oder zeitkritischen Themen Online-Recherche durchfuehren.
@@ -63,6 +62,5 @@ Websuche oder Browser-Werkzeuge verwenden, wenn Online-Quellen benoetigt werden.
 - Aktualitaet explizit beachten.
 - Fakten, Interpretation und Annahmen trennen.
 - Keine Quellen aufblasen; nur relevante Quellen nennen.
-- Quellen standardmaessig nennen.
 - Widersprueche klar benennen und den jeweiligen Quellen zuordnen.
 - Bei technischen Fragen offizielle Dokumentation oder Repository-Quellen bevorzugen.

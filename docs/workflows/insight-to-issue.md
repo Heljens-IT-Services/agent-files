@@ -6,8 +6,7 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 
 ## Verwenden
 
-- Wenn aus Brainstorming, Analyse, Research, Anforderungsklaerung, User-Beobachtung oder Nutzungskontext ein neues GitHub-Issue entstehen soll.
-- Wenn eine Erkenntnis issue-reif gemacht und in GitHub erfasst werden soll.
+- Wenn eine Erkenntnis aus Brainstorming, Analyse, Research, Anforderungsklaerung, User-Beobachtung oder Nutzungskontext issue-reif gemacht und als GitHub-Issue erfasst werden soll.
 - Nicht verwenden, wenn die Erkenntnis eine Verbesserung an Agent Instructions, Skills oder Workflows betrifft. Dann `instruction-improvement-issue.md` nutzen.
 - Nicht verwenden, wenn nur eine Issue-Grundlage ohne Erstellung gewuenscht ist, ausser der User verlangt das explizit.
 
@@ -26,7 +25,7 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 1. Ursprung und Art der Erkenntnis bestimmen: Brainstorming, Analyse, Research, Anforderung, User-Beobachtung oder Nutzungskontext.
 2. Pruefen, ob die Erkenntnis anhand der passenden Reifekriterien issue-reif ist.
 3. GitHub-Issue-Type als Empfehlung aus dem Kontext ableiten, wenn die Reifekriterien klar auf `Task`, `Story`, `Spike` oder `Epic` zeigen.
-4. Ziel-Repository bestimmen; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
+4. Ziel-Repository bestimmen.
 5. Falls Kontext fehlt, den passenden vorgelagerten Skill nutzen: `anforderungsklaerung`, `brainstorming`, `research` oder `code_analyse`.
 6. Mit `github_issue-erstellen` daraus ein GitHub-Issue erstellen.
 7. Mit `github_type-setzen` den finalen nativen GitHub-Issue-Type setzen.
@@ -46,18 +45,14 @@ User- oder Product-Issue:
 
 - betroffene Nutzerrolle
 - Problem oder Beduerfnis
-- gewuenschter Zielzustand
 - Akzeptanz- oder Erfolgskriterien
-- Scope und Nicht-Ziele
 
 Technical Issue:
 
 - betroffener technischer Bereich
 - beobachtetes Problem oder gewuenschte technische Aenderung
-- Zielzustand
 - technische Randbedingungen oder Risiken
 - Verifikationsidee
-- Scope und Nicht-Ziele
 
 Spike:
 
@@ -96,10 +91,5 @@ Epic:
 ## Grenzen
 
 - Kein Issue erstellen, wenn die passenden Reifekriterien nicht erfuellt sind.
-- GitHub-Issue-Type nicht raten.
 - Ziel-Repository nicht still wechseln; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
-- Duplikatregeln aus `github_issue-erstellen` beachten.
-- Labels nicht als Ersatz fuer GitHub-Issue-Type oder Relationships verwenden.
-- GitHub-Issue-Type ueber `github_type-setzen` setzen.
-- Relationships ueber `github_relationship-setzen` nur setzen, wenn sie aus dem Kontext hervorgehen.
 - Keine Erkenntnisse zu Agent Instructions, Skills oder Workflows in diesem Workflow erfassen; dafuer `instruction-improvement-issue.md` verwenden.

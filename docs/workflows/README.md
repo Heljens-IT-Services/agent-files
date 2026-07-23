@@ -1,22 +1,10 @@
 # Workflows
 
+Die verbindliche Situationstabelle fuer die Auswahl einzelner Workflows steht in [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
+
 ## Zweck
 
 Workflows beschreiben zusammengesetzte Agentenablaeufe fuer Aufgaben, die mehrere atomare Skills in einer festen Reihenfolge kombinieren.
-
-## Verwendung
-
-- Einen Workflow verwenden, wenn mehrere zusammenhaengende Arbeitsschritte als ein konsistenter Ablauf ausgefuehrt werden sollen.
-- Fuer Sonderfaelle einzelne Skills aus `../skills/` direkt einsetzen.
-- Einen Skill direkt verwenden, wenn genau ein atomarer Arbeitsschritt gebraucht wird.
-
-## Grundprinzip: Workflows kombinieren atomare Skills
-
-- Ein Workflow orchestriert Skills, ersetzt aber deren Regeln nicht.
-- Die im Workflow referenzierten Skills muessen gelesen und befolgt werden.
-- Ein Workflow darf fehlende Vorarbeit, Blocker oder Rueckspruenge sichtbar machen.
-- Wenn ein Workflow-Schritt unklar, blockiert oder nicht belastbar ist, greift die passende Ruecksprungregel.
-- Extern wirksame Schritte bleiben an die Grenzen des jeweiligen Skills gebunden.
 
 ## Verbindliche Workflow-Struktur
 
@@ -67,21 +55,7 @@ Workflows duerfen zusaetzliche fachliche Steuerungsabschnitte enthalten, wenn si
 
 ## Workflow-Regeln
 
-- Workflows duerfen Skill-Regeln nicht duplizieren, abschwaechen oder ueberschreiben.
-- Workflows orchestrieren Reihenfolge, Bedingungen und Rueckspruenge.
-- Extern wirksame Schritte bleiben an die Grenzen des jeweiligen Skills gebunden.
+- Workflows orchestrieren Reihenfolge, Bedingungen und Rueckspruenge, ohne Skill-Regeln zu duplizieren, abzuschwaechen oder zu ueberschreiben.
+- Referenzierte Skills muessen gelesen und befolgt werden; extern wirksame Schritte bleiben an deren Grenzen gebunden.
 - Wenn ein Workflow-Schritt blockiert, nicht improvisieren; Ruecksprungregel anwenden oder Blocker melden.
 - Wenn ein benoetigter Skill nicht im Workflow steht, den Workflow nachschaerfen oder Abweichung begruenden.
-
-## Verfuegbare Workflows
-
-| Workflow | URL | Zweck |
-|---|---|---|
-| Bugfix | [bugfix.md](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) | Fehler untersuchen, beheben und absichern. |
-| Feature Umsetzung | [feature-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/feature-umsetzung.md) | Feature fachlich und technisch umsetzen. |
-| Instruction Improvement Issue | [instruction-improvement-issue.md](https://heljens-it-services.github.io/agent-files/workflows/instruction-improvement-issue.md) | Verbesserungsvorschlag fuer Agent Instructions, Skills oder Workflows im `agent-files`-Repository erfassen. |
-| Insight To Issue | [insight-to-issue.md](https://heljens-it-services.github.io/agent-files/workflows/insight-to-issue.md) | Erkenntnis aus Brainstorming, Analyse, Research oder Nutzungskontext in ein GitHub-Issue ueberfuehren. |
-| Issue To Sub Issues | [issue-to-sub-issues.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) | Grosses GitHub-Issue in mehrere Sub-Issues schneiden und als Child-Issues anlegen. |
-| Issue To PR | [issue-to-pr.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md) | Ein einzelnes Ticket bis zur Pull-Request-Erstellung bearbeiten. |
-| Issue Umsetzung | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Einzelnes Issue oder Arbeitspaket umsetzen, verifizieren, committen und pushen. |
-| Refactoring Secure | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Refactoring mit Verhaltenserhalt, Tests, Review und PR absichern. |

@@ -1,12 +1,10 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-05-20
+Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert Angular-spezifische Entwicklungsregeln. Allgemeine Regeln stehen in [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md). HTML-, CSS- und TypeScript-spezifische Regeln stehen in [DEVELOPER.Html.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Html.md), [DEVELOPER.Css.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.Css.md) und [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.TypeScript.md). Sie gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile mit Routing, UI, State, Formularen, Datenzugriff und optionaler Offline-Faehigkeit.
-
-[PRIORITY] Diese Regeln gelten in ihrem Scope vorrangig vor allgemeineren Regeln aus [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/DEVELOPER.md).
+Diese Datei gilt fuer Angular-Anwendungen und Angular-nahe Frontend-Teile. Zugehoerige allgemeine, HTML-, CSS- und TypeScript-Regeln werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## Zielbild
 
@@ -43,7 +41,7 @@ flowchart TD
 
 [ALLOW] Facades oder Component Services duerfen View-nahe Koordination enthalten, z. B. Laden, Speichern, Fehlerabbildung, Navigation nach erfolgreicher Aktion oder Zusammenbau eines View-Models.
 
-[MUST_NOT] Facades oder Component Services duerfen technische Details wie konkrete HTTP-Endpunkte, IndexedDB-Stores oder Storage-Schluessel offenlegen.
+[MUST_NOT] Facades oder Component Services duerfen technische Details wie konkrete HTTP-Endpunkte, IndexedDB-Stores oder Storage-Schluessel nicht offenlegen.
 
 [MUST] Ein Feature Store oder Feature State Service haelt den Zustand eines fachlichen Features.
 
@@ -135,7 +133,7 @@ src/app/
 
 [MUST] Komplexe Angular-Template-Ausdruecke muessen in `computed`, readonly Properties oder View-Modelle ausgelagert werden.
 
-[MUST_NOT] Methodenaufrufe im Template duerfen Seiteneffekte, Datenzugriffe, Mutationen, teure Berechnungen oder asynchrone Operationen ausloesen.
+[MUST_NOT] Methodenaufrufe im Template duerfen keine Seiteneffekte, Datenzugriffe, Mutationen, teuren Berechnungen oder asynchronen Operationen ausloesen.
 
 [SHOULD] Mehrfach verschachtelte `@if`, `@for` oder `ng-template`-Strukturen sollen durch kleinere Presentational Components, benannte computed Values oder View-Modelle vereinfacht werden.
 
@@ -162,8 +160,6 @@ src/app/
 [ALLOW_IF] Angular-/RxJS-Interop darf genutzt werden, wenn Angular APIs oder externe Bibliotheken Observables vorgeben oder erwarten.
 
 ## Lokale Daten und Offline-Faehigkeit
-
-[MUST] IndexedDB und LocalStorage muessen ueber Adapter oder Repository-Services gekapselt werden.
 
 [MUST] Offline- und Sync-Zustaende muessen explizit modelliert werden, z. B. `idle`, `loading`, `synced`, `dirty`, `conflict`, `failed`.
 

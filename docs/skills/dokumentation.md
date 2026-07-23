@@ -26,7 +26,8 @@ Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder 
 - Keine Codeaenderungen vornehmen.
 - Dokumentationsdateien duerfen erstellt oder aktualisiert werden.
 - Keine Anforderungen oder technische Entscheidungen stillschweigend aendern.
-- Keine README, Docs, Code, Issues oder externe Quellen selbst lesen. Nur vorhandenen Kontext verwenden.
+- Die zu aendernde Dokumentation und direkt fuer ihre Konsistenz erforderliche Dokumentationsdateien duerfen gelesen werden.
+- Keinen Code, keine Issues und keine externen Quellen selbst lesen.
 - Keine Recherche, Code-Analyse oder Implementierungsplanung ersetzen.
 - Wenn Kontext fehlt, vorgelagert `code_lesen`, `research`, `code_analyse`, `anforderungsklaerung` oder `code_implementierungsplanung` nutzen.
 - Changelog oder Release Notes duerfen gepflegt werden, aber keine Release-Aussagen erfinden, wenn sie nicht aus Kontext oder Userwunsch hervorgehen.
@@ -35,7 +36,7 @@ Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder 
 
 - aktualisierte oder neu erstellte Dokumentation
 - kurze Zusammenfassung der Dokumentationsaenderung
-- offene Kontextluecken, falls relevant
+- offene Kontextluecken
 
 ## Qualitaetskriterien
 

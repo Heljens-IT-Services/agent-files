@@ -9,7 +9,6 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Vor nicht-trivialen Codeaenderungen.
 - Wenn mehrere Dateien, Schichten oder Risiken betroffen sind.
 - Wenn ein Plan als Agenten-Kontext fuer die Umsetzung oder als technische Vorarbeit fuer ein GitHub-Issue gebraucht wird.
-- Nur verwenden, wenn Ziel, Scope, Nicht-Ziele, Akzeptanzkriterien und relevanter Kontext ausreichend vorliegen.
 - Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien noch unklar sind. Dann `anforderungsklaerung` nutzen.
 - Nicht verwenden, wenn der naechste Schritt offensichtlich und klein ist.
 
@@ -39,7 +38,6 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Bei offenen Punkten fragen, ob zuerst geklaert oder bewusst mit Annahmen weitergeplant werden soll.
 - Kritische Risiken, die die Umsetzbarkeit gefaehrden, nicht ueberspringen.
 - Betriebsart muss explizit vom User genannt werden; Default ist ein Plan im Agenten-Kontext.
-- Kein Artefakt erstellen, ausser der User fordert es explizit.
 - Keine Anforderungen stillschweigend erweitern.
 - Keine Planung vortaeuschen, wenn wesentliche Ziel- oder Scope-Fragen offen sind.
 - Backend: Verantwortlichkeiten, Abhaengigkeiten und testbare Grenzen bewusst trennen. Mehr Struktur ist akzeptabel, wenn sie Kopplung reduziert.
