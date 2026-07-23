@@ -8,7 +8,7 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 
 - Wenn ein einzelnes Issue oder Arbeitspaket innerhalb eines groesseren Workflows umgesetzt werden soll.
 - Wenn der Scope bereits aus Issue, Story, Planung oder Workflow-Kontext klar ist.
-- Nicht verwenden, wenn ein Issue-Graph koordiniert, eine Gesamt-Reihenfolge bestimmt oder ein Pull Request erstellt werden soll. Dann `feature-umsetzung.md` oder `issue-to-pr.md` nutzen.
+- Nicht verwenden, wenn ein Issue-Graph koordiniert, eine Gesamt-Reihenfolge bestimmt oder ein Pull Request erstellt werden soll. Dann `issue-graph-umsetzung.md` oder `issue-to-pr.md` nutzen.
 
 ## Verwendete Skills
 
@@ -63,7 +63,7 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Keinen Pull Request erstellen.
 - Keinen Issue-Graph koordinieren.
 - Keine Gesamt-Reihenfolge ueber mehrere Issues bestimmen.
-- Keine Branch-Erstellung ausfuehren, wenn dieser Workflow als Teilworkflow aus `feature-umsetzung.md`, `bugfix.md`, `refactoring-secure.md` oder einem anderen vorgelagerten Workflow mit bereits vorbereitetem Arbeitsbranch laeuft.
+- Keine Branch-Erstellung ausfuehren, wenn dieser Workflow als Teilworkflow aus `issue-graph-umsetzung.md`, `bugfix.md`, `refactoring-secure.md` oder einem anderen vorgelagerten Workflow mit bereits vorbereitetem Arbeitsbranch laeuft.
 - Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github_branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, ausser sie blockieren die Arbeitseinheit.
 - Issue nicht schliessen, wenn der Abschluss ueber einen spaeteren PR-Merge erfolgen soll.

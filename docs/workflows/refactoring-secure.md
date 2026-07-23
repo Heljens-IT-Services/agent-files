@@ -66,7 +66,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu veraendern, und die A
 ## Grenzen
 
 - Keine Verhaltensaenderungen.
-- Kein Wechsel in `bugfix.md` oder `feature-umsetzung.md` innerhalb dieses Workflows.
+- Kein Wechsel in `bugfix.md` oder `issue-graph-umsetzung.md` innerhalb dieses Workflows.
 - Keine neuen Features.
 - Keine fachliche Fehlerbehebung.
 - Keine vorbereitenden Commits vor bestandener Absicherung.

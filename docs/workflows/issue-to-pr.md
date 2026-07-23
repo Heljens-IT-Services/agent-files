@@ -8,7 +8,7 @@ Eine bereits umgesetzte Aenderung mit Issue-Kontext committen, pushen und als Pu
 
 - Wenn eine Aenderung bereits umgesetzt ist und aus dem Issue-Kontext ein Pull Request entstehen soll.
 - Wenn relevante Issue-Relationships fuer PR-Kontext oder Verlinkung einbezogen werden sollen.
-- Nicht verwenden, wenn die Aenderung erst geplant oder implementiert werden muss. Dann `issue-umsetzung.md`, `feature-umsetzung.md` oder `bugfix.md` nutzen.
+- Nicht verwenden, wenn die Aenderung erst geplant oder implementiert werden muss. Dann `issue-umsetzung.md`, `issue-graph-umsetzung.md` oder `bugfix.md` nutzen.
 
 ## Verwendete Skills
 
