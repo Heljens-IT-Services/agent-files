@@ -56,6 +56,12 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Wenn eine in den Lookup-Dateien beschriebene Situation fuer den aktuellen Task eintritt, muss der Agent die dort verlinkte Detaildatei lesen und befolgen.
 
+Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie ueber Lookup ausgewaehlte Detaildateien.
+
+[MUST_IF] Wenn der Agent eine optionale Regeldatei einliest oder erneut abruft, muss er dem User unmittelbar kurz den Dokumenttitel mitteilen.
+
+[ALLOW_IF] Mehrere gleichzeitig eingelesene optionale Regeldateien duerfen in einer Rueckmeldung zusammengefasst werden, wenn jeder Dokumenttitel genannt wird.
+
 ## Dokumentierte Kommandos
 
 [MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter durch konkrete Werte ersetzen.
