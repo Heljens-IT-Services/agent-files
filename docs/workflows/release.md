@@ -41,7 +41,6 @@ Den freigegebenen Stand von `develop` mit `/finish release` kontrolliert ueber e
 ## Ruecksprungregeln
 
 - Bei `code_diff-review` mit Bewertung `nicht versandbereit` zur betroffenen Umsetzung auf einem separaten Arbeitsbranch zurueckkehren; `develop` im Release-Workflow nicht direkt veraendern.
-- Bei einem nach der Check-Beobachtung veraenderten Pull-Request-Head die Checks erneut beobachten.
 - Bei fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `main` wechseln.
 
@@ -56,5 +55,3 @@ Den freigegebenen Stand von `develop` mit `/finish release` kontrolliert ueber e
 ## Grenzen
 
 - Auf `develop` oder `main` keine Release-Aenderungen committen.
-- Kein Force-Push, kein `--admin` und keine Umgehung erforderlicher Checks oder Reviews.
-- `develop` und Arbeitsbranches weder lokal noch remote automatisch loeschen.

@@ -4,10 +4,6 @@
 
 Diese Datei ist die Lookup-Datei fuer Workflows, die mehrere atomare Skills zu einem zusammenhaengenden Ablauf kombinieren.
 
-## Verwendung
-
-[MUST_IF] Der Agent muss alle referenzierten Skill-Dateien lesen und befolgen, wenn er einen Workflow verwendet.
-
 ## Workflows
 
 | ID | Workflow | Direkter Alias | Lesen und verwenden, wenn | URL | Zweck |

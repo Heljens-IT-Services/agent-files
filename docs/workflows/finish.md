@@ -47,7 +47,6 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 - Bei fehlgeschlagenen lokalen Pruefungen zur passenden Implementierung oder Fehlerbehebung zurueckkehren; keine beliebigen Fehler ausserhalb des Task-Scopes beheben.
 - Bei `code_diff-review` mit Bewertung `nicht versandbereit` zur passenden Umsetzung zurueckkehren.
-- Bei einem nach der Check-Beobachtung veraenderten Pull-Request-Head die Checks erneut beobachten.
 - Bei fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und den Arbeitsbranch aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `develop` wechseln.
 
@@ -58,8 +57,3 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 - erforderliche Checks sind fuer den gemergten Head-Commit erfolgreich
 - der Pull Request ist regelkonform gemergt
 - der lokale Checkout steht auf dem per Fast-Forward aktualisierten Branch `develop`
-
-## Grenzen
-
-- Kein Force-Push, kein `--admin` und keine Umgehung erforderlicher Checks oder Reviews.
-- Bei Fehlern oder Blockern bleibt der Arbeitsbranch erhalten; lokale und entfernte Branches werden nicht automatisch geloescht.

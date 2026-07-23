@@ -8,8 +8,6 @@ Diese Datei ist die Lookup-Datei fuer atomare, wiederverwendbare Agenten-Skills.
 
 [MUST_IF] Der Agent muss mehrere passende Skill-Dateien lesen und befolgen, wenn mehrere beschriebene Situationen eintreten und kein passender Workflow den zusammenhaengenden Ablauf festlegt.
 
-[MUST] Der Agent muss `github_type-setzen` unmittelbar nach `github_issue-erstellen` verwenden, weil jedes neu erstellte GitHub-Issue einen nativen Issue-Type erhalten muss.
-
 ## Skills
 
 | ID | Skill | Direkter Alias | Lesen und verwenden, wenn | URL | Zweck |

@@ -6,7 +6,7 @@ Diese Datei ist die Lookup-Datei fuer Rollen und deren kontextabhaengige Regelda
 
 ## Verwendung
 
-[MUST_IF] Der Agent muss die in der Tabelle als `Allgemein` gekennzeichnete Regeldatei derselben Rolle zusaetzlich lesen und ihre rollenbasierte Prioritaetsreihenfolge anwenden, wenn eine spezialisierte Regeldatei dieser Rolle relevant ist.
+[MUST_IF] Wenn eine spezialisierte Regeldatei relevant ist, muss der Agent zusaetzlich die in der Tabelle als `Allgemein` gekennzeichnete Regeldatei derselben Rolle lesen.
 
 ## Rollen
 

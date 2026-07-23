@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-07-22
+Stand: 2026-07-23
 
 ## Zweck
 
@@ -48,11 +48,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
-[MUST_IF] Der Agent muss `README.md` lesen und beruecksichtigen, wenn ihr Inhalt fuer den aktuellen Task relevant ist.
-
-[MUST_IF] Wenn der User einen Slash-Command verwendet oder Hilfe zu Slash-Commands verlangt, muss der Agent [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
-
-[MUST_IF] Wenn ein Technologie-Command verwendet wird, muss der Agent [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) im aktuellen Kontext vollstaendig und aktuell genug kennen und den dort bezeichneten Technologieeintrag aufloesen.
+[MUST_IF] Wenn die in der Spalte `Geltung` genannte Bedingung eintritt, muss der Agent die betreffende Einstiegsdatei im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
 [ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
 
