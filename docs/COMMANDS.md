@@ -52,7 +52,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Die kanonischen Aufrufe eines Katalogeintrags muessen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-lesen` oder `/workflows run bugfix`.
 
-[ALLOW] Ein Katalogeintrag darf zusaetzlich einen oder mehrere direkte Aliase aus einem oder mehreren Tokens wie `/finish` oder `/finish release` besitzen.
+[ALLOW] Ein Katalogeintrag darf zusaetzlich einen oder mehrere direkte Aliase aus einem oder mehreren Tokens wie `/finish` oder `/release` besitzen.
 
 [MUST] Direkte Aliase muessen global eindeutig sein und duerfen weder Root-Commands noch Help-Aliase verdecken.
 
@@ -159,6 +159,6 @@ spacing     = { " " | tab } ;
 /sub-issues #123
 /sub-issues 123
 /finish
-/finish release
+/release
 /technologies show csharp-net
 ```
