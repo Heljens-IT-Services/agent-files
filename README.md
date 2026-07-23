@@ -48,9 +48,7 @@ Aktuell relevante Dateien sind:
 | `docs/roles/developer/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Allgemeine technologieuebergreifende Entwicklungsregeln. |
 | `docs/roles/developer/DEVELOPER.*.md` | [Developer-Rollen](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Technologiespezifische Entwicklungsregeln. |
 | `docs/skills/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Lookup-Datei fuer atomare Agenten-Skills. |
-| `docs/skills/README.md` | [skills/README.md](https://heljens-it-services.github.io/agent-files/skills/README.md) | Struktur- und Stilvorgaben fuer Skills. |
 | `docs/workflows/WORKFLOWS.md` | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Lookup-Datei fuer Workflows. |
-| `docs/workflows/README.md` | [workflows/README.md](https://heljens-it-services.github.io/agent-files/workflows/README.md) | Struktur- und Stilvorgaben fuer Workflows. |
 
 ## Pflege
 
@@ -61,6 +59,26 @@ Aenderungen an den Agent- und Developer-Anweisungen erfolgen direkt in diesen Ma
 Die Regeln verwenden dazu Marker wie `MUST`, `MUST_IF`, `MUST_NOT`, `ALLOW`, `ALLOW_IF`, `SHOULD`, `OPTIONAL` und `PRIORITY`, damit die normative Bedeutung jeder Anweisung moeglichst eindeutig bleibt.
 
 Konsumierende Projekt-Repositories muessen zusaetzlich eine eigene `PROJECT.md` halten. Diese Datei enthaelt mindestens die Versionsbasis des konkreten Projekts und kann fachliche oder technische Leitplanken festhalten, die nur fuer dieses Projekt gelten. Sie ist nicht Teil der allgemeinen veroeffentlichten Referenz unter GitHub Pages, sondern bewusst als projektspezifische Ergaenzung gedacht.
+
+### Skills und Workflows pflegen
+
+Skills bilden einzelne, klar abgegrenzte Faehigkeiten ab. Sie fuehren benoetigte Vor- oder Nacharbeit nicht stillschweigend aus. Workflows kombinieren Skills in einer festgelegten Reihenfolge und definieren Bedingungen sowie Rueckspruenge, ohne Skill-Regeln zu duplizieren, abzuschwaechen oder zu ueberschreiben.
+
+| Dateityp | Verbindliche Abschnitte | Bedingte Abschnitte |
+|---|---|---|
+| Skill | `Zweck`, `Verwenden`, `Vorgehen`, `Grenzen`, `Output`, `Qualitaetskriterien` | `Kommandos`, wenn konkrete Tool- oder CLI-Aufrufe relevant sind; `Artefakt`, wenn Dateien entstehen. |
+| Workflow | `Ziel`, `Verwenden`, `Verwendete Skills`, `Ablauf`, `Ruecksprungregeln`, `Endergebnis` | `Verwendete Workflows` bei Orchestrierung weiterer Workflows; `Grenzen` bei besonderen Stop- oder Verbotsregeln. |
+
+`Zweck` beziehungsweise `Ziel` beschreibt den Nutzen in ein bis zwei Saetzen. `Verwenden` grenzt Trigger und Nicht-Trigger ab; `Vorgehen` beziehungsweise `Ablauf` ordnet die Schritte. `Grenzen` benennt erlaubte und verbotene Aktionen, `Output` beziehungsweise `Endergebnis` den Abschlusszustand und `Qualitaetskriterien` kurze, pruefbare Regeln. Ein `Artefakt` legt Pfad, Namensschema, Inhalt und Stil fest.
+
+Zusaetzliche fachliche Steuerungsabschnitte wie `Reifekriterien`, `Schnittkriterien`, `Entscheidungskriterien` oder `Priorisierung` sind erlaubt, wenn sie konkrete Entscheidungen pruefbar machen.
+
+Fuer die Pflege gelten folgende Konventionen:
+
+- Skill-Dateinamen beschreiben den fachlichen Scope; die Praefixe `code_` und `github_` kennzeichnen den jeweiligen Kontext.
+- Command-IDs verwenden Kleinbuchstaben und Bindestriche. Bestehende Unterstrich-Konventionen in Dateinamen duerfen erhalten bleiben.
+- Referenzierte Skills muessen vollstaendig aufgefuehrt und befolgt werden; ihre Grenzen gelten auch fuer extern wirksame Workflow-Schritte. Fehlt ein benoetigter Skill, wird der Workflow nachgeschaerft oder die Abweichung begruendet. Bei blockierten Schritten gilt die Ruecksprungregel oder der Blocker wird gemeldet.
+- Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien. Die bestehende ASCII-Schreibweise mit `ae`, `oe`, `ue` und `ss` wird beibehalten.
 
 ## Verwendung in Projekten
 
