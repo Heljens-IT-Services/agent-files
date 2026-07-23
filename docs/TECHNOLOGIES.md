@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Diese Datei ist der Katalog fuer technologiespezifische Developer-Regeln. Die stabilen IDs werden von `/technologies list` und `/technologies show <technology-id>` gemaess [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) verwendet.
+Diese Datei ordnet stabile Technologie-IDs den zugehoerigen Developer-Regeln zu. Die Command-Semantik steht in [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md).
 
 ## Verwendung
 

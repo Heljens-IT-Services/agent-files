@@ -8,7 +8,7 @@ Einen vorhandenen Pull Request wiederverwenden oder einen neuen Pull Request mit
 
 - Wenn ein gepushter Branch als Pull Request bereitgestellt werden soll.
 - Wenn Reviewer Kontext, Aenderung, Tests und Risiken schnell verstehen muessen.
-- Nicht verwenden, wenn noch kein Commit/Push erfolgt ist. Dann `github_commit-push` nutzen.
+- Nicht verwenden, wenn Commit und Push noch fehlen. Dann den Workflow `commit-push.md` nutzen.
 
 ## Vorgehen
 
@@ -44,7 +44,7 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kon
 ## Grenzen
 
 - Extern wirksam arbeiten: Pull Request wird tatsaechlich erstellt.
-- Keine Commits erstellen und nicht pushen. Das gehoert zu `github_commit-push`.
+- Keine lokalen Git-Mutationen ausfuehren. Das gehoert zum Workflow `commit-push.md`.
 - Keine Codeaenderungen vornehmen.
 - Keine Tests oder Diff-Reviews ersetzen.
 - Kein Changelog-Ersatz schreiben.

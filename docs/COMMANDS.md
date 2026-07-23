@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Diese Datei definiert die host-unabhaengige Slash-Command-Sprache fuer die veroeffentlichten Agent Files. Slash-Commands ergaenzen natuerliche Sprache um eine eindeutige Navigation, Detailanzeige und bewusste Auswahl von Skills und Workflows.
+Diese Datei definiert die host-unabhaengige Slash-Command-Sprache fuer Navigation, Detailanzeige und bewusste Auswahl veroeffentlichter Katalogeintraege.
 
 ## Grundregeln
 
@@ -56,9 +56,9 @@ spacing     = { " " | tab } ;
 
 [MUST] Direkte Aliase muessen global eindeutig sein und duerfen weder Root-Commands noch Help-Aliase verdecken.
 
-[MUST] Direkte Aliase muessen vor der Root-Command-Aufloesung gegen die vollstaendige normalisierte Eingabe abgeglichen werden. Beispielsweise bezeichnet `/finish` den Workflow `finish`, waehrend `/finish release` den Workflow `release` bezeichnet.
+[MUST] Direkte Aliase muessen vor der Root-Command-Aufloesung gegen die vollstaendige normalisierte Eingabe abgeglichen werden.
 
-[MUST_IF] Wenn ein direkter Alias ein vollstaendiges Praefix eines anderen Alias ist, darf nur die exakte vollstaendige Tokenfolge ausgefuehrt werden. Nicht dokumentierte nachgestellte Tokens muessen als ungueltige Eingabe behandelt werden.
+[MUST_IF] Wenn ein Alias Praefix eines anderen Alias ist, darf nur eine exakte vollstaendige Tokenfolge aufgeloest werden; weitere Tokens sind ungueltig.
 
 [MUST] Ein direkter Alias muss dieselbe Semantik und dieselben Grenzen wie der kanonische Aufruf seines Katalogeintrags behalten.
 
@@ -94,7 +94,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Fehlender Task-Kontext oder eine durch den ausgewaehlten Eintrag vorgeschriebene Rueckfrage muss weiterhin geklaert werden.
 
-[MUST_IF] Wenn die ID gueltig ist, aber die Verwendungskriterien des Skills oder Workflows im aktuellen Kontext nicht erfuellt sind, muss der Agent die Ausfuehrung stoppen, die Unpassung benennen und auf einen passenden Eintrag oder eine natuerliche Anfrage verweisen.
+[MUST_IF] Wenn die Verwendungskriterien einer gueltigen ID nicht erfuellt sind, muss der Agent stoppen, die Unpassung benennen und auf einen passenden Eintrag oder eine natuerliche Anfrage verweisen.
 
 [MUST_NOT] `run` darf Grenzen des ausgewaehlten Eintrags oder hoeherrangige Regeln nicht umgehen.
 
@@ -102,7 +102,7 @@ spacing     = { " " | tab } ;
 
 [MUST] `/help` muss die verfuegbaren Root-Commands, Help-Aliase, die Grundsyntax und mindestens je ein Beispiel fuer `list`, `show` und `run` nennen.
 
-[MUST] Direkte Aliase muessen in der allgemeinen Hilfe getrennt von Root-Commands mit ihrem Katalogtyp und kanonischen Aufruf ausgewiesen werden, beispielsweise `/finish` als Workflow-Alias fuer `/workflows run finish` und `/finish release` als Workflow-Alias fuer `/workflows run release`.
+[MUST] Die allgemeine Hilfe muss direkte Aliase getrennt von Root-Commands mit Katalogtyp und kanonischem Aufruf ausweisen.
 
 [MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
 
@@ -120,7 +120,7 @@ spacing     = { " " | tab } ;
 
 [MUST_IF] Wenn ein erforderliches Argument fehlt, muss die Antwort die erwartete Syntax und die passende `list`-Alternative nennen.
 
-[MUST_IF] Wenn ein Root-Command, Subcommand, eine ID oder ein Alias unbekannt ist, muss die Antwort die unbekannte Eingabe benennen und passende gueltige Kandidaten vorschlagen. Ohne hinreichend nahen Kandidaten muss sie auf `/help` oder den passenden `list`-Command verweisen.
+[MUST_IF] Bei unbekanntem Root-Command, Subcommand, ID oder Alias muss die Antwort passende gueltige Kandidaten nennen oder auf `/help` beziehungsweise den passenden `list`-Command verweisen.
 
 [MUST_IF] Wenn eine Eingabe syntaktisch ungueltig oder mehrdeutig ist, muss die Antwort die Ausfuehrung stoppen, den Grund nennen und eine kanonische Beispielsyntax zeigen.
 
@@ -142,8 +142,8 @@ spacing     = { " " | tab } ;
 /skills list
 /skills show code-lesen
 /skills run code-lesen
-/workflows show finish
-/workflows run finish
+/workflows show feature-finish
+/workflows run feature-finish
 /finish
 /finish release
 /technologies show csharp-net

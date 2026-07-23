@@ -4,7 +4,7 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert gemeinsame Regeln fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- und Core-Projekten. Allgemeine C#- und .NET-Regeln stehen in [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md); hostspezifische Regeln stehen in passenderen `DEVELOPER.Net*.md`-Dateien.
+Diese Datei gilt fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- und Core-Projekten. Zugehoerige allgemeine und hostspezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## Schichten und Referenzen
 

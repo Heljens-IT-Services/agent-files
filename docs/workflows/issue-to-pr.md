@@ -15,15 +15,18 @@ Eine bereits umgesetzte Aenderung mit Issue-Kontext committen, pushen und als Pu
 - `github_issue-lesen`
 - `code_testen`
 - `code_diff-review`
-- `github_commit-push`
 - `github_pr-erstellen`
+
+## Verwendete Workflows
+
+- `commit-push.md`
 
 ## Ablauf
 
 1. Mit `github_issue-lesen` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
 2. Mit `code_testen` vorhandene Verifikation ausfuehren oder Testluecken benennen.
 3. Mit `code_diff-review` den Aenderungssatz auf Scope, Nebeneffekte und Versandbereitschaft pruefen.
-4. Mit `github_commit-push` den Commit sauber schneiden, benennen und pushen.
+4. Mit dem Workflow `commit-push.md` den Aenderungssatz sauber committen und pushen.
 5. Mit `github_pr-erstellen` den Pull Request erstellen und Issue-Kontext verlinken.
 
 ## Ruecksprungregeln

@@ -1,4 +1,4 @@
-# Workflow: Finish
+# Workflow: Feature Finish
 
 ## Ziel
 
@@ -24,11 +24,14 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 - `code_testen`
 - `code_diff-review`
-- `github_commit-push`
 - `github_pr-erstellen`
 - `github_pr-checks-beobachten`
 - `github_pr-merge`
 - `github_integrationsbranch-aktualisieren`
+
+## Verwendete Workflows
+
+- `commit-push.md`
 
 ## Ablauf
 
@@ -36,7 +39,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 2. Stoppen, wenn `develop` oder `main` aktiv ist, `develop` remote nicht existiert, der Task-Scope unklar ist oder fremde Aenderungen nicht sicher vom Task getrennt werden koennen.
 3. Mit `code_testen` die fuer die Aenderung relevanten lokalen Pruefungen ausfuehren oder einen bereits belastbaren Teststatus bestaetigen.
 4. Mit `code_diff-review` den gesamten taskbezogenen Aenderungssatz pruefen und nur bei `versandbereit` oder `versandbereit mit Hinweisen` fortfahren.
-5. Mit `github_commit-push` ausschliesslich taskbezogene Aenderungen committen und zum konfigurierten Remote pushen.
+5. Mit dem Workflow `commit-push.md` ausschliesslich taskbezogene Aenderungen committen und zum konfigurierten Remote pushen.
 6. Mit `github_pr-erstellen` einen vorhandenen Pull Request fuer den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt fuer diesen Workflow als ausdrueckliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `github_pr-checks-beobachten` die erforderlichen Checks fuer den unveraenderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
 8. Nur bei vollstaendig erfolgreichen erforderlichen Checks und erfuellten Repository-Regeln mit `github_pr-merge` und der aufgeloesten Merge-Methode mergen; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.

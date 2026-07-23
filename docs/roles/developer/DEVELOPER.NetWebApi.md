@@ -4,7 +4,7 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert hostspezifische Regeln fuer .NET-Web-APIs. Gemeinsame Regeln stehen in [DEVELOPER.NetApplication.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetApplication.md) und [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md).
+Diese Datei gilt fuer .NET-Web-APIs. Zugehoerige allgemeine und anwendungsbezogene Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## Zielbild
 

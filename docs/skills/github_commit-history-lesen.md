@@ -32,7 +32,8 @@ gh api --paginate "/repos/<org>/<repo>/pulls?state=closed&base=<branch>&sort=upd
 gh api "/repos/<org>/<repo>/commits/<sha>/pulls"
 ```
 
-Die API-Ergebnisse muessen anschliessend anhand des Commit-Zeitpunkts beziehungsweise `mergedAt` auf das exakte Intervall `[Start, Ende)` gefiltert werden. Wenn die Pull-Request-Suche ihr Limit erreicht, muss die paginierte REST-Abfrage als vollstaendige Datenquelle verwendet werden.
+- API-Ergebnisse anhand des Commit-Zeitpunkts beziehungsweise `mergedAt` auf `[Start, Ende)` filtern.
+- Wenn die Pull-Request-Suche ihr Limit erreicht, die paginierte REST-Abfrage als vollstaendige Datenquelle verwenden.
 
 ## Grenzen
 

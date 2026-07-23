@@ -11,8 +11,6 @@ Die verbindliche Situationstabelle fuer die Auswahl einzelner Skills steht in [S
 - Dateinamen beschreiben den fachlichen Scope.
 - Command-IDs verwenden Kleinbuchstaben und Bindestriche; Dateinamen duerfen bestehende Unterstrich-Konventionen beibehalten.
 
-In diesem Repository gelten Branch-Checkout und Commit/Push als GitHub-nahe Skills.
-
 ## Grundprinzip: atomare Skills
 
 - Ein Skill verantwortet genau eine klar abgegrenzte Faehigkeit und fuehrt keine vor- oder nachgelagerten Skills stillschweigend mit aus.

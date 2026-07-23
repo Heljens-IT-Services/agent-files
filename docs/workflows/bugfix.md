@@ -19,8 +19,11 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 - `code_implementieren`
 - `code_testen`
 - `code_diff-review`
-- `github_commit-push`
 - `github_pr-erstellen`
+
+## Verwendete Workflows
+
+- `commit-push.md`
 
 ## Ablauf
 
@@ -32,7 +35,7 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 6. Mit `code_implementieren` den Bugfix umsetzen.
 7. Mit `code_testen` pruefen, dass die urspruengliche Reproduktion nicht mehr fehlschlaegt und relevante Regressionen abgedeckt sind.
 8. Mit `code_diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
-9. Mit `github_commit-push` Commit und Push ausfuehren.
+9. Mit dem Workflow `commit-push.md` Commit und Push ausfuehren.
 10. Mit `github_pr-erstellen` den Pull Request mit Ursache, Fix und Absicherung erstellen.
 
 ## Ruecksprungregeln

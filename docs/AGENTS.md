@@ -50,7 +50,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Wenn die in der Spalte `Geltung` genannte Bedingung eintritt, muss der Agent die betreffende Einstiegsdatei im aktuellen Kontext vollstaendig und aktuell genug kennen und befolgen.
 
-[ALLOW_IF] Wenn eine verbindliche Regeldatei in der laufenden Unterhaltung bereits gelesen wurde und kein Hinweis auf eine zwischenzeitliche Aenderung besteht, darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut vollstaendig abzurufen.
+[ALLOW_IF] Bereits gelesene verbindliche Regeldateien duerfen wiederverwendet werden, wenn kein Hinweis auf eine zwischenzeitliche Aenderung besteht.
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollstaendig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 
@@ -58,9 +58,9 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 ## Dokumentierte Kommandos
 
-[MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter wie Branch-Namen, Pfade oder Remote-Namen passend ersetzen.
+[MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter durch konkrete Werte ersetzen.
 
-[MUST_NOT_IF] Der Agent darf dokumentierte Kommandos nicht ausfuehren, wenn Platzhalter unaufgeloest sind, ein destruktives Ziel nicht eindeutig geprueft ist oder die Zustandsaenderung den autorisierten Task-Scope ueberschreitet.
+[MUST_NOT_IF] Dokumentierte Kommandos duerfen bei unaufgeloesten Platzhaltern, ungeprueften destruktiven Zielen oder einer Zustandsaenderung ausserhalb des autorisierten Task-Scopes nicht ausgefuehrt werden.
 
 ## Prioritaet von Anweisungen
 
@@ -91,11 +91,11 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [SHOULD] `README.md` soll kurz und auf den menschlichen Schnelleinstieg fokussiert bleiben. Abweichungen sind erlaubt, wenn der User ausdruecklich eine ausfuehrlichere README-Dokumentation verlangt.
 
-[SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten. Abweichungen sind erlaubt, wenn ein Repository einzelne Punkte nicht benoetigt oder anders dokumentiert.
+[SHOULD] `README.md` soll Titel, Kurzbeschreibung, Voraussetzungen, Setup, Start, Build, Tests und eine knappe technische Orientierung enthalten, soweit diese Punkte fuer das Repository relevant sind.
 
 [ALLOW_IF] Der Agent darf `README.md` nur mitpflegen, wenn ausdruecklich verlangt.
 
-[MUST_NOT_IF] `README.md` darf keine Agent-Regeln, keine Prozessdetails und keine ausfuehrliche Implementierungsdokumentation enthalten, wenn diese Inhalte in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder anderen veroeffentlichten Markdown-Dateien unter [agent-files/*.md](https://heljens-it-services.github.io/agent-files/) gehoeren.
+[MUST_NOT_IF] `README.md` darf keine Inhalte duplizieren, die in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder andere veroeffentlichte Agent Files gehoeren.
 
 ## PROJECT.md
 
@@ -113,6 +113,6 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] `PROJECT.md` muss mitgepflegt werden, wenn die Versionsbasis oder fachliche bzw. technische projektspezifische Leitplanken festgelegt, geaendert, praezisiert oder dokumentiert werden.
 
-[MUST_NOT_IF] `PROJECT.md` darf allgemeine oder rollenbasierte Standardvorgaben nicht duplizieren, wenn diese bereits in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder passenden Rollenregeldateien definiert sind.
+[MUST_NOT_IF] `PROJECT.md` darf keine bereits in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder Rollenregeldateien definierten Standardvorgaben duplizieren.
 
-[SHOULD] `PROJECT.md` soll projektspezifische fachliche und technische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren, damit Agents repositoryspezifische Vorgaben lesen, verstehen und befolgen koennen.
+[SHOULD] `PROJECT.md` soll projektspezifische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren.

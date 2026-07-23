@@ -4,7 +4,7 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei definiert allgemeine C#- und .NET-Entwicklungsregeln. Sie gilt fuer .NET-Projekte unabhaengig vom konkreten Einstiegstyp wie Worker, Console, WebApi, Bibliothek oder Testprojekt. Anwendungs- oder hostspezifische Regeln stehen in passenderen [DEVELOPER.*.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.*.md)-Dateien.
+Diese Datei gilt fuer C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- und hostspezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
 
 ## Sprach- und Coderichtlinien
 

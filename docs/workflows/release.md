@@ -8,7 +8,7 @@ Den freigegebenen Stand von `develop` mit `/finish release` kontrolliert ueber e
 
 - Wenn der User `/finish release` oder kanonisch `/workflows run release` beauftragt.
 - Ausschliesslich fuer die Freigabe von `develop` nach `main`.
-- Nicht fuer den Abschluss eines Feature- oder Task-Branches; dafuer `/finish` beziehungsweise den Workflow `finish` verwenden.
+- Nicht fuer den Abschluss eines Feature- oder Task-Branches; dafuer `/finish` beziehungsweise den Workflow `feature-finish` verwenden.
 
 ## Reifekriterien
 
@@ -46,7 +46,7 @@ Den freigegebenen Stand von `develop` mit `/finish release` kontrolliert ueber e
 
 ## Endergebnis
 
-- ein vorhandener Release-Pull-Request von `develop` nach `main` wurde wiederverwendet oder passend erstellt
+- ein vorhandener Release-Pull-Request wurde wiederverwendet oder mit Base `main` und Head `develop` erstellt
 - enthaltene offene Issues sind im Release-Pull-Request korrekt verknuepft
 - erforderliche Checks sind fuer den gemergten Head-Commit erfolgreich
 - der Release-Pull-Request ist regelkonform gemergt
