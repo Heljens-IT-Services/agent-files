@@ -9,6 +9,12 @@ Eine Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifiz
 - Nach Implementierung, Refactoring oder Bugfix.
 - Vor Commit oder Pull Request.
 
+## Direkter Alias
+
+- `/testing`
+
+`/testing` verwendet den aktuellen Task- und Aenderungskontext, um die relevanten Pruefungen zu bestimmen. Wenn der Alias unmittelbar nach `/refactor` aufgerufen wird, muss er den refaktorierten Aenderungssatz und das dabei zu erhaltende Verhalten verifizieren.
+
 ## Vorgehen
 
 1. Relevante Pruefebenen breit waehlen: Build, Unit, Integration, UI oder manuell.
