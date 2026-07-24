@@ -12,24 +12,24 @@ Eine Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifiz
 ## Direkter Alias
 
 - `/testing`
-- `/testing --mode <modus>`
+- `/testing <modus>`
 
 Zulaessige Modi:
 
 | Modus | Verhalten |
 |---|---|
-| `auto` | Relevante Pruefungen aus Task-, Aenderungs- und Projektkontext bestimmen. Das ist der Default ohne `--mode`. |
+| `auto` | Relevante Pruefungen aus Task-, Aenderungs- und Projektkontext bestimmen. Das ist der Default ohne Modus. |
 | `build` | Build-, Compile- und statische Projektpruefungen ausfuehren. |
 | `unit` | Projektdefinierte Unit-Tests und ihre erforderlichen Build-Schritte ausfuehren. |
 | `integration` | Projektdefinierte Integrations- und Adaptertests samt erforderlichem Setup ausfuehren. |
 | `e2e` | Projektdefinierte End-to-End-Tests fuer sichtbare Nutzerflows und systemweite Ablaeufe samt erforderlichem Setup ausfuehren. |
 | `all` | Alle im Projekt definierten und in der aktuellen Umgebung sicher ausfuehrbaren Pruefebenen ausfuehren. |
 
-`/testing` entspricht `/testing --mode auto`. Wenn der Alias unmittelbar nach `/refactor` aufgerufen wird, muss er den refaktorierten Aenderungssatz und das dabei zu erhaltende Verhalten verifizieren.
+`/testing` entspricht `/testing auto`. Wenn der Alias unmittelbar nach `/refactor` aufgerufen wird, muss er den refaktorierten Aenderungssatz und das dabei zu erhaltende Verhalten verifizieren.
 
 ## Vorgehen
 
-1. Den angeforderten Modus validieren oder ohne `--mode` den Modus `auto` verwenden.
+1. Den angeforderten Modus validieren oder ohne Modus den Modus `auto` verwenden.
 2. Im Modus `auto` relevante Pruefebenen breit waehlen: Build, Unit, Integration, E2E, UI oder manuell.
 3. In einem expliziten Modus die bezeichnete Pruefebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswaehlen.
 4. Kommandos aus Projektdateien, README oder CI ableiten.
