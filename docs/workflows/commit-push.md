@@ -19,10 +19,11 @@ Einen abgeschlossenen lokalen Aenderungssatz logisch committen und die neu erste
 ## Ablauf
 
 1. Task-Scope, Teststatus, Review-Status, Branch und Arbeitsstatus bestimmen.
-2. Stoppen, wenn Scope, Teststatus oder Review-Status keinen Commit erlauben.
-3. Mit `github_commit` ausschliesslich den taskbezogenen Aenderungssatz committen.
-4. Mit `github_push` die neu erstellten Commits auf den konfigurierten Upstream pushen.
-5. Commit-Hashes, Messages, Push-Ziel und synchronen Abschlusszustand ausgeben.
+2. Vor dem Commit das Push-Ziel und den Remote-Status nach den Regeln von `github_push` pruefen.
+3. Stoppen, wenn Scope, Teststatus, Review-Status oder Push-Status keinen sicheren Commit mit anschliessendem Push erlauben.
+4. Mit `github_commit` ausschliesslich den taskbezogenen Aenderungssatz committen.
+5. Mit `github_push` die neu erstellten Commits auf den konfigurierten Upstream pushen oder den Branch bei eindeutigem Ziel erstmals veroeffentlichen.
+6. Commit-Hashes, Messages, Push-Ziel und synchronen Abschlusszustand ausgeben.
 
 ## Ruecksprungregeln
 
@@ -40,6 +41,7 @@ Einen abgeschlossenen lokalen Aenderungssatz logisch committen und die neu erste
 
 ## Grenzen
 
-- Bei bekanntem Remote-Vorsprung oder fehlendem Upstream keinen lokalen Commit beginnen.
+- Bei bekanntem Remote-Vorsprung, Divergenz oder mehrdeutigem Push-Ziel keinen lokalen Commit beginnen.
+- Ein fehlender Upstream ist kein Blocker, wenn `github_push` Remote und gleichnamigen Zielbranch eindeutig und sicher bestimmen kann.
 - Keinen Pull Request erstellen.
 - Keine fehlgeschlagene Commit- oder Push-Phase als vollstaendigen Erfolg darstellen.
