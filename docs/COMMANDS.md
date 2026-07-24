@@ -74,7 +74,7 @@ spacing     = { " " | tab } ;
 |---|---|---|
 | Help | `/help`, `/?`, `/hilfe` | Zeigt die allgemeine Hilfe. |
 | Kontext-Hilfe | `/help <command>` | Zeigt Syntax, Subcommands und Beispiele fuer einen Root-Command oder direkten Alias. |
-| Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id>` | Listet, beschreibt oder waehlt einen Skill aus. |
+| Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id> [<option> ...]` | Listet, beschreibt oder waehlt einen Skill aus. Optionen sind nur zulaessig, wenn der Skill sie dokumentiert. |
 | Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen Workflow. Zusaetzliche Argumente sind nur zulaessig, wenn der Workflow sie dokumentiert. |
 | Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt technologiespezifische Regeln. |
 
@@ -97,6 +97,8 @@ spacing     = { " " | tab } ;
 [MUST] `run` muss den bezeichneten Skill oder Workflow bewusst auswaehlen und nach dessen vollstaendigen Regeln ausfuehren.
 
 [MUST] Fehlender Task-Kontext oder eine durch den ausgewaehlten Eintrag vorgeschriebene Rueckfrage muss weiterhin geklaert werden.
+
+[MUST_IF] Wenn ein Skill Optionen dokumentiert, muss `run` sie in derselben Form wie seine direkten Aliase akzeptieren.
 
 [MUST_IF] Wenn ein Workflow Positionsargumente dokumentiert, muss `run` sie in derselben Anzahl, Reihenfolge und demselben Format wie seine direkten Aliase akzeptieren.
 
@@ -154,6 +156,8 @@ spacing     = { " " | tab } ;
 /refactor
 /skills run code-testen
 /testing
+/testing --mode e2e
+/skills run code-testen --mode all
 /workflows show feature-finish
 /workflows run feature-finish
 /workflows run issue-graph-umsetzung 123

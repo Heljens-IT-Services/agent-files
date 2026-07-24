@@ -2,11 +2,12 @@
 
 ## Zweck
 
-Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remote-Upstream pushen.
+Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remote-Upstream pushen oder einen neuen Branch bei eindeutigem Push-Ziel erstmals veroeffentlichen.
 
 ## Verwenden
 
 - Wenn lokale Commits vorhanden sind, die noch nicht auf dem konfigurierten Upstream liegen.
+- Wenn ein lokaler Branch noch keinen Upstream besitzt und erstmals auf einen eindeutig bestimmbaren Remote unter demselben Branchnamen gepusht werden soll.
 - Wenn der User nur einen Push ohne neuen Commit beauftragt.
 - Nicht verwenden, wenn lokale Aenderungen zuerst committet werden sollen. Dann `github_commit` nutzen.
 - Nicht verwenden, wenn Commit und Push zusammenhaengend ausgefuehrt werden sollen. Dann den Workflow `commit-push.md` nutzen.
@@ -14,12 +15,15 @@ Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remot
 ## Vorgehen
 
 1. Aktuellen Branch, Arbeitsstatus und konfigurierten Upstream bestimmen.
-2. Remote-Status fetchen.
-3. Ahead-/Behind-Status zwischen lokalem Branch und Upstream bestimmen.
-4. Stoppen, wenn kein Upstream existiert oder der Upstream voraus bzw. mit dem lokalen Branch divergiert ist.
-5. Ohne Push abschliessen, wenn kein lokaler Commit voraus ist.
-6. Vorhandene vorausliegende Commits auf den konfigurierten Upstream pushen.
-7. Remote-Status erneut lesen und den synchronen Stand verifizieren.
+2. Wenn ein Upstream existiert, dessen Remote und Remote-Branch als Push-Ziel verwenden.
+3. Wenn kein Upstream existiert, den Push-Remote in dieser Reihenfolge bestimmen: explizite User-Vorgabe, `branch.<branch>.pushRemote`, `remote.pushDefault`, `branch.<branch>.remote` oder genau ein vorhandener Remote. Den lokalen Branchnamen als Remote-Branch verwenden.
+4. Stoppen, wenn bei fehlendem Upstream Remote oder Zielbranch nicht eindeutig und sicher bestimmbar sind.
+5. Remote-Status fetchen und pruefen, ob der Zielbranch bereits auf dem Remote existiert.
+6. Bei vorhandenem Remote-Branch den Ahead-/Behind-Status zwischen lokalem Branch und Remote-Branch bestimmen.
+7. Stoppen, wenn der Remote-Branch voraus bzw. mit dem lokalen Branch divergiert ist.
+8. Ohne Push abschliessen, wenn ein bestehender Upstream bereits synchron ist.
+9. Vorhandene lokale Commits pushen. Bei fehlendem Upstream den Branch mit `--set-upstream` auf das zuvor bestimmte Push-Ziel veroeffentlichen.
+10. Remote-Status erneut lesen und den synchronen Stand sowie den konfigurierten Upstream verifizieren.
 
 ## Kommandos
 
@@ -27,30 +31,37 @@ Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remot
 git status --short --branch
 git branch --show-current
 git rev-parse --abbrev-ref --symbolic-full-name "@{upstream}"
+git config --get "branch.<branch>.pushRemote"
+git config --get remote.pushDefault
+git config --get "branch.<branch>.remote"
+git remote
 git fetch <remote>
 git rev-list --left-right --count "HEAD...@{upstream}"
+git rev-list --left-right --count "HEAD...refs/remotes/<remote>/<branch>"
 git log --oneline "@{upstream}..HEAD"
 git push
+git push --set-upstream <remote> "HEAD:<branch>"
 git rev-list --left-right --count "HEAD...@{upstream}"
 ```
 
-Remote und Upstream aus der bestehenden Branch-Konfiguration ableiten.
+Branch, Remote und Upstream aus dem geprueften Repository-Zustand ableiten. `git push --set-upstream` nur bei bisher fehlendem Upstream und eindeutig bestimmtem Ziel verwenden.
 
 ## Grenzen
 
 - Extern wirksam arbeiten: Bereits vorhandene lokale Commits werden gepusht.
 - Keine Dateien stagen und keine Commits erstellen, amendieren oder umschreiben.
 - Kein Pull, Merge oder Rebase ausfuehren.
-- Keinen Upstream automatisch setzen oder aendern.
+- Einen vorhandenen Upstream nicht automatisch aendern.
+- Einen fehlenden Upstream nur beim ersten Push setzen, wenn Remote und gleichnamiger Zielbranch eindeutig und sicher bestimmt sind.
 - Kein Force-Push und keine Umgehung von Branch-Regeln verwenden.
 - Keine Tags pushen, ausser der User verlangt das ausdruecklich.
 - Uncommittete Aenderungen duerfen nicht als Teil des Pushes dargestellt werden und muessen im Abschluss genannt werden.
-- Bei fehlendem Upstream, Remote-Vorsprung, Divergenz, Berechtigungsfehlern oder abgelehntem Push stoppen und den lokalen Zustand unveraendert lassen.
+- Bei mehrdeutigem Push-Ziel, Remote-Vorsprung, Divergenz, Berechtigungsfehlern oder abgelehntem Push stoppen und den lokalen Zustand unveraendert lassen.
 
 ## Output
 
 - gepushte Commit-Hashes oder Hinweis, dass nichts zu pushen war
-- Remote, Upstream und Branch
+- Remote, Upstream und Branch; bei einem Erst-Push zusaetzlich der neu gesetzte Upstream
 - verifizierter Ahead-/Behind-Status
 - nicht gepushte uncommittete Aenderungen
 - Blocker, falls der Push nicht ausgefuehrt wurde
