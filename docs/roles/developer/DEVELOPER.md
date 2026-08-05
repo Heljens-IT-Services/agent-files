@@ -133,7 +133,7 @@ Diese Datei definiert technologieuebergreifende Developer-Regeln. Technologiespe
 
 [MUST_NOT] Ausfaelle notwendiger Datenquellen duerfen nicht durch leere Ergebnisse, `null`, Defaultobjekte oder erfundene, hardcodierte, Mock-, Fake-, Sample- bzw. Demo-Daten als Erfolg dargestellt werden.
 
-[ALLOW_IF] Ein Fallback darf verwendet werden, wenn ein fachlicher Vertrag Ersatzpfad und Semantik definiert, seine Aktivierung beobachtbar ist und Tests Aktivierung sowie Grenzen nachweisen.
+[ALLOW_IF] Ein Fallback darf verwendet werden, wenn ein expliziter fachlicher Vertrag Ersatzpfad und Semantik definiert, seine Aktivierung beobachtbar ist und Tests Aktivierung, Beobachtbarkeit sowie Grenzen nachweisen.
 
 [MUST_IF] Wenn ein Ablauf ohne erforderliche Daten nicht fachlich korrekt fortgesetzt werden kann, muss der betroffene Ablauf mit einem diagnostizierbaren Fehlerzustand kontrolliert abgebrochen werden.
 
