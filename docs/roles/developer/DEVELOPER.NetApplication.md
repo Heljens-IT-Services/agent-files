@@ -38,7 +38,7 @@ Diese Datei gilt fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] Retry, Timeout, Backoff, technische Konfigurationsbindung und Persistenz muessen in `Infrastructure` liegen.
 
-[ALLOW_IF] Ein Fallback darf in `Infrastructure` implementiert werden, wenn ein Vertrag aus `Core` einen fachlich validen Ersatzpfad definiert und die Fallback-Aktivierung mit Diagnosekontext an den Aufrufer propagiert wird.
+[MUST_IF] Bei einem zulaessigen Fallback muss der technische Mechanismus in `Infrastructure` und der fachliche Ersatzvertrag in `Core` liegen.
 
 [MUST] Runtime-Konfiguration muss im Entry-Projekt geladen, fuer technische Komponenten typisiert gebunden und vor dem Start validiert werden.
 
@@ -50,10 +50,10 @@ Diese Datei gilt fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] Technische Fehler muessen in `Infrastructure` mit Diagnosekontext angereichert werden.
 
-[MUST_IF] Wenn kein fachlich definierter Fallback greift, muessen Adapter den technischen Fehler als portdefiniertes Fehlerergebnis oder Exception mit Diagnosekontext propagieren.
+[MUST_IF] Ohne fachlich definierten Fallback muessen Adapter technische Fehler als portdefiniertes Fehlerergebnis oder Exception propagieren.
 
 [MUST] Fachliche Regeln und Workflows muessen in `Core.Tests` mit Fake-Ports und kontrollierten Testdaten abgesichert werden.
 
 [MUST] Infrastrukturtests muessen Adapter, Provider, Mapping, Serialisierung und Konfigurationsbindung ohne instabile Live-Dienste pruefen.
 
-[MUST_IF] Infrastrukturtests muessen Fehlerpropagierung sowie Aktivierung und Grenzen zulaessiger Fallbacks pruefen, wenn die betroffenen Adapter solche Fehlerpfade oder Fallbacks enthalten.
+[MUST_IF] Infrastrukturtests muessen die Fehlerpropagierung von Adaptern nachweisen, wenn deren Fehlerpfade geaendert oder neu erstellt werden.

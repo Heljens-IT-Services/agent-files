@@ -129,11 +129,11 @@ Diese Datei definiert technologieuebergreifende Developer-Regeln. Technologiespe
 
 [MUST] Technische Fehler aus Infrastruktur, Netzwerk, Dateisystem, Persistenz oder externen APIs muessen an der technischen Grenze mit Kontext angereichert werden.
 
-[MUST_IF] Technische Fehler muessen in fachliche oder schnittstellenspezifische Ergebnisse uebersetzt werden, wenn der Aufrufer dadurch eine definierte fachliche oder technische Reaktion ausloest; die Uebersetzung muss die Fehlersemantik bewahren und darf keinen Erfolg vortaeuschen.
+[MUST_IF] Wenn technische Fehler in fachliche oder schnittstellenspezifische Ergebnisse uebersetzt werden, muss die Uebersetzung die Fehlersemantik bewahren und darf keinen Erfolg vortaeuschen.
 
 [MUST_NOT] Ausfaelle notwendiger Datenquellen duerfen nicht durch leere Ergebnisse, `null`, Defaultobjekte oder erfundene, hardcodierte, Mock-, Fake-, Sample- bzw. Demo-Daten als Erfolg dargestellt werden.
 
-[ALLOW_IF] Ein Fallback darf verwendet werden, wenn ein expliziter fachlicher Vertrag den Ersatzpfad und seine Semantik definiert, die Aktivierung beobachtbar ist und Tests Aktivierung, Kennzeichnung sowie Grenzen nachweisen.
+[ALLOW_IF] Ein Fallback darf verwendet werden, wenn ein fachlicher Vertrag Ersatzpfad und Semantik definiert, seine Aktivierung beobachtbar ist und Tests Aktivierung sowie Grenzen nachweisen.
 
 [MUST_IF] Wenn ein Ablauf ohne erforderliche Daten nicht fachlich korrekt fortgesetzt werden kann, muss der betroffene Ablauf mit einem diagnostizierbaren Fehlerzustand kontrolliert abgebrochen werden.
 
