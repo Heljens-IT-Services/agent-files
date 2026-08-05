@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-07-22
+Stand: 2026-08-05
 
 ## Zweck
 
@@ -163,6 +163,8 @@ src/app/
 
 [MUST] Offline- und Sync-Zustaende muessen explizit modelliert werden, z. B. `idle`, `loading`, `synced`, `dirty`, `conflict`, `failed`.
 
+[MUST_IF] Wenn nach einem Datenquellenausfall gecachte oder zuletzt bekannte Daten angezeigt werden, muessen der Offline- bzw. Stale-Zustand und die fachlich definierte Aktualitaetsgrenze fuer Nutzer erkennbar sein.
+
 [MUST_IF] Cache-Invalidierung, TTL, Konfliktloesung und manuelles Refresh-Verhalten muessen fachlich geregelt und getestet werden, wenn lokale Daten oder Offline-Faehigkeit Teil des Tasks sind.
 
 ## Web API und Worker
@@ -174,6 +176,8 @@ src/app/
 [ALLOW_IF] `Observable` darf fuer HTTP Requests verwendet werden, wenn Angular APIs, Interceptors, Cancellation, Progress Events, Streams oder externe Bibliotheken dies vorgeben oder fachlich sinnvoll machen.
 
 [MUST] DTOs muessen an der Grenze in fachliche View- oder Domain-Modelle gemappt werden.
+
+[MUST] Fehler notwendiger HTTP-Requests muessen bis in einen expliziten Fehlerzustand des Feature State propagiert und in der UI verstaendlich dargestellt werden.
 
 [MUST_IF] Interceptors muessen Auth, Correlation IDs, Retry fuer idempotente Requests und technische Fehlerklassen behandeln, wenn diese Querschnittsthemen im Projekt benoetigt werden.
 
@@ -190,6 +194,8 @@ src/app/
 ## Unit Tests und E2E
 
 [MUST_IF] Unit Tests muessen Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen absichern, wenn diese im Task geaendert oder neu erstellt werden.
+
+[MUST_IF] Tests fuer Datenladevorgaenge muessen nachweisen, dass Request-Fehler den vorgesehenen Fehlerzustand ausloesen und nicht als erfolgreicher leerer Zustand erscheinen, wenn solche Vorgaenge im Task geaendert oder neu erstellt werden.
 
 [SHOULD] E2E-Tests sollen mit Playwright kritische Nutzerfluesse abdecken. Abweichungen sind erlaubt, wenn das Projekt einen anderen E2E-Runner vorgibt oder der Task keinen sichtbaren Nutzerflow betrifft.
 

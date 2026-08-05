@@ -1,6 +1,6 @@
 # DEVELOPER.NetWebApi.md
 
-Stand: 2026-07-22
+Stand: 2026-08-05
 
 ## Zweck
 
@@ -34,6 +34,8 @@ Diese Datei gilt fuer .NET-Web-APIs. Zugehoerige allgemeine und anwendungsbezoge
 
 [MUST] API-Fehler muessen zentral in HTTP-Antworten gemappt werden.
 
+[MUST_IF] Wenn eine notwendige Infrastruktur- oder Upstream-Abhaengigkeit ausfaellt und kein fachlich definierter Fallback greift, muss die API einen passenden nicht erfolgreichen Statuscode und den stabilen Fehlervertrag zurueckgeben.
+
 [MUST] Der Cancellation-Token eines HTTP-Requests muss an aufgerufene Use Cases und Infrastrukturports weitergereicht werden.
 
 ## Auth, Security und Observability
@@ -57,3 +59,5 @@ Diese Datei gilt fuer .NET-Web-APIs. Zugehoerige allgemeine und anwendungsbezoge
 ## Tests
 
 [MUST] WebApi-Tests muessen Routing, Statuscodes, Authentifizierung, Validierung, Fehlerantworten, HTTP-Vertraege und DI-Verkabelung deterministisch pruefen.
+
+[MUST_IF] WebApi-Tests muessen nachweisen, dass Ausfaelle notwendiger Abhaengigkeiten nicht als erfolgreiche `2xx`-Antwort erscheinen, wenn solche Fehlerpfade im Task geaendert oder neu erstellt werden.
