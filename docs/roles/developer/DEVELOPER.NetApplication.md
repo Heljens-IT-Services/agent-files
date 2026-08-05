@@ -1,6 +1,6 @@
 # DEVELOPER.NetApplication.md
 
-Stand: 2026-07-22
+Stand: 2026-08-05
 
 ## Zweck
 
@@ -36,7 +36,9 @@ Diese Datei gilt fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] Parser und Adapter muessen Rohdaten an der Systemgrenze in interne Modelle umwandeln und relevante Quelleninformationen erhalten.
 
-[MUST] Retry, Timeout, Backoff, Fallback, technische Konfigurationsbindung und Persistenz muessen in `Infrastructure` liegen.
+[MUST] Retry, Timeout, Backoff, technische Konfigurationsbindung und Persistenz muessen in `Infrastructure` liegen.
+
+[MUST_IF] Bei einem zulaessigen Fallback muss der technische Mechanismus in `Infrastructure` und der fachliche Ersatzvertrag in `Core` liegen.
 
 [MUST] Runtime-Konfiguration muss im Entry-Projekt geladen, fuer technische Komponenten typisiert gebunden und vor dem Start validiert werden.
 
@@ -48,6 +50,10 @@ Diese Datei gilt fuer geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] Technische Fehler muessen in `Infrastructure` mit Diagnosekontext angereichert werden.
 
+[MUST_IF] Ohne fachlich definierten Fallback muessen Adapter technische Fehler als portdefiniertes Fehlerergebnis oder Exception propagieren.
+
 [MUST] Fachliche Regeln und Workflows muessen in `Core.Tests` mit Fake-Ports und kontrollierten Testdaten abgesichert werden.
 
 [MUST] Infrastrukturtests muessen Adapter, Provider, Mapping, Serialisierung und Konfigurationsbindung ohne instabile Live-Dienste pruefen.
+
+[MUST_IF] Infrastrukturtests muessen die Fehlerpropagierung von Adaptern nachweisen, wenn deren Fehlerpfade geaendert oder neu erstellt werden.

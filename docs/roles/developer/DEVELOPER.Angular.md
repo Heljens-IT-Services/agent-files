@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-07-22
+Stand: 2026-08-05
 
 ## Zweck
 
@@ -163,6 +163,8 @@ src/app/
 
 [MUST] Offline- und Sync-Zustaende muessen explizit modelliert werden, z. B. `idle`, `loading`, `synced`, `dirty`, `conflict`, `failed`.
 
+[MUST_IF] Nach einem Datenquellenausfall angezeigte Cache- oder zuletzt bekannte Daten muessen fuer Nutzer als offline oder veraltet gekennzeichnet sein.
+
 [MUST_IF] Cache-Invalidierung, TTL, Konfliktloesung und manuelles Refresh-Verhalten muessen fachlich geregelt und getestet werden, wenn lokale Daten oder Offline-Faehigkeit Teil des Tasks sind.
 
 ## Web API und Worker
@@ -174,6 +176,8 @@ src/app/
 [ALLOW_IF] `Observable` darf fuer HTTP Requests verwendet werden, wenn Angular APIs, Interceptors, Cancellation, Progress Events, Streams oder externe Bibliotheken dies vorgeben oder fachlich sinnvoll machen.
 
 [MUST] DTOs muessen an der Grenze in fachliche View- oder Domain-Modelle gemappt werden.
+
+[MUST_IF] Wenn der Ausfall eines notwendigen HTTP-Requests einen Nutzerablauf betrifft, muss der Feature State einen expliziten Fehlerzustand abbilden und die UI ihn verstaendlich darstellen.
 
 [MUST_IF] Interceptors muessen Auth, Correlation IDs, Retry fuer idempotente Requests und technische Fehlerklassen behandeln, wenn diese Querschnittsthemen im Projekt benoetigt werden.
 
@@ -190,6 +194,8 @@ src/app/
 ## Unit Tests und E2E
 
 [MUST_IF] Unit Tests muessen Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen absichern, wenn diese im Task geaendert oder neu erstellt werden.
+
+[MUST_IF] Tests geaenderter oder neuer Datenladevorgaenge muessen nachweisen, dass Request-Fehler den vorgesehenen Fehlerzustand statt eines erfolgreichen leeren Zustands ausloesen.
 
 [SHOULD] E2E-Tests sollen mit Playwright kritische Nutzerfluesse abdecken. Abweichungen sind erlaubt, wenn das Projekt einen anderen E2E-Runner vorgibt oder der Task keinen sichtbaren Nutzerflow betrifft.
 

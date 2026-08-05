@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-07-22
+Stand: 2026-08-05
 
 ## Zweck
 
@@ -117,6 +117,8 @@ Diese Datei definiert technologieuebergreifende Developer-Regeln. Technologiespe
 
 ## Fehlerbehandlung
 
+[PRIORITY] Fachliche Korrektheit und Fehlertransparenz haben Vorrang vor einem scheinbar erfolgreichen Anwendungslauf.
+
 [SHOULD] Erwartbare fachliche Fehler sollen als explizite Ergebnis-, Status- oder Fehlerobjekte modelliert werden. Abweichungen sind erlaubt, wenn eine vorhandene API, Sprache oder Bibliothek einen anderen fachlich stabilen Fehlervertrag vorgibt.
 
 [MUST] Erwartbare fachliche Fehler muessen Teil des normalen fachlichen Kontrollflusses bleiben.
@@ -127,7 +129,13 @@ Diese Datei definiert technologieuebergreifende Developer-Regeln. Technologiespe
 
 [MUST] Technische Fehler aus Infrastruktur, Netzwerk, Dateisystem, Persistenz oder externen APIs muessen an der technischen Grenze mit Kontext angereichert werden.
 
-[SHOULD] Technische Fehler sollen in fachliche oder schnittstellenspezifische Ergebnisse uebersetzt werden, wenn der Aufrufer dadurch eine definierte fachliche oder technische Reaktion ausloest.
+[MUST_IF] Wenn technische Fehler in fachliche oder schnittstellenspezifische Ergebnisse uebersetzt werden, muss die Uebersetzung die Fehlersemantik bewahren und darf keinen Erfolg vortaeuschen.
+
+[MUST_NOT] Ausfaelle notwendiger Datenquellen duerfen nicht durch leere Ergebnisse, `null`, Defaultobjekte oder erfundene, hardcodierte, Mock-, Fake-, Sample- bzw. Demo-Daten als Erfolg dargestellt werden.
+
+[ALLOW_IF] Ein Fallback darf verwendet werden, wenn ein expliziter fachlicher Vertrag Ersatzpfad und Semantik definiert, seine Aktivierung beobachtbar ist und Tests Aktivierung, Beobachtbarkeit sowie Grenzen nachweisen.
+
+[MUST_IF] Wenn ein Ablauf ohne erforderliche Daten nicht fachlich korrekt fortgesetzt werden kann, muss der betroffene Ablauf mit einem diagnostizierbaren Fehlerzustand kontrolliert abgebrochen werden.
 
 [MUST] Fehlerantworten an UI, CLI, HTTP-Clients oder andere Konsumenten muessen konsistent, maschinenlesbar und stabil sein.
 
