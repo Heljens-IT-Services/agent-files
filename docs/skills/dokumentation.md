@@ -2,45 +2,45 @@
 
 ## Zweck
 
-Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder technische Aenderungen zu verstecken.
+Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder technische Änderungen zu verstecken.
 
 ## Verwenden
 
 - Wenn README, Architektur-Doku, Nutzer-Doku, Changelog, Release Notes, API-Doku oder externe Dokumentation erstellt oder angepasst werden soll.
-- Wenn eine Codeaenderung dokumentarisch nachgezogen werden muss.
-- Wenn bestehende Dokumentation strukturiert, geschaerft oder aktualisiert werden soll.
-- Nicht verwenden, wenn nur code-nahe Kommentare oder Inline-Dokumentation im selben Aenderungsbereich angepasst werden. Das kann `code_implementieren` uebernehmen.
-- Nicht verwenden, wenn Anforderungen, Scope oder Akzeptanzkriterien erst geklaert werden muessen. Dann `anforderungsklaerung` nutzen.
+- Wenn eine Codeänderung dokumentarisch nachgezogen werden muss.
+- Wenn bestehende Dokumentation strukturiert, geschärft oder aktualisiert werden soll.
+- Nicht verwenden, wenn nur code-nahe Kommentare oder Inline-Dokumentation im selben Änderungsbereich angepasst werden. Das kann `code_implementieren` übernehmen.
+- Nicht verwenden, wenn Anforderungen, Scope oder Akzeptanzkriterien erst geklärt werden müssen. Dann `anforderungsklaerung` nutzen.
 
 ## Vorgehen
 
-1. Dokumentationsziel, Zielgruppe und betroffenen Dokumenttyp klaeren.
+1. Dokumentationsziel, Zielgruppe und betroffenen Dokumenttyp klären.
 2. Vorhandenen Kontext und relevante Quellen nutzen.
 3. Fehlenden Kontext explizit benennen und passenden vorgelagerten Skill fordern.
 4. Bei fehlender Zielgruppe oder fehlendem Zweck mit naheliegenden Annahmen arbeiten und diese markieren.
 5. Dokumentation knapp, strukturiert und zweckbezogen erstellen oder aktualisieren.
-6. Aenderung gegen Zielgruppe, Aktualitaet und Konsistenz pruefen.
+6. Änderung gegen Zielgruppe, Aktualität und Konsistenz prüfen.
 
 ## Grenzen
 
-- Keine Codeaenderungen vornehmen.
-- Dokumentationsdateien duerfen erstellt oder aktualisiert werden.
-- Keine Anforderungen oder technische Entscheidungen stillschweigend aendern.
-- Die zu aendernde Dokumentation und direkt fuer ihre Konsistenz erforderliche Dokumentationsdateien duerfen gelesen werden.
+- Keine Codeänderungen vornehmen.
+- Dokumentationsdateien dürfen erstellt oder aktualisiert werden.
+- Keine Anforderungen oder technische Entscheidungen stillschweigend ändern.
+- Die zu ändernde Dokumentation und direkt für ihre Konsistenz erforderliche Dokumentationsdateien dürfen gelesen werden.
 - Keinen Code, keine Issues und keine externen Quellen selbst lesen.
 - Keine Recherche, Code-Analyse oder Implementierungsplanung ersetzen.
 - Wenn Kontext fehlt, vorgelagert `code_lesen`, `research`, `code_analyse`, `anforderungsklaerung` oder `code_implementierungsplanung` nutzen.
-- Changelog oder Release Notes duerfen gepflegt werden, aber keine Release-Aussagen erfinden, wenn sie nicht aus Kontext oder Userwunsch hervorgehen.
+- Changelog oder Release Notes dürfen gepflegt werden, aber keine Release-Aussagen erfinden, wenn sie nicht aus Kontext oder Userwunsch hervorgehen.
 
 ## Output
 
 - aktualisierte oder neu erstellte Dokumentation
-- kurze Zusammenfassung der Dokumentationsaenderung
-- offene Kontextluecken
+- kurze Zusammenfassung der Dokumentationsänderung
+- offene Kontextlücken
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
-- Zielgruppe und Zweck muessen erkennbar sein.
+- Zielgruppe und Zweck müssen erkennbar sein.
 - Dokumentation muss mit dem vorhandenen Kontext konsistent sein.
 - Keine Spekulation als Fakt darstellen.
 - Annahmen zu Zielgruppe oder Zweck markieren.

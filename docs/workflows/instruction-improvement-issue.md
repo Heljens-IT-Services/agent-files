@@ -2,14 +2,14 @@
 
 ## Ziel
 
-Schwachstellen und Verbesserungsvorschlaege an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen.
+Schwachstellen und Verbesserungsvorschläge an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen.
 
 ## Verwenden
 
-- Wenn waehrend der Nutzung der zentralen `agent-files` ein Verbesserungsvorschlag entsteht.
-- Wenn ein Agent eine Schwachstelle, Luecke, unklare Regel, widerspruechliche Leitplanke oder kontraproduktiven Workflow erkennt.
+- Wenn während der Nutzung der zentralen `agent-files` ein Verbesserungsvorschlag entsteht.
+- Wenn ein Agent eine Schwachstelle, Lücke, unklare Regel, widersprüchliche Leitplanke oder kontraproduktiven Workflow erkennt.
 - Wenn der Vorschlag aus einem konsumierenden Repository kommt, das diese Instruktionen referenziert.
-- Nicht verwenden fuer projektspezifische Agent- oder Developer-Instruktionen anderer Repositories.
+- Nicht verwenden für projektspezifische Agent- oder Developer-Instruktionen anderer Repositories.
 - Nicht verwenden, wenn direkt an den Instruktionsdateien gearbeitet werden soll. Dann passenden Skill oder Workflow im `agent-files`-Repository verwenden.
 
 ## Verwendete Skills
@@ -22,14 +22,14 @@ Schwachstellen und Verbesserungsvorschlaege an Agent-Files, Leitplanken, Skills 
 ## Ablauf
 
 1. Verbesserungsvorschlag oder Schwachstelle, betroffene Instruktion und Ursprungskontext erfassen.
-2. Aktuelle Regelbefolgung und zukuenftige Regelverbesserung trennen: Die geltende Leitplanke bleibt fuer den aktuellen Task bindend, solange keine hoeherrangige Vorgabe entgegensteht.
-3. Reflexionskriterium bestimmen: unsinnig, kontraproduktiv, widerspruechlich, zielverfehlend oder nicht ausreichend operationalisierbar.
-4. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewuenschter Zielzustand ausreichend klar sind.
+2. Aktuelle Regelbefolgung und zukünftige Regelverbesserung trennen: Die geltende Leitplanke bleibt für den aktuellen Task bindend, solange keine höherrangige Vorgabe entgegensteht.
+3. Reflexionskriterium bestimmen: unsinnig, kontraproduktiv, widersprüchlich, zielverfehlend oder nicht ausreichend operationalisierbar.
+4. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewünschter Zielzustand ausreichend klar sind.
 5. Ziel-Repository explizit auf `Heljens-IT-Services/agent-files` setzen.
 6. Im Issue das konsumierende Repository, die betroffene referenzierte Datei oder URL und den konkreten Nutzungskontext verlinken oder beschreiben, wenn bekannt.
 7. GitHub-Issue-Type passend zum Kontext bestimmen: `Task`, `Story`, `Spike` oder `Epic`.
 8. Relationships bestimmen, wenn aus dem Kontext ein Parent, Child oder Blocker hervorgeht.
-9. Mit `github_issue-erstellen` eigenstaendig ein strukturiertes Issue in `Heljens-IT-Services/agent-files` erstellen.
+9. Mit `github_issue-erstellen` eigenständig ein strukturiertes Issue in `Heljens-IT-Services/agent-files` erstellen.
 10. Mit `github_type-setzen` den nativen GitHub-Issue-Type setzen.
 11. Mit `github_relationship-setzen` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
 
@@ -37,11 +37,11 @@ Schwachstellen und Verbesserungsvorschlaege an Agent-Files, Leitplanken, Skills 
 
 Ein Issue ist sinnvoll, wenn eine Leitplanke oder ein Workflow mindestens eines davon zeigt:
 
-- kein klarer Zweck fuer Sicherheit, Qualitaet, Wartbarkeit, Governance oder Nutzerziel
-- schlechtere Ergebnisse, hoeheres Risiko, unnoetige Reibung oder schlechtere Nachvollziehbarkeit
-- Widerspruch zu gleich- oder hoeherpriorisierten Regeln
-- Ziel wird nicht erreicht oder wichtige Faelle bleiben offen
-- Begriffe, Ausnahmen, Prioritaeten oder Abschlussbedingungen sind nicht operationalisierbar
+- kein klarer Zweck für Sicherheit, Qualität, Wartbarkeit, Governance oder Nutzerziel
+- schlechtere Ergebnisse, höheres Risiko, unnötige Reibung oder schlechtere Nachvollziehbarkeit
+- Widerspruch zu gleich- oder höherpriorisierten Regeln
+- Ziel wird nicht erreicht oder wichtige Fälle bleiben offen
+- Begriffe, Ausnahmen, Prioritäten oder Abschlussbedingungen sind nicht operationalisierbar
 
 ## Vorschlagsformat
 
@@ -49,20 +49,20 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 - betroffene Datei, Regel, Skill oder Workflow
 - Ursprungskontext und beobachtetes Problem
-- Art des Befunds: Verbesserungsvorschlag, Schwachstelle, Widerspruch, Luecke, Risiko oder unklare Operationalisierung
+- Art des Befunds: Verbesserungsvorschlag, Schwachstelle, Widerspruch, Lücke, Risiko oder unklare Operationalisierung
 - aktuelles Verhalten oder aktuelle Regelwirkung
 - erwarteter Zielzustand
-- vorgeschlagene Aenderungsrichtung
+- vorgeschlagene Änderungsrichtung
 - Risiken, Nicht-Ziele und offene Fragen
-- Hinweis, dass die geltende Regel im aktuellen Task weiterhin befolgt wurde oder warum eine hoeherrangige Vorgabe abweichendes Verhalten erzwungen hat
+- Hinweis, dass die geltende Regel im aktuellen Task weiterhin befolgt wurde oder warum eine höherrangige Vorgabe abweichendes Verhalten erzwungen hat
 
-## Ruecksprungregeln
+## Rücksprungregeln
 
-- Bei unklarem Verbesserungsvorschlag zurueck zu `anforderungsklaerung`.
-- Wenn Ziel, Scope, betroffene Instruktion oder Zielzustand nicht klaerbar sind, Workflow blockieren.
+- Bei unklarem Verbesserungsvorschlag zurück zu `anforderungsklaerung`.
+- Wenn Ziel, Scope, betroffene Instruktion oder Zielzustand nicht klärbar sind, Workflow blockieren.
 - Bei fehlenden GitHub-Rechten oder unklarer Repository-Zuordnung stoppen und Blocker melden.
-- Bei moeglichem Duplikat den Duplikatregeln aus `github_issue-erstellen` folgen.
-- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurueck zu `anforderungsklaerung`.
+- Bei möglichem Duplikat den Duplikatregeln aus `github_issue-erstellen` folgen.
+- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurück zu `anforderungsklaerung`.
 
 ## Endergebnis
 
@@ -74,10 +74,10 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 ## Grenzen
 
-- Das Issue ausschliesslich in `Heljens-IT-Services/agent-files` erstellen.
-- Keine Aenderungen an Instruktionsdateien vornehmen.
+- Das Issue ausschließlich in `Heljens-IT-Services/agent-files` erstellen.
+- Keine Änderungen an Instruktionsdateien vornehmen.
 - Keine Umsetzung planen, wenn nur ein Verbesserungsvorschlag erfasst werden soll.
 - Keine geltende Leitplanke im aktuellen Task umgehen, nur weil ein Verbesserungsvorschlag erstellt wird.
-- Keine Verbesserungsvorschlaege erzeugen, die nur die eigene Bequemlichkeit optimieren und Sicherheit, Qualitaet, Nachvollziehbarkeit oder Nutzerziel verschlechtern.
-- Kein Spam: aehnliche Beobachtungen buendeln oder vorhandene offene Issues weiterverwenden, wenn sie denselben Verbesserungsbedarf abdecken.
+- Keine Verbesserungsvorschläge erzeugen, die nur die eigene Bequemlichkeit optimieren und Sicherheit, Qualität, Nachvollziehbarkeit oder Nutzerziel verschlechtern.
+- Kein Spam: ähnliche Beobachtungen bündeln oder vorhandene offene Issues weiterverwenden, wenn sie denselben Verbesserungsbedarf abdecken.
 - Fehlendes konsumierendes Repository, fehlende Referenzdatei oder fehlender Nutzungskontext blockiert die Issue-Erstellung nicht.

@@ -6,9 +6,9 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 
 ## Verwenden
 
-- Wenn eine Erkenntnis aus Brainstorming, Analyse, Research, Anforderungsklaerung, User-Beobachtung oder Nutzungskontext issue-reif gemacht und als GitHub-Issue erfasst werden soll.
+- Wenn eine Erkenntnis aus Brainstorming, Analyse, Research, Anforderungsklärung, User-Beobachtung oder Nutzungskontext issue-reif gemacht und als GitHub-Issue erfasst werden soll.
 - Nicht verwenden, wenn die Erkenntnis eine Verbesserung an Agent Instructions, Skills oder Workflows betrifft. Dann `instruction-improvement-issue.md` nutzen.
-- Nicht verwenden, wenn nur eine Issue-Grundlage ohne Erstellung gewuenscht ist, ausser der User verlangt das explizit.
+- Nicht verwenden, wenn nur eine Issue-Grundlage ohne Erstellung gewünscht ist, außer der User verlangt das explizit.
 
 ## Verwendete Skills
 
@@ -23,7 +23,7 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 ## Ablauf
 
 1. Ursprung und Art der Erkenntnis bestimmen: Brainstorming, Analyse, Research, Anforderung, User-Beobachtung oder Nutzungskontext.
-2. Pruefen, ob die Erkenntnis anhand der passenden Reifekriterien issue-reif ist.
+2. Prüfen, ob die Erkenntnis anhand der passenden Reifekriterien issue-reif ist.
 3. GitHub-Issue-Type als Empfehlung aus dem Kontext ableiten, wenn die Reifekriterien klar auf `Task`, `Story`, `Spike` oder `Epic` zeigen.
 4. Ziel-Repository bestimmen.
 5. Falls Kontext fehlt, den passenden vorgelagerten Skill nutzen: `anforderungsklaerung`, `brainstorming`, `research` oder `code_analyse`.
@@ -44,13 +44,13 @@ Gemeinsame Mindestkriterien:
 User- oder Product-Issue:
 
 - betroffene Nutzerrolle
-- Problem oder Beduerfnis
+- Problem oder Bedürfnis
 - Akzeptanz- oder Erfolgskriterien
 
 Technical Issue:
 
 - betroffener technischer Bereich
-- beobachtetes Problem oder gewuenschte technische Aenderung
+- beobachtetes Problem oder gewünschte technische Änderung
 - technische Randbedingungen oder Risiken
 - Verifikationsidee
 
@@ -64,21 +64,21 @@ Spike:
 
 Epic:
 
-- uebergeordnetes Ziel
+- übergeordnetes Ziel
 - grober Scope
 - erwartete Teilbereiche oder Child-Issues
 - Nicht-Ziele
-- Nutzen oder strategische Begruendung
+- Nutzen oder strategische Begründung
 
-## Ruecksprungregeln
+## Rücksprungregeln
 
-- Bei unklarem Ziel zurueck zu `anforderungsklaerung`.
-- Bei offenen Loesungsrichtungen zurueck zu `brainstorming`.
-- Bei fehlenden externen Fakten zurueck zu `research`.
-- Bei fehlender technischer Bewertung zurueck zu `code_analyse`.
-- Wenn die passenden Reifekriterien nicht erfuellt sind, zurueck zu `anforderungsklaerung`.
-- Bei unklarem GitHub-Issue-Type nicht raten, sondern zurueck zu `anforderungsklaerung`.
-- Bei unklarer Relationship-Richtung nicht raten, sondern zurueck zu `anforderungsklaerung`.
+- Bei unklarem Ziel zurück zu `anforderungsklaerung`.
+- Bei offenen Lösungsrichtungen zurück zu `brainstorming`.
+- Bei fehlenden externen Fakten zurück zu `research`.
+- Bei fehlender technischer Bewertung zurück zu `code_analyse`.
+- Wenn die passenden Reifekriterien nicht erfüllt sind, zurück zu `anforderungsklaerung`.
+- Bei unklarem GitHub-Issue-Type nicht raten, sondern zurück zu `anforderungsklaerung`.
+- Bei unklarer Relationship-Richtung nicht raten, sondern zurück zu `anforderungsklaerung`.
 - Wenn die Erkenntnis Agent Instructions, Skills oder Workflows betrifft, zu `instruction-improvement-issue.md` wechseln; dort ist das Ziel-Repository festgelegt.
 
 ## Endergebnis
@@ -90,6 +90,6 @@ Epic:
 
 ## Grenzen
 
-- Kein Issue erstellen, wenn die passenden Reifekriterien nicht erfuellt sind.
-- Ziel-Repository nicht still wechseln; Default ist das fachlich relevante Ziel-Repository, ausser der User gibt ein anderes Repository vor.
-- Keine Erkenntnisse zu Agent Instructions, Skills oder Workflows in diesem Workflow erfassen; dafuer `instruction-improvement-issue.md` verwenden.
+- Kein Issue erstellen, wenn die passenden Reifekriterien nicht erfüllt sind.
+- Ziel-Repository nicht still wechseln; Default ist das fachlich relevante Ziel-Repository, außer der User gibt ein anderes Repository vor.
+- Keine Erkenntnisse zu Agent Instructions, Skills oder Workflows in diesem Workflow erfassen; dafür `instruction-improvement-issue.md` verwenden.
