@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-07-23
+Stand: 2026-08-11
 
 ## Zweck
 
@@ -67,6 +67,12 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie u
 [MUST] Der Agent muss dokumentierte Kommandos vor der Ausfuehrung gegen den aktuellen Kontext pruefen und Platzhalter durch konkrete Werte ersetzen.
 
 [MUST_NOT_IF] Dokumentierte Kommandos duerfen bei unaufgeloesten Platzhaltern, ungeprueften destruktiven Zielen oder einer Zustandsaenderung ausserhalb des autorisierten Task-Scopes nicht ausgefuehrt werden.
+
+## Sprache
+
+[MUST] Quellcode-Kommentare und Dokumentation müssen standardmäßig auf Deutsch verfasst werden und Umlaute sowie `ß` korrekt verwenden.
+
+[ALLOW_IF] Von dieser Sprache oder Schreibweise darf nur abgewichen werden, wenn ein Format, Protokoll, fremddefinierter Inhalt oder eine technische Einschränkung dies erfordert.
 
 ## Prioritaet von Anweisungen
 
