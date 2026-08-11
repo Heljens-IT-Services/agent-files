@@ -10,18 +10,18 @@ Native GitHub-Relationships zwischen bestehenden Issues gezielt setzen, insbeson
 - Wenn aus vorhandenem Kontext eindeutig hervorgeht, welches Issue Parent und welches Issue Child ist.
 - Wenn Repository, beteiligte Issue-Nummern und Relationship-Art klar sind.
 - Nicht verwenden, um Labels zu setzen. Labels ersetzen keine native Relationship.
-- Nicht verwenden, um Body-Links oder Textverweise als Ersatz fuer native Relationships zu pflegen.
+- Nicht verwenden, um Body-Links oder Textverweise als Ersatz für native Relationships zu pflegen.
 - Nicht verwenden, um GitHub-Issue-Types zu setzen. Dann `github_type-setzen` nutzen.
 
 ## Vorgehen
 
 1. Repository und beteiligte Issue-Nummern bestimmen.
 2. Relationship-Art bestimmen: `blocked by` oder Parent/Child.
-3. Pruefen, ob die Beziehung aus vorhandenem Kontext eindeutig hervorgeht.
-4. GitHub-Authentifizierung und Repository-Zugriff pruefen.
+3. Prüfen, ob die Beziehung aus vorhandenem Kontext eindeutig hervorgeht.
+4. GitHub-Authentifizierung und Repository-Zugriff prüfen.
 5. IDs der beteiligten Issues lesen.
-6. Passende native GitHub-GraphQL-Mutation ausfuehren.
-7. Ergebnis lesen und pruefen, ob die Relationship gesetzt ist.
+6. Passende native GitHub-GraphQL-Mutation ausführen.
+7. Ergebnis lesen und prüfen, ob die Relationship gesetzt ist.
 
 ## Kommandos
 
@@ -64,12 +64,12 @@ Platzhalter:
 - `<repo>`: Repository-Name ohne Organisation.
 - `<blocked-issue-nummer>`: Issue, das blockiert ist.
 - `<blocking-issue-nummer>`: Issue, das den Blocker darstellt.
-- `<parent-issue-nummer>`: uebergeordnetes Issue.
+- `<parent-issue-nummer>`: übergeordnetes Issue.
 - `<child-issue-nummer>`: untergeordnetes Issue.
 
 ## Grenzen
 
-- Extern wirksam arbeiten: Native GitHub-Relationships werden tatsaechlich in GitHub gesetzt.
+- Extern wirksam arbeiten: Native GitHub-Relationships werden tatsächlich in GitHub gesetzt.
 - Relationships nur setzen, wenn Art und Richtung aus User-Anweisung, Issue-Kontext oder Workflow eindeutig hervorgehen; andernfalls nachfragen.
 - Bei bestehendem anderem Parent `replaceParent: false` beibehalten und den Konflikt melden.
 - Keine Issue-Types setzen.
@@ -83,7 +83,7 @@ Platzhalter:
 - nicht gesetzte Relationships mit Grund, falls relevant
 - Blocker wie fehlende Rechte, unklare Richtung, vorhandener anderer Parent oder fehlende Authentifizierung
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
 - `blocked by` und Parent/Child werden getrennt und richtungsstabil behandelt.
-- Ergebnis der Mutation wird geprueft.
+- Ergebnis der Mutation wird geprüft.

@@ -13,10 +13,10 @@ Die erforderlichen Checks eines Pull Requests bis zu einem terminalen Zustand be
 ## Vorgehen
 
 1. Repository und Pull Request eindeutig bestimmen.
-2. Aktuellen Head-Commit des Pull Requests lesen und fuer die Beobachtung festhalten.
+2. Aktuellen Head-Commit des Pull Requests lesen und für die Beobachtung festhalten.
 3. Erforderliche Checks und ihren aktuellen Status lesen.
 4. Laufende erforderliche Checks bis zu einem terminalen Zustand beobachten.
-5. Vor dem Ergebnis pruefen, ob der Pull-Request-Head unveraendert ist.
+5. Vor dem Ergebnis prüfen, ob der Pull-Request-Head unverändert ist.
 6. Den Status `spending-limit-blocked` nur ausgeben, wenn alle nicht erfolgreichen erforderlichen Checks durch eine konkrete GitHub-Meldung nachweislich allein wegen des erreichten GitHub-Actions-Spending-Limits nicht ausgeführt werden konnten.
 7. Bei `spending-limit-blocked` Pull Request, Head-Commit, betroffene Checks, GitHub-Evidenz und das Risiko eines Merges ohne erfolgreiche Checks melden.
 8. Nur bei vollständig erfolgreichen erforderlichen Checks ein erfolgreiches Ergebnis ausgeben.
@@ -35,9 +35,9 @@ gh pr view <pr-nummer> --repo <org>/<repo> --json headRefOid,url
 ## Grenzen
 
 - Read-only arbeiten.
-- Keine Checks neu starten, abbrechen, ueberspringen oder administrativ umgehen.
+- Keine Checks neu starten, abbrechen, überspringen oder administrativ umgehen.
 - Keine CI-Fehler analysieren oder beheben; ausschließlich die GitHub-Ursachenmeldung darf zur Spending-Limit-Klassifikation gelesen werden.
-- Ein neuer Head-Commit macht das bisherige Ergebnis ungueltig und erfordert eine neue Beobachtung.
+- Ein neuer Head-Commit macht das bisherige Ergebnis ungültig und erfordert eine neue Beobachtung.
 - Fehlende erforderliche Checks nicht stillschweigend als erfolgreich behandeln, wenn Repository-Regeln Checks erwarten.
 - Bei gemischten oder nicht eindeutig belegten Ursachen nicht als `spending-limit-blocked` klassifizieren.
 - Bei Authentifizierungs-, Berechtigungs- oder API-Fehlern stoppen und den Blocker melden.
@@ -46,13 +46,13 @@ gh pr view <pr-nummer> --repo <org>/<repo> --json headRefOid,url
 
 - Pull Request und beobachteter Head-Commit
 - terminaler Status der erforderlichen Checks
-- erfolgreiche, fehlgeschlagene, abgebrochene, uebersprungene oder fehlende Checks
+- erfolgreiche, fehlgeschlagene, abgebrochene, übersprungene oder fehlende Checks
 - `spending-limit-blocked` mit betroffenen Checks und GitHub-Evidenz, falls eindeutig nachgewiesen
 - Blocker oder erforderliche erneute Beobachtung
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
 - Nur terminale Ergebnisse als abgeschlossen melden.
 - Check-Status nicht relativieren.
-- Ergebnis an den unveraenderten Pull-Request-Head binden.
+- Ergebnis an den unveränderten Pull-Request-Head binden.
 - Ein reiner Spending-Limit-Fall ergibt `spending-limit-blocked`; ein gemischter oder unbelegter Fehlerfall bleibt fehlgeschlagen.

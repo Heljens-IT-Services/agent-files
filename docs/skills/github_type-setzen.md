@@ -2,25 +2,25 @@
 
 ## Zweck
 
-Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder aendern.
+Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder ändern.
 
 ## Verwenden
 
-- Wenn fuer ein bestehendes GitHub-Issue der native Issue-Type gesetzt werden soll.
-- Wenn `Task`, `Story`, `Spike`, `Epic` oder ein anderer in der Organisation vorhandener Issue-Type nachtraeglich gesetzt werden muss.
+- Wenn für ein bestehendes GitHub-Issue der native Issue-Type gesetzt werden soll.
+- Wenn `Task`, `Story`, `Spike`, `Epic` oder ein anderer in der Organisation vorhandener Issue-Type nachträglich gesetzt werden muss.
 - Wenn klar ist, welche Organisation, welches Repository, welche Issue-Nummer und welcher Type-Name gemeint sind.
 - Nicht verwenden, um Labels zu setzen. GitHub-Issue-Type ist kein Label.
 - Nicht verwenden, um Relationships zu setzen. Dann `github_relationship-setzen` nutzen.
 
 ## Vorgehen
 
-1. Organisation, Repository, Issue-Nummer und gewuenschten Type-Namen bestimmen.
-2. GitHub-Authentifizierung und Repository-Zugriff pruefen.
+1. Organisation, Repository, Issue-Nummer und gewünschten Type-Namen bestimmen.
+2. GitHub-Authentifizierung und Repository-Zugriff prüfen.
 3. Issue-ID des Ziel-Issues lesen.
-4. Verfuegbare Issue-Types der Organisation lesen.
+4. Verfügbare Issue-Types der Organisation lesen.
 5. Issue-Type-ID anhand des Type-Namens eindeutig bestimmen.
-6. Native GitHub-Mutation `updateIssueIssueType` ausfuehren.
-7. Ergebnis lesen und pruefen, ob der native Issue-Type gesetzt ist.
+6. Native GitHub-Mutation `updateIssueIssueType` ausführen.
+7. Ergebnis lesen und prüfen, ob der native Issue-Type gesetzt ist.
 
 ## Kommandos
 
@@ -30,14 +30,14 @@ Issue-ID lesen:
 $issueId = gh issue view <issue-nummer> --repo <org>/<repo> --json id --jq .id
 ```
 
-Verfuegbare Issue-Types der Organisation lesen:
+Verfügbare Issue-Types der Organisation lesen:
 
 ```powershell
 gh api orgs/<org>/issue-types
 $issueTypeId = gh api orgs/<org>/issue-types --jq '.[] | select(.name == "<issue-type>") | .node_id'
 ```
 
-Native GitHub-Issue-Type-Mutation ausfuehren:
+Native GitHub-Issue-Type-Mutation ausführen:
 
 ```powershell
 gh api graphql `
@@ -46,7 +46,7 @@ gh api graphql `
   -f query='mutation($issueId:ID!, $issueTypeId:ID!) { updateIssueIssueType(input: { issueId: $issueId, issueTypeId: $issueTypeId }) { issue { number issueType { name } } } }'
 ```
 
-Ergebnis pruefen:
+Ergebnis prüfen:
 
 ```powershell
 gh issue view <issue-nummer> --repo <org>/<repo> --json number,title,issueType,url
@@ -61,11 +61,11 @@ Platzhalter:
 
 ## Grenzen
 
-- Extern wirksam arbeiten: Der native GitHub-Issue-Type wird tatsaechlich in GitHub gesetzt.
+- Extern wirksam arbeiten: Der native GitHub-Issue-Type wird tatsächlich in GitHub gesetzt.
 - Keine Labels, Relationships oder Issues erstellen bzw. pflegen.
-- Organisation, Repository, Issue und Type muessen eindeutig sein; andernfalls nachfragen.
+- Organisation, Repository, Issue und Type müssen eindeutig sein; andernfalls nachfragen.
 - Fehlende GitHub-Authentifizierung, fehlende Rechte, unbekannte Issue-Types oder fehlende Repository-Zuordnung als Blocker melden.
-- Wenn der Type-Name mehrfach oder nicht eindeutig aufloesbar ist, nicht setzen und die Mehrdeutigkeit melden.
+- Wenn der Type-Name mehrfach oder nicht eindeutig auflösbar ist, nicht setzen und die Mehrdeutigkeit melden.
 
 ## Output
 
@@ -74,7 +74,7 @@ Platzhalter:
 - nicht gesetzter Issue-Type mit Grund, falls relevant
 - Blocker wie fehlende Rechte, unbekannter Issue-Type oder fehlende Authentifizierung
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
-- Der gesetzte Type wird nach der Mutation geprueft.
-- Beobachtung und Aenderung werden getrennt: erst lesen, dann setzen, dann verifizieren.
+- Der gesetzte Type wird nach der Mutation geprüft.
+- Beobachtung und Änderung werden getrennt: erst lesen, dann setzen, dann verifizieren.

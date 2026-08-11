@@ -2,22 +2,22 @@
 
 ## Zweck
 
-Nach einem verifizierten Pull-Request-Merge auf den Default-Branch zurueckkehren und ihn sicher per Fast-Forward aktualisieren.
+Nach einem verifizierten Pull-Request-Merge auf den Default-Branch zurückkehren und ihn sicher per Fast-Forward aktualisieren.
 
 ## Verwenden
 
 - Nach einem erfolgreichen, verifizierten Merge, wenn der lokale Checkout auf die aktuelle Standardbasis wechseln soll.
-- Nicht verwenden, solange der Merge nicht bestaetigt oder der Arbeitsbaum nicht sauber ist.
+- Nicht verwenden, solange der Merge nicht bestätigt oder der Arbeitsbaum nicht sauber ist.
 
 ## Vorgehen
 
 1. Verifizierten Merge-Kontext und Repository bestimmen.
-2. Arbeitsbaum auf lokale Aenderungen pruefen und bei Aenderungen stoppen.
+2. Arbeitsbaum auf lokale Änderungen prüfen und bei Änderungen stoppen.
 3. Default-Branch aus dem Remote-Repository lesen.
 4. Remote-Stand holen.
 5. Auf den lokalen Default-Branch wechseln.
-6. Den Default-Branch ausschliesslich per Fast-Forward auf den Remote-Stand aktualisieren.
-7. Aktuellen Branch und Synchronisationsstatus pruefen.
+6. Den Default-Branch ausschließlich per Fast-Forward auf den Remote-Stand aktualisieren.
+7. Aktuellen Branch und Synchronisationsstatus prüfen.
 
 ## Kommandos
 
@@ -32,20 +32,20 @@ git status --short --branch
 
 ## Grenzen
 
-- Zustandsveraendernd arbeiten: Der lokale Branch wird gewechselt und aktualisiert.
-- Keine lokalen Aenderungen verwerfen, stashen oder automatisch mitnehmen.
+- Zustandsverändernd arbeiten: Der lokale Branch wird gewechselt und aktualisiert.
+- Keine lokalen Änderungen verwerfen, stashen oder automatisch mitnehmen.
 - Kein Rebase, Reset oder Merge-Commit.
 - Default-Branch und Remote nicht raten.
-- Arbeitsbranch weder lokal noch remote loeschen.
-- Bei nicht moeglichem Fast-Forward stoppen und den Arbeitsbranch beziehungsweise vorhandene Daten unveraendert lassen.
+- Arbeitsbranch weder lokal noch remote löschen.
+- Bei nicht möglichem Fast-Forward stoppen und den Arbeitsbranch beziehungsweise vorhandene Daten unverändert lassen.
 
 ## Output
 
 - Default-Branch und Remote
 - aktualisierter Commit-Stand
-- bestaetigter sauberer Arbeitsbaum
-- Blocker, falls kein sicherer Wechsel oder Fast-Forward moeglich war
+- bestätigter sauberer Arbeitsbaum
+- Blocker, falls kein sicherer Wechsel oder Fast-Forward möglich war
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
 - Der Abschluss muss einen sauberen Arbeitsbaum auf dem mit dem Remote synchronisierten Default-Branch nachweisen.

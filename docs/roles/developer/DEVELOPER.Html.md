@@ -4,13 +4,13 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei gilt fuer HTML und Markup. Zugehoerige allgemeine und technologiespezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
+Diese Datei gilt für HTML und Markup. Zugehörige allgemeine und technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
 
 ## HTML und Markup
 
 [MUST] Markup muss schlank, lesbar und semantisch passend bleiben.
 
-[ALLOW] Markup darf sichtbare Zustaende, Nutzeraktionen und einfache UI-Verzweigungen abbilden.
+[ALLOW] Markup darf sichtbare Zustände, Nutzeraktionen und einfache UI-Verzweigungen abbilden.
 
 [MUST_NOT] Markup darf keine fachliche Orchestrierung, komplexe Berechnungen, Datenmapping, Filterlogik oder technische Ablaufsteuerung enthalten.
 
@@ -20,12 +20,12 @@ Diese Datei gilt fuer HTML und Markup. Zugehoerige allgemeine und technologiespe
 
 [MUST] Jede neue DOM-Ebene muss einen klaren Zweck haben: Semantik, Layout, Zustand, Wiederverwendung oder Accessibility.
 
-[MUST_NOT_IF] Neue Wrapper-Elemente duerfen nicht eingefuehrt werden, wenn sie keinen klaren Zweck erfuellen.
+[MUST_NOT_IF] Neue Wrapper-Elemente dürfen nicht eingeführt werden, wenn sie keinen klaren Zweck erfüllen.
 
-[MUST] Interaktive Elemente muessen als passende semantische Elemente umgesetzt werden, z. B. `button` fuer Aktionen und `a` fuer Navigation.
+[MUST] Interaktive Elemente müssen als passende semantische Elemente umgesetzt werden, z. B. `button` für Aktionen und `a` für Navigation.
 
-[MUST_NOT_IF] Klickbare `div`- oder `span`-Elemente duerfen nicht eingefuehrt werden, wenn ein semantisches Element verwendet werden kann.
+[MUST_NOT_IF] Klickbare `div`- oder `span`-Elemente dürfen nicht eingeführt werden, wenn ein semantisches Element verwendet werden kann.
 
-[MUST] Formularfelder muessen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
+[MUST] Formularfelder müssen programmatisch erkennbare Labels, Fehlermeldungen und Hilfetexte haben.
 
-[MUST_IF] Bedingte Darstellung muss alle relevanten Nutzerzustaende abdecken, sofern diese im Flow auftreten koennen: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfuegbar und regulaerer Inhalt.
+[MUST_IF] Bedingte Darstellung muss alle relevanten Nutzerzustände abdecken, sofern diese im Flow auftreten können: Laden, leerer Zustand, Fehler, nicht erlaubt, nicht verfügbar und regulärer Inhalt.

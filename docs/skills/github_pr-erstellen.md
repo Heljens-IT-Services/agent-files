@@ -7,20 +7,20 @@ Einen vorhandenen Pull Request wiederverwenden oder einen neuen Pull Request mit
 ## Verwenden
 
 - Wenn ein gepushter Branch als Pull Request bereitgestellt werden soll.
-- Wenn Reviewer Kontext, Aenderung, Tests und Risiken schnell verstehen muessen.
+- Wenn Reviewer Kontext, Änderung, Tests und Risiken schnell verstehen müssen.
 - Nicht verwenden, wenn Commit und Push noch fehlen. Dann den Workflow `commit-push.md` nutzen.
 
 ## Vorgehen
 
-1. Aktuellen Branch, Remote, Base-Branch und Push-Status pruefen.
-2. Base-Branch nach Prioritaet bestimmen: User-Vorgabe, Workflow-/Issue-Vorgabe, eindeutiger Upstream-/Tracking-Kontext, Remote-Default, `develop`, `main`, `master`.
-3. Ziel, Ausgangsproblem und verknuepfte Issues aus vorhandenem Kontext bestimmen.
+1. Aktuellen Branch, Remote, Base-Branch und Push-Status prüfen.
+2. Base-Branch nach Priorität bestimmen: User-Vorgabe, Workflow-/Issue-Vorgabe, eindeutiger Upstream-/Tracking-Kontext, Remote-Default, `develop`, `main`, `master`.
+3. Ziel, Ausgangsproblem und verknüpfte Issues aus vorhandenem Kontext bestimmen.
 4. Commits und relevanten Diff-Kontext lesen.
-5. Bestehende offene Pull Requests fuer den aktuellen Branch suchen.
-6. Wenn ein offener PR fuer den Branch existiert, bei zusaetzlichem Kontext einen Kommentar ergaenzen, einen vorhandenen Draft bei ausdruecklicher Anweisung als Ready markieren, die PR-URL melden und die Erstellung beenden.
-7. Wenn kein offener PR existiert, PR-Titel und Body mit Issue-Verknuepfungen formulieren.
+5. Bestehende offene Pull Requests für den aktuellen Branch suchen.
+6. Wenn ein offener PR für den Branch existiert, bei zusätzlichem Kontext einen Kommentar ergänzen, einen vorhandenen Draft bei ausdrücklicher Anweisung als Ready markieren, die PR-URL melden und die Erstellung beenden.
+7. Wenn kein offener PR existiert, PR-Titel und Body mit Issue-Verknüpfungen formulieren.
 8. Teststatus, Risiken und Review-Hinweise nennen.
-9. Pull Request standardmaessig als Draft, bei ausdruecklicher Ready-for-Review-Anweisung direkt als Ready erstellen.
+9. Pull Request standardmäßig als Draft, bei ausdrücklicher Ready-for-Review-Anweisung direkt als Ready erstellen.
 10. Pull Request mit URL, Base, Head und Draft-/Ready-Status ausgeben.
 
 ## Kommandos
@@ -39,22 +39,22 @@ gh pr ready <pr-nummer>
 gh pr view --json title,body,state,isDraft,url,baseRefName,headRefName
 ```
 
-Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kontext ableiten.
+Platzhalter aus aktuellem Branch, Remote-Default, verknüpften Issues und PR-Kontext ableiten.
 
 ## Grenzen
 
-- Extern wirksam arbeiten: Pull Request wird tatsaechlich erstellt.
-- Keine lokalen Git-Mutationen ausfuehren. Das gehoert zum Workflow `commit-push.md`.
-- Keine Codeaenderungen vornehmen.
+- Extern wirksam arbeiten: Pull Request wird tatsächlich erstellt.
+- Keine lokalen Git-Mutationen ausführen. Das gehört zum Workflow `commit-push.md`.
+- Keine Codeänderungen vornehmen.
 - Keine Tests oder Diff-Reviews ersetzen.
 - Kein Changelog-Ersatz schreiben.
 - PR nur erstellen, wenn Branch gepusht ist und Base/Head eindeutig sind.
-- Wenn Base-Branch nach Prioritaetenliste unklar bleibt, nachfragen.
+- Wenn Base-Branch nach Prioritätenliste unklar bleibt, nachfragen.
 - Bestehenden PR-Titel oder PR-Body nicht aktualisieren.
-- Bei zusaetzlichem Kontext zum bestehenden PR einen Kommentar ergaenzen.
+- Bei zusätzlichem Kontext zum bestehenden PR einen Kommentar ergänzen.
 - Vorhandene Issue-Kontexte immer im PR-Body verlinken.
-- Primaeres Issue mit `Closes #<nummer>` oder `Refs #<nummer>` verknuepfen, passend dazu, ob der PR das Issue abschliesst.
-- Parent-, Sub-, Blocked- oder Related-Issues nur verlinken, wenn sie fuer Scope, Review oder Merge relevant sind.
+- Primäres Issue mit `Closes #<nummer>` oder `Refs #<nummer>` verknüpfen, passend dazu, ob der PR das Issue abschließt.
+- Parent-, Sub-, Blocked- oder Related-Issues nur verlinken, wenn sie für Scope, Review oder Merge relevant sind.
 - Keinen irrelevanten Issue-Graph in den PR-Body aufnehmen.
 - Reviewer, Assignees oder Labels nur setzen, wenn der User es explizit verlangt.
 
@@ -69,9 +69,9 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknuepften Issues und PR-Kon
 - Risiken oder Review-Hinweise
 - gesetzte Reviewer, Assignees oder Labels, falls explizit verlangt
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
-- Motivation, Aenderung und Verifikation muessen erkennbar sein.
-- Risiken und Testluecken nicht verstecken.
+- Motivation, Änderung und Verifikation müssen erkennbar sein.
+- Risiken und Testlücken nicht verstecken.
 - PR-Titel muss Review-Scope knapp beschreiben.
 - PR-Body muss keine Commit-Liste duplizieren.
