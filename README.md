@@ -78,7 +78,7 @@ Fuer die Pflege gelten folgende Konventionen:
 - Skill-Dateinamen beschreiben den fachlichen Scope; die Praefixe `code_` und `github_` kennzeichnen den jeweiligen Kontext.
 - Command-IDs verwenden Kleinbuchstaben und Bindestriche. Bestehende Unterstrich-Konventionen in Dateinamen duerfen erhalten bleiben.
 - Referenzierte Skills muessen vollstaendig aufgefuehrt und befolgt werden; ihre Grenzen gelten auch fuer extern wirksame Workflow-Schritte. Fehlt ein benoetigter Skill, wird der Workflow nachgeschaerft oder die Abweichung begruendet. Bei blockierten Schritten gilt die Ruecksprungregel oder der Blocker wird gemeldet.
-- Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien. Die bestehende ASCII-Schreibweise mit `ae`, `oe`, `ue` und `ss` wird beibehalten.
+- Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien.
 
 ## Verwendung in Projekten
 
