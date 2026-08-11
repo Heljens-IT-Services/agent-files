@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-08-05
+Stand: 2026-08-11
 
 ## Zweck
 
@@ -55,11 +55,11 @@ Diese Datei definiert technologieuebergreifende Developer-Regeln. Technologiespe
 
 [MUST] Namen muessen fachlich, praezise und konsistent sein.
 
-[MUST] Bezeichner, Variablen, Dateien, Klassen, Funktionen, Methoden, Parameter, Attribute, Konstanten, Module, Datenbanken, Tabellen, Spalten, Indizes, Views, Trigger, Stored Procedures, Datenbankfunktionen, Skripte sowie Namen und technische Schluessel von Konfigurations- und Ressourcendateien muessen in Produktiv- und Testcode englisch sein.
+[MUST] Bezeichner, Variablen, Dateien, Klassen, Funktionen, Methoden, Parameter, Attribute, Konstanten, Module, Datenbanken, Tabellen, Spalten, Indizes, Views, Trigger, Stored Procedures, Datenbankfunktionen, Skripte sowie Namen und technische Schlüssel von Konfigurations- und Ressourcendateien müssen in Produktiv- und Testcode englisch sein.
 
-[MUST_IF] Extern vorgegebene Namen muessen unveraendert bleiben, wenn Vertraege, Frameworks, Protokolle oder Fremdsysteme dies erfordern.
+[MUST_IF] Extern vorgegebene Namen müssen unverändert bleiben, wenn Verträge, Frameworks, Protokolle oder Fremdsysteme dies erfordern.
 
-[MUST_NOT_IF] Die Sprachregel darf lokalisierte nutzersichtbare Werte nicht auf Englisch festlegen und bestehende oeffentliche Vertraege oder persistierte Schemata nicht ohne erforderliche Migration umbenennen.
+[MUST_NOT_IF] Die Sprachregel darf lokalisierte nutzersichtbare Werte nicht auf Englisch festlegen und bestehende öffentliche Verträge oder persistierte Schemata nicht ohne erforderliche Migration umbenennen.
 
 [SHOULD] Ein Name soll erklaeren, warum ein Konzept existiert. Abweichungen sind erlaubt, wenn ein etabliertes Framework, Protokoll oder Fremdsystem einen anderen Namen vorgibt.
 
