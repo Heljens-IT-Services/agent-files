@@ -34,21 +34,22 @@ Den freigegebenen Stand von `develop` mit `/release` kontrolliert ueber einen Pu
 5. Die seit `main` in `develop` enthaltenen Pull Requests und deren noch offene, durch den Release tatsaechlich erledigte Issues bestimmen. Diese Issues im Release-PR mit `Closes #<nummer>` verknuepfen, damit sie erst durch die Veroeffentlichung nach `main` geschlossen werden.
 6. Mit `github_pr-erstellen` einen vorhandenen Pull Request von `develop` nach `main` wiederverwenden oder mit `main` als expliziter Basis und `develop` als explizitem Head erstellen. `/release` gilt als ausdrueckliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `github_pr-checks-beobachten` die erforderlichen Checks fuer den unveraenderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
-8. Nur bei vollstaendig erfolgreichen erforderlichen Checks und erfuellten Repository-Regeln mit `github_pr-merge` und der aufgeloesten Merge-Methode mergen; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
+8. Bei vollständig erfolgreichen erforderlichen Checks und erfüllten Repository-Regeln mit `github_pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
 9. Nach verifiziertem Merge mit `github_default-branch-aktualisieren` auf `main` wechseln und ihn per Fast-Forward aktualisieren.
 10. Pull Request, enthaltene Issues, Check-Ergebnis, Merge und lokalen Abschlusszustand zusammenfassen.
 
 ## Ruecksprungregeln
 
 - Bei `code_diff-review` mit Bewertung `nicht versandbereit` zur betroffenen Umsetzung auf einem separaten Arbeitsbranch zurueckkehren; `develop` im Release-Workflow nicht direkt veraendern.
-- Bei fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
+- Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github_pr-merge` wechseln.
+- Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `main` wechseln.
 
 ## Endergebnis
 
 - ein vorhandener Release-Pull-Request wurde wiederverwendet oder mit Base `main` und Head `develop` erstellt
 - enthaltene offene Issues sind im Release-Pull-Request korrekt verknuepft
-- erforderliche Checks sind fuer den gemergten Head-Commit erfolgreich
+- erforderliche Checks sind für den gemergten Head-Commit erfolgreich oder der nachgewiesene Spending-Limit-Fall wurde für diesen Head-Commit ausdrücklich bestätigt
 - der Release-Pull-Request ist regelkonform gemergt
 - der lokale Checkout steht auf dem per Fast-Forward aktualisierten Branch `main`
 
