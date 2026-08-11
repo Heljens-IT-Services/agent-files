@@ -42,7 +42,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 5. Mit dem Workflow `commit-push.md` ausschliesslich taskbezogene Aenderungen committen und zum konfigurierten Remote pushen.
 6. Mit `github_pr-erstellen` einen vorhandenen Pull Request fuer den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt fuer diesen Workflow als ausdrueckliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `github_pr-checks-beobachten` die erforderlichen Checks fuer den unveraenderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
-8. Nur bei vollstaendig erfolgreichen erforderlichen Checks und erfuellten Repository-Regeln mit `github_pr-merge` und der aufgeloesten Merge-Methode mergen; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
+8. Bei vollständig erfolgreichen erforderlichen Checks und erfüllten Repository-Regeln mit `github_pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
 9. Nach verifiziertem Merge mit `github_integrationsbranch-aktualisieren` auf `develop` wechseln und ihn per Fast-Forward aktualisieren.
 10. Commit, Pull Request, Check-Ergebnis, Merge und lokalen Abschlusszustand zusammenfassen.
 
@@ -50,13 +50,14 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 - Bei fehlgeschlagenen lokalen Pruefungen zur passenden Implementierung oder Fehlerbehebung zurueckkehren; keine beliebigen Fehler ausserhalb des Task-Scopes beheben.
 - Bei `code_diff-review` mit Bewertung `nicht versandbereit` zur passenden Umsetzung zurueckkehren.
-- Bei fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und den Arbeitsbranch aktiv lassen.
+- Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github_pr-merge` wechseln.
+- Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und den Arbeitsbranch aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `develop` wechseln.
 
 ## Endergebnis
 
 - taskbezogene Aenderungen sind bewusst committed und gepusht
 - ein vorhandener Pull Request wurde wiederverwendet oder ein passender Pull Request erstellt
-- erforderliche Checks sind fuer den gemergten Head-Commit erfolgreich
+- erforderliche Checks sind für den gemergten Head-Commit erfolgreich oder der nachgewiesene Spending-Limit-Fall wurde für diesen Head-Commit ausdrücklich bestätigt
 - der Pull Request ist regelkonform gemergt
 - der lokale Checkout steht auf dem per Fast-Forward aktualisierten Branch `develop`
