@@ -2,13 +2,13 @@
 
 ## Ziel
 
-Einen abgeschlossenen lokalen Aenderungssatz logisch committen und die neu erstellten Commits anschliessend auf den konfigurierten Upstream pushen.
+Einen abgeschlossenen lokalen Änderungssatz logisch committen und die neu erstellten Commits anschließend auf den konfigurierten Upstream pushen.
 
 ## Verwenden
 
-- Wenn der User `/cp` oder gleichbedeutend Commit und Push als zusammenhaengenden Ablauf beauftragt.
-- Wenn Aenderungen fertig, getestet und reviewed sind.
-- Nicht verwenden, wenn nur ein lokaler Commit gewuenscht ist. Dann `/commit` beziehungsweise `github_commit` nutzen.
+- Wenn der User `/cp` oder gleichbedeutend Commit und Push als zusammenhängenden Ablauf beauftragt.
+- Wenn Änderungen fertig, getestet und reviewed sind.
+- Nicht verwenden, wenn nur ein lokaler Commit gewünscht ist. Dann `/commit` beziehungsweise `github_commit` nutzen.
 - Nicht verwenden, wenn nur vorhandene Commits gepusht werden sollen. Dann `/push` beziehungsweise `github_push` nutzen.
 
 ## Verwendete Skills
@@ -19,29 +19,29 @@ Einen abgeschlossenen lokalen Aenderungssatz logisch committen und die neu erste
 ## Ablauf
 
 1. Task-Scope, Teststatus, Review-Status, Branch und Arbeitsstatus bestimmen.
-2. Vor dem Commit das Push-Ziel und den Remote-Status nach den Regeln von `github_push` pruefen.
-3. Stoppen, wenn Scope, Teststatus, Review-Status oder Push-Status keinen sicheren Commit mit anschliessendem Push erlauben.
-4. Mit `github_commit` ausschliesslich den taskbezogenen Aenderungssatz committen.
-5. Mit `github_push` die neu erstellten Commits auf den konfigurierten Upstream pushen oder den Branch bei eindeutigem Ziel erstmals veroeffentlichen.
+2. Vor dem Commit das Push-Ziel und den Remote-Status nach den Regeln von `github_push` prüfen.
+3. Stoppen, wenn Scope, Teststatus, Review-Status oder Push-Status keinen sicheren Commit mit anschließendem Push erlauben.
+4. Mit `github_commit` ausschließlich den taskbezogenen Änderungssatz committen.
+5. Mit `github_push` die neu erstellten Commits auf den konfigurierten Upstream pushen oder den Branch bei eindeutigem Ziel erstmals veröffentlichen.
 6. Commit-Hashes, Messages, Push-Ziel und synchronen Abschlusszustand ausgeben.
 
-## Ruecksprungregeln
+## Rücksprungregeln
 
-- Bei unklarem oder gemischtem Commit-Scope zu `github_commit` zurueckkehren und die Trennung klaeren.
-- Bei fehlender Verifikation oder nicht versandbereitem Review zur passenden vorgelagerten Umsetzung oder Pruefung zurueckkehren.
-- Wenn der Commit fehlschlaegt, keinen Push ausfuehren.
-- Wenn der Push fehlschlaegt, den lokalen Commit erhalten und den Push-Blocker melden.
+- Bei unklarem oder gemischtem Commit-Scope zu `github_commit` zurückkehren und die Trennung klären.
+- Bei fehlender Verifikation oder nicht versandbereitem Review zur passenden vorgelagerten Umsetzung oder Prüfung zurückkehren.
+- Wenn der Commit fehlschlägt, keinen Push ausführen.
+- Wenn der Push fehlschlägt, den lokalen Commit erhalten und den Push-Blocker melden.
 
 ## Endergebnis
 
-- taskbezogene Aenderungen sind logisch committed
+- taskbezogene Änderungen sind logisch committed
 - erstellte Commits sind auf den konfigurierten Upstream gepusht
 - lokaler Branch und Upstream sind synchron
-- nicht zum Scope gehoerende Aenderungen bleiben unveraendert
+- nicht zum Scope gehörende Änderungen bleiben unverändert
 
 ## Grenzen
 
 - Bei bekanntem Remote-Vorsprung, Divergenz oder mehrdeutigem Push-Ziel keinen lokalen Commit beginnen.
 - Ein fehlender Upstream ist kein Blocker, wenn `github_push` Remote und gleichnamigen Zielbranch eindeutig und sicher bestimmen kann.
 - Keinen Pull Request erstellen.
-- Keine fehlgeschlagene Commit- oder Push-Phase als vollstaendigen Erfolg darstellen.
+- Keine fehlgeschlagene Commit- oder Push-Phase als vollständigen Erfolg darstellen.

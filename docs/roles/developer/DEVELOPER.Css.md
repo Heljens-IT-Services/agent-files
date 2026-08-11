@@ -4,26 +4,26 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei gilt fuer CSS, Styling und praesentationsnahe UI-Regeln. Zugehoerige allgemeine und technologiespezifische Regeldateien werden ueber [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgeloest.
+Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige allgemeine und technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
 
 ## Styling, UI und Accessibility
 
-[MUST] Bestehende UI-Konventionen des Projekts muessen vor neuen Styling-Konzepten verwendet werden.
+[MUST] Bestehende UI-Konventionen des Projekts müssen vor neuen Styling-Konzepten verwendet werden.
 
 [MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
 
 [MUST_NOT] Component-SCSS darf keine globalen Seiteneffekte erzeugen.
 
-[MUST_NOT] Globale Styles duerfen nicht fuer lokale Component-Probleme erweitert werden.
+[MUST_NOT] Globale Styles dürfen nicht für lokale Component-Probleme erweitert werden.
 
-[MUST_NOT] Inline-Styles duerfen nicht verwendet werden, ausser fuer dynamische Werte, die nicht sinnvoll ueber Klassen oder CSS Custom Properties abbildbar sind.
+[MUST_NOT] Inline-Styles dürfen nicht verwendet werden, außer für dynamische Werte, die nicht sinnvoll über Klassen oder CSS Custom Properties abbildbar sind.
 
-[MUST_NOT] Styling-Aenderungen duerfen keine ungenutzten Klassen, doppelten Regeln oder widerspruechlichen Layout-Mechanismen einfuehren.
+[MUST_NOT] Styling-Änderungen dürfen keine ungenutzten Klassen, doppelten Regeln oder widersprüchlichen Layout-Mechanismen einführen.
 
-[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints muessen bestehenden Projektkonventionen folgen.
+[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen bestehenden Projektkonventionen folgen.
 
-[MUST_NOT_IF] Magic Numbers in CSS duerfen nicht eingefuehrt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
+[MUST_NOT_IF] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
 
-[MUST_IF] Responsive Verhalten muss bei layoutrelevanten Aenderungen beruecksichtigt werden.
+[MUST_IF] Responsive Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
 
-[MUST] Kontraste, Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand muessen visuell nachvollziehbar sein.
+[MUST] Kontraste, Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand müssen visuell nachvollziehbar sein.

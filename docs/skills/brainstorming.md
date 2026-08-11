@@ -2,67 +2,67 @@
 
 ## Zweck
 
-Interaktiv mehrere plausible Denk- oder Loesungsrichtungen entwickeln, vergleichen und mit dem User schaerfen.
+Interaktiv mehrere plausible Denk- oder Lösungsrichtungen entwickeln, vergleichen und mit dem User schärfen.
 
 ## Verwenden
 
-- Wenn Ziel oder Loesungsweg offen ist.
+- Wenn Ziel oder Lösungsweg offen ist.
 - Wenn Tradeoffs zwischen mehreren technischen oder fachlichen Optionen gebraucht werden.
-- Wenn der User gemeinsam denken, abwaegen oder eine Richtung finden will.
+- Wenn der User gemeinsam denken, abwägen oder eine Richtung finden will.
 - Wenn es um Code, Issues, PRs, Online-Dokumentation, Produktfragen, Architektur oder allgemeine Konzepte gehen kann.
-- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien geklaert werden muessen. Dann `anforderungsklaerung` nutzen.
+- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien geklärt werden müssen. Dann `anforderungsklaerung` nutzen.
 - Nicht verwenden, wenn bereits implementiert werden soll. Dann planen oder umsetzen.
 
 ## Vorgehen
 
 1. Ziel und Randbedingungen knapp fixieren.
-2. Klaeren, welcher Kontext bereits gilt und welcher Kontext vorher geladen oder gelesen werden soll.
-3. Zwei bis drei Optionen bilden; standardmaessig pragmatisch, bei kreativem Kontext auch unkonventionell.
+2. Klären, welcher Kontext bereits gilt und welcher Kontext vorher geladen oder gelesen werden soll.
+3. Zwei bis drei Optionen bilden; standardmäßig pragmatisch, bei kreativem Kontext auch unkonventionell.
 4. Optionen nach Nutzen, Aufwand, Risiko und Passung vergleichen.
-5. Eigene Praeferenz des Agenten vorsichtig und bedingt knapp begruenden.
-6. Ideen zunaechst offen weiterspinnen, wenn der kreative Raum noch nicht ausgeschoepft ist.
-7. Danach als kritischer Gegenpart blinde Flecken, schwache Annahmen oder uebersehene Randbedingungen hinterfragen.
+5. Eigene Präferenz des Agenten vorsichtig und bedingt knapp begründen.
+6. Ideen zunächst offen weiterspinnen, wenn der kreative Raum noch nicht ausgeschöpft ist.
+7. Danach als kritischer Gegenpart blinde Flecken, schwache Annahmen oder übersehene Randbedingungen hinterfragen.
 8. Annahmen und offene Fragen sichtbar machen.
-9. Zu relevanten Sub-Themen gezielt nach der Haltung, Praeferenz oder Einschaetzung des Users fragen.
-10. User-Input aufnehmen und Optionen iterativ schaerfen.
-11. Empfehlung nur geben oder anpassen, wenn Ziel, wesentliche Randbedingungen und User-Praeferenzen ausreichend klar sind.
-12. Wenn diese Grundlage fehlt, die naechste entscheidungsrelevante Frage stellen.
+9. Zu relevanten Sub-Themen gezielt nach der Haltung, Präferenz oder Einschätzung des Users fragen.
+10. User-Input aufnehmen und Optionen iterativ schärfen.
+11. Empfehlung nur geben oder anpassen, wenn Ziel, wesentliche Randbedingungen und User-Präferenzen ausreichend klar sind.
+12. Wenn diese Grundlage fehlt, die nächste entscheidungsrelevante Frage stellen.
 
 ## Grenzen
 
-- Keine Dateien aendern.
+- Keine Dateien ändern.
 - Kein Artefakt erstellen.
 - Keine Implementierung planen, wenn die Richtung noch offen ist.
-- Keine Anforderungs- oder Scope-Klaerung ersetzen.
-- Keine Entscheidung erzwingen, wenn relevante Praeferenzen oder Randbedingungen fehlen.
+- Keine Anforderungs- oder Scope-Klärung ersetzen.
+- Keine Entscheidung erzwingen, wenn relevante Präferenzen oder Randbedingungen fehlen.
 - Nicht mehr als wenige gezielte Fragen pro Antwort stellen.
-- Klein und interaktiv arbeiten; keine grossen Optionsmatrizen ausgeben.
-- Unkonventionelle Optionen nur einbringen, wenn der Kontext Kreativitaet nahelegt oder der User sie wuenscht.
+- Klein und interaktiv arbeiten; keine großen Optionsmatrizen ausgeben.
+- Unkonventionelle Optionen nur einbringen, wenn der Kontext Kreativität nahelegt oder der User sie wünscht.
 - Kontext nicht ungefragt breit laden.
-- Wenn die Diskussion auf Code, Issues, PRs oder Online-Doku aufbauen soll, klaeren, welcher Kontext vorher geladen oder gelesen werden soll.
-- Punktuellen Kontext nur lesen, wenn er klar benannt ist oder offensichtlich zur Frage gehoert.
-- Keine externe Recherche selbst durchfuehren.
+- Wenn die Diskussion auf Code, Issues, PRs oder Online-Doku aufbauen soll, klären, welcher Kontext vorher geladen oder gelesen werden soll.
+- Punktuellen Kontext nur lesen, wenn er klar benannt ist oder offensichtlich zur Frage gehört.
+- Keine externe Recherche selbst durchführen.
 - Wenn externe Fakten, aktuelle Dokumentation oder Marktlage relevant sind, vorher `research` nutzen oder den User fragen, ob recherchiert werden soll.
 
 ## Output
 
 - Optionen
 - Tradeoffs
-- vorsichtige Agenten-Praeferenz mit Begruendung
-- kritische Frage zu einem moeglichen blinden Fleck, wenn relevant
-- gezielte Rueckfragen
-- User-Praeferenzen oder offene Positionierungen
+- vorsichtige Agenten-Präferenz mit Begründung
+- kritische Frage zu einem möglichen blinden Fleck, wenn relevant
+- gezielte Rückfragen
+- User-Präferenzen oder offene Positionierungen
 - Empfehlung, falls belastbar
 - offene Fragen
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
 - Keine Scheinvielfalt durch Varianten derselben Idee.
-- Empfehlung nur mit Begruendung.
+- Empfehlung nur mit Begründung.
 - Annahmen klar von Fakten trennen.
-- Interaktiv bleiben und den User nicht mit einer fertigen Entscheidung ueberfahren.
-- Fragen muessen entscheidungsrelevant sein.
-- Praeferenz als Tendenz formulieren, nicht als endgueltige Entscheidung.
-- Blinde Flecken aktiv ansprechen, aber keine kuenstlichen Fragen stellen.
+- Interaktiv bleiben und den User nicht mit einer fertigen Entscheidung überfahren.
+- Fragen müssen entscheidungsrelevant sein.
+- Präferenz als Tendenz formulieren, nicht als endgültige Entscheidung.
+- Blinde Flecken aktiv ansprechen, aber keine künstlichen Fragen stellen.
 - In nicht-kreativen Software-Kontexten pragmatische Optionen bevorzugen.
-- Tonal zwischen Moeglichkeiten weiterspinnen und kritischem Gegenhalten wechseln.
+- Tonal zwischen Möglichkeiten weiterspinnen und kritischem Gegenhalten wechseln.

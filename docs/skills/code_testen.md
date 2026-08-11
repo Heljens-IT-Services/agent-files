@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Eine Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifizieren.
+Eine Änderung mit passenden Build-, Test- oder manuellen Prüfschritten verifizieren.
 
 ## Verwenden
 
@@ -14,57 +14,57 @@ Eine Aenderung mit passenden Build-, Test- oder manuellen Pruefschritten verifiz
 - `/testing`
 - `/testing <modus>`
 
-Zulaessige Modi:
+Zulässige Modi:
 
 | Modus | Verhalten |
 |---|---|
-| `auto` | Relevante Pruefungen aus Task-, Aenderungs- und Projektkontext bestimmen. Das ist der Default ohne Modus. |
-| `build` | Build-, Compile- und statische Projektpruefungen ausfuehren. |
-| `unit` | Projektdefinierte Unit-Tests und ihre erforderlichen Build-Schritte ausfuehren. |
-| `integration` | Projektdefinierte Integrations- und Adaptertests samt erforderlichem Setup ausfuehren. |
-| `e2e` | Projektdefinierte End-to-End-Tests fuer sichtbare Nutzerflows und systemweite Ablaeufe samt erforderlichem Setup ausfuehren. |
-| `all` | Alle im Projekt definierten und in der aktuellen Umgebung sicher ausfuehrbaren Pruefebenen ausfuehren. |
+| `auto` | Relevante Prüfungen aus Task-, Änderungs- und Projektkontext bestimmen. Das ist der Default ohne Modus. |
+| `build` | Build-, Compile- und statische Projektprüfungen ausführen. |
+| `unit` | Projektdefinierte Unit-Tests und ihre erforderlichen Build-Schritte ausführen. |
+| `integration` | Projektdefinierte Integrations- und Adaptertests samt erforderlichem Setup ausführen. |
+| `e2e` | Projektdefinierte End-to-End-Tests für sichtbare Nutzerflows und systemweite Abläufe samt erforderlichem Setup ausführen. |
+| `all` | Alle im Projekt definierten und in der aktuellen Umgebung sicher ausführbaren Prüfebenen ausführen. |
 
-`/testing` entspricht `/testing auto`. Wenn der Alias unmittelbar nach `/refactor` aufgerufen wird, muss er den refaktorierten Aenderungssatz und das dabei zu erhaltende Verhalten verifizieren.
+`/testing` entspricht `/testing auto`. Wenn der Alias unmittelbar nach `/refactor` aufgerufen wird, muss er den refaktorierten Änderungssatz und das dabei zu erhaltende Verhalten verifizieren.
 
 ## Vorgehen
 
 1. Den angeforderten Modus validieren oder ohne Modus den Modus `auto` verwenden.
-2. Im Modus `auto` relevante Pruefebenen breit waehlen: Build, Unit, Integration, E2E, UI oder manuell.
-3. In einem expliziten Modus die bezeichnete Pruefebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswaehlen.
+2. Im Modus `auto` relevante Prüfebenen breit wählen: Build, Unit, Integration, E2E, UI oder manuell.
+3. In einem expliziten Modus die bezeichnete Prüfebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswählen.
 4. Kommandos aus Projektdateien, README oder CI ableiten.
-5. Passende Kommandos oder manuelle Pruefschritte ausfuehren, z. B. `dotnet test`, `npm test`, `npm run test`, `npm run build`, ein projektspezifisches E2E-Script oder UI-Pruefung mit verfuegbaren Tools.
-6. Fehlende nicht-invasive Setup-Schritte aus Projektdateien oder README ableiten und ausfuehren, wenn sie fuer die Pruefung noetig sind.
+5. Passende Kommandos oder manuelle Prüfschritte ausführen, z. B. `dotnet test`, `npm test`, `npm run test`, `npm run build`, ein projektspezifisches E2E-Script oder UI-Prüfung mit verfügbaren Tools.
+6. Fehlende nicht-invasive Setup-Schritte aus Projektdateien oder README ableiten und ausführen, wenn sie für die Prüfung nötig sind.
 7. Ergebnis bewerten.
-8. Nicht ausgefuehrte, aber relevante Pruefungen benennen.
+8. Nicht ausgeführte, aber relevante Prüfungen benennen.
 
 ## Grenzen
 
-- Keine Codeaenderungen vornehmen.
-- Keine Testdateien anpassen oder ergaenzen. Das gehoert zu `code_implementieren` oder `code_refactoring`.
-- Keine Fehler beheben. Dafuer passenden vorgelagerten Skill nutzen.
-- Keine Projektkonfiguration aendern, Dependencies upgraden, Tests umschreiben oder Build-System fixen.
-- Wenn Setup-Reparatur Code- oder Konfigaenderungen braucht, stoppen und passenden Skill benennen.
-- Keine breite Analyse ersetzen. Fehler nur soweit einordnen, wie es fuer den Teststatus noetig ist.
-- Keine nicht zum explizit gewaehlten Modus gehoerende Pruefebene ausfuehren, ausser sie ist eine technische Voraussetzung. Solche Voraussetzungen im Ergebnis getrennt ausweisen.
-- Wenn das Projekt fuer den explizit gewaehlten Modus keine Pruefung definiert, keine andere Pruefebene als Ersatz ausgeben, sondern die Testluecke melden.
-- Laufzeitkontext wie Docker, Test-Logs oder Test-Datenbanken nur verwenden, wenn er Teil eines definierten Build-, Test- oder Integrationspruefschritts ist.
-- Anwendungen, Dev-Server oder Docker-Services duerfen gestartet werden, wenn sie Teil eines definierten Pruefschritts sind.
-- Manuelle Pruefschritte duerfen selbst durchgefuehrt werden, wenn geeignete Tools verfuegbar sind.
-- Keine freie Fehlersuche in Logs, Containern oder Datenbanken durchfuehren. Das gehoert zu `code_analyse`.
-- Keine produktiven Daten oder produktionsnahen Systeme pruefen, ausser der User fordert es explizit und read-only.
+- Keine Codeänderungen vornehmen.
+- Keine Testdateien anpassen oder ergänzen. Das gehört zu `code_implementieren` oder `code_refactoring`.
+- Keine Fehler beheben. Dafür passenden vorgelagerten Skill nutzen.
+- Keine Projektkonfiguration ändern, Dependencies upgraden, Tests umschreiben oder Build-System fixen.
+- Wenn Setup-Reparatur Code- oder Konfigänderungen braucht, stoppen und passenden Skill benennen.
+- Keine breite Analyse ersetzen. Fehler nur soweit einordnen, wie es für den Teststatus nötig ist.
+- Keine nicht zum explizit gewählten Modus gehörende Prüfebene ausführen, außer sie ist eine technische Voraussetzung. Solche Voraussetzungen im Ergebnis getrennt ausweisen.
+- Wenn das Projekt für den explizit gewählten Modus keine Prüfung definiert, keine andere Prüfebene als Ersatz ausgeben, sondern die Testlücke melden.
+- Laufzeitkontext wie Docker, Test-Logs oder Test-Datenbanken nur verwenden, wenn er Teil eines definierten Build-, Test- oder Integrationsprüfschritts ist.
+- Anwendungen, Dev-Server oder Docker-Services dürfen gestartet werden, wenn sie Teil eines definierten Prüfschritts sind.
+- Manuelle Prüfschritte dürfen selbst durchgeführt werden, wenn geeignete Tools verfügbar sind.
+- Keine freie Fehlersuche in Logs, Containern oder Datenbanken durchführen. Das gehört zu `code_analyse`.
+- Keine produktiven Daten oder produktionsnahen Systeme prüfen, außer der User fordert es explizit und read-only.
 
 ## Output
 
-- ausgefuehrte Pruefungen
+- ausgeführte Prüfungen
 - verwendeter Modus
 - Ergebnis
-- Fehler oder Auffaelligkeiten knapp
-- verbleibende Testluecken
+- Fehler oder Auffälligkeiten knapp
+- verbleibende Testlücken
 
-## Qualitaetskriterien
+## Qualitätskriterien
 
 - Keine pauschale Aussage wie "getestet".
-- Testluecken offenlegen.
+- Testlücken offenlegen.
 - Fehler nicht relativieren.
-- Fehlgeschlagene Pruefungen knapp melden und nicht in Analyse ausweiten.
+- Fehlgeschlagene Prüfungen knapp melden und nicht in Analyse ausweiten.
