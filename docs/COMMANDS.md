@@ -162,10 +162,11 @@ spacing     = { " " | tab } ;
 /workflows run feature-finish
 /workflows run issue-graph-umsetzung 123
 /workflows run issue-to-sub-issues 123
+/workflows run issue-to-sub-issues 123 flat
 /umsetzen #123
 /umsetzung 123
 /sub-issues #123
-/sub-issues 123
+/sub-issues 123 flat
 /finish
 /release
 /technologies show csharp-net
