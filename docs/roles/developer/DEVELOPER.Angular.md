@@ -203,6 +203,14 @@ src/app/
 
 [MUST_NOT] Feste Wartezeiten wie `waitForTimeout` dürfen nicht verwendet werden.
 
+## Qualitätssicherung
+
+[MUST] Angular-Projekte müssen Prettier, ESLint und dependency-cruiser gemäß den Referenzkonfigurationen unter `config/angular/quality/` verwenden.
+
+[MUST_IF] Die Referenzkonfigurationen müssen nur bei Projekt-Setup, fehlender QA-Konfiguration oder Änderungen an der QA-Konfiguration gelesen werden.
+
+[MUST] Vor Abschluss eines Code-Tasks müssen Formatierung, Linting und dependency-cruiser erfolgreich laufen.
+
 ## Qualität und Code
 
 [MUST_NOT] Zirkuläre Feature-Abhängigkeiten dürfen nicht eingeführt werden.
