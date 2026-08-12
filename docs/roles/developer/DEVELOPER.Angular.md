@@ -91,10 +91,6 @@ src/
       services/
       store/
       util/
-    shared/
-      ui/
-      util/
-      pipes/
     features/
       <feature>/
         page/
@@ -104,22 +100,26 @@ src/
         services/
         store/
         util/
+    shared/
+      ui/
+      util/
+      pipes/
+    spec/
+      features/
+        <feature>/
+          page/
+          components/
+            <component-name>/
+          services/
+            <service-name>/
+          store/
+          util/
+      core/
+      shared/
     app.routes.ts
     app.config.ts
   environments/
   styles/
-  spec/
-    features/
-      <feature>/
-        page/
-        components/
-          <component-name>/
-        services/
-          <service-name>/
-        store/
-        util/
-    core/
-    shared/
 ```
 
 [MUST] `src/app/core/` muss Singleton-nahe Infrastruktur wie Auth, Konfiguration, globale Services, State und Layout enthalten.
@@ -127,6 +127,8 @@ src/
 [MUST] `src/app/shared/` muss wiederverwendbare, fachlich neutrale UI-Bausteine und Hilfen enthalten.
 
 [MUST] `src/app/features/` muss fachliche Features enthalten.
+
+[MUST] `src/app/spec/` muss Unit-Specs und ausschließlich für Tests benötigte Hilfsartefakte enthalten und als Geschwisterordner von `core/`, `features/` und `shared/` direkt unter `src/app/` liegen.
 
 [MUST] Feature-Ordner müssen UI, Logik und lokale Modelle eines Features kapseln.
 
@@ -143,6 +145,39 @@ src/
 [MUST] `src/app/app.config.ts` muss Bootstrap und globale Provider definieren.
 
 [SHOULD] Standalone Components, `app.config.ts` und funktionale Provider sollen verwendet werden. Abweichungen sind erlaubt, wenn Legacy-Integration oder Bibliotheken `NgModule` erfordern.
+
+## TypeScript-Pfad-Aliase
+
+[MUST] Angular-Projekte müssen TypeScript-Pfad-Aliase über `compilerOptions.paths` verwenden, damit Architekturgrenzen in Imports sichtbar bleiben und tiefe relative Imports vermieden werden.
+
+[MUST] Mindestens `src/app/core/`, `src/app/shared/` und `src/app/spec/` müssen jeweils einen eigenen Alias mit `@`-Präfix besitzen, standardmäßig `@core`, `@shared` und `@spec`, jeweils einschließlich Wildcard-Variante wie `@core/*`.
+
+[MUST] Jeder direkte Feature-Ordner unter `src/app/features/<feature>/` muss einen eigenen fachlich benannten `@`-Alias besitzen, z. B. `@login`, `@settings` oder `@order-management`, jeweils einschließlich Wildcard-Variante.
+
+[MUST] Imports zwischen Core, Shared, Spec und Features müssen die konfigurierten Pfad-Aliase verwenden, sobald der Import die Grenze des lokalen Teilbaums überschreitet.
+
+[MUST_NOT] Tiefe relative Imports wie `../../../core/...`, `../../shared/...` oder vergleichbare Imports über Architekturgrenzen hinweg dürfen verwendet werden, wenn dafür ein definierter Pfad-Alias existiert.
+
+[MUST_IF] Wird ein neuer Feature-Ordner angelegt oder umbenannt, muss der zugehörige TypeScript-Pfad-Alias im selben Task angelegt oder angepasst werden.
+
+[SHOULD] Aliase sollen auf Architektur- oder Feature-Grenzen beschränkt bleiben; für interne Dateien innerhalb desselben kleinen Teilbaums dürfen kurze relative Imports verwendet werden.
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@core": ["./src/app/core"],
+      "@core/*": ["./src/app/core/*"],
+      "@shared": ["./src/app/shared"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@spec": ["./src/app/spec"],
+      "@spec/*": ["./src/app/spec/*"],
+      "@<feature>": ["./src/app/features/<feature>"],
+      "@<feature>/*": ["./src/app/features/<feature>/*"]
+    }
+  }
+}
+```
 
 ## Templates und Component-Markup
 
@@ -210,21 +245,21 @@ src/
 
 [MUST_IF] Unit Tests müssen Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen absichern, wenn diese im Task geändert oder neu erstellt werden.
 
-[MUST] Unit-Spec-Dateien müssen unter dem zentralen Test-Root `src/spec/` liegen und dürfen nicht neben dem Produktivcode unter `src/app/` abgelegt werden.
+[MUST] Unit-Spec-Dateien müssen unter dem zentralen Test-Root `src/app/spec/` liegen und dürfen nicht neben dem Produktivcode in `src/app/core/`, `src/app/features/` oder `src/app/shared/` abgelegt werden.
 
-[MUST] Die Struktur unter `src/spec/` muss die fachliche Zuordnung des Produktivcodes nachvollziehbar spiegeln, z. B. `src/spec/features/<feature>/components/<component-name>/` oder `src/spec/features/<feature>/services/<service-name>/`.
+[MUST] Die Struktur unter `src/app/spec/` muss die fachliche Zuordnung des Produktivcodes nachvollziehbar spiegeln, z. B. `src/app/spec/features/<feature>/components/<component-name>/` oder `src/app/spec/features/<feature>/services/<service-name>/`.
 
-[MUST] Alle ausschließlich für einen Testgegenstand benötigten Test-Helper, Fixtures, Builder, Mocks, Fakes, Stubs und Testdaten müssen im Ordner dieses Testgegenstands unter `src/spec/` liegen.
+[MUST] Alle ausschließlich für einen Testgegenstand benötigten Test-Helper, Fixtures, Builder, Mocks, Fakes, Stubs und Testdaten müssen im Ordner dieses Testgegenstands unter `src/app/spec/` liegen.
 
-[SHOULD] Test-Utilities, die von mehreren Testgegenständen desselben Features verwendet werden, sollen auf der kleinsten gemeinsamen Ebene innerhalb von `src/spec/features/<feature>/` liegen.
+[SHOULD] Test-Utilities, die von mehreren Testgegenständen desselben Features verwendet werden, sollen auf der kleinsten gemeinsamen Ebene innerhalb von `src/app/spec/features/<feature>/` liegen.
 
-[SHOULD] Nur projektweit wiederverwendbare Test-Infrastruktur soll unter einer gemeinsamen Struktur wie `src/spec/shared/` oder `src/spec/core/` liegen.
+[SHOULD] Nur projektweit wiederverwendbare Test-Infrastruktur soll unter einer gemeinsamen Struktur wie `src/app/spec/shared/` oder `src/app/spec/core/` liegen.
 
 [MUST_NOT] Test-only Helper, Fixtures, Builder, Mocks, Fakes oder Stubs dürfen nicht in produktive `src/app/**/util`, `services` oder `shared`-Ordner verschoben werden, nur um sie für Specs erreichbar zu machen.
 
-[MUST_NOT] Produktivcode unter `src/app/` darf aus `src/spec/` importieren.
+[MUST_NOT] Produktivcode unter `src/app/core/`, `src/app/features/` oder `src/app/shared/` darf aus `src/app/spec/` oder über `@spec` importieren.
 
-[MUST_IF] Test-Runner-, TypeScript- oder Coverage-Konfigurationen müssen angepasst werden, wenn sie durch die zentrale `src/spec/`-Struktur Specs nicht automatisch finden, kompilieren oder korrekt auflösen.
+[MUST_IF] Test-Runner-, TypeScript- oder Coverage-Konfigurationen müssen angepasst werden, wenn sie durch die zentrale `src/app/spec/`-Struktur Specs nicht automatisch finden, kompilieren oder korrekt auflösen.
 
 [MUST_IF] Tests geänderter oder neuer Datenladevorgänge müssen nachweisen, dass Request-Fehler den vorgesehenen Fehlerzustand statt eines erfolgreichen leeren Zustands auslösen.
 
