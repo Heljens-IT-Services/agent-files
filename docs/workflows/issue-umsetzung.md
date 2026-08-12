@@ -39,7 +39,17 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 10. Kritische Funde korrigieren und die passende Prüfung wiederholen.
 11. Akzeptanzkriterien und Nicht-Ziele gegen den finalen Änderungsstand prüfen.
 12. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
-13. Falls die Arbeitseinheit ein Issue abschließt und der Kontext das Schließen erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+13. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
+14. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+
+## Commit-Grenze
+
+- Eine abgeschlossene Arbeitseinheit endet zwingend mit Commit und Push.
+- Wenn die Arbeitseinheit einem Issue entspricht, muss ihr Änderungssatz mindestens einem eindeutig diesem Issue zuordenbaren Commit entsprechen.
+- Mehrere logisch getrennte Commits für dasselbe Issue sind zulässig.
+- Änderungen verschiedener Issues dürfen nicht absichtlich in demselben Commit vermischt werden, wenn dieser Workflow als Teil von `issue-graph-umsetzung.md` läuft.
+- Der aufrufende Workflow darf erst zur nächsten Arbeitseinheit wechseln, wenn Commit und Push dieser Arbeitseinheit erfolgreich abgeschlossen wurden.
+- Fehlgeschlagener Commit oder Push bedeutet, dass die Arbeitseinheit nicht abgeschlossen ist.
 
 ## Rücksprungregeln
 
@@ -49,14 +59,17 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Bei zu großem oder unscharfem Scope zurück zu `code_implementierungsplanung`.
 - Bei fehlgeschlagenen Tests zurück zu `code_implementierungsplanung` oder `code_implementieren`.
 - Bei `code_diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
+- Bei fehlgeschlagenem Commit oder Push zum Workflow `commit-push.md` zurückkehren; nicht zur nächsten Arbeitseinheit fortfahren.
 
 ## Endergebnis
 
 - umgesetzte und verifizierte Arbeitseinheit
 - erfüllte Akzeptanzkriterien
 - dokumentierter Teststatus
-- Commit und Push
-- kommentiertes und geschlossenes Issue, falls die Arbeitseinheit ein Issue abschließt und der Kontext das Schließen erlaubt
+- eindeutig zuordenbarer Commit-Kontext
+- erfolgreicher Push
+- keine zur Arbeitseinheit gehörenden uncommitted fachlichen Änderungen
+- kommentiertes und geschlossenes Issue, falls die Arbeitseinheit ein Issue abschließt und der Kontext das sofortige Schließen erlaubt
 
 ## Grenzen
 
@@ -67,3 +80,4 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github_branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, außer sie blockieren die Arbeitseinheit.
 - Issue nicht schließen, wenn der Abschluss über einen späteren PR-Merge erfolgen soll.
+- Wenn dieser Workflow aus `issue-graph-umsetzung.md` aufgerufen wird, Scope-Issues standardmäßig nicht manuell schließen; der Graph-Workflow entscheidet die abschließende PR-Verlinkung und Schließsemantik.
