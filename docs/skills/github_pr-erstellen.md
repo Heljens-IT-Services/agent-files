@@ -23,6 +23,13 @@ Einen vorhandenen Pull Request wiederverwenden oder einen neuen Pull Request mit
 9. Pull Request standardmäßig als Draft, bei ausdrücklicher Ready-for-Review-Anweisung direkt als Ready erstellen.
 10. Pull Request mit URL, Base, Head und Draft-/Ready-Status ausgeben.
 
+## Issue-Verknüpfungen
+
+- Ein einzelnes primäres Issue mit `Closes #<nummer>` verknüpfen, wenn der Pull Request dieses Issue vollständig abschließt; andernfalls `Refs #<nummer>` verwenden.
+- Wenn ein vorgelagerter Workflow mehrere Issues als durch denselben Pull Request vollständig abgeschlossen bestätigt, darf und soll für jedes dieser Issues eine eigene `Closes #<nummer>`-Verknüpfung gesetzt werden.
+- Nicht vollständig abgeschlossene, nur kontextuelle, extern blockierte oder lediglich verwandte Issues mit `Refs #<nummer>` oder normalem Kontext verlinken, sofern sie für Review oder Merge relevant sind.
+- Bei `issue-graph-umsetzung.md` ausschließlich den final bestätigten Scope aus dessen Abschlussphase verwenden. Den gelesenen Rohgraphen nicht automatisch als Closure-Liste übernehmen.
+
 ## Kommandos
 
 ```powershell
@@ -53,7 +60,7 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknüpften Issues und PR-Kon
 - Bestehenden PR-Titel oder PR-Body nicht aktualisieren.
 - Bei zusätzlichem Kontext zum bestehenden PR einen Kommentar ergänzen.
 - Vorhandene Issue-Kontexte immer im PR-Body verlinken.
-- Primäres Issue mit `Closes #<nummer>` oder `Refs #<nummer>` verknüpfen, passend dazu, ob der PR das Issue abschließt.
+- `Closes` nur für Issues verwenden, deren vollständiger Abschluss durch den aktuellen PR aus dem vorhandenen Workflow-Kontext eindeutig bestätigt ist.
 - Parent-, Sub-, Blocked- oder Related-Issues nur verlinken, wenn sie für Scope, Review oder Merge relevant sind.
 - Keinen irrelevanten Issue-Graph in den PR-Body aufnehmen.
 - Reviewer, Assignees oder Labels nur setzen, wenn der User es explizit verlangt.
@@ -75,3 +82,4 @@ Platzhalter aus aktuellem Branch, Remote-Default, verknüpften Issues und PR-Kon
 - Risiken und Testlücken nicht verstecken.
 - PR-Titel muss Review-Scope knapp beschreiben.
 - PR-Body muss keine Commit-Liste duplizieren.
+- Closure-Verknüpfungen müssen den tatsächlich abgeschlossenen Scope widerspiegeln.
