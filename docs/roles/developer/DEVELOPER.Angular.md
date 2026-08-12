@@ -77,9 +77,7 @@ src/app/
 
 [MUST_NOT] Produktivcode darf `src/app/spec/` oder `@spec` importieren.
 
-[SHOULD] E2E-Tests sollen kritische Nutzerflows mit Playwright abdecken.
-
-[MUST_NOT] Feste Playwright-Wartezeiten wie `waitForTimeout` dürfen nicht verwendet werden.
+[MUST] Für Playwright-Tests gilt [DEVELOPER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Angular.Playwright.md).
 
 ## Qualitätssicherung
 
