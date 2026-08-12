@@ -205,11 +205,13 @@ src/app/
 
 ## Qualitätssicherung
 
-[MUST] Angular-Projekte müssen Prettier, ESLint und dependency-cruiser gemäß den Referenzkonfigurationen unter `config/angular/quality/` verwenden.
+[MUST] Angular-Projekte müssen [Prettier](https://heljens-it-services.github.io/agent-files/config/angular/quality/prettier.json), [ESLint](https://heljens-it-services.github.io/agent-files/config/angular/quality/eslint.config.mjs) und [dependency-cruiser](https://heljens-it-services.github.io/agent-files/config/angular/quality/dependency-cruiser.cjs) gemäß den Referenzkonfigurationen verwenden.
 
 [MUST_IF] Die Referenzkonfigurationen müssen nur bei Projekt-Setup, fehlender QA-Konfiguration oder Änderungen an der QA-Konfiguration gelesen werden.
 
-[MUST] Vor Abschluss eines Code-Tasks müssen Formatierung, Linting und dependency-cruiser erfolgreich laufen.
+[MUST] `package.json` muss `format`, `format:check`, `lint` und `architecture:check` bereitstellen.
+
+[MUST] Vor Abschluss eines Code-Tasks müssen `format:check`, `lint` und `architecture:check` erfolgreich laufen.
 
 ## Qualität und Code
 
