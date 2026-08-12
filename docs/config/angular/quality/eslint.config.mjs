@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import angular from '@angular-eslint/eslint-plugin';
 import angularTemplate from '@angular-eslint/eslint-plugin-template';
@@ -10,7 +9,6 @@ import importX from 'eslint-plugin-import-x';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 
-const configDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = process.cwd();
 const tsConfig = JSON.parse(
   fs.readFileSync(path.join(projectRoot, 'tsconfig.json'), 'utf8').replaceAll(/\/\*[\s\S]*?\*\//g, ''),
@@ -25,25 +23,78 @@ const pathAliases = Object.entries(tsConfig.compilerOptions.paths ?? {})
   .sort((left, right) => right.targetRoot.length - left.targetRoot.length);
 
 const featureAliases = Object.keys(tsConfig.compilerOptions.paths ?? {}).filter(
-  (alias) => alias.startsWith('@') && !['@core', '@core/*', '@shared', '@shared/*', '@spec', '@spec/*', '@env', '@env/*'].includes(alias),
+  (alias) =>
+    alias.startsWith('@') &&
+    !['@core', '@core/*', '@shared', '@shared/*', '@spec', '@spec/*', '@env', '@env/*'].includes(alias),
 );
 
 const projectImportPlugin = {
   rules: {
+    'single-line-import': {
+      meta: {
+        type: 'layout',
+        fixable: 'whitespace',
+        schema: [],
+        messages: { singleLine: 'Import-Anweisungen müssen einzeilig bleiben.' },
+      },
+      create(context) {
+        return {
+          ImportDeclaration(node) {
+            const currentText = context.sourceCode.getText(node);
+            const singleLineText = currentText
+              .replace(/\s+/g, ' ')
+              .replace(/\{\s*/g, '{ ')
+              .replace(/,\s*\}/g, ' }')
+              .replace(/\s*\}/g, ' }');
+
+            if (currentText !== singleLineText) {
+              context.report({
+                node,
+                messageId: 'singleLine',
+                fix:
+                  context.sourceCode.getCommentsInside(node).length === 0
+                    ? (fixer) => fixer.replaceText(node, singleLineText)
+                    : null,
+              });
+            }
+          },
+        };
+      },
+    },
     'prefer-tsconfig-path-alias': {
-      meta: { type: 'problem', fixable: 'code', schema: [], messages: { preferAlias: 'Nutze den Pfadalias "{{aliasImport}}" statt "{{source}}".' } },
+      meta: {
+        type: 'problem',
+        fixable: 'code',
+        schema: [],
+        messages: { preferAlias: 'Nutze den Pfadalias "{{aliasImport}}" statt "{{source}}".' },
+      },
       create(context) {
         function checkSource(node) {
           const source = node.source?.value;
           if (typeof source !== 'string' || !source.startsWith('.')) return;
           const resolvedImportPath = normalizePath(path.resolve(path.dirname(context.filename), source));
-          const matchingAlias = pathAliases.find(({ targetRoot }) => resolvedImportPath === targetRoot || resolvedImportPath.startsWith(`${targetRoot}/`));
+          const matchingAlias = pathAliases.find(
+            ({ targetRoot }) =>
+              resolvedImportPath === targetRoot || resolvedImportPath.startsWith(`${targetRoot}/`),
+          );
           if (!matchingAlias) return;
           const suffix = resolvedImportPath.slice(matchingAlias.targetRoot.length).replace(/^\//, '');
-          const aliasImport = suffix ? `${matchingAlias.aliasPrefix}/${suffix}` : matchingAlias.aliasPrefix;
-          context.report({ node: node.source, messageId: 'preferAlias', data: { aliasImport, source }, fix: (fixer) => fixer.replaceText(node.source, `'${aliasImport}'`) });
+          const aliasImport = suffix
+            ? `${matchingAlias.aliasPrefix}/${suffix}`
+            : matchingAlias.aliasPrefix;
+          context.report({
+            node: node.source,
+            messageId: 'preferAlias',
+            data: { aliasImport, source },
+            fix: (fixer) => fixer.replaceText(node.source, `'${aliasImport}'`),
+          });
         }
-        return { ExportAllDeclaration: checkSource, ExportNamedDeclaration: checkSource, ImportExpression: checkSource, ImportDeclaration: checkSource };
+        return {
+          ExportAllDeclaration: checkSource,
+          ExportNamedDeclaration: checkSource,
+          ImportExpression: checkSource,
+          ImportDeclaration: checkSource,
+        };
       },
     },
   },
@@ -55,12 +106,28 @@ function normalizePath(filePath) {
 
 export default tseslint.config(
   { linterOptions: { reportUnusedDisableDirectives: 'error', reportUnusedInlineConfigs: 'error' } },
-  { ignores: ['dist/**', 'coverage/**', 'playwright-report/**', 'test-results/**', 'node_modules/**', '.angular/**', '**/.angular/**', 'dependency-graph.dot'] },
+  {
+    ignores: [
+      'dist/**',
+      'coverage/**',
+      'playwright-report/**',
+      'test-results/**',
+      'node_modules/**',
+      '.angular/**',
+      '**/.angular/**',
+      'dependency-graph.dot',
+    ],
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
     files: ['**/*.ts'],
-    plugins: { '@angular-eslint': angular, '@stylistic': stylistic, projectImport: projectImportPlugin, 'import-x': importX },
+    plugins: {
+      '@angular-eslint': angular,
+      '@stylistic': stylistic,
+      projectImport: projectImportPlugin,
+      'import-x': importX,
+    },
     languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: projectRoot } },
     processor: angularTemplate.processors['extract-inline-html'],
     rules: {
@@ -72,12 +139,16 @@ export default tseslint.config(
       'prefer-const': 'error',
       eqeqeq: ['error', 'always'],
       'max-lines': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
-      'max-lines-per-function': ['error', { max: 25, IIFEs: true, skipBlankLines: true, skipComments: true }],
+      'max-lines-per-function': [
+        'error',
+        { max: 25, IIFEs: true, skipBlankLines: true, skipComments: true },
+      ],
       'import-x/no-cycle': 'error',
       'import-x/no-duplicates': 'error',
       'import-x/no-self-import': 'error',
       'import-x/no-useless-path-segments': 'error',
       'projectImport/prefer-tsconfig-path-alias': 'error',
+      'projectImport/single-line-import': 'error',
       '@angular-eslint/no-empty-lifecycle-method': 'error',
       '@angular-eslint/no-output-native': 'error',
       '@angular-eslint/no-output-on-prefix': 'error',
@@ -101,16 +172,31 @@ export default tseslint.config(
       '@typescript-eslint/only-throw-error': 'error',
       '@typescript-eslint/prefer-promise-reject-errors': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_', ignoreRestSiblings: true }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
   {
     files: ['src/app/core/**/*.ts', 'src/app/shared/**/*.ts'],
-    rules: { 'no-restricted-imports': ['error', { patterns: [{ group: featureAliases, message: 'Core und Shared dürfen nicht von Features abhängen.' }] }] },
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { patterns: [{ group: featureAliases, message: 'Core und Shared dürfen nicht von Features abhängen.' }] },
+      ],
+    },
   },
   {
     files: ['**/*.spec.ts'],
-    languageOptions: { parserOptions: { project: './tsconfig.spec.json', projectService: false, tsconfigRootDir: projectRoot } },
+    languageOptions: {
+      parserOptions: { project: './tsconfig.spec.json', projectService: false, tsconfigRootDir: projectRoot },
+    },
     rules: { '@typescript-eslint/no-non-null-assertion': 'off' },
   },
   {
