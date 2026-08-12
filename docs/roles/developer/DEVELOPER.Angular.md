@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-08-05
+Stand: 2026-08-12
 
 ## Zweck
 
@@ -76,35 +76,50 @@ flowchart TD
 [SHOULD] Angular-Projekte sollen der folgenden Struktur folgen. Abweichungen sind erlaubt, wenn ein bestehendes Projekt eine andere stabile Struktur vorgibt und die konkrete Aufgabe keine Strukturmigration ist.
 
 ```text
-src/app/
-  core/
-    auth/
-    config/
-    data-access/
-    enums/
-    guards/
-    interfaces/
-    layout/
-    models/
-    resolvers/
-    services/
-    store/
-    util/
-  shared/
-    ui/
-    util/
-    pipes/
-  features/
-    <feature>/
-      page/
-      components/
-        <component-name>/
+src/
+  app/
+    core/
+      auth/
+      config/
+      data-access/
+      enums/
+      guards/
+      interfaces/
+      layout/
       models/
+      resolvers/
       services/
       store/
       util/
-  app.routes.ts
-  app.config.ts
+    shared/
+      ui/
+      util/
+      pipes/
+    features/
+      <feature>/
+        page/
+        components/
+          <component-name>/
+        models/
+        services/
+        store/
+        util/
+    app.routes.ts
+    app.config.ts
+  environments/
+  styles/
+  spec/
+    features/
+      <feature>/
+        page/
+        components/
+          <component-name>/
+        services/
+          <service-name>/
+        store/
+        util/
+    core/
+    shared/
 ```
 
 [MUST] `src/app/core/` muss Singleton-nahe Infrastruktur wie Auth, Konfiguration, globale Services, State und Layout enthalten.
@@ -194,6 +209,22 @@ src/app/
 ## Unit Tests und E2E
 
 [MUST_IF] Unit Tests müssen Stores, Services, Guards, Resolver, Pipes und fachliche Hilfsfunktionen absichern, wenn diese im Task geändert oder neu erstellt werden.
+
+[MUST] Unit-Spec-Dateien müssen unter dem zentralen Test-Root `src/spec/` liegen und dürfen nicht neben dem Produktivcode unter `src/app/` abgelegt werden.
+
+[MUST] Die Struktur unter `src/spec/` muss die fachliche Zuordnung des Produktivcodes nachvollziehbar spiegeln, z. B. `src/spec/features/<feature>/components/<component-name>/` oder `src/spec/features/<feature>/services/<service-name>/`.
+
+[MUST] Alle ausschließlich für einen Testgegenstand benötigten Test-Helper, Fixtures, Builder, Mocks, Fakes, Stubs und Testdaten müssen im Ordner dieses Testgegenstands unter `src/spec/` liegen.
+
+[SHOULD] Test-Utilities, die von mehreren Testgegenständen desselben Features verwendet werden, sollen auf der kleinsten gemeinsamen Ebene innerhalb von `src/spec/features/<feature>/` liegen.
+
+[SHOULD] Nur projektweit wiederverwendbare Test-Infrastruktur soll unter einer gemeinsamen Struktur wie `src/spec/shared/` oder `src/spec/core/` liegen.
+
+[MUST_NOT] Test-only Helper, Fixtures, Builder, Mocks, Fakes oder Stubs dürfen nicht in produktive `src/app/**/util`, `services` oder `shared`-Ordner verschoben werden, nur um sie für Specs erreichbar zu machen.
+
+[MUST_NOT] Produktivcode unter `src/app/` darf aus `src/spec/` importieren.
+
+[MUST_IF] Test-Runner-, TypeScript- oder Coverage-Konfigurationen müssen angepasst werden, wenn sie durch die zentrale `src/spec/`-Struktur Specs nicht automatisch finden, kompilieren oder korrekt auflösen.
 
 [MUST_IF] Tests geänderter oder neuer Datenladevorgänge müssen nachweisen, dass Request-Fehler den vorgesehenen Fehlerzustand statt eines erfolgreichen leeren Zustands auslösen.
 
