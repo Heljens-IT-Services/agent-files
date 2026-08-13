@@ -24,6 +24,16 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [ALLOW_IF] Eine projektspezifische Regel darf ausdrücklich eine abweichende Technologie oder Vorgehensweise vorgeben.
 
+[MUST] Anwendungscode muss `IDbContextFactory<TContext>` konsumieren und `AddDbContextFactory<TContext>(...)` registrieren.
+
+[MUST_NOT] Anwendungscode darf `TContext : DbContext` nicht direkt injizieren. Die durch `AddDbContextFactory` zusätzlich registrierte Scoped-Instanz ist kein erlaubter Konsumweg.
+
+[MUST] Jeder Factory-erzeugte Context muss pro fachlicher Unit of Work erzeugt und deterministisch disposed werden; in Async-Code mit `CreateDbContextAsync(cancellationToken)` und `await using`.
+
+[MUST_NOT] Ein Context darf nicht parallel verwendet oder über Requests, Jobs, Messages oder unabhängige Operationen hinweg gehalten werden. Zusammengehörige Vorgänge dürfen denselben Context innerhalb einer Unit of Work verwenden.
+
+[MUST_IF] Context-Konfiguration von scoped oder tenantabhängigen Daten abhängt, muss die Lifetime von `AddDbContextFactory` bewusst passend gewählt werden.
+
 ## Module.cs und DI
 
 [MUST] Produktive .NET-Projekte mit eigener DI-Registrierung müssen eine `Module.cs` als zentralen Einstiegspunkt für diese Registrierungen verwenden.
