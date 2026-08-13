@@ -18,6 +18,12 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [SHOULD] Records sollen für immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Verträge Klassen erfordern.
 
+## Datenbankzugriff
+
+[MUST] C#-Anwendungen müssen Entity Framework Core für Datenbank-Anbindungen und datenbankbezogene Implementierungen verwenden.
+
+[ALLOW_IF] Eine projektspezifische Regel darf ausdrücklich eine abweichende Technologie oder Vorgehensweise vorgeben.
+
 ## Module.cs und DI
 
 [MUST] Produktive .NET-Projekte mit eigener DI-Registrierung müssen eine `Module.cs` als zentralen Einstiegspunkt für diese Registrierungen verwenden.
