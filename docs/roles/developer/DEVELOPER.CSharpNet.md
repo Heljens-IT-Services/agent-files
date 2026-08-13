@@ -12,6 +12,8 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST] Projektweite Namespaces müssen ausschließlich über `GlobalUsings.cs` verwaltet werden.
 
+[SHOULD] Primäre Konstruktoren sollen wann immer möglich bevorzugt verwendet werden.
+
 [MUST] Jeder öffentliche Typ muss in einer eigenen Datei liegen.
 
 [SHOULD] Records sollen für immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Verträge Klassen erfordern.
