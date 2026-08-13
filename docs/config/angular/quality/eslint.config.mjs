@@ -61,6 +61,68 @@ const projectImportPlugin = {
         };
       },
     },
+    // Zulässig ist `@Component({ imports: [Accordion, Action] })`, auch mit Component-Alias.
+    // Mehrzeilige Listen sind Fehler; Listen mit Kommentaren werden nicht automatisch korrigiert.
+    'single-line-component-imports': {
+      meta: {
+        type: 'layout',
+        fixable: 'whitespace',
+        schema: [],
+        messages: {
+          singleLine:
+            'Die imports-Liste von @Component muss einzeilig bleiben. Für lange Listen kann // prettier-ignore verwendet werden.',
+        },
+      },
+      create(context) {
+        const componentDecoratorNames = new Set();
+
+        return {
+          ImportDeclaration(node) {
+            if (node.source.value !== '@angular/core') return;
+
+            for (const specifier of node.specifiers) {
+              if (specifier.type === 'ImportSpecifier' && specifier.imported.name === 'Component') {
+                componentDecoratorNames.add(specifier.local.name);
+              }
+            }
+          },
+          Decorator(node) {
+            const expression = node.expression;
+            if (expression.type !== 'CallExpression' || expression.callee.type !== 'Identifier') return;
+            if (!componentDecoratorNames.has(expression.callee.name)) return;
+
+            const componentMetadata = expression.arguments[0];
+            if (!componentMetadata || componentMetadata.type !== 'ObjectExpression') return;
+
+            const importsProperty = componentMetadata.properties.find(
+              (property) =>
+                property.type === 'Property' &&
+                !property.computed &&
+                ((property.key.type === 'Identifier' && property.key.name === 'imports') ||
+                  (property.key.type === 'Literal' && property.key.value === 'imports')),
+            );
+            if (!importsProperty || importsProperty.value.type !== 'ArrayExpression') return;
+
+            const importsList = importsProperty.value;
+            if (importsList.loc.start.line === importsList.loc.end.line) return;
+
+            const currentText = context.sourceCode.getText(importsList);
+            const singleLineText = currentText
+              .replace(/\s+/g, ' ')
+              .replace(/\[\s*/g, '[')
+              .replace(/,?\s*\]/g, ']');
+            context.report({
+              node: importsList,
+              messageId: 'singleLine',
+              fix:
+                context.sourceCode.getCommentsInside(importsList).length === 0
+                  ? (fixer) => fixer.replaceText(importsList, singleLineText)
+                  : null,
+            });
+          },
+        };
+      },
+    },
     'prefer-tsconfig-path-alias': {
       meta: {
         type: 'problem',
@@ -149,6 +211,7 @@ export default tseslint.config(
       'import-x/no-useless-path-segments': 'error',
       'projectImport/prefer-tsconfig-path-alias': 'error',
       'projectImport/single-line-import': 'error',
+      'projectImport/single-line-component-imports': 'error',
       '@angular-eslint/no-empty-lifecycle-method': 'error',
       '@angular-eslint/no-output-native': 'error',
       '@angular-eslint/no-output-on-prefix': 'error',
