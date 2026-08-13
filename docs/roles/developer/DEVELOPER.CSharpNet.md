@@ -10,7 +10,7 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST] File-scoped namespaces müssen verwendet werden.
 
-[MUST] Projektweite Namespaces müssen ausschließlich über `GlobalUsings.cs` verwaltet werden.
+[MUST] Alle Namespaces müssen ausschließlich über `GlobalUsings.cs` verwaltet werden.
 
 [MUST] Jeder öffentliche Typ muss in einer eigenen Datei liegen.
 
