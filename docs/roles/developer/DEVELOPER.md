@@ -51,6 +51,10 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST] Öffentliche oder teamübergreifend genutzte Schnittstellen müssen stabile Contracts und dokumentierte Fehlerformen erhalten.
 
+## Datenmodellierung
+
+[MUST] Die technische `Id`-Spalte jeder Datenbanktabelle muss als Integer-Typ definiert werden. Abweichende Typen sind nicht zulässig.
+
 ## Clean Code
 
 [MUST] Namen müssen fachlich, präzise und konsistent sein.
