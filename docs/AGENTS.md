@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-08-11
+Stand: 2026-08-16
 
 ## Zweck
 
@@ -38,7 +38,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | Pfad | Geltung | Zweck |
 |---|---|---|
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflicht | Allgemeine Arbeitsregeln, Regelmarker und Prioritätslogik. |
-| `PROJECT.md` | Pflicht | Projektspezifische Versionsbasis und Leitplanken. |
+| `PROJECT.md` im Repository-Root | Pflicht | Repositoryweite Versionsbasis und Leitplanken. |
 | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Lookup für kontextabhängige Rollenregeln. |
 | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup für atomare Skills. |
 | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup für zusammengesetzte Workflows. |
@@ -47,6 +47,8 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
+
+[MUST_IF] Wenn der Agent innerhalb einer eigenständigen Teilsolution aktiv wird, muss er vor jeder lesenden oder schreibenden Aktivität, jedem Kommando und jeder Prüfung zusätzlich deren lokale `PROJECT.md` vollständig und aktuell genug kennen und befolgen.
 
 [MUST_IF] Wenn die in der Spalte `Geltung` genannte Bedingung eintritt, muss der Agent die betreffende Einstiegsdatei im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
 
@@ -86,10 +88,11 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 [PRIORITY] Bei widersprüchlichen Repository-Regeln gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. `PROJECT.md`, sofern sie für den konkreten Scope einschlägig ist.
-2. Passende rollenbasierte Regeldateien gemäß der Prioritätsreihenfolge ihrer Rolle.
-3. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
-4. Bestehender Code-Stil und lokale Patterns.
+1. Lokale `PROJECT.md` der Teilsolution innerhalb ihres Scopes.
+2. `PROJECT.md` im Repository-Root.
+3. Passende rollenbasierte Regeldateien gemäß der Prioritätsreihenfolge ihrer Rolle.
+4. [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
+5. Bestehender Code-Stil und lokale Patterns.
 
 [PRIORITY] Eine Erlaubnis hebt kein spezifisches Verbot auf, außer die Erlaubnis ist ausdrücklich als Ausnahme von genau diesem Verbot formuliert.
 
@@ -111,7 +114,11 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## PROJECT.md
 
-[MUST] `PROJECT.md` muss vorhanden sein und mindestens die Versionsbasis des konkreten Projekts enthalten.
+[MUST] Jedes Repository muss im Root eine `PROJECT.md` mit der repositoryweiten Versionsbasis und gemeinsamen Leitplanken besitzen.
+
+[MUST_IF] Wenn ein Repository mehrere eigenständige Teilsolutions enthält, muss jede Teilsolution in ihrem Solution-Root eine lokale `PROJECT.md` mit ausschließlich scopespezifischen Ergänzungen oder Präzisierungen besitzen.
+
+[MUST] Innerhalb einer Teilsolution gelten die Root- und die lokale `PROJECT.md`. Nicht widersprochene Root-Regeln bleiben wirksam.
 
 [MUST] `PROJECT.md` muss diese Struktur verwenden:
 
@@ -123,8 +130,24 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 ## Technische Leitplanken
 ```
 
+[MUST_IF] Der Scope einer `PROJECT.md` mehrere eigenständige Teilsolutions enthält, muss sie zusätzlich den Abschnitt `## Teilsolutions` besitzen.
+
+[MUST_IF] `## Teilsolutions` erforderlich ist, muss der Abschnitt alle Teilsolutions vollständig in dieser Struktur aufführen:
+
+```md
+| Teilsolution | Pfad | PROJECT.md | Zweck |
+|---|---|---|---|
+| <Name> | `<relativer-pfad>/` | `<relativer-pfad>/PROJECT.md` | <Scope> |
+```
+
+[MUST_IF] Eine Teilsolution hinzugefügt, entfernt, umbenannt oder verschoben wird oder sich Pfad beziehungsweise Scope ihrer `PROJECT.md` wesentlich ändert, muss das Verzeichnis mitgepflegt werden.
+
+[MUST_NOT] Eine vorhandene Teilsolution mit lokaler `PROJECT.md` darf im Verzeichnis fehlen.
+
 [MUST_IF] `PROJECT.md` muss mitgepflegt werden, wenn die Versionsbasis oder fachliche bzw. technische projektspezifische Leitplanken festgelegt, geändert, präzisiert oder dokumentiert werden.
 
 [MUST_NOT_IF] `PROJECT.md` darf keine bereits in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder Rollenregeldateien definierten Standardvorgaben duplizieren.
+
+[MUST_NOT_IF] Eine lokale `PROJECT.md` darf repositoryweite Regeln der Root-`PROJECT.md` duplizieren.
 
 [SHOULD] `PROJECT.md` soll projektspezifische Leitplanken mit deontischer Aussagenlogik und klaren Regelmarkern formulieren.
