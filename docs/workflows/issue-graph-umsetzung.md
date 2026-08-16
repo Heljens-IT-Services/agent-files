@@ -133,8 +133,8 @@ Empfohlene Struktur des Fortschrittsankers:
 3. Commit-Historie und Ausführungsplan gegeneinander prüfen. Kein als umgesetzt markiertes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
 4. Prüfen, dass keine fachlichen Änderungen aus dem Umsetzungsscope uncommitted oder ungepusht verbleiben.
 5. Lokalen Git-Arbeitsbaum prüfen. Vor PR-Erstellung muss der Arbeitsbaum frei von unbeabsichtigten staged, unstaged oder untracked fachlichen Änderungen sein.
-6. Alle Runtime-Artefakte dieses Workflows erst entfernen, wenn der gesamte ausführbare Scope abgeschlossen ist.
-7. Nach dem Entfernen der Runtime-Artefakte den Git-Arbeitsbaum erneut prüfen. Sie dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
+6. Runtime-Artefakte im Arbeitsbaum entfernen. Den Fortschrittsanker im Git-Verwaltungsbereich bis zur abschließenden Integritätsprüfung behalten.
+7. Danach den Git-Arbeitsbaum erneut prüfen. Runtime-Artefakte dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
 8. Wenn der Arbeitsbaum nicht sauber ist, ein Commit oder Push fehlt oder ein Runtime-Artefakt im Arbeitsbaum liegt, die PR-Erstellung blockieren und den konkreten Restzustand beheben oder melden. Der unversionierte Fortschrittsanker im Git-Verwaltungsbereich darf für weitere Pull-Request-Schnitte bestehen bleiben.
 9. Den finalen Issue-Scope und Teststatus für den Pull Request zusammenstellen.
 10. Mit `github_pr-erstellen` den Pull Request mit Review-Kontext und den tatsächlich abgeschlossenen Issue-Verknüpfungen erstellen.
