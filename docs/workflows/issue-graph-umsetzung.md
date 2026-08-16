@@ -57,11 +57,12 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
    - externen Blockern
    - aktuell blockierten Issues
 
-### Phase 3: Temporären Ausführungsplan erzeugen
+### Phase 3: Arbeitsbranch und Ausführungsplan vorbereiten
 
-1. Vor jeder Codeänderung einen temporären Ausführungsplan als Markdown-Datei im lokalen Arbeitskontext erzeugen.
-2. Der Ausführungsplan ist ein reines Runtime-Artefakt. Er darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
-3. Der Plan muss mindestens enthalten:
+1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
+2. Vor jeder Codeänderung einen Ausführungsplan als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich des Arbeitsbaums erzeugen oder fortführen. Pfad und Dateiname müssen aus Repository und Ausgangs-Issues deterministisch ableitbar sein.
+3. Der Ausführungsplan ist ein reines Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
+4. Der Plan muss mindestens enthalten:
    - Ausgangs-Issue
    - alle gelesenen relevanten Issue-Knoten mit Status und Klassifikation
    - relevante Parent/Child- und Blocked-by-Beziehungen
@@ -70,13 +71,15 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
    - externe und interne Blocker
    - blockierte Knoten mit Ursache
    - deterministische Umsetzungsreihenfolge beziehungsweise Ausführungswellen
+   - vorgesehene Pull-Request-Schnitte
+   - letzten abgeschlossenen Schritt mit Commit-, Push- und Pull-Request-Kontext
    - offenen oder nicht ausführbaren Rest-Scope
-4. Die Reihenfolge anhand harter Abhängigkeiten bestimmen. Blocked-by-Beziehungen müssen vor der Umsetzung des blockierten Knotens erfüllt sein.
-5. Wenn mehrere Knoten unabhängig voneinander ausführbar sind, eine stabile Reihenfolge festlegen und im Plan dokumentieren.
-6. Zyklen in harten Abhängigkeiten blockieren die Planausführung. Den konkreten Zyklus benennen und nicht raten.
-7. Der erzeugte Plan ist während der gesamten Umsetzung die maßgebliche Orchestrierungsgrundlage. Neue Graph-Erkenntnisse erfordern eine bewusste Aktualisierung des Plans vor weiterer Umsetzung.
+5. Die Reihenfolge anhand harter Abhängigkeiten bestimmen. Blocked-by-Beziehungen müssen vor der Umsetzung des blockierten Knotens erfüllt sein.
+6. Wenn mehrere Knoten unabhängig voneinander ausführbar sind, eine stabile Reihenfolge festlegen und im Plan dokumentieren.
+7. Zyklen in harten Abhängigkeiten blockieren die Planausführung. Den konkreten Zyklus benennen und nicht raten.
+8. Der erzeugte Plan ist während der gesamten Umsetzung die maßgebliche Orchestrierungsgrundlage. Ihn nach jedem zustandsverändernden Schritt und bei neuen Graph-Erkenntnissen aktualisieren.
 
-Empfohlene Struktur des temporären Plans:
+Empfohlene Struktur des Fortschrittsankers:
 
 ```markdown
 # Issue Graph Execution Plan
@@ -107,15 +110,21 @@ Empfohlene Struktur des temporären Plans:
 
 ### Phase 4: Nach Plan umsetzen
 
-1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
-2. Falls die technische Richtung noch offen ist, vor dem ersten betroffenen Arbeitspaket mit `brainstorming` Optionen vergleichen und den Ausführungsplan bei relevanten Auswirkungen aktualisieren.
-3. Den Ausführungsplan in der festgelegten Reihenfolge abarbeiten.
-4. Je ausführbarem Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-umsetzung.md` ausführen.
-5. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-umsetzung.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
-6. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
-7. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
-8. Nach jedem Issue den Ausführungsplan gedanklich gegen den tatsächlichen Zustand prüfen. Neu erkannte Blocker, bereits erfüllte Abhängigkeiten oder Scope-Änderungen vor der Fortsetzung im temporären Plan aktualisieren.
-9. Blockierte Knoten nicht überspringen und stillschweigend als abgeschlossen behandeln. Nur mit dem nächsten laut Plan unabhängigen ausführbaren Knoten fortfahren.
+1. Falls die technische Richtung noch offen ist, vor dem ersten betroffenen Arbeitspaket mit `brainstorming` Optionen vergleichen und den Ausführungsplan bei relevanten Auswirkungen aktualisieren.
+2. Den Ausführungsplan in der festgelegten Reihenfolge abarbeiten.
+3. Je ausführbarem Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-umsetzung.md` ausführen.
+4. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-umsetzung.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
+5. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
+6. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
+7. Nach jedem Issue den Ausführungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
+8. Blockierte Knoten nicht überspringen und stillschweigend als abgeschlossen behandeln. Nur mit dem nächsten laut Plan unabhängigen ausführbaren Knoten fortfahren.
+
+### Ausführungswellen und Pull-Request-Schnitte
+
+1. Den Graphen in Ausführungswellen oder mehrere Pull Requests teilen, wenn ein einzelner Änderungssatz nicht sicher in einem Durchlauf umgesetzt, geprüft oder reviewed werden kann.
+2. Jeder Pull-Request-Schnitt muss vollständige Arbeitseinheiten enthalten. Abhängige Schnitte dürfen erst beginnen, wenn der benötigte Vorgänger im jeweiligen Basisbranch enthalten ist.
+3. Nach jedem Pull Request dessen Kontext und den verbleibenden Scope im Fortschrittsanker festhalten und den Workflow mit einem Arbeitsbranch für den nächsten Schnitt ab Phase 3 fortsetzen.
+4. Ein abgeschlossener Pull-Request-Schnitt ist kein Abschluss des gesamten Issue-Graphen.
 
 ### Phase 5: Abschluss und Integritätsprüfung
 
@@ -124,12 +133,15 @@ Empfohlene Struktur des temporären Plans:
 3. Commit-Historie und Ausführungsplan gegeneinander prüfen. Kein als umgesetzt markiertes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
 4. Prüfen, dass keine fachlichen Änderungen aus dem Umsetzungsscope uncommitted oder ungepusht verbleiben.
 5. Lokalen Git-Arbeitsbaum prüfen. Vor PR-Erstellung muss der Arbeitsbaum frei von unbeabsichtigten staged, unstaged oder untracked fachlichen Änderungen sein.
-6. Alle temporären Runtime-Artefakte dieses Workflows, insbesondere den Ausführungsplan, entfernen.
-7. Nach dem Entfernen der temporären Artefakte den Git-Arbeitsbaum erneut prüfen. Temporäre Dateien dürfen weder staged noch committed sein und dürfen nicht als verbleibende untracked Dateien zurückbleiben.
-8. Wenn der Arbeitsbaum nicht sauber ist, ein Commit fehlt, ein Push fehlt oder ein temporäres Artefakt verbleibt, die PR-Erstellung blockieren und den konkreten Restzustand beheben oder melden.
+6. Runtime-Artefakte im Arbeitsbaum entfernen. Den Fortschrittsanker im Git-Verwaltungsbereich bis zur abschließenden Integritätsprüfung behalten.
+7. Danach den Git-Arbeitsbaum erneut prüfen. Runtime-Artefakte dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
+8. Wenn der Arbeitsbaum nicht sauber ist, ein Commit oder Push fehlt oder ein Runtime-Artefakt im Arbeitsbaum liegt, die PR-Erstellung blockieren und den konkreten Restzustand beheben oder melden. Der unversionierte Fortschrittsanker im Git-Verwaltungsbereich darf für weitere Pull-Request-Schnitte bestehen bleiben.
 9. Den finalen Issue-Scope und Teststatus für den Pull Request zusammenstellen.
 10. Mit `github_pr-erstellen` den Pull Request mit Review-Kontext und den tatsächlich abgeschlossenen Issue-Verknüpfungen erstellen.
 11. Das Ausgangs-Issue und weitere durch den PR vollständig abgeschlossene Scope-Issues so verlinken, dass GitHub sie beim Merge schließen kann. Nicht vollständig abgeschlossene oder extern blockierte Issues nur referenzieren.
+12. Den Fortschrittsanker vor jeder Abschlussmeldung erneut gegen Issue-Graph, Commit-, Push- und Pull-Request-Status prüfen.
+13. Solange ein ausführbarer Scope-Knoten offen ist, keine Abschlussmeldung ausgeben, sondern die Ausführung fortsetzen. Bei einer Unterbrechung ausschließlich den Zwischenstand und den Wiederaufnahmepunkt melden.
+14. Erst wenn kein ausführbarer Rest-Scope verbleibt, den Fortschrittsanker entfernen und den sauberen Arbeitsbaum erneut prüfen.
 
 ## Rücksprungregeln
 
@@ -159,8 +171,9 @@ Empfohlene Struktur des temporären Plans:
 - Ausgangs-Issue nicht manuell schließen, wenn der Abschluss über den Pull-Request-Merge erfolgen soll.
 - Child- oder andere Scope-Issues während der Graph-Umsetzung nicht vorzeitig manuell schließen, wenn sie durch denselben Pull Request abgeschlossen werden sollen.
 - Parent/Child-Beziehungen nicht als harte Ausführungsabhängigkeit interpretieren, sofern keine zusätzliche Blocked-by- oder fachlich eindeutige Abhängigkeit besteht.
+- Eine Blocked-by-Kante zwischen einem reinen Container-Issue und einem eigenen Nachfahren ist ein Graphfehler, wenn sie eine Abschlussreihenfolge erzeugt. Die Kante sichtbar machen und den betroffenen Scope bis zur Korrektur nicht ausführen.
 - Externe Blocker nicht allein aufgrund einer Blocked-by-Beziehung automatisch umsetzen.
 - Keine Umsetzung beginnen, bevor ein belastbarer Ausführungsplan vorliegt.
-- Den temporären Ausführungsplan niemals committen oder in den Pull Request aufnehmen.
+- Den Fortschrittsanker niemals committen oder in den Pull Request aufnehmen.
 - Keinen Pull Request erstellen, solange der Arbeitsbaum nicht sauber ist oder abgeschlossene Issue-Knoten ohne vollständigen Commit-/Push-Kontext existieren.
 - Wenn automatisches Schließen nicht sicher ist, im PR-Kontext sichtbar machen.

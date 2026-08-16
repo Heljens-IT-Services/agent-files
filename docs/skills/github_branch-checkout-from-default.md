@@ -30,7 +30,7 @@ Einen aufgabenbezogenen Arbeitsbranch von einer aktuellen Standardbasis erstelle
 6. Vor dem Checkout prüfen, ob die lokale Basis mit dem Remote-Branch aktuell ist.
 7. Basis per Fast-Forward aktualisieren, falls Remote voraus ist.
 8. Gewünschten Branch-Namen gegen lokale und Remote-Branches prüfen.
-9. Bei lokalen uncommitted Änderungen nachfragen, bevor sie auf einen neuen Branch mitgenommen werden.
+9. Bei lokalen uncommitted fachlichen Änderungen nachfragen, bevor sie auf einen neuen Branch mitgenommen werden. Ausdrücklich als unversioniert definierte Runtime-Artefakte bleiben unberücksichtigt.
 10. Aufgabenbezogenen Branch nach Konvention erstellen.
 11. Branch und mitgenommene lokale Änderungen melden.
 
@@ -53,7 +53,7 @@ Platzhalter aus Aufgabe, Basisbranch und Branch-Namenskonvention ableiten.
 
 - Extern wirksam arbeiten: Branch kann tatsächlich gewechselt oder erstellt werden.
 - Keine lokalen Änderungen verwerfen.
-- Lokale uncommitted Änderungen nicht automatisch mitnehmen.
+- Lokale uncommitted fachliche Änderungen nicht automatisch mitnehmen.
 - Keine Rebase-, Reset- oder Merge-Commits erzeugen.
 - Basisbranch nicht raten, wenn er unklar ist.
 - Wenn nach Prioritätenliste keine Basis klar ist, stoppen und nachfragen.
