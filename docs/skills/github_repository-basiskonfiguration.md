@@ -8,6 +8,7 @@ Die GitHub-Basiskonfiguration eines Repositorys kontrolliert gegen die zentralen
 
 - Wenn ein Repository für GitHub-Basiskonfiguration gepflegt wird.
 - Wenn `.github/ISSUE_TEMPLATE` fehlt, unvollständig ist oder gegen den kanonischen Heljens-Satz geprüft werden soll.
+- Wenn eine fehlende oder unvollständige `.github/dependabot.yml` aus dem tatsächlichen Repository-Bestand abgeleitet werden soll.
 - Nicht verwenden, wenn nur ein einzelnes GitHub-Issue erstellt wird und keine Repository-Pflege erlaubt ist.
 
 ## Vorgehen
@@ -49,3 +50,32 @@ git diff --check
 - Der vollständige kanonische Satz wird geprüft, nicht nur die für ein aktuelles Issue gewählte Form.
 - Jede Mutation wird durch einen erneuten Inhalts- und Bestandsabgleich nachgewiesen.
 - Issue-Erstellung und Repository-Pflege bleiben getrennte, konsistente Aufgaben.
+
+## Dependabot-Konfiguration
+
+### Vorgehen
+
+1. Zuerst die [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) lesen und prüfen, dass der Auftrag die Pflege der `.github/dependabot.yml` erlaubt.
+2. Alle relevanten Paket- und Infrastrukturquellen inventarisieren: `package.json` und Lockfiles, Paketverweise in .NET-Projekten oder zentralen Paketdateien, `Dockerfile`, Compose-Dateien sowie Workflows unter `.github/workflows`.
+3. Pro tatsächlichem Ökosystem die zugehörigen Verzeichnisse aus den gefundenen Dateien ableiten. Multi-Directory-, Monorepo- und Multi-Solution-Strukturen vollständig berücksichtigen.
+4. Eine vorhandene `.github/dependabot.yml` vor jeder Mutation lesen: ihre Ökosysteme, Verzeichnisse, Zeitpläne, Zeitzonen, Limits, Gruppen und Cooldowns gegen den Inventarbestand prüfen.
+5. Fehlt die Konfiguration, nur für nachgewiesene Ökosysteme ein passendes `updates`-Profil erzeugen. Fehlende Einträge einer vorhandenen Konfiguration gezielt ergänzen; vorhandene spezifischere Einträge nur bei belegter Inkonsistenz ändern.
+6. Für jeden neuen oder geänderten Eintrag einen sinnvollen Zeitplan, `Europe/Berlin`, ein bewusstes PR-Limit sowie bei Bedarf Gruppen oder Cooldowns festlegen. Major-Updates und zusammengehörige Framework-Pakete bewusst behandeln.
+7. Nach der Mutation YAML-Syntax, jeden konfigurierten Verzeichniswert und die Vollständigkeit gegen den Inventarbestand erneut prüfen.
+8. Ergebnis kompakt dokumentieren: erkannte Ökosysteme, abgedeckte Verzeichnisse, bewusst nicht konfigurierte Bereiche und Abweichungen vom einfachen Profil.
+
+### Kommandos
+
+```powershell
+Get-ChildItem -Recurse -File | Where-Object { $_.Name -in @('package.json', 'package-lock.json', 'npm-shrinkwrap.json', 'Directory.Packages.props') -or $_.Extension -in @('.csproj', '.fsproj') -or $_.Name -like 'Dockerfile*' -or $_.Name -match '(docker-)?compose.*\.ya?ml$' }
+Get-ChildItem .github/workflows -File
+Get-Content .github/dependabot.yml
+git diff --check
+```
+
+### Grenzen
+
+- Keine `.github/dependabot.yml` erzeugen, bevor Ökosysteme und Verzeichnisse aus dem Repository gelesen wurden.
+- Keine vorhandene spezifischere Konfiguration ohne belegte Lücke oder Inkonsistenz vereinfachen oder überschreiben.
+- Keine nicht vorhandenen Ökosysteme oder Verzeichnisse konfigurieren.
+- Bei nicht prüfbarer YAML-Syntax oder mehrdeutiger Repository-Topologie vor der Mutation stoppen und den Blocker nennen.
