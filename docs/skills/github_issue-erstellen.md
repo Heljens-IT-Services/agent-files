@@ -13,7 +13,7 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen.
 ## Vorgehen
 
 1. Repository, Ziel und zugrundeliegenden Kontext prüfen.
-2. Vorhandene Templates aus `.github/ISSUE_TEMPLATE` lesen und das passende Template bestimmen.
+2. Vorhandene Templates aus `.github/ISSUE_TEMPLATE` lesen und das passende Template bestimmen. Fehlt der kanonische Satz oder ist er unvollständig, bei erlaubter Repository-Pflege zuerst `github-repository-basiskonfiguration` ausführen; ohne diese Erlaubnis die Abweichung sichtbar machen und die Standardstruktur verwenden.
 3. Gezielte Suche nach offenen Duplikaten oder sehr ähnlichen Issues durchführen.
 4. Bei einem möglichen Duplikat die Alternativen benennen und die User-Entscheidung abwarten.
 5. Titel und Body aus dem vorhandenen Kontext formulieren; bei fehlendem Template mindestens Problem, Ziel, Scope, Nicht-Ziele und Akzeptanzkriterien abbilden.
@@ -35,6 +35,7 @@ gh issue view <issue-nummer> --json id,number,title,url
 - Keine Anforderungen, Metadaten oder Beziehungen erfinden.
 - Bei möglichem Duplikat nicht ohne User-Entscheidung erstellen.
 - Bestehende Issues nur nach expliziter User-Anweisung aktualisieren oder schließen.
+- Keine Repository-Basiskonfiguration ändern, wenn der aktuelle Auftrag Repository-Pflege oder entsprechende Änderungen nicht erlaubt.
 - Labels nur setzen, wenn der User oder das verwendete Template sie explizit vorgibt.
 - Fehlende Authentifizierung, Repository-Zuordnung oder Rechte als Blocker melden.
 
