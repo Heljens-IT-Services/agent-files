@@ -69,16 +69,6 @@ src/app/
 
 [MUST] Geteilte fachliche Validierung muss außerhalb der Component liegen.
 
-## Tests
-
-[MUST] Die zu einem Produktionsartefakt gehörende `*.spec.ts` muss direkt neben diesem Artefakt liegen.
-
-[MUST_IF] Benötigt eine Spec eigene Helper, Fixtures, Builder, Mocks, Fakes, Stubs oder Testdaten, müssen diese unter `src/app/spec/` in einer zum Produktionsartefakt passenden Struktur liegen.
-
-[MUST_NOT] Produktivcode darf `src/app/spec/` oder `@spec` importieren.
-
-[MUST] Für Playwright-Tests gilt [DEVELOPER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Angular.Playwright.md).
-
 ## Qualitätssicherung
 
 [MUST] Angular-Projekte müssen [Prettier](https://heljens-it-services.github.io/agent-files/config/angular/quality/prettier.json), [ESLint](https://heljens-it-services.github.io/agent-files/config/angular/quality/eslint.config.mjs), [dependency-cruiser](https://heljens-it-services.github.io/agent-files/config/angular/quality/dependency-cruiser.cjs) und Knip verwenden.

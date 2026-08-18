@@ -1,6 +1,6 @@
-# DEVELOPER.Angular.Playwright.md
+# TESTER.Angular.Playwright.md
 
-Stand: 2026-08-12
+Stand: 2026-08-18
 
 ## Zweck
 
