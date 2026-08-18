@@ -118,6 +118,8 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 [MUST_NOT] Die kanonischen Template-Dateien dürfen bei der Übernahme in ein Repository nicht lokal neu interpretiert oder nur teilweise ersetzt werden.
 
+[MUST_IF] Ein von Heljens gepflegtes Software-Repository unterstützte Abhängigkeitsquellen besitzt, muss es eine passende [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) in `.github/dependabot.yml` umsetzen.
+
 ## PROJECT.md
 
 [MUST] Jedes Repository muss im Root eine `PROJECT.md` mit der repositoryweiten Versionsbasis und gemeinsamen Leitplanken besitzen.
