@@ -114,11 +114,9 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## GitHub-Basiskonfiguration
 
-[MUST_IF] Ein von Heljens gepflegtes Software-Repository GitHub Issue Forms verwendet oder neue Issues strukturiert erfassen soll, muss es den [kanonischen Heljens-Issue-Template-Satz](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) unter `.github/ISSUE_TEMPLATE` unverändert verwenden.
+[MUST_IF] Ein von Heljens gepflegtes Software-Repository GitHub Issue Forms nutzt, muss es den vollständigen [Issue-Template-Satz](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) unverändert unter `.github/ISSUE_TEMPLATE` übernehmen.
 
-[MUST_NOT] Die kanonischen Template-Dateien dürfen bei der Übernahme in ein Repository nicht lokal neu interpretiert oder nur teilweise ersetzt werden.
-
-[MUST_IF] Ein von Heljens gepflegtes Software-Repository unterstützte Abhängigkeitsquellen besitzt, muss es eine passende [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) in `.github/dependabot.yml` umsetzen.
+[MUST_IF] Ein von Heljens gepflegtes Software-Repository unterstützte Abhängigkeitsquellen besitzt, muss es `.github/dependabot.yml` gemäß der [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) pflegen.
 
 ## PROJECT.md
 
