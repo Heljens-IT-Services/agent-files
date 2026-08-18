@@ -1,0 +1,59 @@
+name: Refactor
+description: Internal cleanup or architecture improvement without intended behavior change
+title: "[Refactor]: "
+labels:
+  - refactor
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Ziel
+      description: What should be improved internally?
+      placeholder: Describe the intended technical improvement.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Kontext
+      description: Why is this refactor needed and which architecture topic is affected?
+      placeholder: Explain current pain points, affected modules, and related decisions.
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Aufgabe
+      description: Concrete refactoring steps.
+      placeholder: |
+        - Step 1
+        - Step 2
+        - Step 3
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Technische Constraints
+      description: Which architectural rules or boundaries must be respected?
+      placeholder: Avoid RxJS except interop to Signals. HTTP requests should be Promise-based.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Akzeptanzkriterien
+      description: How can we verify that the refactor is complete?
+      placeholder: |
+        - [ ] Existing behavior remains unchanged unless explicitly documented.
+        - [ ] The targeted structure is improved.
+        - [ ] Relevant tests, builds, or checks still pass.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Hinweise
+      description: Affected files, dependencies, risks, or follow-up work.
+    validations:
+      required: false

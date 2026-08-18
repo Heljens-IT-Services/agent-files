@@ -112,6 +112,12 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 [MUST_NOT_IF] `README.md` darf keine Inhalte duplizieren, die in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) oder andere veröffentlichte Agent Files gehören.
 
+## GitHub-Basiskonfiguration
+
+[MUST_IF] Ein von Heljens gepflegtes Software-Repository GitHub Issue Forms verwendet oder neue Issues strukturiert erfassen soll, muss es den [kanonischen Heljens-Issue-Template-Satz](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) unter `.github/ISSUE_TEMPLATE` unverändert verwenden.
+
+[MUST_NOT] Die kanonischen Template-Dateien dürfen bei der Übernahme in ein Repository nicht lokal neu interpretiert oder nur teilweise ersetzt werden.
+
 ## PROJECT.md
 
 [MUST] Jedes Repository muss im Root eine `PROJECT.md` mit der repositoryweiten Versionsbasis und gemeinsamen Leitplanken besitzen.

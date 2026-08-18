@@ -1,0 +1,59 @@
+name: Bug
+description: Defect, regression, or unexpected behavior
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is broken or behaving unexpectedly?
+      placeholder: Describe the observed problem.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Kontext
+      description: Where does this happen and which feature, route, or component is affected?
+      placeholder: Add affected screens, modules, branches, or related issues.
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Reproduktion
+      description: How can the problem be reproduced?
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Erwartetes Verhalten
+      description: What should happen instead?
+      placeholder: Describe the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Akzeptanzkriterien
+      description: How can we verify that the bug is fixed?
+      placeholder: |
+        - [ ] The issue can no longer be reproduced.
+        - [ ] The expected behavior is implemented.
+        - [ ] No related regression was introduced.
+    validations:
+      required: true
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technische Hinweise
+      description: Logs, affected files, constraints, screenshots, or implementation notes.
+    validations:
+      required: false
