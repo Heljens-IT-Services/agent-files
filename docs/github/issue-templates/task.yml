@@ -1,0 +1,52 @@
+name: Task
+description: Structured technical task for implementation by developers or Codex
+title: "[Task]: "
+labels:
+  - task
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Ziel
+      description: What should be achieved by this issue?
+      placeholder: Briefly describe the intended result.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Kontext
+      description: Why is this needed? Which epic, feature, or architecture topic is affected?
+      placeholder: Explain the background and relevant relationships.
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Aufgabe
+      description: Concrete implementation steps.
+      placeholder: |
+        - Step 1
+        - Step 2
+        - Step 3
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Akzeptanzkriterien
+      description: How can we verify that this issue is complete?
+      placeholder: |
+        - [ ] Criterion 1 is fulfilled
+        - [ ] Criterion 2 is fulfilled
+        - [ ] Criterion 3 is fulfilled
+    validations:
+      required: true
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technische Hinweise
+      description: Affected files, constraints, architecture rules, or boundaries.
+      placeholder: Avoid RxJS except interop to Signals. HTTP requests should be Promise-based.
+    validations:
+      required: false

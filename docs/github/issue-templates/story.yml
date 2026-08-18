@@ -1,0 +1,51 @@
+name: Story
+description: User-facing or functional story within an epic
+title: "[Story]: "
+labels:
+  - story
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Ziel
+      description: What user-facing or functional result should be achieved?
+      placeholder: Describe the desired result from a user or product perspective.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Kontext
+      description: Which epic, feature, or user flow does this story belong to?
+      placeholder: Explain the background and related issues.
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Aufgabe
+      description: What needs to be implemented or changed?
+      placeholder: |
+        - Step 1
+        - Step 2
+        - Step 3
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Akzeptanzkriterien
+      description: How can we verify that this story is complete?
+      placeholder: |
+        - [ ] Criterion 1 is fulfilled
+        - [ ] Criterion 2 is fulfilled
+        - [ ] Criterion 3 is fulfilled
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Hinweise
+      description: Technical notes, constraints, dependencies, or boundaries.
+    validations:
+      required: false
