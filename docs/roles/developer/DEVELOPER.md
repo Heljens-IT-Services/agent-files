@@ -125,10 +125,6 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST] Interaktive UI muss semantische Elemente, Tastaturbedienung, Fokusführung, Labels und verständliche Fehlermeldungen berücksichtigen.
 
-[MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
-
-[MUST_NOT] UI-Tests dürfen nicht primär DOM-Struktur, CSS-Klassen oder private Implementierungsdetails prüfen.
-
 ## Fehlerbehandlung
 
 [PRIORITY] Fachliche Korrektheit und Fehlertransparenz haben Vorrang vor einem scheinbar erfolgreichen Anwendungslauf.
@@ -159,8 +155,6 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST_NOT] Logs dürfen fachliche Status-, Ergebnis- oder Fehlerobjekte nicht ersetzen.
 
-[MUST_IF] Fehlerpfade müssen getestet werden, wenn sie fachlich relevant, sicherheitsrelevant oder für Nutzer bzw. Clients sichtbar sind.
-
 ## Security und Datenschutz
 
 [MUST_NOT] Secrets, Tokens, personenbezogene Daten und interne Infrastrukturdetails dürfen nicht geloggt, hart codiert oder versioniert werden.
@@ -174,29 +168,3 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST] Abhängigkeiten müssen nach den Kriterien Wartbarkeit, Sicherheit, Lizenz, Kompatibilität und Projektbedarf ausgewählt und aktualisiert werden.
 
 [PRIORITY] Sicherheitsupdates haben Vorrang vor kosmetischen Refactorings.
-
-## Tests
-
-[MUST] Reine Fachlogik muss mit Unit Tests abgesichert werden.
-
-[MUST] Workflows müssen Tests für Happy Path, Fehlerpfade und fachlich kritische Abzweigungen erhalten.
-
-[SHOULD] Infrastruktur-, Adapter- und Integrationslogik soll mit kontrollierten Testdaten und ohne instabile Live-Dienste getestet werden. Abweichungen sind erlaubt, wenn ein Task ausdrücklich Live-Integrationstests verlangt und die benötigten Zugangsdaten sowie Umgebung freigegeben sind.
-
-[MUST_IF] Einstiegspunkte wie UI, CLI oder HTTP-API müssen getestet werden, wenn Routing, Eingabevalidierung, Ausgabeformat, Auth, Fehlerabbildung oder DI-Verkabelung projektrelevant sind.
-
-[MUST] Tests müssen deterministisch, isoliert und lesbar sein.
-
-[MUST] Zufall, Uhrzeit, Netzwerk und Dateisystem müssen in Tests kontrolliert werden.
-
-[MUST] Tests müssen sichtbares Verhalten und fachliche Zustände prüfen.
-
-[MUST_NOT] Tests dürfen private Implementierungsdetails nicht als primären Vertrag prüfen.
-
-[SHOULD] Agents sollen den kleinsten sinnvollen Checkumfang ausführen. Abweichungen sind erlaubt, wenn die Änderung gemeinsame Vertrage, Startup, Routing, Persistenz, Security oder breite Nutzerflows betrifft.
-
-[ALLOW_IF] Reine Dokumentations- und Content-Änderungen dürfen ohne Tests abgeschlossen werden, wenn sie Rendering, Routing, Metadaten und Linksyntax nicht betreffen.
-
-[SHOULD] Unit-Tests sollen für isolierte Logik eingesetzt werden; E2E-Tests sollen für sichtbare Nutzerflows, Navigation, Persistenz, Startup und domainübergreifende Integration eingesetzt werden.
-
-[MUST] Im Arbeitsabschluss müssen ausgeführte, ausgelassene oder fehlgeschlagene Checks samt Begründung genannt werden.
