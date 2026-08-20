@@ -6,6 +6,10 @@ Stand: 2026-08-18
 
 Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
 
+## Codex-Ausführung
+
+[MUST_IF] Wenn ein `tester`-SubAgent verfügbar ist, muss Tester-Verantwortung an ihn delegiert werden. Die fachlichen und technologiespezifischen Regeln bleiben dabei maßgeblich.
+
 ## Priorität innerhalb der Tester-Rolle
 
 [PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Tester-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:

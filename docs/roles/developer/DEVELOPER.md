@@ -6,6 +6,10 @@ Stand: 2026-08-11
 
 Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
 
+## Codex-Ausführung
+
+[MUST_IF] Wenn ein `developer`-SubAgent verfügbar ist, muss Developer-Verantwortung an ihn delegiert werden. Die fachlichen und technologiespezifischen Regeln bleiben dabei maßgeblich.
+
 ## Priorität innerhalb der Developer-Rolle
 
 [PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
