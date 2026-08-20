@@ -69,6 +69,12 @@ Zusätzlich:
 
 ## Rücksprungregeln
 
+## Codex-Orchestrierung
+
+- Rekursive oder flache Zerlegung und Terminalitätsprüfung: `planner`.
+- Issue- und Relationship-Mutationen: `main/orchestrator` nach kontrollierter Ableitung.
+- Konflikte in Hierarchie oder Scope gehen an `planner`; unabhängige Leseanalysen dürfen parallel erfolgen, Schreibzugriffe nicht.
+
 - Bei unklarem Inhalt zu `issue-reading`.
 - Bei unklarem Ziel oder Scope zu `requirements-clarification`.
 - Bei unklarem Schnitt zu `brainstorming`.
