@@ -1,8 +1,8 @@
-# Workflow: Issue Umsetzung
+# Workflow: Issue Implementation
 
 ## Ziel
 
-Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket umsetzen, verifizieren, reviewen, committen und pushen.
+Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket implementieren, verifizieren, reviewen, committen und pushen.
 
 ## Verwenden
 
@@ -12,14 +12,14 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 
 ## Verwendete Skills
 
-- `github_branch-checkout-from-default`
-- `github_issue-lesen`
-- `code_lesen`
-- `code_analyse`
-- `code_implementierungsplanung`
-- `code_implementieren`
-- `code_testen`
-- `code_diff-review`
+- `github-branch-checkout-from-default`
+- `issue-reading`
+- `code-reading`
+- `code-analysis`
+- `code-implementation-planning`
+- `code-implementation`
+- `code-testing`
+- `code-diff-review`
 
 ## Verwendete Workflows
 
@@ -29,13 +29,13 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 
 1. Arbeitseinheit aus vorhandenem Kontext übernehmen.
 2. Prüfen, ob der aktuelle Arbeitsbranch zur Arbeitseinheit passt.
-3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `github_issue-lesen` das konkrete Issue lesen.
+3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `issue-reading` das konkrete Issue lesen.
 4. Akzeptanzkriterien, Nicht-Ziele und Abschlussbedingung der Arbeitseinheit festhalten.
-5. Mit `code_lesen` relevanten Code und angrenzende Kontextdateien laden.
-6. Mit `code_implementierungsplanung` den Umsetzungsweg für diese Arbeitseinheit festlegen.
-7. Mit `code_implementieren` die Änderung umsetzen.
-8. Mit `code_testen` die Änderung verifizieren.
-9. Mit `code_diff-review` den Änderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests prüfen.
+5. Mit `code-reading` relevanten Code und angrenzende Kontextdateien laden.
+6. Mit `code-implementation-planning` den Umsetzungsweg für diese Arbeitseinheit festlegen.
+7. Mit `code-implementation` die Änderung umsetzen.
+8. Mit `code-testing` die Änderung verifizieren.
+9. Mit `code-diff-review` den Änderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests prüfen.
 10. Kritische Funde korrigieren und die passende Prüfung wiederholen.
 11. Akzeptanzkriterien und Nicht-Ziele gegen den finalen Änderungsstand prüfen.
 12. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
@@ -54,12 +54,12 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 
 ## Rücksprungregeln
 
-- Bei unklarem Issue-Kontext zurück zu `github_issue-lesen`.
-- Bei unklarem Code-Kontext zurück zu `code_lesen`.
-- Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code_analyse`.
-- Bei zu großem oder unscharfem Scope zurück zu `code_implementierungsplanung`.
-- Bei fehlgeschlagenen Tests zurück zu `code_implementierungsplanung` oder `code_implementieren`.
-- Bei `code_diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
+- Bei unklarem Issue-Kontext zurück zu `issue-reading`.
+- Bei unklarem Code-Kontext zurück zu `code-reading`.
+- Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code-analysis`.
+- Bei zu großem oder unscharfem Scope zurück zu `code-implementation-planning`.
+- Bei fehlgeschlagenen Tests zurück zu `code-implementation-planning` oder `code-implementation`.
+- Bei `code-diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
 - Bei fehlgeschlagenem Commit oder Push zum Workflow `commit-push.md` zurückkehren; nicht zur nächsten Arbeitseinheit fortfahren.
 
 ## Endergebnis
@@ -78,7 +78,7 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Keinen Issue-Graph koordinieren.
 - Keine Gesamt-Reihenfolge über mehrere Issues bestimmen.
 - Keine Branch-Erstellung ausführen, wenn dieser Workflow als Teilworkflow aus `issue-graph-umsetzung.md`, `bugfix.md`, `refactoring-secure.md` oder einem anderen vorgelagerten Workflow mit bereits vorbereitetem Arbeitsbranch läuft.
-- Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github_branch-checkout-from-default` verwenden.
+- Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github-branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, außer sie blockieren die Arbeitseinheit.
 - Issue nicht schließen, wenn der Abschluss über einen späteren PR-Merge erfolgen soll.
 - Wenn dieser Workflow aus `issue-graph-umsetzung.md` aufgerufen wird, Scope-Issues standardmäßig nicht manuell schließen; der Graph-Workflow entscheidet die abschließende PR-Verlinkung und Schließsemantik.

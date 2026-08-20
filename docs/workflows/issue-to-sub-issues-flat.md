@@ -12,12 +12,12 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 
 ## Verwendete Skills
 
-- `github_issue-lesen`
-- `anforderungsklaerung`
+- `issue-reading`
+- `requirements-clarification`
 - `brainstorming`
-- `github_issue-erstellen`
-- `github_type-setzen`
-- `github_relationship-setzen`
+- `issue-creation`
+- `type-setting`
+- `relationship-setting`
 
 ## Ablauf
 

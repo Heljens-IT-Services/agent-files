@@ -12,8 +12,8 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 - Standardmäßig interaktiv verwenden.
 - Stillen Modus nur verwenden, wenn der User ihn explizit verlangt oder ein Workflow nur Kontextstrukturierung braucht.
 - Nicht verwenden, wenn mehrere Lösungsoptionen kreativ oder strategisch abgewogen werden sollen. Dann `brainstorming` nutzen.
-- Nicht verwenden, wenn Code nur gelesen werden soll. Dann `code_lesen` nutzen.
-- Nicht verwenden, wenn bereits ein umsetzbarer technischer Plan erstellt werden soll. Dann `code_implementierungsplanung` nutzen.
+- Nicht verwenden, wenn Code nur gelesen werden soll. Dann `code-reading` nutzen.
+- Nicht verwenden, wenn bereits ein umsetzbarer technischer Plan erstellt werden soll. Dann `code-implementation-planning` nutzen.
 
 ## Vorgehen
 
@@ -33,7 +33,7 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 - Keine technische Umsetzung planen, bevor Ziel und Scope ausreichend klar sind.
 - Keine Anforderungen stillschweigend erweitern.
 - Keine Issues, Research-Ergebnisse oder Code-Analysen selbst lesen. Nur vorhandenen Kontext verwenden.
-- Wenn Kontext fehlt, vorgelagert `github_issue-lesen`, `research`, `code_lesen` oder `code_analyse` nutzen.
+- Wenn Kontext fehlt, vorgelagert `issue-reading`, `research`, `code-reading` oder `code-analysis` nutzen.
 - Annahmen dürfen vorgeschlagen, aber nicht stillschweigend als bestätigt behandelt werden.
 - Im stillen Modus keine offenen Punkte klären, sondern nur markieren.
 - Wenn entscheidende Informationen fehlen und nicht geklärt werden können, mit `BLOCKED` enden.

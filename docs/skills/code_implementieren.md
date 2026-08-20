@@ -10,7 +10,7 @@ Eine geklärte Änderung mit minimalem Scope im Code umsetzen.
 - Wenn eine kleine, offensichtliche Änderung direkt umgesetzt werden kann.
 - Wenn für nicht-triviale Änderungen bereits ein belastbarer Plan vorliegt.
 - Nicht verwenden, wenn erst Anforderung, Ursache, Optionen oder Plan geklärt werden müssen.
-- Bei nicht-trivialen Änderungen vorher `code_implementierungsplanung` nutzen.
+- Bei nicht-trivialen Änderungen vorher `code-implementation-planning` nutzen.
 
 ## Vorgehen
 
@@ -19,19 +19,19 @@ Eine geklärte Änderung mit minimalem Scope im Code umsetzen.
 3. Produktivcode, relevante Testdateien und code-nahe Dokumentation entlang bestehender Patterns umsetzen.
 4. Struktur an den Sprachtyp anpassen.
 5. Ergebnis gegen Ziel, Scope und bekannte Risiken prüfen.
-6. Nachgelagerte Verifikation durch `code_testen` benennen.
+6. Nachgelagerte Verifikation durch `code-testing` benennen.
 
 ## Grenzen
 
 - Keine ungeplanten Nebenänderungen vornehmen.
 - Keine Anforderungen stillschweigend erweitern.
-- Nicht implementieren, wenn Ziel oder Scope unklar ist. Dann `anforderungsklaerung` oder `code_implementierungsplanung` nutzen.
+- Nicht implementieren, wenn Ziel oder Scope unklar ist. Dann `requirements-clarification` oder `code-implementation-planning` nutzen.
 - Keine breite Analyse, Recherche oder Alternativenabwägung durchführen.
-- Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code_lesen` nutzen.
+- Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code-reading` nutzen.
 - Nur unmittelbar betroffene Dateien lesen.
-- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code_testen`.
+- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
 - Verhalten, Logik, Feature oder API gezielt verändern; das ist der Zweck dieses Skills.
-- Kein reines Refactoring durchführen. Verhaltenserhaltende Strukturverbesserung mit Zweck Lesbarkeit, Wartbarkeit oder Redundanzabbau gehört zu `code_refactoring`.
+- Kein reines Refactoring durchführen. Verhaltenserhaltende Strukturverbesserung mit Zweck Lesbarkeit, Wartbarkeit oder Redundanzabbau gehört zu `code-refactoring`.
 - Minimale strukturelle Anpassungen sind erlaubt, wenn sie unmittelbar nötig sind, um die Verhaltensänderung sauber einzubauen.
 - Testdateien dürfen angepasst oder ergänzt werden, wenn sie zur umgesetzten Änderung gehören.
 - Code-nahe Dokumentation darf aktualisiert werden, wenn sie direkt zur geänderten Stelle gehört, z. B. Kommentare, XML-docs, JSDoc oder API-Beschreibungen im selben Änderungsbereich.

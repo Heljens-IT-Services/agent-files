@@ -7,13 +7,13 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen.
 ## Verwenden
 
 - Wenn ein neues GitHub-Issue aus belastbarem Kontext erstellt werden soll.
-- Nicht verwenden, wenn Anforderungen oder Scope erst geklärt werden müssen. Dann `anforderungsklaerung` nutzen.
-- Nicht verwenden, um den nativen Issue-Type oder Relationships zu setzen. Dafür `github_type-setzen` bzw. `github_relationship-setzen` nachlagern.
+- Nicht verwenden, wenn Anforderungen oder Scope erst geklärt werden müssen. Dann `requirements-clarification` nutzen.
+- Nicht verwenden, um den nativen Issue-Type oder Relationships zu setzen. Dafür `type-setting` bzw. `relationship-setting` nachlagern.
 
 ## Vorgehen
 
 1. Repository, Ziel und zugrundeliegenden Kontext prüfen.
-2. Vorhandene Templates aus `.github/ISSUE_TEMPLATE` lesen und das passende Template bestimmen. Fehlt der kanonische Satz oder ist er unvollständig, bei erlaubter Repository-Pflege zuerst `github-repository-basiskonfiguration` ausführen; ohne diese Erlaubnis die Abweichung sichtbar machen und die Standardstruktur verwenden.
+2. Vorhandene Templates aus `.github/ISSUE_TEMPLATE` lesen und das passende Template bestimmen. Fehlt der kanonische Satz oder ist er unvollständig, bei erlaubter Repository-Pflege zuerst `repository-baseline-configuration` ausführen; ohne diese Erlaubnis die Abweichung sichtbar machen und die Standardstruktur verwenden.
 3. Gezielte Suche nach offenen Duplikaten oder sehr ähnlichen Issues durchführen.
 4. Bei einem möglichen Duplikat die Alternativen benennen und die User-Entscheidung abwarten.
 5. Titel und Body aus dem vorhandenen Kontext formulieren; bei fehlendem Template mindestens Problem, Ziel, Scope, Nicht-Ziele und Akzeptanzkriterien abbilden.
@@ -26,7 +26,7 @@ Get-ChildItem .github/ISSUE_TEMPLATE -File
 Get-Content .github/ISSUE_TEMPLATE/<template-datei>
 gh issue list --search "<suchbegriff>" --state open
 gh issue create --title "<titel>" --body-file <body-datei>
-gh issue view <issue-nummer> --json id,number,title,url
+gh issue view <issue-number> --json id,number,title,url
 ```
 
 ## Grenzen

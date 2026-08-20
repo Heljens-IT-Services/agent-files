@@ -11,7 +11,7 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 - Default-Modus: mit Artefakt.
 - Context-only-Modus: ohne Artefakt, wenn ein Workflow oder User dies explizit verlangt.
 - Nicht automatisch bei "Fix bug X" verwenden. Das gehört in einen Bugfix-Workflow, der Analyse explizit als Schritt benennt.
-- Nicht verwenden, wenn Code nur gelesen oder als Kontext erklärt werden soll. Dann `code_lesen` nutzen.
+- Nicht verwenden, wenn Code nur gelesen oder als Kontext erklärt werden soll. Dann `code-reading` nutzen.
 
 ## Vorgehen
 
@@ -29,7 +29,7 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 - Hauptsächlich read-only arbeiten.
 - Keine Produktivcode-Änderungen vornehmen.
 - Keine Debug-Logs, Repro-Skripte oder Tests anlegen, außer der User fordert es explizit.
-- Keine Tests oder Builds ausführen und keine externe Recherche durchführen; benötigte Ergebnisse vorgelagert mit `code_testen` bzw. `research` laden.
+- Keine Tests oder Builds ausführen und keine externe Recherche durchführen; benötigte Ergebnisse vorgelagert mit `code-testing` bzw. `research` laden.
 - Schreibend ist nur das Analyseartefakt unter `docs/` vorgesehen, falls der Modus ein Artefakt verlangt.
 - Bei unklarem Auftrag selbstständig mit naheliegenden Annahmen starten und diese im Artefakt oder im Context-only-Ergebnis markieren.
 

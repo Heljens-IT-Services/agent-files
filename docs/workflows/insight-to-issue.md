@@ -14,11 +14,11 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 
 - `brainstorming`
 - `research`
-- `anforderungsklaerung`
-- `code_analyse`
-- `github_issue-erstellen`
-- `github_type-setzen`
-- `github_relationship-setzen`
+- `requirements-clarification`
+- `code-analysis`
+- `issue-creation`
+- `type-setting`
+- `relationship-setting`
 
 ## Ablauf
 
@@ -26,10 +26,10 @@ Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.
 2. Prüfen, ob die Erkenntnis anhand der passenden Reifekriterien issue-reif ist.
 3. GitHub-Issue-Type als Empfehlung aus dem Kontext ableiten, wenn die Reifekriterien klar auf `Task`, `Story`, `Spike` oder `Epic` zeigen.
 4. Ziel-Repository bestimmen.
-5. Falls Kontext fehlt, den passenden vorgelagerten Skill nutzen: `anforderungsklaerung`, `brainstorming`, `research` oder `code_analyse`.
-6. Mit `github_issue-erstellen` daraus ein GitHub-Issue erstellen.
-7. Mit `github_type-setzen` den finalen nativen GitHub-Issue-Type setzen.
-8. Mit `github_relationship-setzen` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
+5. Falls Kontext fehlt, den passenden vorgelagerten Skill nutzen: `requirements-clarification`, `brainstorming`, `research` oder `code-analysis`.
+6. Mit `issue-creation` daraus ein GitHub-Issue erstellen.
+7. Mit `type-setting` den finalen nativen GitHub-Issue-Type setzen.
+8. Mit `relationship-setting` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
 
 ## Reifekriterien
 
@@ -72,13 +72,13 @@ Epic:
 
 ## Rücksprungregeln
 
-- Bei unklarem Ziel zurück zu `anforderungsklaerung`.
+- Bei unklarem Ziel zurück zu `requirements-clarification`.
 - Bei offenen Lösungsrichtungen zurück zu `brainstorming`.
 - Bei fehlenden externen Fakten zurück zu `research`.
-- Bei fehlender technischer Bewertung zurück zu `code_analyse`.
-- Wenn die passenden Reifekriterien nicht erfüllt sind, zurück zu `anforderungsklaerung`.
-- Bei unklarem GitHub-Issue-Type nicht raten, sondern zurück zu `anforderungsklaerung`.
-- Bei unklarer Relationship-Richtung nicht raten, sondern zurück zu `anforderungsklaerung`.
+- Bei fehlender technischer Bewertung zurück zu `code-analysis`.
+- Wenn die passenden Reifekriterien nicht erfüllt sind, zurück zu `requirements-clarification`.
+- Bei unklarem GitHub-Issue-Type nicht raten, sondern zurück zu `requirements-clarification`.
+- Bei unklarer Relationship-Richtung nicht raten, sondern zurück zu `requirements-clarification`.
 - Wenn die Erkenntnis Agent Instructions, Skills oder Workflows betrifft, zu `instruction-improvement-issue.md` wechseln; dort ist das Ziel-Repository festgelegt.
 
 ## Endergebnis

@@ -50,15 +50,17 @@ spacing     = { " " | tab } ;
 
 [MUST] Eine stabile ID muss dem Muster `^[a-z0-9]+(?:-[a-z0-9]+)*$` entsprechen und innerhalb ihres Katalogs eindeutig sein.
 
-[MUST] Die kanonischen Aufrufe eines Katalogeintrags müssen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-lesen` oder `/workflows run bugfix`.
+[MUST] Die kanonischen Aufrufe eines Katalogeintrags müssen aus Root-Command, Aktion und stabiler ID gebildet werden, beispielsweise `/skills show code-reading` oder `/workflows run bugfix`.
 
 [ALLOW] Ein Katalogeintrag darf zusätzlich einen oder mehrere direkte Aliase aus einem oder mehreren Tokens wie `/finish` oder `/release` besitzen.
 
 [MUST] Direkte Aliase müssen global eindeutig sein und dürfen weder Root-Commands noch Help-Aliase verdecken.
 
-[ALLOW] Ein direkter Alias darf erforderliche Positionsargumente als Platzhalter wie `<issue-nummer>` dokumentieren.
+[ALLOW] Ein direkter Alias darf erforderliche Positionsargumente als Platzhalter wie `<issue-number>` dokumentieren.
 
 [MUST] Direkte Aliase müssen vor der Root-Command-Auflösung gegen die vollständige normalisierte Eingabe und die dokumentierte Alias-Syntax abgeglichen werden.
+
+[MUST] Die öffentliche Command-Sprache verwendet ausschließlich englische Aliase, stabile IDs und Syntax-Platzhalter. Die bisherigen deutschen Aliase und IDs werden ohne Deprecated-Übergangsphase entfernt.
 
 [MUST_IF] Wenn ein Alias Positionsargumente definiert, müssen Anzahl, Reihenfolge und Format der Argumente in der Detaildatei des Katalogeintrags dokumentiert und bei der Auflösung validiert werden.
 
@@ -72,7 +74,7 @@ spacing     = { " " | tab } ;
 
 | Command | Syntax | Verhalten |
 |---|---|---|
-| Help | `/help`, `/?`, `/hilfe` | Zeigt die allgemeine Hilfe. |
+| Help | `/help`, `/?` | Zeigt die allgemeine Hilfe. |
 | Kontext-Hilfe | `/help <command>` | Zeigt Syntax, Subcommands und Beispiele für einen Root-Command oder direkten Alias. |
 | Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id> [<argument> ...]` | Listet, beschreibt oder wählt einen Skill aus. Zusätzliche Argumente sind nur zulässig, wenn der Skill sie dokumentiert. |
 | Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen Workflow. Zusätzliche Argumente sind nur zulässig, wenn der Workflow sie dokumentiert. |
@@ -116,7 +118,7 @@ spacing     = { " " | tab } ;
 
 [MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
 
-[MUST] `/help`, `/hilfe` und `/?` müssen ohne weiteres Argument zusätzlich `README.md` und `PROJECT.md` lesen und unter `Repository-Kontext` deren aktuell relevante Kernaussagen knapp zusammenfassen.
+[MUST] `/help` und `/?` müssen ohne weiteres Argument zusätzlich `README.md` und `PROJECT.md` lesen und unter `Repository-Kontext` deren aktuell relevante Kernaussagen knapp zusammenfassen.
 
 [MUST] Der Repository-Kontext muss sich auf Zweck, Versionsbasis und für die Nutzung wesentliche fachliche oder technische Leitplanken beschränken und in der Regel zwei bis vier kurze Punkte umfassen.
 
@@ -150,21 +152,22 @@ spacing     = { " " | tab } ;
 /help
 /help skills
 /skills list
-/skills show code-lesen
-/skills run code-lesen
+/skills show code-reading
+/skills run code-reading
 /skills run code-refactoring
 /refactor
-/skills run code-testen
+/skills run code-testing
 /testing
 /testing e2e
-/skills run code-testen all
+/skills run code-testing all
 /workflows show feature-finish
 /workflows run feature-finish
-/workflows run issue-graph-umsetzung 123
+/workflows run issue-graph-implementation 123
+/workflows run issue-sanitize 123
 /workflows run issue-to-sub-issues 123
 /workflows run issue-to-sub-issues 123 flat
-/umsetzen #123
-/umsetzung 123
+/implement #123
+/sanitize 123
 /sub-issues #123
 /sub-issues 123 flat
 /finish

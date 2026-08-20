@@ -37,7 +37,7 @@ git status --short --branch
 git branch --show-current
 git log --oneline --decorate origin/<base-branch>..HEAD
 git diff --stat origin/<base-branch>...HEAD
-gh issue view <issue-nummer> --comments
+gh issue view <issue-number> --comments
 gh pr list --head <branch-name> --state open
 gh pr comment <pr-nummer> --body "<kommentar>"
 gh pr create --draft --title "<pr-titel>" --body "<pr-body>" --base <basis-branch> --head <branch-name>

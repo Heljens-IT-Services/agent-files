@@ -12,10 +12,10 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 
 ## Verwendete Skills
 
-- `github_issue-lesen`
-- `code_testen`
-- `code_diff-review`
-- `github_pr-erstellen`
+- `issue-reading`
+- `code-testing`
+- `code-diff-review`
+- `pr-creation`
 
 ## Verwendete Workflows
 
@@ -23,16 +23,16 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 
 ## Ablauf
 
-1. Mit `github_issue-lesen` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
-2. Mit `code_testen` vorhandene Verifikation ausführen oder Testlücken benennen.
-3. Mit `code_diff-review` den Änderungssatz auf Scope, Nebeneffekte und Versandbereitschaft prüfen.
+1. Mit `issue-reading` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
+2. Mit `code-testing` vorhandene Verifikation ausführen oder Testlücken benennen.
+3. Mit `code-diff-review` den Änderungssatz auf Scope, Nebeneffekte und Versandbereitschaft prüfen.
 4. Mit dem Workflow `commit-push.md` den Änderungssatz sauber committen und pushen.
-5. Mit `github_pr-erstellen` den Pull Request erstellen und Issue-Kontext verlinken.
+5. Mit `pr-creation` den Pull Request erstellen und Issue-Kontext verlinken.
 
 ## Rücksprungregeln
 
-- Bei unklarem Issue-Kontext zurück zu `github_issue-lesen`.
-- Bei fehlender oder gescheiterter Verifikation zurück zu `code_testen`.
+- Bei unklarem Issue-Kontext zurück zu `issue-reading`.
+- Bei fehlender oder gescheiterter Verifikation zurück zu `code-testing`.
 - Bei nicht versandbereitem Diff zurück zu passendem Umsetzungs- oder Refactoring-Workflow.
 
 ## Endergebnis

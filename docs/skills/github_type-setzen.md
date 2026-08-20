@@ -10,7 +10,7 @@ Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder ände
 - Wenn `Task`, `Story`, `Spike`, `Epic` oder ein anderer in der Organisation vorhandener Issue-Type nachträglich gesetzt werden muss.
 - Wenn klar ist, welche Organisation, welches Repository, welche Issue-Nummer und welcher Type-Name gemeint sind.
 - Nicht verwenden, um Labels zu setzen. GitHub-Issue-Type ist kein Label.
-- Nicht verwenden, um Relationships zu setzen. Dann `github_relationship-setzen` nutzen.
+- Nicht verwenden, um Relationships zu setzen. Dann `relationship-setting` nutzen.
 
 ## Vorgehen
 
@@ -27,7 +27,7 @@ Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder ände
 Issue-ID lesen:
 
 ```powershell
-$issueId = gh issue view <issue-nummer> --repo <org>/<repo> --json id --jq .id
+$issueId = gh issue view <issue-number> --repo <org>/<repo> --json id --jq .id
 ```
 
 Verfügbare Issue-Types der Organisation lesen:
@@ -49,14 +49,14 @@ gh api graphql `
 Ergebnis prüfen:
 
 ```powershell
-gh issue view <issue-nummer> --repo <org>/<repo> --json number,title,issueType,url
+gh issue view <issue-number> --repo <org>/<repo> --json number,title,issueType,url
 ```
 
 Platzhalter:
 
 - `<org>`: GitHub-Organisation, z. B. `Heljens-IT-Services`.
 - `<repo>`: Repository-Name ohne Organisation.
-- `<issue-nummer>`: Nummer des bestehenden Issues.
+- `<issue-number>`: Nummer des bestehenden Issues.
 - `<issue-type>`: exakt vorhandener nativer GitHub-Issue-Type-Name.
 
 ## Grenzen

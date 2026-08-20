@@ -8,7 +8,7 @@ Nach einem verifizierten Pull-Request-Merge nach `develop` auf den Integrationsb
 
 - Nach einem erfolgreichen, verifizierten Feature- oder Task-Merge nach `develop`.
 - Nicht verwenden, solange der Merge nicht bestätigt oder der Arbeitsbaum nicht sauber ist.
-- Nicht für die Aktualisierung des Default-Branches verwenden; dafür `github_default-branch-aktualisieren` nutzen.
+- Nicht für die Aktualisierung des Default-Branches verwenden; dafür `default-branch-update` nutzen.
 
 ## Vorgehen
 

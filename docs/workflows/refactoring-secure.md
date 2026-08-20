@@ -13,13 +13,13 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 
 ## Verwendete Skills
 
-- `github_branch-checkout-from-default`
-- `code_analyse`
-- `code_implementierungsplanung`
-- `code_refactoring`
-- `code_testen`
-- `code_diff-review`
-- `github_pr-erstellen`
+- `github-branch-checkout-from-default`
+- `code-analysis`
+- `code-implementation-planning`
+- `code-refactoring`
+- `code-testing`
+- `code-diff-review`
+- `pr-creation`
 
 ## Verwendete Workflows
 
@@ -27,8 +27,8 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 
 ## Ablauf
 
-1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Mit `code_analyse` im `Context-only-Modus` bestehenden Code, aktuelles Verhalten, Refactoring-Ziele und Verhaltensgrenzen erfassen.
+1. Mit `github-branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
+2. Mit `code-analysis` im `Context-only-Modus` bestehenden Code, aktuelles Verhalten, Refactoring-Ziele und Verhaltensgrenzen erfassen.
 3. Verhaltensbasis festhalten:
    - vorhandene Tests
    - relevante User-Flows
@@ -36,22 +36,22 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
    - Datenformate
    - Seiteneffekte
    - beobachtbares Verhalten
-4. Mit `code_implementierungsplanung` die Refactoring-Ziele, Reihenfolge, Grenzen und Absicherungsstrategie planen.
+4. Mit `code-implementation-planning` die Refactoring-Ziele, Reihenfolge, Grenzen und Absicherungsstrategie planen.
 5. Falls die bestehende Absicherung zu schwach ist, Tests mit dem Ziel ergänzen oder anpassen, bestehendes Verhalten zu fixieren.
-6. Mit `code_refactoring` die Strukturverbesserungen umsetzen.
-7. Mit `code_testen` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis prüfen.
-8. Mit `code_diff-review` sicherstellen, dass keine verdeckte Fachlogik oder unbeabsichtigte Verhaltensänderung entstanden ist.
+6. Mit `code-refactoring` die Strukturverbesserungen umsetzen.
+7. Mit `code-testing` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis prüfen.
+8. Mit `code-diff-review` sicherstellen, dass keine verdeckte Fachlogik oder unbeabsichtigte Verhaltensänderung entstanden ist.
 9. Kritische Funde korrigieren und die passende Prüfung wiederholen.
 10. Erst nach bestandener Absicherung mit dem Workflow `commit-push.md` Commit und Push ausführen.
-11. Mit `github_pr-erstellen` den Pull Request mit Refactoring-Zielen, Verhaltenserhalt, Teststatus und Review-Kontext erstellen.
+11. Mit `pr-creation` den Pull Request mit Refactoring-Zielen, Verhaltenserhalt, Teststatus und Review-Kontext erstellen.
 
 ## Rücksprungregeln
 
-- Wenn bestehendes Verhalten unklar ist, zurück zu `code_analyse` im `Context-only-Modus`.
+- Wenn bestehendes Verhalten unklar ist, zurück zu `code-analysis` im `Context-only-Modus`.
 - Wenn Tests fehlen oder zu schwach sind, zurück zur Testabsicherung im Ablauf.
-- Wenn Tests wegen Refactoring fehlschlagen, zurück zu `code_refactoring`.
+- Wenn Tests wegen Refactoring fehlschlagen, zurück zu `code-refactoring`.
 - Wenn Tests wegen Umgebung nicht ausführbar sind, Workflow blockieren, außer der User erlaubt ausdrücklich einen PR mit dokumentiertem Verifikationsdefizit.
-- Wenn `code_diff-review` eine Verhaltensänderung findet, zurück zu `code_refactoring` oder blockieren.
+- Wenn `code-diff-review` eine Verhaltensänderung findet, zurück zu `code-refactoring` oder blockieren.
 - Wenn das Refactoring fachliche Änderungen erzwingt, Workflow blockieren.
 
 ## Endergebnis

@@ -9,9 +9,9 @@ Frei recherchieren, um externen, repo-übergreifenden oder issue-bezogenen Konte
 - Wenn aktuelle, externe oder nicht lokal vorhandene Informationen gebraucht werden.
 - Wenn Web, Online-Dokumentation, Anbieterinformationen, Standards, Releases, Preise, Marktinformationen, andere GitHub-Repositories, Issues oder PRs relevant sind.
 - Wenn vorhandener lokaler Kontext durch externe Quellen ergänzt oder verifiziert werden soll.
-- Nicht verwenden, wenn nur lokaler Code gelesen werden soll. Dann `code_lesen` nutzen.
+- Nicht verwenden, wenn nur lokaler Code gelesen werden soll. Dann `code-reading` nutzen.
 - Nicht verwenden, wenn Optionen interaktiv entwickelt werden sollen. Dann `brainstorming` nutzen.
-- Nicht verwenden, wenn Code oder Laufzeitverhalten bewertet werden soll. Dann `code_analyse` nutzen.
+- Nicht verwenden, wenn Code oder Laufzeitverhalten bewertet werden soll. Dann `code-analysis` nutzen.
 
 ## Vorgehen
 
@@ -26,7 +26,7 @@ Frei recherchieren, um externen, repo-übergreifenden oder issue-bezogenen Konte
 
 ```powershell
 gh repo view <owner>/<repo>
-gh issue view <issue-nummer> --repo <owner>/<repo> --comments
+gh issue view <issue-number> --repo <owner>/<repo> --comments
 gh pr view <pr-nummer> --repo <owner>/<repo> --comments
 gh search issues "<suchbegriff>" --repo <owner>/<repo>
 ```

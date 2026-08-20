@@ -12,7 +12,7 @@ Eine Änderung mit passenden Build-, Test- oder manuellen Prüfschritten verifiz
 ## Direkter Alias
 
 - `/testing`
-- `/testing <modus>`
+- `/testing <test-mode>`
 
 Zulässige Modi:
 
@@ -41,7 +41,7 @@ Zulässige Modi:
 ## Grenzen
 
 - Keine Codeänderungen vornehmen.
-- Keine Testdateien anpassen oder ergänzen. Das gehört zu `code_implementieren` oder `code_refactoring`.
+- Keine Testdateien anpassen oder ergänzen. Das gehört zu `code-implementation` oder `code-refactoring`.
 - Keine Fehler beheben. Dafür passenden vorgelagerten Skill nutzen.
 - Keine Projektkonfiguration ändern, Dependencies upgraden, Tests umschreiben oder Build-System fixen.
 - Wenn Setup-Reparatur Code- oder Konfigänderungen braucht, stoppen und passenden Skill benennen.
@@ -51,7 +51,7 @@ Zulässige Modi:
 - Laufzeitkontext wie Docker, Test-Logs oder Test-Datenbanken nur verwenden, wenn er Teil eines definierten Build-, Test- oder Integrationsprüfschritts ist.
 - Anwendungen, Dev-Server oder Docker-Services dürfen gestartet werden, wenn sie Teil eines definierten Prüfschritts sind.
 - Manuelle Prüfschritte dürfen selbst durchgeführt werden, wenn geeignete Tools verfügbar sind.
-- Keine freie Fehlersuche in Logs, Containern oder Datenbanken durchführen. Das gehört zu `code_analyse`.
+- Keine freie Fehlersuche in Logs, Containern oder Datenbanken durchführen. Das gehört zu `code-analysis`.
 - Keine produktiven Daten oder produktionsnahen Systeme prüfen, außer der User fordert es explizit und read-only.
 
 ## Output
