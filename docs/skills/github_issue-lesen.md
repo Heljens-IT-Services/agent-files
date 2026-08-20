@@ -9,8 +9,8 @@ Ein GitHub-Issue und seine Kommentare atomar lesen und den enthaltenen Kontext s
 - Wenn Inhalt, Kommentare, Status oder Metadaten eines GitHub-Issues gelesen werden sollen.
 - Vor Anforderungsklärung, Planung oder Implementierung eines Issues.
 - Wenn ein übergeordneter Workflow ausdrücklich den Issue-Graphen, Parent/Children oder blockierende Issues lesen lässt.
-- Nicht verwenden, um fehlende Anforderungen zu klären. Dann `anforderungsklaerung` nutzen.
-- Nicht verwenden, um ein Issue in einen technischen Plan zu überführen. Dann `code_implementierungsplanung` nutzen.
+- Nicht verwenden, um fehlende Anforderungen zu klären. Dann `requirements-clarification` nutzen.
+- Nicht verwenden, um ein Issue in einen technischen Plan zu überführen. Dann `code-implementation-planning` nutzen.
 
 ## Vorgehen
 
@@ -41,9 +41,9 @@ Wenn ein übergeordneter Workflow ausdrücklich einen Issue-Graphen anfordert:
 ## Kommandos
 
 ```powershell
-gh issue view <issue-nummer> --comments
-gh issue view <issue-nummer> --json title,body,state,labels,assignees,milestone,comments,url
-gh issue view <issue-nummer> --json id,number,title,body,state,comments,url
+gh issue view <issue-number> --comments
+gh issue view <issue-number> --json title,body,state,labels,assignees,milestone,comments,url
+gh issue view <issue-number> --json id,number,title,body,state,comments,url
 ```
 
 Für explizit angeforderten Beziehungskontext passende `gh api`- oder GraphQL-Leseaufrufe nutzen.

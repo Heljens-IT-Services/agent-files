@@ -9,7 +9,7 @@ Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remot
 - Wenn lokale Commits vorhanden sind, die noch nicht auf dem konfigurierten Upstream liegen.
 - Wenn ein lokaler Branch noch keinen Upstream besitzt und erstmals auf einen eindeutig bestimmbaren Remote unter demselben Branchnamen gepusht werden soll.
 - Wenn der User nur einen Push ohne neuen Commit beauftragt.
-- Nicht verwenden, wenn lokale Änderungen zuerst committet werden sollen. Dann `github_commit` nutzen.
+- Nicht verwenden, wenn lokale Änderungen zuerst committet werden sollen. Dann `github-commit` nutzen.
 - Nicht verwenden, wenn Commit und Push zusammenhängend ausgeführt werden sollen. Dann den Workflow `commit-push.md` nutzen.
 
 ## Vorgehen

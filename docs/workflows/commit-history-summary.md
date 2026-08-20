@@ -12,8 +12,8 @@ Commits und gemergte Pull Requests eines Repositorys für einen angegebenen Zeit
 
 ## Verwendete Skills
 
-- `github_commit-history-lesen`
-- `dokumentation`
+- `commit-history-reading`
+- `documentation`
 
 ## Eingaben und Defaults
 
@@ -55,11 +55,11 @@ Modusnamen werden ohne Beachtung der Groß-/Kleinschreibung aufgelöst und kanon
 
 1. Repository, Branch, Zeitraum, Modus und Zeitzone aus der User-Anweisung auflösen.
 2. Zeitraum gemäß den Zeitraumregeln in ein exaktes Intervall umrechnen und die aufgelösten Eingaben knapp ausweisen.
-3. Mit `github_commit-history-lesen` alle Commits, gemergten Pull Requests und ihre Zuordnung für den Branch und das Intervall laden.
+3. Mit `commit-history-reading` alle Commits, gemergten Pull Requests und ihre Zuordnung für den Branch und das Intervall laden.
 4. Pull Requests als primäre Änderungseinheiten verwenden; zugeordnete Commits nicht zusätzlich als eigenständige Änderungen zählen.
 5. Nicht zuordenbare Commits als eigenständige Änderungseinheiten aufnehmen.
-6. Im Modus `customer` Änderungen nach fachlichem Ergebnis bündeln und mit `dokumentation` in kundengerechte Sprache überführen.
-7. Im Modus `technical` Änderungen nach technischer Verantwortung oder Komponente bündeln und mit `dokumentation` präzise zusammenfassen.
+6. Im Modus `customer` Änderungen nach fachlichem Ergebnis bündeln und mit `documentation` in kundengerechte Sprache überführen.
+7. Im Modus `technical` Änderungen nach technischer Verantwortung oder Komponente bündeln und mit `documentation` präzise zusammenfassen.
 8. Im Modus `detailed` Pull Requests und Commits einzeln chronologisch ausgeben; Zuordnungen sichtbar machen, ohne Datensätze zu verbergen.
 9. Anzahl der gefundenen Pull Requests, Commits und eigenständigen Commits sowie vorhandene Kontextlücken nennen.
 
@@ -68,7 +68,7 @@ Modusnamen werden ohne Beachtung der Groß-/Kleinschreibung aufgelöst und kanon
 - Bei fehlendem oder mehrdeutigem Zeitraum zur Eingabeauflösung zurückkehren und nachfragen.
 - Bei unbekanntem Modus die gültigen Modi nennen und nachfragen.
 - Bei unklarem Repository oder Branch zur Eingabeauflösung zurückkehren.
-- Bei unvollständiger Historie zu `github_commit-history-lesen` zurückkehren oder mit Blocker enden.
+- Bei unvollständiger Historie zu `commit-history-reading` zurückkehren oder mit Blocker enden.
 - Wenn aus Titel, Body und Commit-Nachrichten keine belastbare fachliche oder technische Aussage ableitbar ist, keine Wirkung erfinden, sondern die Kontextlücke ausweisen.
 
 ## Endergebnis

@@ -11,15 +11,15 @@ Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf
 
 ## Direkter Alias
 
-- `/sub-issues <issue-nummer>`
-- `/sub-issues <issue-nummer> flat`
+- `/sub-issues <issue-number>`
+- `/sub-issues <issue-number> flat`
 
-`<issue-nummer>` ist eine positive Ganzzahl mit optionalem `#`. `flat` ist das einzige optionale Positionsargument.
+`<issue-number>` ist eine positive Ganzzahl mit optionalem `#`. `flat` ist das einzige optionale Positionsargument.
 
 ## Verwendete Skills
 
-- `github_issue-lesen`
-- `anforderungsklaerung`
+- `issue-reading`
+- `requirements-clarification`
 - `brainstorming`
 
 ## Verwendete Workflows
@@ -43,7 +43,7 @@ Standard ohne Zusatz.
 
 ### Flat
 
-Bei `/sub-issues <issue-nummer> flat` `issue-to-sub-issues-flat.md` genau einmal für das Ausgangs-Issue ausführen. Danach nicht weiter zerlegen.
+Bei `/sub-issues <issue-number> flat` `issue-to-sub-issues-flat.md` genau einmal für das Ausgangs-Issue ausführen. Danach nicht weiter zerlegen.
 
 ## Terminalitätskriterien
 
@@ -74,8 +74,8 @@ Zusätzlich:
 
 ## Rücksprungregeln
 
-- Bei unklarem Inhalt zu `github_issue-lesen`.
-- Bei unklarem Ziel oder Scope zu `anforderungsklaerung`.
+- Bei unklarem Inhalt zu `issue-reading`.
+- Bei unklarem Ziel oder Scope zu `requirements-clarification`.
 - Bei unklarem Schnitt zu `brainstorming`.
 - Bei Zyklus, widersprüchlicher Hierarchie oder nicht belastbarer Zerlegung stoppen und den Blocker nennen.
 

@@ -9,7 +9,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Vor nicht-trivialen Codeänderungen.
 - Wenn mehrere Dateien, Schichten oder Risiken betroffen sind.
 - Wenn ein Plan als Agenten-Kontext für die Umsetzung oder als technische Vorarbeit für ein GitHub-Issue gebraucht wird.
-- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien noch unklar sind. Dann `anforderungsklaerung` nutzen.
+- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien noch unklar sind. Dann `requirements-clarification` nutzen.
 - Nicht verwenden, wenn der nächste Schritt offensichtlich und klein ist.
 
 ## Vorgehen
@@ -28,7 +28,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 
 - Keine Codeänderungen vornehmen.
 - Keinen Code, keine Issues und keine externe Dokumentation selbst lesen.
-- Wenn Kontext fehlt, vorgelagert `code_lesen`, `code_analyse`, `research`, `brainstorming` oder `anforderungsklaerung` nutzen.
+- Wenn Kontext fehlt, vorgelagert `code-reading`, `code-analysis`, `research`, `brainstorming` oder `requirements-clarification` nutzen.
 - Nicht blind planen, wenn belastbarer Kontext fehlt.
 - Design- oder Architekturentscheidungen nur aufnehmen, wenn sie die Umsetzung direkt steuern.
 - Keine breite Alternativenabwägung ausführen. Dann `brainstorming` nutzen.

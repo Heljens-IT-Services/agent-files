@@ -14,24 +14,24 @@ Schwachstellen und Verbesserungsvorschläge an Agent-Files, Leitplanken, Skills 
 
 ## Verwendete Skills
 
-- `anforderungsklaerung`
-- `github_issue-erstellen`
-- `github_type-setzen`
-- `github_relationship-setzen`
+- `requirements-clarification`
+- `issue-creation`
+- `type-setting`
+- `relationship-setting`
 
 ## Ablauf
 
 1. Verbesserungsvorschlag oder Schwachstelle, betroffene Instruktion und Ursprungskontext erfassen.
 2. Aktuelle Regelbefolgung und zukünftige Regelverbesserung trennen: Die geltende Leitplanke bleibt für den aktuellen Task bindend, solange keine höherrangige Vorgabe entgegensteht.
 3. Reflexionskriterium bestimmen: unsinnig, kontraproduktiv, widersprüchlich, zielverfehlend oder nicht ausreichend operationalisierbar.
-4. Bei unscharfem Vorschlag mit `anforderungsklaerung` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewünschter Zielzustand ausreichend klar sind.
+4. Bei unscharfem Vorschlag mit `requirements-clarification` interaktiv nachfragen, bis Ziel, Scope, betroffene Instruktion und gewünschter Zielzustand ausreichend klar sind.
 5. Ziel-Repository explizit auf `Heljens-IT-Services/agent-files` setzen.
 6. Im Issue das konsumierende Repository, die betroffene referenzierte Datei oder URL und den konkreten Nutzungskontext verlinken oder beschreiben, wenn bekannt.
 7. GitHub-Issue-Type passend zum Kontext bestimmen: `Task`, `Story`, `Spike` oder `Epic`.
 8. Relationships bestimmen, wenn aus dem Kontext ein Parent, Child oder Blocker hervorgeht.
-9. Mit `github_issue-erstellen` eigenständig ein strukturiertes Issue in `Heljens-IT-Services/agent-files` erstellen.
-10. Mit `github_type-setzen` den nativen GitHub-Issue-Type setzen.
-11. Mit `github_relationship-setzen` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
+9. Mit `issue-creation` eigenständig ein strukturiertes Issue in `Heljens-IT-Services/agent-files` erstellen.
+10. Mit `type-setting` den nativen GitHub-Issue-Type setzen.
+11. Mit `relationship-setting` native Relationships setzen, wenn sie aus dem Kontext hervorgehen.
 
 ## Reflexionskriterien
 
@@ -58,11 +58,11 @@ Ein Instruction-Improvement-Issue soll mindestens enthalten:
 
 ## Rücksprungregeln
 
-- Bei unklarem Verbesserungsvorschlag zurück zu `anforderungsklaerung`.
+- Bei unklarem Verbesserungsvorschlag zurück zu `requirements-clarification`.
 - Wenn Ziel, Scope, betroffene Instruktion oder Zielzustand nicht klärbar sind, Workflow blockieren.
 - Bei fehlenden GitHub-Rechten oder unklarer Repository-Zuordnung stoppen und Blocker melden.
-- Bei möglichem Duplikat den Duplikatregeln aus `github_issue-erstellen` folgen.
-- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurück zu `anforderungsklaerung`.
+- Bei möglichem Duplikat den Duplikatregeln aus `issue-creation` folgen.
+- Bei unklarem GitHub-Issue-Type oder unklarer Relationship-Richtung zurück zu `requirements-clarification`.
 
 ## Endergebnis
 

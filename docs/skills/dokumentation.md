@@ -9,8 +9,8 @@ Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder 
 - Wenn README, Architektur-Doku, Nutzer-Doku, Changelog, Release Notes, API-Doku oder externe Dokumentation erstellt oder angepasst werden soll.
 - Wenn eine Codeänderung dokumentarisch nachgezogen werden muss.
 - Wenn bestehende Dokumentation strukturiert, geschärft oder aktualisiert werden soll.
-- Nicht verwenden, wenn nur code-nahe Kommentare oder Inline-Dokumentation im selben Änderungsbereich angepasst werden. Das kann `code_implementieren` übernehmen.
-- Nicht verwenden, wenn Anforderungen, Scope oder Akzeptanzkriterien erst geklärt werden müssen. Dann `anforderungsklaerung` nutzen.
+- Nicht verwenden, wenn nur code-nahe Kommentare oder Inline-Dokumentation im selben Änderungsbereich angepasst werden. Das kann `code-implementation` übernehmen.
+- Nicht verwenden, wenn Anforderungen, Scope oder Akzeptanzkriterien erst geklärt werden müssen. Dann `requirements-clarification` nutzen.
 
 ## Vorgehen
 
@@ -29,7 +29,7 @@ Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder 
 - Die zu ändernde Dokumentation und direkt für ihre Konsistenz erforderliche Dokumentationsdateien dürfen gelesen werden.
 - Keinen Code, keine Issues und keine externen Quellen selbst lesen.
 - Keine Recherche, Code-Analyse oder Implementierungsplanung ersetzen.
-- Wenn Kontext fehlt, vorgelagert `code_lesen`, `research`, `code_analyse`, `anforderungsklaerung` oder `code_implementierungsplanung` nutzen.
+- Wenn Kontext fehlt, vorgelagert `code-reading`, `research`, `code-analysis`, `requirements-clarification` oder `code-implementation-planning` nutzen.
 - Changelog oder Release Notes dürfen gepflegt werden, aber keine Release-Aussagen erfinden, wenn sie nicht aus Kontext oder Userwunsch hervorgehen.
 
 ## Output

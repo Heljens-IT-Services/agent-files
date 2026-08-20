@@ -8,7 +8,7 @@ Einen abgeschlossenen lokalen Änderungssatz logisch schneiden und als einen ode
 
 - Wenn lokale Änderungen fertig, getestet und reviewed sind und bewusst committet werden sollen.
 - Wenn der User nur einen lokalen Commit ohne Push beauftragt.
-- Nicht verwenden, wenn bereits vorhandene lokale Commits nur gepusht werden sollen. Dann `github_push` nutzen.
+- Nicht verwenden, wenn bereits vorhandene lokale Commits nur gepusht werden sollen. Dann `github-push` nutzen.
 - Nicht verwenden, wenn Commit und Push zusammenhängend ausgeführt werden sollen. Dann den Workflow `commit-push.md` nutzen.
 
 ## Vorgehen

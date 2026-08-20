@@ -1,4 +1,4 @@
-# Workflow: Issue Graph Umsetzung
+# Workflow: Issue Graph Implementation
 
 ## Ziel
 
@@ -13,17 +13,16 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
 
 ## Direkte Aliase
 
-- `/umsetzen <issue-nummer>`
-- `/umsetzung <issue-nummer>`
+- `/implement <issue-number>`
 
-`<issue-nummer>` muss als positive Ganzzahl mit optional vorangestelltem `#` angegeben werden, zum Beispiel `/umsetzen #123` oder `/umsetzung 123`.
+`<issue-number>` muss als positive Ganzzahl mit optional vorangestelltem `#` angegeben werden, zum Beispiel `/implement #123`.
 
 ## Verwendete Skills
 
-- `github_branch-checkout-from-default`
-- `github_issue-lesen`
+- `github-branch-checkout-from-default`
+- `issue-reading`
 - `brainstorming`
-- `github_pr-erstellen`
+- `pr-creation`
 
 ## Verwendete Workflows
 
@@ -33,7 +32,7 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
 
 ### Phase 1: Graph lesen
 
-1. Mit `github_issue-lesen` das Ausgangs-Issue inklusive relevanter Parent-, Child- und Blocked-by-Beziehungen lesen.
+1. Mit `issue-reading` das Ausgangs-Issue inklusive relevanter Parent-, Child- und Blocked-by-Beziehungen lesen.
 2. Child-Beziehungen vom Ausgangs-Issue rekursiv verfolgen, bis keine weiteren relevanten Child-Issues gefunden werden.
 3. Blocked-by-Beziehungen für alle bereits scope-relevanten Knoten lesen und die blockierenden Issues als Abhängigkeitskontext erfassen.
 4. Bereits besuchte Issues nicht erneut traversieren. Eine besuchte Menge anhand stabiler Repository-/Issue-Identität führen.
@@ -59,7 +58,7 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
 
 ### Phase 3: Arbeitsbranch und Ausführungsplan vorbereiten
 
-1. Mit `github_branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
+1. Mit `github-branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
 2. Vor jeder Codeänderung einen Ausführungsplan als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich des Arbeitsbaums erzeugen oder fortführen. Pfad und Dateiname müssen aus Repository und Ausgangs-Issues deterministisch ableitbar sein.
 3. Der Ausführungsplan ist ein reines Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
 4. Der Plan muss mindestens enthalten:
@@ -137,7 +136,7 @@ Empfohlene Struktur des Fortschrittsankers:
 7. Danach den Git-Arbeitsbaum erneut prüfen. Runtime-Artefakte dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
 8. Wenn der Arbeitsbaum nicht sauber ist, ein Commit oder Push fehlt oder ein Runtime-Artefakt im Arbeitsbaum liegt, die PR-Erstellung blockieren und den konkreten Restzustand beheben oder melden. Der unversionierte Fortschrittsanker im Git-Verwaltungsbereich darf für weitere Pull-Request-Schnitte bestehen bleiben.
 9. Den finalen Issue-Scope und Teststatus für den Pull Request zusammenstellen.
-10. Mit `github_pr-erstellen` den Pull Request mit Review-Kontext und den tatsächlich abgeschlossenen Issue-Verknüpfungen erstellen.
+10. Mit `pr-creation` den Pull Request mit Review-Kontext und den tatsächlich abgeschlossenen Issue-Verknüpfungen erstellen.
 11. Das Ausgangs-Issue und weitere durch den PR vollständig abgeschlossene Scope-Issues so verlinken, dass GitHub sie beim Merge schließen kann. Nicht vollständig abgeschlossene oder extern blockierte Issues nur referenzieren.
 12. Den Fortschrittsanker vor jeder Abschlussmeldung erneut gegen Issue-Graph, Commit-, Push- und Pull-Request-Status prüfen.
 13. Solange ein ausführbarer Scope-Knoten offen ist, keine Abschlussmeldung ausgeben, sondern die Ausführung fortsetzen. Bei einer Unterbrechung ausschließlich den Zwischenstand und den Wiederaufnahmepunkt melden.
@@ -145,7 +144,7 @@ Empfohlene Struktur des Fortschrittsankers:
 
 ## Rücksprungregeln
 
-- Bei unklarem Issue-Kontext zurück zu Phase 1 und `github_issue-lesen`.
+- Bei unklarem Issue-Kontext zurück zu Phase 1 und `issue-reading`.
 - Bei unklaren Issue-Beziehungen zurück zu Phase 1.
 - Bei unklarem oder ausgeweitetem Scope zurück zu Phase 2.
 - Bei widersprüchlichen Abhängigkeiten, neu erkannten Blockern oder Zyklen zurück zu Phase 3.

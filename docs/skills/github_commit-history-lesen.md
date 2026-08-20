@@ -8,7 +8,7 @@ Commits und gemergte Pull Requests eines Repositorys für einen abgegrenzten Zei
 
 - Wenn Commits und gemergte Pull Requests eines Repositorys für einen Bericht oder eine Auswertung benötigt werden.
 - Wenn Zeitraum, Repository und auszuwertender Branch feststehen.
-- Nicht verwenden, um Änderungen fachlich oder technisch zusammenzufassen. Das übernimmt ein nachgelagerter Workflow oder `dokumentation`.
+- Nicht verwenden, um Änderungen fachlich oder technisch zusammenzufassen. Das übernimmt ein nachgelagerter Workflow oder `documentation`.
 - Nicht verwenden, um offene Pull Requests, Issues oder allgemeine Repository-Fragen zu recherchieren. Dann `research` nutzen.
 
 ## Vorgehen

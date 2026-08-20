@@ -9,7 +9,7 @@ Bestehenden Code gezielt lesen, damit relevante Dateien, Symbole und Abläufe im
 - Wenn Orientierung in einem unbekannten Codebereich gebraucht wird.
 - Wenn Code als Grundlage für weitere Arbeit in den Kontext geladen werden soll.
 - Wenn der User knapp wissen will, welche Dateien, Einstiegspunkte oder Abläufe relevant sind.
-- Nicht verwenden, wenn Ursachen, Risiken, Qualität oder Lösungen bewertet werden sollen. Dann `code_analyse` nutzen.
+- Nicht verwenden, wenn Ursachen, Risiken, Qualität oder Lösungen bewertet werden sollen. Dann `code-analysis` nutzen.
 
 ## Vorgehen
 

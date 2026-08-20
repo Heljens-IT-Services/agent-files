@@ -10,7 +10,7 @@ Interaktiv mehrere plausible Denk- oder Lösungsrichtungen entwickeln, vergleich
 - Wenn Tradeoffs zwischen mehreren technischen oder fachlichen Optionen gebraucht werden.
 - Wenn der User gemeinsam denken, abwägen oder eine Richtung finden will.
 - Wenn es um Code, Issues, PRs, Online-Dokumentation, Produktfragen, Architektur oder allgemeine Konzepte gehen kann.
-- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien geklärt werden müssen. Dann `anforderungsklaerung` nutzen.
+- Nicht verwenden, wenn Ziel, Scope, Nicht-Ziele oder Akzeptanzkriterien geklärt werden müssen. Dann `requirements-clarification` nutzen.
 - Nicht verwenden, wenn bereits implementiert werden soll. Dann planen oder umsetzen.
 
 ## Vorgehen

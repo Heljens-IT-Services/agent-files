@@ -11,7 +11,7 @@ Native GitHub-Relationships zwischen bestehenden Issues gezielt setzen, insbeson
 - Wenn Repository, beteiligte Issue-Nummern und Relationship-Art klar sind.
 - Nicht verwenden, um Labels zu setzen. Labels ersetzen keine native Relationship.
 - Nicht verwenden, um Body-Links oder Textverweise als Ersatz für native Relationships zu pflegen.
-- Nicht verwenden, um GitHub-Issue-Types zu setzen. Dann `github_type-setzen` nutzen.
+- Nicht verwenden, um GitHub-Issue-Types zu setzen. Dann `type-setting` nutzen.
 
 ## Vorgehen
 
@@ -28,10 +28,10 @@ Native GitHub-Relationships zwischen bestehenden Issues gezielt setzen, insbeson
 Issue-IDs lesen:
 
 ```powershell
-$blockedIssueId = gh issue view <blocked-issue-nummer> --repo <org>/<repo> --json id --jq .id
-$blockingIssueId = gh issue view <blocking-issue-nummer> --repo <org>/<repo> --json id --jq .id
-$parentIssueId = gh issue view <parent-issue-nummer> --repo <org>/<repo> --json id --jq .id
-$childIssueId = gh issue view <child-issue-nummer> --repo <org>/<repo> --json id --jq .id
+$blockedIssueId = gh issue view <blocked-issue-number> --repo <org>/<repo> --json id --jq .id
+$blockingIssueId = gh issue view <blocking-issue-number> --repo <org>/<repo> --json id --jq .id
+$parentIssueId = gh issue view <parent-issue-number> --repo <org>/<repo> --json id --jq .id
+$childIssueId = gh issue view <child-issue-number> --repo <org>/<repo> --json id --jq .id
 ```
 
 Blocked-by setzen:
@@ -55,17 +55,17 @@ gh api graphql `
 Basisdaten zur Kontrolle lesen:
 
 ```powershell
-gh issue view <issue-nummer> --repo <org>/<repo> --json id,number,title,url
+gh issue view <issue-number> --repo <org>/<repo> --json id,number,title,url
 ```
 
 Platzhalter:
 
 - `<org>`: GitHub-Organisation oder Owner.
 - `<repo>`: Repository-Name ohne Organisation.
-- `<blocked-issue-nummer>`: Issue, das blockiert ist.
-- `<blocking-issue-nummer>`: Issue, das den Blocker darstellt.
-- `<parent-issue-nummer>`: übergeordnetes Issue.
-- `<child-issue-nummer>`: untergeordnetes Issue.
+- `<blocked-issue-number>`: Issue, das blockiert ist.
+- `<blocking-issue-number>`: Issue, das den Blocker darstellt.
+- `<parent-issue-number>`: übergeordnetes Issue.
+- `<child-issue-number>`: untergeordnetes Issue.
 
 ## Grenzen
 

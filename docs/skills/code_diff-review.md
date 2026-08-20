@@ -25,10 +25,10 @@ Einen Änderungssatz auf Scope, Korrektheit und Risiken prüfen.
 - Keine Dateien ändern.
 - Die Bewertung `nicht versandbereit` blockiert Commit, Push, Pull Request und andere extern wirksame Folgeschritte.
 - Bei `versandbereit mit Hinweisen` müssen die Hinweise im Arbeitsabschluss sichtbar bleiben.
-- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code_testen`.
-- Keine Fehler beheben. Dafür `code_implementieren` oder `code_refactoring` nutzen.
+- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
+- Keine Fehler beheben. Dafür `code-implementation` oder `code-refactoring` nutzen.
 - Keine Formatierungs-, Whitespace-, Line-ending- oder Encoding-Probleme selbst korrigieren.
-- Keine breite Analyse ersetzen. Tiefergehende Ursachen- oder Risikoanalyse gehört zu `code_analyse`.
+- Keine breite Analyse ersetzen. Tiefergehende Ursachen- oder Risikoanalyse gehört zu `code-analysis`.
 - Untracked files müssen im Arbeitsstatus benannt und bei Task-Relevanz separat gelesen und reviewt werden, weil sie im regulären Git-Diff fehlen.
 
 ## Output
