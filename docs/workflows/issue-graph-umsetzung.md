@@ -144,6 +144,14 @@ Empfohlene Struktur des Fortschrittsankers:
 
 ## Rücksprungregeln
 
+## Codex-Orchestrierung
+
+- Graph- und Scope-Phasen: `planner`; der Hauptagent bleibt für die abschließende Scope-Entscheidung verantwortlich.
+- Technische Arbeitseinheiten: sequenziell `developer`, danach `tester`.
+- Commit und Push je Arbeitseinheit sowie PR-Schnitt: `main/orchestrator`.
+- Schreibende Arbeitseinheiten werden nicht parallel auf demselben Worktree ausgeführt.
+- Planbruch geht an `planner`; lokaler Implementierungsfehler an `developer`; widersprüchliche Akzeptanzkriterien an `planner` oder den Orchestrator.
+
 - Bei unklarem Issue-Kontext zurück zu Phase 1 und `issue-reading`.
 - Bei unklaren Issue-Beziehungen zurück zu Phase 1.
 - Bei unklarem oder ausgeweitetem Scope zurück zu Phase 2.

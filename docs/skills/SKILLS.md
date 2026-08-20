@@ -37,3 +37,47 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `relationship-setting` | Relationship Setting | - | Native GitHub-Relationships wie Blocked-by oder Parent/Child gesetzt werden sollen. | [github_relationship-setzen.md](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setzen.md) | Issue-Beziehungen pflegen. |
 | `type-setting` | Type Setting | - | Der native GitHub-Issue-Type eines bestehenden oder neu erstellten Issues gesetzt werden soll. | [github_type-setzen.md](https://heljens-it-services.github.io/agent-files/skills/github_type-setzen.md) | Issue-Type pflegen. |
 | `research` | Research | - | Web-, Repository-, Issue- oder PR-Kontext recherchiert und zusammengefasst werden soll. | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Kontext recherchieren. |
+
+## Codex-Default-Zuordnung
+
+Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Workflow darf sie für einen konkreten Schritt bewusst überschreiben, ohne die fachlichen Regeln des Skills zu umgehen.
+
+| Skill-ID | Standard unter Codex | Ausführungshinweis |
+|---|---|---|
+| `requirements-clarification` | `planner` | Ziel, Scope und offene Anforderungen klären. |
+| `brainstorming` | `planner` | Optionen strukturieren und Entscheidungen vorbereiten. |
+| `code-analysis` | `developer` | Technische Ursachen, Risiken und Abhängigkeiten bewerten. |
+| `code-diff-review` | `developer` | Technischen Änderungssatz prüfen; fachliche Testbewertung bleibt beim Tester. |
+| `code-implementation` | `developer` | Geplante Codeänderungen umsetzen. |
+| `code-implementation-planning` | `planner` | Technische Arbeitspakete aus geklärtem Kontext planen. |
+| `code-reading` | `developer` | Codekontext für technische Folgearbeit erfassen. |
+| `code-refactoring` | `developer` | Verhaltenserhaltende Strukturänderungen umsetzen. |
+| `code-testing` | `tester` | Build-, Test-, E2E- und manuelle Verifikation ausführen. |
+| `documentation` | `main/orchestrator` | Dokumentationsscope und veröffentlichte Regelwirkung koordinieren; workflowbezogen delegierbar. |
+| `github-branch-checkout-from-default` | `main/orchestrator` | Branchwechsel und Basiswahl koordinieren; nicht parallel delegieren. |
+| `github-commit` | `main/orchestrator` | Commit-Scope und lokale Git-Mutation koordinieren. |
+| `commit-history-reading` | `main/orchestrator` | Repositoryhistorie als Workflow-Kontext lesen. |
+| `default-branch-update` | `main/orchestrator` | Integrationsbranch nach verifiziertem Merge aktualisieren. |
+| `integration-branch-update` | `main/orchestrator` | `develop` nach verifiziertem Merge aktualisieren. |
+| `issue-creation` | `planner` | Issues fachlich strukturieren; Mutation durch den Orchestrator kontrollieren. |
+| `issue-reading` | `planner` | Issue-Ziel, Scope, Typen und Beziehungen erfassen. |
+| `pr-checks-observation` | `tester` | Erforderliche Checks und deren terminalen Zustand bewerten. |
+| `pr-creation` | `main/orchestrator` | PR-Schnitt, Closure-Semantik und externe Mutation koordinieren. |
+| `github-pr-merge` | `main/orchestrator` | Freigabe, Merge-Gates und Merge-Mutation koordinieren. |
+| `github-push` | `main/orchestrator` | Upstream und externe Push-Mutation kontrollieren. |
+| `repository-baseline-configuration` | `main/orchestrator` | Repositoryweite Sollbestände und externe Wirkung koordinieren. |
+| `relationship-setting` | `planner` | Beziehung fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
+| `type-setting` | `planner` | Issue-Type fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
+| `research` | `main/orchestrator` | Je nach Gegenstand an Planner, Developer oder Tester delegierbar. |
+
+## Delegation und Fallback
+
+[MUST] Der Hauptagent bleibt Orchestrator für zusammengesetzte Abläufe, rollenübergreifende Entscheidungen und mutierende administrative Schritte.
+
+[MUST_IF] Wenn ein mutierender Skill von einem SubAgent ausgeführt wird, muss der aufrufende Workflow Scope, Berechtigung, Reihenfolge und anschließende Verifikation eindeutig festlegen.
+
+[MUST_NOT] Die Default-Zuordnung darf keine unkoordinierten parallelen Schreibzugriffe verschiedener SubAgents auf denselben Worktree erlauben.
+
+[MUST] Der Orchestrator übergibt Ziel, Scope, relevanten Kontext, Constraints, Entscheidungen und erwartetes Ergebnis und erwartet Ergebnis, Verifikation, Abweichungen, Blocker und nächste Rolle zurück.
+
+[ALLOW_IF] Ohne Codex-Custom-Agents führt der aktuelle Agent die Skills selbst nach denselben fachlichen Regeln aus.

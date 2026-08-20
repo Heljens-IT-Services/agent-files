@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-08-16
+Stand: 2026-08-20
 
 ## Zweck
 
@@ -117,6 +117,24 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 [MUST_IF] Ein von Heljens gepflegtes Software-Repository GitHub Issue Forms nutzt, muss es den vollständigen [Issue-Template-Satz](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) unverändert unter `.github/ISSUE_TEMPLATE` übernehmen.
 
 [MUST_IF] Ein von Heljens gepflegtes Software-Repository unterstützte Abhängigkeitsquellen besitzt, muss es `.github/dependabot.yml` gemäß der [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) pflegen.
+
+## Codex-Custom-Agents
+
+[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die kanonischen Agent-Namen `planner`, `developer` und `tester` geprüft werden.
+
+[MUST_IF] Einer der kanonischen Agent-Namen im ausführenden Repository fehlt, muss die zugehörige Online-Vorlage nachgelagert unter dem kanonischen Pfad `.codex/agents/<agent-name>.toml` erstellt werden. Dies gilt für jeden fehlenden Agent einzeln und unabhängig davon, ob andere Custom Agents bereits vorhanden sind.
+
+[MUST_IF] Der Agent `planner` fehlt, muss [planner.toml](https://heljens-it-services.github.io/agent-files/codex/agents/planner.toml) kopiert werden. Fehlt `developer`, muss [developer.toml](https://heljens-it-services.github.io/agent-files/codex/agents/developer.toml) kopiert werden. Fehlt `tester`, muss [tester.toml](https://heljens-it-services.github.io/agent-files/codex/agents/tester.toml) kopiert werden.
+
+[MUST_NOT_IF] Ein kanonischer Zielpfad bereits durch eine widersprüchliche Datei belegt ist, darf sie nicht stillschweigend überschrieben werden; der Konflikt muss gemeldet werden.
+
+[MUST] Die online veröffentlichten Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den Mustervorlagen unter `.codex/agents/` gepflegt werden.
+
+[MUST_NOT] Die TOML-Dateien dürfen die vollständigen Heljens-Rollen-, Skill- oder Workflow-Regeln nicht duplizieren. Sie bilden nur die Codex-Laufzeit ab und müssen auf die geltenden Einstiegsdateien, `PROJECT.md` und den relevanten Heljens-Kontext verweisen.
+
+[MUST_IF] Eine Laufzeit keine Codex-Custom-Agents unterstützt, bleiben die veröffentlichten Rollen-, Skill- und Workflow-Regeln ohne diese Laufzeitabbildung vollständig maßgeblich.
+
+[MUST_NOT] Schreibende SubAgents dürfen nicht unkoordiniert parallel auf demselben Worktree arbeiten.
 
 ## PROJECT.md
 

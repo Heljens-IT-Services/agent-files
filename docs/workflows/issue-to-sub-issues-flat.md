@@ -43,6 +43,12 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - Type kontextbasiert bestimmen
 - Task-Children erfüllen den kanonischen Task-Issue-Vertrag oder sind ausdrücklich als nicht terminal erkennbar
 
+## Codex-Orchestrierung
+
+- Zerlegung, Schnittkriterien und fachliche Parent/Child-Entscheidung: `planner`.
+- Issue-Erstellung und Relationship-Mutationen: `main/orchestrator` nach der Planner-Prüfung.
+- Unklare Ziele oder Schnitte gehen zurück an `planner`; keine parallelen Schreibmutationen auf demselben Issue-Graphen.
+
 ## Endergebnis
 
 - genau eine verifizierte Child-Ebene

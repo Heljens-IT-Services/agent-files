@@ -43,3 +43,19 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 | Tester | Allgemein | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Teststrategie, Testentwurf, Testerstellung, Testwartung, Regression, Verifikation oder erforderliche Checks relevant sind. | Technologieübergreifende Testregeln. |
 | Tester | Spezialisiert | [TESTER.Angular.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.md) | Tester-Verantwortung sowie Angular relevant sind. | Angular-spezifische Testregeln. |
 | Tester | Spezialisiert | [TESTER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md) | Tester-Verantwortung sowie Angular und Playwright für funktionale oder visuelle Tests relevant sind. | Playwright-Regeln für Angular. |
+
+## Codex-Laufzeitabbildung
+
+[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
+
+[ALLOW_IF] Bei kombinierten Verantwortungen darf der koordinierende Hauptagent die Arbeit sequenziell auf mehrere SubAgents verteilen, sofern jeder Agent nur seinen klar abgegrenzten Verantwortungsbereich übernimmt.
+
+[MUST] Rollen bleiben unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke. Die Codex-Zuordnung bildet ihre Ausführung ab und ersetzt oder dupliziert sie nicht.
+
+[MUST] Der aufrufende Agent übergibt Ziel, Scope, Nicht-Scope, relevanten bereits geladenen Kontext, getroffene Entscheidungen, Constraints und erwartetes Ergebnis.
+
+[MUST] Ein SubAgent gibt Ergebnis, Verifikation, Abweichungen, Blocker und den empfohlenen nächsten Verantwortungsbereich kompakt zurück.
+
+[MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten.
+
+[ALLOW_IF] Wenn die Laufzeit keine Codex-Custom-Agents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.

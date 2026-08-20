@@ -40,6 +40,14 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 
 ## Rücksprungregeln
 
+## Codex-Orchestrierung
+
+- Anforderungs- oder Ursachenklärung: `planner` beziehungsweise `developer` bei technischer Analyse.
+- Umsetzung: `developer`.
+- Regression und Fehlerpfadprüfung: `tester`.
+- Commit, Push und abschließende GitHub-Mutation: `main/orchestrator`.
+- Planbruch geht an `planner`, ein lokaler Test- oder Implementierungsfehler gezielt zurück an `developer`.
+
 - Wenn Ursache, Scope oder Risiken unklar sind, zurück zu `code-analysis`.
 - Wenn der Bug nicht reproduziert werden kann, zurück zu `code-analysis`, um Repro-Bedingungen, Ursache oder Scope weiter zu klären.
 - Wenn der Fix größer als erwartet wird, zurück zu `code-implementation-planning`.
