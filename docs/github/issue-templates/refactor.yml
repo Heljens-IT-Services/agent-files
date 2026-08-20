@@ -1,5 +1,5 @@
 name: Refactor
-description: Internal cleanup or architecture improvement without intended behavior change
+description: Interne Bereinigung oder Architekturverbesserung ohne beabsichtigte Verhaltensänderung
 title: "[Refactor]: "
 labels:
   - refactor
@@ -8,52 +8,52 @@ body:
     id: goal
     attributes:
       label: Ziel
-      description: What should be improved internally?
-      placeholder: Describe the intended technical improvement.
+      description: Was soll intern verbessert werden?
+      placeholder: Beschreibe die beabsichtigte technische Verbesserung.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext
-      description: Why is this refactor needed and which architecture topic is affected?
-      placeholder: Explain current pain points, affected modules, and related decisions.
+      description: Warum wird dieses Refactoring benötigt und welches Architekturthema ist betroffen?
+      placeholder: Erläutere aktuelle Probleme, betroffene Module und verwandte Entscheidungen.
     validations:
       required: true
   - type: textarea
     id: tasks
     attributes:
       label: Aufgabe
-      description: Concrete refactoring steps.
+      description: Konkrete Refactoring-Schritte.
       placeholder: |
-        - Step 1
-        - Step 2
-        - Step 3
+        - Schritt 1
+        - Schritt 2
+        - Schritt 3
     validations:
       required: true
   - type: textarea
     id: constraints
     attributes:
       label: Technische Constraints
-      description: Which architectural rules or boundaries must be respected?
-      placeholder: Avoid RxJS except interop to Signals. HTTP requests should be Promise-based.
+      description: Welche Architekturregeln oder Grenzen müssen eingehalten werden?
+      placeholder: Beschreibe die einzuhaltenden Regeln und Grenzen.
     validations:
       required: false
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Akzeptanzkriterien
-      description: How can we verify that the refactor is complete?
+      description: Woran ist erkennbar, dass das Refactoring abgeschlossen ist?
       placeholder: |
-        - [ ] Existing behavior remains unchanged unless explicitly documented.
-        - [ ] The targeted structure is improved.
-        - [ ] Relevant tests, builds, or checks still pass.
+        - [ ] Das bestehende Verhalten bleibt unverändert, sofern keine Änderung ausdrücklich dokumentiert ist.
+        - [ ] Die angestrebte Struktur ist verbessert.
+        - [ ] Relevante Tests, Builds oder Checks sind weiterhin erfolgreich.
     validations:
       required: true
   - type: textarea
     id: notes
     attributes:
       label: Hinweise
-      description: Affected files, dependencies, risks, or follow-up work.
+      description: Betroffene Dateien, Abhängigkeiten, Risiken oder Folgearbeiten.
     validations:
       required: false

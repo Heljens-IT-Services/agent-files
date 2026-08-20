@@ -1,5 +1,5 @@
 name: Story
-description: User-facing or functional story within an epic
+description: Nutzerorientierte oder fachliche Story innerhalb eines Epics
 title: "[Story]: "
 labels:
   - story
@@ -8,44 +8,44 @@ body:
     id: goal
     attributes:
       label: Ziel
-      description: What user-facing or functional result should be achieved?
-      placeholder: Describe the desired result from a user or product perspective.
+      description: Welches nutzerorientierte oder fachliche Ergebnis soll erreicht werden?
+      placeholder: Beschreibe das gewünschte Ergebnis aus Nutzer- oder Produktsicht.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext
-      description: Which epic, feature, or user flow does this story belong to?
-      placeholder: Explain the background and related issues.
+      description: Zu welchem Epic, Feature oder Nutzerfluss gehört diese Story?
+      placeholder: Erläutere den Hintergrund und verwandte Issues.
     validations:
       required: true
   - type: textarea
     id: tasks
     attributes:
       label: Aufgabe
-      description: What needs to be implemented or changed?
+      description: Was muss umgesetzt oder geändert werden?
       placeholder: |
-        - Step 1
-        - Step 2
-        - Step 3
+        - Schritt 1
+        - Schritt 2
+        - Schritt 3
     validations:
       required: true
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Akzeptanzkriterien
-      description: How can we verify that this story is complete?
+      description: Woran ist erkennbar, dass diese Story abgeschlossen ist?
       placeholder: |
-        - [ ] Criterion 1 is fulfilled
-        - [ ] Criterion 2 is fulfilled
-        - [ ] Criterion 3 is fulfilled
+        - [ ] Kriterium 1 ist erfüllt
+        - [ ] Kriterium 2 ist erfüllt
+        - [ ] Kriterium 3 ist erfüllt
     validations:
       required: true
   - type: textarea
     id: notes
     attributes:
       label: Hinweise
-      description: Technical notes, constraints, dependencies, or boundaries.
+      description: Technische Hinweise, Constraints, Abhängigkeiten oder Grenzen.
     validations:
       required: false

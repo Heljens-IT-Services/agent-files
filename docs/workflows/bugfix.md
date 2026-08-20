@@ -29,9 +29,9 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 
 1. Bug-Input aufnehmen: vorhandenen Kontext verwenden oder mit `issue-reading` das Issue lesen.
 2. Mit `github-branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-3. Mit `code-analysis` im Context-only-Modus Ursache, betroffenen Scope und relevante Risiken klären.
+3. Einen vorhandenen terminalen Issue- oder Task-Plan gegen Repository-Zustand und geltende Regeln prüfen. Nur bei ungeklärter Ursache oder Planbruch mit `code-analysis` Ursache, Scope und Risiken klären.
 4. Mit `code-testing` den Bug reproduzieren.
-5. Mit `code-implementation-planning` den Bugfix planen.
+5. Den vorhandenen Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt planen.
 6. Mit `code-implementation` den Bugfix umsetzen.
 7. Mit `code-testing` prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
 8. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
@@ -43,7 +43,8 @@ Einen Fehler zielgerichtet analysieren, beheben und absichern.
 - Wenn Ursache, Scope oder Risiken unklar sind, zurück zu `code-analysis`.
 - Wenn der Bug nicht reproduziert werden kann, zurück zu `code-analysis`, um Repro-Bedingungen, Ursache oder Scope weiter zu klären.
 - Wenn der Fix größer als erwartet wird, zurück zu `code-implementation-planning`.
-- Bei fehlgeschlagenen Tests zurück zu `code-implementation-planning`.
+- Bei einem lokalen Implementierungsfehler Ursache im geplanten Scope korrigieren und die relevante Prüfung wiederholen.
+- Bei einem grundlegenden Widerspruch zwischen Reproduktion, Plan und Repository-Zustand zurück zu `code-analysis` oder `code-implementation-planning`.
 
 ## Endergebnis
 

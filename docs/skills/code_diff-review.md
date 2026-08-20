@@ -12,12 +12,13 @@ Einen Änderungssatz auf Scope, Korrektheit und Risiken prüfen.
 
 ## Vorgehen
 
-1. Diff gegen Ziel und Scope abgleichen.
+1. Diff gegen Ziel sowie vorhandenen technischen Plan, Scope, Nicht-Scope und Akzeptanzkriterien abgleichen.
 2. Arbeitsstatus und Diff lesen, z. B. `git status --short --branch`, `git diff --stat`, `git diff`, `git diff --cached --stat`, `git diff --cached` oder `git diff -- <pfad>`.
 3. Staged und unstaged Änderungen getrennt betrachten, wenn beides vorhanden ist.
 4. Unerwartete Dateien, Hunks, Formatierungs-, Whitespace-, Line-ending-, Encoding-Änderungen und Nebeneffekte suchen.
-5. Regressionen, fehlende Tests und riskante Annahmen markieren.
-6. Versandbereitschaft dreistufig bewerten: `versandbereit`, `versandbereit mit Hinweisen` oder `nicht versandbereit`.
+5. Jedes vorhandene Akzeptanzkriterium und jeden vorgesehenen Verifikationsschritt gegen den realen Änderungs- und Teststatus prüfen.
+6. Regressionen, fehlende Prüfungen, Scope-Abweichungen und riskante Annahmen markieren.
+7. Versandbereitschaft dreistufig bewerten: `versandbereit`, `versandbereit mit Hinweisen` oder `nicht versandbereit`.
 
 ## Grenzen
 

@@ -8,6 +8,7 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
 
 - Wenn Lesbarkeit, Wartbarkeit oder Verantwortungsgrenzen verbessert werden sollen.
 - Wenn das zu erhaltende Verhalten durch vorhandenen Kontext oder `code-reading` ausreichend verstanden ist.
+- Wenn ein Task oder Plan Zielstruktur, Scope, Verhaltensgrenzen und Verifikation belastbar vorgibt.
 - Nicht verwenden, wenn fachliches Verhalten geändert werden soll. Dann Implementierung planen.
 
 ## Direkter Alias
@@ -18,12 +19,12 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
 
 ## Vorgehen
 
-1. Verhalten benennen, das erhalten bleiben muss.
-2. Kleinsten sinnvollen Strukturumbau wählen.
-3. Refactoring am Sprachtyp ausrichten.
-4. Unmittelbar zu ändernde Dateien lesen, soweit es für das Refactoring nötig ist.
+1. Aus Task oder Plan zu erhaltendes Verhalten, Zielstruktur, Scope und Verifikation übernehmen.
+2. Das nächste geplante Refactoring-Arbeitspaket und den kleinsten überprüfbaren Strukturumbau bestimmen.
+3. Unmittelbar zu ändernde Dateien und angegebene Referenzen lesen.
+4. Refactoring am Sprachtyp ausrichten.
 5. Produktivcode, bei Bedarf Testdateien und code-nahe Dokumentation schrittweise ohne beabsichtigte Verhaltensänderung ändern.
-6. Strukturgewinn und erforderliche nachgelagerte Verifikation benennen.
+6. Nach jedem Arbeitspaket Strukturgewinn, Verhaltenserhalt und erforderliche Verifikation benennen.
 
 ## Grenzen
 
@@ -39,6 +40,7 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
 - Pro Ausführung ein zusammenhängendes Refactoring-Arbeitspaket umsetzen.
 - Mehrere Refactoring-Arbeitspakete nur umsetzen, wenn sie im Plan explizit als ein Umsetzungsschritt zusammengehören.
 - Keine breite Analyse, Recherche oder Implementierungsplanung ersetzen.
+- Keine Zielstruktur oder Alternativen während der Ausführung grundlegend neu ableiten; bei Planbruch stoppen.
 - Backend: Verantwortlichkeiten dürfen stärker getrennt werden, wenn Logik testbarer und Abhängigkeiten klarer werden.
 - HTML/CSS: Struktur eher reduzieren als abstrahieren; Verschachtelung, Container und komplexe Selektoren abbauen.
 

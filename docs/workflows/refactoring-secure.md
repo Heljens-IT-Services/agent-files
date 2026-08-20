@@ -28,7 +28,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 ## Ablauf
 
 1. Mit `github-branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen.
-2. Mit `code-analysis` im `Context-only-Modus` bestehenden Code, aktuelles Verhalten, Refactoring-Ziele und Verhaltensgrenzen erfassen.
+2. Einen vorhandenen terminalen Issue- oder Task-Plan gegen Repository-Zustand und geltende Regeln prüfen. Nur bei fehlender Verhaltensbasis oder Planbruch mit `code-analysis` bestehenden Code, Ziele und Verhaltensgrenzen erfassen.
 3. Verhaltensbasis festhalten:
    - vorhandene Tests
    - relevante User-Flows
@@ -36,7 +36,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
    - Datenformate
    - Seiteneffekte
    - beobachtbares Verhalten
-4. Mit `code-implementation-planning` die Refactoring-Ziele, Reihenfolge, Grenzen und Absicherungsstrategie planen.
+4. Refactoring-Ziele, Reihenfolge, Grenzen und Absicherungsstrategie aus dem Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt nachplanen.
 5. Falls die bestehende Absicherung zu schwach ist, Tests mit dem Ziel ergänzen oder anpassen, bestehendes Verhalten zu fixieren.
 6. Mit `code-refactoring` die Strukturverbesserungen umsetzen.
 7. Mit `code-testing` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis prüfen.
@@ -49,7 +49,8 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 
 - Wenn bestehendes Verhalten unklar ist, zurück zu `code-analysis` im `Context-only-Modus`.
 - Wenn Tests fehlen oder zu schwach sind, zurück zur Testabsicherung im Ablauf.
-- Wenn Tests wegen Refactoring fehlschlagen, zurück zu `code-refactoring`.
+- Wenn Tests wegen eines lokalen Refactoring-Fehlers fehlschlagen, zurück zu `code-refactoring` und danach die relevante Prüfung wiederholen.
+- Wenn Zielstruktur, Scope oder Verhaltensbasis grundlegend widersprüchlich werden, zurück zu `code-analysis` oder `code-implementation-planning`.
 - Wenn Tests wegen Umgebung nicht ausführbar sind, Workflow blockieren, außer der User erlaubt ausdrücklich einen PR mit dokumentiertem Verifikationsdefizit.
 - Wenn `code-diff-review` eine Verhaltensänderung findet, zurück zu `code-refactoring` oder blockieren.
 - Wenn das Refactoring fachliche Änderungen erzwingt, Workflow blockieren.

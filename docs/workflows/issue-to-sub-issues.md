@@ -21,6 +21,7 @@ Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf
 - `issue-reading`
 - `requirements-clarification`
 - `brainstorming`
+- `code-implementation-planning`
 
 ## Verwendete Workflows
 
@@ -35,7 +36,7 @@ Standard ohne Zusatz.
 1. Ausgangs-Issue und vorhandene Child-Struktur lesen.
 2. Geschlossene Knoten nicht erneut zerlegen.
 3. Offene Leaf-Issues auf Terminalität prüfen.
-4. Jeden nicht terminalen Leaf mit `issue-to-sub-issues-flat.md` genau eine Ebene weiter zerlegen.
+4. Einen nicht terminalen Task mit `code-implementation-planning` gegen den Task-Issue-Vertrag vervollständigen, wenn sein Scope bereits ein klar abgrenzbares Arbeitspaket bildet; andernfalls mit `issue-to-sub-issues-flat.md` genau eine Ebene weiter zerlegen.
 5. Neue Child-Issues erneut prüfen.
 6. Wiederholen, bis jeder offene Ast in terminalen Leaves endet.
 7. Bestehende Issues wiederverwenden und Duplikate vermeiden.
@@ -47,22 +48,16 @@ Bei `/sub-issues <issue-number> flat` `issue-to-sub-issues-flat.md` genau einmal
 
 ## Terminalitätskriterien
 
-Ein Leaf ist terminal, wenn es:
-
-- genau ein klares Ziel hat,
-- eigenständig verständlich ist,
-- klaren Scope und Nicht-Scope besitzt,
-- belastbare Abschluss- oder Akzeptanzkriterien besitzt,
-- eigenständig umsetzbar und verifizierbar ist,
-- einen klar abgrenzbaren Änderungssatz erlaubt.
+Ein Task-Leaf ist nur terminal, wenn er den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) vollständig erfüllt und ohne erneute grundlegende Architektur-, Scope- oder Vorgehensentscheidung umgesetzt werden kann.
 
 Zusätzlich:
 
 - `Epic` und `Story` sind im rekursiven Modus nicht terminal, solange eine sinnvolle weitere Zerlegung möglich ist.
-- `Task` ist nur terminal, wenn die Kriterien erfüllt sind; der Type allein beendet die Rekursion nicht.
+- Der Type `Task` allein beendet die Rekursion nicht.
 - Ein `Spike` darf terminal sein, wenn sein Ergebnis bewusst Recherche, Analyse, Entscheidung oder Klärung ist.
 - Keine künstliche Mindest- oder Zieltiefe erzeugen. Unterschiedliche Äste dürfen unterschiedlich tief sein.
 - Nicht bis zu technisch trivialen Kleinstschritten zerlegen.
+- Bleiben wesentliche Entscheidungen offen, muss weiter geklärt, geplant oder fachlich sinnvoll zerlegt werden.
 
 ## Baumregeln
 

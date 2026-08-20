@@ -1,5 +1,5 @@
 name: Epic
-description: Larger product or architecture initiative that groups stories and tasks
+description: Größere Produkt- oder Architekturinitiative zur Bündelung von Stories und Tasks
 title: "[Epic]: "
 labels:
   - epic
@@ -8,55 +8,55 @@ body:
     id: goal
     attributes:
       label: Ziel
-      description: What larger outcome should this epic achieve?
-      placeholder: Describe the product, technical, or architectural goal.
+      description: Welches übergeordnete Ergebnis soll dieses Epic erreichen?
+      placeholder: Beschreibe das fachliche, technische oder architektonische Ziel.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext
-      description: Why is this epic needed and what area of Building Intelligence does it affect?
-      placeholder: Explain background, motivation, affected modules, and existing decisions.
+      description: Warum wird dieses Epic benötigt und welchen Bereich von Building Intelligence betrifft es?
+      placeholder: Erläutere Hintergrund, Motivation, betroffene Module und bereits getroffene Entscheidungen.
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
       label: Umfang
-      description: What belongs to this epic?
+      description: Was gehört zu diesem Epic?
       placeholder: |
-        - Included area 1
-        - Included area 2
-        - Included area 3
+        - Enthaltener Bereich 1
+        - Enthaltener Bereich 2
+        - Enthaltener Bereich 3
     validations:
       required: true
   - type: textarea
     id: stories
     attributes:
       label: Vorgesehene Stories oder Teilbereiche
-      description: Which stories or workstreams are expected below this epic?
+      description: Welche Stories oder Arbeitsstränge sind unterhalb dieses Epics vorgesehen?
       placeholder: |
-        - Story or area 1
-        - Story or area 2
-        - Story or area 3
+        - Story oder Bereich 1
+        - Story oder Bereich 2
+        - Story oder Bereich 3
     validations:
       required: false
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Akzeptanzkriterien
-      description: How can we verify that this epic is complete?
+      description: Woran ist erkennbar, dass dieses Epic abgeschlossen ist?
       placeholder: |
-        - [ ] The relevant stories are implemented or explicitly split out.
-        - [ ] The intended user or architecture outcome is achieved.
-        - [ ] Open follow-up work is documented.
+        - [ ] Die relevanten Stories sind umgesetzt oder ausdrücklich weiter zerlegt.
+        - [ ] Das beabsichtigte fachliche oder architektonische Ergebnis ist erreicht.
+        - [ ] Offene Folgearbeiten sind dokumentiert.
     validations:
       required: true
   - type: textarea
     id: notes
     attributes:
       label: Hinweise
-      description: Dependencies, risks, constraints, or links to related issues.
+      description: Abhängigkeiten, Risiken, Constraints oder Links zu verwandten Issues.
     validations:
       required: false

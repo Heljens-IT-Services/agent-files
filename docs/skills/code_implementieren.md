@@ -9,17 +9,18 @@ Eine geklärte Änderung mit minimalem Scope im Code umsetzen.
 - Wenn Ziel, Scope und Richtung ausreichend klar sind.
 - Wenn eine kleine, offensichtliche Änderung direkt umgesetzt werden kann.
 - Wenn für nicht-triviale Änderungen bereits ein belastbarer Plan vorliegt.
+- Wenn ein terminaler Task das nächste geplante Arbeitspaket eindeutig vorgibt.
 - Nicht verwenden, wenn erst Anforderung, Ursache, Optionen oder Plan geklärt werden müssen.
-- Bei nicht-trivialen Änderungen vorher `code-implementation-planning` nutzen.
+- Bei nicht-trivialen Änderungen muss bereits ein belastbarer Plan aus Task oder `code-implementation-planning` vorliegen; ihn nicht pauschal erneut erzeugen.
 
 ## Vorgehen
 
-1. Ziel, Scope und betroffene Dateien prüfen.
-2. Unmittelbar zu ändernde Dateien lesen, soweit es für die Umsetzung nötig ist.
-3. Produktivcode, relevante Testdateien und code-nahe Dokumentation entlang bestehender Patterns umsetzen.
-4. Struktur an den Sprachtyp anpassen.
-5. Ergebnis gegen Ziel, Scope und bekannte Risiken prüfen.
-6. Nachgelagerte Verifikation durch `code-testing` benennen.
+1. Das nächste geplante Arbeitspaket mit Ziel, Scope, erwartetem Ergebnis und Verifikation übernehmen.
+2. Unmittelbar zu ändernde Dateien und angegebene Referenzimplementierungen lesen.
+3. Das Arbeitspaket in der vorgesehenen Reihenfolge entlang bestehender Patterns umsetzen.
+4. Produktivcode, relevante Testdateien und code-nahe Dokumentation nur innerhalb dieses Arbeitspakets anpassen.
+5. Ergebnis gegen den technischen Plan, Scope, Nicht-Scope und bekannte Risiken prüfen.
+6. Die im technischen Plan vorgesehene nachgelagerte Verifikation durch `code-testing` benennen.
 
 ## Grenzen
 
@@ -27,6 +28,7 @@ Eine geklärte Änderung mit minimalem Scope im Code umsetzen.
 - Keine Anforderungen stillschweigend erweitern.
 - Nicht implementieren, wenn Ziel oder Scope unklar ist. Dann `requirements-clarification` oder `code-implementation-planning` nutzen.
 - Keine breite Analyse, Recherche oder Alternativenabwägung durchführen.
+- Während der Ausführung keine grundlegende Neuplanung oder erneute Alternativenabwägung durchführen.
 - Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code-reading` nutzen.
 - Nur unmittelbar betroffene Dateien lesen.
 - Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
@@ -37,7 +39,7 @@ Eine geklärte Änderung mit minimalem Scope im Code umsetzen.
 - Code-nahe Dokumentation darf aktualisiert werden, wenn sie direkt zur geänderten Stelle gehört, z. B. Kommentare, XML-docs, JSDoc oder API-Beschreibungen im selben Änderungsbereich.
 - README, Architektur-Doku, Nutzer-Doku, Changelog oder externe Dokumentation nicht automatisch aktualisieren.
 - Kleine lokale Abweichungen vom Plan sind erlaubt, wenn Ziel und Scope gleich bleiben.
-- Stoppen und passenden vorgelagerten Skill benennen, wenn Architektur, Scope, Risiko oder Annahmen kippen.
+- Stoppen und den Planbruch mit dem passenden vorgelagerten Skill benennen, wenn Architektur, Scope, Risiko oder Annahmen kippen.
 - Pro Ausführung ein zusammenhängendes Arbeitspaket umsetzen.
 - Mehrere Arbeitspakete nur umsetzen, wenn sie im Plan explizit als ein Umsetzungsschritt zusammengehören.
 - Backend: Logik, Orchestrierung, Datenzugriff und Hilfen trennen, wenn Verantwortungen sonst vermischt werden.

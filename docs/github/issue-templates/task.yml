@@ -1,5 +1,5 @@
 name: Task
-description: Structured technical task for implementation by developers or Codex
+description: Strukturierter technischer Task für die direkte Umsetzung
 title: "[Task]: "
 labels:
   - task
@@ -7,46 +7,89 @@ body:
   - type: textarea
     id: goal
     attributes:
-      label: Ziel
-      description: What should be achieved by this issue?
-      placeholder: Briefly describe the intended result.
+      label: Zielzustand
+      description: Welches konkrete Ergebnis soll nach Abschluss vorliegen?
+      placeholder: Beschreibe das erwartete Ergebnis eindeutig und prüfbar.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext
-      description: Why is this needed? Which epic, feature, or architecture topic is affected?
-      placeholder: Explain the background and relevant relationships.
+      description: Welcher fachliche und technische Kontext ist für die Umsetzung erforderlich?
+      placeholder: Beschreibe Hintergrund, relevante Beziehungen und bestehende Randbedingungen.
     validations:
       required: true
   - type: textarea
-    id: tasks
+    id: scope
     attributes:
-      label: Aufgabe
-      description: Concrete implementation steps.
+      label: Scope
+      description: Welche Änderungen gehören verbindlich zu diesem Task?
       placeholder: |
-        - Step 1
-        - Step 2
-        - Step 3
+        - Enthaltener Änderungsbereich 1
+        - Enthaltener Änderungsbereich 2
+    validations:
+      required: true
+  - type: textarea
+    id: non_scope
+    attributes:
+      label: Nicht-Scope
+      description: Welche angrenzenden Änderungen sind ausdrücklich ausgeschlossen?
+      placeholder: |
+        - Ausgeschlossener Änderungsbereich 1
+        - Ausgeschlossener Änderungsbereich 2
+    validations:
+      required: true
+  - type: textarea
+    id: affected_areas
+    attributes:
+      label: Betroffene Bereiche und Referenzen
+      description: Welche Dateien, Symbole, Schnittstellen oder Referenzimplementierungen sind bekannt und relevant?
+      placeholder: Benenne bekannte Bereiche und Referenzen oder begründe, warum keine belastbar bekannt sind.
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Umsetzungsrelevante Entscheidungen
+      description: Welche technischen oder architektonischen Entscheidungen sind für die Umsetzung bereits getroffen?
+      placeholder: Halte aufgabenspezifische Entscheidungen und Constraints fest. Globale Regeln nicht duplizieren.
+    validations:
+      required: true
+  - type: textarea
+    id: work_packages
+    attributes:
+      label: Geordnete Arbeitspakete
+      description: Welche direkt ausführbaren Arbeitspakete sind in welcher Reihenfolge umzusetzen?
+      placeholder: |
+        1. Arbeitspaket mit betroffenem Bereich und erwartetem Ergebnis
+        2. Arbeitspaket mit betroffenem Bereich und erwartetem Ergebnis
     validations:
       required: true
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Akzeptanzkriterien
-      description: How can we verify that this issue is complete?
+      description: Woran ist eindeutig erkennbar, dass dieser Task abgeschlossen ist?
       placeholder: |
-        - [ ] Criterion 1 is fulfilled
-        - [ ] Criterion 2 is fulfilled
-        - [ ] Criterion 3 is fulfilled
+        - [ ] Kriterium 1 ist erfüllt
+        - [ ] Kriterium 2 ist erfüllt
+        - [ ] Kriterium 3 ist erfüllt
     validations:
       required: true
   - type: textarea
-    id: technical_notes
+    id: verification
     attributes:
-      label: Technische Hinweise
-      description: Affected files, constraints, architecture rules, or boundaries.
-      placeholder: Avoid RxJS except interop to Signals. HTTP requests should be Promise-based.
+      label: Verifikation
+      description: Mit welchen reproduzierbaren Builds, Tests, Lints, Scannern oder manuellen Checks wird der Abschluss belegt?
+      placeholder: Liste konkrete Kommandos oder eindeutig beschriebene Prüfschritte auf.
     validations:
-      required: false
+      required: true
+  - type: textarea
+    id: risks_dependencies_blockers
+    attributes:
+      label: Risiken, Abhängigkeiten und Blocker
+      description: Welche bekannten Risiken, Abhängigkeiten oder Blocker bestehen? Wann muss wegen eines Plan- oder Kontextbruchs zurück in Klärung oder Planung gesprungen werden?
+      placeholder: Benenne bekannte Punkte oder ausdrücklich „Keine“. Wesentliche offene Entscheidungen verhindern Terminalität.
+    validations:
+      required: true
