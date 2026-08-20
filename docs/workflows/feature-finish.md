@@ -17,6 +17,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 - Ein aufgabenbezogener Arbeitsbranch ist aktiv und ist weder `develop` noch `main`.
 - Der Remote-Branch `develop` ist als Zielbranch vorhanden und auflösbar.
 - Task-Scope und taskbezogene Änderungen sind eindeutig.
+- Task-Akzeptanzkriterien und vorgesehene Verifikation sind gegen den realen Stand prüfbar.
 - Der User hat den vollständigen Abschluss einschließlich Commit, Push, Pull Request, Check-Beobachtung und Merge ausdrücklich beauftragt.
 - Repository, Remote und Branch-Zustände sind auflösbar.
 
@@ -37,8 +38,8 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 1. `PROJECT.md`, Repository-Kontext, aktuellen Branch, Working Tree, Remote, den Zielbranch `develop` und taskbezogenen Scope bestimmen.
 2. Stoppen, wenn `develop` oder `main` aktiv ist, `develop` remote nicht existiert, der Task-Scope unklar ist oder fremde Änderungen nicht sicher vom Task getrennt werden können.
-3. Mit `code-testing` die für die Änderung relevanten lokalen Prüfungen ausführen oder einen bereits belastbaren Teststatus bestätigen.
-4. Mit `code-diff-review` den gesamten taskbezogenen Änderungssatz prüfen und nur bei `versandbereit` oder `versandbereit mit Hinweisen` fortfahren.
+3. Mit `code-testing` die im Task vorgesehene Verifikation und relevante lokale Ergänzungsprüfungen ausführen oder einen bereits belastbaren Teststatus bestätigen.
+4. Mit `code-diff-review` den gesamten Änderungssatz gegen Scope, Nicht-Scope und Akzeptanzkriterien prüfen und nur bei `versandbereit` oder `versandbereit mit Hinweisen` fortfahren.
 5. Mit dem Workflow `commit-push.md` ausschließlich taskbezogene Änderungen committen und zum konfigurierten Remote pushen.
 6. Mit `pr-creation` einen vorhandenen Pull Request für den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt für diesen Workflow als ausdrückliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.

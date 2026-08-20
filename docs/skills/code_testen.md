@@ -30,13 +30,14 @@ Zulässige Modi:
 ## Vorgehen
 
 1. Den angeforderten Modus validieren oder ohne Modus den Modus `auto` verwenden.
-2. Im Modus `auto` relevante Prüfebenen breit wählen: Build, Unit, Integration, E2E, UI oder manuell.
-3. In einem expliziten Modus die bezeichnete Prüfebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswählen.
-4. Kommandos aus Projektdateien, README oder CI ableiten.
-5. Passende Kommandos oder manuelle Prüfschritte ausführen, z. B. `dotnet test`, `npm test`, `npm run test`, `npm run build`, ein projektspezifisches E2E-Script oder UI-Prüfung mit verfügbaren Tools.
-6. Fehlende nicht-invasive Setup-Schritte aus Projektdateien oder README ableiten und ausführen, wenn sie für die Prüfung nötig sind.
-7. Ergebnis bewerten.
-8. Nicht ausgeführte, aber relevante Prüfungen benennen.
+2. Vorhandene Issue- oder Task-Akzeptanzkriterien und dort festgelegte Verifikationsschritte als primären Prüfplan übernehmen.
+3. Im Modus `auto` fehlende relevante Prüfebenen aus Änderungs- und Projektkontext ergänzen: Build, Unit, Integration, E2E, UI oder manuell.
+4. In einem expliziten Modus die bezeichnete Prüfebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswählen.
+5. Nicht im technischen Plan konkretisierte Kommandos aus Projektdateien, README oder CI ableiten.
+6. Passende Kommandos oder manuelle Prüfschritte ausführen, z. B. `dotnet test`, `npm test`, `npm run test`, `npm run build`, ein projektspezifisches E2E-Script oder UI-Prüfung mit verfügbaren Tools.
+7. Fehlende nicht-invasive Setup-Schritte aus Projektdateien oder README ableiten und ausführen, wenn sie für die Prüfung nötig sind.
+8. Ergebnisse den jeweiligen Akzeptanzkriterien und Verifikationsschritten zuordnen.
+9. Nicht ausgeführte, fehlgeschlagene oder nicht reproduzierbare Prüfungen benennen.
 
 ## Grenzen
 
@@ -68,3 +69,4 @@ Zulässige Modi:
 - Testlücken offenlegen.
 - Fehler nicht relativieren.
 - Fehlgeschlagene Prüfungen knapp melden und nicht in Analyse ausweiten.
+- Ein lokaler Testfehler rechtfertigt keine vollständige Neuplanung; ein grundlegender Widerspruch zum technischen Plan muss als Planbruch sichtbar werden.

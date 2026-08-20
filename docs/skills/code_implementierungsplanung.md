@@ -22,7 +22,8 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 6. Umsetzungsschritte arbeitspaketgenau in Ausführungsreihenfolge formulieren.
 7. Test- oder Verifikationsplan und Risiken festlegen.
 8. Betriebsart beachten: Agenten-Kontext, Chat-Output, Artefakt oder GitHub-Issue-Vorarbeit.
-9. Im Default nur kurz bestätigen, den Plan als Arbeitsgrundlage nutzen und direkt mit der nächsten angefragten Arbeit fortfahren.
+9. Bei GitHub-Issue-Vorarbeit alle Inhalte für den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) liefern. Wesentliche offene Entscheidungen verhindern einen terminalen Task und müssen als Klärungsbedarf sichtbar bleiben.
+10. Im Default nur kurz bestätigen, den Plan als Arbeitsgrundlage nutzen und direkt mit der nächsten angefragten Arbeit fortfahren.
 
 ## Grenzen
 
@@ -35,6 +36,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Umsetzungsschritte nicht zu grob und nicht mikrogranular formulieren.
 - Dateien oder Symbole nur nennen, wenn sie bekannt und für die Umsetzung hilfreich sind.
 - Offene Punkte und Risiken klar benennen, wenn sie sichtbar sind.
+- Keine Scheingenauigkeit erzeugen: unbekannte Dateien, Symbole oder Entscheidungen nicht erfinden.
 - Bei offenen Punkten fragen, ob zuerst geklärt oder bewusst mit Annahmen weitergeplant werden soll.
 - Kritische Risiken, die die Umsetzbarkeit gefährden, nicht überspringen.
 - Betriebsart muss explizit vom User genannt werden; Default ist ein Plan im Agenten-Kontext.
@@ -62,7 +64,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Testplan
 - Risiken oder offene Punkte
 - Hinweise, falls der Plan als GitHub-Issue-Vorarbeit gedacht ist
-- keine Issue-Form, auch bei GitHub-Issue-Vorarbeit
+- keine Issue-Form; bei GitHub-Issue-Vorarbeit aber eine eindeutige Zuordnung zum kanonischen Task-Issue-Vertrag
 - Bei Betriebsart Agenten-Kontext nur kurze Bestätigung, keine ausführliche Planausgabe
 
 ## Qualitätskriterien

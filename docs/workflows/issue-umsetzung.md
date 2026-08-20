@@ -18,6 +18,7 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - `code-analysis`
 - `code-implementation-planning`
 - `code-implementation`
+- `code-refactoring`
 - `code-testing`
 - `code-diff-review`
 
@@ -30,18 +31,30 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 1. Arbeitseinheit aus vorhandenem Kontext übernehmen.
 2. Prüfen, ob der aktuelle Arbeitsbranch zur Arbeitseinheit passt.
 3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `issue-reading` das konkrete Issue lesen.
-4. Akzeptanzkriterien, Nicht-Ziele und Abschlussbedingung der Arbeitseinheit festhalten.
-5. Mit `code-reading` relevanten Code und angrenzende Kontextdateien laden.
-6. Mit `code-implementation-planning` den Umsetzungsweg für diese Arbeitseinheit festlegen.
-7. Mit `code-implementation` die Änderung umsetzen.
-8. Mit `code-testing` die Änderung verifizieren.
-9. Mit `code-diff-review` den Änderungssatz auf Scope, Seiteneffekte, Regressionen und fehlende Tests prüfen.
-10. Kritische Funde korrigieren und die passende Prüfung wiederholen.
-11. Akzeptanzkriterien und Nicht-Ziele gegen den finalen Änderungsstand prüfen.
-12. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
-13. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
-14. Bei Ausführung innerhalb eines Issue-Graphen den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
-15. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+4. Bei einem terminalen Task dessen technischen Plan als primäre Ausführungsgrundlage übernehmen. Bei einer anderen klaren Arbeitseinheit Ziel, Scope, Nicht-Scope, Arbeitspakete, Akzeptanzkriterien und Verifikation aus dem vorhandenen Kontext festhalten.
+5. Geltende Agent- und Repository-Regeln sowie mit `code-reading` ausschließlich die unmittelbar relevanten Dateien und Referenzimplementierungen laden.
+6. Technischen Plan, Repository-Zustand und geltende Regeln auf Konsistenz prüfen. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen Entscheidungen, neuem Risiko oder echtem Planbruch mit `code-implementation-planning` gezielt nachplanen.
+7. Das nächste geplante Arbeitspaket mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope umsetzen.
+8. Die für das Arbeitspaket vorgesehene Verifikation mit `code-testing` ausführen.
+9. Einen lokalen Implementierungsfehler anhand des konkreten Fehleroutputs im unveränderten Scope korrigieren und nur die relevante Prüfung wiederholen. Nicht allein wegen eines lokalen Fehlers vollständig neu planen.
+10. Arbeitspakete in der geplanten Reihenfolge wiederholen, bis der technische Plan abgearbeitet ist.
+11. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien prüfen.
+12. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
+13. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
+14. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
+15. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
+16. Bei Ausführung innerhalb eines Issue-Graphen den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
+17. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+
+## Planbruch
+
+In Analyse oder Planung zurückspringen, wenn:
+
+- wesentliche Produkt-, Architektur-, Scope- oder Vorgehensentscheidungen fehlen,
+- erwartete Dateien, APIs oder Referenzimplementierungen fehlen oder wesentlich abweichen,
+- der Plan geltenden Regeln widerspricht oder die Akzeptanzkriterien nicht erreichen kann,
+- die erforderliche Änderung den definierten Scope wesentlich überschreitet,
+- eine Prüfung einen grundlegenden fachlichen oder architektonischen Widerspruch statt eines lokalen Implementierungsfehlers zeigt.
 
 ## Commit-Grenze
 
@@ -57,8 +70,8 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - Bei unklarem Issue-Kontext zurück zu `issue-reading`.
 - Bei unklarem Code-Kontext zurück zu `code-reading`.
 - Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code-analysis`.
-- Bei zu großem oder unscharfem Scope zurück zu `code-implementation-planning`.
-- Bei fehlgeschlagenen Tests zurück zu `code-implementation-planning` oder `code-implementation`.
+- Bei zu großem oder unscharfem Scope sowie einem Planbruch zurück zu `code-implementation-planning`.
+- Bei lokalen Implementierungs- oder Testfehlern zurück zu `code-implementation` und anschließend die relevante Prüfung wiederholen.
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
 - Bei fehlgeschlagenem Commit oder Push zum Workflow `commit-push.md` zurückkehren; nicht zur nächsten Arbeitseinheit fortfahren.
 

@@ -24,8 +24,8 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 ## Ablauf
 
 1. Mit `issue-reading` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
-2. Mit `code-testing` vorhandene Verifikation ausführen oder Testlücken benennen.
-3. Mit `code-diff-review` den Änderungssatz auf Scope, Nebeneffekte und Versandbereitschaft prüfen.
+2. Mit `code-testing` die im Issue oder Task vorgesehene Verifikation ausführen oder Testlücken benennen.
+3. Mit `code-diff-review` den Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Nebeneffekte und Versandbereitschaft prüfen.
 4. Mit dem Workflow `commit-push.md` den Änderungssatz sauber committen und pushen.
 5. Mit `pr-creation` den Pull Request erstellen und Issue-Kontext verlinken.
 

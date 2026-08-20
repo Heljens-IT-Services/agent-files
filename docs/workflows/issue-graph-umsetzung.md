@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifizierten Implementierung und zum Pull Request bearbeiten. Vor der Umsetzung wird der relevante Issue-Graph vollständig erfasst, der Umsetzungsscope festgelegt und ein temporärer Ausführungsplan erzeugt. Die Umsetzung erfolgt anschließend ausschließlich entlang dieses Plans.
+Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifizierten Implementierung und zum Pull Request bearbeiten. Vor der Umsetzung wird der relevante Issue-Graph vollständig erfasst, der Umsetzungsscope festgelegt und ein temporärer Orchestrierungsplan erzeugt. Die Umsetzung erfolgt anschließend ausschließlich entlang dieses Plans.
 
 ## Verwenden
 
@@ -56,11 +56,11 @@ Ein Issue mit seinen relevanten Issue-Beziehungen deterministisch bis zur verifi
    - externen Blockern
    - aktuell blockierten Issues
 
-### Phase 3: Arbeitsbranch und Ausführungsplan vorbereiten
+### Phase 3: Arbeitsbranch und Orchestrierungsplan vorbereiten
 
 1. Mit `github-branch-checkout-from-default` einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
-2. Vor jeder Codeänderung einen Ausführungsplan als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich des Arbeitsbaums erzeugen oder fortführen. Pfad und Dateiname müssen aus Repository und Ausgangs-Issues deterministisch ableitbar sein.
-3. Der Ausführungsplan ist ein reines Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
+2. Vor jeder Codeänderung einen Orchestrierungsplan als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich des Arbeitsbaums erzeugen oder fortführen. Er koordiniert Issue-Knoten und ersetzt nicht deren technische Task-Pläne. Pfad und Dateiname müssen aus Repository und Ausgangs-Issues deterministisch ableitbar sein.
+3. Der Orchestrierungsplan ist ein reines Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
 4. Der Plan muss mindestens enthalten:
    - Ausgangs-Issue
    - alle gelesenen relevanten Issue-Knoten mit Status und Klassifikation
@@ -109,13 +109,13 @@ Empfohlene Struktur des Fortschrittsankers:
 
 ### Phase 4: Nach Plan umsetzen
 
-1. Falls die technische Richtung noch offen ist, vor dem ersten betroffenen Arbeitspaket mit `brainstorming` Optionen vergleichen und den Ausführungsplan bei relevanten Auswirkungen aktualisieren.
-2. Den Ausführungsplan in der festgelegten Reihenfolge abarbeiten.
+1. Den technischen Plan jedes terminalen Tasks als primäre Ausführungsgrundlage übernehmen. Nur bei offener technischer Richtung oder echtem Planbruch mit `brainstorming` Optionen vergleichen und den Orchestrierungsplan bei relevanten Auswirkungen aktualisieren.
+2. Den Orchestrierungsplan in der festgelegten Reihenfolge abarbeiten.
 3. Je ausführbarem Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-umsetzung.md` ausführen.
 4. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-umsetzung.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
 5. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 6. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
-7. Nach jedem Issue den Ausführungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
+7. Nach jedem Issue den Orchestrierungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
 8. Blockierte Knoten nicht überspringen und stillschweigend als abgeschlossen behandeln. Nur mit dem nächsten laut Plan unabhängigen ausführbaren Knoten fortfahren.
 
 ### Ausführungswellen und Pull-Request-Schnitte
@@ -129,7 +129,7 @@ Empfohlene Struktur des Fortschrittsankers:
 
 1. Prüfen, dass jeder im Umsetzungsscope als abgeschlossen markierte Issue-Knoten vollständig implementiert, verifiziert und reviewed wurde.
 2. Für jeden abgeschlossenen Issue-Knoten prüfen, dass der zugehörige Änderungssatz committed und auf den vorgesehenen Upstream gepusht wurde.
-3. Commit-Historie und Ausführungsplan gegeneinander prüfen. Kein als umgesetzt markiertes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
+3. Commit-Historie und Orchestrierungsplan gegeneinander prüfen. Kein als umgesetzt markiertes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
 4. Prüfen, dass keine fachlichen Änderungen aus dem Umsetzungsscope uncommitted oder ungepusht verbleiben.
 5. Lokalen Git-Arbeitsbaum prüfen. Vor PR-Erstellung muss der Arbeitsbaum frei von unbeabsichtigten staged, unstaged oder untracked fachlichen Änderungen sein.
 6. Runtime-Artefakte im Arbeitsbaum entfernen. Den Fortschrittsanker im Git-Verwaltungsbereich bis zur abschließenden Integritätsprüfung behalten.
@@ -148,7 +148,7 @@ Empfohlene Struktur des Fortschrittsankers:
 - Bei unklaren Issue-Beziehungen zurück zu Phase 1.
 - Bei unklarem oder ausgeweitetem Scope zurück zu Phase 2.
 - Bei widersprüchlichen Abhängigkeiten, neu erkannten Blockern oder Zyklen zurück zu Phase 3.
-- Bei Architekturkonflikten zurück zu `brainstorming` oder zur Arbeitspaket-Planung in `issue-umsetzung.md`; anschließend den Ausführungsplan aktualisieren.
+- Bei einem echten Planbruch zurück zu `brainstorming` oder zur gezielten Arbeitspaket-Planung in `issue-umsetzung.md`; anschließend den Orchestrierungsplan aktualisieren.
 - Bei fehlgeschlagenen Tests gelten die Rücksprungregeln aus `issue-umsetzung.md`.
 - Wenn ein externer Blocker nicht selbstständig gelöst werden kann, den betroffenen Knoten blockiert lassen und den nicht ausführbaren Rest-Scope sichtbar machen.
 - Bei fehlendem Commit, fehlendem Push, schmutzigem Arbeitsbaum oder verbliebenen temporären Dateien zurück zu Phase 4 beziehungsweise zum passenden Cleanup-Schritt in Phase 5.
@@ -157,10 +157,10 @@ Empfohlene Struktur des Fortschrittsankers:
 
 - vollständig gelesener und klassifizierter relevanter Issue-Graph
 - explizit bestimmter Umsetzungsscope
-- abgearbeiteter temporärer Ausführungsplan
+- abgearbeiteter temporärer Orchestrierungsplan
 - verifizierte Änderungen für alle ausführbaren Scope-Issues
 - eindeutig pro Issue zuordenbarer Commit-/Push-Kontext
-- entfernter temporärer Ausführungsplan und entfernte sonstige Runtime-Artefakte
+- entfernter temporärer Orchestrierungsplan und entfernte sonstige Runtime-Artefakte
 - sauberer lokaler Git-Arbeitsbaum
 - dokumentierter blockierter Rest-Scope, falls der Graph nicht vollständig ausführbar war
 - erstellter Pull Request für den tatsächlich abgeschlossenen Scope
@@ -172,7 +172,7 @@ Empfohlene Struktur des Fortschrittsankers:
 - Parent/Child-Beziehungen nicht als harte Ausführungsabhängigkeit interpretieren, sofern keine zusätzliche Blocked-by- oder fachlich eindeutige Abhängigkeit besteht.
 - Eine Blocked-by-Kante zwischen einem reinen Container-Issue und einem eigenen Nachfahren ist ein Graphfehler, wenn sie eine Abschlussreihenfolge erzeugt. Die Kante sichtbar machen und den betroffenen Scope bis zur Korrektur nicht ausführen.
 - Externe Blocker nicht allein aufgrund einer Blocked-by-Beziehung automatisch umsetzen.
-- Keine Umsetzung beginnen, bevor ein belastbarer Ausführungsplan vorliegt.
+- Keine Umsetzung beginnen, bevor ein belastbarer Orchestrierungsplan vorliegt.
 - Den Fortschrittsanker niemals committen oder in den Pull Request aufnehmen.
 - Keinen Pull Request erstellen, solange der Arbeitsbaum nicht sauber ist oder abgeschlossene Issue-Knoten ohne vollständigen Commit-/Push-Kontext existieren.
 - Wenn automatisches Schließen nicht sicher ist, im PR-Kontext sichtbar machen.

@@ -15,6 +15,7 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - `issue-reading`
 - `requirements-clarification`
 - `brainstorming`
+- `code-implementation-planning`
 - `issue-creation`
 - `type-setting`
 - `relationship-setting`
@@ -25,8 +26,8 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 2. Ziel, Scope und Akzeptanzkriterien klären, falls sie für einen Schnitt nicht ausreichen.
 3. Vorhandene passende Child-Issues wiederverwenden.
 4. Falls nötig mit `brainstorming` den Schnitt bestimmen.
-5. Genau eine Child-Ebene planen.
-6. Fehlende Child-Issues erstellen und ihren Type setzen.
+5. Genau eine Child-Ebene planen. Für Task-Children mit `code-implementation-planning` einen technischen Ausführungsplan ableiten und in den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) überführen.
+6. Fehlende Child-Issues erstellen und ihren Type setzen. Wesentliche offene Entscheidungen sichtbar lassen und den betroffenen Task nicht als terminal behandeln.
 7. Parent/Child-Beziehungen setzen.
 8. Erforderliche `blocked by`-Beziehungen setzen.
 9. Die erzeugte Ebene zurücklesen und prüfen.
@@ -40,6 +41,7 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - keine semantischen Duplikate
 - Parent/Child nicht als Ausführungsreihenfolge interpretieren
 - Type kontextbasiert bestimmen
+- Task-Children erfüllen den kanonischen Task-Issue-Vertrag oder sind ausdrücklich als nicht terminal erkennbar
 
 ## Endergebnis
 
