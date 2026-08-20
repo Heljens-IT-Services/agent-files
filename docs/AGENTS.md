@@ -118,6 +118,18 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 [MUST_IF] Ein von Heljens gepflegtes Software-Repository unterstützte Abhängigkeitsquellen besitzt, muss es `.github/dependabot.yml` gemäß der [Dependabot-Leitplanke](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) pflegen.
 
+## Codex-Custom-Agents
+
+[MUST_IF] Wenn ein konsumierendes Repository Codex-Custom-Agents unterstützt, muss der projektbezogene Sollbestand unter `.codex/agents/` die kanonischen Agent-Namen `planner`, `developer` und `tester` abbilden.
+
+[MUST_IF] Der Sollbestand wird aus den kanonischen Referenzdateien dieses Repositorys übernommen: [planner.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/planner.toml), [developer.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/developer.toml) und [tester.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/tester.toml).
+
+[MUST_NOT] Die TOML-Dateien dürfen die vollständigen Heljens-Rollen-, Skill- oder Workflow-Regeln nicht duplizieren. Sie bilden nur die Codex-Laufzeit ab und müssen auf die geltenden Einstiegsdateien, `PROJECT.md` und den relevanten Heljens-Kontext verweisen.
+
+[MUST_IF] Eine Laufzeit keine Codex-Custom-Agents unterstützt, bleiben die veröffentlichten Rollen-, Skill- und Workflow-Regeln ohne diese Laufzeitabbildung vollständig maßgeblich.
+
+[MUST_NOT] Schreibende SubAgents dürfen nicht unkoordiniert parallel auf demselben Worktree arbeiten.
+
 ## PROJECT.md
 
 [MUST] Jedes Repository muss im Root eine `PROJECT.md` mit der repositoryweiten Versionsbasis und gemeinsamen Leitplanken besitzen.

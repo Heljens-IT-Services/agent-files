@@ -9,6 +9,7 @@ Die GitHub-Basiskonfiguration eines Repositorys kontrolliert gegen die zentralen
 - Wenn ein Repository für GitHub-Basiskonfiguration gepflegt wird.
 - Wenn `.github/ISSUE_TEMPLATE` fehlt, unvollständig ist oder gegen den kanonischen Heljens-Satz geprüft werden soll.
 - Wenn eine fehlende oder unvollständige `.github/dependabot.yml` aus dem tatsächlichen Repository-Bestand abgeleitet werden soll.
+- Wenn der projektbezogene Codex-Sollbestand unter `.codex/agents/` geprüft oder innerhalb eines erlaubten Repository-Pflegeauftrags ergänzt werden soll.
 - Nicht verwenden, wenn nur ein einzelnes GitHub-Issue erstellt wird und keine Repository-Pflege erlaubt ist.
 
 ## Vorgehen
@@ -50,6 +51,31 @@ git diff --check
 - Der vollständige kanonische Satz wird geprüft, nicht nur die für ein aktuelles Issue gewählte Form.
 - Jede Mutation wird durch einen erneuten Inhalts- und Bestandsabgleich nachgewiesen.
 - Issue-Erstellung und Repository-Pflege bleiben getrennte, konsistente Aufgaben.
+
+## Codex-Custom-Agents
+
+### Vorgehen
+
+1. Prüfen, dass der Auftrag Änderungen am projektbezogenen Codex-Sollbestand erlaubt.
+2. `.codex/agents/` inventarisieren und die kanonischen Dateien `planner.toml`, `developer.toml` und `tester.toml` gegen die zentralen Referenzdateien vergleichen.
+3. Für jede Datei die Pflichtfelder `name`, `description` und `developer_instructions` sowie den erwarteten Agent-Namen prüfen.
+4. Sicherstellen, dass menschenlesbare Beschreibungen und Instruktionen deutsch sind, keine vollständigen Rollenregeln duplizieren und den Heljens-Kontext ausdrücklich einfordern.
+5. Modell- und Reasoning-Konfiguration nur in den TOML-Dateien prüfen; konkrete Modellnamen nicht in allgemeine Rollen-, Skill- oder Workflow-Regeln übernehmen.
+6. Fehlende Dateien nur innerhalb eines erlaubten Repository-Pflegeauftrags aus den kanonischen Referenzen ergänzen. Abweichende vorhandene Dateien sichtbar machen und nicht stillschweigend überschreiben.
+7. Nach der Prüfung Dateinamen, TOML-Syntax und den Sollbestand erneut abgleichen.
+
+### Grenzen
+
+- Keine TOML-Dateien außerhalb eines erlaubten Repository-Pflegeauftrags ändern.
+- Keine vollständigen Rollen-, Skill- oder Workflow-Regeln in die Codex-Agent-Dateien kopieren.
+- Keine benutzerspezifischen Pfade oder Secrets in versionierten Agent-Dateien pflegen.
+
+### Ergebnis
+
+- erkannter Soll- und Istbestand unter `.codex/agents/`
+- geprüfte Pflichtfelder, Namen und Laufzeitparameter
+- ergänzte oder bewusst unveränderte Dateien mit Grund
+- Ergebnis der TOML-Syntaxprüfung
 
 ## Dependabot-Konfiguration
 
