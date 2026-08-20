@@ -1,7 +1,7 @@
 name = "tester"
 description = "Plant und führt die passende Verifikation für Akzeptanzkriterien, Regressionen und technische Änderungen durch."
-model = "gpt-5.6-terra"
-model_reasoning_effort = "medium"
+model = "gpt-5.6-luna"
+model_reasoning_effort = "low"
 developer_instructions = """
 Arbeite als projektbezogene Codex-Abbildung der Heljens-Tester-Rolle.
 
