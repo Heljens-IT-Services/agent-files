@@ -18,7 +18,9 @@ Die veröffentlichten Quelldateien liegen unter `docs/`. GitHub Pages stellt sie
 
 [MUST] Änderungen an veröffentlichten Regeln müssen direkt in den Markdown-Dateien unter `docs/` erfolgen.
 
-[MUST_NOT] Es darf kein separater Build- oder Generierungsschritt vorausgesetzt werden, solange die GitHub-Pages-Verteilung direkt aus Markdown-Dateien erfolgt.
+[MUST] Die online veröffentlichten Codex-Agent-Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den ausführbaren Mustervorlagen unter `.codex/agents/` gepflegt werden.
+
+[MUST_NOT] Es darf kein separater Build- oder Generierungsschritt vorausgesetzt werden, solange GitHub Pages die versionierten Dateien unter `docs/` direkt verteilt.
 
 [MUST] Jede Markdown-Datei unter `docs/` muss für konsumierende Agents bestimmt, über GitHub Pages abrufbar und ausgehend von `docs/AGENTS.md` durch interne Markdown-Links erreichbar sein.
 
@@ -32,8 +34,8 @@ Der Workflow `online-publikation-pruefen` wird nach einem Release oder bei Zweif
 | 2. Pages-Quelle | GitHub-Pages-Konfiguration und letzten Build über die GitHub API lesen. | Quelle ist Branch `main` mit Pfad `/docs`; Build-Status ist `built`; Build-Commit entspricht `origin/main`. |
 | 3. Einstiegspunkt | `https://heljens-it-services.github.io/agent-files/AGENTS.md` per HTTP abrufen. | HTTP-Status ist `200`. |
 | 4. Vernetzung | Aus allen internen Markdown-Links einen Graphen ab `docs/AGENTS.md` bilden und mit den auf `origin/main` versionierten `docs/**/*.md`-Dateien vergleichen. | Kein Linkziel fehlt und jede Markdown-Datei unter `docs/` ist erreichbar. |
-| 5. Online-Abruf | Für jede versionierte Markdown-Datei den Pages-Pfad aus dem Pfad relativ zu `docs/` bilden und abrufen. | Jede URL liefert HTTP-Status `200`. |
-| 6. Inhaltsabgleich | Online-Inhalt jeder Datei nach Vereinheitlichung der Zeilenenden mit dem zugehörigen Blob aus `origin/main` vergleichen. | Keine Inhaltsabweichung besteht. |
+| 5. Online-Abruf | Für jede versionierte Markdown-Datei sowie jede Codex-Agent-Vorlage unter `docs/codex/agents/` den Pages-Pfad aus dem Pfad relativ zu `docs/` bilden und abrufen. | Jede URL liefert HTTP-Status `200`. |
+| 6. Inhaltsabgleich | Online-Inhalt jeder geprüften Datei nach Vereinheitlichung der Zeilenenden mit dem zugehörigen Blob aus `origin/main` vergleichen; zusätzlich die veröffentlichten Codex-Agent-Vorlagen mit `.codex/agents/` abgleichen. | Keine Inhaltsabweichung besteht. |
 | 7. Ergebnis | Referenz-SHA, Datei- und Linkanzahl sowie Abweichungen zusammenfassen. | Quelle, Erreichbarkeit, Vernetzung und Aktualität sind getrennt bewertet. |
 
 Empfohlene Basisabfragen:

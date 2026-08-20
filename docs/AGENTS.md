@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-08-16
+Stand: 2026-08-20
 
 ## Zweck
 
@@ -120,11 +120,15 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## Codex-Custom-Agents
 
-[MUST_IF] Wenn ein konsumierendes Repository Codex-Custom-Agents unterstützt und unter `.codex/agents/` noch keine eigene Konfiguration besitzt, müssen die kanonischen Agent-Dateien dieses Repositorys in den eigenen Sollbestand kopiert werden.
+[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die kanonischen Agent-Namen `planner`, `developer` und `tester` geprüft werden.
 
-[MUST_IF] Wenn ein konsumierendes Repository bereits eine `.codex/agents/`-Konfiguration besitzt, muss sie die kanonischen Agent-Namen `planner`, `developer` und `tester` abbilden; abweichende lokale Anpassungen müssen bewusst gegen die zentrale Referenz geprüft werden.
+[MUST_IF] Einer der kanonischen Agent-Namen im ausführenden Repository fehlt, muss die zugehörige Online-Vorlage nachgelagert unter dem kanonischen Pfad `.codex/agents/<agent-name>.toml` erstellt werden. Dies gilt für jeden fehlenden Agent einzeln und unabhängig davon, ob andere Custom Agents bereits vorhanden sind.
 
-[MUST_IF] Der Sollbestand wird aus den kanonischen Referenzdateien dieses Repositorys übernommen: [planner.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/planner.toml), [developer.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/developer.toml) und [tester.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/tester.toml).
+[MUST_IF] Der Agent `planner` fehlt, muss [planner.toml](https://heljens-it-services.github.io/agent-files/codex/agents/planner.toml) kopiert werden. Fehlt `developer`, muss [developer.toml](https://heljens-it-services.github.io/agent-files/codex/agents/developer.toml) kopiert werden. Fehlt `tester`, muss [tester.toml](https://heljens-it-services.github.io/agent-files/codex/agents/tester.toml) kopiert werden.
+
+[MUST_NOT_IF] Ein kanonischer Zielpfad bereits durch eine widersprüchliche Datei belegt ist, darf sie nicht stillschweigend überschrieben werden; der Konflikt muss gemeldet werden.
+
+[MUST] Die online veröffentlichten Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den Mustervorlagen unter `.codex/agents/` gepflegt werden.
 
 [MUST_NOT] Die TOML-Dateien dürfen die vollständigen Heljens-Rollen-, Skill- oder Workflow-Regeln nicht duplizieren. Sie bilden nur die Codex-Laufzeit ab und müssen auf die geltenden Einstiegsdateien, `PROJECT.md` und den relevanten Heljens-Kontext verweisen.
 
