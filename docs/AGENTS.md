@@ -120,7 +120,9 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## Codex-Custom-Agents
 
-[MUST_IF] Wenn ein konsumierendes Repository Codex-Custom-Agents unterst체tzt, muss der projektbezogene Sollbestand unter `.codex/agents/` die kanonischen Agent-Namen `planner`, `developer` und `tester` abbilden.
+[MUST_IF] Wenn ein konsumierendes Repository Codex-Custom-Agents unterst체tzt und unter `.codex/agents/` noch keine eigene Konfiguration besitzt, m체ssen die kanonischen Agent-Dateien dieses Repositorys in den eigenen Sollbestand kopiert werden.
+
+[MUST_IF] Wenn ein konsumierendes Repository bereits eine `.codex/agents/`-Konfiguration besitzt, muss sie die kanonischen Agent-Namen `planner`, `developer` und `tester` abbilden; abweichende lokale Anpassungen m체ssen bewusst gegen die zentrale Referenz gepr체ft werden.
 
 [MUST_IF] Der Sollbestand wird aus den kanonischen Referenzdateien dieses Repositorys 체bernommen: [planner.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/planner.toml), [developer.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/developer.toml) und [tester.toml](https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/main/.codex/agents/tester.toml).
 

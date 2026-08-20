@@ -57,11 +57,11 @@ git diff --check
 ### Vorgehen
 
 1. Prüfen, dass der Auftrag Änderungen am projektbezogenen Codex-Sollbestand erlaubt.
-2. `.codex/agents/` inventarisieren und die kanonischen Dateien `planner.toml`, `developer.toml` und `tester.toml` gegen die zentralen Referenzdateien vergleichen.
+2. `.codex/agents/` inventarisieren. Fehlt dort eine eigene Codex-Agent-Konfiguration, die kanonischen Dateien `planner.toml`, `developer.toml` und `tester.toml` aus den zentralen Referenzdateien in das ausführende Repository kopieren; andernfalls die vorhandenen Dateien gegen die Referenzen vergleichen.
 3. Für jede Datei die Pflichtfelder `name`, `description` und `developer_instructions` sowie den erwarteten Agent-Namen prüfen.
 4. Sicherstellen, dass menschenlesbare Beschreibungen und Instruktionen deutsch sind, keine vollständigen Rollenregeln duplizieren und den Heljens-Kontext ausdrücklich einfordern.
 5. Modell- und Reasoning-Konfiguration nur in den TOML-Dateien prüfen; konkrete Modellnamen nicht in allgemeine Rollen-, Skill- oder Workflow-Regeln übernehmen.
-6. Fehlende Dateien nur innerhalb eines erlaubten Repository-Pflegeauftrags aus den kanonischen Referenzen ergänzen. Abweichende vorhandene Dateien sichtbar machen und nicht stillschweigend überschreiben.
+6. Fehlende Dateien innerhalb eines erlaubten Repository-Pflegeauftrags aus den kanonischen Referenzen kopieren. Abweichende vorhandene Dateien sichtbar machen und nicht stillschweigend überschreiben.
 7. Nach der Prüfung Dateinamen, TOML-Syntax und den Sollbestand erneut abgleichen.
 
 ### Grenzen
