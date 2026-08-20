@@ -47,6 +47,13 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu ver채ndern, und die �
 
 ## R체cksprungregeln
 
+## Codex-Orchestrierung
+
+- Verhalten, Scope und Refactoring-Plan: `planner` bei offenen Entscheidungen.
+- Struktur채nderung: `developer`.
+- Verhaltenserhalt und Regression: `tester`; technischer Diff-Review kann beim `developer` bleiben.
+- Commit, Push und PR-/Merge-Entscheidungen: `main/orchestrator`.
+
 - Wenn bestehendes Verhalten unklar ist, zur체ck zu `code-analysis` im `Context-only-Modus`.
 - Wenn Tests fehlen oder zu schwach sind, zur체ck zur Testabsicherung im Ablauf.
 - Wenn Tests wegen eines lokalen Refactoring-Fehlers fehlschlagen, zur체ck zu `code-refactoring` und danach die relevante Pr체fung wiederholen.

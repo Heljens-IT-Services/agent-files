@@ -67,6 +67,14 @@ In Analyse oder Planung zurückspringen, wenn:
 
 ## Rücksprungregeln
 
+## Codex-Orchestrierung
+
+- Technischer Plan und offene Richtungsentscheidungen: `planner`.
+- Code-Lesen, Analyse, Implementierung und Refactoring: `developer`.
+- Task-Verifikation und Teststatus: `tester`.
+- Commit und Push: `main/orchestrator`; der Workflow lässt keine unkoordinierten parallelen Schreibzugriffe zu.
+- Planbruch geht an `planner`, lokaler Implementierungs- oder Testfehler gezielt an `developer` beziehungsweise `tester`.
+
 - Bei unklarem Issue-Kontext zurück zu `issue-reading`.
 - Bei unklarem Code-Kontext zurück zu `code-reading`.
 - Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code-analysis`.

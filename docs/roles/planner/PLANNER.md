@@ -8,6 +8,10 @@ Diese Datei definiert ausschließlich Leitplanken für die Planung und Pflege vo
 
 [MUST_NOT] Diese Datei darf keine Leitplanken außerhalb von GitHub Issues enthalten.
 
+## Codex-Ausführung
+
+[MUST_IF] Wenn ein `planner`-SubAgent verfügbar ist, muss Planner-Verantwortung an ihn delegiert werden. Die fachlichen Regeln dieser Datei bleiben dabei maßgeblich.
+
 ## Inhalt
 
 [MUST] Jedes GitHub Issue muss genau ein klares Ziel besitzen.

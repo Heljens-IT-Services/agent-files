@@ -55,6 +55,12 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 - Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und den Arbeitsbranch aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `develop` wechseln.
 
+## Codex-Orchestrierung
+
+- Reifekriterien und offene Scope-Entscheidungen: `planner` beziehungsweise Orchestrator.
+- Verifikation und erforderliche Checks: `tester`.
+- Commit, Push, Merge und Abschlussprüfung: `main/orchestrator` sequenziell.
+
 ## Endergebnis
 
 - taskbezogene Änderungen sind bewusst committed und gepusht

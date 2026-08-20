@@ -31,6 +31,13 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 
 ## Rücksprungregeln
 
+## Codex-Orchestrierung
+
+- Issue-Kontext und technische Vorbereitung: `planner`; technische Analyse und Umsetzung: `developer`.
+- Task-Verifikation und Review-Prüfungen: `tester` beziehungsweise `developer` für den technischen Diff-Review.
+- Commit, Push und Pull-Request-Erstellung: `main/orchestrator`.
+- Ein Planbruch geht an `planner`; ein lokaler Fehler nach der Verifikation gezielt an `developer`.
+
 - Bei unklarem Issue-Kontext zurück zu `issue-reading`.
 - Bei fehlender oder gescheiterter Verifikation zurück zu `code-testing`.
 - Bei nicht versandbereitem Diff zurück zu passendem Umsetzungs- oder Refactoring-Workflow.

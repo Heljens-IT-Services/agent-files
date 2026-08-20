@@ -22,3 +22,21 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 | `issue-implementation` | Issue Implementation | - | Ein einzelnes Issue oder Arbeitspaket implementiert, verifiziert, committet und gepusht werden soll. | [issue-umsetzung.md](https://heljens-it-services.github.io/agent-files/workflows/issue-umsetzung.md) | Issue implementieren. |
 | `refactoring-secure` | Refactoring Secure | - | Code bei nachweisbarem Verhaltenserhalt strukturiert und abgesichert werden soll. | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Refactoring absichern. |
 | `release` | Release | `/release` | Der freigegebene Stand von `develop` nach `main` veröffentlicht werden soll. | [release.md](https://heljens-it-services.github.io/agent-files/workflows/release.md) | Develop-Stand nach Main freigeben. |
+
+## Codex-Orchestrierung
+
+[MUST] Der Hauptagent bleibt für Workflow-Auswahl, Phasenkoordination, rollenübergreifende Entscheidungen und externe GitHub-/Git-Mutationen verantwortlich.
+
+[SHOULD] Planungs- und Issue-Strukturphasen werden an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, sowie Verifikation und Check-Beobachtung an `tester` delegiert, wenn die SubAgents verfügbar sind.
+
+[ALLOW_IF] Ein Workflow darf diese Default-Zuordnung für einen konkreten Schritt überschreiben, wenn Verantwortung, Übergabe, Rückgabe und Verifikation im Workflow eindeutig bleiben.
+
+[MUST] Übergaben enthalten Ziel, aktuellen Workflow-Schritt, Issue-/Task-Kontext, Scope, Nicht-Scope, Entscheidungen, Constraints, relevante Dateien oder Artefakte sowie das erwartete Ergebnis.
+
+[MUST] Rückgaben enthalten Ergebnis, ausgeführte oder ausgelassene Verifikation, Abweichungen, Blocker und die Empfehlung für den nächsten Schritt oder die nächste Rolle.
+
+[MUST_NOT] Schreibende SubAgents dürfen nicht unkoordiniert parallel auf demselben Worktree arbeiten. Parallele Delegation ist auf konfliktfreie Lese-, Analyse- oder Review-Schritte zu begrenzen.
+
+[MUST_IF] Ein Developer einen echten Planbruch erkennt, muss der Orchestrator an `planner` zurückgeben. Findet `tester` einen lokalen Implementierungsfehler, muss die Korrektur an `developer` zurückgegeben werden; widersprüchliche Akzeptanzkriterien gehen an `planner` oder den Orchestrator.
+
+[ALLOW_IF] Ohne Codex-Custom-Agents führt der Hauptagent dieselben Workflow-Phasen nach den fachlichen Regeln selbst aus.
