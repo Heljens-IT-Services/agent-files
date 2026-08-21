@@ -4,7 +4,7 @@ Stand: 2026-08-11
 
 ## Zweck
 
-Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Codex-Ausführung
 
@@ -14,7 +14,7 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende spezialisierte Regeldatei aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md).
+1. Passende technologiespezifische Regeldatei aus [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md).
 2. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md).
 
 [PRIORITY] Bei mehreren passenden `DEVELOPER.*.md`-Dateien hat die spezifischere Regel nur innerhalb ihres ausdrücklich beschriebenen Scopes Vorrang vor einer allgemeineren Regel.

@@ -78,7 +78,7 @@ spacing     = { " " | tab } ;
 | Kontext-Hilfe | `/help <command>` | Zeigt Syntax, Subcommands und Beispiele für einen Root-Command oder direkten Alias. |
 | Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id> [<argument> ...]` | Listet, beschreibt oder wählt einen Skill aus. Zusätzliche Argumente sind nur zulässig, wenn der Skill sie dokumentiert. |
 | Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen Workflow. Zusätzliche Argumente sind nur zulässig, wenn der Workflow sie dokumentiert. |
-| Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt technologiespezifische Regeln. |
+| Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt rollenbewusste technologiespezifische Regeldatei-Mappings. |
 
 ## Semantik
 
@@ -93,6 +93,14 @@ spacing     = { " " | tab } ;
 [MUST] `show` muss den durch die ID bezeichneten Katalogeintrag laden und dessen Zweck, Verwendung, Grenzen und Quelle knapp wiedergeben.
 
 [MUST_NOT] `show` darf den bezeichneten Skill oder Workflow nicht ausführen.
+
+### `technologies`
+
+[MUST] `/technologies list` muss jede Technologie-ID genau einmal mit ihren verfügbaren Rollen-Mappings, Regeldateien und einer knappen Zweckbeschreibung ausgeben.
+
+[MUST] `/technologies show <technology-id>` muss alle Rollen-Mappings der Technologie-ID mit Rolle, Regeldatei, Verwendungskriterium und Zweck beschreiben.
+
+[MUST_NOT] `/technologies list` und `/technologies show <technology-id>` dürfen allein durch die ausgewählte Technologie keine zusätzliche Rolle aktivieren oder eine Regeldatei außerhalb ihres Verwendungskriteriums anwenden.
 
 ### `run`
 
