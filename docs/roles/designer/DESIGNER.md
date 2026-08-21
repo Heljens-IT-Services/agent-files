@@ -30,7 +30,7 @@ Diese Datei definiert technologieübergreifende Designer-Regeln für gestalteris
 
 [MUST] Eine erste visualisierte Lösung ist als Entwurf zu behandeln und darf nicht allein deshalb als finales Design gelten, weil sie technisch renderbar ist.
 
-[MUST_IF] Ein Design technisch visualisiert werden kann, muss vor der Finalisierung mindestens eine explizite Review- und Iterationsschleife stattfinden.
+[MUST_IF] Ein Design technisch visualisiert werden kann, muss vor der Finalisierung mindestens eine explizite visuelle Review-Schleife stattfinden; relevante Review-Funde müssen in einer weiteren Iteration umgesetzt und anschließend erneut visuell geprüft werden.
 
 [ALLOW_IF] Bei kleinen, stark eingeschränkten Designänderungen darf eine einzelne Richtung ausreichen, wenn die wesentlichen gestalterischen Entscheidungen bereits durch bestehenden Kontext oder klare Vorgaben feststehen.
 
