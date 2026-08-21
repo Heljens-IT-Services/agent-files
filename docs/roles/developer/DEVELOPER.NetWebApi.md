@@ -1,6 +1,6 @@
 # DEVELOPER.NetWebApi.md
 
-Stand: 2026-08-05
+Stand: 2026-08-12
 
 ## Zweck
 
@@ -20,9 +20,21 @@ Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezoge
 
 [ALLOW_IF] Middleware und Filter dürfen HTTP-nahe Querschnittsthemen wie Fehlerabbildung, Authentifizierung, Correlation IDs, Request Logging und CORS behandeln, wenn sie keinen fachlichen Use Case ersetzen.
 
+## Endpoint-Struktur
+
+[MUST] Fachliche und ressourcenorientierte HTTP-Endpunkte müssen als ASP.NET Core MVC Controller implementiert werden.
+
+[MUST] Controller müssen `[ApiController]` verwenden, von `ControllerBase` ableiten und ihre Routen über Controller- oder Action-Attribute definieren.
+
+[MUST] `WebApi` muss Controller über `AddControllers(...)` registrieren und `Program.cs` muss sie über `MapControllers()` in die Routing-Pipeline einbinden.
+
+[MUST_NOT] Minimal APIs dürfen für fachliche oder ressourcenorientierte HTTP-Endpunkte nicht verwendet werden. Insbesondere dürfen solche Endpunkte nicht direkt über `MapGet`, `MapPost`, `MapPut`, `MapPatch`, `MapDelete`, `MapMethods` oder `MapGroup` definiert werden.
+
+[MUST_NOT] API-Routen dürfen nicht als Lambda- oder Delegate-Handler in `Program.cs` oder in Endpoint-Registrierungserweiterungen definiert werden, wenn sie Controller-Actions ersetzen.
+
 ## HTTP-Verträge
 
-[MUST] Controller oder Minimal-API-Endpoints müssen Requests validieren, Use Cases aufrufen und Ergebnisse in HTTP-Antworten mappen.
+[MUST] Controller müssen Requests validieren, Use Cases aufrufen und Ergebnisse in HTTP-Antworten mappen.
 
 [MUST] Endpoints müssen ressourcen- oder use-case-orientiert benannt werden und passende HTTP-Methoden, Statuscodes und Routen verwenden.
 
