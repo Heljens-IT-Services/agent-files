@@ -28,7 +28,7 @@ Einen vorhandenen Pull Request wiederverwenden oder einen neuen Pull Request mit
 - Ein einzelnes primäres Issue mit `Closes #<nummer>` verknüpfen, wenn der Pull Request dieses Issue vollständig abschließt; andernfalls `Refs #<nummer>` verwenden.
 - Wenn ein vorgelagerter Workflow mehrere Issues als durch denselben Pull Request vollständig abgeschlossen bestätigt, darf und soll für jedes dieser Issues eine eigene `Closes #<nummer>`-Verknüpfung gesetzt werden.
 - Nicht vollständig abgeschlossene, nur kontextuelle, extern blockierte oder lediglich verwandte Issues mit `Refs #<nummer>` oder normalem Kontext verlinken, sofern sie für Review oder Merge relevant sind.
-- Bei `issue-graph-umsetzung.md` ausschließlich den final bestätigten Scope aus dessen Abschlussphase verwenden. Den gelesenen Rohgraphen nicht automatisch als Closure-Liste übernehmen.
+- Bei `issue-graph-implementation.md` ausschließlich den final bestätigten Scope aus dessen Abschlussphase verwenden. Den gelesenen Rohgraphen nicht automatisch als Closure-Liste übernehmen.
 
 ## Kommandos
 

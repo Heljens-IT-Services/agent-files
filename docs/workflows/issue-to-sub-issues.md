@@ -7,7 +7,7 @@ Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf
 ## Verwenden
 
 - Für Epics, Stories oder zu große Tasks, die weiter zerlegt werden sollen.
-- Nicht für direkte Umsetzung; dafür `issue-graph-umsetzung.md`, `issue-to-pr.md` oder `issue-umsetzung.md` nutzen.
+- Nicht für direkte Umsetzung; dafür `issue-graph-implementation.md`, `issue-to-pr.md` oder `issue-implementation.md` nutzen.
 
 ## Direkter Alias
 
