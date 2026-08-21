@@ -21,6 +21,8 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `code-reading` | Code Reading | - | Bestehender Code gezielt in den Agenten-Kontext geladen werden muss. | [code-reading.md](https://heljens-it-services.github.io/agent-files/skills/code-reading.md) | Codekontext erfassen. |
 | `code-refactoring` | Code Refactoring | `/refactor` | Struktur ohne beabsichtigte Verhaltensänderung verbessert werden soll. | [code_refactoring.md](https://heljens-it-services.github.io/agent-files/skills/code_refactoring.md) | Code strukturieren. |
 | `code-testing` | Code Testing | `/testing`<br>`/testing <test-mode>` | Eine Änderung mit Build-, Test-, E2E- oder manuellen Prüfschritten verifiziert werden soll. | [code-testing.md](https://heljens-it-services.github.io/agent-files/skills/code-testing.md) | Änderungen gezielt oder kontextbezogen verifizieren. |
+| `design-prototyping` | Design Prototyping | - | Eine Designrichtung als leichtes renderbares Artefakt visualisiert werden soll. | [design-prototyping.md](https://heljens-it-services.github.io/agent-files/skills/design-prototyping.md) | Designideen schnell visualisieren. |
+| `design-review` | Design Review | - | Ein tatsächliches visuelles oder interaktives Ergebnis betrachtet, bewertet oder mit Varianten verglichen werden soll. | [design-review.md](https://heljens-it-services.github.io/agent-files/skills/design-review.md) | Designs visuell prüfen und Iterationen ableiten. |
 | `documentation` | Documentation | - | Dokumentation erstellt, aktualisiert oder umstrukturiert werden soll. | [documentation.md](https://heljens-it-services.github.io/agent-files/skills/documentation.md) | Dokumentation pflegen. |
 | `github-branch-checkout-from-default` | GitHub Branch Checkout From Default | - | Ein Arbeitsbranch von der aktuellen Standardbasis erstellt oder bestätigt werden soll. | [github_branch-checkout-from-default.md](https://heljens-it-services.github.io/agent-files/skills/github_branch-checkout-from-default.md) | Arbeitsbranch vorbereiten. |
 | `github-commit` | GitHub Commit | `/commit` | Fertige lokale Änderungen logisch geschnitten und ohne Push committet werden sollen. | [github_commit.md](https://heljens-it-services.github.io/agent-files/skills/github_commit.md) | Lokale Commits erstellen. |
@@ -53,6 +55,8 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `code-reading` | `developer` | Codekontext für technische Folgearbeit erfassen. |
 | `code-refactoring` | `developer` | Verhaltenserhaltende Strukturänderungen umsetzen. |
 | `code-testing` | `tester` | Build-, Test-, E2E- und manuelle Verifikation ausführen. |
+| `design-prototyping` | `designer` | Leichte visuelle Designartefakte für Exploration und Vergleich erzeugen. |
+| `design-review` | `designer` | Gerenderte Designs visuell bewerten, vergleichen und Iterationen ableiten. |
 | `documentation` | `main/orchestrator` | Dokumentationsscope und veröffentlichte Regelwirkung koordinieren; workflowbezogen delegierbar. |
 | `github-branch-checkout-from-default` | `main/orchestrator` | Branchwechsel und Basiswahl koordinieren; nicht parallel delegieren. |
 | `github-commit` | `main/orchestrator` | Commit-Scope und lokale Git-Mutation koordinieren. |
@@ -68,7 +72,7 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `repository-baseline-configuration` | `main/orchestrator` | Repositoryweite Sollbestände und externe Wirkung koordinieren. |
 | `relationship-setting` | `planner` | Beziehung fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
 | `type-setting` | `planner` | Issue-Type fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
-| `research` | `main/orchestrator` | Je nach Gegenstand an Planner, Developer oder Tester delegierbar. |
+| `research` | `main/orchestrator` | Je nach Gegenstand an Planner, Developer, Tester oder Designer delegierbar. |
 
 ## Delegation und Fallback
 
