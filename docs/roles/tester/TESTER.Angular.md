@@ -4,7 +4,7 @@ Stand: 2026-08-18
 
 ## Zweck
 
-Diese Datei definiert Testregeln für Angular-Anwendungen. Allgemeine Tester-Regeln werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei definiert Testregeln für Angular-Anwendungen. Allgemeine Tester-Regeln werden über [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md), weitere technologiespezifische Regeldateien über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Tests
 

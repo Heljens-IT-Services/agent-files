@@ -4,7 +4,7 @@ Stand: 2026-08-05
 
 ## Zweck
 
-Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezogene Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezogene Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Zielbild
 
