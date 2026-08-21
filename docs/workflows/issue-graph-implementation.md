@@ -25,7 +25,7 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
 
 ## Verwendete Workflows
 
-- `issue-umsetzung.md`
+- `issue-implementation.md`
 
 ## Phasen
 
@@ -98,8 +98,8 @@ Empfohlene Struktur des Fortschrittsankers:
 ### Phase 4: Nach Plan umsetzen
 
 1. Den Orchestrierungsplan in der festgelegten Reihenfolge vollständig abarbeiten.
-2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-umsetzung.md` ausführen.
-3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-umsetzung.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
+2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen.
+3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
 6. Nach jedem Issue den Orchestrierungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
@@ -128,7 +128,7 @@ Empfohlene Struktur des Fortschrittsankers:
 - Technische Arbeitseinheiten: sequenziell `developer`, danach `tester`.
 - Commit und Push je Arbeitseinheit sowie der finale Pull Request: `main/orchestrator`.
 - Schreibende Arbeitseinheiten werden nicht parallel auf demselben Worktree ausgeführt.
-- Lokale Implementierungs- oder Testfehler werden innerhalb von `issue-umsetzung.md` behandelt.
+- Lokale Implementierungs- oder Testfehler werden innerhalb von `issue-implementation.md` behandelt.
 - Erkennt eine Rolle eine Unstimmigkeit, die den vorab festgelegten vollständigen Ablauf ungültig macht, geht die Steuerung an den Orchestrator zurück und der Workflow stoppt mit dem konkreten Grund.
 
 ## Endergebnis
