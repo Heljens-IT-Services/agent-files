@@ -4,7 +4,7 @@ Stand: 2026-08-12
 
 ## Zweck
 
-Diese Datei gilt für Angular. Allgemeine, HTML-, CSS- und TypeScript-Regeln werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei gilt für Angular. Allgemeine Developer-Regeln werden über [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md), weitere technologiespezifische Regeldateien über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Architektur
 

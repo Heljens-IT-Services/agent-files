@@ -4,7 +4,7 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige allgemeine und technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige allgemeine Developer-Regeln werden über [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md), weitere technologiespezifische Regeldateien über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Styling, UI und Accessibility
 

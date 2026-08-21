@@ -4,7 +4,7 @@ Stand: 2026-08-05
 
 ## Zweck
 
-Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- und Core-Projekten. Zugehörige allgemeine und hostspezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- und Core-Projekten. Zugehörige allgemeine und hostspezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## Schichten und Referenzen
 

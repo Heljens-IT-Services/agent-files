@@ -4,7 +4,7 @@ Stand: 2026-07-22
 
 ## Zweck
 
-Diese Datei gilt für HTML und Markup. Zugehörige allgemeine und technologiespezifische Regeldateien werden über [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) aufgelöst.
+Diese Datei gilt für HTML und Markup. Zugehörige allgemeine Developer-Regeln werden über [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md), weitere technologiespezifische Regeldateien über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
 ## HTML und Markup
 

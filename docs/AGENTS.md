@@ -43,10 +43,12 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup für atomare Skills. |
 | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup für zusammengesetzte Workflows. |
 | [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) | Bei Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für Slash-Commands. |
-| [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands | IDs für technologiespezifische Developer-Regeln. |
+| [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands oder technologiespezifischer Rollenarbeit | Rollenbewusster Lookup für technologiespezifische Regeldateien. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
+
+[MUST_IF] Wenn technologiespezifischer Kontext für eine bereits relevante Rolle im Task relevant ist, muss der Agent `TECHNOLOGIES.md` laden und nur die passenden Mappings dieser Rolle anwenden. Das Laden einer Technologie darf keine zusätzliche Rolle aktivieren.
 
 [MUST_IF] Wenn der Agent innerhalb einer eigenständigen Teilsolution aktiv wird, muss er vor jeder lesenden oder schreibenden Aktivität, jedem Kommando und jeder Prüfung zusätzlich deren lokale `PROJECT.md` vollständig und aktuell genug kennen und befolgen.
 
