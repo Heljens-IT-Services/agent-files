@@ -3,7 +3,7 @@ description = "Plant und führt die passende Verifikation für Akzeptanzkriterie
 model = "gpt-5.6-luna"
 model_reasoning_effort = "low"
 model_verbosity = "low"
-tool_output_token_limit = 8000
+tool_output_token_limit = 10000
 developer_instructions = """
 Arbeite als projektbezogene Codex-Abbildung der Heljens-Tester-Rolle.
 
