@@ -99,10 +99,10 @@ Empfohlene Struktur des Fortschrittsankers:
 
 1. Den Orchestrierungsplan in der festgelegten Reihenfolge vollständig abarbeiten.
 2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen. Wenn eine Arbeitseinheit Designer-Verantwortung enthält, steuert dieser Teilworkflow die erforderliche Design-Exploration, das Handoff und den visuellen Review vor der formalen Testverifikation.
-3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
+3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed, gepusht und mit dem verpflichtenden persistenten deutschen Issue-Abschlusskommentar dokumentiert wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
-6. Nach jedem Issue den Orchestrierungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
+6. Nach dem persistenten Issue-Kommentar den Orchestrierungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
 7. Während dieser Phase keinen Pull Request erstellen. Der Pull Request gehört ausschließlich in Phase 5 nach vollständiger Abarbeitung des Umsetzungsscope.
 8. Erkennt die Umsetzung eine Unstimmigkeit, durch die der vorab festgelegte Scope nicht mehr vollständig nach diesem Workflow ausführbar ist, stoppen und den konkreten Zustand melden. Nicht selbstständig in einen alternativen Workflow, eine partielle Umsetzung oder mehrere Pull Requests wechseln.
 
@@ -127,6 +127,7 @@ Empfohlene Struktur des Fortschrittsankers:
 - Graph- und Scope-Phasen: `planner`; der Hauptagent bleibt für die abschließende Scope- und Ausführbarkeitsentscheidung verantwortlich.
 - Arbeitseinheiten: sequenziell gemäß `issue-implementation.md`; bei relevanter Designer-Verantwortung `designer` für gestalterische Exploration, Handoff und visuellen Review, `developer` für die Produktivimplementierung und `tester` für formale Verifikation und Teststatus.
 - Commit und Push je Arbeitseinheit sowie der finale Pull Request: `main/orchestrator`.
+- Der persistente Issue-Abschlusskommentar wird durch `main/orchestrator` nach erfolgreicher Verifikation sowie Commit und Push erstellt; erst danach darf die nächste Arbeitseinheit beginnen.
 - Schreibende Arbeitseinheiten werden nicht parallel auf demselben Worktree ausgeführt.
 - Lokale Design-, Implementierungs- oder Testfunde werden innerhalb von `issue-implementation.md` an die jeweils verantwortliche Rolle zurückgeführt.
 - Erkennt eine Rolle eine Unstimmigkeit, die den vorab festgelegten vollständigen Ablauf ungültig macht, geht die Steuerung an den Orchestrator zurück und der Workflow stoppt mit dem konkreten Grund.
