@@ -6,11 +6,17 @@ Stand: 2026-08-22
 
 Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- und Core-Projekten. Zugehörige allgemeine und hostspezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
+## Zielbild
+
+[MUST] Eine geschichtete .NET-Anwendung muss mindestens ein Entry-Projekt, ein Infrastructure-Projekt und ein Core-Projekt enthalten.
+
+[ALLOW] Das Entry-Projekt darf je nach Hosttyp eine WebApi, Console, Worker-Anwendung oder einen anderen passenden Einstieg kapseln.
+
 ## Schichten und Referenzen
 
 [MUST] `Core` muss fachliche Begriffe, Value Objects, Domain Services, Regeln, Fehler, Use Cases, Ports und Ergebnisobjekte enthalten.
 
-[MUST] `Infrastructure` muss technische Adapter für Ports aus `Core` enthalten, einschließlich der Repository-Implementierungen für datenbankgestützte Persistenz.
+[MUST] `Infrastructure` muss technische Adapter für Ports aus `Core` enthalten.
 
 [MUST] Entry-Projekte müssen Composition Root für Host, Konfiguration, Logging, Dependency Injection sowie Ein- und Ausgabe sein.
 
@@ -19,6 +25,18 @@ Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 [MUST_NOT] `Core` darf kein produktives Projekt und keine Laufzeitdetails aus Host, Transport, Konfiguration oder Dependency Injection referenzieren.
 
 [ALLOW_IF] Weitere produktive Projekte und Testprojekte dürfen angelegt werden, wenn ihre Verantwortung begrenzt ist und sie keine Rückreferenz in `Core` erzwingen.
+
+## Repository-Pattern und Persistenzgrenze
+
+[MUST] Repository-Verträge müssen im `Core`-Projekt definiert werden und Core-eigene DTOs, Modelle, Value Objects oder fachlich geeignete primitive Werte verwenden.
+
+[MUST] Repository-Implementierungen müssen im `Infrastructure`-Projekt liegen und das Mapping zwischen EF-Core-Entities und Core-Modellen oder DTOs dort durchführen.
+
+[MUST] EF-Core-Entities sowie `DbContext` und `DbSet<TEntity>` müssen vollständig im `Infrastructure`-Projekt gekapselt bleiben.
+
+[MUST_NOT] `Core`, Use Cases, Controller, Worker, UI oder andere Konsumenten außerhalb von `Infrastructure` dürfen direkt mit `DbContext`, `DbSet<TEntity>` oder EF-Core-Entities arbeiten.
+
+[MUST_NOT] Repository-Verträge dürfen EF-Core-Entities oder andere Infrastructure-Typen nach außen exponieren.
 
 ## Fachliche und technische Grenzen
 
