@@ -1,6 +1,6 @@
 # DEVELOPER.NetApplication.md
 
-Stand: 2026-08-05
+Stand: 2026-08-22
 
 ## Zweck
 
@@ -10,7 +10,7 @@ Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] `Core` muss fachliche Begriffe, Value Objects, Domain Services, Regeln, Fehler, Use Cases, Ports und Ergebnisobjekte enthalten.
 
-[MUST] `Infrastructure` muss technische Adapter für Ports aus `Core` enthalten.
+[MUST] `Infrastructure` muss technische Adapter für Ports aus `Core` enthalten, einschließlich der Repository-Implementierungen für datenbankgestützte Persistenz.
 
 [MUST] Entry-Projekte müssen Composition Root für Host, Konfiguration, Logging, Dependency Injection sowie Ein- und Ausgabe sein.
 
@@ -32,11 +32,11 @@ Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 ## Infrastruktur und Konfiguration
 
-[MUST] Externe Dienste, Persistenz, Caches und Dateisysteme müssen über Ports aus `Core` angesprochen werden.
+[MUST] Externe Dienste, Persistenz, Caches und Dateisysteme müssen über Ports aus `Core` angesprochen werden. Datenbankgestützte Persistenz muss dabei über fachlich oder use-case-orientierte Repository-Verträge erfolgen.
 
 [MUST] Parser und Adapter müssen Rohdaten an der Systemgrenze in interne Modelle umwandeln und relevante Quelleninformationen erhalten.
 
-[MUST] Retry, Timeout, Backoff, technische Konfigurationsbindung und Persistenz müssen in `Infrastructure` liegen.
+[MUST] Retry, Timeout, Backoff, technische Konfigurationsbindung und Persistenzimplementierungen müssen in `Infrastructure` liegen.
 
 [MUST_IF] Bei einem zulässigen Fallback muss der technische Mechanismus in `Infrastructure` und der fachliche Ersatzvertrag in `Core` liegen.
 
