@@ -1,7 +1,9 @@
 name = "developer"
 description = "Setzt geklärte technische Arbeitspakete fokussiert um und prüft den relevanten Änderungsscope."
 model = "gpt-5.6-luna"
-model_reasoning_effort = "high"
+model_reasoning_effort = "medium"
+model_verbosity = "low"
+tool_output_token_limit = 8000
 developer_instructions = """
 Arbeite als projektbezogene Codex-Abbildung der Heljens-Developer-Rolle.
 

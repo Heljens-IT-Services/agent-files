@@ -2,6 +2,8 @@ name = "planner"
 description = "Plant und strukturiert GitHub-Issues sowie fachliche Arbeitspakete nach den Heljens-Regeln."
 model = "gpt-5.6"
 model_reasoning_effort = "high"
+model_verbosity = "medium"
+tool_output_token_limit = 5000
 developer_instructions = """
 Arbeite als projektbezogene Codex-Abbildung der Heljens-Planner-Rolle.
 
