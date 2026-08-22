@@ -98,7 +98,7 @@ Empfohlene Struktur des Fortschrittsankers:
 ### Phase 4: Nach Plan umsetzen
 
 1. Den Orchestrierungsplan in der festgelegten Reihenfolge vollständig abarbeiten.
-2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen.
+2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen. Wenn eine Arbeitseinheit Designer-Verantwortung enthält, steuert dieser Teilworkflow die erforderliche Design-Exploration, das Handoff und den visuellen Review vor der formalen Testverifikation.
 3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed und gepusht wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
@@ -125,10 +125,10 @@ Empfohlene Struktur des Fortschrittsankers:
 ## Codex-Orchestrierung
 
 - Graph- und Scope-Phasen: `planner`; der Hauptagent bleibt für die abschließende Scope- und Ausführbarkeitsentscheidung verantwortlich.
-- Technische Arbeitseinheiten: sequenziell `developer`, danach `tester`.
+- Arbeitseinheiten: sequenziell gemäß `issue-implementation.md`; bei relevanter Designer-Verantwortung `designer` für gestalterische Exploration, Handoff und visuellen Review, `developer` für die Produktivimplementierung und `tester` für formale Verifikation und Teststatus.
 - Commit und Push je Arbeitseinheit sowie der finale Pull Request: `main/orchestrator`.
 - Schreibende Arbeitseinheiten werden nicht parallel auf demselben Worktree ausgeführt.
-- Lokale Implementierungs- oder Testfehler werden innerhalb von `issue-implementation.md` behandelt.
+- Lokale Design-, Implementierungs- oder Testfunde werden innerhalb von `issue-implementation.md` an die jeweils verantwortliche Rolle zurückgeführt.
 - Erkennt eine Rolle eine Unstimmigkeit, die den vorab festgelegten vollständigen Ablauf ungültig macht, geht die Steuerung an den Orchestrator zurück und der Workflow stoppt mit dem konkreten Grund.
 
 ## Endergebnis

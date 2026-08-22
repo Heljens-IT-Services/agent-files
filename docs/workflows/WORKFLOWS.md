@@ -11,6 +11,7 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 | `bugfix` | Bugfix | - | Ein Fehler analysiert, behoben und abgesichert werden soll. | [bugfix.md](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) | Fehler beheben. |
 | `commit-history-summary` | Commit History Summary | `/summary` | Commits und gemergte Pull Requests für einen Zeitraum fachlich, technisch oder detailliert zusammengefasst werden sollen. | [commit-history-summary.md](https://heljens-it-services.github.io/agent-files/workflows/commit-history-summary.md) | Änderungshistorie zusammenfassen. |
 | `commit-push` | Commit Push | `/cp` | Fertige lokale Änderungen zusammenhängend committet und gepusht werden sollen. | [commit-push.md](https://heljens-it-services.github.io/agent-files/workflows/commit-push.md) | Änderungen committen und pushen. |
+| `design-exploration` | Design Exploration | `/design-explore` | Eine visuelle oder interaktive Lösung explorativ entwickelt, gerendert, verglichen und iteriert werden soll. | [design-exploration.md](https://heljens-it-services.github.io/agent-files/workflows/design-exploration.md) | Designrichtungen explorieren, visualisieren und reviewen. |
 | `feature-finish` | Feature Finish | `/finish` | Ein freigegebener Arbeitsbranch sicher committed, geprüft, gemergt und abgeschlossen werden soll. | [feature-finish.md](https://heljens-it-services.github.io/agent-files/workflows/feature-finish.md) | Arbeitsbranch abschließen. |
 | `issue-graph-implementation` | Issue Graph Implementation | `/implement <issue-number>` | Ein Issue mit seinen relevanten Issue-Beziehungen bis zur verifizierten Implementierung und zum Pull Request bearbeitet werden soll. | [issue-graph-implementation.md](https://heljens-it-services.github.io/agent-files/workflows/issue-graph-implementation.md) | Issue-Graph implementieren. |
 | `issue-sanitize` | Issue Graph Sanitization | `/sanitize <issue-number>` | Einen relevanten Issue-Graphen auf native GitHub Issue-Types und Relationships prüfen und eindeutig ableitbare Korrekturen verifizieren soll. | [issue-sanitize.md](https://heljens-it-services.github.io/agent-files/workflows/issue-sanitize.md) | Issue-Graph sanitizen. |
@@ -27,7 +28,7 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 
 [MUST] Der Hauptagent bleibt für Workflow-Auswahl, Phasenkoordination, rollenübergreifende Entscheidungen und externe GitHub-/Git-Mutationen verantwortlich.
 
-[SHOULD] Planungs- und Issue-Strukturphasen werden an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, sowie Verifikation und Check-Beobachtung an `tester` delegiert, wenn die SubAgents verfügbar sind.
+[SHOULD] Planungs- und Issue-Strukturphasen werden an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, Verifikation und Check-Beobachtung an `tester` sowie gestalterische Exploration, Prototyping und visuelle Design-Reviews an `designer` delegiert, wenn die SubAgents verfügbar sind.
 
 [ALLOW_IF] Ein Workflow darf diese Default-Zuordnung für einen konkreten Schritt überschreiben, wenn Verantwortung, Übergabe, Rückgabe und Verifikation im Workflow eindeutig bleiben.
 

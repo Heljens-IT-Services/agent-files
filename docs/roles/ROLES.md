@@ -30,13 +30,14 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 
 | Rolle | Regeldatei | Lesen und verwenden, wenn | Zweck |
 |---|---|---|---|
+| Designer | [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | Gestalterische Problemklärung, visuelle Exploration, Prototyping, Designentscheidungen oder Design-Reviews relevant sind. | Technologieübergreifende Designregeln. |
 | Developer | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Architektur, Implementierung, Refactoring, Code-Review oder technische Planung relevant sind. | Technologieübergreifende Entwicklungsregeln. |
 | Planner | [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) | GitHub Issues erstellt, fachlich geplant, strukturiert, zerlegt, typisiert, verknüpft, priorisiert oder auf Abschluss geprüft werden. | Leitplanken für GitHub Issues. |
 | Tester | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Teststrategie, Testentwurf, Testerstellung, Testwartung, Regression, Verifikation oder erforderliche Checks relevant sind. | Technologieübergreifende Testregeln. |
 
 ## Codex-Laufzeitabbildung
 
-[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
+[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
 
 [ALLOW_IF] Bei kombinierten Verantwortungen darf der koordinierende Hauptagent die Arbeit sequenziell auf mehrere SubAgents verteilen, sofern jeder Agent nur seinen klar abgegrenzten Verantwortungsbereich übernimmt.
 

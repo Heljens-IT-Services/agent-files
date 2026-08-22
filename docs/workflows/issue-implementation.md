@@ -19,11 +19,13 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 - `code-implementation-planning`
 - `code-implementation`
 - `code-refactoring`
+- `design-review` bei relevanter visueller Designer-Verantwortung
 - `code-testing`
 - `code-diff-review`
 
 ## Verwendete Workflows
 
+- `design-exploration.md` bei offener gestalterischer Richtungsentscheidung
 - `commit-push.md`
 
 ## Ablauf
@@ -33,18 +35,20 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `issue-reading` das konkrete Issue lesen.
 4. Bei einem terminalen Task dessen technischen Plan als primäre Ausführungsgrundlage übernehmen. Bei einer anderen klaren Arbeitseinheit Ziel, Scope, Nicht-Scope, Arbeitspakete, Akzeptanzkriterien und Verifikation aus dem vorhandenen Kontext festhalten.
 5. Geltende Agent- und Repository-Regeln sowie mit `code-reading` ausschließlich die unmittelbar relevanten Dateien und Referenzimplementierungen laden.
-6. Technischen Plan, Repository-Zustand und geltende Regeln auf Konsistenz prüfen. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen Entscheidungen, neuem Risiko oder echtem Planbruch mit `code-implementation-planning` gezielt nachplanen.
-7. Das nächste geplante Arbeitspaket mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope umsetzen.
-8. Die für das Arbeitspaket vorgesehene Verifikation mit `code-testing` ausführen.
-9. Einen lokalen Implementierungsfehler anhand des konkreten Fehleroutputs im unveränderten Scope korrigieren und nur die relevante Prüfung wiederholen. Nicht allein wegen eines lokalen Fehlers vollständig neu planen.
-10. Arbeitspakete in der geplanten Reihenfolge wiederholen, bis der technische Plan abgearbeitet ist.
-11. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien prüfen.
-12. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
-13. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
-14. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
-15. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
-16. Bei Ausführung innerhalb eines Issue-Graphen den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
-17. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+6. Wenn die Arbeitseinheit Designer-Verantwortung enthält, prüfen, ob die Designrichtung bereits belastbar geklärt und visuell reviewt ist. Bei offenem gestalterischem Lösungsraum oder fehlendem belastbarem Design-Handoff `design-exploration.md` ausführen und dessen Handoff als Designkontext für die technische Planung übernehmen. Keine erneute Exploration erzwingen, wenn ein belastbares Design bereits vorliegt.
+7. Technischen Plan, Design-Handoff soweit vorhanden, Repository-Zustand und geltende Regeln auf Konsistenz prüfen. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen technischen oder architektonischen Entscheidungen, neuem technischem Risiko oder echtem Planbruch mit `code-implementation-planning` gezielt nachplanen.
+8. Das nächste geplante Arbeitspaket mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope umsetzen.
+9. Die für das Arbeitspaket vorgesehene Verifikation mit `code-testing` ausführen.
+10. Einen lokalen Implementierungsfehler anhand des konkreten Fehleroutputs im unveränderten Scope korrigieren und nur die relevante Prüfung wiederholen. Nicht allein wegen eines lokalen Fehlers vollständig neu planen.
+11. Arbeitspakete in der geplanten Reihenfolge wiederholen, bis der technische Plan abgearbeitet ist.
+12. Wenn die fertige Arbeitseinheit ein visuelles oder interaktives Ergebnis mit Designer-Verantwortung enthält, das tatsächlich implementierte Ergebnis rendern und mit `design-review` gegen Ziel, Design-Handoff und relevante Constraints prüfen. Lokale Umsetzungsabweichungen im bestehenden Design-Scope an `developer` zurückgeben und nach der Korrektur erneut reviewen; ein grundlegendes Problem der Designrichtung an `design-exploration.md` zurückgeben.
+13. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien prüfen.
+14. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
+15. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
+16. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
+17. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
+18. Bei Ausführung innerhalb eines Issue-Graphen den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
+19. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
 
 ## Planbruch
 
@@ -69,17 +73,20 @@ In Analyse oder Planung zurückspringen, wenn:
 
 ## Codex-Orchestrierung
 
-- Technischer Plan und offene Richtungsentscheidungen: `planner`.
-- Code-Lesen, Analyse, Implementierung und Refactoring: `developer`.
-- Task-Verifikation und Teststatus: `tester`.
+- Technischer Plan und offene technische oder architektonische Richtungsentscheidungen: `planner`.
+- Gestalterische Richtungsentscheidungen, Design-Exploration, Design-Handoff und visueller Design-Review: `designer`.
+- Code-Lesen, Analyse, Produktivimplementierung und Refactoring: `developer`.
+- Formale Task-Verifikation und Teststatus: `tester`.
 - Commit und Push: `main/orchestrator`; der Workflow lässt keine unkoordinierten parallelen Schreibzugriffe zu.
-- Planbruch geht an `planner`, lokaler Implementierungs- oder Testfehler gezielt an `developer` beziehungsweise `tester`.
+- Planbruch geht abhängig vom Gegenstand an `planner`, `designer` oder den Orchestrator; lokale Implementierungs- oder Testfehler gezielt an `developer` beziehungsweise `tester`.
 
 - Bei unklarem Issue-Kontext zurück zu `issue-reading`.
 - Bei unklarem Code-Kontext zurück zu `code-reading`.
 - Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code-analysis`.
-- Bei zu großem oder unscharfem Scope sowie einem Planbruch zurück zu `code-implementation-planning`.
+- Bei offener gestalterischer Richtung oder einem grundlegenden Problem der Designrichtung zu `design-exploration.md`.
+- Bei zu großem oder unscharfem Scope sowie einem technischen Planbruch zurück zu `code-implementation-planning`.
 - Bei lokalen Implementierungs- oder Testfehlern zurück zu `code-implementation` und anschließend die relevante Prüfung wiederholen.
+- Bei `design-review` mit lokaler Umsetzungsabweichung zurück zu `code-implementation` und anschließend erneut `design-review`; bei grundlegendem Richtungsproblem zurück zu `design-exploration.md`.
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
 - Bei fehlgeschlagenem Commit oder Push zum Workflow `commit-push.md` zurückkehren; nicht zur nächsten Arbeitseinheit fortfahren.
 
@@ -87,6 +94,7 @@ In Analyse oder Planung zurückspringen, wenn:
 
 - umgesetzte und verifizierte Arbeitseinheit
 - erfüllte Akzeptanzkriterien
+- bei relevanter Designer-Verantwortung visuell reviewte Produktivimplementierung
 - dokumentierter Teststatus
 - eindeutig zuordenbarer Commit-Kontext
 - erfolgreicher Push

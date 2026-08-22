@@ -1,6 +1,6 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-07-22
+Stand: 2026-08-22
 
 ## Zweck
 
@@ -24,7 +24,25 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [ALLOW_IF] Eine projektspezifische Regel darf ausdrücklich eine abweichende Technologie oder Vorgehensweise vorgeben.
 
-[MUST] Anwendungscode muss `IDbContextFactory<TContext>` konsumieren und `AddDbContextFactory<TContext>(...)` registrieren.
+## Repository-Pattern und Persistenzgrenze
+
+[MUST] Für datenbankgestützte Persistenz in C#/.NET muss das Repository-Pattern als technische Persistenzgrenze verwendet werden.
+
+[MUST] Repository-Verträge müssen im `Core`-Projekt definiert werden und ausschließlich Core-eigene DTOs, Modelle, Value Objects oder fachlich geeignete primitive Werte verwenden.
+
+[MUST] Repository-Implementierungen müssen im `Infrastructure`-Projekt liegen und das Mapping zwischen EF-Core-Entities und Core-Modellen oder DTOs dort durchführen.
+
+[MUST] EF-Core-Entities sowie `DbContext` und `DbSet<TEntity>` müssen vollständig im `Infrastructure`-Projekt gekapselt bleiben.
+
+[MUST_NOT] `Core`, Use Cases, Controller, Worker, UI oder andere Konsumenten außerhalb von `Infrastructure` dürfen direkt mit `DbContext`, `DbSet<TEntity>` oder EF-Core-Entities arbeiten.
+
+[MUST_NOT] Repository-Verträge dürfen EF-Core-Entities oder andere Infrastructure-Typen nach außen exponieren.
+
+[MUST] Repository-Verträge müssen fachlich oder use-case-orientiert nur die tatsächlich benötigten Operationen exponieren.
+
+[MUST_NOT] Ein generisches `IRepository<TEntity>`-Framework darf nicht pauschal als Standard vorgeschrieben werden.
+
+[MUST] Anwendungscode mit datenbankgestützter Persistenz muss die Factory-Regeln einhalten: Repository-Implementierungen konsumieren `IDbContextFactory<TContext>` und die Composition Root registriert `AddDbContextFactory<TContext>(...)`.
 
 [MUST_NOT] Anwendungscode darf `TContext : DbContext` nicht direkt injizieren. Die durch `AddDbContextFactory` zusätzlich registrierte Scoped-Instanz ist kein erlaubter Konsumweg.
 
