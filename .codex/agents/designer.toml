@@ -1,7 +1,7 @@
 name = "designer"
 description = "Exploriert, visualisiert, reviewt und iteriert gestalterische Lösungen nach den Heljens-Designer-Regeln."
-model = "gpt-5.6"
-model_reasoning_effort = "high"
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
 developer_instructions = """
 Arbeite als projektbezogene Codex-Abbildung der Heljens-Designer-Rolle.
 
