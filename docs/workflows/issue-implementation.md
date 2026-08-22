@@ -47,8 +47,18 @@ Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Ar
 15. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
 16. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
 17. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
-18. Bei Ausführung innerhalb eines Issue-Graphen den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
-19. Falls die Arbeitseinheit ein Issue abschließt und der übergeordnete Kontext das sofortige Schließen ausdrücklich erlaubt, das Issue minimalistisch mit Ergebnis, Commit-Kontext und Teststatus kommentieren und schließen.
+18. Sobald die Arbeitseinheit vollständig umgesetzt, verifiziert, reviewed, committed und gepusht ist, im zugehörigen GitHub-Issue einen kurzen persistenten Abschlusskommentar hinterlegen. Der Kommentar muss auf Deutsch den Umsetzungsstatus, den relevanten Commit-Kontext, den Verifikationsstatus und – solange der finale Pull Request oder Merge noch aussteht – diesen offenen Abschluss enthalten. Das Issue nicht über diesen Kommentar schließen.
+19. Für den Kommentar `gh issue comment <issue-number> --body "..."` verwenden. Der Inhalt muss mindestens diesem Muster folgen:
+
+    ```text
+    Umsetzung abgeschlossen.
+    Commit: <commit-sha>
+    Verifikation: erfolgreich|mit Hinweisen|fehlgeschlagen.
+    Issue bleibt bis zum finalen PR/Merge geöffnet.
+    ```
+
+20. Bei Ausführung innerhalb eines Issue-Graphen erst nach erfolgreichem Kommentar den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
+21. Ein Issue nur schließen, wenn der übergeordnete Kontext dies ausdrücklich erlaubt; die bestehende Schließlogik über den finalen Pull Request bleibt ansonsten maßgeblich.
 
 ## Planbruch
 
@@ -99,7 +109,7 @@ In Analyse oder Planung zurückspringen, wenn:
 - eindeutig zuordenbarer Commit-Kontext
 - erfolgreicher Push
 - keine zur Arbeitseinheit gehörenden uncommitted fachlichen Änderungen
-- kommentiertes und geschlossenes Issue, falls die Arbeitseinheit ein Issue abschließt und der Kontext das sofortige Schließen erlaubt
+- persistenter deutscher Abschlusskommentar mit Status-, Commit- und Verifikationskontext
 
 ## Grenzen
 
@@ -110,5 +120,6 @@ In Analyse oder Planung zurückspringen, wenn:
 - Wenn dieser Workflow direkt gestartet wird, muss vor der Implementierung ein passender Arbeitsbranch aktiv sein; andernfalls `github-branch-checkout-from-default` verwenden.
 - Keine Nebenfunde umsetzen, außer sie blockieren die Arbeitseinheit.
 - Issue nicht schließen, wenn der Abschluss über einen späteren PR-Merge erfolgen soll.
+- Nach erfolgreichem Commit und Push keinen nächsten Graph-Knoten beginnen und keinen Fortschrittsanker als abgeschlossen markieren, bevor der persistente Issue-Kommentar erfolgreich erstellt wurde.
 - Wenn dieser Workflow aus `issue-graph-implementation.md` aufgerufen wird, Scope-Issues standardmäßig nicht manuell schließen; der Graph-Workflow entscheidet die abschließende PR-Verlinkung und Schließsemantik.
 - Eine abgeschlossene Arbeitseinheit darf nicht als Abschluss eines noch offenen Issue-Graphen kommuniziert werden.
