@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-08-11
+Stand: 2026-08-25
 
 ## Zweck
 
@@ -78,6 +78,18 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST] Eine Funktion oder Methode muss eine klar erkennbare Aufgabe auf einer Abstraktionsebene erfüllen.
 
 [SHOULD] Funktionen und Methoden sollen in der Regel nicht mehr als ca. 15 Zeilen fachlich relevanten Code enthalten; bei Überschreitung soll eine Trennung von Verantwortlichkeiten oder Extraktion von Hilfsmethoden geprüft werden.
+
+### Kontrollfluss und Verschachtelung
+
+[MUST] Guard Clauses und frühe Ausstiege müssen bevorzugt werden, um Kontrollfluss flach zu halten.
+
+[MUST] Der Happy Path muss möglichst linear und ohne unnötige Verschachtelung lesbar sein.
+
+[MUST_NOT] Kontrollfluss darf nicht tiefer als zwei Ebenen verschachtelt werden, sofern die Verschachtelung nicht unmittelbar eine echte fachliche oder strukturelle Hierarchie abbildet.
+
+[MUST] Eigenständig benennbare verschachtelte Logik muss in eine eigene Funktion, Methode oder Komponente extrahiert werden.
+
+[MUST_NOT] Komplexe boolesche Bedingungen dürfen nicht inline im Kontrollfluss verbleiben; sie müssen durch aussagekräftige Variablen, Methoden oder Prädikate benannt werden.
 
 [MUST] Klassen, Komponenten und Services müssen hohe Kohäsion und niedrige Kopplung haben.
 
