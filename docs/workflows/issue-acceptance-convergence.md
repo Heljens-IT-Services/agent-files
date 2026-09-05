@@ -66,6 +66,16 @@ Ein lokaler Test, ein manueller Prüfschritt oder ein vorhandenes Artefakt kann 
 
 Der Gesamtstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`.
 
+## Gap-Klassifikation und Routing
+
+Jeder `GAP` wird vor einer Änderung eindeutig klassifiziert:
+
+1. **Bestehender Issue-Scope:** Das Kriterium gehört zum Scope eines vorhandenen Issues, ist aber unvollständig oder regressiv. Nach gezielter technischer Planung wird derselbe Issue-Scope über `issue-implementation` beziehungsweise `issue-graph-implementation` remediiert.
+2. **Restumfang im vereinbarten Scope:** Das Kriterium liegt im freigegebenen Parent-/Story-/Epic-Scope, ist aber noch durch kein passendes Issue repräsentiert. Der Planner plant ein passendes neues Child nach dem kanonischen Task-Issue-Vertrag; danach wird es in den nativen Graphen eingeordnet und umgesetzt.
+3. **Neue oder unklare Anforderung:** Das Kriterium würde Zielbild, Scope, Nicht-Ziele oder wesentliche Entscheidungen erweitern oder ist widersprüchlich. Der Ablauf kehrt zu `requirements-clarification` und zum Human-Gate zurück; eine stille Umsetzung ist nicht zulässig.
+
+Vorhandene passende Issues werden wiederverwendet. Ein neues Child darf nur nach Prüfung auf Duplikate und nur für vereinbarten Restumfang entstehen. Nach der Remediation wird nicht nur das einzelne Kriterium, sondern die vollständige ursprüngliche Acceptance-Menge erneut geprüft.
+
 ## Rücksprungregeln
 
 - Bei unklarem Root-Type, widersprüchlicher Hierarchie oder nicht prüfbarem Kriterium mit konkretem Grund `BLOCKED` ausweisen.
