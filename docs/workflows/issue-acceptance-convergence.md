@@ -54,6 +54,18 @@ Für jedes Kriterium wird mindestens folgende Zeile geführt:
 
 Fehlen Kriterien, ist das als Kontextlücke zu markieren und nicht als automatischer `PASS` zu werten. Die Kriterienmatrix muss Root und alle Children voneinander getrennt ausweisen.
 
+## Bewertungsprotokoll
+
+Jede Matrixzeile wird gegen den aktuellen integrierten Stand bewertet:
+
+- `PASS`: Das Kriterium ist durch konkrete Repository-, Produkt-, Test- oder manuelle Prüfevidenz erfüllt.
+- `GAP`: Das Kriterium ist im vereinbarten Scope nicht erfüllt oder die vorhandene Evidenz zeigt eine Regression.
+- `BLOCKED`: Eine Prüfung ist wegen eines konkreten fachlichen oder technischen Hindernisses nicht belastbar möglich; das Hindernis wird benannt.
+
+Ein lokaler Test, ein manueller Prüfschritt oder ein vorhandenes Artefakt kann geeignete Evidenz sein, wenn es das Kriterium direkt belegt. Das Fehlen von CI-Checks ist für sich allein weder ein `GAP` noch ein `BLOCKED`; nur ein tatsächlich erforderlicher und fehlender Nachweis darf als Blocker bewertet werden. Umgekehrt ersetzt ein grüner CI-Check keine fachliche Evidenz für ein Kriterium.
+
+Der Gesamtstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`.
+
 ## Rücksprungregeln
 
 - Bei unklarem Root-Type, widersprüchlicher Hierarchie oder nicht prüfbarem Kriterium mit konkretem Grund `BLOCKED` ausweisen.
