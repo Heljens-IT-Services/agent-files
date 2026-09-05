@@ -76,6 +76,20 @@ Jeder `GAP` wird vor einer Änderung eindeutig klassifiziert:
 
 Vorhandene passende Issues werden wiederverwendet. Ein neues Child darf nur nach Prüfung auf Duplikate und nur für vereinbarten Restumfang entstehen. Nach der Remediation wird nicht nur das einzelne Kriterium, sondern die vollständige ursprüngliche Acceptance-Menge erneut geprüft.
 
+## Remediation- und Konvergenzzyklus
+
+Für einen `GAP` gilt folgende geschlossene Runde:
+
+1. Gap klassifizieren und den betroffenen Scope sowie die erwartete neue Evidenz festhalten.
+2. Bestehenden Scope nachplanen oder fehlenden vereinbarten Restumfang als passendes Child-Issue nach dem kanonischen Task-Issue-Vertrag erfassen.
+3. Gezielte Umsetzung mit `issue-implementation` beziehungsweise `issue-graph-implementation` durchführen und lokal verifizieren.
+4. Graph-, Commit- und Artefaktzustand aktualisieren.
+5. Den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und jedes Kriterium erneut bewerten.
+
+Der Zyklus endet ausschließlich mit `PASS`, einem konkret begründeten `BLOCKED` oder einer ausdrücklichen Human-Entscheidung. Ein weiterhin bestehender `GAP` darf nicht als Erfolg gelten.
+
+Zur Vermeidung von Endlosschleifen wird jede Remediation an die erwartete Zustandsänderung und neue Evidenz gebunden. Bleibt derselbe Gap nach einer abgeschlossenen identischen Remediation ohne relevante Zustandsänderung bestehen, wird nicht erneut dieselbe Maßnahme ausgeführt, sondern `BLOCKED` mit den bisherigen Befunden und dem fehlenden Fortschritt dokumentiert. Neue Anforderungen starten erneut am Human-/Requirements-Gate und werden nicht in diesen Loop eingeschleust.
+
 ## Rücksprungregeln
 
 - Bei unklarem Root-Type, widersprüchlicher Hierarchie oder nicht prüfbarem Kriterium mit konkretem Grund `BLOCKED` ausweisen.
