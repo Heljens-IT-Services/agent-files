@@ -21,9 +21,9 @@ Geprüft wurden der Root-Graph #153 mit seinen nativen Children, die zehn Task-C
 | Gap führt in definierten Remediation-Zyklus | PASS | Klassifikation, Routing und Konvergenzzyklus |
 | Bestehende Issues wiederverwenden, fehlenden Scope planen | PASS | Deduplizierungs- und Child-Issue-Regeln |
 | Neue/unklare Anforderungen am Human-Gate stoppen | PASS | Requirements-Gate und Planner-Regeln |
-| Acceptance endet nur mit PASS oder echtem BLOCKED | GAP-01 | Der Workflow nennt aktuell auch `GAP` als Gesamtstatus, ohne klar zwischen Acceptance-Runde und terminalem Konvergenzstatus zu unterscheiden. |
+| Acceptance endet nur mit PASS oder echtem BLOCKED | PASS | Acceptance-Runde und terminaler Konvergenzstatus sind jetzt ausdrücklich getrennt; `GAP` führt zurück in Remediation. |
 | `/implement` bindet Acceptance vor dem finalen PR ein | PASS | neue Phase 5 vor der PR-Phase |
-| Rollen, Skills, Commands und Kataloge konsistent | GAP-02 | Die Planner-Zeile im Rollen-Katalog beschreibt weiterhin nur GitHub-Issues; die neue projektweite Plan- und Gap-Verantwortung steht nur ergänzend darunter. |
+| Rollen, Skills, Commands und Kataloge konsistent | PASS | Die Planner-Katalogzeile und die Detailregeln nennen nun projektweite Pläne und Acceptance-Gap-Planung konsistent. |
 
 ## Zusatzanforderung CI
 
@@ -43,5 +43,9 @@ Die Kriterienmatrix kann sinnvollerweise eine einzelne Runde mit `GAP` beenden, 
 
 ## Remediation-Status
 
-- GAP-01: offen
-- GAP-02: offen
+- GAP-01: geschlossen durch Trennung von Rundenstatus und terminalem Konvergenzstatus.
+- GAP-02: geschlossen durch Aktualisierung der Planner-Katalogzeile.
+
+## Finales Ergebnis
+
+Die Root-Kriterien und die Zusatzanforderung sind gegen den finalen Dokumentationsstand erneut geprüft. Es verbleiben keine unterstützten Gaps. Die lokale Verifikation war erfolgreich; die Dokumentationsänderung benötigt keinen Build- oder Unit-Testlauf.

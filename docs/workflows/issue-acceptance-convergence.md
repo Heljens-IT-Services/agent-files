@@ -64,7 +64,11 @@ Jede Matrixzeile wird gegen den aktuellen integrierten Stand bewertet:
 
 Ein lokaler Test, ein manueller Prüfschritt oder ein vorhandenes Artefakt kann geeignete Evidenz sein, wenn es das Kriterium direkt belegt. Das Fehlen von CI-Checks ist für sich allein weder ein `GAP` noch ein `BLOCKED`; nur ein tatsächlich erforderlicher und fehlender Nachweis darf als Blocker bewertet werden. Umgekehrt ersetzt ein grüner CI-Check keine fachliche Evidenz für ein Kriterium.
 
-Der Gesamtstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`.
+Der Rundenstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`. `GAP` ist dabei das Ergebnis dieser Acceptance-Runde und löst Remediation aus; es ist kein terminaler Konvergenzstatus.
+
+## Terminaler Konvergenzstatus
+
+Der übergeordnete Konvergenzzyklus endet erst mit `PASS`, einem konkret begründeten `BLOCKED` oder einer ausdrücklichen Human-Entscheidung. Ein Rundenstatus `GAP` darf den Zyklus nicht beenden, sondern führt in den definierten Remediation- und anschließenden Re-Acceptance-Schritt.
 
 ## Gap-Klassifikation und Routing
 
@@ -101,7 +105,7 @@ Zur Vermeidung von Endlosschleifen wird jede Remediation an die erwartete Zustan
 - vollständig und zyklussicher erfasster Root-Child-Graph
 - getrennte Kriterienmatrix für Root und jedes Child
 - pro Kriterium ein eindeutiger Status mit Evidenz oder konkretem Blocker
-- Gesamtstatus `PASS`, `GAP` oder `BLOCKED`
+- Rundenstatus `PASS`, `GAP` oder `BLOCKED` sowie terminaler Konvergenzstatus `PASS` oder `BLOCKED`
 - keine automatische Issue-Schließung und keine stille Scope-Erweiterung
 
 ## Grenzen
