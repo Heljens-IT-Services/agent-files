@@ -19,7 +19,7 @@ Die erforderlichen Checks eines Pull Requests bis zu einem terminalen Zustand be
 5. Vor dem Ergebnis prüfen, ob der Pull-Request-Head unverändert ist.
 6. Den Status `spending-limit-blocked` nur ausgeben, wenn alle nicht erfolgreichen erforderlichen Checks durch eine konkrete GitHub-Meldung nachweislich allein wegen des erreichten GitHub-Actions-Spending-Limits nicht ausgeführt werden konnten.
 7. Bei `spending-limit-blocked` Pull Request, Head-Commit, betroffene Checks, GitHub-Evidenz und das Risiko eines Merges ohne erfolgreiche Checks melden.
-8. Nur bei vollständig erfolgreichen erforderlichen Checks ein erfolgreiches Ergebnis ausgeben.
+8. Nur bei vollständig erfolgreichen erforderlichen Checks oder bei `no-checks-required` ein zulässiges Ergebnis ausgeben.
 9. Alle anderen fehlgeschlagenen, abgebrochenen, übersprungenen oder fehlenden erforderlichen Checks mit ihrem Status melden.
 
 ## Kommandos
@@ -42,10 +42,15 @@ gh pr view <pr-nummer> --repo <org>/<repo> --json headRefOid,url
 - Bei gemischten oder nicht eindeutig belegten Ursachen nicht als `spending-limit-blocked` klassifizieren.
 - Bei Authentifizierungs-, Berechtigungs- oder API-Fehlern stoppen und den Blocker melden.
 
+## Zulässiger Zustand ohne CI-Checks
+
+Wenn keine erforderlichen Checks konfiguriert sind und für den unveränderten Pull-Request-Head keine Checks berichtet werden, ist `no-checks-required` ein zulässiger terminaler Status. Dieser Zustand darf nicht als fehlgeschlagener Check oder als fehlende Pflichtprüfung behandelt werden. Eine tatsächlich konfigurierte erforderliche Prüfung, die fehlt, läuft weiterhin unter `missing-required-check` und blockiert.
+
 ## Output
 
 - Pull Request und beobachteter Head-Commit
 - terminaler Status der erforderlichen Checks
+- `no-checks-required`, wenn keine erforderlichen Checks konfiguriert sind und keine Checks berichtet werden
 - erfolgreiche, fehlgeschlagene, abgebrochene, übersprungene oder fehlende Checks
 - `spending-limit-blocked` mit betroffenen Checks und GitHub-Evidenz, falls eindeutig nachgewiesen
 - Blocker oder erforderliche erneute Beobachtung

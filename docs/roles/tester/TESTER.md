@@ -50,3 +50,11 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 [SHOULD] Unit-Tests sollen für isolierte Logik eingesetzt werden; E2E-Tests sollen für sichtbare Nutzerflows, Navigation, Persistenz, Startup und domainübergreifende Integration eingesetzt werden.
 
 [MUST] Im Arbeitsabschluss müssen ausgeführte, ausgelassene oder fehlgeschlagene Checks samt Begründung genannt werden.
+
+## Graphweite Acceptance
+
+[MUST] Bei einer graphweiten Acceptance-Prüfung muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
+
+[MUST_NOT] Ein Issue-, Commit-, PR- oder früherer Teststatus darf allein keinen Acceptance-Nachweis ersetzen.
+
+[ALLOW_IF] Wenn keine erforderlichen CI-Checks konfiguriert sind und keine Checks berichtet werden, darf der Zustand als `no-checks-required` dokumentiert werden. Er ist kein Fehler und ersetzt nicht die fachliche Kriterienprüfung.

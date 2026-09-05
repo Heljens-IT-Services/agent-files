@@ -8,6 +8,7 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 
 | ID | Workflow | Direkte Aliase | Lesen und verwenden, wenn | URL | Zweck |
 |---|---|---|---|---|---|
+| `issue-acceptance-convergence` | Issue Acceptance Convergence | `/acceptance <issue-number>` | Die Akzeptanzkriterien eines Root-Issues und seines vollständigen Child-Graphen gegen den aktuellen integrierten Stand geprüft werden sollen. | [issue-acceptance-convergence.md](https://heljens-it-services.github.io/agent-files/workflows/issue-acceptance-convergence.md) | Graphweite Acceptance prüfen und konvergieren. |
 | `bugfix` | Bugfix | - | Ein Fehler analysiert, behoben und abgesichert werden soll. | [bugfix.md](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) | Fehler beheben. |
 | `commit-history-summary` | Commit History Summary | `/summary` | Commits und gemergte Pull Requests für einen Zeitraum fachlich, technisch oder detailliert zusammengefasst werden sollen. | [commit-history-summary.md](https://heljens-it-services.github.io/agent-files/workflows/commit-history-summary.md) | Änderungshistorie zusammenfassen. |
 | `commit-push` | Commit Push | `/cp` | Fertige lokale Änderungen zusammenhängend committet und gepusht werden sollen. | [commit-push.md](https://heljens-it-services.github.io/agent-files/workflows/commit-push.md) | Änderungen committen und pushen. |

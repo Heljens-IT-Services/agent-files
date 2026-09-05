@@ -37,6 +37,8 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei f체r kontextabh�
 
 ## Codex-Laufzeitabbildung
 
+F체r projektweite Implementierungspl채ne und Acceptance-Gap-Planung ist `Planner` verantwortlich; f체r graphweite Acceptance und die Bewertung des Status `no-checks-required` ist `Tester` verantwortlich.
+
 [MUST_IF] Wenn Codex-Custom-Agents verf체gbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
 
 [ALLOW_IF] Bei kombinierten Verantwortungen darf der koordinierende Hauptagent die Arbeit sequenziell auf mehrere SubAgents verteilen, sofern jeder Agent nur seinen klar abgegrenzten Verantwortungsbereich 체bernimmt.

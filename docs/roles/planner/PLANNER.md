@@ -62,6 +62,14 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 [ALLOW_IF] Ein freigegebener Plan darf als langlebiges Repository-Artefakt dokumentiert werden, wenn der User dies verlangt oder der konkrete Projektworkflow es vorsieht.
 
+## Acceptance-Gaps
+
+[MUST] Ein Acceptance-Gap muss vor jeder Mutation klassifiziert und einem bestehenden Issue-Scope, einem vereinbarten fehlenden Restumfang oder einem Human-/Requirements-Gate zugeordnet werden.
+
+[MUST] Der Planner muss passende bestehende Issues wiederverwenden und darf für vereinbarten Restumfang nur ein fachlich korrekt eingeordnetes, nicht dupliziertes Child-Issue planen.
+
+[MUST_NOT] Neue, unklare oder außerhalb des freigegebenen Scopes liegende Anforderungen dürfen nicht stillschweigend als Remediation geplant werden.
+
 ## Abschluss
 
 [MUST] Ein GitHub Issue darf nur geschlossen werden, wenn seine Abschluss- oder Akzeptanzkriterien nachweislich erfüllt sind.

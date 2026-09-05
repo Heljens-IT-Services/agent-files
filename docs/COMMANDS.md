@@ -156,6 +156,8 @@ spacing     = { " " | tab } ;
 
 ## Beispiele
 
+Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive Ganzzahl mit optionalem `#`, zum Beispiel `/acceptance 123` oder `/acceptance #123`.
+
 ```text
 /help
 /help skills
@@ -172,10 +174,13 @@ spacing     = { " " | tab } ;
 /workflows run feature-finish
 /workflows run issue-graph-implementation 123
 /workflows run issue-sanitize 123
+/workflows run issue-acceptance-convergence 123
 /workflows run issue-to-sub-issues 123
 /workflows run issue-to-sub-issues 123 flat
 /implement #123
 /sanitize 123
+/acceptance 123
+/acceptance #123
 /sub-issues #123
 /sub-issues 123 flat
 /finish
