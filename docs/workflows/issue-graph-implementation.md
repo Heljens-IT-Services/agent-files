@@ -26,6 +26,7 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
 ## Verwendete Workflows
 
 - `issue-implementation.md`
+- `issue-acceptance-convergence.md`
 
 ## Phasen
 
@@ -106,7 +107,14 @@ Empfohlene Struktur des Fortschrittsankers:
 7. Während dieser Phase keinen Pull Request erstellen. Der Pull Request gehört ausschließlich in Phase 5 nach vollständiger Abarbeitung des Umsetzungsscope.
 8. Erkennt die Umsetzung eine Unstimmigkeit, durch die der vorab festgelegte Scope nicht mehr vollständig nach diesem Workflow ausführbar ist, stoppen und den konkreten Zustand melden. Nicht selbstständig in einen alternativen Workflow, eine partielle Umsetzung oder mehrere Pull Requests wechseln.
 
-### Phase 5: Abschluss und finaler Pull Request
+### Phase 5: Graphweite Acceptance-Konvergenz
+
+1. Nach vollständiger Implementierung aller Scope-Knoten den ursprünglichen Root-Graphen mit `issue-acceptance-convergence.md` prüfen. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
+2. Bei `PASS` mit der Abschluss- und PR-Phase fortfahren.
+3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und in den definierten Remediation-/Konvergenzzyklus zurückkehren. Nach jeder Remediation die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
+4. Bei `BLOCKED` den Workflow mit konkreter Begründung stoppen. Keinen finalen PR als vollständig akzeptierten Scope erzeugen.
+
+### Phase 6: Abschluss und finaler Pull Request
 
 1. Prüfen, dass jeder Issue-Knoten im Umsetzungsscope vollständig implementiert, verifiziert und reviewed wurde.
 2. Für jeden Issue-Knoten prüfen, dass der zugehörige Änderungssatz committed und auf den vorgesehenen Upstream gepusht wurde.

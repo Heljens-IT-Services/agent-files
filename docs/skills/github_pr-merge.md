@@ -24,6 +24,10 @@ Einen freigegebenen Pull Request mit der konfigurierten Merge-Methode zusammenf�
 11. Wenn GitHub eine Merge Queue verlangt, deren erforderliche Checks und Pull-Request-Zustand bis zu einem terminalen Ergebnis beobachten.
 12. Zustand erneut lesen und nur `MERGED` mit Merge-Zeitpunkt und Merge-Commit als Erfolg bewerten.
 
+## Check-Ausnahme
+
+Der Status `no-checks-required` ist merge-zul채ssig, wenn f체r den unver채nderten Head nachweislich keine erforderlichen Checks konfiguriert sind und keine Checks berichtet werden. Nur tats채chlich konfigurierte, aber fehlende oder nicht erfolgreiche erforderliche Checks blockieren den Merge; administrative Umgehungen bleiben unzul채ssig.
+
 ## Kommandos
 
 ```powershell

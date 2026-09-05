@@ -32,10 +32,12 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 |---|---|---|---|
 | Designer | [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | Gestalterische Problemklärung, visuelle Exploration, Prototyping, Designentscheidungen oder Design-Reviews relevant sind. | Technologieübergreifende Designregeln. |
 | Developer | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Architektur, Implementierung, Refactoring, Code-Review oder technische Planung relevant sind. | Technologieübergreifende Entwicklungsregeln. |
-| Planner | [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) | GitHub Issues erstellt, fachlich geplant, strukturiert, zerlegt, typisiert, verknüpft, priorisiert oder auf Abschluss geprüft werden. | Leitplanken für GitHub Issues. |
+| Planner | [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) | GitHub Issues oder projektweite, Human-freigegebene Implementierungspläne erstellt, fachlich geplant, strukturiert, zerlegt, typisiert, verknüpft, priorisiert oder auf Abschluss geprüft werden. | Leitplanken für Issues und projektweite Phasenpläne. |
 | Tester | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Teststrategie, Testentwurf, Testerstellung, Testwartung, Regression, Verifikation oder erforderliche Checks relevant sind. | Technologieübergreifende Testregeln. |
 
 ## Codex-Laufzeitabbildung
+
+Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner` verantwortlich; für graphweite Acceptance und die Bewertung des Status `no-checks-required` ist `Tester` verantwortlich.
 
 [MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
 

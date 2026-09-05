@@ -4,9 +4,9 @@ Stand: 2026-08-18
 
 ## Zweck
 
-Diese Datei definiert ausschließlich Leitplanken für die Planung und Pflege von GitHub Issues.
+Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues sowie für projektweite, Human-geführte Implementierungspläne.
 
-[MUST_NOT] Diese Datei darf keine Leitplanken außerhalb von GitHub Issues enthalten.
+[MUST_NOT] Diese Datei darf keine Leitplanken für die technische Umsetzung oder technische Task-Planung enthalten.
 
 ## Codex-Ausführung
 
@@ -43,6 +43,32 @@ Diese Datei definiert ausschließlich Leitplanken für die Planung und Pflege vo
 [MUST] Bestehende passende GitHub Issues müssen wiederverwendet werden, statt Duplikate zu erzeugen.
 
 [MUST] Issue-Inhalt, nativer Type und native Beziehungen müssen widerspruchsfrei sein.
+
+## Projektweite Implementierungsplanung
+
+[MUST] Ein projektweiter Implementierungsplan darf erst nach ausreichend geklärtem Zielbild, Scope, Nicht-Zielen, Prioritäten und wesentlichen Produkt-/Architekturentscheidungen als belastbar gelten.
+
+[MUST] Vor der finalen Phasenbildung muss eine ausdrückliche Human-Freigabe für Zielbild, Grenzen und die Verwendung als Grundlage für Epic-Issues vorliegen.
+
+[MUST] Ein freigegebener projektweiter Implementierungsplan muss aus großen, fachlichen Implementierungsphasen oberhalb der Epic-Ebene bestehen.
+
+[MUST] Jede Phase muss mindestens Ziel, Scope, Nicht-Ziele, wesentliche Abhängigkeiten oder Constraints sowie Exit-/Akzeptanzkriterien enthalten.
+
+[MUST] Der Plan muss seinen Status (`DRAFT`, `READY` oder `BLOCKED`), offene Punkte, die Freigabeentscheidung und den Freigabekontext ausweisen.
+
+[MUST_NOT] Ein projektweiter Implementierungsplan darf keine unnötige technische Mikroplanung für Stories, Tasks, Dateien oder Symbole enthalten.
+
+[MUST_NOT] `code-implementation-planning` darf nicht durch den projektweiten Phasenplan ersetzt oder in dessen Vertrag dupliziert werden; technische Detailplanung bleibt auf der Ebene des konkreten Issues oder Tasks.
+
+[ALLOW_IF] Ein freigegebener Plan darf als langlebiges Repository-Artefakt dokumentiert werden, wenn der User dies verlangt oder der konkrete Projektworkflow es vorsieht.
+
+## Acceptance-Gaps
+
+[MUST] Ein Acceptance-Gap muss vor jeder Mutation klassifiziert und einem bestehenden Issue-Scope, einem vereinbarten fehlenden Restumfang oder einem Human-/Requirements-Gate zugeordnet werden.
+
+[MUST] Der Planner muss passende bestehende Issues wiederverwenden und darf für vereinbarten Restumfang nur ein fachlich korrekt eingeordnetes, nicht dupliziertes Child-Issue planen.
+
+[MUST_NOT] Neue, unklare oder außerhalb des freigegebenen Scopes liegende Anforderungen dürfen nicht stillschweigend als Remediation geplant werden.
 
 ## Abschluss
 
