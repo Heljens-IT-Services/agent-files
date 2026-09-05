@@ -43,11 +43,15 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 5. Mit dem Workflow `commit-push.md` ausschließlich taskbezogene Änderungen committen und zum konfigurierten Remote pushen.
 6. Mit `pr-creation` einen vorhandenen Pull Request für den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt für diesen Workflow als ausdrückliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
-8. Bei vollständig erfolgreichen erforderlichen Checks und erfüllten Repository-Regeln mit `github-pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
+8. Bei vollständig erfolgreichen erforderlichen Checks oder dem zulässigen Status `no-checks-required` und erfüllten übrigen Repository-Regeln mit `github-pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
 9. Nach verifiziertem Merge mit `integration-branch-update` auf `develop` wechseln und ihn per Fast-Forward aktualisieren.
 10. Commit, Pull Request, Check-Ergebnis, Merge und lokalen Abschlusszustand zusammenfassen.
 
 ## Rücksprungregeln
+
+Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine erforderlichen Checks konfiguriert sind und keine Checks für den unveränderten Head berichtet werden. Das Fehlen eines tatsächlich konfigurierten erforderlichen Checks bleibt ein Blocker.
+
+`/finish` bleibt der technische Branch-/PR-/Merge-Abschluss. Die fachliche graphweite Acceptance-Prüfung erfolgt davor über `issue-acceptance-convergence` und wird hier nicht dupliziert.
 
 - Bei fehlgeschlagenen lokalen Prüfungen zur passenden Implementierung oder Fehlerbehebung zurückkehren; keine beliebigen Fehler außerhalb des Task-Scopes beheben.
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur passenden Umsetzung zurückkehren.
@@ -65,6 +69,6 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 
 - taskbezogene Änderungen sind bewusst committed und gepusht
 - ein vorhandener Pull Request wurde wiederverwendet oder ein passender Pull Request erstellt
-- erforderliche Checks sind für den gemergten Head-Commit erfolgreich oder der nachgewiesene Spending-Limit-Fall wurde für diesen Head-Commit ausdrücklich bestätigt
+- erforderliche Checks sind für den gemergten Head-Commit erfolgreich, oder für diesen Head-Commit ist `no-checks-required` verifiziert, oder der nachgewiesene Spending-Limit-Fall wurde ausdrücklich bestätigt
 - der Pull Request ist regelkonform gemergt
 - der lokale Checkout steht auf dem per Fast-Forward aktualisierten Branch `develop`

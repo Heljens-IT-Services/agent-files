@@ -4,6 +4,8 @@
 
 Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket implementieren, verifizieren, reviewen, committen und pushen.
 
+Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten Acceptance-Workflow abgegrenzt. Eine übergeordnete Acceptance-Prüfung wird durch `issue-graph-implementation.md` beziehungsweise einen ausdrücklichen `/acceptance`-Aufruf gesteuert.
+
 ## Verwenden
 
 - Wenn ein einzelnes Issue oder Arbeitspaket innerhalb eines größeren Workflows umgesetzt werden soll.

@@ -29,6 +29,14 @@ Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf
 
 ## Modi
 
+### Übergabe eines Phase-Epics
+
+Vor der Zerlegung eines aus einem projektweiten Plan materialisierten Epic wird geprüft, dass die zugrunde liegende Phase den Status `READY` besitzt und freigegeben ist. Das Epic muss genau diese Phase repräsentieren; ein passendes bestehendes Epic wird wiederverwendet und nicht dupliziert.
+
+Die Übergabe prüft den nativen Type `Epic` sowie vorhandene native Parent/Child- und `blocked by`-Beziehungen. Body-Links oder Checklisten ersetzen diese Metadaten nicht. Parent/Child ordnet die fachliche Struktur, nicht die Reihenfolge der Phasen. Eine harte Ausführungsabhängigkeit wird nur bei tatsächlicher Notwendigkeit als richtungsstabile `blocked by`-Beziehung ergänzt.
+
+Nach dieser Prüfung übernimmt `/sub-issues` ausschließlich seine normale rekursive oder flache Zerlegung. Es plant keine Projektphasen neu und zieht keine Story-/Task-Mikroplanung aus dem Phasenplan vor.
+
 ### Rekursiv
 
 Standard ohne Zusatz.
