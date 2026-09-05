@@ -53,6 +53,21 @@ Ein freigegebener Plan enthält mindestens:
 
 Phasen sind fachliche High-Level-Zielzustände oberhalb von Epics. Sie dürfen keine unnötige Mikroplanung für Stories, Tasks, Dateien oder Symbole enthalten.
 
+## Phase-zu-Epic-Mapping
+
+Eine Phase ist `epic-reif`, wenn der Plan den Status `READY` besitzt, die Phase ausdrücklich freigegeben ist und ihr Ziel, Scope, Nicht-Ziele, wesentliche Abhängigkeiten/Constraints sowie Exit-/Akzeptanzkriterien vollständig beschrieben sind.
+
+Beim Materialisieren wird genau eine freigegebene Phase als ein GitHub-Issue vom nativen Type `Epic` abgebildet. Das Epic übernimmt mindestens:
+
+- Phasenname und Zielzustand,
+- Kontext, Scope und Nicht-Ziele,
+- relevante Abhängigkeiten und Constraints,
+- Exit-/Akzeptanzkriterien sowie den Freigabekontext.
+
+Der Mapping-Schritt verwendet ein vorhandenes passendes Epic wieder, statt ein Duplikat zu erzeugen. Ein noch nicht freigegebener oder wesentlich offener Phasenstand darf nicht als finales Epic materialisiert werden. Die weitere Zerlegung des Epic erfolgt ausschließlich über `/sub-issues`; Story-/Task-Planung wird nicht vorgezogen.
+
+Die Phasenreihenfolge wird nicht durch Parent/Child simuliert. Nur eine tatsächlich erforderliche harte Ausführungsabhängigkeit wird zusätzlich als richtungsstabile native `blocked by`-Beziehung modelliert.
+
 ## Rücksprungregeln
 
 - Bei unklarem Ziel, Scope oder Nicht-Ziel zu `requirements-clarification` zurückkehren.
