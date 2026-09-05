@@ -47,6 +47,7 @@ try {
     $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
     [System.IO.File]::WriteAllText($bodyPath, $body, $utf8NoBom)
 
+    Assert-TransportText $body "Solltext"
     gh pr create --draft --title $title --body-file $bodyPath --base $base --head $head
 }
 finally {
@@ -96,7 +97,7 @@ function Assert-ExactGithubText([string] $expected, [string] $actual, [string] $
         return
     }
 
-    $unexpectedEscapes = @('\\n', '\\r', '\\t') | Where-Object {
+    $unexpectedEscapes = @('\n', '\r', '\t') | Where-Object {
         $actualNormalized.Contains($_) -and -not $expectedNormalized.Contains($_)
     }
     $diagnostics = @("$kind stimmt nach ausschließlicher CRLF-zu-LF-Normalisierung nicht ordinal mit dem Solltext überein")
