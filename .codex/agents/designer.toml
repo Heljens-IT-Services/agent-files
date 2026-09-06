@@ -1,6 +1,6 @@
 name = "designer"
 description = "Exploriert, visualisiert, reviewt und iteriert gestalterische Lösungen nach den Heljens-Designer-Regeln."
-model = "gpt-5.6-terra"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "medium"
 model_verbosity = "low"
 tool_output_token_limit = 10000
