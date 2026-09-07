@@ -130,7 +130,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Der Repository-Kontext muss sich auf Zweck, Versionsbasis und für die Nutzung wesentliche fachliche oder technische Leitplanken beschränken und in der Regel zwei bis vier kurze Punkte umfassen.
 
-[MUST_NOT] Der Repository-Kontext darf ganze Abschnitte, Detailstrukturen oder für die aktuelle Orientierung irrelevante Inhalte aus `README.md` oder `PROJECT.md` nicht wiederholen.
+[MUST_NOT] Der Repository-Kontext darf ganze Abschnitte, Detailstrukturen oder für die aktuelle Orientierung irrelevante Inhalte aus `README.md` und `PROJECT.md` nicht wiederholen.
 
 [MUST_IF] Wenn `README.md` oder `PROJECT.md` fehlt oder nicht gelesen werden kann, muss die Hilfe dies knapp benennen und darf fehlende Inhalte nicht erfinden.
 
@@ -158,6 +158,8 @@ spacing     = { " " | tab } ;
 
 Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive Ganzzahl mit optionalem `#`, zum Beispiel `/acceptance 123` oder `/acceptance #123`.
 
+`/bugfix` führt den Bugfix auf dem aktuell ausgecheckten Branch aus. `/bugfix from-default` wählt bewusst die vollständige Variante mit neuem Branch von der Standardbasis und anschließendem Pull Request.
+
 ```text
 /help
 /help skills
@@ -172,6 +174,10 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /skills run code-testing all
 /workflows show feature-finish
 /workflows run feature-finish
+/workflows run bugfix
+/workflows run bugfix-from-default
+/bugfix
+/bugfix from-default
 /workflows run issue-graph-implementation 123
 /workflows run issue-sanitize 123
 /workflows run issue-acceptance-convergence 123
