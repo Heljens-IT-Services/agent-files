@@ -18,6 +18,7 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `code-diff-review` | Code Diff Review | - | Ein Änderungssatz auf Scope, Risiken oder Nebeneffekte geprüft werden soll. | [code_diff-review.md](https://heljens-it-services.github.io/agent-files/skills/code_diff-review.md) | Änderungen reviewen. |
 | `code-implementation` | Code Implementation | - | Eine geklärte Verhaltens-, Logik-, Feature- oder API-Änderung umgesetzt werden soll. | [code-implementation.md](https://heljens-it-services.github.io/agent-files/skills/code-implementation.md) | Codeänderungen implementieren. |
 | `code-implementation-planning` | Code Implementation Planning | - | Vorhandener Kontext in einen konkreten technischen Umsetzungsplan überführt werden soll. | [code-implementation-planning.md](https://heljens-it-services.github.io/agent-files/skills/code-implementation-planning.md) | Implementierung planen. |
+| `code-minimization` | Code Minimization | `/minimize` | Ein lokal funktionierender Änderungssatz auf unnötige, nicht hinreichend begründete Bestandteile reduziert werden soll. | [code-minimization.md](https://heljens-it-services.github.io/agent-files/skills/code-minimization.md) | Änderungssätze evidenzgetrieben minimieren. |
 | `code-reading` | Code Reading | - | Bestehender Code gezielt in den Agenten-Kontext geladen werden muss. | [code-reading.md](https://heljens-it-services.github.io/agent-files/skills/code-reading.md) | Codekontext erfassen. |
 | `code-refactoring` | Code Refactoring | `/refactor` | Struktur ohne beabsichtigte Verhaltensänderung verbessert werden soll. | [code_refactoring.md](https://heljens-it-services.github.io/agent-files/skills/code_refactoring.md) | Code strukturieren. |
 | `code-testing` | Code Testing | `/testing`<br>`/testing <test-mode>` | Eine Änderung mit Build-, Test-, E2E- oder manuellen Prüfschritten verifiziert werden soll. | [code-testing.md](https://heljens-it-services.github.io/agent-files/skills/code-testing.md) | Änderungen gezielt oder kontextbezogen verifizieren. |
@@ -52,6 +53,7 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `code-diff-review` | `developer` | Technischen Änderungssatz prüfen; fachliche Testbewertung bleibt beim Tester. |
 | `code-implementation` | `developer` | Geplante Codeänderungen umsetzen. |
 | `code-implementation-planning` | `planner` | Technische Arbeitspakete aus geklärtem Kontext planen. |
+| `code-minimization` | `developer` | Bestehende Änderungsteile mutierend auf belegte Notwendigkeit reduzieren. |
 | `code-reading` | `developer` | Codekontext für technische Folgearbeit erfassen. |
 | `code-refactoring` | `developer` | Verhaltenserhaltende Strukturänderungen umsetzen. |
 | `code-testing` | `tester` | Build-, Test-, E2E- und manuelle Verifikation ausführen. |

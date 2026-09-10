@@ -23,6 +23,7 @@ Der kanonische Aufruf lautet `/workflows run issue-acceptance-convergence <issue
 
 - `issue-reading`
 - `code-testing`
+- `code-minimization` innerhalb der Remediation
 - `code-analysis` bei nicht direkt prüfbaren oder widersprüchlichen Kriterien
 
 ## Ablauf
@@ -86,9 +87,10 @@ Für einen `GAP` gilt folgende geschlossene Runde:
 
 1. Gap klassifizieren und den betroffenen Scope sowie die erwartete neue Evidenz festhalten.
 2. Bestehenden Scope nachplanen oder fehlenden vereinbarten Restumfang als passendes Child-Issue nach dem kanonischen Task-Issue-Vertrag erfassen.
-3. Gezielte Umsetzung mit `issue-implementation` beziehungsweise `issue-graph-implementation` durchführen und lokal verifizieren.
-4. Graph-, Commit- und Artefaktzustand aktualisieren.
-5. Den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und jedes Kriterium erneut bewerten.
+3. Gezielte Umsetzung mit `issue-implementation` beziehungsweise `issue-graph-implementation` durchführen und den Impact-Scope lokal bis zum `PASS` stabilisieren.
+4. Erst nach lokalem `PASS` den Remediation-Diff mit `code-minimization` minimieren.
+5. Die durch die Reduktion betroffene Verifikation fokussiert erneut ausführen. Fehlgeschlagene Reduktionen zurücknehmen; echte Unklarheit über Acceptance, Invariante oder Constraint als Plan-/Kontextbruch routen.
+6. Danach den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und jedes Kriterium erneut bewerten. Diese Full-Acceptance ist das finale Gate der Remediation.
 
 Der Zyklus endet ausschließlich mit `PASS`, einem konkret begründeten `BLOCKED` oder einer ausdrücklichen Human-Entscheidung. Ein weiterhin bestehender `GAP` darf nicht als Erfolg gelten.
 
