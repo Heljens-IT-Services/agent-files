@@ -17,6 +17,7 @@ Ein Task ist terminal, wenn er als eigenständig ausführbarer technischer Plan 
 - verbindlichen Scope und expliziten Nicht-Scope
 - bekannte betroffene Bereiche, Schnittstellen und hilfreiche Referenzimplementierungen
 - bereits getroffene umsetzungsrelevante Entscheidungen und Constraints
+- bei nicht offensichtlichen neuen konzeptionellen Ebenen: Current Driver und heutige Repository-/Task-Evidenz; die bloße Aufnahme in den Plan gilt nicht als Evidenz
 - geordnete Arbeitspakete auf direkt ausführbarer, nicht mikrogranularer Ebene
 - prüfbare Akzeptanzkriterien und konkrete reproduzierbare Verifikationsschritte
 - bekannte Risiken, Abhängigkeiten und Blocker
