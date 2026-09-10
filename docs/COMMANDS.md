@@ -166,6 +166,8 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /skills list
 /skills show code-reading
 /skills run code-reading
+/skills run code-minimization
+/minimize
 /skills run code-refactoring
 /refactor
 /skills run code-testing
