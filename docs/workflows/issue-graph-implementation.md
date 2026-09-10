@@ -99,7 +99,7 @@ Empfohlene Struktur des Fortschrittsankers:
 ### Phase 4: Nach Plan umsetzen
 
 1. Den Orchestrierungsplan in der festgelegten Reihenfolge vollständig abarbeiten.
-2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen. Wenn eine Arbeitseinheit Designer-Verantwortung enthält, steuert dieser Teilworkflow die erforderliche Design-Exploration, das Handoff und den visuellen Review vor der formalen Testverifikation.
+2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen Testverifikation. Wenn eine Arbeitseinheit Designer-Verantwortung enthält, steuert er außerdem die erforderliche Design-Exploration, das Handoff und den visuellen Review vor der formalen Testverifikation.
 3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed, gepusht und mit dem verpflichtenden persistenten deutschen Issue-Abschlusskommentar dokumentiert wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
@@ -111,7 +111,7 @@ Empfohlene Struktur des Fortschrittsankers:
 
 1. Nach vollständiger Implementierung aller Scope-Knoten den ursprünglichen Root-Graphen mit `issue-acceptance-convergence.md` prüfen. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
 2. Bei `PASS` mit der Abschluss- und PR-Phase fortfahren.
-3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und in den definierten Remediation-/Konvergenzzyklus zurückkehren. Nach jeder Remediation die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
+3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und den in `issue-acceptance-convergence.md` definierten Remediation-/Konvergenzzyklus ausführen: Impact-Scope lokal stabilisieren, minimieren und fokussiert retesten; erst danach die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
 4. Bei `BLOCKED` den Workflow mit konkreter Begründung stoppen. Keinen finalen PR als vollständig akzeptierten Scope erzeugen.
 
 ### Phase 6: Abschluss und finaler Pull Request

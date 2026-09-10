@@ -25,6 +25,35 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 9. Bei GitHub-Issue-Vorarbeit alle Inhalte für den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) liefern. Wesentliche offene Entscheidungen verhindern einen terminalen Task und müssen als Klärungsbedarf sichtbar bleiben.
 10. Im Default nur kurz bestätigen, den Plan als Arbeitsgrundlage nutzen und direkt mit der nächsten angefragten Arbeit fortfahren.
 
+## Current-Driver-Test für neue Struktur
+
+[MUST] Vor jeder neuen konzeptionellen Ebene im technischen Plan muss der Planner diese vier Fragen konkret beantworten:
+
+1. **Current pressure:** Welcher konkrete heutige Task- oder Repository-Zustand erzeugt den Bedarf?
+2. **Failure without it:** Was würde ohne diese Ebene heute dupliziert, verletzt, untestbar gekoppelt, unsicher, inkompatibel oder anderweitig konkret schlechter?
+3. **Evidence:** Wo ist dieser Druck sichtbar, etwa in Acceptance Criterion, bestehenden Implementierungen/Consumern, realer Duplikation, Invariante, Architekturregel, Failure Mode oder Betriebsconstraint?
+4. **Simpler alternative:** Kann der aktuelle Vertrag ohne diese Ebene über bestehende Struktur oder eine direktere Lösung gleichwertig erfüllt werden?
+
+[MUST] Wenn Frage 1 oder 3 nicht konkret beantwortet werden kann oder Frage 4 mit „ja“ beantwortet wird, darf die neue Ebene standardmäßig nicht geplant werden.
+
+Als neue konzeptionelle Ebene gelten insbesondere neue Interfaces oder Basisklassen, Service-/Provider-/Manager-/Repository-Layer, Strategy/Factory/Adapter/Facade/Bridge, Plugin-/Pipeline-/Handler-Modelle, öffentliche Config- oder API-Erweiterungen, neue Dependencies, Parallel-/Fallbackpfade und Generalisierungen für aktuell nicht vorhandene Variationen.
+
+[MUST] Jede neu geplante Ebene muss Current Driver und heutige Evidenz im Task oder Repository besitzen. Ein Plan darf spekulative Struktur nicht durch ihre eigene Aufnahme in den Task-Contract nachträglich legitimieren.
+
+[MUST] Bei Variation oder Wiederverwendung müssen reale aktuelle Varianten, Implementierungen oder Consumer benannt werden. Eine erwartete zweite Variante reicht nicht.
+
+[MUST] Bei Testbarkeit müssen die konkrete schwer kontrollierbare Dependency/Boundary und der aktuelle Verifikationsbedarf benannt werden; „für Unit Tests besser“ allein reicht nicht.
+
+[MUST] Bei Repository-Architektur muss die relevante Boundary oder Konvention im betroffenen Bereich tatsächlich gelten; Pattern-Ähnlichkeit aus einem anderen Bereich reicht nicht automatisch.
+
+[MUST] Wenn direkte Lösung und neue Abstraktion den aktuellen Vertrag, dieselben Invarianten und die erforderliche Wartbarkeit gleichwertig erfüllen, ist die Variante mit weniger neuen Konzepten und Navigationsschritten zu planen.
+
+[MUST_NOT] Zukünftige Features, Provider, Consumer, Modi, Mandanten oder Skalierungsanforderungen dürfen nicht erfunden werden, um eine zusätzliche Ebene zu rechtfertigen.
+
+[MUST_NOT] Ungenutzte Extension Points, leere Hooks, Optionsfelder ohne aktuellen zweiten Wert oder APIs ohne aktuellen Consumer dürfen nicht als Vorbereitung Teil des Plans werden. Pattern-Namen und allgemeine Begriffe wie „flexibel“, „modular“, „Clean Architecture“, „SOLID“ oder „Best Practice“ sind ohne konkrete Evidenz keine Treiber.
+
+Zulässige Treiber sind insbesondere explizite Acceptance-/Task-Constraints, bestehende Boundary-Regeln, mindestens zwei reale aktuelle Varianten oder Consumer, berührte Duplikation, reale externe Grenzen, Security-/Autorisierungs-/Transaktions-/Datenintegritäts- oder Compliance-Invarianten, Migrations-/Kompatibilitäts-/Rollback-Bedarf sowie konkrete Performance- oder Betriebsanforderungen.
+
 ## Grenzen
 
 - Keine Codeänderungen vornehmen.
@@ -42,7 +71,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 - Betriebsart muss explizit vom User genannt werden; Default ist ein Plan im Agenten-Kontext.
 - Keine Anforderungen stillschweigend erweitern.
 - Keine Planung vortäuschen, wenn wesentliche Ziel- oder Scope-Fragen offen sind.
-- Backend: Verantwortlichkeiten, Abhängigkeiten und testbare Grenzen bewusst trennen. Mehr Struktur ist akzeptabel, wenn sie Kopplung reduziert.
+- Backend: Verantwortlichkeiten, Abhängigkeiten und testbare Grenzen bewusst trennen. Mehr Struktur ist nur bei konkret benannter reduzierter Kopplung oder anderer aktueller Last akzeptabel.
 - HTML/CSS: Markup und Styling flach halten. Wrapper, Selektorketten und Abstraktion nur einführen, wenn sie konkret vereinfachen.
 
 ## Artefakt

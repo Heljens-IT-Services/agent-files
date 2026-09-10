@@ -26,6 +26,7 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 - `code-analysis`
 - `code-implementation-planning`
 - `code-implementation`
+- `code-minimization`
 - `code-testing`
 - `code-diff-review`
 
@@ -43,8 +44,11 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 6. Den vorhandenen Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt planen.
 7. Mit `code-implementation` den Bugfix umsetzen.
 8. Mit `code-testing` prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
-9. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
-10. Mit dem Workflow `commit-push.md` Commit und Push auf dem aktuell verwendeten Branch ausführen.
+9. Erst nach erfolgreicher Reproduktion und lokaler Stabilisierung mit `code-minimization` den Bugfix-Änderungssatz auf unbegründete Bestandteile prüfen und minimieren.
+10. Nach jeder akzeptierten Reduktion die ursprüngliche Reproduktion und die durch die Reduktion betroffene Regression fokussiert erneut grün prüfen. Eine fehlgeschlagene Reduktion zurücknehmen; echte Unklarheit über Invariante oder Constraint als Planbruch routen.
+11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; Developer-Retests ersetzen diese nicht.
+12. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
+13. Mit dem Workflow `commit-push.md` Commit und Push auf dem aktuell verwendeten Branch ausführen.
 
 ## Rücksprungregeln
 

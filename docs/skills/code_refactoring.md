@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
+Code strukturieren, ohne beabsichtigtes Verhalten zu ändern, und dabei eine konkret vorhandene strukturelle Last netto reduzieren. Neue Abstraktion, Aufteilung oder Indirektion ist kein Selbstzweck.
 
 ## Verwenden
 
@@ -26,6 +26,30 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
 5. Produktivcode, bei Bedarf Testdateien und code-nahe Dokumentation schrittweise ohne beabsichtigte Verhaltensänderung ändern.
 6. Nach jedem Arbeitspaket Strukturgewinn, Verhaltenserhalt und erforderliche Verifikation benennen.
 
+## Nachweisbarer Netto-Gewinn
+
+[MUST] Vor einem nicht-trivialen Refactoring muss die konkrete bestehende strukturelle Last benannt werden, die reduziert werden soll.
+
+[MUST] Nach jedem Refactoring-Arbeitspaket muss eine Vorher-Nachher-Aussage belegen, welche konkrete Last reduziert wurde und welche neue Struktur oder Indirektion dafür entstanden ist.
+
+[MUST] Eine neue Abstraktion ist nur dann ein Refactoring-Gewinn, wenn ihre zusätzliche kognitive und strukturelle Last durch einen größeren konkreten Abbau bestehender Last gerechtfertigt ist.
+
+[MUST] Wird Komplexität lediglich in eine neue Datei, Klasse oder Ebene verschoben, ohne Duplikation, Verzweigung, Verantwortungsmischung, Kopplung oder vergleichbare Last zu reduzieren, liegt kein Strukturgewinn vor.
+
+[MUST] Bestehende unnötige Indirektion darf ausdrücklich entfernt, zusammengelegt oder inline genommen werden, sofern keine reale Boundary oder Invariante verloren geht.
+
+[MUST_NOT] Ein Interface, Strategy-/Factory-Layer oder Wrapper darf nicht allein für hypothetische spätere Austauschbarkeit eingeführt werden.
+
+[MUST_NOT] Eine Methode oder Klasse darf nicht allein zur Verkleinerung von Dateien oder Methoden extrahiert werden, wenn dadurch Navigation oder Kontrollfluss schwerer nachvollziehbar werden und keine andere konkrete Last sinkt.
+
+[MUST_NOT] „Clean Code“, „SOLID“, „Best Practice“, „flexibler“, „modularer“ oder „testbarer“ reichen ohne konkrete vorherige Last und nachweisbaren Effekt nicht als alleinige Refactoring-Begründung.
+
+[MUST_NOT] Verhalten, öffentliche Semantik oder Fehlerverhalten dürfen nicht verändert werden, um einen Strukturgewinn zu konstruieren. Bei notwendiger Verhaltensänderung ist `code-implementation` zuständig.
+
+[SHOULD] Bei gleichwertigem Verhalten die Zielstruktur mit geringerem gesamten Konzept- und Navigationsaufwand wählen, sofern die adressierte Last mindestens gleichwertig reduziert wird.
+
+Als belastbare strukturelle Last gelten insbesondere reale Duplikation, hohe Verzweigung oder Verschachtelung, vermischte Verantwortungen, konkrete propagierende Kopplung, unnötige Wrapper-Ketten, schwer isolierbare Abhängigkeiten an einer realen Boundary oder fehleranfällige Synchronisation mehrerer Implementierungsstellen. Zusätzliche Layer, ein Interface vor jeder Klasse, ein neuer Pattern-Name oder hypothetische spätere Wiederverwendung sind allein kein Strukturgewinn.
+
 ## Grenzen
 
 - Kein fachliches Verhalten, keine Logik, keine Features und keine API absichtlich ändern. Dann `code-implementation` nutzen.
@@ -40,6 +64,7 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern.
 - Pro Ausführung ein zusammenhängendes Refactoring-Arbeitspaket umsetzen.
 - Mehrere Refactoring-Arbeitspakete nur umsetzen, wenn sie im Plan explizit als ein Umsetzungsschritt zusammengehören.
 - Keine breite Analyse, Recherche oder Implementierungsplanung ersetzen.
+- `code-refactoring` verbessert bestehende Struktur bei erhaltenem Verhalten und nachgewiesenem Netto-Gewinn. `code-minimization` entfernt nachgelagert unbelegte Änderungsteile; `code-implementation` setzt neues Verhalten um. Diese Verantwortungen dürfen nicht vermischt werden.
 - Keine Zielstruktur oder Alternativen während der Ausführung grundlegend neu ableiten; bei Planbruch stoppen.
 - Backend: Verantwortlichkeiten dürfen stärker getrennt werden, wenn Logik testbarer und Abhängigkeiten klarer werden.
 - HTML/CSS: Struktur eher reduzieren als abstrahieren; Verschachtelung, Container und komplexe Selektoren abbauen.

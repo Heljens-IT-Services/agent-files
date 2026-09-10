@@ -21,6 +21,7 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 - `code-implementation-planning`
 - `code-implementation`
 - `code-refactoring`
+- `code-minimization`
 - `design-review` bei relevanter visueller Designer-Verantwortung
 - `code-testing`
 - `code-diff-review`
@@ -44,13 +45,15 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 10. Einen lokalen Implementierungsfehler anhand des konkreten Fehleroutputs im unveränderten Scope korrigieren und nur die relevante Prüfung wiederholen. Nicht allein wegen eines lokalen Fehlers vollständig neu planen.
 11. Arbeitspakete in der geplanten Reihenfolge wiederholen, bis der technische Plan abgearbeitet ist.
 12. Wenn die fertige Arbeitseinheit ein visuelles oder interaktives Ergebnis mit Designer-Verantwortung enthält, das tatsächlich implementierte Ergebnis rendern und mit `design-review` gegen Ziel, Design-Handoff und relevante Constraints prüfen. Lokale Umsetzungsabweichungen im bestehenden Design-Scope an `developer` zurückgeben und nach der Korrektur erneut reviewen; ein grundlegendes Problem der Designrichtung an `design-exploration.md` zurückgeben.
-13. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien prüfen.
-14. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
-15. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
-16. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
-17. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
-18. Sobald die Arbeitseinheit vollständig umgesetzt, verifiziert, reviewed, committed und gepusht ist, im zugehörigen GitHub-Issue einen kurzen persistenten Abschlusskommentar hinterlegen. Der Kommentar muss auf Deutsch den Umsetzungsstatus, den relevanten Commit-Kontext, den Verifikationsstatus und – solange der finale Pull Request oder Merge noch aussteht – diesen offenen Abschluss enthalten. Das Issue nicht über diesen Kommentar schließen.
-19. Für den Kommentar `gh issue comment <issue-number> --body "..."` verwenden. Der Inhalt muss mindestens diesem Muster folgen:
+13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, mit `code-minimization` den eigenen Änderungssatz auf nicht hinreichend begründete Bestandteile prüfen und mutierend minimieren. Keine Minimierung bei rotem oder diagnostisch instabilem Stand und keine neuen Features, Scope-Issues oder Refactorings erzeugen.
+14. Nach jeder akzeptierten Reduktion die betroffene fokussierte Verifikation erneut ausführen. Eine fehlgeschlagene Reduktionshypothese zurücknehmen und als kein fachlicher Acceptance-GAP behandeln; echte Unklarheit über Acceptance, Invariante oder Architektur-Constraint als Plan-/Kontextbruch routen.
+15. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien auf dem minimierten Änderungssatz prüfen. Diese unabhängige Verifikation wird durch Developer-Minimierungs-Retests nicht ersetzt.
+16. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
+17. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
+18. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
+19. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
+20. Sobald die Arbeitseinheit vollständig umgesetzt, verifiziert, reviewed, committed und gepusht ist, im zugehörigen GitHub-Issue einen kurzen persistenten Abschlusskommentar hinterlegen. Der Kommentar muss auf Deutsch den Umsetzungsstatus, den relevanten Commit-Kontext, den Verifikationsstatus und – solange der finale Pull Request oder Merge noch aussteht – diesen offenen Abschluss enthalten. Das Issue nicht über diesen Kommentar schließen.
+21. Für den Kommentar `gh issue comment <issue-number> --body "..."` verwenden. Der Inhalt muss mindestens diesem Muster folgen:
 
     ```text
     Umsetzung abgeschlossen.
@@ -59,8 +62,8 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
     Issue bleibt bis zum finalen PR/Merge geöffnet.
     ```
 
-20. Bei Ausführung innerhalb eines Issue-Graphen erst nach erfolgreichem Kommentar den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
-21. Ein Issue nur schließen, wenn der übergeordnete Kontext dies ausdrücklich erlaubt; die bestehende Schließlogik über den finalen Pull Request bleibt ansonsten maßgeblich.
+22. Bei Ausführung innerhalb eines Issue-Graphen erst nach erfolgreichem Kommentar den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
+23. Ein Issue nur schließen, wenn der übergeordnete Kontext dies ausdrücklich erlaubt; die bestehende Schließlogik über den finalen Pull Request bleibt ansonsten maßgeblich.
 
 ## Planbruch
 
