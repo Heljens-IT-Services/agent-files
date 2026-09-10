@@ -111,7 +111,7 @@ Empfohlene Struktur des Fortschrittsankers:
 
 1. Nach vollständiger Implementierung aller Scope-Knoten den ursprünglichen Root-Graphen mit `issue-acceptance-convergence.md` prüfen. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
 2. Bei `PASS` mit der Abschluss- und PR-Phase fortfahren.
-3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und in den definierten Remediation-/Konvergenzzyklus zurückkehren. Nach jeder Remediation die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
+3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und den in `issue-acceptance-convergence.md` definierten Remediation-/Konvergenzzyklus ausführen: Impact-Scope lokal stabilisieren, minimieren und fokussiert retesten; erst danach die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
 4. Bei `BLOCKED` den Workflow mit konkreter Begründung stoppen. Keinen finalen PR als vollständig akzeptierten Scope erzeugen.
 
 ### Phase 6: Abschluss und finaler Pull Request
