@@ -53,6 +53,8 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 
 `/finish` bleibt der technische Branch-/PR-/Merge-Abschluss. Die fachliche graphweite Acceptance-Prüfung erfolgt davor über `issue-acceptance-convergence` und wird hier nicht dupliziert.
 
+`/finish` führt keine nachträgliche fachliche Minimierung durch. Fehlt die vorgelagerte Minimierungs- oder Retest-Evidenz, ist der technische Abschluss nicht reif und muss an den zuständigen Implementierungs-/Bugfix-Workflow zurückgegeben werden.
+
 - Bei fehlgeschlagenen lokalen Prüfungen zur passenden Implementierung oder Fehlerbehebung zurückkehren; keine beliebigen Fehler außerhalb des Task-Scopes beheben.
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur passenden Umsetzung zurückkehren.
 - Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github-pr-merge` wechseln.
