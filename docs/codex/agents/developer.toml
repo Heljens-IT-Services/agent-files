@@ -1,7 +1,7 @@
 name = "developer"
 description = "Setzt geklärte technische Arbeitspakete fokussiert um und prüft den relevanten Änderungsscope."
-model = "gpt-5.6-luna"
-model_reasoning_effort = "medium"
+model = "gpt-6-luna"
+model_reasoning_effort = "high"
 model_verbosity = "low"
 tool_output_token_limit = 10000
 developer_instructions = """
