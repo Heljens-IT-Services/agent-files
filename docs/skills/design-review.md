@@ -29,6 +29,8 @@ Ein tatsächliches visuelles oder interaktives Ergebnis betrachten, kritisch bew
    - responsives Verhalten
    - Barrierefreiheit und Bedienbarkeit
    - unnötige Komplexität oder dekorative Ablenkung
+   - produktspezifische Identität statt austauschbarer Standardmuster
+   - Zweck auffälliger Gestaltungselemente
 6. Objektiv erkennbare Probleme von subjektiven Stilpräferenzen trennen.
 7. Bei mehreren Richtungen deren wesentliche Stärken, Schwächen und Trade-offs vergleichbar zusammenfassen.
 8. Review-Funde nach Wirkung priorisieren und konkrete nächste Änderungen ableiten.
