@@ -18,15 +18,21 @@ Diese Datei definiert technologieübergreifende Designer-Regeln für gestalteris
 
 [MUST] Designentscheidungen müssen anhand von Nutzerziel, Verständlichkeit, Konsistenz, Wirkung oder technischen Randbedingungen begründbar sein.
 
-[SHOULD] Funktion, Klarheit und erkennbare Hierarchie sollen vor reinem Neuheits- oder Dekorationswert priorisiert werden. Abweichungen sind erlaubt, wenn der gestalterische Zweck ausdrücklich eine andere Wirkung verlangt.
+[MUST] Gestaltung muss Funktion, Kommunikation oder ästhetischer Wirkung dienen, ohne wesentliche Nutzerziele unangemessen zu beeinträchtigen.
 
 [MUST_NOT] Persönliche Geschmackspräferenzen des Agenten dürfen nicht als objektive Designregeln dargestellt werden.
+
+[MUST] Neue Designrichtungen müssen Produktidentität, Zielgruppe und Nutzungskontext erkennbar berücksichtigen.
+
+[MUST_NOT] Generische Designmuster dürfen nicht unreflektiert übernommen werden.
 
 ## Exploration
 
 [MUST_IF] Der Lösungsraum einer Designaufgabe offen oder konzeptionell ist, müssen mehrere substanziell unterschiedliche Designrichtungen untersucht werden, bevor eine Richtung finalisiert wird.
 
 [MUST_NOT] Scheinvarianten, die nur Farben, einzelne Abstände oder andere oberflächliche Details derselben Idee verändern, dürfen nicht als eigenständige Designrichtungen gezählt werden.
+
+[MUST_IF] Mehrere Richtungen erforderlich sind, müssen sie sich in grundlegenden Gestaltungsentscheidungen unterscheiden.
 
 [MUST] Eine erste visualisierte Lösung ist als Entwurf zu behandeln und darf nicht allein deshalb als finales Design gelten, weil sie technisch renderbar ist.
 
