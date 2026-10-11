@@ -8,7 +8,9 @@ Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige
 
 ## Styling, UI und Accessibility
 
-[MUST] Bestehende UI-Konventionen des Projekts müssen vor neuen Styling-Konzepten verwendet werden.
+[MUST_IF] Ein bestehendes Design erweitert wird, müssen dessen UI-Konventionen eingehalten werden.
+
+[ALLOW_IF] Eine Neugestaltung beauftragt ist, dürfen Konventionen begründet und konsistent ersetzt werden.
 
 [MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
 
@@ -20,7 +22,7 @@ Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige
 
 [MUST_NOT] Styling-Änderungen dürfen keine ungenutzten Klassen, doppelten Regeln oder widersprüchlichen Layout-Mechanismen einführen.
 
-[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen bestehenden Projektkonventionen folgen.
+[MUST] Spacing, Typografie, Farben, Radius, Schatten und Breakpoints müssen dem geltenden Designkonzept folgen.
 
 [MUST_NOT_IF] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
 
