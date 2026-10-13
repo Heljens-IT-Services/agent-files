@@ -1,6 +1,6 @@
 # DEVELOPER.Css.md
 
-Stand: 2026-07-22
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -8,9 +8,9 @@ Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige
 
 ## Styling, UI und Accessibility
 
-[MUST_IF] Ein bestehendes Design erweitert wird, müssen dessen UI-Konventionen eingehalten werden.
+[MUST_IF] Wenn ein bestehendes Design erweitert wird, müssen dessen UI-Konventionen eingehalten werden.
 
-[ALLOW_IF] Eine Neugestaltung beauftragt ist, dürfen Konventionen begründet und konsistent ersetzt werden.
+[ALLOW_IF] Wenn eine Neugestaltung beauftragt ist, dürfen Konventionen begründet und konsistent ersetzt werden.
 
 [MUST] Component-SCSS muss lokal, begrenzt und komponentennah bleiben.
 
@@ -26,6 +26,6 @@ Diese Datei gilt für CSS, Styling und präsentationsnahe UI-Regeln. Zugehörige
 
 [MUST_NOT_IF] Magic Numbers in CSS dürfen nicht eingeführt werden, wenn bestehende Tokens, Variablen oder Konventionen vorhanden sind.
 
-[MUST_IF] Responsive Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
+[MUST_IF] Responsives Verhalten muss bei layoutrelevanten Änderungen berücksichtigt werden.
 
 [MUST] Kontraste, Fokuszustand, Disabled-Zustand, Loading-Zustand und Fehlerzustand müssen visuell nachvollziehbar sein.

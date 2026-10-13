@@ -1,6 +1,6 @@
 # TESTER.md
 
-Stand: 2026-08-18
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -43,7 +43,11 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 [MUST_NOT] UI-Tests dürfen nicht primär DOM-Struktur, CSS-Klassen oder private Implementierungsdetails prüfen.
 
-[SHOULD] Agents sollen den kleinsten sinnvollen Checkumfang ausführen. Abweichungen sind erlaubt, wenn die Änderung gemeinsame Vertrage, Startup, Routing, Persistenz, Security oder breite Nutzerflows betrifft.
+[MUST_NOT] Tests dürfen nicht gelöscht, übersprungen, deaktiviert oder in ihren Erwartungen abgeschwächt werden, um einen Fehlschlag zu beseitigen.
+
+[MUST_IF] Wenn ein Test fachlich überholt ist, muss seine Anpassung oder Entfernung mit dem geänderten Vertrag begründet und im Arbeitsabschluss genannt werden.
+
+[SHOULD] Agents sollen den kleinsten sinnvollen Checkumfang ausführen. Abweichungen sind erlaubt, wenn die Änderung gemeinsame Verträge, Startup, Routing, Persistenz, Security oder breite Nutzerflows betrifft.
 
 [ALLOW_IF] Reine Dokumentations- und Content-Änderungen dürfen ohne Tests abgeschlossen werden, wenn sie Rendering, Routing, Metadaten und Linksyntax nicht betreffen.
 

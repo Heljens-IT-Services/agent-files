@@ -1,6 +1,6 @@
 # DEVELOPER.NetApplication.md
 
-Stand: 2026-08-22
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -34,9 +34,9 @@ Diese Datei gilt für geschichtete .NET-Anwendungen mit Entry-, Infrastructure- 
 
 [MUST] EF-Core-Entities sowie `DbContext` und `DbSet<TEntity>` müssen vollständig im `Infrastructure`-Projekt gekapselt bleiben.
 
-[MUST_NOT] `Core`, Use Cases, Controller, Worker, UI oder andere Konsumenten außerhalb von `Infrastructure` dürfen direkt mit `DbContext`, `DbSet<TEntity>` oder EF-Core-Entities arbeiten.
+[MUST_NOT] `Core`, Use Cases, Controller, Worker, UI oder andere Konsumenten außerhalb von `Infrastructure` dürfen nicht direkt mit `DbContext`, `DbSet<TEntity>` oder EF-Core-Entities arbeiten.
 
-[MUST_NOT] Repository-Verträge dürfen EF-Core-Entities oder andere Infrastructure-Typen nach außen exponieren.
+[MUST_NOT] Repository-Verträge dürfen keine EF-Core-Entities oder anderen Infrastructure-Typen nach außen exponieren.
 
 ## Fachliche und technische Grenzen
 

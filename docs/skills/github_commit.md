@@ -31,7 +31,7 @@ git diff
 git diff --cached --stat
 git diff --cached
 git add <pfade>
-git commit -m "<type>: <kurze konkrete aenderung>"
+git commit -m "<type>: <kurze konkrete Änderung>"
 git rev-parse HEAD
 ```
 
@@ -49,7 +49,7 @@ Platzhalter aus dem geprüften Commit-Scope ableiten.
 - Keine leeren Commits erstellen, außer der User verlangt das ausdrücklich.
 - Bestehende Commits nicht amendieren, umschreiben oder zusammenfassen, außer der User verlangt das ausdrücklich.
 - Keine Tests, Builds oder Diff-Reviews ersetzen; fehlende Verifikation oder Review als Blocker bzw. Risiko benennen.
-- Commit-Message im Format `<type>: <kurze konkrete aenderung>` formulieren.
+- Commit-Message im Format `<type>: <kurze konkrete Änderung>` oder mit optionalem Scope als `<type>(<scope>): <kurze konkrete Änderung>` formulieren.
 - Erlaubte Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `ci`, `build`.
 - Commit-Message knapp, konkret und ohne Punkt am Ende formulieren.
 

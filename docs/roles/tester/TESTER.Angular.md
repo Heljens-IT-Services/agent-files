@@ -1,6 +1,6 @@
 # TESTER.Angular.md
 
-Stand: 2026-08-18
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -10,8 +10,8 @@ Diese Datei definiert Testregeln für Angular-Anwendungen. Allgemeine Tester-Reg
 
 [MUST] Die zu einem Produktionsartefakt gehörende `*.spec.ts` muss direkt neben diesem Artefakt liegen.
 
-[MUST_IF] Benötigt eine Spec eigene Helper, Fixtures, Builder, Mocks, Fakes, Stubs oder Testdaten, müssen diese unter `src/app/spec/` in einer zum Produktionsartefakt passenden Struktur liegen.
+[MUST_IF] Wenn eine Spec eigene Helper, Fixtures, Builder, Mocks, Fakes, Stubs oder Testdaten benötigt, müssen diese unter `src/app/spec/` in einer zum Produktionsartefakt passenden Struktur liegen.
 
-[MUST_NOT] Produktivcode darf `src/app/spec/` oder `@spec` importieren.
+[MUST_NOT] Produktivcode darf `src/app/spec/` oder `@spec` nicht importieren.
 
 [MUST] Für Playwright-Tests gilt [TESTER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md).

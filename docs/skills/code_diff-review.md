@@ -41,7 +41,7 @@ Der Review bewertet wesentliche semantische Änderungseinheiten zusätzlich auf 
 
 [MUST_NOT] „Tests sind grün“, „Best Practice“, „sauberer“, „flexibler“, „besser erweiterbar“ oder „könnte später nützlich sein“ dürfen allein keine Änderung von `UNPROVEN` zu `JUSTIFIED` bewirken.
 
-[MUST_NOT] Diff-Größe, Datei-Anzahl oder LOC allein dürfen zur Einstufung `UNPROVEN` führen. Notwendigkeit wird semantisch bewertet.
+[MUST_NOT] Diff-Größe, Datei-Anzahl oder LOC allein dürfen nicht zur Einstufung `UNPROVEN` führen. Notwendigkeit wird semantisch bewertet.
 
 [MUST_NOT] Eine notwendige Security-, Validierungs- oder Fehlerbehandlung darf nicht allein wegen fehlender eigener Tests als `UNPROVEN` abgewertet werden; bekannte Invarianten und reale Failure Modes sind Evidenz.
 

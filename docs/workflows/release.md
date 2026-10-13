@@ -42,16 +42,16 @@ Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pu
 
 Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine erforderlichen Checks konfiguriert sind und keine Checks für den unveränderten Head berichtet werden. Das Fehlen eines tatsächlich konfigurierten erforderlichen Checks bleibt ein Blocker.
 
+- Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur betroffenen Umsetzung auf einem separaten Arbeitsbranch zurückkehren; `develop` im Release-Workflow nicht direkt verändern.
+- Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github-pr-merge` wechseln.
+- Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
+- Wenn der Merge nicht verifiziert werden kann, nicht auf `main` wechseln.
+
 ## Codex-Orchestrierung
 
 - Release-Scope und Reifekriterien: `planner` nur bei offenen fachlichen Entscheidungen.
 - Checks und Live-/Pages-Verifikation: `tester`.
 - Branchwechsel, Merge, Push und externe Veröffentlichung: `main/orchestrator`; keine parallelen Schreibmutationen.
-
-- Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur betroffenen Umsetzung auf einem separaten Arbeitsbranch zurückkehren; `develop` im Release-Workflow nicht direkt verändern.
-- Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github-pr-merge` wechseln.
-- Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
-- Wenn der Merge nicht verifiziert werden kann, nicht auf `main` wechseln.
 
 ## Endergebnis
 
