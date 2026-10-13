@@ -1,5 +1,9 @@
 # Workflow: Insight To Issue
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf als Delegationsplan. Erkenntnisreife, Issue-Inhalt, Type und Relationships delegiert er an `product_owner`; nötige fachliche Untersuchung an die zuständige operative Rolle. Der Koordinator führt keine Recherche oder Issue-Mutation selbst aus.
+
 ## Ziel
 
 Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.

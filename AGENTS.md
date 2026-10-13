@@ -5,6 +5,10 @@
 Die verbindlichen Arbeitsregeln finden sich global unter:
 https://heljens-it-services.github.io/agent-files/AGENTS.md
 
+Die aktuelle Rolle des Hauptagenten ist `koordinator`, sofern der Auftrag nicht ausdrücklich einer Spezialistenrolle zugewiesen wurde. Rollenrouting und Rollenbeschreibungen stehen in der globalen [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md).
+
+Bei der Pflege dieses Quellrepositorys gelten zusätzlich die lokale [PROJECT.md](PROJECT.md), [docs/AGENTS.md](docs/AGENTS.md) und deren lokale Quelldateien. Der veröffentlichte Stand kann hinter dem Arbeitsstand dieses Repositorys liegen; er ersetzt hier keine lokale Quelle.
+
 ## Umgang mit den Arbeitsregeln
 
 [MUST] Zu Beginn jedes Tasks muss der Agent sicherstellen, dass die globale

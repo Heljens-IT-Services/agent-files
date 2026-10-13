@@ -1,5 +1,9 @@
 # Workflow: Issue Acceptance Convergence
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Issue-Graph und fachliche Kriterien delegiert er an `product_owner`; technische Kriterien und deren Umsetzungskontrolle an `softwareentwicklung_architektur`; unabhängige Regression und technische Gesamtsicherung an `softwareentwicklung_qualitaetssicherung`. Product Owner prüft fachliche Kriterien als Black Box ohne Quellcode; Architektur darf technische Kriterien mit Code- und Testevidenz prüfen. Gaps gehen an Product Owner zur fachlichen Scope-/Issue-Klärung, technische Strukturfragen an Architektur, Umsetzung an Backend/Frontend/Infra und Git-Abschluss an `softwareentwicklung_infrastruktur`. Für jede vollständige Re-Acceptance delegiert der Koordinator fachliche Prüfung an PO, technische Kriterienprüfung an Architektur und unabhängige Gesamtsicherung an QA.
+
 ## Ziel
 
 Die Akzeptanzkriterien eines angegebenen Root-Issues und seines vollständigen nativen Child-Graphen gegen den aktuellen integrierten Stand prüfen. Die Prüfung ist graphweit und ersetzt weder lokale Task-Verifikation noch den technischen Branch-/PR-Abschluss.
@@ -22,20 +26,21 @@ Der kanonische Aufruf lautet `/workflows run issue-acceptance-convergence <issue
 ## Verwendete Skills
 
 - `issue-reading`
+- `product-acceptance`
 - `code-testing`
 - `code-minimization` innerhalb der Remediation
 - `code-analysis` bei nicht direkt prüfbaren oder widersprüchlichen Kriterien
 
 ## Ablauf
 
-1. Das Root-Issue mit Body, Kommentaren, Status, nativen Type- und Relationship-Metadaten lesen.
-2. Prüfen, dass der Root-Type `Epic`, `Story` oder `Task` ist. Andere Root-Typen werden als `BLOCKED` mit konkreter Begründung ausgewiesen.
-3. Vom Root ausschließlich native Child-Beziehungen rekursiv nach unten verfolgen. Parent-Issues oberhalb des Roots werden nur als Kontext gelesen und nicht in die Acceptance-Menge aufgenommen.
-4. Für jeden Knoten eine besuchte Menge anhand stabiler Repository-/Issue-Identität führen. Bereits besuchte Knoten nicht erneut expandieren; Zyklen als `BLOCKED`-Befund dokumentieren.
-5. Root und jedes erreichte Child mit Nummer, Titel, Status, Type, URL sowie seinen Acceptance-relevanten Beziehungen erfassen.
-6. Die Akzeptanzkriterien jedes erfassten Issues vollständig aus dem Issue-Kontext sammeln und für jedes Kriterium eine eigene Matrixzeile anlegen.
-7. Kriterien nicht aus dem Status, einem früheren Testlauf, einem Commit oder dem Ergebnis eines anderen Issues als erfüllt ableiten.
-8. Die Matrix in der nachgelagerten Bewertungsphase gegen den aktuellen finalen integrierten Stand prüfen.
+1. Der Koordinator delegiert an `product_owner`, das Root-Issue mit Body, Kommentaren, Status, nativen Type- und Relationship-Metadaten per `issue-reading` zu lesen.
+2. Product Owner prüft, dass der Root-Type `Epic`, `Story` oder `Task` ist. Andere Root-Typen werden als `BLOCKED` mit konkreter Begründung ausgewiesen.
+3. Product Owner verfolgt vom Root ausschließlich native Child-Beziehungen rekursiv nach unten. Parent-Issues oberhalb des Roots werden nur als Kontext gelesen und nicht in die Acceptance-Menge aufgenommen.
+4. Product Owner führt für jeden Knoten eine besuchte Menge anhand stabiler Repository-/Issue-Identität. Bereits besuchte Knoten werden nicht erneut expandiert; Zyklen werden als `BLOCKED` dokumentiert.
+5. Product Owner erfasst Root und jedes erreichte Child mit Nummer, Titel, Status, Type, URL sowie Acceptance-relevanten Beziehungen.
+6. Product Owner und Architektur sammeln fachliche beziehungsweise technische Akzeptanzkriterien vollständig aus dem Issue-Kontext und halten sie in einer gemeinsamen Kriterienmatrix getrennt fest. QA ergänzt erforderliche unabhängige Regression- und Gesamtsicherungsprüfungen.
+7. Keine Rolle leitet Kriterienerfüllung allein aus Issue-Status, früherem Testlauf, Commit oder dem Ergebnis eines anderen Issues ab.
+8. Der Koordinator delegiert die Black-Box-Bewertung fachlicher Kriterien an Product Owner, die Prüfung technischer Kriterien an Architektur und die beauftragte unabhängige Regression sowie technische Gesamtsicherung an QA. Die Rollen prüfen den aktuellen finalen integrierten Stand und liefern getrennte Belege. Ein geeigneter aktueller E2E-Lauf darf denselben sichtbaren Ablauf belegen, wenn Product Owner und Architektur ihn jeweils nur gegen die eigenen Kriterien bewerten; eine identische Prüfung muss nicht allein zur Rollentrennung doppelt ausgeführt werden.
 
 ## Scope-Regeln
 
@@ -49,23 +54,26 @@ Der kanonische Aufruf lautet `/workflows run issue-acceptance-convergence <issue
 
 Für jedes Kriterium wird mindestens folgende Zeile geführt:
 
-| Issue | Kriterium | Status | Evidenz/Begründung | geprüfter Stand |
-|---|---|---|---|---|
-| #123 | <vollständiger Kriterientext> | `PASS` / `GAP` / `BLOCKED` | <konkrete Evidenz oder Blocker> | <Commit, Artefakt oder Prüfzeitpunkt> |
+| Issue | Kriterium und Typ | Fachliche Bewertung (PO) | Technische Bewertung (Architektur) | Unabhängige QA-Sicherung | Gesamtstatus | geprüfter Stand |
+|---|---|---|---|---|---|---|
+| #123 | <vollständiger Kriterientext; fachlich/technisch/beides> | <Status und sichtbarer Beleg oder nicht erforderlich> | <Status und technische Evidenz oder nicht erforderlich> | <Regression/Gesamtsicherung oder nicht erforderlich> | `PASS` / `GAP` / `BLOCKED` | <Commit, Artefakt oder Prüfzeitpunkt> |
 
 Fehlen Kriterien, ist das als Kontextlücke zu markieren und nicht als automatischer `PASS` zu werten. Die Kriterienmatrix muss Root und alle Children voneinander getrennt ausweisen.
 
 ## Bewertungsprotokoll
 
-Jede Matrixzeile wird gegen den aktuellen integrierten Stand bewertet:
+Product Owner, Architektur und QA bewerten jeweils nur die Aspekte ihrer Rolle gegen den aktuellen integrierten Stand:
 
-- `PASS`: Das Kriterium ist durch konkrete Repository-, Produkt-, Test- oder manuelle Prüfevidenz erfüllt.
-- `GAP`: Das Kriterium ist im vereinbarten Scope nicht erfüllt oder die vorhandene Evidenz zeigt eine Regression.
+- Product Owner bewertet User Stories und fachliche Kriterien als Black Box über eine freigegebene Produktoberfläche oder anhand ausdrücklich bereitgestellter geeigneter E2E-Ausgaben. Product Owner liest keinen Produktiv- oder Testquellcode.
+- Architektur bewertet Technical Stories und technische Kriterien anhand passender Code-, Test- und Systembelege und liest nur den eigenen technischen Scope.
+- QA prüft unabhängig die ausdrücklich beauftragten Regressionen, technische Testabdeckung, Testautomatisierung und relevanten technischen Gesamtrisiken. Eine erneute Ausführung jedes bereits geeigneten Nachweises ist nicht allein wegen mehrerer zuständiger Rollen erforderlich. QA übernimmt weder fachliche Produktabnahme noch Architekturentscheidungen.
+- `PASS`: Das Kriterium ist durch die dafür notwendige fachliche oder technische Evidenz erfüllt; bei Kriterien mit beiden Anteilen müssen beide Bewertungen bestehen.
+- `GAP`: Das Kriterium ist im vereinbarten Scope nicht erfüllt oder die Evidenz zeigt eine Regression.
 - `BLOCKED`: Eine Prüfung ist wegen eines konkreten fachlichen oder technischen Hindernisses nicht belastbar möglich; das Hindernis wird benannt.
 
 Ein lokaler Test, ein manueller Prüfschritt oder ein vorhandenes Artefakt kann geeignete Evidenz sein, wenn es das Kriterium direkt belegt. Das Fehlen von CI-Checks ist für sich allein weder ein `GAP` noch ein `BLOCKED`; nur ein tatsächlich erforderlicher und fehlender Nachweis darf als Blocker bewertet werden. Umgekehrt ersetzt ein grüner CI-Check keine fachliche Evidenz für ein Kriterium.
 
-Der Rundenstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`. `GAP` ist dabei das Ergebnis dieser Acceptance-Runde und löst Remediation aus; es ist kein terminaler Konvergenzstatus.
+Der Rundenstatus wird deterministisch abgeleitet: mindestens ein `BLOCKED` ergibt `BLOCKED`, andernfalls mindestens ein `GAP` ergibt `GAP`, andernfalls ergibt eine vollständig belegte Matrix `PASS`. Fehlende erforderliche Belege werden als `BLOCKED` mit konkretem Grund ausgewiesen. `GAP` löst Remediation aus und ist kein terminaler Konvergenzstatus.
 
 ## Terminaler Konvergenzstatus
 
@@ -76,7 +84,7 @@ Der übergeordnete Konvergenzzyklus endet erst mit `PASS`, einem konkret begrün
 Jeder `GAP` wird vor einer Änderung eindeutig klassifiziert:
 
 1. **Bestehender Issue-Scope:** Das Kriterium gehört zum Scope eines vorhandenen Issues, ist aber unvollständig oder regressiv. Nach gezielter technischer Planung wird derselbe Issue-Scope über `issue-implementation` beziehungsweise `issue-graph-implementation` remediiert.
-2. **Restumfang im vereinbarten Scope:** Das Kriterium liegt im freigegebenen Parent-/Story-/Epic-Scope, ist aber noch durch kein passendes Issue repräsentiert. Der Planner plant ein passendes neues Child nach dem kanonischen Task-Issue-Vertrag; danach wird es in den nativen Graphen eingeordnet und umgesetzt.
+2. **Restumfang im vereinbarten Scope:** Das Kriterium liegt im freigegebenen Parent-/Story-/Epic-Scope, ist aber noch durch kein passendes Issue repräsentiert. Product Owner plant fachliche User-Children; technische Children und technische Task-Verträge weist der Koordinator separat an Architektur. Das Child wird danach in den nativen Graphen eingeordnet und umgesetzt.
 3. **Neue oder unklare Anforderung:** Das Kriterium würde Zielbild, Scope, Nicht-Ziele oder wesentliche Entscheidungen erweitern oder ist widersprüchlich. Der Ablauf kehrt zu `requirements-clarification` und zum Human-Gate zurück; eine stille Umsetzung ist nicht zulässig.
 
 Vorhandene passende Issues werden wiederverwendet. Ein neues Child darf nur nach Prüfung auf Duplikate und nur für vereinbarten Restumfang entstehen. Nach der Remediation wird nicht nur das einzelne Kriterium, sondern die vollständige ursprüngliche Acceptance-Menge erneut geprüft.
@@ -86,11 +94,11 @@ Vorhandene passende Issues werden wiederverwendet. Ein neues Child darf nur nach
 Für einen `GAP` gilt folgende geschlossene Runde:
 
 1. Gap klassifizieren und den betroffenen Scope sowie die erwartete neue Evidenz festhalten.
-2. Bestehenden Scope nachplanen oder fehlenden vereinbarten Restumfang als passendes Child-Issue nach dem kanonischen Task-Issue-Vertrag erfassen.
+2. Bestehenden fachlichen Scope durch Product Owner und technischen Scope durch Architektur nachplanen; vereinbarten fachlichen Restumfang als User-Child und technischen Restumfang als Technical Child erfassen. Technische Task-Verträge erstellt Architektur.
 3. Gezielte Umsetzung mit `issue-implementation` beziehungsweise `issue-graph-implementation` durchführen und den Impact-Scope lokal bis zum `PASS` stabilisieren.
 4. Erst nach lokalem `PASS` den Remediation-Diff mit `code-minimization` minimieren.
 5. Die durch die Reduktion betroffene Verifikation fokussiert erneut ausführen. Fehlgeschlagene Reduktionen zurücknehmen; echte Unklarheit über Acceptance, Invariante oder Constraint als Plan-/Kontextbruch routen.
-6. Danach den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und jedes Kriterium erneut bewerten. Diese Full-Acceptance ist das finale Gate der Remediation.
+6. Danach den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und fachliche Kriterien durch Product Owner, technische Kriterien durch Architektur sowie erforderliche unabhängige Regressionen durch QA erneut bewerten. Diese Full-Acceptance ist das finale Gate der Remediation.
 
 Der Zyklus endet ausschließlich mit `PASS`, einem konkret begründeten `BLOCKED` oder einer ausdrücklichen Human-Entscheidung. Ein weiterhin bestehender `GAP` darf nicht als Erfolg gelten.
 

@@ -1,14 +1,14 @@
 # DESIGNER.md
 
-Stand: 2026-08-21
+Stand: 2026-10-13
 
 ## Zweck
 
 Diese Datei definiert technologieübergreifende Designer-Regeln für gestalterische Problemklärung, visuelle Exploration, Prototyping, Designentscheidungen und Design-Reviews.
 
-## Codex-Ausführung
+## Verwendung als gemeinsame Fachbasis
 
-[MUST_IF] Wenn ein `designer`-SubAgent verfügbar ist, muss Designer-Verantwortung an ihn delegiert werden. Die fachlichen Regeln dieser Datei bleiben dabei maßgeblich.
+Diese Datei enthält die gemeinsame Designfachbasis für `design_ux` und `design_ui`. Die expliziten Zuständigkeiten und Laufzeitagenten stehen in [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md). Diese Datei ist selbst keine spawnbare Rolle und löst keine zusätzliche Delegation aus.
 
 ## Grundverständnis
 
@@ -66,17 +66,15 @@ Diese Datei definiert technologieübergreifende Designer-Regeln für gestalteris
 
 [MUST_IF] Nach einem Review relevante Änderungen vorgenommen werden, muss die geänderte Fassung erneut visualisiert und gegen die betroffenen Review-Punkte geprüft werden.
 
-## Rollenabgrenzung und Kombination
+## Rollenabgrenzung
 
-[MUST_NOT] Das Erstellen eines rein explorativen, wegwerfbaren HTML-, CSS-, JavaScript-, SVG- oder sonstigen Designprototyps aktiviert allein keine Developer-Verantwortung.
+[MUST_NOT] Ein rein explorativer, wegwerfbarer HTML-, CSS-, JavaScript-, SVG- oder sonstiger Designprototyp aktiviert allein keine weitere Rolle.
 
-[MUST_IF] Ein Design in Produktivcode, ein Produktionsframework oder die bestehende Anwendungsarchitektur integriert wird, ist zusätzlich die Developer-Rolle relevant.
+[MUST_IF] Eine Integration in Produktivcode, ein Produktionsframework oder die Anwendungsarchitektur beauftragt werden soll, muss der Koordinator den Umsetzungsschritt ausdrücklich einer passenden Softwareentwicklungsrolle zuweisen.
 
-[MUST_IF] Formale Verifikation, Regression, Akzeptanzprüfung oder deterministische technische Checks erforderlich sind, ist zusätzlich die Tester-Rolle relevant.
+[MUST_IF] Formale Verifikation, Regression, Acceptance oder deterministische technische Checks erforderlich sind, muss der Koordinator diese Prüfung ausdrücklich `softwareentwicklung_qualitaetssicherung` zuweisen.
 
-[ALLOW_IF] Die Designer-Rolle darf während einer produktiven Implementierung aktiv bleiben, wenn gestalterische Entscheidungen, visuelle Abnahmen oder Design-Reviews erforderlich sind.
-
-[MUST_NOT] Ein Design-Review darf eine erforderliche technische oder fachliche Testverifikation durch die Tester-Rolle nicht ersetzen.
+[MUST_NOT] Diese gemeinsame Fachbasis delegiert keine Arbeit und aktiviert weder Softwareentwicklung noch Qualitätssicherung. Ein Design-Review ersetzt keine unabhängig beauftragte Verifikation.
 
 ## Handoff
 

@@ -17,8 +17,9 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen.
 3. Gezielte Suche nach offenen Duplikaten oder sehr ähnlichen Issues durchführen.
 4. Bei einem möglichen Duplikat die Alternativen benennen und die User-Entscheidung abwarten.
 5. Titel und Body aus dem vorhandenen Kontext formulieren; bei fehlendem Template mindestens Problem, Ziel, Scope, Nicht-Ziele und Akzeptanzkriterien abbilden.
-6. Bei einem Task den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) vollständig abbilden. Fehlende wesentliche Entscheidungen nicht erfinden; den Task stattdessen als nicht terminal kennzeichnen und die fehlende Klärung benennen.
-7. Issue erstellen und Ergebnis lesen.
+6. Den fachlichen oder technischen Owner und Inhalt klar ausweisen. `product_owner` erstellt User Stories und User Epics; `softwareentwicklung_architektur` erstellt Technical Stories und Technical Epics. Beide verwenden die vorhandenen nativen Typen `Story` und `Epic`; neue Issue-Type-IDs dürfen nicht erfunden werden.
+7. Bei einem Task den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) vollständig abbilden. Fehlende wesentliche Entscheidungen nicht erfinden; den Task stattdessen als nicht terminal kennzeichnen und die fehlende Klärung benennen.
+8. Issue erstellen und Ergebnis lesen.
 
 ## Kommandos
 

@@ -1,16 +1,16 @@
 # TESTER.md
 
-Stand: 2026-08-18
+Stand: 2026-10-13
 
 ## Zweck
 
 Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
-## Codex-Ausführung
+## Verwendung als gemeinsame Fachbasis
 
-[MUST_IF] Wenn ein `tester`-SubAgent verfügbar ist, muss Tester-Verantwortung an ihn delegiert werden. Die fachlichen und technologiespezifischen Regeln bleiben dabei maßgeblich.
+Diese Datei enthält gemeinsame technische Prüfnormen. `softwareentwicklung_qualitaetssicherung` wendet sie stets an; eine andere Rolle darf sie nur anwenden, wenn der eigene Rollenindex `code-testing` ausdrücklich aufführt. Das Lesen dieser Fachbasis aktiviert keine QA-Rolle und erzeugt keine unabhängige Verifikation.
 
-## Priorität innerhalb der Tester-Rolle
+## Priorität innerhalb der Testfachbasis
 
 [PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Tester-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
@@ -53,7 +53,7 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Graphweite Acceptance
 
-[MUST] Bei einer graphweiten Acceptance-Prüfung muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
+[MUST] Bei einer graphweiten Acceptance-Prüfung muss QA die unabhängig beauftragten technischen Prüfungen am integrierten Stand durchführen und deren Status sowie Evidenz dokumentieren. Fachliche Black-Box-Abnahme und technische Kriterienprüfungen anderer ausdrücklich zuständiger Rollen bleiben getrennte Beiträge.
 
 [MUST_NOT] Ein Issue-, Commit-, PR- oder früherer Teststatus darf allein keinen Acceptance-Nachweis ersetzen.
 

@@ -1,5 +1,9 @@
 # Workflow: Issue To Sub Issues Flat
 
+## Owner
+
+`product_owner` führt die fachliche Zerlegung von User Stories/User Epics in genau eine Child-Ebene operativ aus. Technische Zerlegung, Technical Stories/Technical Epics und technische Task-Verträge weist der Koordinator separat an Architektur zu. Die Rollen lesen keine fremden Quellkontexte; bei gemischtem Scope tauschen sie innerhalb eines gemeinsam zugewiesenen Planungspakets nur Kriterien und konzeptuelle Auswirkungen aus.
+
 ## Ziel
 
 Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
@@ -15,7 +19,6 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - `issue-reading`
 - `requirements-clarification`
 - `brainstorming`
-- `code-implementation-planning`
 - `issue-creation`
 - `type-setting`
 - `relationship-setting`
@@ -26,8 +29,8 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 2. Ziel, Scope und Akzeptanzkriterien klären, falls sie für einen Schnitt nicht ausreichen.
 3. Vorhandene passende Child-Issues wiederverwenden.
 4. Falls nötig mit `brainstorming` den Schnitt bestimmen.
-5. Genau eine Child-Ebene planen. Für Task-Children mit `code-implementation-planning` einen technischen Ausführungsplan ableiten und in den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) überführen.
-6. Fehlende Child-Issues erstellen und ihren Type setzen. Wesentliche offene Entscheidungen sichtbar lassen und den betroffenen Task nicht als terminal behandeln.
+5. Genau eine fachliche Child-Ebene planen. Wenn technische Children oder ein technischer Task-Vertrag erforderlich sind, stoppt Product Owner vor deren technischer Planung und bittet den Koordinator, Architektur im eigenen Scope einzusetzen.
+6. Fehlende User-Child-Issues erstellen und ihren Type setzen. Wesentliche offene Entscheidungen sichtbar lassen und einen Task nicht ohne belegten technischen Ausführungsplan als terminal behandeln.
 7. Parent/Child-Beziehungen setzen.
 8. Erforderliche `blocked by`-Beziehungen setzen.
 9. Die erzeugte Ebene zurücklesen und prüfen.
@@ -41,13 +44,20 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - keine semantischen Duplikate
 - Parent/Child nicht als Ausführungsreihenfolge interpretieren
 - Type kontextbasiert bestimmen
-- Task-Children erfüllen den kanonischen Task-Issue-Vertrag oder sind ausdrücklich als nicht terminal erkennbar
+- technische Task-Children erfüllen den kanonischen Task-Issue-Vertrag nach Planung durch Architektur oder sind ausdrücklich als nicht terminal erkennbar
 
-## Codex-Orchestrierung
+## Rollenübergaben
 
-- Zerlegung, Schnittkriterien und fachliche Parent/Child-Entscheidung: `planner`.
-- Issue-Erstellung und Relationship-Mutationen: `main/orchestrator` nach der Planner-Prüfung.
-- Unklare Ziele oder Schnitte gehen zurück an `planner`; keine parallelen Schreibmutationen auf demselben Issue-Graphen.
+- Zerlegung, Schnittkriterien und fachliche Parent/Child-Entscheidung: `product_owner`.
+- User-Issue-Erstellung, fachliche Types/Relationships und Read-back: `product_owner`.
+- Technical Stories/Epics, technische Task-Verträge, technische Types/Relationships und Read-back: Architektur nach separater Zuweisung durch den Koordinator.
+- Technische Detailplanung geht über den Koordinator an Architektur.
+
+## Rücksprungregeln
+
+- Bei unklarem Ziel oder Schnitt an Product Owner zurückgeben.
+- Bei widersprüchlicher Hierarchie oder Type-Zuordnung vor der Mutation stoppen.
+- Schreibmutationen erst nach eindeutiger Ableitung ausführen und anschließend zurücklesen.
 
 ## Endergebnis
 

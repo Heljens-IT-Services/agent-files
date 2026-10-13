@@ -1,5 +1,9 @@
 # Workflow: Issue Graph Sanitization
 
+## Owner
+
+`product_owner` führt Type- und Relationship-Korrekturen an User Stories/User Epics im beauftragten Scope aus. Technische Issue-Types, technische Hierarchie und technische Abhängigkeiten weist der Koordinator an Architektur zu. Keine Rolle delegiert oder vergibt selbst Aufträge.
+
 ## Zweck
 
 Einen relevanten GitHub-Issue-Graphen lesen, fehlende oder fachlich unpassende native Issue-Types und Relationships erkennen und eindeutig ableitbare Metadaten idempotent korrigieren. Labels und Body-Links sind dabei nur Kontext und kein Ersatz für native GitHub-Metadaten.
@@ -27,11 +31,11 @@ Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
 1. Das Ausgangs-Issue mit Body, Kommentaren, Status, Type und direkt relevanten Parent-, Child- und Blocked-by-Kanten lesen.
 2. Den relevanten Graphen zyklussicher traversieren und bereits besuchte Issues nicht erneut expandieren.
 3. Body-Referenzen als Relationship-Kandidaten erfassen, aber nicht automatisch als bestehende native Relationships interpretieren.
-4. Für jeden relevanten Knoten prüfen, ob ein sinnvoller nativer Type gesetzt ist und zum fachlichen Zweck passt.
-5. Für jede eindeutig erkennbare fachliche Hierarchie prüfen, ob die passende Parent/Child-Relationship besteht.
-6. Für jede eindeutig dokumentierte harte Abhängigkeit prüfen, ob die richtungsstabile Blocked-by-Relationship besteht.
-7. Fehlende oder eindeutig falsche Types über `type-setting` korrigieren.
-8. Fehlende eindeutig ableitbare Relationships über `relationship-setting` korrigieren. Einen vorhandenen anderen Parent nicht stillschweigend ersetzen.
+4. Product Owner prüft bei User-Issues den nativen Type anhand des fachlichen Zwecks. Technische Issues gehen mit Kontext an den Koordinator zur separaten Zuweisung an Architektur.
+5. Product Owner prüft eindeutige fachliche Hierarchie; technische Issue-Beziehungen bearbeitet Architektur nur nach eigener Zuweisung.
+6. Product Owner prüft fachlich eindeutige harte Abhängigkeiten; technische Abhängigkeiten bearbeitet Architektur nur nach eigener Zuweisung.
+7. Fehlende oder eindeutig falsche fachliche Types über `type-setting` korrigieren.
+8. Fehlende eindeutig ableitbare fachliche Relationships über `relationship-setting` korrigieren. Einen vorhandenen anderen Parent nicht stillschweigend ersetzen.
 9. Nach jeder Mutation den tatsächlichen GitHub-Zustand erneut lesen und verifizieren.
 10. Bereits korrekte Metadaten unverändert lassen.
 
@@ -57,6 +61,7 @@ Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
 - Keine Issues, Labels oder Relationships bei unklarem Kontext erstellen oder raten.
 - Keine bestehenden Parents mit `replaceParent: true` ersetzen.
 - Keine fachlich nicht relevanten Geschwister- oder Teilbäume automatisch in den Scope aufnehmen.
+- Keine technischen Issues oder technischen Beziehungen ohne explizite Zuweisung an Architektur verändern.
 - Keine Issue-Abschlüsse oder Implementierungen ausführen.
 
 ## Endergebnis

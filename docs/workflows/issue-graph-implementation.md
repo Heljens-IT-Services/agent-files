@@ -1,5 +1,9 @@
 # Workflow: Issue Graph Implementation
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan und entscheidet keine fachlichen oder technischen Fragen selbst. Graph und Umsetzungsscope delegiert er an `product_owner`; technische Strukturpläne an `softwareentwicklung_architektur`; Branch, Runtime-Fortschrittsanker und GitHub-Mutationen an `softwareentwicklung_infrastruktur`; Gestaltung an `design_ux`/`design_ui`; Implementierung an Backend, Frontend oder Infrastruktur; formale Verifikation an `softwareentwicklung_qualitaetssicherung`. Issue-Arbeitseinheiten laufen gemäß Plan sequenziell; der Koordinator sammelt Rückgaben und steuert die nächste Phase.
+
 ## Ziel
 
 Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis zur verifizierten Implementierung und zu genau einem finalen Pull Request bearbeiten. Vor der Umsetzung wird der relevante Issue-Graph vollständig erfasst, der Umsetzungsscope festgelegt und ein temporärer Orchestrierungsplan erzeugt. Anschließend wird der vollständige Scope auf genau einem Arbeitsbranch sequenziell abgearbeitet.
@@ -32,16 +36,16 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
 
 ### Phase 1: Graph lesen
 
-1. Mit `issue-reading` das Ausgangs-Issue inklusive relevanter Parent-, Child- und Blocked-by-Beziehungen lesen.
-2. Child-Beziehungen vom Ausgangs-Issue rekursiv verfolgen, bis keine weiteren relevanten Child-Issues gefunden werden.
-3. Blocked-by-Beziehungen für alle scope-relevanten Knoten lesen und als Ausführungsabhängigkeiten erfassen.
+1. Der Koordinator delegiert das Lesen des Ausgangs-Issues samt relevanter Parent-, Child- und Blocked-by-Beziehungen mit `issue-reading` an `product_owner`.
+2. Product Owner verfolgt Child-Beziehungen vom Ausgangs-Issue rekursiv, bis keine weiteren relevanten Child-Issues gefunden werden.
+3. Product Owner liest Blocked-by-Beziehungen für alle scope-relevanten Knoten und erfasst sie als Ausführungsabhängigkeiten; technische Unklarheiten gibt er zur Delegation an Architektur zurück.
 4. Bereits besuchte Issues nicht erneut traversieren. Eine besuchte Menge anhand stabiler Repository-/Issue-Identität führen.
 5. Parent-Beziehungen oberhalb des Ausgangs-Issues nur als Kontext lesen; daraus nicht automatisch weitere Geschwister oder andere Teilbäume in den Umsetzungsscope aufnehmen.
 6. Geschlossene Issues und reine Container-Issues als solche klassifizieren.
 
 ### Phase 2: Scope und Ausführbarkeit bestimmen
 
-1. Aus dem gelesenen Graphen die tatsächlich umzusetzenden Issue-Knoten bestimmen.
+1. Product Owner bestimmt aus dem gelesenen Graphen die fachlich tatsächlich umzusetzenden Issue-Knoten; Architektur liefert technische Kriterien zur Ausführbarkeit.
 2. Parent/Child-Beziehungen bestimmen Zugehörigkeit und fachlichen Scope, aber nicht automatisch die Ausführungsreihenfolge.
 3. Geschlossene Issues nicht erneut umsetzen.
 4. Ein Parent- oder Container-Issue nicht zusätzlich als eigenes Arbeitspaket behandeln, wenn sein vollständiger Umsetzungsumfang durch aufgenommene Child-Issues abgedeckt ist.
@@ -57,9 +61,9 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
 
 ### Phase 3: Arbeitsbranch und Orchestrierungsplan vorbereiten
 
-1. Mit `github-branch-checkout-from-default` genau einen geeigneten Arbeitsbranch von der Standardbasis erstellen oder bestätigen.
-2. Vor jeder Codeänderung einen Orchestrierungsplan als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich des Arbeitsbaums erzeugen oder fortführen. Er koordiniert Issue-Knoten und ersetzt nicht deren technische Task-Pläne. Pfad und Dateiname müssen aus Repository und Ausgangs-Issue deterministisch ableitbar sein.
-3. Der Orchestrierungsplan ist ein reines Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
+1. Der Koordinator delegiert die Vorbereitung genau eines geeigneten Arbeitsbranches von der Standardbasis mit `github-branch-checkout-from-default` an Infrastruktur.
+2. Der Koordinator übergibt an Infrastruktur die Erfassung eines Orchestrierungsplans als langlebigen Fortschrittsanker im unversionierten Git-Verwaltungsbereich. Der Plan koordiniert Issue-Knoten und ersetzt nicht deren technische Task-Pläne. Pfad und Dateiname müssen aus Repository und Ausgangs-Issue deterministisch ableitbar sein.
+3. Infrastruktur hält den Orchestrierungsplan als Runtime-Artefakt. Er muss Sitzungsunterbrechungen überstehen und darf nicht Bestandteil des fachlichen Repository-Änderungssatzes, eines Commits oder des Pull Requests werden.
 4. Der Plan muss mindestens enthalten:
    - Ausgangs-Issue
    - alle gelesenen relevanten Issue-Knoten mit Status und Klassifikation
@@ -68,7 +72,7 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
    - nicht umzusetzende Kontext- oder bereits erledigte Knoten mit Grund
    - deterministische Umsetzungsreihenfolge
    - letzten abgeschlossenen Schritt mit Commit- und Push-Kontext
-5. Der erzeugte Plan ist während der gesamten Umsetzung die maßgebliche Orchestrierungsgrundlage. Ihn nach jedem zustandsverändernden Schritt aktualisieren.
+5. Der Koordinator verwendet den zurückgemeldeten Plan während der Umsetzung als Orchestrierungsgrundlage und delegiert seine Aktualisierung nach jedem zustandsverändernden Schritt an Infrastruktur.
 
 Empfohlene Struktur des Fortschrittsankers:
 
@@ -98,8 +102,8 @@ Empfohlene Struktur des Fortschrittsankers:
 
 ### Phase 4: Nach Plan umsetzen
 
-1. Den Orchestrierungsplan in der festgelegten Reihenfolge vollständig abarbeiten.
-2. Je Issue-Knoten genau eine abgeschlossene Arbeitseinheit bilden und dafür `issue-implementation.md` ausführen. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen Testverifikation. Wenn eine Arbeitseinheit Designer-Verantwortung enthält, steuert er außerdem die erforderliche Design-Exploration, das Handoff und den visuellen Review vor der formalen Testverifikation.
+1. Der Koordinator beauftragt die Abarbeitung des Orchestrierungsplans in der festgelegten Reihenfolge.
+2. Je Issue-Knoten delegiert der Koordinator genau eine abgeschlossene Arbeitseinheit gemäß `issue-implementation.md` an die zuständigen Spezialisten. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen technischen QA-Prüfung. Wenn eine Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator die nötige Design-Exploration, das Handoff und den visuellen Review an `design_ux` oder `design_ui` vor der formalen Verifikation.
 3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed, gepusht und mit dem verpflichtenden persistenten deutschen Issue-Abschlusskommentar dokumentiert wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
@@ -109,36 +113,38 @@ Empfohlene Struktur des Fortschrittsankers:
 
 ### Phase 5: Graphweite Acceptance-Konvergenz
 
-1. Nach vollständiger Implementierung aller Scope-Knoten den ursprünglichen Root-Graphen mit `issue-acceptance-convergence.md` prüfen. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
+1. Nach vollständiger Implementierung aller Scope-Knoten delegiert der Koordinator die fachliche Black-Box-Abnahme an Product Owner, die technische Kriterienprüfung an Architektur und unabhängige technische Regression an QA gemäß `issue-acceptance-convergence.md`. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
 2. Bei `PASS` mit der Abschluss- und PR-Phase fortfahren.
 3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und den in `issue-acceptance-convergence.md` definierten Remediation-/Konvergenzzyklus ausführen: Impact-Scope lokal stabilisieren, minimieren und fokussiert retesten; erst danach die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
 4. Bei `BLOCKED` den Workflow mit konkreter Begründung stoppen. Keinen finalen PR als vollständig akzeptierten Scope erzeugen.
 
 ### Phase 6: Abschluss und finaler Pull Request
 
-1. Prüfen, dass jeder Issue-Knoten im Umsetzungsscope vollständig implementiert, verifiziert und reviewed wurde.
-2. Für jeden Issue-Knoten prüfen, dass der zugehörige Änderungssatz committed und auf den vorgesehenen Upstream gepusht wurde.
-3. Commit-Historie und Orchestrierungsplan gegeneinander prüfen. Kein umgesetztes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
-4. Prüfen, dass keine fachlichen Änderungen aus dem Umsetzungsscope uncommitted oder ungepusht verbleiben.
-5. Lokalen Git-Arbeitsbaum prüfen. Vor PR-Erstellung muss der Arbeitsbaum frei von unbeabsichtigten staged, unstaged oder untracked fachlichen Änderungen sein.
-6. Runtime-Artefakte im Arbeitsbaum entfernen. Den Fortschrittsanker im Git-Verwaltungsbereich bis zur abschließenden Integritätsprüfung behalten.
-7. Danach den Git-Arbeitsbaum erneut prüfen. Runtime-Artefakte dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
-8. Wenn der Arbeitsbaum nicht sauber ist oder ein Commit beziehungsweise Push fehlt, die PR-Erstellung blockieren und den konkreten Restzustand beheben oder melden.
-9. Den finalen Issue-Scope und Teststatus für den Pull Request zusammenstellen.
-10. Mit `pr-creation` genau einen Pull Request für den vollständigen Umsetzungsscope erstellen.
-11. Das Ausgangs-Issue und weitere durch den PR vollständig abgeschlossene Scope-Issues so verlinken, dass GitHub sie beim Merge schließen kann.
-12. Den Fortschrittsanker gegen Issue-Graph, Commit-, Push- und Pull-Request-Status prüfen und danach entfernen.
-13. Den sauberen Arbeitsbaum erneut prüfen und erst danach den Workflow als abgeschlossen melden.
+1. Der Koordinator bittet Infrastruktur, anhand der Rückgaben zu prüfen, dass jeder Issue-Knoten im Umsetzungsscope vollständig implementiert, fachlich und technisch abgenommen sowie unabhängig technisch gesichert wurde.
+2. Infrastruktur prüft für jeden Issue-Knoten, dass der Änderungssatz committed und auf den vorgesehenen Upstream gepusht wurde.
+3. Infrastruktur vergleicht Commit-Historie und Orchestrierungsplan. Kein umgesetztes Issue darf ohne eindeutig zuordenbaren Commit-Kontext verbleiben.
+4. Infrastruktur prüft, dass keine fachlichen Änderungen aus dem Umsetzungsscope uncommitted oder ungepusht verbleiben.
+5. Infrastruktur prüft den lokalen Git-Arbeitsbaum. Vor PR-Erstellung muss er frei von unbeabsichtigten staged, unstaged oder untracked fachlichen Änderungen sein.
+6. Infrastruktur entfernt Runtime-Artefakte im Arbeitsbaum und behält den Fortschrittsanker im Git-Verwaltungsbereich bis zur abschließenden Integritätsprüfung.
+7. Infrastruktur prüft danach den Git-Arbeitsbaum erneut. Runtime-Artefakte dürfen weder staged noch committed sein und nicht im Arbeitsbaum zurückbleiben.
+8. Ist der Arbeitsbaum nicht sauber oder fehlt ein Commit beziehungsweise Push, blockiert Infrastruktur die PR-Erstellung und meldet oder behebt den konkreten Restzustand im übertragenen Scope.
+9. Der Koordinator übergibt den finalen Issue-Scope und die zurückgemeldeten Fach-, Technik- und QA-Belege an Infrastruktur als Pull-Request-Kontext.
+10. Der Koordinator delegiert `pr-creation` an Infrastruktur, um genau einen Pull Request für den vollständigen Umsetzungsscope zu erstellen.
+11. Infrastruktur verlinkt das Ausgangs-Issue und weitere durch den PR vollständig abgeschlossene Scope-Issues so, dass GitHub sie beim Merge schließen kann.
+12. Infrastruktur prüft den Fortschrittsanker gegen Issue-Graph, Commit-, Push- und Pull-Request-Status und entfernt ihn.
+13. Infrastruktur prüft den sauberen Arbeitsbaum erneut und meldet den Abschluss samt Belegen an den Koordinator.
 
-## Codex-Orchestrierung
+## Rollenübergaben
 
-- Graph- und Scope-Phasen: `planner`; der Hauptagent bleibt für die abschließende Scope- und Ausführbarkeitsentscheidung verantwortlich.
-- Arbeitseinheiten: sequenziell gemäß `issue-implementation.md`; bei relevanter Designer-Verantwortung `designer` für gestalterische Exploration, Handoff und visuellen Review, `developer` für die Produktivimplementierung und `tester` für formale Verifikation und Teststatus.
-- Commit und Push je Arbeitseinheit sowie der finale Pull Request: `main/orchestrator`.
-- Der persistente Issue-Abschlusskommentar wird durch `main/orchestrator` nach erfolgreicher Verifikation sowie Commit und Push erstellt; erst danach darf die nächste Arbeitseinheit beginnen.
-- Schreibende Arbeitseinheiten werden nicht parallel auf demselben Worktree ausgeführt.
-- Lokale Design-, Implementierungs- oder Testfunde werden innerhalb von `issue-implementation.md` an die jeweils verantwortliche Rolle zurückgeführt.
-- Erkennt eine Rolle eine Unstimmigkeit, die den vorab festgelegten vollständigen Ablauf ungültig macht, geht die Steuerung an den Orchestrator zurück und der Workflow stoppt mit dem konkreten Grund.
+- Graph erfassen, Issue-Scope strukturieren und fachliche Ausführbarkeit: `product_owner`.
+- Technische Task-Pläne und technische Planbrüche: `softwareentwicklung_architektur`.
+- Arbeitsbranch, Runtime-Fortschrittsanker, Commit, Push, PR und persistente Issue-Kommentare: `softwareentwicklung_infrastruktur`.
+- Design-Handoff und visuelle Exploration: `design_ux` oder `design_ui`.
+- Implementierung: Backend oder Frontend passend zum Scope.
+- Fachliche Black-Box-Acceptance: `product_owner`.
+- Technische Kriterienprüfung: `softwareentwicklung_architektur`.
+- Unabhängige technische Regression und Gesamtsicherung: `softwareentwicklung_qualitaetssicherung`.
+- Issue-Arbeitseinheiten bleiben sequenziell; Schreibzugriffe auf denselben Worktree werden nicht parallel delegiert.
 
 ## Endergebnis
 

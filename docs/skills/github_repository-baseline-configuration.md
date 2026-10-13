@@ -56,29 +56,25 @@ git diff --check
 
 ### Vorgehen
 
-1. Prüfen, dass der Auftrag Änderungen am projektbezogenen Codex-Sollbestand erlaubt.
-2. Alle TOML-Dateien unter `.codex/agents/` inventarisieren und die konfigurierten Agents anhand des Feldes `name` bestimmen.
-3. Für jeden einzeln fehlenden Namen `planner`, `developer` oder `tester` die zugehörige Online-Vorlage aus `https://heljens-it-services.github.io/agent-files/codex/agents/` unter `.codex/agents/<agent-name>.toml` kopieren. Bereits vorhandene andere Custom Agents ändern diese Pflicht nicht.
-4. Wenn ein kanonischer Zielpfad bereits durch eine widersprüchliche Datei belegt ist, nicht überschreiben, sondern den Konflikt melden.
-5. Für jede kanonische Datei die Pflichtfelder `name`, `description` und `developer_instructions` sowie den erwarteten Agent-Namen prüfen.
-6. Sicherstellen, dass menschenlesbare Beschreibungen und Instruktionen deutsch sind, keine vollständigen Rollenregeln duplizieren und den Heljens-Kontext ausdrücklich einfordern.
-7. Modell- und Reasoning-Konfiguration nur in den TOML-Dateien prüfen; konkrete Modellnamen nicht in allgemeine Rollen-, Skill- oder Workflow-Regeln übernehmen.
-8. Abweichende vorhandene Dateien sichtbar machen und nicht stillschweigend überschreiben.
-9. Nach der Prüfung Dateinamen, TOML-Syntax und den vollständigen Sollbestand erneut abgleichen.
+1. Prüfen, welche Rollen für das beauftragte Projekt tatsächlich benötigt werden.
+2. Die ausgewählten Rollen-IDs ausschließlich aus dem kanonischen Rollenmodell ableiten: `koordinator`, `product_owner`, `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend`, `softwareentwicklung_infrastruktur`, `softwareentwicklung_qualitaetssicherung`, `design_ux`, `design_ui`.
+3. Nur fehlende, ausdrücklich ausgewählte Vorlagen aus `https://heljens-it-services.github.io/agent-files/codex/agents/` unter `.codex/agents/<role-id>.toml` ergänzen. Zusätzliche projektbezogene Agents bleiben erhalten.
+4. Wenn ein kanonischer Zielpfad bereits durch eine abweichende Datei belegt ist, den Konflikt melden und die Datei nicht überschreiben.
+5. Für jede ausgewählte Vorlage Pflichtfelder, Rollen-ID und Verweise auf die passende veröffentlichte Rollenregel prüfen. Fachliche Regeln dürfen nicht aus der TOML dupliziert werden.
+6. Bestehende Installationen nicht stillschweigend überschreiben, löschen oder auf die neue Rollenmenge migrieren. Veraltete `planner`, `developer`, `tester` und `designer` Installationen als Migrationsbedarf ausweisen und nur nach ausdrücklicher Freigabe verändern.
+7. Nach der Prüfung Dateinamen, TOML-Syntax und ausgewählten Sollbestand erneut abgleichen.
 
 ### Grenzen
 
-- Keine TOML-Dateien außerhalb eines erlaubten Repository-Pflegeauftrags ändern.
-- Keine vollständigen Rollen-, Skill- oder Workflow-Regeln in die Codex-Agent-Dateien kopieren.
-- Keine benutzerspezifischen Pfade oder Secrets in versionierten Agent-Dateien pflegen.
-- Keine vorhandene Datei überschreiben, wenn ihr `name` oder Inhalt mit der kanonischen Zielvorlage kollidiert.
+- Kein pauschaler Zwang, alle neun Rollen in jedem Projekt zu installieren.
+- Keine automatische Aktivierung oder Übernahme einer anderen Rolle durch den aufrufenden Agenten.
+- Keine Migration, Überschreibung oder Löschung bestehender Agent-Dateien ohne ausdrückliche Freigabe.
 
 ### Ergebnis
 
-- erkannter Soll- und Istbestand unter `.codex/agents/`
-- geprüfte Pflichtfelder, Namen und Laufzeitparameter
-- ergänzte oder bewusst unveränderte Dateien mit Grund
-- Ergebnis der TOML-Syntaxprüfung
+- ausgewählte Rollen mit Begründung und tatsächlich vorhandene Vorlagen
+- fehlende, widersprüchliche und veraltete Installationen getrennt ausgewiesen
+- keine stillschweigende Änderung bestehender Installationen
 
 ## Dependabot-Konfiguration
 

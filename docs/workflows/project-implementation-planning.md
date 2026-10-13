@@ -1,5 +1,9 @@
 # Workflow: Project Implementation Planning
 
+## Owner
+
+`product_owner` führt die fachliche Ziel-, Roadmap- und Featureplanung operativ aus. Erfasst technische Constraints nur konzeptuell für Produktentscheidungen und lässt technische Richtungsfragen durch den Koordinator separat an `softwareentwicklung_architektur` delegieren. Product Owner liest dabei keinen Quellcode und leitet keine technischen Detailpläne ab.
+
 ## Ziel
 
 Eine noch diskutierbare projektweite Zielvorstellung durch Human-geführte Klärung in einen freigegebenen Implementierungsplan oberhalb der Epic-Ebene überführen. Der Plan beschreibt große Implementierungsphasen und keine technische Story-/Task-Zerlegung.

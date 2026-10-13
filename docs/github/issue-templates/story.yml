@@ -1,5 +1,5 @@
 name: Story
-description: Nutzerorientierte oder fachliche Story innerhalb eines Epics
+description: Fachliche User Story oder technische Story innerhalb eines Epics
 title: "[Story]: "
 labels:
   - story
@@ -8,15 +8,15 @@ body:
     id: goal
     attributes:
       label: Ziel
-      description: Welches nutzerorientierte oder fachliche Ergebnis soll erreicht werden?
-      placeholder: Beschreibe das gewünschte Ergebnis aus Nutzer- oder Produktsicht.
+      description: Welches fachliche oder technische Ergebnis soll erreicht werden?
+      placeholder: Beschreibe das gewünschte fachliche Nutzerergebnis oder technische Ergebnis.
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
       label: Kontext
-      description: Zu welchem Epic, Feature oder Nutzerfluss gehört diese Story?
+      description: Zu welchem Epic, Feature, Nutzerfluss oder technischen Arbeitsstrang gehört diese Story?
       placeholder: Erläutere den Hintergrund und verwandte Issues.
     validations:
       required: true

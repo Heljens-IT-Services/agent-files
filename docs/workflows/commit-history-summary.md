@@ -1,5 +1,9 @@
 # Workflow: Commit History Summary
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf als Delegationsplan. `softwareentwicklung_infrastruktur` liest Commit- und PR-Historie; fachliche Zusammenfassungen delegiert der Koordinator an `product_owner`, technische Einordnung an `softwareentwicklung_architektur`. Dokumentation im beauftragten Format übernimmt die inhaltlich zuständige Rolle.
+
 ## Ziel
 
 Commits und gemergte Pull Requests eines Repositorys für einen angegebenen Zeitraum erfassen und als tabellarisches fachliches, technisches oder detailliertes Summary ausgeben.

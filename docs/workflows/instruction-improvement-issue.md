@@ -1,5 +1,9 @@
 # Workflow: Instruction Improvement Issue
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf als Delegationsplan. Inhalt, Scope und Issue-Struktur delegiert er an `product_owner`; die Prüfung betroffener Fachregeln an deren jeweilige Owner-Rolle. Issue-Mutationen führt ausschließlich die beauftragte Product-Owner-Rolle aus.
+
 ## Ziel
 
 Schwachstellen und Verbesserungsvorschläge an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen.

@@ -1,5 +1,9 @@
 # Workflow: Refactoring Secure
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Verhalten und fachlichen Scope delegiert er an `product_owner`, technische Strukturplanung an Architektur, Refactoring an Backend/Frontend, unabhängige Regressionstests an QA und Commit/Push/PR an Infrastruktur.
+
 ## Ziel
 
 Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die Änderung bis zum Pull Request absichern.
@@ -47,20 +51,19 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 
 ## Rücksprungregeln
 
-## Codex-Orchestrierung
+- Bei unklarem Bestandsverhalten technische Analyse an Architektur zurückgeben.
+- Bei fehlender oder schwacher Testbasis QA zur Absicherungsstrategie hinzuziehen.
+- Bei lokalen Refactoring-Fehlern die Korrektur an den Implementierungs-Owner delegieren und betroffene Prüfung wiederholen.
+- Bei widersprüchlichem Verhalten, Scope oder Plan den Ablauf blockieren und an Product Owner oder Architektur geben.
+- Wenn das Ziel eine Verhaltensänderung verlangt, diesen Workflow nicht fortsetzen.
 
-- Verhalten, Scope und Refactoring-Plan: `planner` bei offenen Entscheidungen.
-- Strukturänderung: `developer`.
-- Verhaltenserhalt und Regression: `tester`; technischer Diff-Review kann beim `developer` bleiben.
-- Commit, Push und PR-/Merge-Entscheidungen: `main/orchestrator`.
+## Rollenübergaben
 
-- Wenn bestehendes Verhalten unklar ist, zurück zu `code-analysis` im `Context-only-Modus`.
-- Wenn Tests fehlen oder zu schwach sind, zurück zur Testabsicherung im Ablauf.
-- Wenn Tests wegen eines lokalen Refactoring-Fehlers fehlschlagen, zurück zu `code-refactoring` und danach die relevante Prüfung wiederholen.
-- Wenn Zielstruktur, Scope oder Verhaltensbasis grundlegend widersprüchlich werden, zurück zu `code-analysis` oder `code-implementation-planning`.
-- Wenn Tests wegen Umgebung nicht ausführbar sind, Workflow blockieren, außer der User erlaubt ausdrücklich einen PR mit dokumentiertem Verifikationsdefizit.
-- Wenn `code-diff-review` eine Verhaltensänderung findet, zurück zu `code-refactoring` oder blockieren.
-- Wenn das Refactoring fachliche Änderungen erzwingt, Workflow blockieren.
+- Fachlicher Scope und Verhaltensgrenzen: `product_owner`.
+- Technische Analyse und Refactoring-Planung: `softwareentwicklung_architektur`.
+- Verhaltenserhaltende Strukturänderung: Backend oder Frontend gemäß Scope.
+- Regression, Verhaltenserhalt und unabhängige Verifikation: `softwareentwicklung_qualitaetssicherung`.
+- Commit, Push und PR: `softwareentwicklung_infrastruktur`.
 
 ## Endergebnis
 

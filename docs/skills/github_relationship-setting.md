@@ -9,6 +9,7 @@ Native GitHub-Relationships zwischen bestehenden Issues gezielt setzen, insbeson
 - Wenn aus vorhandenem Kontext eindeutig hervorgeht, dass ein Issue durch ein anderes Issue blockiert wird.
 - Wenn aus vorhandenem Kontext eindeutig hervorgeht, welches Issue Parent und welches Issue Child ist.
 - Wenn Repository, beteiligte Issue-Nummern und Relationship-Art klar sind.
+- Für Product Owner bei fachlicher Hierarchie oder für Architektur bei technischen Abhängigkeiten, jeweils nur im ausdrücklich zugewiesenen Scope.
 - Nicht verwenden, um Labels zu setzen. Labels ersetzen keine native Relationship.
 - Nicht verwenden, um Body-Links oder Textverweise als Ersatz für native Relationships zu pflegen.
 - Nicht verwenden, um GitHub-Issue-Types zu setzen. Dann `type-setting` nutzen.

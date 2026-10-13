@@ -16,7 +16,7 @@ body:
     id: context
     attributes:
       label: Kontext
-      description: Warum wird dieses Epic benötigt und welchen Bereich von Building Intelligence betrifft es?
+      description: Warum wird dieses Epic benötigt und welchen Projekt- oder Systembereich betrifft es?
       placeholder: Erläutere Hintergrund, Motivation, betroffene Module und bereits getroffene Entscheidungen.
     validations:
       required: true

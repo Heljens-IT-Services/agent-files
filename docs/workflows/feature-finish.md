@@ -1,5 +1,9 @@
 # Workflow: Feature Finish
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Unabhängige Verifikation delegiert er an `softwareentwicklung_qualitaetssicherung`; Branchabschluss, Commit, Push und Merge an `softwareentwicklung_infrastruktur`. Jede Phase wartet auf die belegte Rückgabe der vorherigen.
+
 ## Ziel
 
 Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish` sicher committen, veröffentlichen, prüfen und nach `develop` mergen.
@@ -61,11 +65,12 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 - Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und den Arbeitsbranch aktiv lassen.
 - Wenn der Merge nicht verifiziert werden kann, nicht auf `develop` wechseln.
 
-## Codex-Orchestrierung
+## Rollenübergaben
 
-- Reifekriterien und offene Scope-Entscheidungen: `planner` beziehungsweise Orchestrator.
-- Verifikation und erforderliche Checks: `tester`.
-- Commit, Push, Merge und Abschlussprüfung: `main/orchestrator` sequenziell.
+- Reifekriterien und offene fachliche Scope-Entscheidungen: `product_owner`.
+- Verifikation und erforderliche Checks: `softwareentwicklung_qualitaetssicherung`.
+- Commit, Push, Merge und lokaler Branchabschluss: `softwareentwicklung_infrastruktur`.
+- Der Koordinator delegiert Phasen einzeln und wartet auf belegte Rückgaben, bevor die nächste Mutation beauftragt wird.
 
 ## Endergebnis
 

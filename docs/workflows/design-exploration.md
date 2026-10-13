@@ -1,5 +1,9 @@
 # Workflow: Design Exploration
 
+## Owner
+
+`design_ux` führt diesen Workflow für Nutzungsziele, Informationsstruktur und Interaktionen operativ aus; `design_ui` für visuelle Sprache, Komponenten und Darstellung. Die ausführende Rolle delegiert nicht selbst. Fremdscope und widersprüchliche Produktanforderungen gehen an den Koordinator zur Zuweisung an `product_owner` oder eine andere zuständige Rolle.
+
 ## Ziel
 
 Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere belastbare Richtungen entwickeln, mit leichten Prototypen tatsächlich visualisieren, reviewen und iterativ zu einer begründeten Designrichtung führen.
@@ -33,7 +37,7 @@ Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere b
 10. Weitere `design-prototyping`-/`design-review`-Iterationen nur fortsetzen, solange wesentliche Designprobleme bestehen oder eine zusätzliche Iteration einen klaren entscheidungsrelevanten Erkenntnisgewinn erwarten lässt.
 11. Die finale Designrichtung mit Begründung, wesentlichen Entscheidungen, bekannten Trade-offs und umsetzungsrelevanten Constraints festhalten.
 12. Nicht mehr benötigte explorative Varianten entfernen, sofern sie nicht ausdrücklich als Ergebnis, Vergleichsartefakt oder Handoff erhalten bleiben sollen.
-13. Wenn eine produktive Umsetzung beauftragt ist, die gewählte Designrichtung an Developer-Verantwortung übergeben. Die Produktionsimplementierung ist nicht Bestandteil dieses Workflows.
+13. Wenn eine produktive Umsetzung beauftragt ist, die gewählte Designrichtung an Backend- oder Frontend-Verantwortung übergeben. Die Produktionsimplementierung ist nicht Bestandteil dieses Workflows.
 
 ## Rücksprungregeln
 
@@ -44,14 +48,12 @@ Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere b
 - Wenn `design-review` wesentliche Probleme findet, mit `design-prototyping` die gewählte Richtung iterieren und anschließend erneut mit `design-review` prüfen.
 - Wenn ein Review wegen fehlender Visualisierung nur aus Quelltext möglich wäre, Workflow blockieren oder ein alternatives renderbares Artefakt erzeugen, sofern technisch möglich.
 
-## Codex-Orchestrierung
+## Rollengrenzen
 
-- Gestalterische Exploration, Prototyping, visuelle Bewertung und Iteration: `designer`.
-- Anforderungen oder fachlicher Scope bei echten Widersprüchen: `planner` oder `main/orchestrator`.
-- Kontextrecherche: abhängig vom Gegenstand `designer` oder `main/orchestrator`.
-- Produktive Integration in Anwendungscode: `developer` nach dem Design-Handoff.
-- Formale Verifikation, Regression und Akzeptanzchecks: `tester`, wenn sie nach der Implementierung relevant sind.
-- Externe Git-, GitHub- oder administrative Mutationen: `main/orchestrator`.
+- `design_ux` verantwortet Nutzungsziele, Informationsstruktur und Interaktionen; `design_ui` verantwortet visuelle Sprache, Komponenten und Darstellung.
+- Die beauftragte Designrolle liest nur ihren eigenen Rollenindex und führt diesen Workflow ohne Subdelegation aus.
+- Widersprüchlicher Produktumfang oder fremde operative Zuständigkeit geht an den Koordinator zur Zuweisung an `product_owner` oder eine andere Rolle.
+- Produktivimplementierung geht nach dem Design-Handoff an Backend oder Frontend. Unabhängige formale Verifikation übernimmt QA.
 
 ## Endergebnis
 

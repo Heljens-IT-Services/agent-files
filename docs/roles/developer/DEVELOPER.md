@@ -1,16 +1,16 @@
 # DEVELOPER.md
 
-Stand: 2026-08-25
+Stand: 2026-10-13
 
 ## Zweck
 
 Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
 
-## Codex-Ausführung
+## Verwendung als gemeinsame Fachbasis
 
-[MUST_IF] Wenn ein `developer`-SubAgent verfügbar ist, muss Developer-Verantwortung an ihn delegiert werden. Die fachlichen und technologiespezifischen Regeln bleiben dabei maßgeblich.
+Diese Datei enthält die gemeinsame technische Fachbasis für `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur`. Die expliziten Zuständigkeiten und Laufzeitagenten stehen in [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md). Diese Datei ist selbst keine spawnbare Rolle und löst keine zusätzliche Delegation aus.
 
-## Priorität innerhalb der Developer-Rolle
+## Priorität innerhalb der technischen Fachbasis
 
 [PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 

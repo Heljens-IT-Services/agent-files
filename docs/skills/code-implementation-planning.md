@@ -1,5 +1,11 @@
 # Skill: Code Implementierungsplanung
 
+## Rollenbindung
+
+`softwareentwicklung_architektur` ist Owner für technische Implementierungsplanung einschließlich betroffener Strukturen, Schnittstellen, Reihenfolge und Verifikation. `product_owner` verwendet diesen technischen Skill nicht. Product Owner kann fachliche User Stories und User Epics anhand geklärter Anforderungen formulieren; sobald technische Strukturentscheidungen oder ein technischer Umsetzungsplan nötig sind, weist der Koordinator Architektur einen abgegrenzten Beitrag zu.
+
+[MUST_NOT] `product_owner` darf technische Architekturentscheidungen nicht selbst treffen oder durch eine scheinbar terminale Task-Planung vorwegnehmen.
+
 ## Zweck
 
 Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetzungsplan überführen.
@@ -27,7 +33,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 
 ## Current-Driver-Test für neue Struktur
 
-[MUST] Vor jeder neuen konzeptionellen Ebene im technischen Plan muss der Planner diese vier Fragen konkret beantworten:
+[MUST] Vor jeder neuen konzeptionellen Ebene im technischen Plan muss `softwareentwicklung_architektur` diese vier Fragen konkret beantworten:
 
 1. **Current pressure:** Welcher konkrete heutige Task- oder Repository-Zustand erzeugt den Bedarf?
 2. **Failure without it:** Was würde ohne diese Ebene heute dupliziert, verletzt, untestbar gekoppelt, unsicher, inkompatibel oder anderweitig konkret schlechter?

@@ -1,5 +1,9 @@
 # Workflow: Issue To Sub Issues
 
+## Owner
+
+`product_owner` führt fachliche Zerlegung und User-Issue-Mutationen operativ aus. Technical Stories/Epics, technische Child-Issues und technische Task-Verträge weist der Koordinator separat an Architektur zu. Product Owner delegiert keine Rollen und liest keine technischen Quellkontexte.
+
 ## Ziel
 
 Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf-Issues zerlegen. Ohne Zusatz rekursiv, mit `flat` genau eine Ebene.
@@ -21,7 +25,6 @@ Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf
 - `issue-reading`
 - `requirements-clarification`
 - `brainstorming`
-- `code-implementation-planning`
 
 ## Verwendete Workflows
 
@@ -44,7 +47,7 @@ Standard ohne Zusatz.
 1. Ausgangs-Issue und vorhandene Child-Struktur lesen.
 2. Geschlossene Knoten nicht erneut zerlegen.
 3. Offene Leaf-Issues auf Terminalität prüfen.
-4. Einen nicht terminalen Task mit `code-implementation-planning` gegen den Task-Issue-Vertrag vervollständigen, wenn sein Scope bereits ein klar abgrenzbares Arbeitspaket bildet; andernfalls mit `issue-to-sub-issues-flat.md` genau eine Ebene weiter zerlegen.
+4. Einen User-Task gegen den kanonischen Task-Issue-Vertrag vervollständigen, soweit die vorhandenen technischen Entscheidungen und der Ausführungsplan von Architektur geliefert wurden; andernfalls den Koordinator um einen abgegrenzten Architekturbeitrag bitten. Technische Strukturentscheidungen oder Pläne nicht selbst ableiten.
 5. Neue Child-Issues erneut prüfen.
 6. Wiederholen, bis jeder offene Ast in terminalen Leaves endet.
 7. Bestehende Issues wiederverwenden und Duplikate vermeiden.
@@ -77,16 +80,19 @@ Zusätzlich:
 
 ## Rücksprungregeln
 
-## Codex-Orchestrierung
+- Bei unklarem Issue-Inhalt an Product Owner zur erneuten Issue-Lektüre zurückgeben.
+- Bei unklarem fachlichem Ziel oder Scope die Anforderungsklärung durch Product Owner fortsetzen.
+- Bei ungeklärtem technischem Scope, fehlendem Ausführungsplan oder technischen Task-Kriterien den Koordinator um einen begrenzten Architekturauftrag bitten.
+- Bei unklarem Schnitt fachliche Optionen mit Product Owner erneut strukturieren.
+- Bei Zyklen, widersprüchlicher Hierarchie oder nicht belastbarer Zerlegung stoppen und den Blocker benennen.
 
-- Rekursive oder flache Zerlegung und Terminalitätsprüfung: `planner`.
-- Issue- und Relationship-Mutationen: `main/orchestrator` nach kontrollierter Ableitung.
-- Konflikte in Hierarchie oder Scope gehen an `planner`; unabhängige Leseanalysen dürfen parallel erfolgen, Schreibzugriffe nicht.
+## Rollenübergaben
 
-- Bei unklarem Inhalt zu `issue-reading`.
-- Bei unklarem Ziel oder Scope zu `requirements-clarification`.
-- Bei unklarem Schnitt zu `brainstorming`.
-- Bei Zyklus, widersprüchlicher Hierarchie oder nicht belastbarer Zerlegung stoppen und den Blocker nennen.
+- Rekursive oder flache fachliche Zerlegung, fachliche Schnittkriterien und User-Issue-Terminalität: `product_owner`.
+- Technische Zerlegung, Technical Stories/Epics und technische Task-Terminalität: Architektur nach separater Koordinatorzuweisung.
+- Issue-Erstellung, Type- und Relationship-Mutationen sowie Read-back: `product_owner`.
+- Technische Detailpläne und technische Strukturentscheidungen werden über den Koordinator an `softwareentwicklung_architektur` gegeben.
+- Konflikte in Hierarchie oder fachlichem Scope gehen an Product Owner; keine eigene Subdelegation durch den operativen Owner.
 
 ## Endergebnis
 

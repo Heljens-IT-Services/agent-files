@@ -9,6 +9,7 @@ Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder ände
 - Wenn für ein bestehendes GitHub-Issue der native Issue-Type gesetzt werden soll.
 - Wenn `Task`, `Story`, `Spike`, `Epic` oder ein anderer in der Organisation vorhandener Issue-Type nachträglich gesetzt werden muss.
 - Wenn klar ist, welche Organisation, welches Repository, welche Issue-Nummer und welcher Type-Name gemeint sind.
+- Für Product Owner im fachlichen Scope oder für Architektur im technischen Scope. Beide verwenden ausschließlich die in der Organisation tatsächlich vorhandenen nativen Types; technische Stories und Epics verwenden weiterhin `Story` und `Epic`.
 - Nicht verwenden, um Labels zu setzen. GitHub-Issue-Type ist kein Label.
 - Nicht verwenden, um Relationships zu setzen. Dann `relationship-setting` nutzen.
 

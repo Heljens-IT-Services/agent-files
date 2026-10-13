@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-08-21
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -40,15 +40,26 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflicht | Allgemeine Arbeitsregeln, Regelmarker und Prioritätslogik. |
 | `PROJECT.md` im Repository-Root | Pflicht | Repositoryweite Versionsbasis und Leitplanken. |
 | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Lookup für kontextabhängige Rollenregeln. |
-| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Pflicht | Lookup für atomare Skills. |
-| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup für zusammengesetzte Workflows. |
+| Eigene Rollenbeschreibung aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Pflicht | Zuständigkeit und direkte Lookup-Indizes der ausdrücklich zugewiesenen Rolle. |
+| [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Bei Skill-Auswahl oder Rolleninventar | Lookup für atomare Skills. |
+| [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Bei Workflow-Auswahl oder Rolleninventar | Lookup für zusammengesetzte Workflows. |
 | [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) | Bei Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für Slash-Commands. |
-| [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands oder technologiespezifischer Rollenarbeit | Rollenbewusster Lookup für technologiespezifische Regeldateien. |
+| [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Wenn der eigene Rollenindex eine passende Technologie aufführt | Navigationsmetadaten zu technologiespezifischen Regeldateien. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
-[MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
+[MUST] Der Agent muss die Pflichtdateien `AGENTS.md`, `PROJECT.md`, `ROLES.md` und seine eigene Rollenbeschreibung zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
 
-[MUST_IF] Wenn technologiespezifischer Kontext für eine bereits relevante Rolle im Task relevant ist, muss der Agent `TECHNOLOGIES.md` laden und nur die passenden Mappings dieser Rolle anwenden. Das Laden einer Technologie darf keine zusätzliche Rolle aktivieren.
+[MUST_NOT] Der Agent darf nicht pauschal alle Skills, Workflows oder Technologie-Regeln laden.
+
+[MUST_IF] Wenn der eigene Rollenindex eine Skill-, Workflow- oder Technologie-Regel aufführt und der konkrete Auftrag sie erfordert, muss der Agent den zugehörigen Katalog beziehungsweise die direkte Regeldatei lesen. Ein Auftrag allein gibt keine Regeldatei frei, die der eigene Rollenindex nicht aufführt.
+
+[MUST] Die aktuelle Rolle des Hauptagenten ist `koordinator`, sofern der Auftrag nicht ausdrücklich einer Spezialistenrolle zugewiesen wurde. Jeder Spezialistenagent erhält eine explizite Rollen-ID und führt ausschließlich deren Facharbeit aus.
+
+[MUST_IF] Wenn der eigene Rollenindex eine für den konkreten Auftrag relevante Technologie aufführt, muss der Agent die verlinkte technologiespezifische Regeldatei direkt lesen. Globale `TECHNOLOGIES.md`-Einträge sind Navigationsmetadaten und geben keine Regeldateien frei. Technologie-Regeln aktivieren keine zusätzliche Rolle.
+
+[MUST] Technische Softwareentwicklungsrollen müssen zusätzlich die gemeinsame Fachbasis [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) lesen; Qualitätssicherung muss zusätzlich [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) lesen. Eine weitere Rolle, deren eigener Rollenindex `code-testing` freigibt, muss [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) als gemeinsame technische Prüfnorm lesen. Designrollen müssen zusätzlich [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) lesen. Gemeinsame Fachbasen sind keine Rollen, berechtigen nicht zur Delegation und erweitern den zugewiesenen Scope nicht.
+
+[MUST_IF] Der Agent ein dokumentiertes Slash-Command verwendet, muss er `COMMANDS.md` und nur die für das konkrete Command nötigen Details lesen. Command-Inventare ändern die aktuelle Rolle nicht und erteilen keine Tool- oder Handlungsberechtigungen.
 
 [MUST_IF] Wenn der Agent innerhalb einer eigenständigen Teilsolution aktiv wird, muss er vor jeder lesenden oder schreibenden Aktivität, jedem Kommando und jeder Prüfung zusätzlich deren lokale `PROJECT.md` vollständig und aktuell genug kennen und befolgen.
 
@@ -122,13 +133,15 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## Codex-Custom-Agents
 
-[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die kanonischen Agent-Namen `planner`, `developer`, `tester` und `designer` geprüft werden.
+[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die neun kanonischen Rollen-IDs aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) geprüft werden.
 
-[MUST_IF] Einer der kanonischen Agent-Namen im ausführenden Repository fehlt, muss die zugehörige Online-Vorlage nachgelagert unter dem kanonischen Pfad `.codex/agents/<agent-name>.toml` erstellt werden. Dies gilt für jeden fehlenden Agent einzeln und unabhängig davon, ob andere Custom Agents bereits vorhanden sind.
+[MUST_IF] Eine explizit benötigte kanonische Rollen-ID im ausführenden Repository fehlt, muss ihre Online-Vorlage unter `.codex/agents/<rollen-id>.toml` angelegt werden. Das gilt für jede benötigte Rolle einzeln.
 
-[MUST_IF] Der Agent `planner` fehlt, muss [planner.toml](https://heljens-it-services.github.io/agent-files/codex/agents/planner.toml) kopiert werden. Fehlt `developer`, muss [developer.toml](https://heljens-it-services.github.io/agent-files/codex/agents/developer.toml) kopiert werden. Fehlt `tester`, muss [tester.toml](https://heljens-it-services.github.io/agent-files/codex/agents/tester.toml) kopiert werden. Fehlt `designer`, muss [designer.toml](https://heljens-it-services.github.io/agent-files/codex/agents/designer.toml) kopiert werden.
+[MUST] Die verfügbaren Vorlagen sind im Rollenindex verlinkt. Eine Vorlage darf nur installiert werden, wenn die zugehörige Rolle in der ausführenden Umgebung ausdrücklich benötigt wird.
 
 [MUST_NOT_IF] Ein kanonischer Zielpfad bereits durch eine widersprüchliche Datei belegt ist, darf sie nicht stillschweigend überschrieben werden; der Konflikt muss gemeldet werden.
+
+[MUST_NOT] Eine bestehende ausführende Installation darf bei einer Änderung der Rollen-IDs nicht automatisch gelöscht oder überschrieben werden. Migration und Entfernung alter Agent-Dateien erfolgen nur im ausdrücklich freigegebenen Repository-Scope.
 
 [MUST] Die online veröffentlichten Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den Mustervorlagen unter `.codex/agents/` gepflegt werden.
 

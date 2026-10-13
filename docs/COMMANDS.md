@@ -20,6 +20,20 @@ Diese Datei definiert die host-unabhängige Slash-Command-Sprache für Navigatio
 - Workflows in [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md)
 - Technologien in [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md)
 
+## Rollenbindung
+
+[MUST] Der aktuelle Agent handelt ausschließlich in der in seinem Einstiegspunkt festgelegten Rolle. Rollenwechsel erfolgen durch Delegation an einen verfügbaren Agenten mit passender Rollen-ID; ein Slash-Command aktiviert keine andere Rolle.
+
+[MUST] `/skills list`, `/workflows list` und `/technologies list` zeigen einer operativen Rolle nur die Einträge, die deren eigener Rollenindex freigibt. Der Koordinator erhält nur seine eigenen Einträge sowie die Routing-Metadaten aus den Katalogen.
+
+[MUST] Der Koordinator darf bei `/skills run <skill-id>` einen Fachskill anhand seiner Katalogmetadaten an die Owner-Rolle delegieren, ohne dessen Detaildatei zu laden. Bei `/workflows run <workflow-id>` darf er nur seine eigenen Koordinator-Workflows laden und ausführen; operative Workflows delegiert er an deren Owner.
+
+[MUST] `/skills show <skill-id>`, `/workflows show <workflow-id>` und `/technologies show <technology-id>` geben dem Koordinator bei fremdem Owner Routing-Metadaten aus und delegieren die fachliche Detailauskunft an die zuständige Rolle. Operative Rollen dürfen nur Details zu ihren freigegebenen Skills, Workflows und Technologien laden.
+
+[MUST] Koordinator-Aufträge an Spezialisten müssen Ziel, Scope, Nicht-Scope, relevanten Kontext, Constraints, Entscheidungen, erwartetes Ergebnis und Rückgabeanforderungen enthalten.
+
+[MUST_NOT] Der Koordinator darf operative Recherche, Codearbeit, Issue-Arbeit, Dokumentation, Tests, Git- oder GitHub-Aktionen nicht selbst ausführen. Fehlende Spezialisten oder Tool-Fähigkeiten begründen keinen Rollenwechsel.
+
 ## Grammatik
 
 ```ebnf
@@ -76,35 +90,35 @@ spacing     = { " " | tab } ;
 |---|---|---|
 | Help | `/help`, `/?` | Zeigt die allgemeine Hilfe. |
 | Kontext-Hilfe | `/help <command>` | Zeigt Syntax, Subcommands und Beispiele für einen Root-Command oder direkten Alias. |
-| Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id> [<argument> ...]` | Listet, beschreibt oder wählt einen Skill aus. Zusätzliche Argumente sind nur zulässig, wenn der Skill sie dokumentiert. |
-| Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen Workflow. Zusätzliche Argumente sind nur zulässig, wenn der Workflow sie dokumentiert. |
-| Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt rollenbewusste technologiespezifische Regeldatei-Mappings. |
+| Skills | `/skills list`, `/skills show <skill-id>`, `/skills run <skill-id> [<argument> ...]` | Listet, beschreibt oder wählt einen für die aktuelle Rolle freigegebenen Skill aus; der Koordinator delegiert operative Skills an deren Owner. |
+| Workflows | `/workflows list`, `/workflows show <workflow-id>`, `/workflows run <workflow-id> [<argument> ...]` | Listet, beschreibt oder startet einen für die aktuelle Rolle freigegebenen Workflow; der Koordinator führt nur Koordinator-Workflows aus. |
+| Technologien | `/technologies list`, `/technologies show <technology-id>` | Listet oder beschreibt nur die für die aktuelle Rolle freigegebenen technologiespezifischen Regeldatei-Mappings. |
 
 ## Semantik
 
 ### `list`
 
-[MUST] `list` muss die Einträge des zugehörigen Katalogs mit kanonischer ID, Name, Kurzbeschreibung und vorhandenem direkten Alias ausgeben.
+[MUST] `list` muss der aktiven Rolle nur die Einträge ihres Rollenindex mit kanonischer ID, Name, Kurzbeschreibung und vorhandenem direkten Alias ausgeben.
 
 [MUST_NOT] `list` darf keinen Skill oder Workflow ausführen.
 
 ### `show`
 
-[MUST] `show` muss den durch die ID bezeichneten Katalogeintrag laden und dessen Zweck, Verwendung, Grenzen und Quelle knapp wiedergeben.
+[MUST] `show` muss für die aktive Rolle den durch die ID bezeichneten Katalogeintrag und dessen freigegebene Detaildatei laden und Zweck, Verwendung, Grenzen und Quelle knapp wiedergeben. Der Koordinator delegiert die Detailauskunft zu operativen Einträgen an den Owner und lädt deren Fachdatei nicht.
 
 [MUST_NOT] `show` darf den bezeichneten Skill oder Workflow nicht ausführen.
 
 ### `technologies`
 
-[MUST] `/technologies list` muss jede Technologie-ID genau einmal mit ihren verfügbaren Rollen-Mappings, Regeldateien und einer knappen Zweckbeschreibung ausgeben.
+[MUST] `/technologies list` muss der aktiven Rolle jede freigegebene Technologie-ID genau einmal mit Regeldatei und knapper Zweckbeschreibung ausgeben.
 
-[MUST] `/technologies show <technology-id>` muss alle Rollen-Mappings der Technologie-ID mit Rolle, Regeldatei, Verwendungskriterium und Zweck beschreiben.
+[MUST] `/technologies show <technology-id>` muss die für die aktive Rolle freigegebenen Mappings mit Rolle, Regeldatei, Verwendungskriterium und Zweck beschreiben. Der Koordinator delegiert die fachliche Detailauskunft an den betreffenden Spezialisten.
 
 [MUST_NOT] `/technologies list` und `/technologies show <technology-id>` dürfen allein durch die ausgewählte Technologie keine zusätzliche Rolle aktivieren oder eine Regeldatei außerhalb ihres Verwendungskriteriums anwenden.
 
 ### `run`
 
-[MUST] `run` muss den bezeichneten Skill oder Workflow bewusst auswählen und nach dessen vollständigen Regeln ausführen.
+[MUST] `run` muss einen Eintrag aus der Freigabe der aktiven Rolle auswählen und dessen Regeln ausführen. Der Koordinator lädt nur eigene Koordinator-Skills und -Workflows; bei operativen Skills und Workflows delegiert er an den ausgewiesenen Owner.
 
 [MUST] Fehlender Task-Kontext oder eine durch den ausgewählten Eintrag vorgeschriebene Rückfrage muss weiterhin geklärt werden.
 
@@ -126,7 +140,7 @@ spacing     = { " " | tab } ;
 
 [MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
 
-[MUST] `/help` und `/?` müssen ohne weiteres Argument zusätzlich `README.md` und `PROJECT.md` lesen und unter `Repository-Kontext` deren aktuell relevante Kernaussagen knapp zusammenfassen.
+[MUST] `/help` und `/?` müssen ohne weiteres Argument `README.md` und `PROJECT.md` durch `product_owner` oder `softwareentwicklung_infrastruktur` lesen lassen und die aktuell relevanten Kernaussagen unter `Repository-Kontext` knapp zusammenfassen. Der Koordinator delegiert diesen Leseauftrag.
 
 [MUST] Der Repository-Kontext muss sich auf Zweck, Versionsbasis und für die Nutzung wesentliche fachliche oder technische Leitplanken beschränken und in der Regel zwei bis vier kurze Punkte umfassen.
 
@@ -134,7 +148,7 @@ spacing     = { " " | tab } ;
 
 [MUST_IF] Wenn `README.md` oder `PROJECT.md` fehlt oder nicht gelesen werden kann, muss die Hilfe dies knapp benennen und darf fehlende Inhalte nicht erfinden.
 
-[MUST] `/help <command>` muss den Namen mit oder ohne führenden Slash akzeptieren und die kanonische Syntax, Subcommands, Argumente, Aliase und Beispiele des Ziels nennen.
+[MUST] `/help <command>` muss den Namen mit oder ohne führenden Slash akzeptieren und die kanonische Syntax, Subcommands, Argumente, Aliase und Beispiele des Ziels nennen. Gehört das Ziel einer operativen Rolle, delegiert der Koordinator die Detailauskunft an deren Owner und lädt die Fachdatei nicht selbst.
 
 [MUST_IF] Wenn ein Root-Command ohne erforderlichen Subcommand eingegeben wird, muss die kontextspezifische Hilfe mit den gültigen Subcommands ausgegeben werden.
 

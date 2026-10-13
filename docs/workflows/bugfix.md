@@ -1,5 +1,9 @@
 # Workflow: Bugfix
 
+## Owner und Modus
+
+`koordinator` liest und führt diesen Ablauf ausschließlich als Delegationsplan. Der Koordinator delegiert Ursachen- und Strukturfragen an `softwareentwicklung_architektur`, Implementierung an `softwareentwicklung_backend` oder `softwareentwicklung_frontend`, unabhängige Prüfung an `softwareentwicklung_qualitaetssicherung` sowie Commit/Push an `softwareentwicklung_infrastruktur`. Jede operative Handlung ist ein Spezialistenauftrag mit Scope und Rückgabevertrag.
+
 ## Ziel
 
 Einen Fehler zielgerichtet auf dem aktuell ausgecheckten Branch analysieren, beheben und absichern, ohne den umgebenden Branch- oder Pull-Request-Lifecycle eigenständig zu verändern.
@@ -46,25 +50,26 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 8. Mit `code-testing` prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
 9. Erst nach erfolgreicher Reproduktion und lokaler Stabilisierung mit `code-minimization` den Bugfix-Änderungssatz auf unbegründete Bestandteile prüfen und minimieren.
 10. Nach jeder akzeptierten Reduktion die ursprüngliche Reproduktion und die durch die Reduktion betroffene Regression fokussiert erneut grün prüfen. Eine fehlgeschlagene Reduktion zurücknehmen; echte Unklarheit über Invariante oder Constraint als Planbruch routen.
-11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; Developer-Retests ersetzen diese nicht.
+11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; lokale Implementierer-Retests ersetzen diese nicht.
 12. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
 13. Mit dem Workflow `commit-push.md` Commit und Push auf dem aktuell verwendeten Branch ausführen.
 
 ## Rücksprungregeln
 
-## Codex-Orchestrierung
+- Bei unklarer Ursache, Scope oder Reproduktion delegiert der Koordinator Analyse an Architektur.
+- Bei nicht reproduzierbarem Verhalten werden Repro-Bedingungen, Ursache und Scope geklärt, bevor Umsetzung beginnt.
+- Bei einem Planbruch geht fachlicher Scope an Product Owner, technischer Strukturbedarf an Architektur.
+- Bei lokalen Implementierungsfehlern wird gezielt an den zuständigen Implementierungs-Owner zurückgegeben.
+- Nach jeder Korrektur delegiert der Koordinator die betroffene Verifikation erneut an QA.
 
-- Anforderungs- oder Ursachenklärung: `planner` beziehungsweise `developer` bei technischer Analyse.
-- Umsetzung: `developer`.
-- Regression und Fehlerpfadprüfung: `tester`.
-- Commit und Push: `main/orchestrator`.
-- Planbruch geht an `planner`, ein lokaler Test- oder Implementierungsfehler gezielt zurück an `developer`.
+## Rollenübergaben
 
-- Wenn Ursache, Scope oder Risiken unklar sind, zurück zu `code-analysis`.
-- Wenn der Bug nicht reproduziert werden kann, zurück zu `code-analysis`, um Repro-Bedingungen, Ursache oder Scope weiter zu klären.
-- Wenn der Fix größer als erwartet wird, zurück zu `code-implementation-planning`.
-- Bei einem lokalen Implementierungsfehler Ursache im geplanten Scope korrigieren und die relevante Prüfung wiederholen.
-- Bei einem grundlegenden Widerspruch zwischen Reproduktion, Plan und Repository-Zustand zurück zu `code-analysis` oder `code-implementation-planning`.
+- Fehlerreproduktion und unabhängige Regression: `softwareentwicklung_qualitaetssicherung`.
+- Technische Ursachen- oder Strukturfragen: `softwareentwicklung_architektur`.
+- Codeänderungen und lokale Entwicklungschecks: `softwareentwicklung_backend` oder `softwareentwicklung_frontend`.
+- Unabhängige Verifikation und technischer Diff-Review: `softwareentwicklung_qualitaetssicherung`.
+- Commit und Push: `softwareentwicklung_infrastruktur`.
+- Planbruch geht an `product_owner` bei fachlichem Scope oder an Architektur bei technischer Strukturfrage. Ein Fehlerbefund geht als gezielter Rückauftrag an den Implementierungs-Owner.
 
 ## Endergebnis
 

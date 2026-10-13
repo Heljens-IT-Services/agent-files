@@ -1,5 +1,9 @@
 # Workflow: Issue Implementation
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Fachlichen Task-Scope delegiert er an `product_owner`, technische Strukturfragen an `softwareentwicklung_architektur`, Gestaltung an `design_ux`/`design_ui`, Implementierung an Backend, Frontend oder Infrastruktur im ausdrücklich zugewiesenen Infrastruktur-Scope, unabhängige Verifikation an `softwareentwicklung_qualitaetssicherung` und Commit/Push an `softwareentwicklung_infrastruktur`. Operative Phasen werden als getrennte Aufträge sequenziell übergeben.
+
 ## Ziel
 
 Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket implementieren, verifizieren, reviewen, committen und pushen.
@@ -22,7 +26,7 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 - `code-implementation`
 - `code-refactoring`
 - `code-minimization`
-- `design-review` bei relevanter visueller Designer-Verantwortung
+- `design-review` bei relevanter visueller Designverantwortung
 - `code-testing`
 - `code-diff-review`
 
@@ -33,27 +37,27 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 
 ## Ablauf
 
-1. Arbeitseinheit aus vorhandenem Kontext übernehmen.
-2. Prüfen, ob der aktuelle Arbeitsbranch zur Arbeitseinheit passt.
-3. Falls die Arbeitseinheit ein Issue ist und der Issue-Kontext noch nicht geladen ist, mit `issue-reading` das konkrete Issue lesen.
-4. Bei einem terminalen Task dessen technischen Plan als primäre Ausführungsgrundlage übernehmen. Bei einer anderen klaren Arbeitseinheit Ziel, Scope, Nicht-Scope, Arbeitspakete, Akzeptanzkriterien und Verifikation aus dem vorhandenen Kontext festhalten.
-5. Geltende Agent- und Repository-Regeln sowie mit `code-reading` ausschließlich die unmittelbar relevanten Dateien und Referenzimplementierungen laden.
-6. Wenn die Arbeitseinheit Designer-Verantwortung enthält, prüfen, ob die Designrichtung bereits belastbar geklärt und visuell reviewt ist. Bei offenem gestalterischem Lösungsraum oder fehlendem belastbarem Design-Handoff `design-exploration.md` ausführen und dessen Handoff als Designkontext für die technische Planung übernehmen. Keine erneute Exploration erzwingen, wenn ein belastbares Design bereits vorliegt.
-7. Technischen Plan, Design-Handoff soweit vorhanden, Repository-Zustand und geltende Regeln auf Konsistenz prüfen. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen technischen oder architektonischen Entscheidungen, neuem technischem Risiko oder echtem Planbruch mit `code-implementation-planning` gezielt nachplanen.
-8. Das nächste geplante Arbeitspaket mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope umsetzen.
-9. Die für das Arbeitspaket vorgesehene Verifikation mit `code-testing` ausführen.
-10. Einen lokalen Implementierungsfehler anhand des konkreten Fehleroutputs im unveränderten Scope korrigieren und nur die relevante Prüfung wiederholen. Nicht allein wegen eines lokalen Fehlers vollständig neu planen.
-11. Arbeitspakete in der geplanten Reihenfolge wiederholen, bis der technische Plan abgearbeitet ist.
-12. Wenn die fertige Arbeitseinheit ein visuelles oder interaktives Ergebnis mit Designer-Verantwortung enthält, das tatsächlich implementierte Ergebnis rendern und mit `design-review` gegen Ziel, Design-Handoff und relevante Constraints prüfen. Lokale Umsetzungsabweichungen im bestehenden Design-Scope an `developer` zurückgeben und nach der Korrektur erneut reviewen; ein grundlegendes Problem der Designrichtung an `design-exploration.md` zurückgeben.
-13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, mit `code-minimization` den eigenen Änderungssatz auf nicht hinreichend begründete Bestandteile prüfen und mutierend minimieren. Keine Minimierung bei rotem oder diagnostisch instabilem Stand und keine neuen Features, Scope-Issues oder Refactorings erzeugen.
-14. Nach jeder akzeptierten Reduktion die betroffene fokussierte Verifikation erneut ausführen. Eine fehlgeschlagene Reduktionshypothese zurücknehmen und als kein fachlicher Acceptance-GAP behandeln; echte Unklarheit über Acceptance, Invariante oder Architektur-Constraint als Plan-/Kontextbruch routen.
-15. Mit `code-testing` die vollständige Task-Verifikation und alle Akzeptanzkriterien auf dem minimierten Änderungssatz prüfen. Diese unabhängige Verifikation wird durch Developer-Minimierungs-Retests nicht ersetzt.
-16. Mit `code-diff-review` den finalen Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen reviewen.
-17. Kritische Funde im unveränderten Scope korrigieren und die passende Prüfung wiederholen.
-18. Mit dem Workflow `commit-push.md` Commit und Push für die abgeschlossene Arbeitseinheit ausführen.
-19. Prüfen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zu dieser Arbeitseinheit gehörenden fachlichen Änderungen uncommitted verbleiben.
-20. Sobald die Arbeitseinheit vollständig umgesetzt, verifiziert, reviewed, committed und gepusht ist, im zugehörigen GitHub-Issue einen kurzen persistenten Abschlusskommentar hinterlegen. Der Kommentar muss auf Deutsch den Umsetzungsstatus, den relevanten Commit-Kontext, den Verifikationsstatus und – solange der finale Pull Request oder Merge noch aussteht – diesen offenen Abschluss enthalten. Das Issue nicht über diesen Kommentar schließen.
-21. Für den Kommentar `gh issue comment <issue-number> --body "..."` verwenden. Der Inhalt muss mindestens diesem Muster folgen:
+1. Der Koordinator übergibt die Arbeitseinheit und den vorhandenen Kontext an die passende Fachrolle; sie klärt bei Bedarf Issue-Kontext, Akzeptanzkriterien und Issue-Inhalte mit `product_owner`.
+2. Der Koordinator delegiert Branchprüfung oder erforderliche Branchvorbereitung an `softwareentwicklung_infrastruktur`.
+3. Wenn Issue-Kontext fehlt, delegiert der Koordinator das Lesen mit `issue-reading` an `product_owner`.
+4. Der Koordinator übergibt den vorhandenen fachlichen Scope an `product_owner` zur Klärung von Ziel, Scope, Nicht-Scope und Akzeptanzkriterien und einen vorhandenen technischen Plan an Architektur zur technischen Einordnung.
+5. Die zugewiesene Umsetzungsrolle liest geltende Regeln und mit `code-reading` ausschließlich unmittelbar relevante Dateien und Referenzimplementierungen.
+6. Wenn die Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator an `design_ux` oder `design_ui`, um offenes Design zu explorieren und ein Handoff zu liefern. Ein belastbares vorhandenes Design-Handoff wird übernommen, ohne eine erneute Exploration zu erzwingen.
+7. Der Koordinator delegiert die Konsistenzprüfung technischer Pläne, Design-Handoffs, Repository-Zustand und technischer Risiken an `softwareentwicklung_architektur`. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen Architekturentscheidungen, neuem technischem Risiko oder echtem Planbruch wird mit `code-implementation-planning` gezielt nachgeplant.
+8. Der Koordinator beauftragt Backend, Frontend oder bei ausdrücklich zugewiesenen Infrastruktur-Arbeitspaketen Infrastruktur mit dem nächsten geplanten Arbeitspaket; die Rolle setzt es mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope um.
+9. Der Implementierungsowner führt die für sein Arbeitspaket vorgesehene lokale Entwicklungsverifikation mit `code-testing` aus und berichtet die Belege.
+10. Der Koordinator gibt konkrete lokale Implementierungsfehler gezielt an den zuständigen Implementierungsowner zurück; dieser korrigiert sie im unveränderten Scope und wiederholt nur die relevante Prüfung. Ein lokaler Fehler löst keine vollständige Neuplanung aus.
+11. Der Koordinator beauftragt die Arbeitspakete in der geplanten Reihenfolge, bis der technische Plan abgearbeitet ist.
+12. Bei einem visuellen oder interaktiven Ergebnis delegiert der Koordinator den Design-Review gegen Ziel, Handoff und Constraints an `design_ux` oder `design_ui`. Lokale Umsetzungsabweichungen gehen gezielt an den Frontend-Owner zurück; grundlegende Richtungsfragen an die Designrolle.
+13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, delegiert der Koordinator die Minimierung mit `code-minimization` an den Implementierungsowner. Bei rotem oder diagnostisch instabilem Stand findet keine Minimierung statt; sie erzeugt keine neuen Features, Scope-Issues oder Refactorings.
+14. Nach jeder akzeptierten Reduktion delegiert der Koordinator die betroffene fokussierte Verifikation an den Implementierungsowner. Eine fehlgeschlagene Reduktionshypothese wird zurückgenommen und als kein fachlicher Acceptance-GAP behandelt; echte Unklarheit über Acceptance, Invariante oder Architektur-Constraint geht an Product Owner oder Architektur.
+15. Der Koordinator delegiert die unabhängige technische Task-Verifikation und Regression auf dem minimierten Änderungssatz mit `code-testing` an `softwareentwicklung_qualitaetssicherung`. Fachliche Akzeptanzkriterien gehen zur Black-Box-Abnahme an `product_owner`; technische Akzeptanzkriterien an `softwareentwicklung_architektur`. Implementierer-Retests ersetzen unabhängige QA-Prüfungen nicht.
+16. Der Koordinator delegiert den Review des finalen Änderungssatzes gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen mit `code-diff-review` an `softwareentwicklung_qualitaetssicherung`.
+17. Der Koordinator delegiert kritische Funde im unveränderten Scope an den zuständigen Implementierungsowner und danach die zum Fund passende erneute Prüfung: technische Akzeptanz durch Architektur, unabhängige QA-Befunde durch QA oder fachliche Kriterien durch Product Owner.
+18. Der Koordinator delegiert Commit und Push für die abgeschlossene Arbeitseinheit über `commit-push.md` an `softwareentwicklung_infrastruktur`.
+19. Der Koordinator bittet Infrastruktur, zu bestätigen, dass der vollständige Änderungssatz dieser Arbeitseinheit committed und gepusht ist und keine zugehörigen fachlichen Änderungen uncommitted verbleiben.
+20. Sobald die Arbeitseinheit vollständig umgesetzt, verifiziert, reviewed, committed und gepusht ist, delegiert der Koordinator an `softwareentwicklung_infrastruktur`, einen kurzen persistenten Abschlusskommentar im zugehörigen GitHub-Issue zu hinterlegen. Inhalt und Belege stammen aus den Rückgaben von Implementierungsowner und QA. Der Kommentar muss auf Deutsch den Umsetzungsstatus, den relevanten Commit-Kontext, den Verifikationsstatus und – solange der finale Pull Request oder Merge noch aussteht – diesen offenen Abschluss enthalten. Das Issue nicht über diesen Kommentar schließen.
+21. `softwareentwicklung_infrastruktur` verwendet für den beauftragten Kommentar `gh issue comment <issue-number> --body "..."`. Der Inhalt muss mindestens diesem Muster folgen:
 
     ```text
     Umsetzung abgeschlossen.
@@ -62,8 +66,8 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
     Issue bleibt bis zum finalen PR/Merge geöffnet.
     ```
 
-22. Bei Ausführung innerhalb eines Issue-Graphen erst nach erfolgreichem Kommentar den Fortschrittsanker aktualisieren und die Steuerung an den aufrufenden Workflow zurückgeben.
-23. Ein Issue nur schließen, wenn der übergeordnete Kontext dies ausdrücklich erlaubt; die bestehende Schließlogik über den finalen Pull Request bleibt ansonsten maßgeblich.
+22. Bei Ausführung innerhalb eines Issue-Graphen bittet der Koordinator Infrastruktur, erst nach erfolgreichem Kommentar den Fortschrittsanker zu aktualisieren und die Rückgabe an den aufrufenden Workflow zu liefern.
+23. Ein Issue darf nur geschlossen werden, wenn der übergeordnete Kontext dies ausdrücklich erlaubt; zuständige GitHub-Lifecycle-Mutationen delegiert der Koordinator an Infrastruktur. Die bestehende Schließlogik über den finalen Pull Request bleibt ansonsten maßgeblich.
 
 ## Planbruch
 
@@ -86,30 +90,27 @@ In Analyse oder Planung zurückspringen, wenn:
 
 ## Rücksprungregeln
 
-## Codex-Orchestrierung
+- Bei unklarem Issue-Kontext wird an Product Owner zur Klärung zurückgegeben.
+- Bei unklarem Code- oder Schnittstellenkontext wird technische Analyse an Architektur delegiert.
+- Bei fachlichen Scope-Erweiterungen ist eine Product-Owner-/Human-Klärung erforderlich.
+- Lokale Implementierungsfehler gehen an den Implementierungs-Owner zurück; QA prüft die Korrektur erneut.
+- Bei fehlender Verifikation wird kein Abschluss gemeldet.
 
-- Technischer Plan und offene technische oder architektonische Richtungsentscheidungen: `planner`.
-- Gestalterische Richtungsentscheidungen, Design-Exploration, Design-Handoff und visueller Design-Review: `designer`.
-- Code-Lesen, Analyse, Produktivimplementierung und Refactoring: `developer`.
-- Formale Task-Verifikation und Teststatus: `tester`.
-- Commit und Push: `main/orchestrator`; der Workflow lässt keine unkoordinierten parallelen Schreibzugriffe zu.
-- Planbruch geht abhängig vom Gegenstand an `planner`, `designer` oder den Orchestrator; lokale Implementierungs- oder Testfehler gezielt an `developer` beziehungsweise `tester`.
+## Rollenübergaben
 
-- Bei unklarem Issue-Kontext zurück zu `issue-reading`.
-- Bei unklarem Code-Kontext zurück zu `code-reading`.
-- Bei unklarer Ursache, unklarem Verhalten, Risiko oder Seiteneffekt zu `code-analysis`.
-- Bei offener gestalterischer Richtung oder einem grundlegenden Problem der Designrichtung zu `design-exploration.md`.
-- Bei zu großem oder unscharfem Scope sowie einem technischen Planbruch zurück zu `code-implementation-planning`.
-- Bei lokalen Implementierungs- oder Testfehlern zurück zu `code-implementation` und anschließend die relevante Prüfung wiederholen.
-- Bei `design-review` mit lokaler Umsetzungsabweichung zurück zu `code-implementation` und anschließend erneut `design-review`; bei grundlegendem Richtungsproblem zurück zu `design-exploration.md`.
-- Bei `code-diff-review` mit Bewertung `nicht versandbereit` zurück zur passenden Umsetzung oder Planung.
-- Bei fehlgeschlagenem Commit oder Push zum Workflow `commit-push.md` zurückkehren; nicht zur nächsten Arbeitseinheit fortfahren.
+- Fachlicher Issue-Scope, User Stories/User Epics und fachliche Akzeptanzkriterien: `product_owner`.
+- Technische Issues, technischer Plan und technische Akzeptanzkriterien: `softwareentwicklung_architektur`.
+- Gestaltung, falls beauftragt: `design_ux` oder `design_ui`.
+- Code-Lesen, Analyse und Implementierung: Backend oder Frontend gemäß Scope.
+- Unabhängige technische Task-Verifikation und Regression: `softwareentwicklung_qualitaetssicherung`.
+- Commit und Push: `softwareentwicklung_infrastruktur`.
+- Planbruch wird an Product Owner (fachlich) oder Architektur (technisch) delegiert; lokale Implementierungs- oder Testfehler gehen gezielt an den Implementierer.
 
 ## Endergebnis
 
 - umgesetzte und verifizierte Arbeitseinheit
 - erfüllte Akzeptanzkriterien
-- bei relevanter Designer-Verantwortung visuell reviewte Produktivimplementierung
+- bei relevanter Designverantwortung visuell reviewte Produktivimplementierung
 - dokumentierter Teststatus
 - eindeutig zuordenbarer Commit-Kontext
 - erfolgreicher Push

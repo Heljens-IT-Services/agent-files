@@ -2,53 +2,64 @@
 
 ## Zweck
 
-Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabhängige Rollendateien.
+Diese Datei definiert die verfügbaren Rollen, ihre Lookup-Pfade und das Rollenmodell. Jede ausführende Rolle besitzt einen eigenen Eintrag mit ihren verfügbaren Skills, Workflows und Technologien.
 
 ## Verwendung
 
-[MUST] Rollen sind unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke; sie sind weder exklusive Personas noch Prozessschritte.
+[MUST] Der Koordinator ist der Standard-Einstiegspunkt für Nutzeraufträge. Er delegiert Facharbeit ausschließlich an die direkt zuständigen operativen Rollen.
 
-[MUST] Alle für den aktuellen Task relevanten Rollen müssen gelesen und angewendet werden.
+[MUST] Ein Agent arbeitet in genau einer ausdrücklich zugewiesenen Rolle. Ein fachfremder Scope wird an den Koordinator zurückgegeben und dort neu zugewiesen.
 
-[MUST_NOT] Rollen dürfen nicht allein wegen ihrer Existenz, einer Persona oder einer festen Workflow- oder Skill-Zuordnung geladen werden.
+[MUST] Rollen sind klare, voneinander abgegrenzte Zuständigkeiten. Ein Task darf Beiträge mehrerer Rollen kombinieren; der Koordinator verteilt diese Beiträge und bündelt Ergebnisse.
 
-[MUST_IF] Wird ein weiterer Verantwortungsbereich im Task relevant, muss die zugehörige Rolle nachgeladen werden.
+[MUST] Nur der Koordinator weist Rollen und neue Aufträge zu. Bei einem gemeinsam zugewiesenen Planungspaket dürfen `product_owner` und `softwareentwicklung_architektur` fachliche Kriterien, technische Constraints und konzeptuelle Auswirkungen direkt austauschen; dadurch entsteht keine neue Rollen- oder Delegationsbefugnis.
 
-[MUST_IF] Wenn für eine relevante Rolle eine technologiespezifische Regeldatei über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) relevant ist, muss der Agent zusätzlich die allgemeine Regeldatei derselben Rolle lesen.
+[MUST_NOT] Eine Rolle darf nicht allein wegen ihres Vorhandenseins, einer Persona oder einer Skill- oder Workflow-Zuordnung aktiviert werden.
 
-## Rollenagnostische Leitplanken
+[MUST_IF] Eine benötigte Rolle oder Ausführungsressource nicht verfügbar ist, muss das Hindernis gemeldet werden. Eine andere Rolle oder der Koordinator darf die operative Facharbeit nicht stillschweigend übernehmen.
 
-[MUST] Regeln für das Rollensystem oder alle Rollen gehören in diese Datei; rollenspezifische Regeln gehören in die passende Rollendatei.
-
-[MUST] Allgemeine Agent-Governance ohne Rollenbezug gehört in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
-
-[MUST_IF] Rollen eingeführt oder entkoppelt werden, müssen bestehende Regeln auf ihren fachlich allgemeinsten Scope klassifiziert werden.
-
-[MUST_NOT] Regeln dürfen nicht allein wegen ihrer historischen Ablage in einer Rollendatei verbleiben.
+[MUST] Jede Rolle liest zunächst die globalen Einstiegsdateien und ihre eigene Rollenbeschreibung. Skills, Workflows und Technologien darf sie nur lesen, wenn der eigene Rollenindex sie freigibt und der konkrete Auftrag sie erfordert.
 
 ## Rollen
 
-| Rolle | Regeldatei | Lesen und verwenden, wenn | Zweck |
-|---|---|---|---|
-| Designer | [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | Gestalterische Problemklärung, visuelle Exploration, Prototyping, Designentscheidungen oder Design-Reviews relevant sind. | Technologieübergreifende Designregeln. |
-| Developer | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Architektur, Implementierung, Refactoring, Code-Review oder technische Planung relevant sind. | Technologieübergreifende Entwicklungsregeln. |
-| Planner | [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) | GitHub Issues oder projektweite, Human-freigegebene Implementierungspläne erstellt, fachlich geplant, strukturiert, zerlegt, typisiert, verknüpft, priorisiert oder auf Abschluss geprüft werden. | Leitplanken für Issues und projektweite Phasenpläne. |
-| Tester | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Teststrategie, Testentwurf, Testerstellung, Testwartung, Regression, Verifikation oder erforderliche Checks relevant sind. | Technologieübergreifende Testregeln. |
+| ID | Rolle | Rollenbeschreibung | Codex-Vorlage | Zuständigkeit |
+|---|---|---|---|---|
+| `koordinator` | Koordinator | [KOORDINATOR.md](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md) | [koordinator.toml](https://heljens-it-services.github.io/agent-files/codex/agents/koordinator.toml) | Nutzerziele aufnehmen, Rollenaufträge verteilen, Ergebnisse bündeln und eskalieren. Keine Facharbeit. |
+| `product_owner` | Product Owner | [PRODUCT_OWNER.md](https://heljens-it-services.github.io/agent-files/roles/product_owner/PRODUCT_OWNER.md) | [product_owner.toml](https://heljens-it-services.github.io/agent-files/codex/agents/product_owner.toml) | User Stories und User Epics, fachliche Anforderungen und Akzeptanzkriterien verantworten, Roadmaps und Features planen, Backlog pflegen und fachliche Black-Box-Abnahme liefern. |
+| `softwareentwicklung_architektur` | Softwareentwicklung Architektur | [SOFTWAREENTWICKLUNG_ARCHITEKTUR.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_architektur/SOFTWAREENTWICKLUNG_ARCHITEKTUR.md) | [softwareentwicklung_architektur.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_architektur.toml) | Technische Architektur und Abhängigkeiten entwerfen, Technical Stories und Epics samt Kriterien erstellen und deren technische Umsetzung prüfen. |
+| `softwareentwicklung_backend` | Softwareentwicklung Backend | [SOFTWAREENTWICKLUNG_BACKEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md) | [softwareentwicklung_backend.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_backend.toml) | Backend-Services, APIs, Geschäftslogik und Persistenz implementieren. |
+| `softwareentwicklung_frontend` | Softwareentwicklung Frontend | [SOFTWAREENTWICKLUNG_FRONTEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_frontend/SOFTWAREENTWICKLUNG_FRONTEND.md) | [softwareentwicklung_frontend.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_frontend.toml) | Benutzeroberflächen, Interaktionen und clientseitige Funktionen implementieren. |
+| `softwareentwicklung_infrastruktur` | Softwareentwicklung Infrastruktur | [SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_infrastruktur/SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md) | [softwareentwicklung_infrastruktur.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_infrastruktur.toml) | CI, Deployment, Laufzeit, Infrastruktur und ausdrücklich beauftragte Git-/GitHub-Lifecycle-Schritte bearbeiten. |
+| `softwareentwicklung_qualitaetssicherung` | Softwareentwicklung Qualitätssicherung | [SOFTWAREENTWICKLUNG_QUALITAETSSICHERUNG.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_qualitaetssicherung/SOFTWAREENTWICKLUNG_QUALITAETSSICHERUNG.md) | [softwareentwicklung_qualitaetssicherung.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_qualitaetssicherung.toml) | Softwareverhalten unabhängig verifizieren und reproduzierbare Befunde liefern. |
+| `design_ux` | Design UX | [DESIGN_UX.md](https://heljens-it-services.github.io/agent-files/roles/design_ux/DESIGN_UX.md) | [design_ux.toml](https://heljens-it-services.github.io/agent-files/codex/agents/design_ux.toml) | Nutzungsszenarien analysieren und Nutzerabläufe entwerfen. |
+| `design_ui` | Design UI | [DESIGN_UI.md](https://heljens-it-services.github.io/agent-files/roles/design_ui/DESIGN_UI.md) | [design_ui.toml](https://heljens-it-services.github.io/agent-files/codex/agents/design_ui.toml) | Oberflächen, Interaktionen und Gestaltungssysteme entwerfen und visuell prüfen. |
+
+## Gemeinsame Fachbasen
+
+Die folgenden bestehenden Regeln enthalten rollenübergreifende Fachstandards. Sie werden von der jeweils zuständigen Spezialrolle direkt gelesen und sind keine zusätzlichen oder spawnbaren Rollen.
+
+| Fachbasis | Anwenden durch | Zweck |
+|---|---|---|
+| [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Architektur, Backend, Frontend und Infrastruktur | Allgemeine technische Regeln zu Architektur, Umsetzung, Schnittstellen, UI, Fehlerbehandlung und Sicherheit. |
+| [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Qualitätssicherung, Architektur und Implementierungsrollen bei ausdrücklich freigegebenem `code-testing` | Gemeinsame technische Prüfnormen für lokale Implementierer- und Architekturchecks sowie unabhängige QA-Prüfung; die Anwendung aktiviert keine zusätzliche Rolle. |
+| [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | Design UX und Design UI | Allgemeine Regeln für Gestaltung, Exploration, Review, Iteration und Handoff. |
+
+Diese Fachbasen enthalten keine Laufzeit-Delegation. Sie aktivieren weder zusätzliche Rollen noch rekursive Delegation.
+
+[PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) ist ein Migrationshinweis zur früheren Rollen-ID `planner`; die aktive Rollenbeschreibung ist [PRODUCT_OWNER.md](https://heljens-it-services.github.io/agent-files/roles/product_owner/PRODUCT_OWNER.md).
 
 ## Codex-Laufzeitabbildung
 
-Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner` verantwortlich; für graphweite Acceptance und die Bewertung des Status `no-checks-required` ist `Tester` verantwortlich.
+[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss jede Facharbeit direkt an den Custom Agent delegiert werden, dessen `name` exakt der zuständigen Rollen-ID entspricht.
 
-[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
+[MUST] Die Codex-Vorlagen bilden nur die jeweilige Laufzeitrolle ab. Kanonische Fachregeln bleiben in den verlinkten Markdown-Dateien.
 
-[ALLOW_IF] Bei kombinierten Verantwortungen darf der koordinierende Hauptagent die Arbeit sequenziell auf mehrere SubAgents verteilen, sofern jeder Agent nur seinen klar abgegrenzten Verantwortungsbereich übernimmt.
+[MUST] Übergaben enthalten Nutzerziel, Auftrag, Scope, Nicht-Scope, Kontext, Entscheidungen, Constraints, relevante Dateien oder Artefakte sowie erwartetes Ergebnis und erforderliche Belege.
 
-[MUST] Rollen bleiben unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke. Die Codex-Zuordnung bildet ihre Ausführung ab und ersetzt oder dupliziert sie nicht.
+[MUST] Rückgaben enthalten Ergebnis, ausgeführte, ausgelassene oder fehlgeschlagene Verifikation, Abweichungen, Blocker und offene Punkte.
 
-[MUST] Der aufrufende Agent übergibt Ziel, Scope, Nicht-Scope, relevanten bereits geladenen Kontext, getroffene Entscheidungen, Constraints und erwartetes Ergebnis.
+[MUST_NOT] Der Koordinator und andere Rollen dürfen fehlende Agenten oder Ressourcen nicht durch eigene operative Facharbeit ersetzen.
 
-[MUST] Ein SubAgent gibt Ergebnis, Verifikation, Abweichungen, Blocker und den empfohlenen nächsten Verantwortungsbereich kompakt zurück.
+[MUST_NOT] Verschiedene schreibende Agenten dürfen nicht unkoordiniert gleichzeitig auf demselben Worktree arbeiten.
 
-[MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten.
-
-[ALLOW_IF] Wenn die Laufzeit keine Codex-Custom-Agents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.
+[MUST_IF] Der aktuelle Task eine externe Mutation oder Veröffentlichung enthält, muss die dafür zuständige Rolle innerhalb des ausdrücklich freigegebenen Workflows handeln und den Zustand zurücklesen.

@@ -1,5 +1,9 @@
 # Workflow: Commit Push
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf als Delegationsplan und übergibt den gesamten operativen Commit-/Push-Auftrag sequenziell an `softwareentwicklung_infrastruktur`. Der Koordinator führt keine Git-Aktion aus.
+
 ## Ziel
 
 Einen abgeschlossenen lokalen Änderungssatz logisch committen und die neu erstellten Commits anschließend auf den konfigurierten Upstream pushen.

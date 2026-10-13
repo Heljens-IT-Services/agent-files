@@ -1,5 +1,9 @@
 # Workflow: Issue To PR
 
+## Owner und Modus
+
+`koordinator` liest diesen Ablauf als Delegationsplan. Issue-Kontext und Akzeptanzkriterien delegiert er an `product_owner`, technische Planung an Architektur, Umsetzung an Backend/Frontend, Verifikation an QA sowie Branch, Commit, Push und PR an Infrastruktur. Er lädt keine operativen Fachskills.
+
 ## Ziel
 
 Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pull Request erstellen.
@@ -23,24 +27,27 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 
 ## Ablauf
 
-1. Mit `issue-reading` das Haupt-Issue und explizit relevante Relationships als PR-Kontext lesen.
-2. Mit `code-testing` die im Issue oder Task vorgesehene Verifikation ausführen oder Testlücken benennen.
-3. Mit `code-diff-review` den Änderungssatz gegen Scope, Nicht-Scope, Akzeptanzkriterien, Nebeneffekte und Versandbereitschaft prüfen.
-4. Mit dem Workflow `commit-push.md` den Änderungssatz sauber committen und pushen.
-5. Mit `pr-creation` den Pull Request erstellen und Issue-Kontext verlinken.
+1. Der Koordinator delegiert das Lesen des Haupt-Issues und explizit relevanter Relationships als PR-Kontext mit `issue-reading` an `product_owner`; technische Kriterien und offene Punkte gehen an Architektur.
+2. Der Koordinator delegiert die im Issue oder Task vorgesehene unabhängige technische Verifikation mit `code-testing` an QA. Fachliche und technische Kriterienabnahme werden gemäß ihrem Scope an PO beziehungsweise Architektur delegiert. QA benennt technische Testlücken.
+3. Der Koordinator delegiert den Review des Änderungssatzes gegen Scope, Nicht-Scope, technische Kriterien, Nebeneffekte und Versandbereitschaft mit `code-diff-review` an QA.
+4. Der Koordinator delegiert den Workflow `commit-push.md` an Infrastruktur, damit sie den Änderungssatz sauber committet und pusht.
+5. Der Koordinator delegiert `pr-creation` an Infrastruktur, damit sie den Pull Request erstellt und den freigegebenen Issue-Kontext verlinkt.
 
 ## Rücksprungregeln
 
-## Codex-Orchestrierung
+- Bei unklarem Issue-Kontext an Product Owner zurückgeben.
+- Bei fehlender oder gescheiterter Verifikation an QA zurückgeben.
+- Bei nicht versandbereitem Diff an passende Umsetzung oder Refactoring zurückgeben.
+- Commit, Push oder PR erst nach belegter Verifikation an Infrastruktur delegieren.
 
-- Issue-Kontext und technische Vorbereitung: `planner`; technische Analyse und Umsetzung: `developer`.
-- Task-Verifikation und Review-Prüfungen: `tester` beziehungsweise `developer` für den technischen Diff-Review.
-- Commit, Push und Pull-Request-Erstellung: `main/orchestrator`.
-- Ein Planbruch geht an `planner`; ein lokaler Fehler nach der Verifikation gezielt an `developer`.
+## Rollenübergaben
 
-- Bei unklarem Issue-Kontext zurück zu `issue-reading`.
-- Bei fehlender oder gescheiterter Verifikation zurück zu `code-testing`.
-- Bei nicht versandbereitem Diff zurück zu passendem Umsetzungs- oder Refactoring-Workflow.
+- Issue-Kontext und Akzeptanzkriterien: `product_owner`.
+- Technische Analyse, Technical Stories/Technical Epics und technische Kriterien: Architektur, danach Backend oder Frontend gemäß Scope.
+- Fachliche Black-Box-Acceptance: `product_owner`.
+- Unabhängige technische Regression und Review-Prüfungen: `softwareentwicklung_qualitaetssicherung`.
+- Commit, Push und PR-Erstellung: `softwareentwicklung_infrastruktur`.
+- Planbruch geht an Product Owner oder Architektur entsprechend dem Gegenstand.
 
 ## Endergebnis
 
