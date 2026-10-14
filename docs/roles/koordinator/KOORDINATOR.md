@@ -9,12 +9,20 @@ Diese Datei ist die verbindliche Rollenquelle für `koordinator`.
 | `docs/roles/koordinator/KOORDINATOR.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/koordinator/KOORDINATOR.md](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md) |
 | `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
 | `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
-| `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
+| Root-`PROJECT.md` und lokale `PROJECT.md` der betroffenen Teilsolution | Pflichtlektüre für den geltenden Projektkontext; bei Scope-Wechsel erneut zuordnen. | Repository-lokale Quellen; siehe `Projektkontext und Vorrang`. |
 | `docs/skills/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Skills bei erfüllter Bedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Skills`. |
 | `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
 | `docs/COMMANDS.md` | Command-Syntax und eindeutiges Routing. | [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) |
 
 [MUST] Verwende die direkt freigegebenen Quellen entsprechend ihrem Zweck. Gesamtkataloge liefern Routing-Metadaten; operative Fachquellen werden von Spezialisten geladen.
+
+## Projektkontext und Vorrang
+
+[MUST] Lade zu Beginn des Auftrags die `PROJECT.md` im Repository-Root. Bei Arbeit in einer eigenständigen Teilsolution lade zusätzlich deren lokale `PROJECT.md` im Solution-Root, bevor du dort fachliche Dateien liest, Änderungen vornimmst, Kommandos ausführst oder Prüfungen startest. Ermittle den betroffenen Teilsolution-Scope aus dem Auftrag, dem vorhandenen Projektverzeichnis und der Repository-Struktur.
+
+[MUST] Prüfe bei einem Wechsel des Repositorys oder der Teilsolution erneut, welche Root- und lokalen PROJECT-Regeln gelten. Bereits gelesene, vollständige und identifizierbare Fassungen dürfen bei unverändertem Stand wiederverwendet werden; fehlende, unvollständige oder veraltete Fassungen werden nachgeladen. Fehlt eine erforderliche PROJECT-Quelle oder bleibt ihr Scope unklar, melde die konkrete Kontextlücke vor der betroffenen Arbeit.
+
+[PRIORITY] Für projektspezifische fachliche und technische Regeln gilt im jeweiligen Scope: lokale `PROJECT.md` der Teilsolution vor Root-`PROJECT.md` vor allgemeinen Rollenregeln. Nicht widersprochene Root-Regeln bleiben wirksam. Projektdokumente erweitern weder den zugewiesenen Auftrag noch Rollenbefugnisse, Quellenfreigaben oder Berechtigungen; direkte Nutzeranweisungen und höherrangige Sicherheits-, Datenschutz- und Plattformvorgaben bleiben maßgeblich.
 
 ## Aufgaben
 

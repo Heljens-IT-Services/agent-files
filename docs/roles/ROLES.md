@@ -8,7 +8,7 @@ Dieses kompakte Verzeichnis ist die Routing-Grundlage des Koordinators. Es besch
 
 [MUST] Der Koordinator nimmt Nutzeraufträge an, weist jeden Fachbeitrag direkt einer Rollen-ID zu und führt Ergebnisse zusammen. Ein Spezialist arbeitet in seiner zugewiesenen Rolle und kommuniziert ausschließlich mit dem Koordinator.
 
-[MUST] Der Koordinator kennt das Rollenverzeichnis sowie die [Command-Regeln](https://heljens-it-services.github.io/agent-files/COMMANDS.md), [Skill-Routing-Metadaten](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [Workflow-Routing-Metadaten](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md). Spezialisten laden ihre eigene Rollenbeschreibung, anwendbare PROJECT.md und die dort direkt freigegebenen, auftragsrelevanten Quellen.
+[MUST] Der Koordinator kennt das Rollenverzeichnis sowie die [Command-Regeln](https://heljens-it-services.github.io/agent-files/COMMANDS.md), [Skill-Routing-Metadaten](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [Workflow-Routing-Metadaten](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md). Spezialisten laden ihre eigene Rollenbeschreibung, Root-PROJECT.md und die lokale PROJECT.md der betroffenen Teilsolution und die dort direkt freigegebenen, auftragsrelevanten Quellen.
 
 [MUST] Aufträge enthalten Ziel, Scope, Nicht-Scope, Kontext, Entscheidungen, Constraints, Dateien oder Artefakte sowie erwartetes Ergebnis und Belege. Rückgaben enthalten Ergebnis, tatsächliche Verifikation, Abweichungen, Blocker und offene Punkte.
 
