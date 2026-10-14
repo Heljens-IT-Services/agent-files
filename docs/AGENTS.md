@@ -2,12 +2,10 @@
 
 ## Einstiegspunkt
 
-Diese Datei dient ausschließlich als Navigation. Rollenfachwissen, Zuständigkeiten und freigegebene Ressourcen stehen in der jeweiligen Rollen-Markdown-Datei unter `roles/<rollen-id>/`.
+Nutzeraufträge beginnen beim [Koordinator](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md). Er nutzt das [Rollenverzeichnis](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) und die [Command-Regeln](https://heljens-it-services.github.io/agent-files/COMMANDS.md) für direkte Zuweisungen.
 
-[MUST] Der zugewiesene operative Agent öffnet direkt seine Rollen-Markdown-Datei und befolgt deren Pflichtlektüren und Lookup-Freigaben. Diese Datei ist keine Rollen-Pflichtlektüre und definiert keine operativen Fachregeln.
+[MUST] Ein ausdrücklich zugewiesener Spezialist startet mit seiner eigenen Rollen-Markdown-Datei unter `roles/<rollen-id>/<ROLLEN-ID>.md`. Er lädt ausschließlich deren direkte, auftragsrelevante Quellen und die anwendbare repository-lokale `PROJECT.md`. Die Kommunikation erfolgt über den Koordinator.
 
-[MUST] Der Koordinator nutzt den Rollenindex [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) zur Auswahl der zu delegierenden Rollen-ID. Die operative Rolle lädt den Index nicht; sie verwendet ausschließlich ihre eigene Rollen-Markdown-Datei und die dort freigegebenen Quellen.
+Diese Datei dient der Navigation. Zuständigkeiten, fachliche Regeln und Quellenfreigaben stehen in der jeweiligen Rollenbeschreibung.
 
-[MUST] Bei Arbeit im Quellrepository `agent-files` gelten zusätzlich die repositoryweiten Vorgaben aus `PROJECT.md`. Rollenbezogene Quelldateien und Lookup-Ressourcen werden aus dem Verzeichnis `docs/` gepflegt.
-
-[MUST] Skills, Workflows und Technologien werden nur über die Freigaben und direkten Links in der eigenen Rollen-Markdown-Datei geladen. Kataloge dienen der Navigation und geben keine zusätzlichen Fachregeln frei.
+[MUST] Im Quellrepository `agent-files` gilt zusätzlich `PROJECT.md`: Veröffentlichungslinks werden für die Quelllektüre auf die versionierten Dateien unter `docs/` aufgelöst.

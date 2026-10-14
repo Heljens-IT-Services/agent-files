@@ -2,7 +2,7 @@
 
 ## Owner
 
-`product_owner` führt die fachliche Zerlegung von User Stories/User Epics in genau eine Child-Ebene operativ aus. Technische Zerlegung, Technical Stories/Technical Epics und technische Task-Verträge weist der Koordinator separat an Architektur zu. Die Rollen lesen keine fremden Quellkontexte; bei gemischtem Scope tauschen sie innerhalb eines gemeinsam zugewiesenen Planungspakets nur Kriterien und konzeptuelle Auswirkungen aus.
+`product_owner` führt die fachliche Zerlegung von User Stories/User Epics in genau eine Child-Ebene operativ aus. Technischer Zerlegungs- und Klärungsbedarf wird dem Koordinator mit fachlichen Kriterien und konzeptuellen Auswirkungen gemeldet. Er vermittelt den erforderlichen Teilkontext.
 
 ## Ziel
 
@@ -70,3 +70,4 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 - Keine Umsetzung starten.
 - Ausgangs-Issue nicht schließen.
 - Keine künstliche Zerlegung erzeugen.
+

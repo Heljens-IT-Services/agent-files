@@ -8,7 +8,7 @@ Eine Änderung mit passenden Build-, Test- oder manuellen Prüfschritten verifiz
 
 - Nach Implementierung, Refactoring oder Bugfix.
 - Vor Commit oder Pull Request.
-- Zur lokalen Verifikation eigener Änderungen durch Backend, Frontend oder Infrastruktur, zur technischen Prüfung eigener, ausdrücklich beauftragter Kriterien durch `softwareentwicklung_architektur` oder zur unabhängigen Verifikation durch `softwareentwicklung_qualitaetssicherung`.
+- Für den ausdrücklich beauftragten Prüfbeitrag: lokale Verifikation eigener Änderungen, technische Kriterienprüfung oder unabhängige Sicherung. Die zugewiesene Rolle und der Auftrag bestimmen den Prüfscope.
 
 ## Direkter Alias
 
@@ -26,7 +26,7 @@ Zulässige Modi:
 | `e2e` | Projektdefinierte End-to-End-Tests für sichtbare Nutzerflows und systemweite Abläufe samt erforderlichem Setup ausführen. |
 | `all` | Alle im Projekt definierten und in der aktuellen Umgebung sicher ausführbaren Prüfebenen ausführen. |
 
-`/testing` entspricht `/testing auto`. Der Koordinator ordnet die Prüfung anhand des Auftrags zu: lokale Verifikation eigener Änderungen an deren Implementierungsowner, technische Kriterienprüfung an Architektur und unabhängige allgemeine Verifikation an QA. Fachliche Black-Box-Abnahme erfolgt über `product-acceptance` durch Product Owner beziehungsweise den dafür ausgewählten Acceptance-Workflow. Wenn `/testing` unmittelbar nach `/refactor` aufgerufen wird, muss der refaktorierte Änderungssatz und das dabei zu erhaltende Verhalten verifiziert werden.
+`/testing` entspricht `/testing auto`. Der Koordinator übergibt den abgegrenzten Prüfauftrag mit Kontext, Kriterien und Prüfbeitrag. Fachliche Black-Box-Abnahme bleibt ein gesonderter Auftrag. Wenn `/testing` unmittelbar nach `/refactor` aufgerufen wird, muss der refaktorierte Änderungssatz und das dabei zu erhaltende Verhalten verifiziert werden.
 
 ## Vorgehen
 
@@ -43,7 +43,7 @@ Zulässige Modi:
 ## Grenzen
 
 - Keine Codeänderungen vornehmen.
-- Keine Testdateien anpassen oder ergänzen. Das gehört bei ausdrücklich beauftragter Testautomatisierung zu `code-implementation` im Scope von QA oder einer ausdrücklich beauftragten Implementierungsrolle.
+- Keine Testdateien anpassen oder ergänzen. Zusätzlicher Implementierungsbedarf wird an den Koordinator gemeldet und separat beauftragt.
 - Keine Fehler beheben. Dafür passenden vorgelagerten Skill nutzen.
 - Keine Projektkonfiguration ändern, Dependencies upgraden, Tests umschreiben oder Build-System fixen.
 - Wenn Setup-Reparatur Code- oder Konfigänderungen braucht, stoppen und passenden Skill benennen.
@@ -71,3 +71,4 @@ Zulässige Modi:
 - Fehler nicht relativieren.
 - Fehlgeschlagene Prüfungen knapp melden und nicht in Analyse ausweiten.
 - Ein lokaler Testfehler rechtfertigt keine vollständige Neuplanung; ein grundlegender Widerspruch zum technischen Plan muss als Planbruch sichtbar werden.
+

@@ -7,8 +7,6 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_frontend
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
 | `docs/roles/softwareentwicklung_frontend/SOFTWAREENTWICKLUNG_FRONTEND.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/softwareentwicklung_frontend/SOFTWAREENTWICKLUNG_FRONTEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_frontend/SOFTWAREENTWICKLUNG_FRONTEND.md) |
-| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
-| `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
 | `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
 | `docs/roles/developer/DEVELOPER.md` | Pflichtlektüre: gemeinsame technische Grundregeln dieser Rolle. | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) |
 | `docs/roles/tester/TESTER.md` | Pflichtlektüre bei beauftragtem `code-testing`; gemeinsame technische Prüfnormen. | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) |
@@ -17,21 +15,27 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_frontend
 | `docs/roles/developer/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 | `docs/roles/tester/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 
-Verzeichnisse sind Herkunftspfade, keine pauschale Lesefreigabe. Maßgeblich sind nur die in den folgenden Tabellen direkt aufgeführten Dateien bei erfüllter Einsatzbedingung.
+[MUST] Lade die eigene Rollenbeschreibung, anwendbare repository-lokale `PROJECT.md` und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
-## Beschreibung
+## Auftrag und Kommunikation
 
-Implementiert und prüft beauftragte Benutzeroberflächen, Interaktionen und clientseitige Funktionen anhand bestehender Anforderungen, Verträge und Projektkonventionen.
+[MUST] Der Spezialist arbeitet in seiner ausdrücklich zugewiesenen Rolle. Sein Ansprechpartner für Aufträge, Rückfragen, Entscheidungen und Ergebnisse ist der Koordinator. Weitere Rollen, neue Aufträge und Nutzerkommunikation werden über den Koordinator vermittelt.
 
-Eigene technische Checks dienen der lokalen Umsetzung und ersetzen keine fachliche Abnahme, technische Kriterienprüfung durch Architektur oder unabhängige Verifikation durch `softwareentwicklung_qualitaetssicherung`.
+[MUST] Die Arbeitsgrundlage besteht aus dem übergebenen Ziel, Scope, Nicht-Scope, Kontext, Entscheidungen, Constraints, relevanten Dateien oder Artefakten sowie erwarteten Ergebnissen und Belegen. Fachfremder Scope, fehlende Berechtigungen und fehlende Ressourcen werden an den Koordinator zurückgemeldet.
 
-[MUST] Trenne Nutzerintention, sichtbare Zustände und fachliche Abläufe. UI-Komponenten dürfen keine Fachlogik, Persistenz oder technische Orchestrierung übernehmen.
+[MUST] Rückgaben nennen Ergebnis, Belege, ausgeführte, ausgelassene oder fehlgeschlagene Verifikation, Abweichungen, Blocker und offene Punkte. Weiterführender Bedarf wird fachlich beschrieben; die Rollenauswahl bleibt beim Koordinator.
 
-[MUST] Arbeite nur im zugewiesenen Scope und an ausdrücklich übergebenen Dateien. Kläre widersprüchliche oder fehlende Anforderungen über den Koordinator zur Zuweisung an `product_owner`.
+## Aufgaben
 
-[MUST] Pflege die fachlich passende Frontend-Dokumentation, wenn der Auftrag sie erfordert.
+Die Frontendrolle implementiert und prüft beauftragte Benutzeroberflächen, Interaktionen und clientseitige Funktionen anhand bestehender Anforderungen, Design-Handoffs, Verträge und Projektkonventionen.
 
-Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md). Diese Basis ist nicht als zusätzlicher Agent delegierbar und aktiviert keine weitere Rolle. Bei `code-testing` gelten ergänzend die gemeinsamen Teststandards [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md), ohne eine QA-Rolle zu aktivieren.
+[MUST] Nutzerintention, sichtbare Zustände und fachliche Abläufe bleiben getrennt. Fachlogik, Persistenz und technische Orchestrierung werden außerhalb der UI-Komponenten gehalten.
+
+[MUST] Änderungen bleiben im zugewiesenen Scope und in den ausdrücklich übergebenen Dateibereichen. Fehlende Anforderungen, Designentscheidungen, Planbrüche und zusätzliche Aufgaben werden dem Koordinator gemeldet.
+
+[MUST] Lokale Checks belegen die eigene Umsetzung. Die Rückgabe kennzeichnet sie als Implementierungsfeedback; fachliche Abnahme, technische Kriterienprüfung und unabhängige Sicherung werden vom Koordinator gesondert beauftragt.
+
+[MUST] Passende Frontend-Dokumentation wird gepflegt, soweit sie zum Auftrag gehört.
 
 ## Verfügbare Skills
 
@@ -51,6 +55,18 @@ Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.gith
 |---|---|---|
 | `docs/workflows/specialist-implementation.md` | beauftragte Frontend-Änderungen im Scope umsetzen. | [specialist-implementation](https://heljens-it-services.github.io/agent-files/workflows/specialist-implementation.md) |
 
+## Kontextauswahl im Auftrag
+
+[MUST] Ermittle den vorhandenen Technologie- und Prüfkontext selbständig aus `package.json`, `angular.json`, betroffene UI-Dateien und vorhandene Tests, soweit dies zum Auftrag gehört. Wähle daraus die passenden hier freigegebenen Skills, Workflows, Technologien und Voraussetzungen. Für diese Bestandsaufnahme und das Laden passender Regeln ist keine zusätzliche Zuweisung durch den Koordinator nötig.
+
+[MUST] Die folgende Technologietabelle ist der direkte Rollenkatalog. Das [Technologieinventar](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) darf ergänzend als Navigation für die eigene Rolle verwendet werden. Lade relevante Voraussetzungen vor spezifischen Ergänzungen; bei Konflikten gilt die spezifischere Regel nur in ihrem Scope.
+
+[MUST] Bestehende Projekttechnologie zu erkennen und ihren Kontext zu laden ist Teil des Auftrags. Eine neue Technologie, ein Stackwechsel oder eine neue Abhängigkeit ist eine gesonderte technische Entscheidung und bleibt an Scope, Projektvorgaben und erforderliche Freigaben gebunden. Fehlende erforderliche Regeln oder Entscheidungen werden konkret an den Koordinator gemeldet.
+
+Beispiel: Eine bestehende Angular-Oberfläche lädt selbständig DEVELOPER.md, DEVELOPER.Angular.md sowie die freigegebenen HTML-, CSS- und TypeScript-Grundlagen. Bei beauftragten lokalen Angular-Checks kommen TESTER.md und TESTER.Angular.md hinzu, bei Playwright-E2E zusätzlich TESTER.Angular.Playwright.md.
+
+Prüffall: Ist der bestehende Stack eindeutig und der Auftrag abgegrenzt, wird direkt mit den passenden Regeln weitergearbeitet. Eine vorgeschlagene Stackänderung wird als Entscheidung kenntlich gemacht und vor ihrer Umsetzung über den Koordinator geklärt.
+
 ## Verfügbare Technologies
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
@@ -61,3 +77,14 @@ Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.gith
 | `docs/roles/developer/DEVELOPER.TypeScript.md` | Voraussetzung bei Angular-Oberflächen sowie bei betroffenem TypeScript-Code. | [typescript](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) |
 | `docs/roles/tester/TESTER.Angular.md` | Angular-Testregeln für die lokale Verifikation eigener Änderungen. | [angular](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.md) |
 | `docs/roles/tester/TESTER.Angular.Playwright.md` | Playwright-E2E-Regeln für die lokale Verifikation eigener Änderungen. | [playwright](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md) |
+
+
+### Angular-Qualitätskonfiguration
+
+Die folgenden Referenzen werden bei betroffenem Angular-Setup, fehlender oder geänderter Qualitätskonfiguration bzw. einer beauftragten Prüfung dieser Konfiguration selbständig geladen. Das Laden erlaubt Änderungen nur innerhalb des beauftragten Scopes.
+
+| Direkte Quelle | Einsatz |
+|---|---|
+| [prettier.json](https://heljens-it-services.github.io/agent-files/config/angular/quality/prettier.json) | Referenz für die betroffene Angular-Qualitätskonfiguration. |
+| [eslint.config.mjs](https://heljens-it-services.github.io/agent-files/config/angular/quality/eslint.config.mjs) | Referenz für die betroffene Angular-Qualitätskonfiguration. |
+| [dependency-cruiser.cjs](https://heljens-it-services.github.io/agent-files/config/angular/quality/dependency-cruiser.cjs) | Referenz für die betroffene Angular-Qualitätskonfiguration. |

@@ -29,22 +29,22 @@ Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit exp
 
 Typische Nutzung:
 
-- `AGENTS.md` sowie die Lookup-Dateien `ROLES.md`, `SKILLS.md` und `WORKFLOWS.md` als Pflichtlektüre referenzieren
-- Rollen-, Skill- und Workflow-Dateien anhand der beschriebenen Situationen nur bei Task-Relevanz einlesen
+- über `AGENTS.md` in den Koordinator oder die ausdrücklich zugewiesene Spezialistenrolle einsteigen
+- Spezialisten mit ihrer eigenen Rollenbeschreibung und den dort direkt freigegebenen, auftragsrelevanten Quellen versorgen
 - eine zusätzliche `PROJECT.md` für Versionsbasis sowie fachliche und technische Projektspezifika pflegen
 - projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
 - andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
 
 ## Struktur
 
-Die allgemeinen Arbeitsregeln liegen unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und sind über verpflichtende Lookup-Dateien erschlossen.
+Die allgemeinen Arbeitsregeln liegen unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und sind über rollenbezogene Quellenfreigaben und Routing-Kataloge erschlossen.
 
 Aktuell relevante Dateien sind:
 
 | Pfad | URL | Zweck |
 |---|---|---|
-| `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Pflichtlektüre, Prioritäten und Konfliktlogik für Agents. |
-| `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Lookup-Datei für Rollen. |
+| `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Navigation zum Koordinator oder zur zugewiesenen Rolle. |
+| `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Kompaktes Rollenverzeichnis für den Koordinator. |
 | `docs/roles/developer/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Allgemeine technologieübergreifende Entwicklungsregeln. |
 | `docs/roles/developer/DEVELOPER.*.md` | [Developer-Rollen](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Technologiespezifische Entwicklungsregeln. |
 | `docs/skills/SKILLS.md` | [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) | Lookup-Datei für atomare Agenten-Skills. |
@@ -82,6 +82,9 @@ Für die Pflege gelten folgende Konventionen:
 
 ## Verwendung in Projekten
 
-Andere Repositories können direkt auf die Pflichtlektüre unter GitHub Pages verweisen: [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
+Andere Repositories verweisen auf den Einstieg und die Routing-Kataloge unter GitHub Pages: [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
 
 Damit ist klar, welche Fassung jeweils veröffentlicht und referenziert wird.
+
+
+Die Agent-TOMLs konfigurieren Rollen und Modellparameter. Routing, Kommunikation und Kontextgrenzen sind Instruktionen für den ausführenden Host. Spezialisten erhalten ihre Rollenquelle und einen begrenzten Auftragskontext; der Koordinator verwendet die Routing-Kataloge.

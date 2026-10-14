@@ -6,7 +6,7 @@ Eine geklärte und abgegrenzte technische Änderung innerhalb der eigenen Implem
 
 ## Owner
 
-`softwareentwicklung_backend`, `softwareentwicklung_frontend` oder `softwareentwicklung_infrastruktur`, abhängig vom Auftrag.
+Die vom Koordinator ausdrücklich zugewiesene Implementierungsrolle gemäß eigener Rollenbeschreibung.
 
 ## Verwenden
 
@@ -17,16 +17,17 @@ Eine geklärte und abgegrenzte technische Änderung innerhalb der eigenen Implem
 - `code-reading`
 - `code-analysis` bei bestehendem Verhalten oder Ursache
 - `code-implementation`
-- `code-refactoring` nur bei verhaltenserhaltendem Auftrag
-- `code-minimization` nach lokaler Stabilisierung, sofern im aufrufenden Workflow vorgesehen
+- `code-refactoring` nur bei direkter Freigabe im eigenen Rollenindex und verhaltenserhaltendem Auftrag
+- `code-minimization` nur bei direkter Freigabe im eigenen Rollenindex, nach lokaler Stabilisierung und sofern im aufrufenden Workflow vorgesehen
+- `code-testing` für ausdrücklich beauftragtes lokales Implementierungsfeedback
 
 ## Ablauf
 
 1. Den übergebenen Plan, Scope, Nicht-Scope, Constraints und Akzeptanzkriterien prüfen.
 2. Nur den eigenen Rollenindex und für die Aufgabe freigegebene Technologien verwenden.
-3. Bestehenden Code und relevante Grenzen gezielt lesen; ungeklärte technische Strukturentscheidungen an `softwareentwicklung_architektur` zurückgeben.
+3. Bestehenden Code und relevante Grenzen gezielt lesen; ungeklärte technische Strukturentscheidungen an den Koordinator zurückgeben.
 4. Die zugewiesene Änderung im ausdrücklich freigegebenen Dateiscope umsetzen.
-5. Eigene lokale Rückmeldung oder direkte Entwicklungschecks nur ausführen, wenn der Auftrag sie ausdrücklich als Implementierungsfeedback vorsieht; formale unabhängige Verifikation an `softwareentwicklung_qualitaetssicherung` übergeben.
+5. Eigene lokale Rückmeldung oder direkte Entwicklungschecks nur ausführen, wenn der Auftrag sie ausdrücklich als Implementierungsfeedback vorsieht; Bedarf an formaler unabhängiger Verifikation dem Koordinator melden.
 6. Änderungen und Nachweise dem Koordinator zurückgeben.
 
 ## Grenzen
@@ -38,4 +39,5 @@ Eine geklärte und abgegrenzte technische Änderung innerhalb der eigenen Implem
 
 ## Rückgabe
 
-Ergebnis, geänderte Bereiche, Verifikation oder deren Auslassung, Abweichungen, Blocker und empfohlene nächste Rolle.
+Ergebnis, geänderte Bereiche, Verifikation oder deren Auslassung, Abweichungen, Blocker und weiterer Bedarf für den Koordinator.
+

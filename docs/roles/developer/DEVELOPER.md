@@ -4,17 +4,17 @@ Stand: 2026-10-13
 
 ## Zweck
 
-Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
+Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespezifische Regeln werden über die direkten Freigaben der eigenen Rollenbeschreibung geladen.
 
 ## Verwendung als gemeinsame Fachbasis
 
-Diese Datei enthält die gemeinsame technische Fachbasis für `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur`. Die jeweilige Rollen-Markdown-Datei beschreibt Zuständigkeit, Pflichtlektüre und direkte Lookup-Freigaben. Diese Fachbasis ist selbst keine spawnbare Rolle und löst keine zusätzliche Delegation aus.
+Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und direkte Quellenfreigaben stehen in der eigenen Rollenbeschreibung; zusätzliche Aufträge werden über den Koordinator geklärt.
 
 ## Priorität innerhalb der technischen Fachbasis
 
-[PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Developer-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
+[PRIORITY] Bei widersprüchlichen Regeldateien innerhalb dieser Fachbasis gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende technologiespezifische Regeldatei aus [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md).
+1. Passende technologiespezifische Regeldatei aus der Freigabe der eigenen Rollenbeschreibung.
 2. [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md).
 
 [PRIORITY] Bei mehreren passenden `DEVELOPER.*.md`-Dateien hat die spezifischere Regel nur innerhalb ihres ausdrücklich beschriebenen Scopes Vorrang vor einer allgemeineren Regel.
@@ -184,3 +184,4 @@ Diese Datei enthält die gemeinsame technische Fachbasis für `softwareentwicklu
 [MUST] Abhängigkeiten müssen nach den Kriterien Wartbarkeit, Sicherheit, Lizenz, Kompatibilität und Projektbedarf ausgewählt und aktualisiert werden.
 
 [PRIORITY] Sicherheitsupdates haben Vorrang vor kosmetischen Refactorings.
+

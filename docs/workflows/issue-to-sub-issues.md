@@ -2,7 +2,7 @@
 
 ## Owner
 
-`product_owner` führt fachliche Zerlegung und User-Issue-Mutationen operativ aus. Technical Stories/Epics, technische Child-Issues und technische Task-Verträge weist der Koordinator separat an Architektur zu. Product Owner delegiert keine Rollen und liest keine technischen Quellkontexte.
+`product_owner` führt fachliche Zerlegung und User-Issue-Mutationen operativ aus. Technische Child-Issues und Task-Verträge werden als Bedarf an den Koordinator gegeben. Der fachliche Auftrag verwendet Produktkontext und konzeptuelle Constraints.
 
 ## Ziel
 
@@ -91,7 +91,7 @@ Zusätzlich:
 - Rekursive oder flache fachliche Zerlegung, fachliche Schnittkriterien und User-Issue-Terminalität: `product_owner`.
 - Technische Zerlegung, Technical Stories/Epics und technische Task-Terminalität: Architektur nach separater Koordinatorzuweisung.
 - Issue-Erstellung, Type- und Relationship-Mutationen sowie Read-back: `product_owner`.
-- Technische Detailpläne und technische Strukturentscheidungen werden über den Koordinator an `softwareentwicklung_architektur` gegeben.
+- Technische Detailpläne und technische Strukturentscheidungen werden an den Koordinator zurückgegeben.
 - Konflikte in Hierarchie oder fachlichem Scope gehen an Product Owner; keine eigene Subdelegation durch den operativen Owner.
 
 ## Endergebnis
@@ -112,3 +112,4 @@ Zusätzlich:
 - Ausgangs-Issue nicht schließen.
 - Keine künstliche Zerlegung nur zur Erzeugung weiterer Ebenen.
 - Keine Duplikate erzeugen.
+

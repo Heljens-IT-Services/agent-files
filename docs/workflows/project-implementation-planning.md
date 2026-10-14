@@ -2,7 +2,7 @@
 
 ## Owner
 
-`product_owner` führt die fachliche Phasenplanung aus freigegebener Strategie und Roadmap operativ aus. Strategische Ziel-, Outcome-, Roadmap- und Featurehypothesen erarbeitet `product_manager` in einem getrennt zugewiesenen Auftrag; dessen Ergebnis wird über den Koordinator als freigegebener Eingangskontext übergeben. Product Owner erfasst technische Constraints nur konzeptuell und meldet technische Richtungsfragen dem Koordinator zur Zuweisung an `softwareentwicklung_architektur`. Product Owner liest keinen Quellcode und leitet keine technischen Detailpläne ab.
+`product_owner` führt die fachliche Phasenplanung aus freigegebener Strategie und Roadmap operativ aus. Strategische Leitplanken werden vom Koordinator als freigegebener Eingangskontext übergeben. Product Owner erfasst technische Constraints nur konzeptuell und meldet technische Richtungsfragen dem Koordinator. Product Owner liest keinen Quellcode und leitet keine technischen Detailpläne ab.
 
 ## Ziel
 
@@ -12,7 +12,7 @@ Ein strategisch geklärtes Projektziel durch Human-geführte Klärung in einen f
 
 - Wenn ein freigegebenes Projektziel und seine strategischen Leitplanken vor der Epic-Erstellung in fachliche Phasen übersetzt werden sollen.
 - Wenn Scope, Nicht-Ziele, operative Feature-Konkretisierung, Abhängigkeiten oder Phasenfreigabe noch mit dem Human geklärt werden müssen.
-- Wenn strategische Leitplanken fehlen oder eine neue Produkt- oder Roadmapentscheidung erforderlich wird, an den Koordinator zur Zuweisung an `product_manager` zurückgeben und die Phasenplanung bis zur Klärung als `BLOCKED` kennzeichnen.
+- Wenn strategische Leitplanken fehlen oder eine neue Produkt- oder Roadmapentscheidung erforderlich wird, an den Koordinator zurückgeben und die Phasenplanung bis zur Klärung als `BLOCKED` kennzeichnen.
 - Nicht verwenden, um technische Arbeitspakete auf Datei-, Symbol- oder Task-Ebene zu planen. Dafür `code-implementation-planning` verwenden.
 - Nicht verwenden, um automatisch GitHub-Issues oder Epics zu erzeugen. Die Materialisierung einer freigegebenen Phase ist ein nachgelagerter, eigener Schritt.
 
@@ -24,10 +24,10 @@ Ein strategisch geklärtes Projektziel durch Human-geführte Klärung in einen f
 ## Ablauf
 
 1. Freigegebene Strategie, Roadmap, Zielbild, Outcome-Ziele und den zugewiesenen Planungsscope als Eingangskontext festhalten. Fehlende oder widersprüchliche strategische Leitplanken dem Koordinator melden.
-2. Interaktiv erwartete Fähigkeiten/Features innerhalb der Leitplanken, Scope, Nicht-Ziele, operative Prioritäten, Abhängigkeiten, Constraints und Phasenerfolgskriterien klären.
-3. Offene operative Produkt-, Architektur- oder Vorgehensentscheidungen sichtbar machen. Strategische Richtungsfragen an den Koordinator zurückgeben; technische Richtungsfragen zur Zuweisung an Architektur melden. Bei mehreren tragfähigen operativen Richtungen `brainstorming` verwenden.
+2. Über den Koordinator erwartete Fähigkeiten/Features innerhalb der Leitplanken, Scope, Nicht-Ziele, operative Prioritäten, Abhängigkeiten, Constraints und Phasenerfolgskriterien klären.
+3. Offene operative Produkt-, Architektur- oder Vorgehensentscheidungen sichtbar machen. Strategische Richtungsfragen an den Koordinator zurückgeben; technische Richtungsfragen an den Koordinator melden. Bei mehreren tragfähigen operativen Richtungen `brainstorming` verwenden.
 4. Prüfen, dass die Klärung belastbar ist: Ziel und Nicht-Ziele sind eindeutig, Scope-Grenzen sind benennbar, operative Prioritäten sind geordnet und wesentliche Entscheidungen sind entschieden oder ausdrücklich als Blocker dokumentiert.
-5. Ein explizites Human-Gate durchführen. Nur eine ausdrückliche Freigabe des Humans darf den Status `READY` beziehungsweise `FINAL` begründen.
+5. Über den Koordinator ein explizites Human-Gate durchführen. Nur eine ausdrückliche Freigabe des Humans darf den Status `READY` beziehungsweise `FINAL` begründen.
 6. Nach Freigabe große Implementierungsphasen mit dem Phasenvertrag dieses Workflows formulieren.
 7. Jede Phase gegen Zielbild, Scope, Nicht-Ziele, Abhängigkeiten/Constraints und Exit-/Akzeptanzkriterien prüfen.
 8. Den Plan als Chat-Kontext ausgeben oder als langlebiges Artefakt dokumentieren, wenn der User dies verlangt oder der konkrete Projektworkflow es vorsieht.
@@ -76,7 +76,7 @@ Die Phasenreihenfolge wird nicht durch Parent/Child simuliert. Nur eine tatsäch
 ## Rücksprungregeln
 
 - Bei unklarem operativem Scope oder Nicht-Ziel zu `requirements-clarification` zurückkehren.
-- Bei einer offenen strategischen Richtungsentscheidung über den Koordinator `product_manager` einsetzen lassen; bis zur Klärung `BLOCKED` bleiben.
+- Bei einer offenen strategischen Richtungsentscheidung den Koordinator um strategische Klärung bitten; bis zur Klärung `BLOCKED` bleiben.
 - Bei einer offenen operativen Richtungsentscheidung zu `brainstorming` zurückkehren.
 - Bei fehlender Human-Freigabe im Status `DRAFT` beziehungsweise `BLOCKED` verbleiben.
 
@@ -95,3 +95,4 @@ Die Phasenreihenfolge wird nicht durch Parent/Child simuliert. Nur eine tatsäch
 - Keine Strategie, Roadmap oder Featurehypothese in diesem Workflow neu festlegen oder ändern.
 - Keine Epic-, Story- oder Task-Erstellung in diesem Workflow.
 - Keine technische Detailplanung von Stories oder Tasks vorwegnehmen.
+

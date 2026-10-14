@@ -10,7 +10,7 @@ Ein tatsächliches visuelles oder interaktives Ergebnis betrachten, kritisch bew
 - Wenn mehrere Designrichtungen anhand ihres tatsächlichen visuellen Ergebnisses verglichen werden sollen.
 - Wenn nach einer Designänderung geprüft werden soll, ob die beabsichtigte gestalterische Verbesserung sichtbar erreicht wurde.
 - Nicht verwenden, wenn erst ein renderbares Artefakt erzeugt werden muss. Dann `design-prototyping` nutzen.
-- Nicht als Ersatz für formale Testverifikation, Regression oder Akzeptanzprüfung verwenden. Dafür ist Verantwortung von `softwareentwicklung_qualitaetssicherung` relevant.
+- Nicht als Ersatz für formale Testverifikation, Regression oder Akzeptanzprüfung verwenden. Entsprechender Prüfbedarf geht an den Koordinator.
 
 ## Vorgehen
 
@@ -62,3 +62,4 @@ Ein tatsächliches visuelles oder interaktives Ergebnis betrachten, kritisch bew
 - Subjektive Geschmacksurteile müssen als solche erkennbar bleiben.
 - Wesentliche Probleme müssen vor kosmetischen Detailwünschen priorisiert werden.
 - Nach einer relevanten Iteration muss die geänderte Fassung erneut visuell geprüft werden.
+

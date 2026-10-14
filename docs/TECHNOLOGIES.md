@@ -4,17 +4,19 @@
 
 Diese Datei enthält Navigationsmetadaten zu technologiespezifischen Regeldateien. Freigabe und Voraussetzungen stehen ausschließlich im Index der ausdrücklich zugewiesenen Rolle; dieses Inventar aktiviert keine Regeldatei, Rolle oder Agent.
 
+Spezialisten verwenden dieses Inventar bei Bedarf für die Mappings ihrer eigenen Rolle. Sie erkennen vorhandene Technologien selbständig aus auftragsrelevanten Projektdateien und laden die direkt freigegebenen Regeln einschließlich Voraussetzungen. Der Koordinator weist den Fachauftrag zu; die konkrete Kontextauswahl trifft die ausführende Rolle. Ein Stackwechsel bleibt eine gesonderte Entscheidung innerhalb der Projekt- und Freigabegrenzen.
+
 Die Command-Semantik steht in [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md).
 
 ## Verwendung
 
-[MUST] `/technologies show <technology-id>` muss die verfügbaren Mappings der Technologie vollständig ausgeben, ohne damit eine Rolle oder Regeldatei zu aktivieren.
+[MUST] `/technologies show <technology-id>` muss die für den angefragten Rollenscope freigegebenen Mappings der Technologie vollständig ausgeben, ohne damit eine Rolle oder Regeldatei zu aktivieren.
 
 [MUST] Der Agent darf eine technologiespezifische Datei nur lesen, wenn sein eigener Rollenindex sie direkt aufführt oder sie dort als ausdrückliche Voraussetzung aufgeführt ist und die Technologie im beauftragten Scope relevant ist.
 
 [MUST_NOT] Ein Einleitungstext oder Link innerhalb einer technologiespezifischen Datei darf keine weitere Regeldatei automatisch freigeben. Weitere Dateien müssen im eigenen Rollenindex als passende Technologie oder ausdrückliche Voraussetzung stehen.
 
-[MUST] Rollen, die eine technologiespezifische Regeldatei lesen, müssen zusätzlich die gemeinsame Fachbasis ihrer Rolle lesen: technische Softwareentwicklungsrollen [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md), Qualitätssicherung [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md). Diese Fachbasen sind keine delegierbaren Rollen und kein Scope-Fallback.
+[MUST] Beim Laden technologiespezifischer Regeln werden die in der eigenen Rollenbeschreibung freigegebenen gemeinsamen Fachbasen und Voraussetzungen mitgeladen.
 
 [MUST_NOT] Dieses Inventar darf Regeln aus den verlinkten Fachbasen oder Rollenbeschreibungen nicht duplizieren.
 
@@ -46,3 +48,6 @@ Die Command-Semantik steht in [COMMANDS.md](https://heljens-it-services.github.i
 | `playwright` | Playwright | `softwareentwicklung_qualitaetssicherung` | [TESTER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md) | Angular-E2E- oder visuelle Verifikation mit Playwright beauftragt ist. | Playwright-Regeln für Angular. |
 | `playwright` | Playwright | `softwareentwicklung_architektur` | [TESTER.Angular.Playwright.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md) | Eine technische Angular-E2E-Prüfung mit Playwright ausdrücklich beauftragt ist und der eigene Rollenindex die Datei freigibt. | Playwright-Regeln für technische Angular-Kriterienprüfung. |
 | `typescript` | TypeScript | `softwareentwicklung_frontend` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) | Clientseitiger TypeScript-Code umgesetzt wird. | TypeScript-Entwicklungsregeln. |
+| `typescript` | TypeScript | `softwareentwicklung_backend` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) | TypeScript-Code, -Verträge oder Buildskripte im zugewiesenen technischen Scope betroffen sind. | TypeScript-Grundregeln im eigenen Scope. |
+| `typescript` | TypeScript | `softwareentwicklung_architektur` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) | TypeScript-Code, -Verträge oder Buildskripte im zugewiesenen technischen Scope betroffen sind. | TypeScript-Grundregeln im eigenen Scope. |
+| `typescript` | TypeScript | `softwareentwicklung_infrastruktur` | [DEVELOPER.TypeScript.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) | TypeScript-Code, -Verträge oder Buildskripte im zugewiesenen technischen Scope betroffen sind. | TypeScript-Grundregeln im eigenen Scope. |

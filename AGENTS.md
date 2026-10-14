@@ -1,36 +1,23 @@
 # AGENTS.md
 
-## Verbindliche Arbeitsregeln
+## Rollenstart
 
-Die verbindlichen Arbeitsregeln finden sich global unter:
+Die Rolle des Hauptagenten ist `koordinator`, sofern der Auftrag ausdrücklich eine Spezialistenrolle zuweist, gilt diese zugewiesene Rolle.
+
+[MUST] Starte mit der Rollenbeschreibung deiner zugewiesenen Rolle und der anwendbaren `PROJECT.md`. Der Koordinator verwendet zusätzlich das Rollenverzeichnis und die Command-Routing-Regeln. Spezialisten verwenden die direkten Quellenfreigaben ihrer eigenen Rolle und kommunizieren über den Koordinator.
+
+## Quellen
+
+Die veröffentlichten Einstiegsregeln stehen unter:
 https://heljens-it-services.github.io/agent-files/AGENTS.md
 
-Die aktuelle Rolle des Hauptagenten ist `koordinator`, sofern der Auftrag nicht ausdrücklich einer Spezialistenrolle zugewiesen wurde. Rollenrouting und Rollenbeschreibungen stehen in der globalen [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md).
+Der Koordinator startet unter:
+https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md
 
-Bei der Pflege dieses Quellrepositorys gelten zusätzlich die lokale [PROJECT.md](PROJECT.md), [docs/AGENTS.md](docs/AGENTS.md) und deren lokale Quelldateien. Der veröffentlichte Stand kann hinter dem Arbeitsstand dieses Repositorys liegen; er ersetzt hier keine lokale Quelle.
+Für eine zugewiesene Spezialistenrolle gilt `https://heljens-it-services.github.io/agent-files/roles/<rollen-id>/<ROLLEN-ID>.md`.
 
-## Umgang mit den Arbeitsregeln
+[MUST] Bei der Pflege dieses Quellrepositorys sind [PROJECT.md](PROJECT.md), [docs/AGENTS.md](docs/AGENTS.md) und die dort verlinkten lokalen Quellen maßgeblich. Veröffentlichungslinks werden entsprechend PROJECT.md auf `docs/` aufgelöst.
 
-[MUST] Zu Beginn jedes Tasks muss der Agent sicherstellen, dass die globale
-`AGENTS.md` im aktuellen Kontext bekannt, vollständig und aktuell genug ist,
-und sie befolgen.
+[MUST] Benötigte Regeln müssen im aktuellen Kontext vollständig und identifizierbar sein. Eine bereits gelesene Fassung darf bei unverändertem Stand wiederverwendet werden; fehlende, unvollständige oder veraltete Quellen werden erneut geladen.
 
-[ALLOW_IF] Wenn die globale `AGENTS.md` in der laufenden Unterhaltung bereits
-gelesen wurde und kein Hinweis auf eine zwischenzeitliche Änderung besteht,
-darf der Agent die vorhandene Kontextfassung wiederverwenden, statt sie erneut
-vollständig abzurufen.
-
-[MUST_IF] Der Agent muss die globale `AGENTS.md` erneut abrufen, wenn die
-vorhandene Kontextfassung fehlt, unvollständig, offensichtlich veraltet oder
-nicht eindeutig identifizierbar ist.
-
-[MUST_IF] Wenn ein Web-/Browser-Tool die Datei nicht abrufen kann, muss der
-Agent vor einem Abbruch einen Shell-Fallback versuchen, z. B.:
-
-```powershell
-curl.exe -L "https://heljens-it-services.github.io/agent-files/AGENTS.md"
-Invoke-WebRequest -Uri "https://heljens-it-services.github.io/agent-files/AGENTS.md" -UseBasicParsing
-```
-
-[MUST_IF] Wenn kein verfügbarer Abrufweg funktioniert, muss der Agent dies
-melden und die Arbeit einstellen.
+[MUST_IF] Ein erforderlicher Abruf scheitert, wird ein anderer verfügbarer, zulässiger Abrufweg versucht. Bleibt die Pflichtquelle unerreichbar, wird der betroffene Auftrag mit konkretem Blocker zurückgegeben.

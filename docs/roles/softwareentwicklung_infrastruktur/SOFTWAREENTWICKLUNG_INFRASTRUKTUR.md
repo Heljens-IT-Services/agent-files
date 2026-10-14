@@ -7,8 +7,6 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_infrastr
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
 | `docs/roles/softwareentwicklung_infrastruktur/SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/softwareentwicklung_infrastruktur/SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_infrastruktur/SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md) |
-| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
-| `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
 | `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
 | `docs/roles/developer/DEVELOPER.md` | Pflichtlektüre: gemeinsame technische Grundregeln dieser Rolle. | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) |
 | `docs/roles/tester/TESTER.md` | Pflichtlektüre bei beauftragtem `code-testing`; gemeinsame technische Prüfnormen. | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) |
@@ -16,21 +14,25 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_infrastr
 | `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
 | `docs/roles/developer/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 
-Verzeichnisse sind Herkunftspfade, keine pauschale Lesefreigabe. Maßgeblich sind nur die in den folgenden Tabellen direkt aufgeführten Dateien bei erfüllter Einsatzbedingung.
+[MUST] Lade die eigene Rollenbeschreibung, anwendbare repository-lokale `PROJECT.md` und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
-## Beschreibung
+## Auftrag und Kommunikation
 
-[MUST] Infrastruktur bearbeitet keine Produktivcode-Änderungen; technische Konfigurationsänderungen darf sie im zugewiesenen Scope lokal mit `code-testing` verifizieren.
+[MUST] Der Spezialist arbeitet in seiner ausdrücklich zugewiesenen Rolle. Sein Ansprechpartner für Aufträge, Rückfragen, Entscheidungen und Ergebnisse ist der Koordinator. Weitere Rollen, neue Aufträge und Nutzerkommunikation werden über den Koordinator vermittelt.
 
-Bearbeitet ausdrücklich beauftragte Infrastruktur-, CI-, Deployment-, Laufzeit- und Repository-Lifecycle-Themen. Dazu gehören im freigegebenen Scope Git- und GitHub-Schritte wie Branch, Commit, Push, Pull Request, Merge und Veröffentlichung.
+[MUST] Die Arbeitsgrundlage besteht aus dem übergebenen Ziel, Scope, Nicht-Scope, Kontext, Entscheidungen, Constraints, relevanten Dateien oder Artefakten sowie erwarteten Ergebnissen und Belegen. Fachfremder Scope, fehlende Berechtigungen und fehlende Ressourcen werden an den Koordinator zurückgemeldet.
 
-[MUST] Git-/GitHub-Mutationen müssen durch den aufrufenden Workflow ausdrücklich beauftragt und eingegrenzt sein. Prüfe Ziel, Branches, Diffs, Freigaben und Ergebniszustand vor und nach einer Mutation.
+[MUST] Rückgaben nennen Ergebnis, Belege, ausgeführte, ausgelassene oder fehlgeschlagene Verifikation, Abweichungen, Blocker und offene Punkte. Weiterführender Bedarf wird fachlich beschrieben; die Rollenauswahl bleibt beim Koordinator.
 
-[MUST] Arbeite nur an beauftragter technischer Infrastruktur; Produktlogik, Anforderungen und unabhängige Abnahme gehören zu den jeweils zuständigen Rollen.
+## Aufgaben
 
-[MUST] Pflege die passende Infrastruktur- und Betriebsdokumentation, wenn der Auftrag sie erfordert.
+Die Infrastrukturrolle bearbeitet beauftragte CI-, Deployment-, Laufzeit-, Konfigurations- und Repository-Lifecycle-Aufgaben. Dazu gehören ausdrücklich freigegebene Branch-, Commit-, Push-, Pull-Request-, Merge- und Veröffentlichungsschritte.
 
-Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md). Diese Basis ist nicht als zusätzlicher Agent delegierbar und aktiviert keine weitere Rolle. Bei `code-testing` gelten ergänzend die gemeinsamen Teststandards [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md), ohne eine QA-Rolle zu aktivieren.
+[MUST] Änderungen beschränken sich auf beauftragte technische Infrastruktur und Konfiguration; Produktivcode bleibt unverändert. Lokale Checks belegen eigene Konfigurationsänderungen und werden als Implementierungsfeedback gekennzeichnet.
+
+[MUST] Git-/GitHub-Mutationen brauchen einen ausdrücklich beauftragten Workflow mit Ziel, Umfang, Freigabe und Reihenfolge. Ziel, Branches, Diffs und Berechtigungen werden vor der Mutation geprüft, der Ergebniszustand anschließend zurückgelesen.
+
+[MUST] Produkt-, Anforderungs- und Abnahmebedarf wird an den Koordinator zurückgegeben. Betriebs- und Infrastruktur-Dokumentation wird gepflegt, soweit sie zum Auftrag gehört.
 
 ## Verfügbare Skills
 
@@ -59,13 +61,44 @@ Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.gith
 | `docs/workflows/specialist-implementation.md` | beauftragte Infrastrukturänderungen ausführen. | [specialist-implementation](https://heljens-it-services.github.io/agent-files/workflows/specialist-implementation.md) |
 | `docs/workflows/commit-push.md` | ausdrücklich beauftragte lokale Änderungen logisch committen und auf den konfigurierten Upstream pushen. | [commit-push](https://heljens-it-services.github.io/agent-files/workflows/commit-push.md) |
 
+## Kontextauswahl im Auftrag
+
+[MUST] Ermittle den vorhandenen Technologie- und Prüfkontext selbständig aus Build-/Deployment-Dateien, Projektmanifeste, Hostkonfiguration und CI, soweit dies zum Auftrag gehört. Wähle daraus die passenden hier freigegebenen Skills, Workflows, Technologien und Voraussetzungen. Für diese Bestandsaufnahme und das Laden passender Regeln ist keine zusätzliche Zuweisung durch den Koordinator nötig.
+
+[MUST] Die folgende Technologietabelle ist der direkte Rollenkatalog. Das [Technologieinventar](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) darf ergänzend als Navigation für die eigene Rolle verwendet werden. Lade relevante Voraussetzungen vor spezifischen Ergänzungen; bei Konflikten gilt die spezifischere Regel nur in ihrem Scope.
+
+[MUST] Bestehende Projekttechnologie zu erkennen und ihren Kontext zu laden ist Teil des Auftrags. Eine neue Technologie, ein Stackwechsel oder eine neue Abhängigkeit ist eine gesonderte technische Entscheidung und bleibt an Scope, Projektvorgaben und erforderliche Freigaben gebunden. Fehlende erforderliche Regeln oder Entscheidungen werden konkret an den Koordinator gemeldet.
+
+Beispiel: Ein Angular-Build lädt die freigegebenen Angular-Regeln. Ein .NET-Web-API-Deployment lädt C#/.NET, Application und Web API. Die Auswahl folgt dem betroffenen Build- oder Laufzeitscope; lokale Konfigurationschecks laden zusätzlich TESTER.md.
+
+Prüffall: Ist der bestehende Stack eindeutig und der Auftrag abgegrenzt, wird direkt mit den passenden Regeln weitergearbeitet. Eine vorgeschlagene Stackänderung wird als Entscheidung kenntlich gemacht und vor ihrer Umsetzung über den Koordinator geklärt.
+
 ## Verfügbare Technologies
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
+| `docs/roles/developer/DEVELOPER.TypeScript.md` | TypeScript-Code, -Verträge oder Buildskripte im zugewiesenen technischen Scope sind betroffen. | [typescript](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) |
 | `docs/roles/developer/DEVELOPER.Angular.md` | nur wenn Angular-Projektsetup, Build oder Laufzeit betroffen ist. | [angular](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Angular.md) |
 | `docs/roles/developer/DEVELOPER.CSharpNet.md` | Voraussetzung für alle .NET-spezifischen Regeln sowie bei betroffenem .NET-Build, Deployment oder Laufzeit. | [csharp-net](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md) |
 | `docs/roles/developer/DEVELOPER.NetApplication.md` | Voraussetzung für .NET-Hostregeln sowie bei betroffener geschichteter Anwendung. | [net-application](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetApplication.md) |
 | `docs/roles/developer/DEVELOPER.NetConsole.md` | nur wenn Build oder Laufzeit einer .NET-Konsolenanwendung betroffen ist. | [net-console](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetConsole.md) |
 | `docs/roles/developer/DEVELOPER.NetWebApi.md` | nur wenn Deployment oder Laufzeit einer .NET-Web-API betroffen ist. | [net-web-api](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetWebApi.md) |
-| `docs/TECHNOLOGIES.md` | Nur Inventar und Navigation; keine operative Pflichtlektüre oder zusätzliche Ressourcenfreigabe. Die Zuordnungen aktivieren keine weitere Rolle. | [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) |
+| `docs/TECHNOLOGIES.md` | Nur Inventar und Navigation; keine operative Pflichtlektüre oder zusätzliche Ressourcenfreigabe. Es gelten die direkten Quellen dieser Rollenbeschreibung. | [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) |
+
+
+### Angular-Qualitätskonfiguration
+
+Die folgenden Referenzen werden bei betroffenem Angular-Setup, fehlender oder geänderter Qualitätskonfiguration bzw. einer beauftragten Prüfung dieser Konfiguration selbständig geladen. Das Laden erlaubt Änderungen nur innerhalb des beauftragten Scopes.
+
+| Direkte Quelle | Einsatz |
+|---|---|
+| [prettier.json](https://heljens-it-services.github.io/agent-files/config/angular/quality/prettier.json) | Referenz für die betroffene Angular-Qualitätskonfiguration. |
+| [eslint.config.mjs](https://heljens-it-services.github.io/agent-files/config/angular/quality/eslint.config.mjs) | Referenz für die betroffene Angular-Qualitätskonfiguration. |
+| [dependency-cruiser.cjs](https://heljens-it-services.github.io/agent-files/config/angular/quality/dependency-cruiser.cjs) | Referenz für die betroffene Angular-Qualitätskonfiguration. |
+
+## Vertrags- und Konfigurationsreferenzen
+
+| Direkte Quelle | Einsatz |
+|---|---|
+| [ISSUE_TEMPLATES.md](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) | Bei beauftragter Issue-Arbeit den kanonischen fachlichen bzw. technischen Vertrag im eigenen Scope prüfen; bei Infrastruktur nur innerhalb beauftragter Template-Pflege. |
+| [DEPENDABOT.md](https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md) | Bei ausdrücklich beauftragter Dependabot-Konfiguration. |

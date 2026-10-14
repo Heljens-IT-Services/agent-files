@@ -2,7 +2,7 @@
 
 ## Owner
 
-`product_owner` führt Type- und Relationship-Korrekturen an User Stories/User Epics im beauftragten Scope aus. Technische Issue-Types, technische Hierarchie und technische Abhängigkeiten weist der Koordinator an Architektur zu. Keine Rolle delegiert oder vergibt selbst Aufträge.
+`product_owner` führt Type- und Relationship-Korrekturen an User Stories/User Epics im beauftragten Scope aus. Technische Issue-Types, technische Hierarchie und technische Abhängigkeiten werden als Bedarf an den Koordinator zurückgegeben.
 
 ## Zweck
 
@@ -18,7 +18,7 @@ Einen relevanten GitHub-Issue-Graphen lesen, fehlende oder fachlich unpassende n
 
 - `/sanitize <issue-number>`
 
-Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
+Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`. `<issue-number>` ist eine positive Ganzzahl mit optionalem führendem `#`, beispielsweise `123` oder `#123`. Genau ein Positionsargument ist zulässig; fehlende, nicht positive, nicht ganzzahlige oder zusätzliche Argumente werden vor der Datenerhebung mit der erwarteten Syntax zurückgegeben.
 
 ## Verwendete Skills
 
@@ -31,9 +31,9 @@ Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
 1. Das Ausgangs-Issue mit Body, Kommentaren, Status, Type und direkt relevanten Parent-, Child- und Blocked-by-Kanten lesen.
 2. Den relevanten Graphen zyklussicher traversieren und bereits besuchte Issues nicht erneut expandieren.
 3. Body-Referenzen als Relationship-Kandidaten erfassen, aber nicht automatisch als bestehende native Relationships interpretieren.
-4. Product Owner prüft bei User-Issues den nativen Type anhand des fachlichen Zwecks. Technische Issues gehen mit Kontext an den Koordinator zur separaten Zuweisung an Architektur.
-5. Product Owner prüft eindeutige fachliche Hierarchie; technische Issue-Beziehungen bearbeitet Architektur nur nach eigener Zuweisung.
-6. Product Owner prüft fachlich eindeutige harte Abhängigkeiten; technische Abhängigkeiten bearbeitet Architektur nur nach eigener Zuweisung.
+4. Product Owner prüft bei User-Issues den nativen Type anhand des fachlichen Zwecks. Technische Issues gehen mit Kontext an den Koordinator zur gesonderten Bearbeitung.
+5. Product Owner prüft eindeutige fachliche Hierarchie; technische Issue-Beziehungen werden dem Koordinator zur gesonderten Bearbeitung gemeldet.
+6. Product Owner prüft fachlich eindeutige harte Abhängigkeiten; technische Abhängigkeiten werden dem Koordinator zur gesonderten Bearbeitung gemeldet.
 7. Fehlende oder eindeutig falsche fachliche Types über `type-setting` korrigieren.
 8. Fehlende eindeutig ableitbare fachliche Relationships über `relationship-setting` korrigieren. Einen vorhandenen anderen Parent nicht stillschweigend ersetzen.
 9. Nach jeder Mutation den tatsächlichen GitHub-Zustand erneut lesen und verifizieren.
@@ -61,7 +61,7 @@ Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
 - Keine Issues, Labels oder Relationships bei unklarem Kontext erstellen oder raten.
 - Keine bestehenden Parents mit `replaceParent: true` ersetzen.
 - Keine fachlich nicht relevanten Geschwister- oder Teilbäume automatisch in den Scope aufnehmen.
-- Keine technischen Issues oder technischen Beziehungen ohne explizite Zuweisung an Architektur verändern.
+- Änderungen auf die ausdrücklich zugewiesenen fachlichen Issues und Beziehungen begrenzen; technischen Scope an den Koordinator zurückgeben.
 - Keine Issue-Abschlüsse oder Implementierungen ausführen.
 
 ## Endergebnis
@@ -70,3 +70,4 @@ Der kanonische Aufruf lautet `/workflows run issue-sanitize <issue-number>`.
 - verifizierte native Types und Relationships für eindeutig ableitbare Fälle
 - unveränderte korrekte Metadaten
 - sichtbare Unklarheiten und Konflikte
+

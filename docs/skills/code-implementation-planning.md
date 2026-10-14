@@ -2,9 +2,9 @@
 
 ## Rollenbindung
 
-`softwareentwicklung_architektur` ist Owner für technische Implementierungsplanung einschließlich betroffener Strukturen, Schnittstellen, Reihenfolge und Verifikation. `product_owner` verwendet diesen technischen Skill nicht. Product Owner kann fachliche User Stories und User Epics anhand geklärter Anforderungen formulieren; sobald technische Strukturentscheidungen oder ein technischer Umsetzungsplan nötig sind, weist der Koordinator Architektur einen abgegrenzten Beitrag zu.
+Die technische Implementierungsplanung konkretisiert betroffene Strukturen, Schnittstellen, Reihenfolge und Verifikation im ausdrücklich zugewiesenen Architektur-Scope.
 
-[MUST_NOT] `product_owner` darf technische Architekturentscheidungen nicht selbst treffen oder durch eine scheinbar terminale Task-Planung vorwegnehmen.
+[MUST] Fehlende fachliche Entscheidungen werden dem Koordinator zur Klärung gemeldet. Der technische Plan baut auf dem freigegebenen fachlichen Kontext auf.
 
 ## Zweck
 
@@ -112,3 +112,4 @@ Zulässige Treiber sind insbesondere explizite Acceptance-/Task-Constraints, bes
 - Annahmen und offene Punkte klar markieren.
 - Schritte sollen konkrete Arbeitspakete mit betroffenem Bereich beschreiben.
 - Der Plan soll auf eine ausführbare Grundlage zielen, nicht auf Scheinsicherheit.
+

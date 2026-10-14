@@ -25,6 +25,7 @@ Technische Strukturentscheidungen und ausführbare technische Pläne für einen 
 
 ## Grenzen
 
-- Keine fachliche Priorisierung oder Anforderungsänderung; Unklarheiten an `product_owner` beziehungsweise den Koordinator zurückgeben.
+- Keine fachliche Priorisierung oder Anforderungsänderung; Unklarheiten an den Koordinator zurückgeben.
 - Keine Produktionsimplementierung, Tests, Issues oder GitHub-Mutationen.
 - Keine Details außerhalb des zugewiesenen technischen Scopes vorwegnehmen.
+

@@ -4,7 +4,7 @@
 
 Einen lokal funktionierenden Änderungssatz auf die kleinste hinreichend begründete Lösung reduzieren. Dabei bleiben erforderliches Verhalten, Acceptance-Evidenz, bekannte Invarianten, Security- und Fehlerpfade sowie belegte technische Constraints erhalten.
 
-Minimierung ist eine mutierende Verantwortung von `softwareentwicklung_backend` und `softwareentwicklung_frontend`. Sie entfernt oder vereinfacht vorhandene Änderungsteile, deren heutige Notwendigkeit nicht belegt ist; sie ist weder ein LOC-Wettbewerb noch eine neue fachliche Lösung.
+Minimierung bearbeitet den ausdrücklich zugewiesenen Änderungssatz. Sie entfernt oder vereinfacht vorhandene Änderungsteile, deren heutige Notwendigkeit nicht belegt ist; sie ist weder ein LOC-Wettbewerb noch eine neue fachliche Lösung.
 
 ## Verwenden
 
@@ -50,7 +50,7 @@ Vor der Mutation ist mindestens festzuhalten:
 5. Genau eine begrenzte, nachvollziehbare Reduktion mutieren. Keine blind zeilenweise Löschung und keine gleichzeitige fachliche Neuimplementierung.
 6. Nach jeder akzeptierten Reduktion die fokussierte, für den entfernten Bestandteil relevante Verifikation erneut ausführen. Erst bei erneutem Erfolg dürfen abhängige Kandidaten bearbeitet werden.
 7. Bei Erfolg den Kandidaten als `REMOVED` dokumentieren; bei einem Fehlschlag die Änderung zurücknehmen, Ursache und gebrochene Evidenz festhalten und als `RETAINED_AFTER_FAILURE` führen.
-8. Nach der letzten Reduktion den verbleibenden Diff erneut gegen Vertrag, Invarianten und Baseline abgleichen und die unabhängige finale Verifikation durch `softwareentwicklung_qualitaetssicherung` als nachgelagerten Schritt ausweisen.
+8. Nach der letzten Reduktion den verbleibenden Diff erneut gegen Vertrag, Invarianten und Baseline abgleichen und die unabhängige finale Verifikation im gesonderten Prüfauftrag als nachgelagerten Schritt ausweisen.
 
 ## Sicherheits- und Invariantenregeln
 
@@ -98,7 +98,7 @@ Wenn eine Änderung nur eine hypothetische zukünftige Variante unterstützt und
 - Baseline, eigener Scope und unveränderte Fremdänderungen.
 - Pro Kandidat: Bestandteil, Klasse, Minimierungshypothese, Mutation, gezielter Retest und Evidenz sowie `REMOVED` oder `RETAINED_AFTER_FAILURE`.
 - Verbleibende `REQUIRED`-/`JUSTIFIED`-Bestandteile und sichtbare Restrisiken.
-- Nicht ausgeführte Verifikation und der empfohlene nächste Verantwortungsbereich (`code-testing` für unabhängige Freigabe durch `softwareentwicklung_qualitaetssicherung`).
+- Nicht ausgeführte Verifikation und der an den Koordinator gemeldete unabhängige Prüfbedarf.
 
 ## Qualitätskriterien
 
@@ -107,4 +107,5 @@ Wenn eine Änderung nur eine hypothetische zukünftige Variante unterstützt und
 - Kandidaten wurden gruppiert statt blind nach Zeilen oder Größenwerten bearbeitet.
 - `REQUIRED`, `JUSTIFIED`, `CANDIDATE`, `REMOVED` und `RETAINED_AFTER_FAILURE` sind eindeutig unterscheidbar.
 - Abgrenzung zu Implementierung, Refactoring, Testing und Diff-Review bleibt sichtbar.
-- Eine unabhängige finale Freigabe durch `softwareentwicklung_qualitaetssicherung` wird weder ersetzt noch vorweggenommen.
+- Eine unabhängige finale Freigabe im gesonderten Prüfauftrag wird weder ersetzt noch vorweggenommen.
+

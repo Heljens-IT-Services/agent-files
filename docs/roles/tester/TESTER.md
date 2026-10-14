@@ -4,17 +4,17 @@ Stand: 2026-10-13
 
 ## Zweck
 
-Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezifische Regeldateien werden über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst.
+Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezifische Regeln werden über die direkten Freigaben der eigenen Rollenbeschreibung geladen.
 
 ## Verwendung als gemeinsame Fachbasis
 
-Diese Datei enthält gemeinsame technische Prüfnormen. `softwareentwicklung_qualitaetssicherung` wendet sie stets an; `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur` lesen sie bei beauftragtem `code-testing`, wie in ihrer Rollen-Markdown-Datei festgelegt. Das Lesen dieser Fachbasis aktiviert keine QA-Rolle und erzeugt keine unabhängige Verifikation.
+Diese Datei enthält technische Prüfnormen für den ausdrücklich beauftragten Prüfbeitrag. Die eigene Rollenbeschreibung legt die Verwendung fest. Lokales Implementierungsfeedback, technische Kriterienprüfung und unabhängige Sicherung werden in der Rückgabe unterscheidbar ausgewiesen.
 
 ## Priorität innerhalb der Testfachbasis
 
-[PRIORITY] Bei widersprüchlichen Regeldateien innerhalb der Tester-Rolle gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
+[PRIORITY] Bei widersprüchlichen Regeldateien innerhalb dieser Fachbasis gilt innerhalb ihres jeweiligen Scopes diese Reihenfolge:
 
-1. Passende technologiespezifische Regeldatei aus [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md).
+1. Passende technologiespezifische Regeldatei aus der Freigabe der eigenen Rollenbeschreibung.
 2. [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md).
 
 [PRIORITY] Bei mehreren passenden `TESTER.*.md`-Dateien hat die spezifischere Regel nur innerhalb ihres ausdrücklich beschriebenen Scopes Vorrang vor einer allgemeineren Regel.
@@ -53,8 +53,9 @@ Diese Datei enthält gemeinsame technische Prüfnormen. `softwareentwicklung_qua
 
 ## Graphweite Acceptance
 
-[MUST] Bei einer graphweiten Acceptance-Prüfung muss QA die unabhängig beauftragten technischen Prüfungen am integrierten Stand durchführen und deren Status sowie Evidenz dokumentieren. Fachliche Black-Box-Abnahme und technische Kriterienprüfungen anderer ausdrücklich zuständiger Rollen bleiben getrennte Beiträge.
+[MUST] Bei einer graphweiten Acceptance-Prüfung werden die ausdrücklich beauftragten technischen Prüfungen am integrierten Stand durchgeführt und deren Status sowie Evidenz dokumentiert. Fachliche Black-Box-Abnahme und technische Kriterienprüfungen anderer ausdrücklich zuständiger Rollen bleiben getrennte Beiträge.
 
 [MUST_NOT] Ein Issue-, Commit-, PR- oder früherer Teststatus darf allein keinen Acceptance-Nachweis ersetzen.
 
 [ALLOW_IF] Wenn keine erforderlichen CI-Checks konfiguriert sind und keine Checks berichtet werden, darf der Zustand als `no-checks-required` dokumentiert werden. Er ist kein Fehler und ersetzt nicht die fachliche Kriterienprüfung.
+

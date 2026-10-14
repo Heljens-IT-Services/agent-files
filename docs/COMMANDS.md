@@ -22,6 +22,12 @@ Diese Datei definiert die host-unabhängige Slash-Command-Sprache für Navigatio
 
 ## Rollenbindung
 
+[MUST] Jeder Nutzercommand wird vom Koordinator entgegengenommen, normalisiert und anhand der Katalogmetadaten aufgelöst. Er führt eigene Routing- und Koordinationsschritte aus und übergibt operative Ausführung oder Detailauskunft direkt an die zuständige Rolle. Ein Spezialist gibt einen neu eingehenden Nutzercommand an den Koordinator zurück; die Ausführung eines bereits zugewiesenen Auftrags bleibt in seiner eigenen Rolle.
+
+[MUST] Für jeden operativen Beitrag wird genau ein zuständiger Owner anhand des Auftrags und der Routing-Kriterien bestimmt. Bei mehreren betroffenen Fachbereichen teilt der Koordinator den Auftrag in abgegrenzte direkte Rollenaufträge. Die Kataloge beschreiben zulässige Owner und Auswahlkriterien, keine feste zusätzliche Delegationsstufe.
+
+[MUST] Bei ausreichendem Ziel-, Scope-, Argument- und Berechtigungskontext veranlasst der Koordinator die dokumentierte Ausführung unmittelbar. Er fragt nur nach Informationen, Entscheidungen oder Freigaben, die zur sicheren Ausführung tatsächlich fehlen. Ein gültiger Command ersetzt keine vorgeschriebene Freigabe.
+
 [MUST] Der aktuelle Agent handelt ausschließlich in der in seinem Einstiegspunkt festgelegten Rolle. Rollenwechsel erfolgen durch Delegation an einen verfügbaren Agenten mit passender Rollen-ID; ein Slash-Command aktiviert keine andere Rolle.
 
 [MUST] `/skills list`, `/workflows list` und `/technologies list` zeigen einer operativen Rolle nur die Einträge, die deren eigener Rollenindex freigibt. Der Koordinator erhält nur seine eigenen Einträge sowie die Routing-Metadaten aus den Katalogen.
@@ -33,6 +39,22 @@ Diese Datei definiert die host-unabhängige Slash-Command-Sprache für Navigatio
 [MUST] Koordinator-Aufträge an Spezialisten müssen Ziel, Scope, Nicht-Scope, relevanten Kontext, Constraints, Entscheidungen, erwartetes Ergebnis und Rückgabeanforderungen enthalten.
 
 [MUST_NOT] Der Koordinator darf operative Recherche, Codearbeit, Issue-Arbeit, Dokumentation, Tests, Git- oder GitHub-Aktionen nicht selbst ausführen. Fehlende Spezialisten oder Tool-Fähigkeiten begründen keinen Rollenwechsel.
+
+## Dispatch und Argumentprüfung
+
+1. Den vollständigen Command gegen Root-Syntax oder einen dokumentierten Alias auflösen; IDs und Aliase bleiben in ihren Katalogen definiert.
+2. Aktion und Argumente prüfen. `list`, `show` und Hilfe liefern ausschließlich Auskunft. `run` und direkte Ausführungsaliase starten den dokumentierten Auftrag.
+3. Owner anhand des aktuellen Auftrags und der Routing-Kriterien im zuständigen Katalog bestimmen. Bereits übergebene eindeutige Zuständigkeiten bleiben für denselben Scope gültig.
+4. Der ausgewählte Owner prüft die Detailargumente, Verwendungskriterien, verfügbaren Ressourcen und erforderlichen Berechtigungen vor jedem operativen Schritt. Ungültige Argumente werden mit erwarteter Syntax zurückgegeben; daraus entsteht keine Teilmutation.
+5. Den abgegrenzten Auftrag ausführen lassen und Ergebnis, Verifikation, Abweichungen und Blocker bündeln. Fehlende notwendige Angaben werden gezielt geklärt; ein anderer Rollenauftrag wird ausschließlich durch den Koordinator erteilt.
+
+[MUST] Bei einer Katalogauflösung bleibt die Fachdatei beim ausgewählten Owner. Der Koordinator liest Argument- und Routing-Metadaten, nicht die operativen Details anderer Rollen.
+
+[MUST] Issue-Nummern in `/implement`, `/sanitize`, `/acceptance` und `/sub-issues` sind positive Ganzzahlen mit optionalem führendem `#`. `flat` ist nur bei `/sub-issues` das optionale zweite Positionsargument. Die kanonischen Workflow-Aufrufe akzeptieren dieselben Argumente.
+
+[MUST] `/testing` akzeptiert höchstens einen Modus aus `auto`, `build`, `unit`, `integration`, `e2e` und `all`; ohne Modus gilt `auto`. Die Owner-Auswahl folgt den Routing-Kriterien für `code-testing` und ist unabhängig von der gewählten Prüfebene.
+
+[MUST] `/summary` und `/workflows run commit-history-summary` verwenden denselben Zeitraum- und Optionsvertrag aus dem Workflow-Katalog. Fehlt der Zeitraum auch im vorhandenen Nutzerkontext, wird er vor der Datenerhebung erfragt.
 
 ## Grammatik
 
@@ -98,7 +120,7 @@ spacing     = { " " | tab } ;
 
 ### `list`
 
-[MUST] `list` muss der aktiven Rolle nur die Einträge ihres Rollenindex mit kanonischer ID, Name, Kurzbeschreibung und vorhandenem direkten Alias ausgeben.
+[MUST] `list` gibt dem Nutzer über den Koordinator die Katalogmetadaten mit kanonischer ID, Name, Kurzbeschreibung, Owner und vorhandenem direkten Alias aus. Eigene ausführbare Koordinationsressourcen und delegierbare operative Einträge werden unterscheidbar dargestellt. Ein operativer Spezialist erhält für seinen zugewiesenen Auftrag ausschließlich Einträge seines eigenen Rollenindex.
 
 [MUST_NOT] `list` darf keinen Skill oder Workflow ausführen.
 
@@ -110,7 +132,7 @@ spacing     = { " " | tab } ;
 
 ### `technologies`
 
-[MUST] `/technologies list` muss der aktiven Rolle jede freigegebene Technologie-ID genau einmal mit Regeldatei und knapper Zweckbeschreibung ausgeben.
+[MUST] `/technologies list` gibt dem Koordinator jede Technologie-ID genau einmal als Routing-Metadatum mit verfügbaren Ownern und knapper Zweckbeschreibung. Ein operativer Spezialist erhält ausschließlich die für seinen Auftrag freigegebenen Mappings seiner eigenen Rolle.
 
 [MUST] `/technologies show <technology-id>` muss die für die aktive Rolle freigegebenen Mappings mit Rolle, Regeldatei, Verwendungskriterium und Zweck beschreiben. Der Koordinator delegiert die fachliche Detailauskunft an den betreffenden Spezialisten.
 
@@ -140,7 +162,7 @@ spacing     = { " " | tab } ;
 
 [MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
 
-[MUST] `/help` und `/?` müssen ohne weiteres Argument `README.md` und `PROJECT.md` durch `product_owner` oder `softwareentwicklung_infrastruktur` lesen lassen und die aktuell relevanten Kernaussagen unter `Repository-Kontext` knapp zusammenfassen. Der Koordinator delegiert diesen Leseauftrag.
+[MUST] `/help` und `/?` müssen ohne weiteres Argument `README.md` und `PROJECT.md` durch `product_owner` lesen lassen und die aktuell relevanten Kernaussagen unter `Repository-Kontext` knapp zusammenfassen. Der Koordinator delegiert diesen Leseauftrag.
 
 [MUST] Der Repository-Kontext muss sich auf Zweck, Versionsbasis und für die Nutzung wesentliche fachliche oder technische Leitplanken beschränken und in der Regel zwei bis vier kurze Punkte umfassen.
 
@@ -209,3 +231,4 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /release
 /technologies show csharp-net
 ```
+

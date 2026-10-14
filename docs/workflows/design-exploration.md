@@ -2,7 +2,7 @@
 
 ## Owner
 
-`designer` führt diesen Workflow ganzheitlich für Nutzungsziele, Nutzerabläufe, Informationsstruktur, Interaktionen, visuelle Sprache, Komponenten und Darstellung operativ aus. Die Rolle delegiert nicht selbst. Fremdscope und widersprüchliche Produktanforderungen gehen an den Koordinator zur Zuweisung an `product_owner` oder eine andere zuständige Rolle.
+`designer` führt diesen Workflow ganzheitlich für Nutzungsziele, Nutzerabläufe, Informationsstruktur, Interaktionen, visuelle Sprache, Komponenten und Darstellung operativ aus. Die Rolle delegiert nicht selbst. Fremdscope und widersprüchliche Produktanforderungen gehen an den Koordinator zur Klärung und weiteren Beauftragung.
 
 ## Ziel
 
@@ -52,7 +52,7 @@ Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere b
 
 - `designer` verantwortet Nutzungsszenarien, Nutzerziele, Informationsstruktur, Interaktionen, visuelle Sprache, Komponenten und Darstellung im ausdrücklich zugewiesenen Scope.
 - `designer` liest nur den eigenen Rollenindex und führt diesen Workflow ohne Subdelegation aus.
-- Widersprüchlicher Produktumfang oder fremde operative Zuständigkeit geht an den Koordinator zur Zuweisung an `product_owner` oder eine andere Rolle.
+- Widersprüchlicher Produktumfang oder fremde operative Zuständigkeit geht an den Koordinator zur Klärung und weiteren Beauftragung.
 - Produktivimplementierung geht nach dem Design-Handoff an Backend oder Frontend. Unabhängige formale Verifikation übernimmt QA.
 
 ## Endergebnis
@@ -73,3 +73,4 @@ Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere b
 - Keine produktive Implementierung innerhalb dieses Workflows.
 - Keine formale Testverifikation durch den Design-Review ersetzen.
 - Explorative Artefakte dürfen bewusst wegwerfbar sein und müssen nicht Produktionsstandards erfüllen.
+

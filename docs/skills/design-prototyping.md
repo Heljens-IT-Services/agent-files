@@ -9,7 +9,7 @@ Eine Designidee mit möglichst wenig technischer Reibung in ein tatsächlich ren
 - Wenn eine Designrichtung vor einer produktiven Implementierung sichtbar oder interaktiv erfahrbar gemacht werden soll.
 - Wenn mehrere Designrichtungen schnell vergleichbar visualisiert werden sollen.
 - Wenn ein UI-, Web-, Informations- oder Interaktionskonzept mit einem leichten Prototyp bewertet werden kann.
-- Nicht verwenden, wenn direkt produktionsreifer Code im bestehenden Technologie-Stack implementiert werden soll. Dann ist `softwareentwicklung_backend`- oder `softwareentwicklung_frontend`-Verantwortung relevant.
+- Nicht verwenden, wenn direkt produktionsreifer Code im bestehenden Technologie-Stack implementiert werden soll. Der Umsetzungsbedarf wird mit Design-Handoff an den Koordinator gegeben.
 - Nicht verwenden, wenn nur ein bestehendes visuelles Ergebnis bewertet werden soll. Dann `design-review` nutzen.
 
 ## Vorgehen
@@ -47,3 +47,4 @@ Eine Designidee mit möglichst wenig technischer Reibung in ein tatsächlich ren
 - Für browserdarstellbare frühe Entwürfe soll kein Build-Schritt erforderlich sein, wenn eine Single-File-Lösung ausreicht.
 - Technische Komplexität darf die Designexploration nicht dominieren.
 - Mock- und Produktionsrealität müssen unterscheidbar bleiben.
+

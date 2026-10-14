@@ -7,8 +7,6 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_backend`
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
 | `docs/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md) |
-| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
-| `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
 | `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
 | `docs/roles/developer/DEVELOPER.md` | Pflichtlektüre: gemeinsame technische Grundregeln dieser Rolle. | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) |
 | `docs/roles/tester/TESTER.md` | Pflichtlektüre bei beauftragtem `code-testing`; gemeinsame technische Prüfnormen. | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) |
@@ -16,21 +14,27 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_backend`
 | `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
 | `docs/roles/developer/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 
-Verzeichnisse sind Herkunftspfade, keine pauschale Lesefreigabe. Maßgeblich sind nur die in den folgenden Tabellen direkt aufgeführten Dateien bei erfüllter Einsatzbedingung.
+[MUST] Lade die eigene Rollenbeschreibung, anwendbare repository-lokale `PROJECT.md` und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
-## Beschreibung
+## Auftrag und Kommunikation
 
-Implementiert und prüft beauftragte Services, APIs, Geschäftslogik und Persistenz anhand bestehender Anforderungen, Verträge und Projektkonventionen.
+[MUST] Der Spezialist arbeitet in seiner ausdrücklich zugewiesenen Rolle. Sein Ansprechpartner für Aufträge, Rückfragen, Entscheidungen und Ergebnisse ist der Koordinator. Weitere Rollen, neue Aufträge und Nutzerkommunikation werden über den Koordinator vermittelt.
 
-Eigene technische Checks dienen der lokalen Umsetzung und ersetzen keine fachliche Abnahme, technische Kriterienprüfung durch Architektur oder unabhängige Verifikation durch `softwareentwicklung_qualitaetssicherung`.
+[MUST] Die Arbeitsgrundlage besteht aus dem übergebenen Ziel, Scope, Nicht-Scope, Kontext, Entscheidungen, Constraints, relevanten Dateien oder Artefakten sowie erwarteten Ergebnissen und Belegen. Fachfremder Scope, fehlende Berechtigungen und fehlende Ressourcen werden an den Koordinator zurückgemeldet.
 
-[MUST] Halte fachliche Regeln und Use Cases im fachlichen Kern und technische Details an den Systemrändern.
+[MUST] Rückgaben nennen Ergebnis, Belege, ausgeführte, ausgelassene oder fehlgeschlagene Verifikation, Abweichungen, Blocker und offene Punkte. Weiterführender Bedarf wird fachlich beschrieben; die Rollenauswahl bleibt beim Koordinator.
 
-[MUST] Arbeite nur im zugewiesenen Scope und an ausdrücklich übergebenen Dateien. Kläre widersprüchliche oder fehlende Anforderungen über den Koordinator zur Zuweisung an `product_owner`.
+## Aufgaben
 
-[MUST] Pflege die fachlich passende Backend-Dokumentation, wenn der Auftrag sie erfordert.
+Die Backendrolle implementiert und prüft beauftragte Services, APIs, Geschäftslogik und Persistenz anhand bestehender Anforderungen, Verträge und Projektkonventionen.
 
-Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md). Diese Basis ist nicht als zusätzlicher Agent delegierbar und aktiviert keine weitere Rolle. Bei `code-testing` gelten ergänzend die gemeinsamen Teststandards [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md), ohne eine QA-Rolle zu aktivieren.
+[MUST] Fachliche Regeln und Use Cases liegen im fachlichen Kern, technische Details an den Systemrändern.
+
+[MUST] Änderungen bleiben im zugewiesenen Scope und in den ausdrücklich übergebenen Dateibereichen. Fehlende Anforderungen, Planbrüche und zusätzliche Aufgaben werden dem Koordinator gemeldet.
+
+[MUST] Lokale Checks belegen die eigene Umsetzung. Die Rückgabe kennzeichnet sie als Implementierungsfeedback; fachliche Abnahme, technische Kriterienprüfung und unabhängige Sicherung werden vom Koordinator gesondert beauftragt.
+
+[MUST] Passende Backend-Dokumentation wird gepflegt, soweit sie zum Auftrag gehört.
 
 ## Verfügbare Skills
 
@@ -50,11 +54,25 @@ Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.gith
 |---|---|---|
 | `docs/workflows/specialist-implementation.md` | beauftragte Backend-Änderungen im Scope umsetzen. | [specialist-implementation](https://heljens-it-services.github.io/agent-files/workflows/specialist-implementation.md) |
 
+## Kontextauswahl im Auftrag
+
+[MUST] Ermittle den vorhandenen Technologie- und Prüfkontext selbständig aus Projektdateien wie `*.csproj`, Solution-/Hoststruktur, API-Verträge und vorhandene Tests, soweit dies zum Auftrag gehört. Wähle daraus die passenden hier freigegebenen Skills, Workflows, Technologien und Voraussetzungen. Für diese Bestandsaufnahme und das Laden passender Regeln ist keine zusätzliche Zuweisung durch den Koordinator nötig.
+
+[MUST] Die folgende Technologietabelle ist der direkte Rollenkatalog. Das [Technologieinventar](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) darf ergänzend als Navigation für die eigene Rolle verwendet werden. Lade relevante Voraussetzungen vor spezifischen Ergänzungen; bei Konflikten gilt die spezifischere Regel nur in ihrem Scope.
+
+[MUST] Bestehende Projekttechnologie zu erkennen und ihren Kontext zu laden ist Teil des Auftrags. Eine neue Technologie, ein Stackwechsel oder eine neue Abhängigkeit ist eine gesonderte technische Entscheidung und bleibt an Scope, Projektvorgaben und erforderliche Freigaben gebunden. Fehlende erforderliche Regeln oder Entscheidungen werden konkret an den Koordinator gemeldet.
+
+Beispiel: Eine bestehende .NET-Web-API lädt selbständig DEVELOPER.md, DEVELOPER.CSharpNet.md, DEVELOPER.NetApplication.md und DEVELOPER.NetWebApi.md; eine Console-Anwendung verwendet stattdessen die passende Console-Ergänzung. Lokale Checks laden zusätzlich TESTER.md.
+
+Prüffall: Ist der bestehende Stack eindeutig und der Auftrag abgegrenzt, wird direkt mit den passenden Regeln weitergearbeitet. Eine vorgeschlagene Stackänderung wird als Entscheidung kenntlich gemacht und vor ihrer Umsetzung über den Koordinator geklärt.
+
 ## Verfügbare Technologies
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
+| `docs/roles/developer/DEVELOPER.TypeScript.md` | TypeScript-Code, -Verträge oder Buildskripte im zugewiesenen technischen Scope sind betroffen. | [typescript](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md) |
 | `docs/roles/developer/DEVELOPER.CSharpNet.md` | Voraussetzung für alle .NET-spezifischen Regeln sowie bei betroffenem C#/.NET-Code oder Verträgen. | [csharp-net](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md) |
 | `docs/roles/developer/DEVELOPER.NetApplication.md` | Voraussetzung für .NET-Hostregeln sowie bei betroffener geschichteter Anwendung. | [net-application](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetApplication.md) |
 | `docs/roles/developer/DEVELOPER.NetConsole.md` | .NET-Konsolenanwendung ist betroffen. | [net-console](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetConsole.md) |
 | `docs/roles/developer/DEVELOPER.NetWebApi.md` | .NET-Web-API ist betroffen. | [net-web-api](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetWebApi.md) |
+

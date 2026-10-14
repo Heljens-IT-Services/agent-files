@@ -56,25 +56,22 @@ git diff --check
 
 ### Vorgehen
 
-1. Prüfen, welche Rollen für das beauftragte Projekt tatsächlich benötigt werden.
-2. Die ausgewählten Rollen-IDs ausschließlich aus dem kanonischen Rollenmodell ableiten: `koordinator`, `product_manager`, `product_owner`, `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend`, `softwareentwicklung_infrastruktur`, `softwareentwicklung_qualitaetssicherung`, `designer`.
-3. Nur fehlende, ausdrücklich ausgewählte Vorlagen aus `https://heljens-it-services.github.io/agent-files/codex/agents/` unter `.codex/agents/<role-id>.toml` ergänzen. Zusätzliche projektbezogene Agents bleiben erhalten.
-4. Wenn ein kanonischer Zielpfad bereits durch eine abweichende Datei belegt ist, den Konflikt melden und die Datei nicht überschreiben.
-5. Für jede ausgewählte Vorlage Pflichtfelder, Rollen-ID und Verweise auf die passende veröffentlichte Rollenregel prüfen. Fachliche Regeln dürfen nicht aus der TOML dupliziert werden.
-6. Bestehende Installationen nicht stillschweigend überschreiben, löschen oder auf die neue Rollenmenge migrieren. Veraltete `planner`, `developer`, `tester`, `design_ui` und `design_ux` Installationen als Migrationsbedarf ausweisen und nur nach ausdrücklicher Freigabe verändern.
-7. Nach der Prüfung Dateinamen, TOML-Syntax und ausgewählten Sollbestand erneut abgleichen.
+1. Den vom Koordinator ausgewählten Sollbestand mit Rollen-IDs, Zielpfaden und Referenzquellen übernehmen. Fehlende Auswahl oder Freigaben dem Koordinator melden.
+2. Vorhandene Dateien inventarisieren und nur ausdrücklich ausgewählte fehlende Vorlagen unter `.codex/agents/<role-id>.toml` ergänzen. Die Vorlagen werden als Konfigurationsdaten geprüft; die ausführende Rolle behält ihren zugewiesenen Kontext.
+3. Bestehende abweichende Dateien als Konflikt melden. Ersetzen oder Entfernen braucht eine ausdrückliche Freigabe für die betroffenen Dateien.
+4. Für jede ausgewählte Vorlage Pflichtfelder, Rollen-ID, TOML-Syntax und Verweise auf die mitgelieferte Rollenquelle prüfen.
+5. Ergebniszustand mit ausgewähltem Sollbestand erneut vergleichen und Änderungen sowie offene Konflikte zurückgeben.
 
 ### Grenzen
 
-- Kein pauschaler Zwang, alle neun Rollen in jedem Projekt zu installieren.
-- Keine automatische Aktivierung oder Übernahme einer anderen Rolle durch den aufrufenden Agenten.
-- Keine Migration, Überschreibung oder Löschung bestehender Agent-Dateien ohne ausdrückliche Freigabe.
+- Der ausgewählte Sollbestand und die ausdrückliche Freigabe bestimmen den Änderungsumfang.
+- Zusätzliche projektbezogene Agent-Dateien bleiben erhalten, solange ihre Änderung nicht ausdrücklich beauftragt ist.
 
 ### Ergebnis
 
-- ausgewählte Rollen mit Begründung und tatsächlich vorhandene Vorlagen
-- fehlende, widersprüchliche und veraltete Installationen getrennt ausgewiesen
-- keine stillschweigende Änderung bestehender Installationen
+- ausgewählter Sollbestand und tatsächlich vorhandene Vorlagen
+- ergänzte Dateien und unveränderte Konflikte mit Begründung
+- Ergebnis des Inhalts-, Syntax- und Bestandsabgleichs
 
 ## Dependabot-Konfiguration
 
@@ -104,3 +101,4 @@ git diff --check
 - Keine vorhandene spezifischere Konfiguration ohne belegte Lücke oder Inkonsistenz vereinfachen oder überschreiben.
 - Keine nicht vorhandenen Ökosysteme oder Verzeichnisse konfigurieren.
 - Bei nicht prüfbarer YAML-Syntax oder mehrdeutiger Repository-Topologie vor der Mutation stoppen und den Blocker nennen.
+

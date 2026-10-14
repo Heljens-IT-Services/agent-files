@@ -22,8 +22,8 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 3. Akzeptanzkriterien oder Erfolgskriterien ableiten.
 4. Widersprüche, Lücken und implizite Annahmen markieren.
 5. Plausible Annahmen vorschlagen, damit der User sie bestätigen oder ablehnen kann.
-6. Wenige gezielte Klärungsfragen stellen.
-7. User-Antworten in eine geschärfte Arbeitsgrundlage überführen.
+6. Wenige gezielte Klärungsfragen an den Koordinator geben; dieser vermittelt notwendige Nutzerentscheidungen.
+7. Vom Koordinator übermittelte User-Antworten in eine geschärfte Arbeitsgrundlage überführen.
 8. Abschließen, wenn die Anforderungen als belastbare Arbeitsgrundlage geklärt sind.
 9. Im stillen Modus keine Rückfragen stellen, sondern vorhandene Anforderungen strukturieren und offene Punkte markieren.
 
@@ -63,3 +63,4 @@ Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare A
 - Fragen müssen klärungsrelevant und auf wenige pro Antwort begrenzt sein.
 - Keine Lösung vorwegnehmen, wenn die Anforderung noch unklar ist.
 - Knapp und interaktiv arbeiten.
+

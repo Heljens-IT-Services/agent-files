@@ -19,6 +19,24 @@ Commits und gemergte Pull Requests eines Repositorys für einen angegebenen Zeit
 - `commit-history-reading`
 - `documentation`
 
+## Direkter Alias und Argumentvertrag
+
+- `/summary [<period> ...] [--mode <mode>]`
+- `/workflows run commit-history-summary [<period> ...] [--mode <mode>]`
+
+Beide Aufrufe haben denselben Vertrag:
+
+- Ein ISO-Datum `YYYY-MM-DD` bezeichnet einen Kalendertag.
+- Eine positive Ganzzahl bezeichnet die Anzahl vergangener Kalendertage einschließlich heute.
+- Zwei ISO-Daten bezeichnen Start und Ende eines inklusiven Zeitraums. Das Enddatum muss mindestens dem Startdatum entsprechen.
+- `--mode <mode>` und `--mode=<mode>` akzeptieren `customer`, `technical` und `detailed`; ohne Option gilt `customer`.
+- Die bereits dokumentierten Argumentformen `<days> Tage`, `<start-date> bis <end-date>` und `mode: <mode>` werden kompatibel auf denselben Vertrag normalisiert. Dies sind Zeitraum- und Moduswerte; stabile IDs und kanonische Optionen bleiben englisch.
+- Derselbe Modus darf nur einmal angegeben werden, auch nicht zusätzlich in einer kompatiblen Form. Unbekannte Optionen, ungültige Kalenderdaten, nicht positive Tageszahlen, vertauschte Datumsgrenzen und weitere Tokens sind ungültig.
+- Fehlt eine Zeitraumangabe im Command, darf ein bereits eindeutig festgelegter Zeitraum aus dem Nutzerkontext verwendet werden. Fehlt auch dieser, wird vor jeder Datenerhebung gezielt nachgefragt.
+- Repository, Branch und Zeitzone werden gemäß der folgenden Tabelle aus vorhandenem Kontext oder Defaults übernommen. Dieser Command definiert dafür keine zusätzlichen Optionen.
+
+Der Koordinator validiert den Berichtsrahmen vor der Delegation. Infrastruktur erfasst die Historie; die inhaltlich zuständigen Rollen bereiten die freigegebene Ausgabe auf.
+
 ## Eingaben und Defaults
 
 | Eingabe | Pflicht | Default | Auflösung |
@@ -35,7 +53,7 @@ Commits und gemergte Pull Requests eines Repositorys für einen angegebenen Zeit
 - `N Tage` umfasst den aktuellen Kalendertag und die unmittelbar vorhergehenden `N - 1` Kalendertage.
 - Ein Zeitraum aus Start- und Enddatum umfasst beide genannten Kalendertage.
 - Intern muss jeder Zeitraum als halboffenes Intervall `[Start, Ende)` in der aufgelösten Zeitzone behandelt werden.
-- Wenn kein Zeitraum angegeben ist oder die Angabe mehrere Auslegungen zulässt, muss vor der Datenerhebung nachgefragt werden.
+- Wenn weder im Command noch im vorhandenen Nutzerkontext ein eindeutiger Zeitraum vorliegt, muss vor der Datenerhebung nachgefragt werden.
 
 ## Modi
 
@@ -51,8 +69,8 @@ Modusnamen werden ohne Beachtung der Groß-/Kleinschreibung aufgelöst und kanon
 
 ```text
 /summary 2026-07-23
-/summary 7 Tage mode: technical
-/summary 2026-07-01 bis 2026-07-15 mode: detailed
+/summary 7 --mode technical
+/summary 2026-07-01 2026-07-15 --mode detailed
 ```
 
 ## Ablauf
@@ -91,3 +109,4 @@ Modusnamen werden ohne Beachtung der Groß-/Kleinschreibung aufgelöst und kanon
 - Im Modus `technical` keine Verifikation als erfolgreich darstellen, wenn sie nicht aus den Quellen hervorgeht.
 - Im Modus `detailed` keine Commits oder Pull Requests wegen vermuteter geringer Relevanz auslassen.
 - Keine Dateien erzeugen, außer der User verlangt ausdrücklich ein Artefakt.
+

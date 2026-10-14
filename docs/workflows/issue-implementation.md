@@ -37,7 +37,7 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 
 ## Ablauf
 
-1. Der Koordinator übergibt die Arbeitseinheit und den vorhandenen Kontext an die passende Fachrolle; sie klärt bei Bedarf Issue-Kontext, Akzeptanzkriterien und Issue-Inhalte mit `product_owner`.
+1. Der Koordinator übergibt die Arbeitseinheit und den vorhandenen Kontext an die passende Fachrolle; Klärungsbedarf zu Issue-Kontext, Akzeptanzkriterien und Issue-Inhalten geht an den Koordinator zur Zuweisung an `product_owner`.
 2. Der Koordinator delegiert Branchprüfung oder erforderliche Branchvorbereitung an `softwareentwicklung_infrastruktur`.
 3. Wenn Issue-Kontext fehlt, delegiert der Koordinator das Lesen mit `issue-reading` an `product_owner`.
 4. Der Koordinator übergibt den vorhandenen fachlichen Scope an `product_owner` zur Klärung von Ziel, Scope, Nicht-Scope und Akzeptanzkriterien und einen vorhandenen technischen Plan an Architektur zur technischen Einordnung.
@@ -49,7 +49,7 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 10. Der Koordinator gibt konkrete lokale Implementierungsfehler gezielt an den zuständigen Implementierungsowner zurück; dieser korrigiert sie im unveränderten Scope und wiederholt nur die relevante Prüfung. Ein lokaler Fehler löst keine vollständige Neuplanung aus.
 11. Der Koordinator beauftragt die Arbeitspakete in der geplanten Reihenfolge, bis der technische Plan abgearbeitet ist.
 12. Bei einem visuellen oder interaktiven Ergebnis delegiert der Koordinator den Design-Review gegen Ziel, Handoff und Constraints an `designer`. Lokale Umsetzungsabweichungen gehen gezielt an den Frontend-Owner zurück; grundlegende Richtungsfragen an die Designrolle.
-13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, delegiert der Koordinator die Minimierung mit `code-minimization` an den Implementierungsowner. Bei rotem oder diagnostisch instabilem Stand findet keine Minimierung statt; sie erzeugt keine neuen Features, Scope-Issues oder Refactorings.
+13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, delegiert der Koordinator bei Backend- oder Frontend-Änderungssätzen die Minimierung mit `code-minimization` an den jeweiligen Implementierungsowner. Infrastrukturänderungen werden innerhalb ihrer eigenen Quellenfreigaben geprüft. Bei rotem oder diagnostisch instabilem Stand findet keine Minimierung statt; sie erzeugt keine neuen Features, Scope-Issues oder Refactorings.
 14. Nach jeder akzeptierten Reduktion delegiert der Koordinator die betroffene fokussierte Verifikation an den Implementierungsowner. Eine fehlgeschlagene Reduktionshypothese wird zurückgenommen und als kein fachlicher Acceptance-GAP behandelt; echte Unklarheit über Acceptance, Invariante oder Architektur-Constraint geht an Product Owner oder Architektur.
 15. Der Koordinator delegiert die unabhängige technische Task-Verifikation und Regression auf dem minimierten Änderungssatz mit `code-testing` an `softwareentwicklung_qualitaetssicherung`. Fachliche Akzeptanzkriterien gehen zur Black-Box-Abnahme an `product_owner`; technische Akzeptanzkriterien an `softwareentwicklung_architektur`. Implementierer-Retests ersetzen unabhängige QA-Prüfungen nicht.
 16. Der Koordinator delegiert den Review des finalen Änderungssatzes gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen mit `code-diff-review` an `softwareentwicklung_qualitaetssicherung`.
@@ -129,3 +129,4 @@ In Analyse oder Planung zurückspringen, wenn:
 - Nach erfolgreichem Commit und Push keinen nächsten Graph-Knoten beginnen und keinen Fortschrittsanker als abgeschlossen markieren, bevor der persistente Issue-Kommentar erfolgreich erstellt wurde.
 - Wenn dieser Workflow aus `issue-graph-implementation.md` aufgerufen wird, Scope-Issues standardmäßig nicht manuell schließen; der Graph-Workflow entscheidet die abschließende PR-Verlinkung und Schließsemantik.
 - Eine abgeschlossene Arbeitseinheit darf nicht als Abschluss eines noch offenen Issue-Graphen kommuniziert werden.
+

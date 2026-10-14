@@ -21,7 +21,7 @@ Fachliche Akzeptanzkriterien anhand des von Nutzern sichtbaren Produktverhaltens
 
 ## Grenzen
 
-- Keine technische Testplanung oder -implementierung. QA und Architektur erstellen technische Automatisierung in ihrem jeweiligen beauftragten Scope.
+- Keine technische Testplanung oder -implementierung. Technischer Prüf- oder Automatisierungsbedarf wird an den Koordinator gemeldet.
 - Keine Regression-, Code-, Architektur-, Sicherheits-, Performance-, CI- oder Diff-Prüfung.
 - Keine Issue-, Produktivcode- oder Testcode-Mutation.
 - Eine fachliche `PASS`-Bewertung ersetzt keine technische Verifikation durch Qualitätssicherung und begründet keine User- oder Release-Freigabe.
@@ -32,3 +32,4 @@ Fachliche Akzeptanzkriterien anhand des von Nutzern sichtbaren Produktverhaltens
 - Status `PASS`, `FAIL`, `BLOCKED` oder `UNVERIFIED`
 - verwendete Oberfläche oder bereitgestellte E2E-Ausgabe, Produktstand und Prüfumgebung
 - offene fachliche Fragen und fehlende Belege
+

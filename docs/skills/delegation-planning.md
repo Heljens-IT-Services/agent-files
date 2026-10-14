@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Eine Nutzeranfrage in abgegrenzte Aufträge für die zuständigen operativen Rollen übersetzen.
+Eine Nutzeranfrage direkt der passenden Rolle zuweisen oder bei mehreren Fachbeiträgen in abgegrenzte Aufträge aufteilen.
 
 ## Verwenden
 
@@ -13,12 +13,12 @@ Eine Nutzeranfrage in abgegrenzte Aufträge für die zuständigen operativen Rol
 
 1. Vorhandene Ziele, Akzeptanzkriterien, Pläne, Entscheidungen und Constraints als verbindliche Arbeitsgrundlage übernehmen.
 2. Ausschließlich Routing-Metadaten aus Rollenindex, Skill-Katalog und Workflow-Katalog verwenden; keine fachlichen Skills, Technologien oder operativen Workflow-Regeln laden.
-3. Pro Arbeitspaket genau eine zuständige Rolle, einen Owner, Scope und Nicht-Scope sowie ein erwartetes Ergebnis bestimmen.
+3. Pro Arbeitspaket genau eine zuständige Rolle, Scope und Nicht-Scope sowie ein erwartetes Ergebnis bestimmen. Bei hinreichend bestimmtem Auftrag direkt delegieren; zusätzliche Planung nur bei tatsächlichem Klärungsbedarf beauftragen.
 4. Phasen und Abhängigkeiten festlegen. Unabhängige Lese-, Analyse- oder Review-Aufträge dürfen parallel laufen; Schreibaufträge im selben Worktree müssen sequenziell oder anderweitig konfliktfrei zugewiesen werden.
-5. Technische Strukturentscheidungen, technische Issue-Struktur und technische Akzeptanzkriterien an `softwareentwicklung_architektur`, fachliche Anforderungen und fachliche Issue-Struktur an `product_owner`, Umsetzung an Backend, Frontend oder Infrastruktur, Prüfung an Qualitätssicherung und Gestaltung an `designer` delegieren.
+5. Technische Strukturentscheidungen, technische Issue-Struktur und technische Kriterienprüfung an `softwareentwicklung_architektur`, fachliche Anforderungen und fachliche Issue-Struktur an `product_owner`, Umsetzung an Backend, Frontend oder Infrastruktur, unabhängige Regression und technische Gesamtsicherung an Qualitätssicherung und Gestaltung an `designer` delegieren.
 6. Fachliche GitHub-Issue-Erstellung, -Typen und -Beziehungen `product_owner`, technische Issue-Erstellung, -Typen und -Beziehungen `softwareentwicklung_architektur` zuweisen. Git-Repository- und Pull-Request-Lifecycle-Schritte wie Branch, Commit, Push, Pull Request, Merge und Veröffentlichung `softwareentwicklung_infrastruktur` zuweisen. Erforderliche Checks `softwareentwicklung_qualitaetssicherung` zuweisen.
 7. Einen Auftrag mit Ziel, Workflow-Schritt, Kontext, Dateien/Artefakten, Constraints, Entscheidungen, Scope, Nicht-Scope und erwarteter Rückgabe formulieren.
-8. Rückgaben auf Ergebnis, ausgeführte oder ausgelassene Verifikation, Abweichungen, Blocker und empfohlene nächste Rolle prüfen.
+8. Rückgaben auf Ergebnis, ausgeführte oder ausgelassene Verifikation, Abweichungen, Blocker und weiteren fachlichen Bedarf prüfen.
 9. Bei unklarem Ziel oder widersprüchlichen Anforderungen an den Nutzer zurückgeben; keine fachliche Entscheidung stellvertretend treffen.
 
 ## Grenzen
@@ -32,3 +32,4 @@ Eine Nutzeranfrage in abgegrenzte Aufträge für die zuständigen operativen Rol
 
 - Abgegrenzte, geroutete Arbeitspakete mit eindeutiger Rolle und Übergabevertrag.
 - Zusammengeführter Status mit Ergebnissen, Nachweisen, offenen Punkten und nächster Rolle.
+
