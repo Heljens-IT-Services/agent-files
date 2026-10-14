@@ -6,6 +6,7 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_backend`
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
+| Geltende `AGENTS.md` und veröffentlichte gemeinsame Einstiegsregeln | Pflichtlektüre für alle Rollen; im Quellrepository zusätzlich `docs/AGENTS.md` gemäß `PROJECT.md`. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
 | `docs/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_backend/SOFTWAREENTWICKLUNG_BACKEND.md) |
 | Root-`PROJECT.md` und lokale `PROJECT.md` der betroffenen Teilsolution | Pflichtlektüre für den geltenden Projektkontext; bei Scope-Wechsel erneut zuordnen. | Repository-lokale Quellen; siehe `Projektkontext und Vorrang`. |
 | `docs/roles/developer/DEVELOPER.md` | Pflichtlektüre: gemeinsame technische Grundregeln dieser Rolle. | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) |
@@ -14,7 +15,7 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_backend`
 | `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
 | `docs/roles/developer/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 
-[MUST] Lade die eigene Rollenbeschreibung, geltende Root- und lokale `PROJECT.md`-Dateien und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
+[MUST] Lade die geltenden `AGENTS.md`-Regeln einschließlich der veröffentlichten gemeinsamen Einstiegsregeln, die eigene Rollenbeschreibung und geltende Root- und lokale `PROJECT.md`-Dateien. Weitere Fachquellen werden ausschließlich über die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung geladen. Die gemeinsamen Einstiegsregeln geben keine anderen Rollenbeschreibungen frei. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
 ## Projektkontext und Vorrang
 

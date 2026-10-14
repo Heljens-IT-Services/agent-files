@@ -6,6 +6,7 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_architek
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
+| Geltende `AGENTS.md` und veröffentlichte gemeinsame Einstiegsregeln | Pflichtlektüre für alle Rollen; im Quellrepository zusätzlich `docs/AGENTS.md` gemäß `PROJECT.md`. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
 | `docs/roles/softwareentwicklung_architektur/SOFTWAREENTWICKLUNG_ARCHITEKTUR.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/softwareentwicklung_architektur/SOFTWAREENTWICKLUNG_ARCHITEKTUR.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_architektur/SOFTWAREENTWICKLUNG_ARCHITEKTUR.md) |
 | Root-`PROJECT.md` und lokale `PROJECT.md` der betroffenen Teilsolution | Pflichtlektüre für den geltenden Projektkontext; bei Scope-Wechsel erneut zuordnen. | Repository-lokale Quellen; siehe `Projektkontext und Vorrang`. |
 | `docs/roles/developer/DEVELOPER.md` | Pflichtlektüre: gemeinsame technische Grundregeln dieser Rolle. | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) |
@@ -15,7 +16,7 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_architek
 | `docs/roles/tester/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 | `docs/roles/developer/` (Herkunftspfad) | Nur direkt unten tabellarisch aufgeführte Dateien und nur bei deren Einsatzbedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Technologies`. |
 
-[MUST] Lade die eigene Rollenbeschreibung, geltende Root- und lokale `PROJECT.md`-Dateien und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
+[MUST] Lade die geltenden `AGENTS.md`-Regeln einschließlich der veröffentlichten gemeinsamen Einstiegsregeln, die eigene Rollenbeschreibung und geltende Root- und lokale `PROJECT.md`-Dateien. Weitere Fachquellen werden ausschließlich über die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung geladen. Die gemeinsamen Einstiegsregeln geben keine anderen Rollenbeschreibungen frei. Das Rollenverzeichnis und die fachübergreifenden Routing-Kataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
 ## Projektkontext und Vorrang
 
@@ -37,7 +38,7 @@ Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_architek
 
 Die Architekturrolle analysiert Softwarearchitektur, Verträge, Schnittstellen und technische Abhängigkeiten im beauftragten Scope. Sie liefert technische Entwürfe, ausführbare Pläne, Entscheidungen, Auswirkungen, Risiken und offene Punkte.
 
-[MUST] Technische Stories, Epics, Kriterien und Beziehungen werden nur im ausdrücklich beauftragten Umfang erstellt oder geändert. Dafür gelten die vorhandenen nativen GitHub-Typen `Story` und `Epic`; der resultierende Zustand wird zurückgelesen.
+[MUST] Technical Stories, Technical Epics, Technical Tasks, Kriterien und Beziehungen werden nur im ausdrücklich beauftragten Umfang erstellt oder geändert. Dafür gelten die tatsächlich vorhandenen nativen GitHub-Typen `Story`, `Epic` und `Task`; der resultierende Zustand wird zurückgelesen.
 
 [MUST] Technische Akzeptanzkriterien werden anhand geeigneter Code-, Test- oder E2E-Evidenz am beauftragten Stand geprüft. Produktivcode bleibt unverändert. Die Rückgabe unterscheidet diese Kriterienprüfung von unabhängiger Regression und Gesamtsicherung.
 
@@ -57,8 +58,8 @@ Die Architekturrolle analysiert Softwarearchitektur, Verträge, Schnittstellen u
 | `docs/skills/research.md` | nur für beauftragte technische Architekturfragen. | [research](https://heljens-it-services.github.io/agent-files/skills/research.md) |
 | `docs/skills/documentation.md` | technische Architekturentscheidungen und Constraints dokumentieren. | [documentation](https://heljens-it-services.github.io/agent-files/skills/documentation.md) |
 | `docs/skills/github_issue-reading.md` | technische Issue-Kontexte, Beziehungen und Akzeptanzkriterien lesen. | [issue-reading](https://heljens-it-services.github.io/agent-files/skills/github_issue-reading.md) |
-| `docs/skills/github_issue-creation.md` | ausdrücklich beauftragte Technical Stories und Technical Epics formulieren. | [issue-creation](https://heljens-it-services.github.io/agent-files/skills/github_issue-creation.md) |
-| `docs/skills/github_type-setting.md` | vorhandene native `Story`- und `Epic`-Typen für technische Issues setzen. | [type-setting](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) |
+| `docs/skills/github_issue-creation.md` | ausdrücklich beauftragte Technical Stories, Technical Epics und Technical Tasks erstellen oder ändern. | [issue-creation](https://heljens-it-services.github.io/agent-files/skills/github_issue-creation.md) |
+| `docs/skills/github_type-setting.md` | tatsächlich vorhandene native `Story`-, `Epic`- und `Task`-Typen für technische Issues setzen. | [type-setting](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) |
 | `docs/skills/github_relationship-setting.md` | technische Issue-Abhängigkeiten und Beziehungen setzen. | [relationship-setting](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md) |
 | `docs/skills/code-testing.md` | technische Kriterien mit passenden Tests oder E2E-Evidenz prüfen. | [code-testing](https://heljens-it-services.github.io/agent-files/skills/code-testing.md) |
 | `docs/skills/code_diff-review.md` | technischen Änderungssatz gegen die technischen Kriterien prüfen. | [code-diff-review](https://heljens-it-services.github.io/agent-files/skills/code_diff-review.md) |
@@ -111,4 +112,4 @@ Die folgenden Referenzen werden bei betroffenem Angular-Setup, fehlender oder ge
 
 | Direkte Quelle | Einsatz |
 |---|---|
-| [ISSUE_TEMPLATES.md](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) | Bei beauftragter Issue-Arbeit den kanonischen fachlichen bzw. technischen Vertrag im eigenen Scope prüfen; bei Infrastruktur nur innerhalb beauftragter Template-Pflege. |
+| [ISSUE_TEMPLATES.md](https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md) | Bei beauftragter Issue-Arbeit den kanonischen fachlichen bzw. technischen Vertrag im eigenen Scope prüfen. |

@@ -45,7 +45,7 @@ Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und
 
 [MUST_NOT] Views, Endpoints, CLI-Kommandos und fachliche Logik dürfen Infrastrukturcode nicht direkt ansprechen.
 
-[MUST] Mapping an Systemgrenzen muss explizit sein, damit externe Verträge, technische Transportmodelle und interne Modelle entkoppelt bleiben.
+[MUST] Mapping an Systemgrenzen muss explizit sein und externe Verträge, technische Transportmodelle und interne Modelle entkoppeln. Dazu müssen Mapper externe DTOs aus APIs, Dateien, Datenbanken und UI-Formularen von internen Modellen trennen.
 
 [MUST] Konfiguration muss an der technischen Grenze geladen, typisiert gebunden und validiert werden.
 
@@ -73,7 +73,7 @@ Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und
 
 [MUST_NOT_IF] Die Sprachregel darf lokalisierte nutzersichtbare Werte nicht auf Englisch festlegen und bestehende öffentliche Verträge oder persistierte Schemata nicht ohne erforderliche Migration umbenennen.
 
-[SHOULD] Ein Name soll erklären, warum ein Konzept existiert. Abweichungen sind erlaubt, wenn ein etabliertes Framework, Protokoll oder Fremdsystem einen anderen Namen vorgibt.
+[SHOULD] Namen sollen die fachliche Bedeutung, Verantwortung oder ausgeführte Operation präzise benennen. Extern vorgegebene Namen bleiben gemäß der obigen Vertragsregel unverändert.
 
 [MUST] Eine Funktion oder Methode muss eine klar erkennbare Aufgabe auf einer Abstraktionsebene erfüllen.
 
@@ -119,8 +119,6 @@ Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und
 
 [ALLOW_IF] Vererbung darf genutzt werden, wenn echte Substituierbarkeit vorliegt.
 
-[MUST_IF] Mapper müssen externe DTOs von internen Modellen trennen, wenn Daten aus APIs, Dateien, Datenbanken oder UI-Formularen kommen.
-
 [SHOULD] Facades, Application Services, Use Cases oder Component Services sollen Abläufe koordinieren, wenn Views, Endpoints oder CLI-Einstiege sonst Wissen über Datenzugriff, Validierung, Status oder technische Abläufe enthalten würden.
 
 ## UI- und Präsentationsregeln
@@ -165,8 +163,6 @@ Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und
 
 [MUST] Fehlerantworten an UI, CLI, HTTP-Clients oder andere Konsumenten müssen konsistent, maschinenlesbar und stabil sein.
 
-[MUST_NOT] Fehlerantworten dürfen keine unbeabsichtigten internen Details enthalten.
-
 [MUST] Logs müssen technische Ursachen und Diagnosekontext erklären.
 
 [MUST_NOT] Logs dürfen fachliche Status-, Ergebnis- oder Fehlerobjekte nicht ersetzen.
@@ -179,7 +175,7 @@ Diese Datei enthält technische Grundregeln. Zuständigkeit, Pflichtlektüre und
 
 [MUST] Eingaben aus UI, CLI, Dateien, Datenbanken und APIs müssen als unsicher behandelt werden, bis sie validiert wurden.
 
-[MUST_NOT] Ausgaben dürfen keine unbeabsichtigten internen Diagnose-, Infrastruktur- oder Sicherheitsdetails enthalten.
+[MUST_NOT] Ausgaben einschließlich Fehlerantworten dürfen keine unbeabsichtigten internen Details enthalten, insbesondere keine Diagnose-, Infrastruktur- oder Sicherheitsdetails.
 
 [MUST] Abhängigkeiten müssen nach den Kriterien Wartbarkeit, Sicherheit, Lizenz, Kompatibilität und Projektbedarf ausgewählt und aktualisiert werden.
 

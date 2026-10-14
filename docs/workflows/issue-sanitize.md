@@ -2,7 +2,7 @@
 
 ## Owner
 
-`product_owner` führt Type- und Relationship-Korrekturen an User Stories/User Epics im beauftragten Scope aus. Technische Issue-Types, technische Hierarchie und technische Abhängigkeiten werden als Bedarf an den Koordinator zurückgegeben.
+`product_owner` führt Type- und Relationship-Korrekturen an User Stories/User Epics/User Tasks im beauftragten Scope aus. Technical Tasks sowie weitere technische Issue-Types, technische Hierarchie und technische Abhängigkeiten werden an den Koordinator zur separaten Zuweisung an Architektur zurückgegeben; Architektur verantwortet deren Mutationen und Read-back.
 
 ## Zweck
 

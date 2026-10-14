@@ -1,6 +1,6 @@
 # Workflow: Spezialisten-Implementierung
 
-## Zweck
+## Ziel
 
 Eine geklärte und abgegrenzte technische Änderung innerhalb der eigenen Implementierungszuständigkeit ausführen.
 
@@ -37,7 +37,10 @@ Die vom Koordinator ausdrücklich zugewiesene Implementierungsrolle gemäß eige
 - Keine formale Abnahme oder unabhängige Testverifikation.
 - Bei fremder Zuständigkeit oder Planbruch stoppen und den Koordinator mit dem konkreten Befund informieren.
 
-## Rückgabe
+## Rücksprungregeln
+
+- Lokale Fehler im zugewiesenen Scope korrigieren und die betroffene lokale Prüfung wiederholen. Planbrüche, fehlende Freigaben oder fremde Zuständigkeit mit konkretem Befund an den Koordinator zurückgeben.
+
+## Endergebnis
 
 Ergebnis, geänderte Bereiche, Verifikation oder deren Auslassung, Abweichungen, Blocker und weiterer Bedarf für den Koordinator.
-

@@ -21,6 +21,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
 - `code-analysis`
 - `code-implementation-planning`
 - `code-refactoring`
+- `code-minimization` für Backend-/Frontend-Änderungssätze
 - `code-testing`
 - `code-diff-review`
 - `pr-creation`
@@ -42,8 +43,8 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die �
    - beobachtbares Verhalten
 4. Refactoring-Ziele, Reihenfolge, Grenzen und Absicherungsstrategie aus dem Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt nachplanen.
 5. Falls die bestehende Absicherung zu schwach ist, Tests mit dem Ziel ergänzen oder anpassen, bestehendes Verhalten zu fixieren.
-6. Mit `code-refactoring` die Strukturverbesserungen umsetzen.
-7. Mit `code-testing` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis prüfen.
+6. Backend oder Frontend setzt die Strukturverbesserungen mit `code-refactoring` um und stabilisiert sie lokal mit `code-testing`. Erst danach prüft der jeweilige Implementierungsowner den Diff mit `code-minimization`; nach jeder akzeptierten Reduktion wiederholt er die betroffene fokussierte Verifikation. Fehlgeschlagene Reduktionen nimmt er zurück; echte Unklarheit über Invarianten oder Constraints geht an Architektur.
+7. QA prüft mit `code-testing` unabhängig Verhalten und Regressionen des finalen Änderungssatzes gegen die zuvor festgehaltene Verhaltensbasis; lokale Implementierer-Retests ersetzen diese Prüfung nicht.
 8. Mit `code-diff-review` sicherstellen, dass keine verdeckte Fachlogik oder unbeabsichtigte Verhaltensänderung entstanden ist.
 9. Kritische Funde korrigieren und die passende Prüfung wiederholen.
 10. Erst nach bestandener Absicherung `softwareentwicklung_infrastruktur` den Commit-Push-Auftrag im beauftragten Task-Scope ausführen lassen.

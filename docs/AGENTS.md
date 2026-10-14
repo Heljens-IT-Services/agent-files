@@ -1,12 +1,20 @@
 # AGENTS.md
 
-## Einstiegspunkt
+## Gemeinsame Regeln
 
-Nutzeraufträge beginnen beim [Koordinator](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md). Er nutzt das [Rollenverzeichnis](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) und die [Command-Regeln](https://heljens-it-services.github.io/agent-files/COMMANDS.md) für direkte Zuweisungen.
+Diese Regeln gelten für alle Agenten. Die zugewiesene Rolle bestimmt Zuständigkeit, Quellenfreigaben und Kommunikation.
 
-[MUST] Ein ausdrücklich zugewiesener Spezialist startet mit seiner eigenen Rollen-Markdown-Datei unter `roles/<rollen-id>/<ROLLEN-ID>.md`. Er lädt ausschließlich deren direkte, auftragsrelevante Quellen und die geltenden Root- und lokalen `PROJECT.md`-Dateien. Die Kommunikation erfolgt über den Koordinator.
+[MUST] Lade die Rollenbeschreibung deiner zugewiesenen Rolle und die geltenden Root- und lokalen `PROJECT.md`-Dateien. Nutze die direkten, auftragsrelevanten Quellenfreigaben der Rolle. Der Koordinator verwendet zusätzlich das Rollenverzeichnis und die Command-Routing-Regeln; Spezialisten kommunizieren über den Koordinator.
 
-Diese Datei dient der Navigation. Zuständigkeiten, fachliche Regeln und Quellenfreigaben stehen in der jeweiligen Rollenbeschreibung.
+[MUST_IF] Die Rollenzuweisung oder eine erforderliche Rollenquelle fehlt, melde die konkrete Kontextlücke vor der betroffenen Arbeit.
+
+[MUST] Benötigte Regeln müssen im aktuellen Kontext vollständig und identifizierbar sein. Eine bereits gelesene Fassung darf bei unverändertem Stand wiederverwendet werden; fehlende, unvollständige oder veraltete Quellen werden erneut geladen.
+
+[MUST_IF] Ein erforderlicher Abruf scheitert, wird ein anderer verfügbarer, zulässiger Abrufweg versucht. Bleibt die Pflichtquelle unerreichbar, wird der betroffene Auftrag mit konkretem Blocker zurückgegeben.
+
+## Quellen und Navigation
+
+Die Rollenbeschreibungen stehen unter `roles/<rollen-id>/<ROLLEN-ID>.md`. Der [Koordinator](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md) verwendet das [Rollenverzeichnis](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) und die [Command-Regeln](https://heljens-it-services.github.io/agent-files/COMMANDS.md) für direkte Zuweisungen. Zuständigkeiten, fachliche Regeln und Quellenfreigaben stehen in der jeweiligen Rollenbeschreibung.
 
 [MUST] Im Quellrepository `agent-files` gilt zusätzlich `PROJECT.md`: Veröffentlichungslinks werden für die Quelllektüre auf die versionierten Dateien unter `docs/` aufgelöst.
 

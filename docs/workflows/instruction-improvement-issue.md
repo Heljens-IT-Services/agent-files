@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest diesen Ablauf als Delegationsplan. Inhalt, Scope und Issue-Struktur delegiert er an `product_owner`; die Prüfung betroffener Fachregeln an deren jeweilige Owner-Rolle. Issue-Mutationen führt ausschließlich die beauftragte Product-Owner-Rolle aus.
+`koordinator` liest diesen Ablauf als Delegationsplan. Inhalt, Scope und Issue-Struktur delegiert er für fachliche User-Issues an `product_owner` und für technische Issues einschließlich Technical Tasks an `softwareentwicklung_architektur`; die Prüfung betroffener Fachregeln an deren jeweilige Owner-Rolle. Issue-Inhalts-, Type- und Relationship-Mutationen führt die für diesen Scope beauftragte Owner-Rolle aus.
 
 ## Ziel
 

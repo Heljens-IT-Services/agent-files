@@ -39,9 +39,7 @@ Diese Datei enthält technische Prüfnormen für den ausdrücklich beauftragten 
 
 [MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
 
-[MUST_NOT] Tests dürfen private Implementierungsdetails nicht als primären Vertrag prüfen.
-
-[MUST_NOT] UI-Tests dürfen nicht primär DOM-Struktur, CSS-Klassen oder private Implementierungsdetails prüfen.
+[MUST_NOT] Tests dürfen private Implementierungsdetails nicht als primären Vertrag prüfen; bei UI-Tests gilt dies auch für DOM-Struktur und CSS-Klassen.
 
 [SHOULD] Agents sollen den kleinsten sinnvollen Checkumfang ausführen. Abweichungen sind erlaubt, wenn die Änderung gemeinsame Vertrage, Startup, Routing, Persistenz, Security oder breite Nutzerflows betrifft.
 

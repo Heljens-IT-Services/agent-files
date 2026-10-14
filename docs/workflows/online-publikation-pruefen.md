@@ -14,6 +14,8 @@ Die über GitHub Pages veröffentlichten Agent Files gegen den aktuellen GitHub-
 - Bei Zweifeln an Erreichbarkeit, Vernetzung oder Aktualität.
 - Ausschließlich lesend; Befunde zur Behebung an den Koordinator zurückgeben.
 
+Der kanonische Aufruf lautet `/workflows run online-publication-check`. Der Dateipfad bleibt für bestehende Links unverändert.
+
 ## Verwendete Skills
 
 - `research`

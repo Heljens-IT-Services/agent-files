@@ -6,8 +6,8 @@ Diese Datei ist die verbindliche Rollenquelle für `koordinator`.
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
-| `docs/roles/koordinator/KOORDINATOR.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/koordinator/KOORDINATOR.md](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md) |
-| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
+| `docs/roles/koordinator/KOORDINATOR.md` | Pflichtlektüre für die zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/koordinator/KOORDINATOR.md](https://heljens-it-services.github.io/agent-files/roles/koordinator/KOORDINATOR.md) |
+| `docs/AGENTS.md` | Pflichtlektüre für gemeinsame Regeln, Quellenstand und Projektkontext. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
 | `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
 | Root-`PROJECT.md` und lokale `PROJECT.md` der betroffenen Teilsolution | Pflichtlektüre für den geltenden Projektkontext; bei Scope-Wechsel erneut zuordnen. | Repository-lokale Quellen; siehe `Projektkontext und Vorrang`. |
 | `docs/skills/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Skills bei erfüllter Bedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Skills`. |

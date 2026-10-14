@@ -1,49 +1,14 @@
 # agent-files
 
-`agent-files` enthält die verbindlich veröffentlichten Agent- und Developer-Anweisungen von Heljens IT Services.
+`agent-files` pflegt die gemeinsamen Regeln, Rollen, Skills, Workflows und Codex-Vorlagen von Heljens IT Services für die Verwendung in Projekt-Repositories.
 
-Das Repository ist bewusst einfach aufgebaut: Die relevanten Markdown-Dateien liegen unter `docs/` und werden von GitHub Pages unmittelbar veröffentlicht. Es gibt keine separate HTML-, CSS- oder Build-Schicht.
-
-## GitHub Pages
-
-Die veröffentlichte Referenz liegt unter:
-
-[GitHub Pages](https://heljens-it-services.github.io/agent-files/)
-
-Dieses Repository ist ein GitHub-Pages-Projekt. Die Pages-Ausgabe wird aus dem Branch `main` und dem Ordner `docs/` bereitgestellt.
-
-Die Dateien sind direkt unter festen Markdown-URLs erreichbar, zum Beispiel:
-
-- [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md)
-- [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md)
-- [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md)
-- [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md)
-
-Andere Repositories und Projekte sollen auf diese URLs verweisen, wenn sie die aktuell gültigen Arbeitsanweisungen für KI-Agenten, Codex oder vergleichbare Entwicklungsassistenten referenzieren wollen.
-
-## Zweck
-
-Das Repository dient als zentrale, online referenzierbare Single Source of Truth für Agent- und Developer-Anweisungen.
-
-Die Markdown-Dateien sind von deontischer Logik inspiriert. Sie arbeiten mit expliziten Regelmarkern, um Verpflichtungen, Verbote, Erlaubnisse, Prioritäten und bedingte Geltungsbereiche für Agents und Entwicklungsassistenten klar und maschinenlesbar zu formulieren.
-
-Typische Nutzung:
-
-- über `AGENTS.md` in den Koordinator oder die ausdrücklich zugewiesene Spezialistenrolle einsteigen
-- Spezialisten mit ihrer eigenen Rollenbeschreibung und den dort direkt freigegebenen, auftragsrelevanten Quellen versorgen
-- eine zusätzliche `PROJECT.md` für Versionsbasis sowie fachliche und technische Projektspezifika pflegen
-- projektbezogene und technologiespezifische Developer-Regeln zentral bereitstellen
-- andere Repositories auf stabile, direkt aufrufbare Markdown-Dateien verweisen lassen
+[GitHub Pages](https://heljens-it-services.github.io/agent-files/) veröffentlicht die Dateien direkt aus `docs/` auf `main` unter festen URLs. Konsumierende Projekte verwenden diese veröffentlichte Fassung; Änderungen auf einem Feature-Branch werden erst nach der Veröffentlichung verfügbar.
 
 ## Struktur
 
-Die allgemeinen Arbeitsregeln liegen unter `docs/`. Rollen, Skills und Workflows liegen in eigenen Unterordnern und sind über rollenbezogene Quellenfreigaben und Routing-Kataloge erschlossen.
-
-Aktuell relevante Dateien sind:
-
 | Pfad | URL | Zweck |
 |---|---|---|
-| `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Navigation zum Koordinator oder zur zugewiesenen Rolle. |
+| `docs/AGENTS.md` | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) | Gemeinsame Regeln und Quellen für alle Agenten. |
 | `docs/roles/ROLES.md` | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Kompaktes Rollenverzeichnis für den Koordinator. |
 | `docs/roles/developer/DEVELOPER.md` | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Allgemeine technologieübergreifende Entwicklungsregeln. |
 | `docs/roles/developer/DEVELOPER.*.md` | [Developer-Rollen](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) | Technologiespezifische Entwicklungsregeln. |
@@ -52,13 +17,9 @@ Aktuell relevante Dateien sind:
 
 ## Pflege
 
-Die Dateien unter `docs/` sind die veröffentlichten Quelldateien.
-
-Änderungen an den Agent- und Developer-Anweisungen erfolgen direkt in diesen Markdown-Dateien. Es gibt bewusst keine separate Generierung und keinen zusätzlichen Sync-Schritt.
+Regeln werden direkt unter `docs/` bearbeitet. Codex-Konfiguration und Agent-Vorlagen werden gemäß `PROJECT.md` in `docs/codex/` und `.codex/` inhaltsgleich gepflegt.
 
 Die Regeln verwenden dazu Marker wie `MUST`, `MUST_IF`, `MUST_NOT`, `ALLOW`, `ALLOW_IF`, `SHOULD`, `OPTIONAL` und `PRIORITY`, damit die normative Bedeutung jeder Anweisung möglichst eindeutig bleibt.
-
-Konsumierende Projekt-Repositories müssen zusätzlich eine eigene `PROJECT.md` halten. Diese Datei enthält mindestens die Versionsbasis des konkreten Projekts und kann fachliche oder technische Leitplanken festhalten, die nur für dieses Projekt gelten. Sie ist nicht Teil der allgemeinen veröffentlichten Referenz unter GitHub Pages, sondern bewusst als projektspezifische Ergänzung gedacht.
 
 ### Skills und Workflows pflegen
 
@@ -82,9 +43,17 @@ Für die Pflege gelten folgende Konventionen:
 
 ## Verwendung in Projekten
 
-Andere Repositories verweisen auf den Einstieg und die Routing-Kataloge unter GitHub Pages: [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md), [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [SKILLS.md](https://heljens-it-services.github.io/agent-files/skills/SKILLS.md) und [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md).
+Für Codex werden die Vorlagen lokal in das konsumierende Repository übernommen:
 
-Damit ist klar, welche Fassung jeweils veröffentlicht und referenziert wird.
+1. [Projektkonfiguration](https://heljens-it-services.github.io/agent-files/codex/config.toml) als `.codex/config.toml` und die Agent-TOMLs aus `docs/codex/agents/` als `.codex/agents/*.toml` kopieren. Eine vorhandene Konfiguration samt `developer_instructions` gezielt zusammenführen und ihre übrigen Einstellungen erhalten.
+2. Die gemeinsamen [AGENTS.md-Regeln](https://heljens-it-services.github.io/agent-files/AGENTS.md) über die lokale Root-`AGENTS.md` laden lassen. Eine vorhandene `AGENTS.md` um diesen Einstieg ergänzen und ihre Projektregeln erhalten.
+3. Eine eigene Root-`PROJECT.md` und bei eigenständigen Teilsolutions deren lokale `PROJECT.md` mit Versionsbasis und projektspezifischen Regeln bereitstellen.
+4. Das Projekt in Codex als vertrauenswürdig freigeben, damit seine `.codex/config.toml` geladen wird. Die eingesetzte Codex-Version muss die automatische Erkennung eigenständiger Agent-TOMLs unter `.codex/agents/` unterstützen.
 
+Aktuelle Codex-Versionen erkennen eigenständige Agent-TOMLs automatisch; siehe [Custom Agents](https://learn.chatgpt.com/docs/agent-configuration/subagents#custom-agents) und die [Konfigurationsreferenz](https://learn.chatgpt.com/docs/config-file/config-reference) für `developer_instructions`.
 
-Die Agent-TOMLs konfigurieren Rollen und Modellparameter. Routing, Kommunikation und Kontextgrenzen sind Instruktionen für den ausführenden Host. Spezialisten erhalten ihre Rollenquelle und einen begrenzten Auftragskontext; der Koordinator verwendet die Routing-Kataloge.
+Die Projektkonfiguration weist ausschließlich der primären, nicht delegierten Sitzung ohne ausdrückliche Rollenzuweisung die Rolle `koordinator` zu. Sie lässt die lokale `.codex/agents/koordinator.toml` lesen und deren `developer_instructions` befolgen. Eine ausdrücklich zugewiesene Spezialistenrolle bleibt auch bei geerbten Projektanweisungen erhalten. Fehlende Rollenzuweisungen oder Pflichtquellen werden als konkrete Blocker gemeldet.
+
+Dieses Lesen ist ein instruktionsgesteuerter Rollenstart. Codex importiert dabei weder eine entfernte Markdown-Datei noch die TOML-Datei als Konfiguration. Insbesondere übernimmt die primäre Sitzung dadurch keine Modell-, Reasoning- oder Werkzeugeinstellungen aus der Koordinator-TOML. Solche Einstellungen wirken, wenn Codex die jeweilige Agent-Datei als Laufzeitkonfiguration lädt; die Rollen-Markdown-Dateien regeln Zuständigkeiten und Quellen.
+
+Die TOMLs verweisen auf die veröffentlichten Rollen- und gemeinsamen Regeln. Im Quellrepository werden diese Links gemäß `PROJECT.md` auf `docs/` aufgelöst.

@@ -89,8 +89,8 @@ Zusätzlich:
 ## Rollenübergaben
 
 - Rekursive oder flache fachliche Zerlegung, fachliche Schnittkriterien und User-Issue-Terminalität: `product_owner`.
-- Technische Zerlegung, Technical Stories/Epics und technische Task-Terminalität: Architektur nach separater Koordinatorzuweisung.
-- Issue-Erstellung, Type- und Relationship-Mutationen sowie Read-back: `product_owner`.
+- Technische Zerlegung, Technical Stories/Epics/Tasks einschließlich technischer Task-Terminalität: Architektur nach separater Koordinatorzuweisung.
+- User-Issue-Erstellung, fachliche Type- und Relationship-Mutationen sowie Read-back: `product_owner`. Technical Tasks einschließlich Inhalts-, Type- und Relationship-Mutationen sowie Read-back: Architektur nach separater Koordinatorzuweisung.
 - Technische Detailpläne und technische Strukturentscheidungen werden an den Koordinator zurückgegeben.
 - Konflikte in Hierarchie oder fachlichem Scope gehen an Product Owner; keine eigene Subdelegation durch den operativen Owner.
 

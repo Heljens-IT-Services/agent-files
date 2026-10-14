@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Unabhängige Verifikation delegiert er an `softwareentwicklung_qualitaetssicherung`; Branchabschluss, Commit, Push und Merge an `softwareentwicklung_infrastruktur`. Jede Phase wartet auf die belegte Rückgabe der vorherigen.
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan. Unabhängige Verifikation delegiert er an `softwareentwicklung_qualitaetssicherung`; Branchabschluss, Commit, Push, Check-Beobachtung und Merge an `softwareentwicklung_infrastruktur`. Jede Phase wartet auf die belegte Rückgabe der vorherigen.
 
 ## Ziel
 
@@ -46,7 +46,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 4. Mit `code-diff-review` den gesamten Änderungssatz gegen Scope, Nicht-Scope und Akzeptanzkriterien prüfen und nur bei `versandbereit` oder `versandbereit mit Hinweisen` fortfahren.
 5. `softwareentwicklung_infrastruktur` den Workflow `commit-push.md` für ausschließlich taskbezogene Änderungen ausführen lassen.
 6. Mit `pr-creation` einen vorhandenen Pull Request für den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt für diesen Workflow als ausdrückliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
-7. Mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
+7. Infrastruktur mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
 8. Bei vollständig erfolgreichen erforderlichen Checks oder dem zulässigen Status `no-checks-required` und erfüllten übrigen Repository-Regeln mit `github-pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
 9. Nach verifiziertem Merge mit `integration-branch-update` auf `develop` wechseln und ihn per Fast-Forward aktualisieren.
 10. Commit, Pull Request, Check-Ergebnis, Merge und lokalen Abschlusszustand zusammenfassen.
@@ -57,7 +57,7 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 
 `/finish` bleibt der technische Branch-/PR-/Merge-Abschluss. Die fachliche graphweite Acceptance-Prüfung erfolgt davor über `issue-acceptance-convergence` und wird hier nicht dupliziert.
 
-`/finish` führt keine nachträgliche fachliche Minimierung durch. Fehlt die vorgelagerte Minimierungs- oder Retest-Evidenz, ist der technische Abschluss nicht reif und muss an den zuständigen Implementierungs-/Bugfix-Workflow zurückgegeben werden.
+`/finish` führt keine nachträgliche fachliche Minimierung durch. Fehlt bei Backend-/Frontend-Änderungen die vorgelagerte Minimierungs- und Retest-Evidenz oder bei Infrastrukturänderungen die rollenbezogene Scope-Prüfung und lokale Verifikation, ist der technische Abschluss nicht reif und muss an den zuständigen Implementierungs-/Bugfix-Workflow zurückgegeben werden.
 
 - Bei fehlgeschlagenen lokalen Prüfungen zur passenden Implementierung oder Fehlerbehebung zurückkehren; keine beliebigen Fehler außerhalb des Task-Scopes beheben.
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur passenden Umsetzung zurückkehren.
@@ -68,8 +68,8 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 ## Rollenübergaben
 
 - Reifekriterien und offene fachliche Scope-Entscheidungen: `product_owner`.
-- Verifikation und erforderliche Checks: `softwareentwicklung_qualitaetssicherung`.
-- Commit, Push, Merge und lokaler Branchabschluss: `softwareentwicklung_infrastruktur`.
+- Unabhängige Verifikation und Check-Bewertung: `softwareentwicklung_qualitaetssicherung`.
+- Commit, Push, PR, Check-Beobachtung, Merge und lokaler Branchabschluss: `softwareentwicklung_infrastruktur`.
 - Der Koordinator delegiert Phasen einzeln und wartet auf belegte Rückgaben, bevor die nächste Mutation beauftragt wird.
 
 ## Endergebnis

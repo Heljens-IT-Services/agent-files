@@ -24,8 +24,8 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 - `code-analysis`
 - `code-implementation-planning`
 - `code-implementation`
-- `code-refactoring`
-- `code-minimization`
+- `code-refactoring` nur für Backend-/Frontend-Änderungssätze
+- `code-minimization` nur für Backend-/Frontend-Änderungssätze
 - `design-review` bei relevanter visueller Designverantwortung
 - `code-testing`
 - `code-diff-review`
@@ -37,21 +37,21 @@ Die lokale Task-Verifikation dieses Workflows bleibt vom separaten, graphweiten 
 
 ## Ablauf
 
-1. Der Koordinator übergibt die Arbeitseinheit und den vorhandenen Kontext an die passende Fachrolle; Klärungsbedarf zu Issue-Kontext, Akzeptanzkriterien und Issue-Inhalten geht an den Koordinator zur Zuweisung an `product_owner`.
+1. Der Koordinator übergibt die Arbeitseinheit und den vorhandenen Kontext an die passende Fachrolle; Klärungsbedarf zu fachlichem Issue-Kontext geht an `product_owner`, zu technischen Issues einschließlich Technical Tasks an `softwareentwicklung_architektur`.
 2. Der Koordinator delegiert Branchprüfung oder erforderliche Branchvorbereitung an `softwareentwicklung_infrastruktur`.
-3. Wenn Issue-Kontext fehlt, delegiert der Koordinator das Lesen mit `issue-reading` an `product_owner`.
+3. Wenn Issue-Kontext fehlt, delegiert der Koordinator das Lesen mit `issue-reading` je fachlichem oder technischem Scope an `product_owner` beziehungsweise Architektur.
 4. Der Koordinator übergibt den vorhandenen fachlichen Scope an `product_owner` zur Klärung von Ziel, Scope, Nicht-Scope und Akzeptanzkriterien und einen vorhandenen technischen Plan an Architektur zur technischen Einordnung.
 5. Die zugewiesene Umsetzungsrolle liest geltende Regeln und mit `code-reading` ausschließlich unmittelbar relevante Dateien und Referenzimplementierungen.
 6. Wenn die Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator an `designer`, um offenes Design zu explorieren und ein Handoff zu liefern. Ein belastbares vorhandenes Design-Handoff wird übernommen, ohne eine erneute Exploration zu erzwingen.
 7. Der Koordinator delegiert die Konsistenzprüfung technischer Pläne, Design-Handoffs, Repository-Zustand und technischer Risiken an `softwareentwicklung_architektur`. Nur bei fehlender technischer Ausführbarkeit, wesentlichen offenen Architekturentscheidungen, neuem technischem Risiko oder echtem Planbruch wird mit `code-implementation-planning` gezielt nachgeplant.
-8. Der Koordinator beauftragt Backend, Frontend oder bei ausdrücklich zugewiesenen Infrastruktur-Arbeitspaketen Infrastruktur mit dem nächsten geplanten Arbeitspaket; die Rolle setzt es mit `code-implementation` oder bei reinem Verhaltenserhalt mit `code-refactoring` im definierten Scope um.
+8. Der Koordinator beauftragt Backend, Frontend oder bei ausdrücklich zugewiesenen Infrastruktur-Arbeitspaketen Infrastruktur mit dem nächsten geplanten Arbeitspaket; die Rolle setzt es mit `code-implementation` oder bei reinem Verhaltenserhalt und direkter Rollenfreigabe mit `code-refactoring` im definierten Scope um.
 9. Der Implementierungsowner führt die für sein Arbeitspaket vorgesehene lokale Entwicklungsverifikation mit `code-testing` aus und berichtet die Belege.
 10. Der Koordinator gibt konkrete lokale Implementierungsfehler gezielt an den zuständigen Implementierungsowner zurück; dieser korrigiert sie im unveränderten Scope und wiederholt nur die relevante Prüfung. Ein lokaler Fehler löst keine vollständige Neuplanung aus.
 11. Der Koordinator beauftragt die Arbeitspakete in der geplanten Reihenfolge, bis der technische Plan abgearbeitet ist.
 12. Bei einem visuellen oder interaktiven Ergebnis delegiert der Koordinator den Design-Review gegen Ziel, Handoff und Constraints an `designer`. Lokale Umsetzungsabweichungen gehen gezielt an den Frontend-Owner zurück; grundlegende Richtungsfragen an die Designrolle.
-13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, delegiert der Koordinator bei Backend- oder Frontend-Änderungssätzen die Minimierung mit `code-minimization` an den jeweiligen Implementierungsowner. Infrastrukturänderungen werden innerhalb ihrer eigenen Quellenfreigaben geprüft. Bei rotem oder diagnostisch instabilem Stand findet keine Minimierung statt; sie erzeugt keine neuen Features, Scope-Issues oder Refactorings.
+13. Wenn die Arbeitseinheit lokal funktional konvergiert ist, delegiert der Koordinator bei Backend- oder Frontend-Änderungssätzen die Minimierung mit `code-minimization` an den jeweiligen Implementierungsowner. Infrastruktur prüft eigene Änderungen mit `code-analysis` auf Scope und unbegründete Bestandteile, korrigiert sie bei Bedarf mit `code-implementation` und liefert lokale `code-testing`-Belege. Bei rotem oder diagnostisch instabilem Stand findet keine Minimierung statt; sie erzeugt keine neuen Features, Scope-Issues oder Refactorings.
 14. Nach jeder akzeptierten Reduktion delegiert der Koordinator die betroffene fokussierte Verifikation an den Implementierungsowner. Eine fehlgeschlagene Reduktionshypothese wird zurückgenommen und als kein fachlicher Acceptance-GAP behandelt; echte Unklarheit über Acceptance, Invariante oder Architektur-Constraint geht an Product Owner oder Architektur.
-15. Der Koordinator delegiert die unabhängige technische Task-Verifikation und Regression auf dem minimierten Änderungssatz mit `code-testing` an `softwareentwicklung_qualitaetssicherung`. Fachliche Akzeptanzkriterien gehen zur Black-Box-Abnahme an `product_owner`; technische Akzeptanzkriterien an `softwareentwicklung_architektur`. Implementierer-Retests ersetzen unabhängige QA-Prüfungen nicht.
+15. Der Koordinator delegiert die unabhängige technische Task-Verifikation und Regression auf dem abschließend lokal geprüften Änderungssatz mit `code-testing` an `softwareentwicklung_qualitaetssicherung`. Fachliche Akzeptanzkriterien gehen zur Black-Box-Abnahme an `product_owner`; technische Akzeptanzkriterien an `softwareentwicklung_architektur`. Implementierer-Retests ersetzen unabhängige QA-Prüfungen nicht.
 16. Der Koordinator delegiert den Review des finalen Änderungssatzes gegen Scope, Nicht-Scope, Akzeptanzkriterien, Seiteneffekte, Regressionen und fehlende Prüfungen mit `code-diff-review` an `softwareentwicklung_qualitaetssicherung`.
 17. Der Koordinator delegiert kritische Funde im unveränderten Scope an den zuständigen Implementierungsowner und danach die zum Fund passende erneute Prüfung: technische Akzeptanz durch Architektur, unabhängige QA-Befunde durch QA oder fachliche Kriterien durch Product Owner.
 18. `softwareentwicklung_infrastruktur` führt für die abgeschlossene Arbeitseinheit den Workflow `commit-push.md` aus.
@@ -90,7 +90,7 @@ In Analyse oder Planung zurückspringen, wenn:
 
 ## Rücksprungregeln
 
-- Bei unklarem Issue-Kontext wird an Product Owner zur Klärung zurückgegeben.
+- Bei unklarem Issue-Kontext wird fachlicher Bedarf an Product Owner und technischer Bedarf einschließlich Technical Tasks an Architektur zurückgegeben.
 - Bei unklarem Code- oder Schnittstellenkontext wird technische Analyse an Architektur delegiert.
 - Bei fachlichen Scope-Erweiterungen ist eine Product-Owner-/Human-Klärung erforderlich.
 - Lokale Implementierungsfehler gehen an den Implementierungs-Owner zurück; QA prüft die Korrektur erneut.
@@ -101,7 +101,7 @@ In Analyse oder Planung zurückspringen, wenn:
 - Fachlicher Issue-Scope, User Stories/User Epics und fachliche Akzeptanzkriterien: `product_owner`.
 - Technische Issues, technischer Plan und technische Akzeptanzkriterien: `softwareentwicklung_architektur`.
 - Gestaltung, falls beauftragt: `designer`.
-- Code-Lesen, Analyse und Implementierung: Backend oder Frontend gemäß Scope.
+- Code-Lesen, Analyse und Implementierung: Backend, Frontend oder Infrastruktur gemäß Scope.
 - Unabhängige technische Task-Verifikation und Regression: `softwareentwicklung_qualitaetssicherung`.
 - Commit und Push: `softwareentwicklung_infrastruktur`.
 - Planbruch wird an Product Owner (fachlich) oder Architektur (technisch) delegiert; lokale Implementierungs- oder Testfehler gehen gezielt an den Implementierer.

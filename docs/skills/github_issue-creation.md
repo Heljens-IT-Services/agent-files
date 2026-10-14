@@ -18,7 +18,7 @@ Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen.
 4. Bei einem möglichen Duplikat die Alternativen benennen und die über den Koordinator vermittelte User-Entscheidung abwarten.
 5. Titel und Body aus dem vorhandenen Kontext formulieren; bei fehlendem Template mindestens Problem, Ziel, Scope, Nicht-Ziele und Akzeptanzkriterien abbilden.
 6. Den zugewiesenen fachlichen oder technischen Issue-Scope und Inhalt klar ausweisen. Stories und Epics verwenden die tatsächlich vorhandenen nativen Typen `Story` und `Epic`; neue Issue-Type-IDs dürfen nicht erfunden werden.
-7. Bei einem Task den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) vollständig abbilden. Fehlende wesentliche Entscheidungen nicht erfinden; den Task stattdessen als nicht terminal kennzeichnen und die fehlende Klärung benennen.
+7. Technical Tasks einschließlich Erstellung und späterer beauftragter Inhalts-, Type- und Relationship-Mutationen gehören zu `softwareentwicklung_architektur`; User-Tasks bleiben bei `product_owner` und übernehmen technische Pläne nur aus dem Architekturbeitrag. Bei einem Task den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) vollständig abbilden. Fehlende wesentliche Entscheidungen nicht erfinden; den Task stattdessen als nicht terminal kennzeichnen und die fehlende Klärung benennen.
 8. Issue erstellen und Ergebnis lesen.
 
 ## Kommandos

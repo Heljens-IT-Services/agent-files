@@ -83,7 +83,7 @@ src/app/
 
 [MUST] Der Agent muss Knip-Findings einzeln im Projektkontext bewerten und darf je Finding entscheiden, ob es im aktuellen Task behoben, weiter untersucht oder bewusst unverändert gelassen wird.
 
-[MUST_NOT] Knip-Auto-Fixes oder automatische Löschungen dürfen verwendet oder in Skripten hinterlegt werden; insbesondere sind `--fix`, `--fix-type` und `--allow-remove-files` für die automatisierte Ausführung durch den Agenten nicht zulässig.
+[MUST_NOT] Knip-Auto-Fixes oder automatische Löschungen dürfen nicht verwendet oder in Skripten hinterlegt werden; insbesondere sind `--fix`, `--fix-type` und `--allow-remove-files` für die automatisierte Ausführung durch den Agenten nicht zulässig.
 
 [MUST] Vor Abschluss eines Code-Tasks müssen `format:check`, `lint` und `architecture:check` erfolgreich laufen; `dead-code:check` muss ausgeführt und seine Findings müssen bewertet werden. Findings aus `dead-code:check` blockieren den Abschluss nicht automatisch.
 

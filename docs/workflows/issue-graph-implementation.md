@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan und entscheidet keine fachlichen oder technischen Fragen selbst. Graph und Umsetzungsscope delegiert er an `product_owner`; technische Strukturpläne an `softwareentwicklung_architektur`; Branch, Runtime-Fortschrittsanker und GitHub-Mutationen an `softwareentwicklung_infrastruktur`; Gestaltung an `designer`; Implementierung an Backend, Frontend oder Infrastruktur; formale Verifikation an `softwareentwicklung_qualitaetssicherung`. Issue-Arbeitseinheiten laufen gemäß Plan sequenziell; der Koordinator sammelt Rückgaben und steuert die nächste Phase.
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan und entscheidet keine fachlichen oder technischen Fragen selbst. Graph und Umsetzungsscope delegiert er an `product_owner`; technische Strukturpläne an `softwareentwicklung_architektur`; Branch, Runtime-Fortschrittsanker und Git-/PR-Lifecycle-Mutationen an `softwareentwicklung_infrastruktur`; Gestaltung an `designer`; Implementierung an Backend, Frontend oder Infrastruktur; formale Verifikation an `softwareentwicklung_qualitaetssicherung`. Issue-Arbeitseinheiten laufen gemäß Plan sequenziell; der Koordinator sammelt Rückgaben und steuert die nächste Phase.
 
 ## Ziel
 
@@ -103,19 +103,19 @@ Empfohlene Struktur des Fortschrittsankers:
 ### Phase 4: Nach Plan umsetzen
 
 1. Der Koordinator beauftragt die Abarbeitung des Orchestrierungsplans in der festgelegten Reihenfolge.
-2. Je Issue-Knoten delegiert der Koordinator genau eine abgeschlossene Arbeitseinheit gemäß `issue-implementation.md` an die zuständigen Spezialisten. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen technischen QA-Prüfung. Wenn eine Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator die nötige Design-Exploration, das Handoff und den visuellen Review an `designer` vor der formalen Verifikation.
+2. Je Issue-Knoten delegiert der Koordinator genau eine abgeschlossene Arbeitseinheit gemäß `issue-implementation.md` an die zuständigen Spezialisten. Dieser Teilworkflow enthält nach lokaler Konvergenz und vor der unabhängigen technischen QA-Prüfung die Backend-/Frontend-Minimierung beziehungsweise die rollenbezogene Infrastrukturprüfung. Wenn eine Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator die nötige Design-Exploration, das Handoff und den visuellen Review an `designer` vor der formalen Verifikation.
 3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed, gepusht und mit dem verpflichtenden persistenten deutschen Issue-Abschlusskommentar dokumentiert wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
 6. Nach dem persistenten Issue-Kommentar den Orchestrierungsplan gegen den tatsächlichen Zustand prüfen und aktualisieren.
-7. Während dieser Phase keinen Pull Request erstellen. Der Pull Request gehört ausschließlich in Phase 5 nach vollständiger Abarbeitung des Umsetzungsscope.
+7. Während dieser Phase keinen Pull Request erstellen. Der Pull Request gehört ausschließlich in Phase 6 nach vollständiger Abarbeitung des Umsetzungsscope.
 8. Erkennt die Umsetzung eine Unstimmigkeit, durch die der vorab festgelegte Scope nicht mehr vollständig nach diesem Workflow ausführbar ist, stoppen und den konkreten Zustand melden. Nicht selbstständig in einen alternativen Workflow, eine partielle Umsetzung oder mehrere Pull Requests wechseln.
 
 ### Phase 5: Graphweite Acceptance-Konvergenz
 
 1. Nach vollständiger Implementierung aller Scope-Knoten delegiert der Koordinator die fachliche Black-Box-Abnahme an Product Owner, die technische Kriterienprüfung an Architektur und unabhängige technische Regression an QA gemäß `issue-acceptance-convergence.md`. Wenn der User ausdrücklich einen engeren `/acceptance`-Scope gewählt hat, gilt dieser Scope.
 2. Bei `PASS` mit der Abschluss- und PR-Phase fortfahren.
-3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und den in `issue-acceptance-convergence.md` definierten Remediation-/Konvergenzzyklus ausführen: Impact-Scope lokal stabilisieren, minimieren und fokussiert retesten; erst danach die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
+3. Bei `GAP` die finale PR-Phase blockieren, den Gap klassifizieren und den in `issue-acceptance-convergence.md` definierten Remediation-/Konvergenzzyklus ausführen: betroffene Issues auf dem bestehenden Arbeitsbranch mit `issue-implementation` lokal stabilisieren, rollenbezogen prüfen und fokussiert retesten; erst danach die vollständige ursprüngliche Acceptance-Menge erneut prüfen.
 4. Bei `BLOCKED` den Workflow mit konkreter Begründung stoppen. Keinen finalen PR als vollständig akzeptierten Scope erzeugen.
 
 ### Phase 6: Abschluss und finaler Pull Request
@@ -137,10 +137,10 @@ Empfohlene Struktur des Fortschrittsankers:
 ## Rollenübergaben
 
 - Graph erfassen, Issue-Scope strukturieren und fachliche Ausführbarkeit: `product_owner`.
-- Technische Task-Pläne und technische Planbrüche: `softwareentwicklung_architektur`.
+- Technical-Task-Inhalte, -Types und -Relationships, technische Task-Pläne und technische Planbrüche: `softwareentwicklung_architektur`.
 - Arbeitsbranch, Runtime-Fortschrittsanker, Commit, Push, PR und persistente Issue-Kommentare: `softwareentwicklung_infrastruktur`.
 - Design-Handoff und visuelle Exploration: `designer`.
-- Implementierung: Backend oder Frontend passend zum Scope.
+- Implementierung: Backend, Frontend oder Infrastruktur passend zum Scope.
 - Fachliche Black-Box-Acceptance: `product_owner`.
 - Technische Kriterienprüfung: `softwareentwicklung_architektur`.
 - Unabhängige technische Regression und Gesamtsicherung: `softwareentwicklung_qualitaetssicherung`.

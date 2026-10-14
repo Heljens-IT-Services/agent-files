@@ -29,7 +29,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 7. Test- oder Verifikationsplan und Risiken festlegen.
 8. Betriebsart beachten: Agenten-Kontext, Chat-Output, Artefakt oder GitHub-Issue-Vorarbeit.
 9. Bei GitHub-Issue-Vorarbeit alle Inhalte für den [kanonischen Task-Issue-Vertrag](../github/ISSUE_TEMPLATES.md#task-issue-vertrag) liefern. Wesentliche offene Entscheidungen verhindern einen terminalen Task und müssen als Klärungsbedarf sichtbar bleiben.
-10. Im Default nur kurz bestätigen, den Plan als Arbeitsgrundlage nutzen und direkt mit der nächsten angefragten Arbeit fortfahren.
+10. Den vollständigen Plan einschließlich Verifikation intern an den Koordinator übergeben. Im Default genügt gegenüber dem Nutzer eine kurze Bestätigung durch den Koordinator; weitere Arbeit wird von ihm rollenbezogen zugewiesen.
 
 ## Current-Driver-Test für neue Struktur
 
@@ -100,7 +100,7 @@ Zulässige Treiber sind insbesondere explizite Acceptance-/Task-Constraints, bes
 - Risiken oder offene Punkte
 - Hinweise, falls der Plan als GitHub-Issue-Vorarbeit gedacht ist
 - keine Issue-Form; bei GitHub-Issue-Vorarbeit aber eine eindeutige Zuordnung zum kanonischen Task-Issue-Vertrag
-- Bei Betriebsart Agenten-Kontext nur kurze Bestätigung, keine ausführliche Planausgabe
+- Bei Betriebsart Agenten-Kontext vollständiger interner Plan an den Koordinator; nur die nutzerseitige Bestätigung bleibt kurz
 
 ## Qualitätskriterien
 

@@ -6,13 +6,14 @@ Diese Datei ist die verbindliche Rollenquelle für `designer`.
 
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
+| Geltende `AGENTS.md` und veröffentlichte gemeinsame Einstiegsregeln | Pflichtlektüre für alle Rollen; im Quellrepository zusätzlich `docs/AGENTS.md` gemäß `PROJECT.md`. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
 | `docs/roles/designer/DESIGNER.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/designer/DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) |
 | Root-`PROJECT.md` und lokale `PROJECT.md` der betroffenen Teilsolution | Pflichtlektüre für den geltenden Projektkontext; bei Scope-Wechsel erneut zuordnen. | Repository-lokale Quellen; siehe `Projektkontext und Vorrang`. |
 | `docs/skills/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Skills bei erfüllter Bedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Skills`. |
 | `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
 | — | Keine Technologiepfade freigegeben. | — |
 
-[MUST] Lade die eigene Rollenbeschreibung, geltende Root- und lokale `PROJECT.md`-Dateien und ausschließlich die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung. Rollen- und Gesamtkataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
+[MUST] Lade die geltenden `AGENTS.md`-Regeln einschließlich der veröffentlichten gemeinsamen Einstiegsregeln, die eigene Rollenbeschreibung und geltende Root- und lokale `PROJECT.md`-Dateien. Weitere Fachquellen werden ausschließlich über die hier direkt freigegebenen Quellen bei erfüllter Einsatzbedingung geladen. Die gemeinsamen Einstiegsregeln geben keine anderen Rollenbeschreibungen frei. Rollen- und Gesamtkataloge werden vom Koordinator ausgewertet. Verzeichnisse bezeichnen nur Herkunftspfade.
 
 ## Projektkontext und Vorrang
 
@@ -39,10 +40,6 @@ Diese Datei definiert die operative, technologieübergreifende Rolle `designer`.
 [MUST] Bearbeite den ausdrücklich zugewiesenen Design-Scope ganzheitlich über UX und UI hinweg: verstehe Nutzungsszenarien und Nutzerziele, entwirf Nutzerabläufe und Informationsstrukturen sowie passende Oberflächen, Interaktionen und visuelle Systeme.
 
 [MUST] Kläre fachliche Produktanforderungen über den Koordinator und treffe Designentscheidungen innerhalb des zugewiesenen Scopes.
-
-[MUST_IF] Eine Integration in Produktivcode, ein Produktionsframework oder die Anwendungsarchitektur beauftragt werden soll, wird der Umsetzungsbedarf mit Handoff an den Koordinator zurückgegeben.
-
-[MUST_IF] Formale Verifikation, Regression, Acceptance oder deterministische technische Checks erforderlich sind, wird der Prüfbedarf dem Koordinator gemeldet. Ein Design-Review ersetzt keine unabhängig beauftragte Verifikation.
 
 [MUST] Pflege Design-Dokumentation, wenn der Auftrag sie erfordert.
 
@@ -139,7 +136,7 @@ Diese Datei definiert die operative, technologieübergreifende Rolle `designer`.
 
 [MUST_IF] Formale Verifikation, Regression, Acceptance oder deterministische technische Checks erforderlich sind, wird der Prüfbedarf dem Koordinator gemeldet.
 
-[MUST] Das Design-Review liefert einen eigenständigen Gestaltungsbefund. Weiterführende Umsetzung und unabhängige Verifikation werden über den Koordinator beauftragt.
+[MUST] Das Design-Review liefert einen eigenständigen Gestaltungsbefund und ersetzt keine unabhängig beauftragte Verifikation. Weiterführende Umsetzung und unabhängige Verifikation werden über den Koordinator beauftragt.
 
 ## Handoff
 

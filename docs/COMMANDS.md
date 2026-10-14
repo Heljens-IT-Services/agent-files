@@ -59,14 +59,15 @@ Diese Datei definiert die host-unabhängige Slash-Command-Sprache für Navigatio
 ## Grammatik
 
 ```ebnf
-input       = spacing, "/", root, { spacing, token }, spacing ;
+input       = spacing, "/", root, { separator, token }, spacing ;
 root        = name | "?" ;
 token       = option | quoted | bare ;
 option      = "--", name, [ "=", value ] ;
 quoted      = '"', { character - '"' }, '"' ;
-bare        = character - spacing, { character - spacing } ;
+bare        = character - ( " " | tab ), { character - ( " " | tab ) } ;
 name        = letter-or-digit, { letter-or-digit | "-" } ;
 value       = quoted | bare ;
+separator   = ( " " | tab ), spacing ;
 spacing     = { " " | tab } ;
 ```
 
@@ -96,7 +97,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Direkte Aliase müssen vor der Root-Command-Auflösung gegen die vollständige normalisierte Eingabe und die dokumentierte Alias-Syntax abgeglichen werden.
 
-[MUST] Die öffentliche Command-Sprache verwendet ausschließlich englische Aliase, stabile IDs und Syntax-Platzhalter. Die bisherigen deutschen Aliase und IDs werden ohne Deprecated-Übergangsphase entfernt.
+[MUST] Die öffentliche Command-Sprache verwendet ausschließlich englische Aliase, stabile IDs und Syntax-Platzhalter.
 
 [MUST_IF] Wenn ein Alias Positionsargumente definiert, müssen Anzahl, Reihenfolge und Format der Argumente in der Detaildatei des Katalogeintrags dokumentiert und bei der Auflösung validiert werden.
 

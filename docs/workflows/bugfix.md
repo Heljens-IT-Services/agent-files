@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest und führt diesen Ablauf ausschließlich als Delegationsplan. Der Koordinator delegiert Ursachen- und Strukturfragen an `softwareentwicklung_architektur`, Implementierung an `softwareentwicklung_backend` oder `softwareentwicklung_frontend`, unabhängige Prüfung an `softwareentwicklung_qualitaetssicherung` sowie Commit/Push an `softwareentwicklung_infrastruktur`. Jede operative Handlung ist ein Spezialistenauftrag mit Scope und Rückgabevertrag.
+`koordinator` liest und führt diesen Ablauf ausschließlich als Delegationsplan. Der Koordinator delegiert Ursachen- und Strukturfragen an `softwareentwicklung_architektur`, Implementierung an `softwareentwicklung_backend`, `softwareentwicklung_frontend` oder bei Infrastrukturänderungen `softwareentwicklung_infrastruktur`, unabhängige Prüfung an `softwareentwicklung_qualitaetssicherung` sowie Commit/Push an `softwareentwicklung_infrastruktur`. Jede operative Handlung ist ein Spezialistenauftrag mit Scope und Rückgabevertrag.
 
 ## Ziel
 
@@ -30,7 +30,7 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 - `code-analysis`
 - `code-implementation-planning`
 - `code-implementation`
-- `code-minimization`
+- `code-minimization` nur für Backend-/Frontend-Änderungssätze
 - `code-testing`
 - `code-diff-review`
 
@@ -48,9 +48,9 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 6. Den vorhandenen Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt planen.
 7. Mit `code-implementation` den Bugfix umsetzen.
 8. Mit `code-testing` prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
-9. Erst nach erfolgreicher Reproduktion und lokaler Stabilisierung mit `code-minimization` den Bugfix-Änderungssatz auf unbegründete Bestandteile prüfen und minimieren.
+9. Erst nach erfolgreicher Reproduktion und lokaler Stabilisierung Backend-/Frontend-Änderungssätze durch ihren Implementierungsowner mit `code-minimization` prüfen und minimieren. Infrastruktur prüft eigene Änderungen mit `code-analysis` auf Scope und unbegründete Bestandteile, korrigiert sie bei Bedarf mit `code-implementation` und liefert lokale `code-testing`-Belege; fremde Skills werden nicht benötigt.
 10. Nach jeder akzeptierten Reduktion die ursprüngliche Reproduktion und die durch die Reduktion betroffene Regression fokussiert erneut grün prüfen. Eine fehlgeschlagene Reduktion zurücknehmen; echte Unklarheit über Invariante oder Constraint als Planbruch routen.
-11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; lokale Implementierer-Retests ersetzen diese nicht.
+11. Mit `code-testing` die unabhängige Verifikation des abschließend lokal geprüften Bugfixes ausführen; lokale Implementierer-Retests ersetzen diese nicht.
 12. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
 13. `softwareentwicklung_infrastruktur` den Commit-Push-Auftrag im beauftragten Task-Scope ausführen lassen.
 
@@ -66,7 +66,7 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 
 - Fehlerreproduktion und unabhängige Regression: `softwareentwicklung_qualitaetssicherung`.
 - Technische Ursachen- oder Strukturfragen: `softwareentwicklung_architektur`.
-- Codeänderungen und lokale Entwicklungschecks: `softwareentwicklung_backend` oder `softwareentwicklung_frontend`.
+- Codeänderungen und lokale Entwicklungschecks: `softwareentwicklung_backend`, `softwareentwicklung_frontend` oder bei Infrastrukturänderungen `softwareentwicklung_infrastruktur`.
 - Unabhängige Verifikation und technischer Diff-Review: `softwareentwicklung_qualitaetssicherung`.
 - Commit und Push: `softwareentwicklung_infrastruktur`.
 - Planbruch geht an `product_owner` bei fachlichem Scope oder an Architektur bei technischer Strukturfrage. Ein Fehlerbefund geht als gezielter Rückauftrag an den Implementierungs-Owner.

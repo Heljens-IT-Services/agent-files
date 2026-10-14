@@ -1,12 +1,16 @@
 # Workflow: Architekturplanung
 
-## Zweck
+## Ziel
 
 Technische Strukturentscheidungen und ausführbare technische Pläne für einen geklärten Auftrag vorbereiten.
 
 ## Owner
 
 `softwareentwicklung_architektur`
+
+## Verwenden
+
+- Wenn ein geklärter Auftrag eine technische Strukturentscheidung oder einen ausführbaren technischen Plan benötigt.
 
 ## Verwendete Skills
 
@@ -29,3 +33,10 @@ Technische Strukturentscheidungen und ausführbare technische Pläne für einen 
 - Keine Produktionsimplementierung, Tests, Issues oder GitHub-Mutationen.
 - Keine Details außerhalb des zugewiesenen technischen Scopes vorwegnehmen.
 
+## Rücksprungregeln
+
+- Bei fehlendem fachlichem Kontext, widersprüchlichen Constraints oder wesentlichen offenen Entscheidungen den konkreten Klärungsbedarf an den Koordinator zurückgeben; erst auf geklärter Grundlage weiterplanen.
+
+## Endergebnis
+
+Vollständiger technischer Plan mit Scope, Reihenfolge, Entscheidungen, Verifikation, Belegen und offenen Punkten für den Koordinator.

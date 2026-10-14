@@ -1,12 +1,16 @@
 # Workflow: Spezialisten-Verifikation
 
-## Zweck
+## Ziel
 
 Eine abgeschlossene Änderung unabhängig anhand der übergebenen Akzeptanzkriterien und des Prüfscopes bewerten.
 
 ## Owner
 
 `softwareentwicklung_qualitaetssicherung`
+
+## Verwenden
+
+- Wenn eine abgeschlossene Änderung unabhängig im ausdrücklich beauftragten Prüf- und Technologiescope verifiziert werden soll.
 
 ## Verwendete Skills
 
@@ -31,3 +35,10 @@ Eine abgeschlossene Änderung unabhängig anhand der übergebenen Akzeptanzkrite
 - Keine externe Git-/GitHub-Mutation, kein Commit, Push, PR oder Merge.
 - Keine Abnahmebehauptung ohne kriterienspezifische Evidenz.
 
+## Rücksprungregeln
+
+- Implementierungsfehler mit Evidenz an den Koordinator zur Korrektur durch den Implementierungsowner zurückgeben; danach die betroffene Prüfung wiederholen. Fehlende Voraussetzungen oder widersprüchliche Kriterien als konkreten Blocker melden.
+
+## Endergebnis
+
+Unabhängige Bewertung des geprüften Stands mit kriterienspezifischen Belegen, Befunden, Einschränkungen und Blockern für den Koordinator.

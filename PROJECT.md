@@ -6,7 +6,7 @@ Dieses Repository pflegt die versionierten Agent-, Rollen-, Skill-, Workflow- un
 
 ## Versionsbasis
 
-[MUST] Die Markdown-Quelldateien liegen unter `docs/`; GitHub Pages veröffentlicht den Inhalt dieses Verzeichnisses aus `main`.
+[MUST] Die veröffentlichten Quelldateien liegen unter `docs/`; GitHub Pages veröffentlicht den Inhalt dieses Verzeichnisses aus `main`.
 
 [PRIORITY] Bei Arbeiten an dieser Quellrepository-Version sind `docs/AGENTS.md` und die dort verlinkten Quelldateien maßgeblich. Die online veröffentlichte Fassung kann hinter dem lokalen Arbeitsstand zurückliegen und darf diesen Quellstand nicht überschreiben.
 
@@ -18,9 +18,9 @@ Dieses Repository pflegt die versionierten Agent-, Rollen-, Skill-, Workflow- un
 
 ## Technische Leitplanken
 
-[MUST] Änderungen an veröffentlichten Regeln müssen in den Markdown-Quelldateien unter `docs/` vorgenommen werden.
+[MUST] Änderungen an veröffentlichten Regeln und Codex-Vorlagen müssen in den Quelldateien unter `docs/` vorgenommen werden.
 
-[MUST] Die veröffentlichten Codex-Agent-Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den Laufzeitvorlagen unter `.codex/agents/` sein.
+[MUST] Die veröffentlichte Projektkonfiguration `docs/codex/config.toml` muss inhaltsgleich mit `.codex/config.toml` sein. Die veröffentlichten Codex-Agent-Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den Laufzeitvorlagen unter `.codex/agents/` sein.
 
 [MUST] GitHub Pages verteilt die versionierten Dateien direkt aus `docs/`; die Pflege darf keinen separaten Build- oder Generierungsschritt voraussetzen.
 

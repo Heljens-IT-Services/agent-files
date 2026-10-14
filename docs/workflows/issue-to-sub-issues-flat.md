@@ -50,7 +50,7 @@ Ein Issue genau eine Ebene in klare Child-Issues zerlegen.
 
 - Zerlegung, Schnittkriterien und fachliche Parent/Child-Entscheidung: `product_owner`.
 - User-Issue-Erstellung, fachliche Types/Relationships und Read-back: `product_owner`.
-- Technical Stories/Epics, technische Task-Verträge, technische Types/Relationships und Read-back: Architektur nach separater Zuweisung durch den Koordinator.
+- Technical Stories/Epics/Tasks einschließlich Erstellung, Inhaltsänderungen, technischer Task-Verträge, technischer Types/Relationships und Read-back: Architektur nach separater Zuweisung durch den Koordinator.
 - Technische Detailplanung geht über den Koordinator an Architektur.
 
 ## Rücksprungregeln

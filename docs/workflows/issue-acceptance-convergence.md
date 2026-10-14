@@ -28,7 +28,8 @@ Der kanonische Aufruf lautet `/workflows run issue-acceptance-convergence <issue
 - `issue-reading`
 - `product-acceptance`
 - `code-testing`
-- `code-minimization` innerhalb der Remediation
+- `code-minimization` für Backend-/Frontend-Änderungssätze innerhalb der Remediation
+- `code-implementation` für scoped Infrastrukturkorrekturen
 - `code-analysis` bei nicht direkt prüfbaren oder widersprüchlichen Kriterien
 
 ## Ablauf
@@ -83,7 +84,7 @@ Der übergeordnete Konvergenzzyklus endet erst mit `PASS`, einem konkret begrün
 
 Jeder `GAP` wird vor einer Änderung eindeutig klassifiziert:
 
-1. **Bestehender Issue-Scope:** Das Kriterium gehört zum Scope eines vorhandenen Issues, ist aber unvollständig oder regressiv. Nach gezielter technischer Planung wird derselbe Issue-Scope über `issue-implementation` beziehungsweise `issue-graph-implementation` remediiert.
+1. **Bestehender Issue-Scope:** Das Kriterium gehört zum Scope eines vorhandenen Issues, ist aber unvollständig oder regressiv. Nach gezielter technischer Planung wird derselbe Issue-Scope über `issue-implementation` auf dem vorhandenen Arbeitsbranch remediiert.
 2. **Restumfang im vereinbarten Scope:** Das Kriterium liegt im freigegebenen Parent-/Story-/Epic-Scope, ist aber noch durch kein passendes Issue repräsentiert. Product Owner plant fachliche User-Children; technische Children und technische Task-Verträge weist der Koordinator separat an Architektur. Das Child wird danach in den nativen Graphen eingeordnet und umgesetzt.
 3. **Neue oder unklare Anforderung:** Das Kriterium würde Zielbild, Scope, Nicht-Ziele oder wesentliche Entscheidungen erweitern oder ist widersprüchlich. Der Ablauf kehrt zu `requirements-clarification` und zum Human-Gate zurück; eine stille Umsetzung ist nicht zulässig.
 
@@ -94,9 +95,9 @@ Vorhandene passende Issues werden wiederverwendet. Ein neues Child darf nur nach
 Für einen `GAP` gilt folgende geschlossene Runde:
 
 1. Gap klassifizieren und den betroffenen Scope sowie die erwartete neue Evidenz festhalten.
-2. Bestehenden fachlichen Scope durch Product Owner und technischen Scope durch Architektur nachplanen; vereinbarten fachlichen Restumfang als User-Child und technischen Restumfang als Technical Child erfassen. Technische Task-Verträge erstellt Architektur.
-3. Gezielte Umsetzung mit `issue-implementation` beziehungsweise `issue-graph-implementation` durchführen und den Impact-Scope lokal bis zum `PASS` stabilisieren.
-4. Erst nach lokalem `PASS` den Remediation-Diff mit `code-minimization` minimieren.
+2. Bestehenden fachlichen Scope durch Product Owner und technischen Scope durch Architektur nachplanen; vereinbarten fachlichen Restumfang als User-Child und technischen Restumfang als Technical Child erfassen. Technical Tasks einschließlich Inhalts-, Type- und Relationship-Mutationen sowie technische Task-Verträge verantwortet Architektur.
+3. Betroffene Issues gezielt mit `issue-implementation` auf dem vorhandenen Arbeitsbranch umsetzen und den Impact-Scope lokal bis zum `PASS` stabilisieren. Der aufrufende Graph behält Branch, Fortschrittsanker und finalen PR; Remediation startet keinen rekursiven `issue-graph-implementation`-Lauf und erzeugt keinen eigenen Branch oder PR. Fehlt ein geeigneter Arbeitsbranch, dessen Vorbereitung vor der Umsetzung separat klären.
+4. Nach lokalem `PASS` die rollenbezogene Prüfung aus `issue-implementation` belegen: Backend-/Frontend-Diffs werden vom jeweiligen Implementierungsowner mit `code-minimization` minimiert; Infrastruktur prüft Scope und unbegründete Bestandteile mit `code-analysis`, korrigiert bei Bedarf mit `code-implementation` und liefert lokale `code-testing`-Belege. Bereits für denselben Stand vorliegende Belege übernehmen.
 5. Die durch die Reduktion betroffene Verifikation fokussiert erneut ausführen. Fehlgeschlagene Reduktionen zurücknehmen; echte Unklarheit über Acceptance, Invariante oder Constraint als Plan-/Kontextbruch routen.
 6. Danach den vollständigen ursprünglichen Root-Child-Graph erneut traversieren und fachliche Kriterien durch Product Owner, technische Kriterien durch Architektur sowie erforderliche unabhängige Regressionen durch QA erneut bewerten. Diese Full-Acceptance ist das finale Gate der Remediation.
 
