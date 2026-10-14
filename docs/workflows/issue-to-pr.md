@@ -30,7 +30,7 @@ Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pu
 1. Der Koordinator delegiert das Lesen des Haupt-Issues und explizit relevanter Relationships als PR-Kontext mit `issue-reading` an `product_owner`; technische Kriterien und offene Punkte gehen an Architektur.
 2. Der Koordinator delegiert die im Issue oder Task vorgesehene unabhängige technische Verifikation mit `code-testing` an QA. Fachliche und technische Kriterienabnahme werden gemäß ihrem Scope an PO beziehungsweise Architektur delegiert. QA benennt technische Testlücken.
 3. Der Koordinator delegiert den Review des Änderungssatzes gegen Scope, Nicht-Scope, technische Kriterien, Nebeneffekte und Versandbereitschaft mit `code-diff-review` an QA.
-4. Der Koordinator delegiert den Workflow `commit-push.md` an Infrastruktur, damit sie den Änderungssatz sauber committet und pusht.
+4. `softwareentwicklung_infrastruktur` führt den Workflow `commit-push.md` aus, damit sie den Änderungssatz sauber committet und pusht.
 5. Der Koordinator delegiert `pr-creation` an Infrastruktur, damit sie den Pull Request erstellt und den freigegebenen Issue-Kontext verlinkt.
 
 ## Rücksprungregeln

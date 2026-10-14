@@ -52,7 +52,7 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 10. Nach jeder akzeptierten Reduktion die ursprüngliche Reproduktion und die durch die Reduktion betroffene Regression fokussiert erneut grün prüfen. Eine fehlgeschlagene Reduktion zurücknehmen; echte Unklarheit über Invariante oder Constraint als Planbruch routen.
 11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; lokale Implementierer-Retests ersetzen diese nicht.
 12. Mit `code-diff-review` Nebeneffekte und Scope-Ausweitung kontrollieren.
-13. Mit dem Workflow `commit-push.md` Commit und Push auf dem aktuell verwendeten Branch ausführen.
+13. `softwareentwicklung_infrastruktur` den Commit-Push-Auftrag im beauftragten Task-Scope ausführen lassen.
 
 ## Rücksprungregeln
 

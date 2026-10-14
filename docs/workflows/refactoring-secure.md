@@ -46,7 +46,7 @@ Bestehenden Code strukturell verbessern, ohne Verhalten zu ver채ndern, und die �
 7. Mit `code-testing` Verhalten und Regressionen gegen die zuvor festgehaltene Verhaltensbasis pr체fen.
 8. Mit `code-diff-review` sicherstellen, dass keine verdeckte Fachlogik oder unbeabsichtigte Verhaltens채nderung entstanden ist.
 9. Kritische Funde korrigieren und die passende Pr체fung wiederholen.
-10. Erst nach bestandener Absicherung mit dem Workflow `commit-push.md` Commit und Push ausf체hren.
+10. Erst nach bestandener Absicherung `softwareentwicklung_infrastruktur` den Commit-Push-Auftrag im beauftragten Task-Scope ausf체hren lassen.
 11. Mit `pr-creation` den Pull Request mit Refactoring-Zielen, Verhaltenserhalt, Teststatus und Review-Kontext erstellen.
 
 ## R체cksprungregeln

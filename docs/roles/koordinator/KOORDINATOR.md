@@ -43,7 +43,6 @@ Der Koordinator ist der einzige delegierende Einstiegspunkt für Nutzeraufträge
 | `docs/workflows/bugfix.md` | fachliche Schritte durch passende Rollen ausführen lassen. | [bugfix](https://heljens-it-services.github.io/agent-files/workflows/bugfix.md) |
 | `docs/workflows/bugfix-from-default.md` | Bugfix-Ablauf über spezialisierte Rollen koordinieren. | [bugfix-from-default](https://heljens-it-services.github.io/agent-files/workflows/bugfix-from-default.md) |
 | `docs/workflows/commit-history-summary.md` | Zusammenfassung von Änderungen an die zuständigen Rollen delegieren. | [commit-history-summary](https://heljens-it-services.github.io/agent-files/workflows/commit-history-summary.md) |
-| `docs/workflows/commit-push.md` | erforderliche Fach- und Infrastrukturbeiträge koordinieren. | [commit-push](https://heljens-it-services.github.io/agent-files/workflows/commit-push.md) |
 | `docs/workflows/feature-finish.md` | Abschlussphasen delegieren und Ergebnisse bündeln. | [feature-finish](https://heljens-it-services.github.io/agent-files/workflows/feature-finish.md) |
 | `docs/workflows/issue-acceptance-convergence.md` | Akzeptanz- und Restumfangsbeiträge koordinieren. | [issue-acceptance-convergence](https://heljens-it-services.github.io/agent-files/workflows/issue-acceptance-convergence.md) |
 | `docs/workflows/issue-graph-implementation.md` | fachliche Planung, Umsetzung und unabhängige Prüfung koordinieren. | [issue-graph-implementation](https://heljens-it-services.github.io/agent-files/workflows/issue-graph-implementation.md) |

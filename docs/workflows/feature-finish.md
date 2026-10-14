@@ -44,7 +44,7 @@ Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish`
 2. Stoppen, wenn `develop` oder `main` aktiv ist, `develop` remote nicht existiert, der Task-Scope unklar ist oder fremde Änderungen nicht sicher vom Task getrennt werden können.
 3. Mit `code-testing` die im Task vorgesehene Verifikation und relevante lokale Ergänzungsprüfungen ausführen oder einen bereits belastbaren Teststatus bestätigen.
 4. Mit `code-diff-review` den gesamten Änderungssatz gegen Scope, Nicht-Scope und Akzeptanzkriterien prüfen und nur bei `versandbereit` oder `versandbereit mit Hinweisen` fortfahren.
-5. Mit dem Workflow `commit-push.md` ausschließlich taskbezogene Änderungen committen und zum konfigurierten Remote pushen.
+5. `softwareentwicklung_infrastruktur` den Workflow `commit-push.md` für ausschließlich taskbezogene Änderungen ausführen lassen.
 6. Mit `pr-creation` einen vorhandenen Pull Request für den Branch gegen `develop` wiederverwenden oder mit `develop` als expliziter Basis erstellen. `/finish` gilt für diesen Workflow als ausdrückliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
 8. Bei vollständig erfolgreichen erforderlichen Checks oder dem zulässigen Status `no-checks-required` und erfüllten übrigen Repository-Regeln mit `github-pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.

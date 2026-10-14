@@ -57,6 +57,7 @@ Allgemeine technische Fachbasis: [DEVELOPER.md](https://heljens-it-services.gith
 | Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
 |---|---|---|
 | `docs/workflows/specialist-implementation.md` | beauftragte Infrastrukturänderungen ausführen. | [specialist-implementation](https://heljens-it-services.github.io/agent-files/workflows/specialist-implementation.md) |
+| `docs/workflows/commit-push.md` | ausdrücklich beauftragte lokale Änderungen logisch committen und auf den konfigurierten Upstream pushen. | [commit-push](https://heljens-it-services.github.io/agent-files/workflows/commit-push.md) |
 
 ## Verfügbare Technologies
 

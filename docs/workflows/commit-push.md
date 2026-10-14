@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest diesen Ablauf als Delegationsplan und übergibt den gesamten operativen Commit-/Push-Auftrag sequenziell an `softwareentwicklung_infrastruktur`. Der Koordinator führt keine Git-Aktion aus.
+`softwareentwicklung_infrastruktur` liest und führt diesen operativen Ablauf aus. Der Koordinator weist den Auftrag bei Bedarf dieser Rolle zu, führt aber keine Git-Aktion aus und lädt diesen Workflow nicht.
 
 ## Ziel
 
