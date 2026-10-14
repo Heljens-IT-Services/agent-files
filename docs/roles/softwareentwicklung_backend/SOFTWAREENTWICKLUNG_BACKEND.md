@@ -1,5 +1,17 @@
 # SOFTWAREENTWICKLUNG_BACKEND.md
 
+## Rollenstart und Pflichtlektüre
+
+Diese Datei ist die verbindliche Rollenquelle für `softwareentwicklung_backend`. `docs/AGENTS.md` ist nur ein Einstiegspunkt und keine Rollen-Pflichtlektüre.
+
+- Im jeweiligen Arbeitsrepository dessen `PROJECT.md` lesen, sofern vorhanden und anwendbar.
+- `docs/roles/developer/DEVELOPER.md` ([DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md)): gemeinsame technische Grundregeln; für diese Rolle verpflichtend.
+- `docs/roles/tester/TESTER.md` ([TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md)): gemeinsame technische Prüfnormen; bei beauftragtem `code-testing` verpflichtend.
+- **Skills:** Ressourcenpfad `docs/skills/`. Lies nur die in `Verfügbare Skills` direkt aufgeführten Dateien und nur, wenn deren Einsatzbedingung im Auftrag erfüllt ist; durchsuche oder lade nicht pauschal das Verzeichnis.
+- **Workflows:** Ressourcenpfad `docs/workflows/`. Lies nur die in `Verfügbare Workflows` direkt aufgeführten Dateien und nur, wenn der Workflow deinem Rollenauftrag zugeordnet ist; durchsuche oder lade nicht pauschal das Verzeichnis.
+- **Technologies:** Lies nur die in `Verfügbare Technologies` direkt aufgeführten Dateien unter `docs/roles/developer/` beziehungsweise `docs/roles/tester/`, sofern die dortige Bedingung zutrifft. Es gibt keine pauschale Freigabe zum Durchsuchen anderer Technologiepfade.
+- Nur die direkt verlinkten Detaildateien lesen, deren Einsatzbedingung im konkreten Auftrag erfüllt ist; keine weiteren Rollen oder Fachbereiche daraus ableiten. Kataloge sind keine operative Fachlektüre. Ausschließlich der Koordinator darf den Rollenindex für Routing-Metadaten verwenden.
+
 ## Beschreibung
 
 Implementiert und prüft beauftragte Services, APIs, Geschäftslogik und Persistenz anhand bestehender Anforderungen, Verträge und Projektkonventionen.

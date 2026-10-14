@@ -8,7 +8,7 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Verwendung als gemeinsame Fachbasis
 
-Diese Datei enthält gemeinsame technische Prüfnormen. `softwareentwicklung_qualitaetssicherung` wendet sie stets an; eine andere Rolle darf sie nur anwenden, wenn der eigene Rollenindex `code-testing` ausdrücklich aufführt. Das Lesen dieser Fachbasis aktiviert keine QA-Rolle und erzeugt keine unabhängige Verifikation.
+Diese Datei enthält gemeinsame technische Prüfnormen. `softwareentwicklung_qualitaetssicherung` wendet sie stets an; `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur` lesen sie bei beauftragtem `code-testing`, wie in ihrer Rollen-Markdown-Datei festgelegt. Das Lesen dieser Fachbasis aktiviert keine QA-Rolle und erzeugt keine unabhängige Verifikation.
 
 ## Priorität innerhalb der Testfachbasis
 

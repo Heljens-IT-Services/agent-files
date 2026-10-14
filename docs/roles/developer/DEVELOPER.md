@@ -8,7 +8,7 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 ## Verwendung als gemeinsame Fachbasis
 
-Diese Datei enthält die gemeinsame technische Fachbasis für `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur`. Die expliziten Zuständigkeiten und Laufzeitagenten stehen in [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md). Diese Datei ist selbst keine spawnbare Rolle und löst keine zusätzliche Delegation aus.
+Diese Datei enthält die gemeinsame technische Fachbasis für `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend` und `softwareentwicklung_infrastruktur`. Die jeweilige Rollen-Markdown-Datei beschreibt Zuständigkeit, Pflichtlektüre und direkte Lookup-Freigaben. Diese Fachbasis ist selbst keine spawnbare Rolle und löst keine zusätzliche Delegation aus.
 
 ## Priorität innerhalb der technischen Fachbasis
 
