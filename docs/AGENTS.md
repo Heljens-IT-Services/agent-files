@@ -133,7 +133,7 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## Codex-Custom-Agents
 
-[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die acht kanonischen Rollen-IDs aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) geprüft werden.
+[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die neun kanonischen Rollen-IDs aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) geprüft werden.
 
 [MUST_IF] Eine explizit benötigte kanonische Rollen-ID im ausführenden Repository fehlt, muss ihre Online-Vorlage unter `.codex/agents/<rollen-id>.toml` angelegt werden. Das gilt für jede benötigte Rolle einzeln.
 
