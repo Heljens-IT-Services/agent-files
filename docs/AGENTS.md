@@ -57,7 +57,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 
 [MUST_IF] Wenn der eigene Rollenindex eine für den konkreten Auftrag relevante Technologie aufführt, muss der Agent die verlinkte technologiespezifische Regeldatei direkt lesen. Globale `TECHNOLOGIES.md`-Einträge sind Navigationsmetadaten und geben keine Regeldateien frei. Technologie-Regeln aktivieren keine zusätzliche Rolle.
 
-[MUST] Technische Softwareentwicklungsrollen müssen zusätzlich die gemeinsame Fachbasis [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) lesen; Qualitätssicherung muss zusätzlich [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) lesen. Eine weitere Rolle, deren eigener Rollenindex `code-testing` freigibt, muss [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) als gemeinsame technische Prüfnorm lesen. Designrollen müssen zusätzlich [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) lesen. Gemeinsame Fachbasen sind keine Rollen, berechtigen nicht zur Delegation und erweitern den zugewiesenen Scope nicht.
+[MUST] Technische Softwareentwicklungsrollen müssen zusätzlich die gemeinsame Fachbasis [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) lesen; Qualitätssicherung muss zusätzlich [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) lesen. Eine weitere Rolle, deren eigener Rollenindex `code-testing` freigibt, muss [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) als gemeinsame technische Prüfnorm lesen. Gemeinsame Fachbasen sind keine Rollen, berechtigen nicht zur Delegation und erweitern den zugewiesenen Scope nicht.
 
 [MUST_IF] Der Agent ein dokumentiertes Slash-Command verwendet, muss er `COMMANDS.md` und nur die für das konkrete Command nötigen Details lesen. Command-Inventare ändern die aktuelle Rolle nicht und erteilen keine Tool- oder Handlungsberechtigungen.
 
@@ -133,7 +133,7 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 
 ## Codex-Custom-Agents
 
-[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die neun kanonischen Rollen-IDs aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) geprüft werden.
+[MUST_IF] Wenn ein ausführendes Repository Codex-Custom-Agents unterstützt, müssen alle TOML-Dateien unter `.codex/agents/` inventarisiert und anhand ihres Feldes `name` auf die acht kanonischen Rollen-IDs aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) geprüft werden.
 
 [MUST_IF] Eine explizit benötigte kanonische Rollen-ID im ausführenden Repository fehlt, muss ihre Online-Vorlage unter `.codex/agents/<rollen-id>.toml` angelegt werden. Das gilt für jede benötigte Rolle einzeln.
 

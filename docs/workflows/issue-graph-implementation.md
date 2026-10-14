@@ -2,7 +2,7 @@
 
 ## Owner und Modus
 
-`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan und entscheidet keine fachlichen oder technischen Fragen selbst. Graph und Umsetzungsscope delegiert er an `product_owner`; technische Strukturpläne an `softwareentwicklung_architektur`; Branch, Runtime-Fortschrittsanker und GitHub-Mutationen an `softwareentwicklung_infrastruktur`; Gestaltung an `design_ux`/`design_ui`; Implementierung an Backend, Frontend oder Infrastruktur; formale Verifikation an `softwareentwicklung_qualitaetssicherung`. Issue-Arbeitseinheiten laufen gemäß Plan sequenziell; der Koordinator sammelt Rückgaben und steuert die nächste Phase.
+`koordinator` liest diesen Ablauf ausschließlich als Delegationsplan und entscheidet keine fachlichen oder technischen Fragen selbst. Graph und Umsetzungsscope delegiert er an `product_owner`; technische Strukturpläne an `softwareentwicklung_architektur`; Branch, Runtime-Fortschrittsanker und GitHub-Mutationen an `softwareentwicklung_infrastruktur`; Gestaltung an `designer`; Implementierung an Backend, Frontend oder Infrastruktur; formale Verifikation an `softwareentwicklung_qualitaetssicherung`. Issue-Arbeitseinheiten laufen gemäß Plan sequenziell; der Koordinator sammelt Rückgaben und steuert die nächste Phase.
 
 ## Ziel
 
@@ -103,7 +103,7 @@ Empfohlene Struktur des Fortschrittsankers:
 ### Phase 4: Nach Plan umsetzen
 
 1. Der Koordinator beauftragt die Abarbeitung des Orchestrierungsplans in der festgelegten Reihenfolge.
-2. Je Issue-Knoten delegiert der Koordinator genau eine abgeschlossene Arbeitseinheit gemäß `issue-implementation.md` an die zuständigen Spezialisten. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen technischen QA-Prüfung. Wenn eine Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator die nötige Design-Exploration, das Handoff und den visuellen Review an `design_ux` oder `design_ui` vor der formalen Verifikation.
+2. Je Issue-Knoten delegiert der Koordinator genau eine abgeschlossene Arbeitseinheit gemäß `issue-implementation.md` an die zuständigen Spezialisten. Dieser Teilworkflow enthält die Minimierung nach lokaler Konvergenz und vor der unabhängigen technischen QA-Prüfung. Wenn eine Arbeitseinheit Designverantwortung enthält, delegiert der Koordinator die nötige Design-Exploration, das Handoff und den visuellen Review an `designer` vor der formalen Verifikation.
 3. Ein nächstes Issue erst beginnen, wenn das vorherige Issue gemäß `issue-implementation.md` vollständig implementiert, verifiziert, reviewed, committed, gepusht und mit dem verpflichtenden persistenten deutschen Issue-Abschlusskommentar dokumentiert wurde.
 4. Jeder vollständig umgesetzte Issue-Knoten muss mindestens einem eindeutig zuordenbaren Commit entsprechen. Wenn ein Issue mehrere logisch getrennte Commits benötigt, sind mehrere Commits zulässig.
 5. Änderungen verschiedener Issue-Knoten nicht absichtlich in demselben Commit vermischen.
@@ -139,7 +139,7 @@ Empfohlene Struktur des Fortschrittsankers:
 - Graph erfassen, Issue-Scope strukturieren und fachliche Ausführbarkeit: `product_owner`.
 - Technische Task-Pläne und technische Planbrüche: `softwareentwicklung_architektur`.
 - Arbeitsbranch, Runtime-Fortschrittsanker, Commit, Push, PR und persistente Issue-Kommentare: `softwareentwicklung_infrastruktur`.
-- Design-Handoff und visuelle Exploration: `design_ux` oder `design_ui`.
+- Design-Handoff und visuelle Exploration: `designer`.
 - Implementierung: Backend oder Frontend passend zum Scope.
 - Fachliche Black-Box-Acceptance: `product_owner`.
 - Technische Kriterienprüfung: `softwareentwicklung_architektur`.

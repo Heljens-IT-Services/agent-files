@@ -2,7 +2,7 @@
 
 ## Owner
 
-`design_ux` führt diesen Workflow für Nutzungsziele, Informationsstruktur und Interaktionen operativ aus; `design_ui` für visuelle Sprache, Komponenten und Darstellung. Die ausführende Rolle delegiert nicht selbst. Fremdscope und widersprüchliche Produktanforderungen gehen an den Koordinator zur Zuweisung an `product_owner` oder eine andere zuständige Rolle.
+`designer` führt diesen Workflow ganzheitlich für Nutzungsziele, Nutzerabläufe, Informationsstruktur, Interaktionen, visuelle Sprache, Komponenten und Darstellung operativ aus. Die Rolle delegiert nicht selbst. Fremdscope und widersprüchliche Produktanforderungen gehen an den Koordinator zur Zuweisung an `product_owner` oder eine andere zuständige Rolle.
 
 ## Ziel
 
@@ -50,8 +50,8 @@ Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere b
 
 ## Rollengrenzen
 
-- `design_ux` verantwortet Nutzungsziele, Informationsstruktur und Interaktionen; `design_ui` verantwortet visuelle Sprache, Komponenten und Darstellung.
-- Die beauftragte Designrolle liest nur ihren eigenen Rollenindex und führt diesen Workflow ohne Subdelegation aus.
+- `designer` verantwortet Nutzungsszenarien, Nutzerziele, Informationsstruktur, Interaktionen, visuelle Sprache, Komponenten und Darstellung im ausdrücklich zugewiesenen Scope.
+- `designer` liest nur den eigenen Rollenindex und führt diesen Workflow ohne Subdelegation aus.
 - Widersprüchlicher Produktumfang oder fremde operative Zuständigkeit geht an den Koordinator zur Zuweisung an `product_owner` oder eine andere Rolle.
 - Produktivimplementierung geht nach dem Design-Handoff an Backend oder Frontend. Unabhängige formale Verifikation übernimmt QA.
 

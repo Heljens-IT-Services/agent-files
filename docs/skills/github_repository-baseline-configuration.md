@@ -57,7 +57,7 @@ git diff --check
 ### Vorgehen
 
 1. Prüfen, welche Rollen für das beauftragte Projekt tatsächlich benötigt werden.
-2. Die ausgewählten Rollen-IDs ausschließlich aus dem kanonischen Rollenmodell ableiten: `koordinator`, `product_owner`, `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend`, `softwareentwicklung_infrastruktur`, `softwareentwicklung_qualitaetssicherung`, `design_ux`, `design_ui`.
+2. Die ausgewählten Rollen-IDs ausschließlich aus dem kanonischen Rollenmodell ableiten: `koordinator`, `product_owner`, `softwareentwicklung_architektur`, `softwareentwicklung_backend`, `softwareentwicklung_frontend`, `softwareentwicklung_infrastruktur`, `softwareentwicklung_qualitaetssicherung`, `designer`.
 3. Nur fehlende, ausdrücklich ausgewählte Vorlagen aus `https://heljens-it-services.github.io/agent-files/codex/agents/` unter `.codex/agents/<role-id>.toml` ergänzen. Zusätzliche projektbezogene Agents bleiben erhalten.
 4. Wenn ein kanonischer Zielpfad bereits durch eine abweichende Datei belegt ist, den Konflikt melden und die Datei nicht überschreiben.
 5. Für jede ausgewählte Vorlage Pflichtfelder, Rollen-ID und Verweise auf die passende veröffentlichte Rollenregel prüfen. Fachliche Regeln dürfen nicht aus der TOML dupliziert werden.

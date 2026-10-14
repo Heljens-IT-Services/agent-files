@@ -31,8 +31,7 @@ Diese Datei definiert die verfügbaren Rollen, ihre Lookup-Pfade und das Rollenm
 | `softwareentwicklung_frontend` | Softwareentwicklung Frontend | [SOFTWAREENTWICKLUNG_FRONTEND.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_frontend/SOFTWAREENTWICKLUNG_FRONTEND.md) | [softwareentwicklung_frontend.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_frontend.toml) | Benutzeroberflächen, Interaktionen und clientseitige Funktionen implementieren. |
 | `softwareentwicklung_infrastruktur` | Softwareentwicklung Infrastruktur | [SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_infrastruktur/SOFTWAREENTWICKLUNG_INFRASTRUKTUR.md) | [softwareentwicklung_infrastruktur.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_infrastruktur.toml) | CI, Deployment, Laufzeit, Infrastruktur und ausdrücklich beauftragte Git-/GitHub-Lifecycle-Schritte bearbeiten. |
 | `softwareentwicklung_qualitaetssicherung` | Softwareentwicklung Qualitätssicherung | [SOFTWAREENTWICKLUNG_QUALITAETSSICHERUNG.md](https://heljens-it-services.github.io/agent-files/roles/softwareentwicklung_qualitaetssicherung/SOFTWAREENTWICKLUNG_QUALITAETSSICHERUNG.md) | [softwareentwicklung_qualitaetssicherung.toml](https://heljens-it-services.github.io/agent-files/codex/agents/softwareentwicklung_qualitaetssicherung.toml) | Softwareverhalten unabhängig verifizieren und reproduzierbare Befunde liefern. |
-| `design_ux` | Design UX | [DESIGN_UX.md](https://heljens-it-services.github.io/agent-files/roles/design_ux/DESIGN_UX.md) | [design_ux.toml](https://heljens-it-services.github.io/agent-files/codex/agents/design_ux.toml) | Nutzungsszenarien analysieren und Nutzerabläufe entwerfen. |
-| `design_ui` | Design UI | [DESIGN_UI.md](https://heljens-it-services.github.io/agent-files/roles/design_ui/DESIGN_UI.md) | [design_ui.toml](https://heljens-it-services.github.io/agent-files/codex/agents/design_ui.toml) | Oberflächen, Interaktionen und Gestaltungssysteme entwerfen und visuell prüfen. |
+| `designer` | Designer | [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | [designer.toml](https://heljens-it-services.github.io/agent-files/codex/agents/designer.toml) | Nutzungsszenarien, Nutzerabläufe, Informationsstrukturen, Oberflächen, Interaktionen und visuelle Systeme ganzheitlich entwerfen und prüfen. |
 
 ## Gemeinsame Fachbasen
 
@@ -42,9 +41,8 @@ Die folgenden bestehenden Regeln enthalten rollenübergreifende Fachstandards. S
 |---|---|---|
 | [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) | Architektur, Backend, Frontend und Infrastruktur | Allgemeine technische Regeln zu Architektur, Umsetzung, Schnittstellen, UI, Fehlerbehandlung und Sicherheit. |
 | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Qualitätssicherung, Architektur und Implementierungsrollen bei ausdrücklich freigegebenem `code-testing` | Gemeinsame technische Prüfnormen für lokale Implementierer- und Architekturchecks sowie unabhängige QA-Prüfung; die Anwendung aktiviert keine zusätzliche Rolle. |
-| [DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) | Design UX und Design UI | Allgemeine Regeln für Gestaltung, Exploration, Review, Iteration und Handoff. |
 
-Diese Fachbasen enthalten keine Laufzeit-Delegation. Sie aktivieren weder zusätzliche Rollen noch rekursive Delegation.
+Die gemeinsame Fachbasis enthält keine zusätzliche Laufzeit-Delegation. Sie aktiviert weder zusätzliche Rollen noch rekursive Delegation.
 
 [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) ist ein Migrationshinweis zur früheren Rollen-ID `planner`; die aktive Rollenbeschreibung ist [PRODUCT_OWNER.md](https://heljens-it-services.github.io/agent-files/roles/product_owner/PRODUCT_OWNER.md).
 
