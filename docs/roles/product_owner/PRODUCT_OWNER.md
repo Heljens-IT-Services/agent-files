@@ -2,14 +2,19 @@
 
 ## Rollenstart und Pflichtlektüre
 
-Diese Datei ist die verbindliche Rollenquelle für `product_owner`. `docs/AGENTS.md` ist nur ein Einstiegspunkt und keine Rollen-Pflichtlektüre.
+Diese Datei ist die verbindliche Rollenquelle für `product_owner`.
 
-- Im jeweiligen Arbeitsrepository dessen `PROJECT.md` lesen, sofern vorhanden und anwendbar.
-- Keine zusätzliche rollenübergreifende Fachbasis.
-- **Skills:** Ressourcenpfad `docs/skills/`. Lies nur die in `Verfügbare Skills` direkt aufgeführten Dateien und nur, wenn deren Einsatzbedingung im Auftrag erfüllt ist; durchsuche oder lade nicht pauschal das Verzeichnis.
-- **Workflows:** Ressourcenpfad `docs/workflows/`. Lies nur die in `Verfügbare Workflows` direkt aufgeführten Dateien und nur, wenn der Workflow deinem Rollenauftrag zugeordnet ist; durchsuche oder lade nicht pauschal das Verzeichnis.
-- **Technologies:** Lies nur die in `Verfügbare Technologies` direkt aufgeführten Dateien unter `docs/roles/developer/` beziehungsweise `docs/roles/tester/`, sofern die dortige Bedingung zutrifft. Es gibt keine pauschale Freigabe zum Durchsuchen anderer Technologiepfade.
-- Nur die direkt verlinkten Detaildateien lesen, deren Einsatzbedingung im konkreten Auftrag erfüllt ist; keine weiteren Rollen oder Fachbereiche daraus ableiten. Kataloge sind keine operative Fachlektüre. Ausschließlich der Koordinator darf den Rollenindex für Routing-Metadaten verwenden.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/roles/product_owner/PRODUCT_OWNER.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/product_owner/PRODUCT_OWNER.md](https://heljens-it-services.github.io/agent-files/roles/product_owner/PRODUCT_OWNER.md) |
+| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
+| `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
+| `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
+| `docs/skills/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Skills bei erfüllter Bedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Skills`. |
+| `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
+| — | Keine Technologiepfade freigegeben. | — |
+
+Verzeichnisse sind Herkunftspfade, keine pauschale Lesefreigabe. Maßgeblich sind nur die in den folgenden Tabellen direkt aufgeführten Dateien bei erfüllter Einsatzbedingung.
 
 ## Beschreibung
 
@@ -45,23 +50,29 @@ Vertritt die operative fachliche Produktseite. Klärt Nutzerprobleme und Anforde
 
 ## Verfügbare Skills
 
-- [`requirements-clarification`](https://heljens-it-services.github.io/agent-files/skills/requirements-clarification.md): Nutzerziel, fachliche Anforderungen, Scope und offene Entscheidungen klären.
-- [`brainstorming`](https://heljens-it-services.github.io/agent-files/skills/brainstorming.md): fachliche Optionen und Prioritäten strukturieren.
-- [`research`](https://heljens-it-services.github.io/agent-files/skills/research.md): beauftragten Produkt- und Nutzerkontext recherchieren.
-- [`documentation`](https://heljens-it-services.github.io/agent-files/skills/documentation.md): Produktentscheidungen und Anforderungen festhalten.
-- [`product-acceptance`](https://heljens-it-services.github.io/agent-files/skills/product-acceptance.md): fachliche Akzeptanzkriterien am sichtbaren Produktverhalten prüfen.
-- [`issue-reading`](https://heljens-it-services.github.io/agent-files/skills/github_issue-reading.md): Issues und Kommentare fachlich lesen.
-- [`issue-creation`](https://heljens-it-services.github.io/agent-files/skills/github_issue-creation.md): ein freigegebenes Issue fachlich formulieren.
-- [`type-setting`](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md): Issue-Type fachlich bestimmen und im beauftragten Workflow setzen.
-- [`relationship-setting`](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md): native Issue-Beziehungen fachlich bestimmen und im beauftragten Workflow setzen.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/skills/requirements-clarification.md` | Nutzerziel, fachliche Anforderungen, Scope und offene Entscheidungen klären. | [requirements-clarification](https://heljens-it-services.github.io/agent-files/skills/requirements-clarification.md) |
+| `docs/skills/brainstorming.md` | fachliche Optionen und Prioritäten strukturieren. | [brainstorming](https://heljens-it-services.github.io/agent-files/skills/brainstorming.md) |
+| `docs/skills/research.md` | beauftragten Produkt- und Nutzerkontext recherchieren. | [research](https://heljens-it-services.github.io/agent-files/skills/research.md) |
+| `docs/skills/documentation.md` | Produktentscheidungen und Anforderungen festhalten. | [documentation](https://heljens-it-services.github.io/agent-files/skills/documentation.md) |
+| `docs/skills/product-acceptance.md` | fachliche Akzeptanzkriterien am sichtbaren Produktverhalten prüfen. | [product-acceptance](https://heljens-it-services.github.io/agent-files/skills/product-acceptance.md) |
+| `docs/skills/github_issue-reading.md` | Issues und Kommentare fachlich lesen. | [issue-reading](https://heljens-it-services.github.io/agent-files/skills/github_issue-reading.md) |
+| `docs/skills/github_issue-creation.md` | ein freigegebenes Issue fachlich formulieren. | [issue-creation](https://heljens-it-services.github.io/agent-files/skills/github_issue-creation.md) |
+| `docs/skills/github_type-setting.md` | Issue-Type fachlich bestimmen und im beauftragten Workflow setzen. | [type-setting](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) |
+| `docs/skills/github_relationship-setting.md` | native Issue-Beziehungen fachlich bestimmen und im beauftragten Workflow setzen. | [relationship-setting](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md) |
 
 ## Verfügbare Workflows
 
-- [`project-implementation-planning`](https://heljens-it-services.github.io/agent-files/workflows/project-implementation-planning.md): aus freigegebenen strategischen Leitplanken fachliche Produktphasen strukturieren.
-- [`issue-sanitize`](https://heljens-it-services.github.io/agent-files/workflows/issue-sanitize.md): Issue-Typen und Beziehungen prüfen und eindeutig ableitbare Korrekturen ausführen.
-- [`issue-to-sub-issues`](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md): Issue in fachlich klare Unteraufgaben zerlegen.
-- [`issue-to-sub-issues-flat`](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues-flat.md): genau eine fachliche Child-Ebene erstellen.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/workflows/project-implementation-planning.md` | aus freigegebenen strategischen Leitplanken fachliche Produktphasen strukturieren. | [project-implementation-planning](https://heljens-it-services.github.io/agent-files/workflows/project-implementation-planning.md) |
+| `docs/workflows/issue-sanitize.md` | Issue-Typen und Beziehungen prüfen und eindeutig ableitbare Korrekturen ausführen. | [issue-sanitize](https://heljens-it-services.github.io/agent-files/workflows/issue-sanitize.md) |
+| `docs/workflows/issue-to-sub-issues.md` | Issue in fachlich klare Unteraufgaben zerlegen. | [issue-to-sub-issues](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md) |
+| `docs/workflows/issue-to-sub-issues-flat.md` | genau eine fachliche Child-Ebene erstellen. | [issue-to-sub-issues-flat](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues-flat.md) |
 
 ## Verfügbare Technologies
 
-Keine. Product Ownership betrifft fachliche Anforderungen, Backlog und Akzeptanzkriterien; technologische Entscheidungen und technische Planung gehören zur Architekturrolle.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| — | Keine technologiespezifischen Regeln freigegeben. Product Ownership betrifft fachliche Anforderungen, Backlog und Akzeptanzkriterien; technologische Entscheidungen und technische Planung gehören zur Architekturrolle. | — |

@@ -2,16 +2,19 @@
 
 ## Rollenstart und Pflichtlektüre
 
-Diese Datei ist die verbindliche Rollenquelle für `designer`. `docs/AGENTS.md` ist nur ein Einstiegspunkt und keine Rollen-Pflichtlektüre.
+Diese Datei ist die verbindliche Rollenquelle für `designer`.
 
-- Im jeweiligen Arbeitsrepository dessen `PROJECT.md` lesen, sofern vorhanden und anwendbar.
-- Keine zusätzliche rollenübergreifende Fachbasis.
-- **Skills:** Ressourcenpfad `docs/skills/`. Lies nur die in `Verfügbare Skills` direkt aufgeführten Dateien und nur, wenn deren Einsatzbedingung im Auftrag erfüllt ist; durchsuche oder lade nicht pauschal das Verzeichnis.
-- **Workflows:** Ressourcenpfad `docs/workflows/`. Lies nur die in `Verfügbare Workflows` direkt aufgeführten Dateien und nur, wenn der Workflow deinem Rollenauftrag zugeordnet ist; durchsuche oder lade nicht pauschal das Verzeichnis.
-- **Technologies:** Lies nur die in `Verfügbare Technologies` direkt aufgeführten Dateien unter `docs/roles/developer/` beziehungsweise `docs/roles/tester/`, sofern die dortige Bedingung zutrifft. Es gibt keine pauschale Freigabe zum Durchsuchen anderer Technologiepfade.
-- Nur die direkt verlinkten Detaildateien lesen, deren Einsatzbedingung im konkreten Auftrag erfüllt ist; keine weiteren Rollen oder Fachbereiche daraus ableiten. Kataloge sind keine operative Fachlektüre. Ausschließlich der Koordinator darf den Rollenindex für Routing-Metadaten verwenden.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/roles/designer/DESIGNER.md` | Pflichtlektüre für die ausdrücklich zugewiesene Rolle; Zuständigkeit, Abgrenzung und freigegebene Lookup-Dateien. | [docs/roles/designer/DESIGNER.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md) |
+| `docs/AGENTS.md` | Nur Einstiegspunkt; keine Rollen-Pflichtlektüre. | [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) |
+| `docs/roles/ROLES.md` | Kein Pflicht-Lookup für operative Spezialisten; der Koordinator nutzt den Index ausschließlich für Routing-Metadaten. | [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) |
+| `PROJECT.md` im Root des konsumierenden Arbeitsrepositorys | Repo-lokale Pflichtlektüre, sofern die Datei vorhanden und anwendbar ist. | Repo-lokal; kein zentraler Veröffentlichungslink. |
+| `docs/skills/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Skills bei erfüllter Bedingung; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Skills`. |
+| `docs/workflows/` (Herkunftspfad) | Nur die unten tabellarisch aufgeführten Workflows, sofern der konkrete Auftrag und die Rollenfreigabe passen; keine pauschale Verzeichnislektüre. | Verzeichnis hat keinen eigenen Veröffentlichungslink; siehe Dateilinks in `Verfügbare Workflows`. |
+| — | Keine Technologiepfade freigegeben. | — |
 
-Stand: 2026-10-14
+Verzeichnisse sind Herkunftspfade, keine pauschale Lesefreigabe. Maßgeblich sind nur die in den folgenden Tabellen direkt aufgeführten Dateien bei erfüllter Einsatzbedingung.
 
 ## Zweck
 
@@ -31,20 +34,26 @@ Diese Datei definiert die operative, technologieübergreifende Rolle `designer`.
 
 ## Verfügbare Skills
 
-- [`requirements-clarification`](https://heljens-it-services.github.io/agent-files/skills/requirements-clarification.md): Nutzungskontext, Ziele, Nicht-Ziele und Scope-Grenzen klären.
-- [`brainstorming`](https://heljens-it-services.github.io/agent-files/skills/brainstorming.md): unterschiedliche Lösungs- und Gestaltungsrichtungen entwickeln und abwägen.
-- [`research`](https://heljens-it-services.github.io/agent-files/skills/research.md): beauftragte externe, produkt- oder nutzungskontextbezogene Recherche durchführen.
-- [`design-prototyping`](https://heljens-it-services.github.io/agent-files/skills/design-prototyping.md): leichte Designprototypen erstellen und visualisieren.
-- [`design-review`](https://heljens-it-services.github.io/agent-files/skills/design-review.md): tatsächliche visuelle oder interaktive Ergebnisse prüfen.
-- [`documentation`](https://heljens-it-services.github.io/agent-files/skills/documentation.md): Designentscheidungen, Zustände, Trade-offs und Constraints dokumentieren.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/skills/requirements-clarification.md` | Nutzungskontext, Ziele, Nicht-Ziele und Scope-Grenzen klären. | [requirements-clarification](https://heljens-it-services.github.io/agent-files/skills/requirements-clarification.md) |
+| `docs/skills/brainstorming.md` | unterschiedliche Lösungs- und Gestaltungsrichtungen entwickeln und abwägen. | [brainstorming](https://heljens-it-services.github.io/agent-files/skills/brainstorming.md) |
+| `docs/skills/research.md` | beauftragte externe, produkt- oder nutzungskontextbezogene Recherche durchführen. | [research](https://heljens-it-services.github.io/agent-files/skills/research.md) |
+| `docs/skills/design-prototyping.md` | leichte Designprototypen erstellen und visualisieren. | [design-prototyping](https://heljens-it-services.github.io/agent-files/skills/design-prototyping.md) |
+| `docs/skills/design-review.md` | tatsächliche visuelle oder interaktive Ergebnisse prüfen. | [design-review](https://heljens-it-services.github.io/agent-files/skills/design-review.md) |
+| `docs/skills/documentation.md` | Designentscheidungen, Zustände, Trade-offs und Constraints dokumentieren. | [documentation](https://heljens-it-services.github.io/agent-files/skills/documentation.md) |
 
 ## Verfügbare Workflows
 
-- [`design-exploration`](https://heljens-it-services.github.io/agent-files/workflows/design-exploration.md): Nutzungsszenarien und visuelle Richtungen erkunden, prototypisieren, reviewen und iterieren.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| `docs/workflows/design-exploration.md` | Nutzungsszenarien und visuelle Richtungen erkunden, prototypisieren, reviewen und iterieren. | [design-exploration](https://heljens-it-services.github.io/agent-files/workflows/design-exploration.md) |
 
 ## Verfügbare Technologies
 
-Keine. Designarbeit ist technologieübergreifend; Produktionsframework-Regeln werden nicht pauschal geladen. Eine produktive Implementierung wird separat einer Softwareentwicklungsrolle zugewiesen.
+| Pfad / Quelle | Pflicht / Einsatzbedingung | Veröffentlichungslink |
+|---|---|---|
+| — | Keine technologiespezifischen Regeln freigegeben. Designarbeit ist technologieübergreifend; Produktionsframework-Regeln werden nicht pauschal geladen. Eine produktive Implementierung wird separat einer Softwareentwicklungsrolle zugewiesen. | — |
 
 ## Grundverständnis
 
