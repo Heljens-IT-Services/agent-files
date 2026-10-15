@@ -2,8 +2,8 @@ namespace Example.Infrastructure.Persistence;
 
 /// <summary>
 /// Erkennt Verletzungen von Datenbank-Constraints, damit Repositories Eindeutigkeitskonflikte ohne
-/// vorgelagerte Existenzprüfung — und damit ohne Race Condition — in eine fachliche
-/// <see cref="DomainException"/> übersetzen können.
+/// vorgelagerte Existenzprüfung — und damit ohne Race Condition — in einen fachlichen
+/// <see cref="DomainError"/> übersetzen können.
 /// </summary>
 public static class DbUpdateExceptionExtensions
 {

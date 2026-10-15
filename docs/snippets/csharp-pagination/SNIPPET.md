@@ -4,7 +4,7 @@ Stand: 2026-10-15
 
 ## Zweck
 
-Einheitliche, eins-basierte Pagination für C#-/.NET-Backends: Seitenangabe per HTTP-Header, Seitenschnitt über `IOrderedQueryable<T>` und Antwort als `{ count, items }`.
+Einheitliche, eins-basierte Pagination für C#-/.NET-Backends: Seitenangabe per HTTP-Header aus dem API-Vertrag, Seitenschnitt über `IOrderedQueryable<T>` und Antwort als `{ count, items }`.
 
 ## Verwenden
 
@@ -18,32 +18,34 @@ Einheitliche, eins-basierte Pagination für C#-/.NET-Backends: Seitenangabe per 
 | [IPageable.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/Core/Pagination/IPageable.cs) | `Core` | Seitenvertrag mit `Page` und `PageSize`. |
 | [PageResult.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/Core/Pagination/PageResult.cs) | `Core` | Ergebnis mit Gesamtzahl `Count` und `Items`. |
 | [QueryableExtensions.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/Core/Pagination/QueryableExtensions.cs) | `Core` | `AsPage` und `PageResponse` auf `IOrderedQueryable<T>`. |
-| [PageRequest.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/WebApi/Contracts/PageRequest.cs) | `WebApi` | Header-Bindung und Validierung von `Page` und `Page-Size`. |
+| [PageRequest.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/Core/Pagination/PageRequest.cs) | `Core` | Standardumsetzung von `IPageable`. |
 | [QueryableExtensionsTests.cs](https://heljens-it-services.github.io/agent-files/snippets/csharp-pagination/Core.Tests/Pagination/QueryableExtensionsTests.cs) | `Core.Tests` | Unit-Tests der Erweiterungsmethoden ohne Datenbank (xUnit, AwesomeAssertions). |
 
 Der Namespace-Präfix `Example` ist durch den Projektnamen zu ersetzen. Benötigte Einträge in `GlobalUsings.cs`:
 
 - `Core`: `System.Linq.Expressions`
-- `WebApi`: `System.ComponentModel.DataAnnotations`, `Microsoft.AspNetCore.Mvc`, `<Name>.Core.Pagination`
+- `WebApi`: `<Name>.Core.Pagination`
 - `Core.Tests`: `AwesomeAssertions`, `Xunit`, `<Name>.Core.Pagination`
 
 ## Regeln
 
 ### Vertrag
 
-[MUST] `IPageable`, `PageResult<T>` und `QueryableExtensions` müssen im `Core`-Projekt unter `<Name>.Core.Pagination` liegen; `PageRequest` muss in `WebApi/Contracts/` liegen.
+[MUST] `IPageable`, `PageRequest`, `PageResult<T>` und `QueryableExtensions` müssen im `Core`-Projekt unter `<Name>.Core.Pagination` liegen.
 
 [MUST] `Page` und `PageSize` müssen eins-basiert sein; der Seitenschnitt ist `Skip((Page - 1) * PageSize).Take(PageSize)`.
 
-[MUST] Die Seitenangabe muss über die HTTP-Header `Page` und `Page-Size` übertragen werden. Beide Header sind Pflicht und mindestens `1`; serverseitige Defaults sind nicht vorgesehen.
+[MUST] Die Seitenangabe muss über die HTTP-Header `Page` und `Page-Size` übertragen werden, die im Vertrag einmal unter `components/parameters` definiert und je Listenoperation per `$ref` eingebunden werden. Beide Header sind Pflicht; serverseitige Defaults sind nicht vorgesehen.
+
+[MUST] Beide Header-Parameter müssen im Vertrag `minimum` und `maximum` besitzen, weil der Generator `[Range]` nur bei beiden Grenzen erzeugt. `Page` erhält `maximum: 2147483647`, `Page-Size` die fachliche Obergrenze des Endpunkts.
 
 [MUST] Filter- und Sortierparameter müssen als endpunktspezifische `[FromQuery]`-Klasse übergeben und in ein Core-Kriterienobjekt gemappt werden. Sie dürfen nicht über Header übertragen werden.
 
-[MUST] Die Antwort muss `PageResult<TResponse>` mit genau den JSON-Feldern `count` und `items` sein. `count` ist die Gesamtzahl vor dem Seitenschnitt.
+[MUST] Die Antwort muss je Ressource ein Vertragsschema `<Ressource>Page` mit genau den Pflichtfeldern `count` (`integer`, `int32`) und `items` sein. `count` ist die Gesamtzahl vor dem Seitenschnitt.
 
 [MUST_NOT] Zusätzliche Paging-Felder wie `page`, `pageSize` oder `totalPages` sowie Paging-Response-Header wie `Total-Count` oder `Link` dürfen nicht ergänzt werden.
 
-[MUST_IF] Wenn ein Endpunkt eine maximale Seitengröße benötigt, muss der Controller sie als Konstante im zugehörigen Contracts-Typ prüfen und bei Überschreitung `400` als ProblemDetails mit `extensions.errorCode = "PageSizeTooLarge"` liefern.
+[MUST] Die maximale Seitengröße eines Endpunkts steht ausschließlich als `maximum` von `Page-Size` im Vertrag; Überschreitungen lehnt die Modellvalidierung mit `400` ab.
 
 [MUST_IF] Wenn die API CORS mit expliziter Header-Liste konfiguriert, muss diese `Page` und `Page-Size` erlauben.
 
@@ -63,29 +65,44 @@ Der Namespace-Präfix `Example` ist durch den Projektnamen zu ersetzen. Benötig
 
 ### Schichten
 
-[MUST] Controller-Actions müssen `PageRequest page` ohne Bindungsattribut entgegennehmen, den Use Case mit `IPageable` aufrufen und `Items` in Response-DTOs mappen.
+[MUST] Controller müssen die aus dem Vertrag erzeugte Methode überschreiben, aus `page` und `pageSize` ein `PageRequest` erzeugen, den Use Case mit `IPageable` aufrufen und das Ergebnis in das erzeugte `<Ressource>Page`-Modell mappen.
 
 [MUST] Service-Methoden müssen `ListAsync(IPageable page, ..., CancellationToken cancellationToken)` heißen und `PageResult<TDto>` liefern.
 
-[MUST] Interne Aufrufer ohne HTTP-Kontext müssen ein eigenes privates `IPageable`-Record verwenden statt `PageRequest`.
+[MUST] Interne Aufrufer ohne HTTP-Kontext verwenden ebenfalls `PageRequest`.
 
 ## Beispiel
 
+```yaml
+# contracts/api.yaml
+paths:
+  /api/teams:
+    get:
+      operationId: listTeams
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TeamPage' }
+```
+
 ```csharp
-// WebApi/Teams/TeamsController.cs
-[HttpGet]
-[ProducesResponseType(typeof(PageResult<TeamResponse>), StatusCodes.Status200OK)]
-public async Task<IActionResult> ListAsync(PageRequest page, CancellationToken cancellationToken)
+// WebApi/Teams/TeamsController.cs, TeamsControllerBase ist aus dem Vertrag erzeugt
+public override async Task<IActionResult> ListTeams(int page, int pageSize, CancellationToken cancellationToken)
 {
-    var result = await teamService.ListAsync(page, cancellationToken).ConfigureAwait(false);
-    return Ok(new PageResult<TeamResponse> { Count = result.Count, Items = result.Items.Select(ToResponse) });
+    var result = await teamService.ListAsync(new PageRequest(page, pageSize), cancellationToken).ConfigureAwait(false);
+    return Ok(new TeamPage { Count = result.Count, Items = result.Items.Select(ToResponse).ToList() });
 }
 
 // Core/Teams/ITeamService.cs
 Task<PageResult<TeamDto>> ListAsync(IPageable page, CancellationToken cancellationToken);
 
-// Core/Teams/TeamService.cs
-var result = teamRepository.GetAllOrderedByName().AsPage(page);
+// Core/Teams/TeamService.cs, Unit of Work siehe C# Unit of Work
+public Task<PageResult<TeamDto>> ListAsync(IPageable page, CancellationToken cancellationToken) =>
+    unitOfWork.ExecuteAsync((scope, _) => Task.FromResult(scope.Teams.GetAllOrderedByName().AsPage(page)), cancellationToken);
 
 // Core/Teams/ITeamRepository.cs
 IOrderedQueryable<TeamDto> GetAllOrderedByName();
@@ -96,12 +113,12 @@ public IOrderedQueryable<TeamDto> GetAllOrderedByName() =>
         .AsNoTracking()
         .OrderBy(t => t.Name)
         .ThenBy(t => t.Id)
-        .Select(t => new TeamDto(t.Id, t.Name));
+        .Select(t => new TeamDto(t.BusinessId, t.Name));
 ```
 
 Der Cast auf `IOrderedQueryable<TDto>` ist zulässig, weil EF Core nach `OrderBy` ein geordnetes Queryable liefert; ein `OrderBy` nach einer Konstruktor-Projektion ist nicht in SQL übersetzbar.
 
-Der Context-Lebenszyklus (`IDbContextFactory<TContext>`, Unit of Work) folgt unverändert [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md) und ist im Beispiel ausgelassen.
+Der Context-Lebenszyklus folgt [C# Unit of Work](https://heljens-it-services.github.io/agent-files/snippets/csharp-unit-of-work/SNIPPET.md): `AsPage` materialisiert innerhalb des offenen Scopes.
 
 ## Tests
 
@@ -109,7 +126,7 @@ Der Context-Lebenszyklus (`IDbContextFactory<TContext>`, Unit of Work) folgt unv
 
 [MUST] Jeder paginierte Endpunkt muss in WebApi-Tests nachweisen, dass zwei Abrufe mit `Page-Size: 1` zusammen genau die erwarteten Elemente in stabiler Reihenfolge liefern.
 
-[MUST_IF] Wenn ein Endpunkt eine maximale Seitengröße besitzt, muss ein Test nachweisen, dass `Maximum + 1` mit `400` und `PageSizeTooLarge` abgelehnt wird.
+[MUST] Ein WebApi-Test muss nachweisen, dass `Page-Size` oberhalb des Vertragsmaximums und `Page` kleiner als `1` mit `400` abgelehnt werden.
 
 ## Grenzen
 

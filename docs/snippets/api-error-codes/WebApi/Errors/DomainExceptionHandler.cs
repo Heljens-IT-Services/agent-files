@@ -8,19 +8,21 @@ public sealed class DomainExceptionHandler(IProblemDetailsService problemDetails
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(httpContext);
+
         if (exception is not DomainException domainException)
         {
             return false;
         }
 
-        var statusCode = ErrorProblem.ToStatusCode(domainException.Kind);
-        httpContext.Response.StatusCode = statusCode;
+        var problemDetails = ErrorProblem.Create(domainException.Error);
+        httpContext.Response.StatusCode = problemDetails.Status!.Value;
 
         return await problemDetailsService.TryWriteAsync(new ProblemDetailsContext
         {
             HttpContext = httpContext,
             Exception = exception,
-            ProblemDetails = ErrorProblem.Create(statusCode, domainException.ErrorCode, ReasonPhrases.GetReasonPhrase(statusCode)),
+            ProblemDetails = problemDetails,
         }).ConfigureAwait(false);
     }
 }

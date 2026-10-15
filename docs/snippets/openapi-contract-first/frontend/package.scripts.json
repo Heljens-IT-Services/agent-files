@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "api:generate": "node ../../scripts/generate-api.mjs",
+    "api:check": "node ../../scripts/generate-api.mjs --check"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "2.41.0"
+  }
+}

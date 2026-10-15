@@ -14,15 +14,17 @@ public sealed class WorkerTenantScope : IAsyncDisposable
     /// <summary>Der Dienstanbieter dieses Mandanten-Scopes.</summary>
     public IServiceProvider ServiceProvider => _scope.ServiceProvider;
 
-    /// <summary>Öffnet einen Scope und weist ihm <paramref name="tenantId"/> zu.</summary>
-    public static async Task<WorkerTenantScope> OpenAsync(IServiceScopeFactory serviceScopeFactory, Guid tenantId)
+    /// <summary>Öffnet einen Scope und weist ihm Business-Id und internen Schlüssel des Mandanten zu.</summary>
+    public static async Task<WorkerTenantScope> OpenAsync(IServiceScopeFactory serviceScopeFactory, Guid tenantId, int tenantKey)
     {
         ArgumentNullException.ThrowIfNull(serviceScopeFactory);
 
         var scope = serviceScopeFactory.CreateAsyncScope();
         try
         {
-            scope.ServiceProvider.GetRequiredService<ITenantAssignment>().AssignTenantId(tenantId);
+            var tenantAssignment = scope.ServiceProvider.GetRequiredService<ITenantAssignment>();
+            tenantAssignment.AssignTenantId(tenantId);
+            tenantAssignment.AssignTenantKey(tenantKey);
             return new WorkerTenantScope(scope);
         }
         catch

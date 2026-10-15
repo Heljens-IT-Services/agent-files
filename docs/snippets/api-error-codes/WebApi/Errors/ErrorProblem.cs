@@ -10,14 +10,22 @@ public static class ErrorProblem
     /// <summary>Der Name der ProblemDetails-Erweiterung, die den Fehlercode trägt.</summary>
     public const string ErrorCodeKey = "errorCode";
 
-    /// <summary>Baut ProblemDetails mit Status, englischem Titel und Fehlercode.</summary>
-    public static ProblemDetails Create(int statusCode, string errorCode, string title)
+    /// <summary>Baut ProblemDetails mit Status, Standardtitel und Fehlercode.</summary>
+    public static ProblemDetails Create(DomainError error)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(errorCode);
+        ArgumentNullException.ThrowIfNull(error);
 
-        var problemDetails = new ProblemDetails { Status = statusCode, Title = title };
-        problemDetails.Extensions[ErrorCodeKey] = errorCode;
+        var statusCode = ToStatusCode(error.Kind);
+        var problemDetails = new ProblemDetails { Status = statusCode, Title = ReasonPhrases.GetReasonPhrase(statusCode) };
+        problemDetails.Extensions[ErrorCodeKey] = error.Code;
         return problemDetails;
+    }
+
+    /// <summary>Erzeugt ein <see cref="ObjectResult"/> für Controller-Actions.</summary>
+    public static ObjectResult ToResult(DomainError error)
+    {
+        var problemDetails = Create(error);
+        return new ObjectResult(problemDetails) { StatusCode = problemDetails.Status };
     }
 
     /// <summary>Bildet eine <see cref="ErrorKind"/> auf ihren HTTP-Statuscode ab.</summary>
@@ -29,8 +37,4 @@ public static class ErrorProblem
         ErrorKind.Forbidden => StatusCodes.Status403Forbidden,
         _ => throw new ArgumentOutOfRangeException(nameof(kind), kind, "Unknown error kind."),
     };
-
-    /// <summary>Erzeugt ein <see cref="ObjectResult"/> für Controller-Actions.</summary>
-    public static ObjectResult ToResult(int statusCode, string errorCode, string title) =>
-        new(Create(statusCode, errorCode, title)) { StatusCode = statusCode };
 }
