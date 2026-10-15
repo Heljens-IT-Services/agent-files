@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "api:contract:check": "dotnet build ../../backend/src/WebApi/Example.WebApi.csproj --nologo && git diff --exit-code ../../contracts/api.json",
+    "api:client": "orval --config orval.config.ts",
+    "api:client:check": "npm run api:client && git diff --exit-code src/app/core/data-access/api/generated"
+  }
+}

@@ -149,6 +149,34 @@ def check_codex_templates() -> None:
             fail(right, None, "weicht von der Mustervorlage unter .codex/agents ab")
 
 
+def check_snippets(texts: dict[Path, str]) -> None:
+    catalog = DOCS / "snippets" / "SNIPPETS.md"
+    if not catalog.exists():
+        return
+    listed: set[str] = set()
+    link = re.compile(re.escape(BASE_URL + "snippets/") + r"([^/)]+)/SNIPPET\.md\)")
+    for number, line in enumerate(texts[catalog].splitlines(), start=1):
+        row = CATALOG_ROW.match(line)
+        if not row:
+            continue
+        entry_id, rest = row.groups()
+        target = link.search(rest)
+        if not target:
+            continue
+        if not ID_PATTERN.match(entry_id):
+            fail(catalog, number, f"ID `{entry_id}` verletzt das ID-Muster")
+        if target.group(1) != entry_id:
+            fail(catalog, number, f"ID `{entry_id}` entspricht nicht dem Ordner `{target.group(1)}`")
+        if entry_id in listed:
+            fail(catalog, number, f"ID `{entry_id}` ist doppelt vergeben")
+        listed.add(entry_id)
+    for folder in sorted(p for p in catalog.parent.iterdir() if p.is_dir()):
+        if not (folder / "SNIPPET.md").exists():
+            fail(folder, None, "SNIPPET.md fehlt")
+        if folder.name not in listed:
+            fail(catalog, None, f"snippets/{folder.name} fehlt im Katalog")
+
+
 def main() -> int:
     files = markdown_files()
     texts = {path: path.read_text(encoding="utf-8") for path in files}
@@ -159,6 +187,7 @@ def main() -> int:
     for name, folder in (("SKILLS.md", "skills"), ("WORKFLOWS.md", "workflows")):
         catalog = DOCS / folder / name
         check_catalog(catalog, folder, texts[catalog], aliases)
+    check_snippets(texts)
     check_codex_templates()
     if errors:
         print("\n".join(errors))

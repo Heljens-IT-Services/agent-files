@@ -65,6 +65,18 @@ Für die Pflege gelten folgende Konventionen:
 - Referenzierte Skills müssen vollständig aufgeführt und befolgt werden; ihre Grenzen gelten auch für extern wirksame Workflow-Schritte. Fehlt ein benötigter Skill, wird der Workflow nachgeschärft oder die Abweichung begründet. Bei blockierten Schritten gilt die Rücksprungregel oder der Blocker wird gemeldet.
 - Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien.
 
+### Snippets pflegen
+
+Snippets halten verbindliche Umsetzungen wiederkehrender technischer Muster fest, zum Beispiel Pagination im C#-Backend.
+
+[MUST] Jedes Snippet muss in einem eigenen Unterordner `docs/snippets/<snippet-id>/` liegen und dort eine `SNIPPET.md` mit den Abschnitten `Zweck`, `Verwenden`, `Dateien`, `Regeln` und `Grenzen` besitzen.
+
+[MUST] Jedes Snippet muss in [SNIPPETS.md](https://heljens-it-services.github.io/agent-files/snippets/SNIPPETS.md) mit ID, Rolle, Technologie und Verwendungskriterium eingetragen sein; die ID muss dem Ordnernamen entsprechen.
+
+[MUST] Codedateien eines Snippets müssen in der Ordnerstruktur des Zielprojekts unter dem Snippet-Ordner liegen und aus der `SNIPPET.md` verlinkt sein.
+
+[MUST_IF] Wenn ein Snippet aus einem Referenz-Repository übernommen wird, müssen projektspezifische Namespaces, Planverweise und Fachbegriffe neutralisiert werden.
+
 ### Konsistenzprüfung
 
 [MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
