@@ -1,6 +1,6 @@
 # TESTER.Angular.Playwright.md
 
-Stand: 2026-08-18
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -14,7 +14,7 @@ Diese Datei definiert Playwright-Regeln für Angular-Anwendungen. Allgemeine Tes
 
 [MUST] Navigation, Sichtbarkeits- und Zustandsänderungen, Eingaben und Validierung, Tastaturbedienung, unterstützte Gesten, persistierende Aktionen sowie Fehler-, Loading- und Disabled-Zustände müssen getestet werden, wenn sie Teil der Anwendung sind.
 
-[MUST_IF] Unterscheiden sich Verhalten oder Interaktion zwischen Themes oder Viewports, müssen die betroffenen funktionalen Tests diese Varianten abdecken.
+[MUST_IF] Wenn sich Verhalten oder Interaktion zwischen Themes oder Viewports unterscheiden, müssen die betroffenen funktionalen Tests diese Varianten abdecken.
 
 [MUST] Tests müssen das Nutzerergebnis statt interner Implementierungsdetails prüfen.
 
@@ -32,6 +32,6 @@ Diese Datei definiert Playwright-Regeln für Angular-Anwendungen. Allgemeine Tes
 
 [MUST] Visuelle Tests müssen das tatsächlich im Browser gerenderte Ergebnis einschließlich Styles von Frameworks und UI-Bibliotheken prüfen.
 
-[MUST_IF] Eine UI-Änderung betrifft eine Referenzkombination, muss deren visueller Test ausgeführt und das Referenzbild nur bei beabsichtigter Designänderung aktualisiert werden.
+[MUST_IF] Wenn eine UI-Änderung eine Referenzkombination betrifft, muss deren visueller Test ausgeführt und das Referenzbild nur bei beabsichtigter Designänderung aktualisiert werden.
 
 [MUST_NOT] Fehlgeschlagene visuelle Vergleiche dürfen nicht ungeprüft durch neue Referenzbilder ersetzt werden.

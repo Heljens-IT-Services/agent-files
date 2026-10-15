@@ -24,19 +24,9 @@ Die veröffentlichten Quelldateien liegen unter `docs/`. GitHub Pages stellt sie
 
 [MUST] Jede Markdown-Datei unter `docs/` muss für konsumierende Agents bestimmt, über GitHub Pages abrufbar und ausgehend von `docs/AGENTS.md` durch interne Markdown-Links erreichbar sein.
 
-### Interner Workflow: Online-Publikation prüfen
+### Online-Publikation prüfen
 
-Der Workflow `online-publikation-pruefen` wird nach einem Release oder bei Zweifeln an Erreichbarkeit, Vernetzung oder Aktualität der veröffentlichten Agent Files verwendet. Er verändert keine versionierten Dateien und keinen externen Zustand.
-
-| Schritt | Prüfung | Erfolgsbedingung |
-|---|---|---|
-| 1. Referenzstand | `origin/main` aktualisieren und dessen Commit-SHA erfassen. | Der erwartete Referenzstand ist eindeutig. |
-| 2. Pages-Quelle | GitHub-Pages-Konfiguration und letzten Build über die GitHub API lesen. | Quelle ist Branch `main` mit Pfad `/docs`; Build-Status ist `built`; Build-Commit entspricht `origin/main`. |
-| 3. Einstiegspunkt | `https://heljens-it-services.github.io/agent-files/AGENTS.md` per HTTP abrufen. | HTTP-Status ist `200`. |
-| 4. Vernetzung | Aus allen internen Markdown-Links einen Graphen ab `docs/AGENTS.md` bilden und mit den auf `origin/main` versionierten `docs/**/*.md`-Dateien vergleichen. | Kein Linkziel fehlt und jede Markdown-Datei unter `docs/` ist erreichbar. |
-| 5. Online-Abruf | Für jede versionierte Markdown-Datei sowie jede Codex-Agent-Vorlage unter `docs/codex/agents/` den Pages-Pfad aus dem Pfad relativ zu `docs/` bilden und abrufen. | Jede URL liefert HTTP-Status `200`. |
-| 6. Inhaltsabgleich | Online-Inhalt jeder geprüften Datei nach Vereinheitlichung der Zeilenenden mit dem zugehörigen Blob aus `origin/main` vergleichen; zusätzlich die veröffentlichten Codex-Agent-Vorlagen mit `.codex/agents/` abgleichen. | Keine Inhaltsabweichung besteht. |
-| 7. Ergebnis | Referenz-SHA, Datei- und Linkanzahl sowie Abweichungen zusammenfassen. | Quelle, Erreichbarkeit, Vernetzung und Aktualität sind getrennt bewertet. |
+Nach einem Release oder bei Zweifeln an Erreichbarkeit, Vernetzung oder Aktualität der veröffentlichten Agent Files wird der Workflow [`online-publication-check`](https://heljens-it-services.github.io/agent-files/workflows/online-publication-check.md) verwendet. Er verändert keine versionierten Dateien und keinen externen Zustand; seine Schritte und Erfolgsbedingungen stehen ausschließlich in der Workflow-Datei.
 
 Empfohlene Basisabfragen:
 
@@ -54,3 +44,31 @@ Invoke-WebRequest -Uri "https://heljens-it-services.github.io/agent-files/AGENTS
 [MUST_NOT] Nicht verlinkte Dateien unter `docs/` dürfen nicht stillschweigend als interne Dateien eingestuft werden. Interne Pflegehinweise gehören außerhalb von `docs/`.
 
 [MUST_IF] Die Prüfung muss mit konkreten Pfaden, URLs und erwarteter beziehungsweise tatsächlicher Commit-SHA fehlschlagen, sobald eine Erfolgsbedingung nicht erfüllt ist.
+
+### Skills und Workflows pflegen
+
+Skills bilden einzelne, klar abgegrenzte Fähigkeiten ab. Sie führen benötigte Vor- oder Nacharbeit nicht stillschweigend aus. Workflows kombinieren Skills in einer festgelegten Reihenfolge und definieren Bedingungen sowie Rücksprünge, ohne Skill-Regeln zu duplizieren, abzuschwächen oder zu überschreiben.
+
+| Dateityp | Verbindliche Abschnitte | Bedingte Abschnitte |
+|---|---|---|
+| Skill | `Zweck`, `Verwenden`, `Vorgehen`, `Grenzen`, `Output`, `Qualitätskriterien` | `Kommandos`, wenn konkrete Tool- oder CLI-Aufrufe relevant sind; `Artefakt`, wenn Dateien entstehen. |
+| Workflow | `Ziel`, `Verwenden`, `Verwendete Skills`, `Ablauf`, `Rücksprungregeln`, `Endergebnis` | `Verwendete Workflows` bei Orchestrierung weiterer Workflows; `Grenzen` bei besonderen Stop- oder Verbotsregeln. |
+
+`Zweck` beziehungsweise `Ziel` beschreibt den Nutzen in ein bis zwei Sätzen. `Verwenden` grenzt Trigger und Nicht-Trigger ab; `Vorgehen` beziehungsweise `Ablauf` ordnet die Schritte. `Grenzen` benennt erlaubte und verbotene Aktionen, `Output` beziehungsweise `Endergebnis` den Abschlusszustand und `Qualitätskriterien` kurze, prüfbare Regeln. Ein `Artefakt` legt Pfad, Namensschema, Inhalt und Stil fest.
+
+Zusätzliche fachliche Steuerungsabschnitte wie `Reifekriterien`, `Schnittkriterien`, `Entscheidungskriterien` oder `Priorisierung` sind erlaubt, wenn sie konkrete Entscheidungen prüfbar machen.
+
+Für die Pflege gelten folgende Konventionen:
+
+- Skill-Dateinamen beschreiben den fachlichen Scope; die Präfixe `code_` und `github_` kennzeichnen den jeweiligen Kontext.
+- Command-IDs verwenden Kleinbuchstaben und Bindestriche. Bestehende Unterstrich-Konventionen in Dateinamen dürfen erhalten bleiben.
+- Referenzierte Skills müssen vollständig aufgeführt und befolgt werden; ihre Grenzen gelten auch für extern wirksame Workflow-Schritte. Fehlt ein benötigter Skill, wird der Workflow nachgeschärft oder die Abweichung begründet. Bei blockierten Schritten gilt die Rücksprungregel oder der Blocker wird gemeldet.
+- Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien.
+
+### Konsistenzprüfung
+
+[MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
+
+[MUST] Die Prüfung ist ein reiner Lesecheck und kein Build- oder Generierungsschritt; sie darf keine Dateien unter `docs/` erzeugen oder verändern.
+
+[MUST_IF] Wenn eine Datei unter `docs/` eine `Stand:`-Zeile trägt, muss diese bei jeder inhaltlichen Änderung der Datei auf das Änderungsdatum gesetzt werden.

@@ -1,6 +1,6 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-08-22
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -22,7 +22,7 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST] C#-Anwendungen müssen Entity Framework Core für Datenbank-Anbindungen und datenbankbezogene Implementierungen verwenden.
 
-[ALLOW_IF] Eine projektspezifische Regel darf ausdrücklich eine abweichende Technologie oder Vorgehensweise vorgeben.
+[ALLOW] Eine projektspezifische Regel darf ausdrücklich eine abweichende Technologie oder Vorgehensweise vorgeben.
 
 ## Repository-Pattern und Persistenzgrenze
 
@@ -32,7 +32,7 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST] Repository-Implementierungen müssen das Mapping zwischen EF-Core-Entities und den anwendungsinternen Vertragsmodellen an der technischen Persistenzgrenze durchführen.
 
-[MUST_NOT] Repository-Verträge dürfen EF-Core-Entities oder technische Adapter- beziehungsweise Persistenztypen nach außen exponieren.
+[MUST_NOT] Repository-Verträge dürfen keine EF-Core-Entities oder technischen Adapter- beziehungsweise Persistenztypen nach außen exponieren.
 
 [MUST_NOT] Ein generisches `IRepository<TEntity>`-Framework darf nicht pauschal als Standard vorgeschrieben werden.
 
@@ -44,7 +44,7 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST_NOT] Ein Context darf nicht parallel verwendet oder über Requests, Jobs, Messages oder unabhängige Operationen hinweg gehalten werden. Zusammengehörige Vorgänge dürfen denselben Context innerhalb einer Unit of Work verwenden.
 
-[MUST_IF] Context-Konfiguration von scoped oder tenantabhängigen Daten abhängt, muss die Lifetime von `AddDbContextFactory` bewusst passend gewählt werden.
+[MUST_IF] Wenn die Context-Konfiguration von scoped oder tenantabhängigen Daten abhängt, muss die Lifetime von `AddDbContextFactory` bewusst passend gewählt werden.
 
 ## Module.cs und DI
 

@@ -82,8 +82,6 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 
 [MUST_IF] Wenn ein mutierender Skill von einem SubAgent ausgeführt wird, muss der aufrufende Workflow Scope, Berechtigung, Reihenfolge und anschließende Verifikation eindeutig festlegen.
 
-[MUST_NOT] Die Default-Zuordnung darf keine unkoordinierten parallelen Schreibzugriffe verschiedener SubAgents auf denselben Worktree erlauben.
-
-[MUST] Der Orchestrator übergibt Ziel, Scope, relevanten Kontext, Constraints, Entscheidungen und erwartetes Ergebnis und erwartet Ergebnis, Verifikation, Abweichungen, Blocker und nächste Rolle zurück.
+Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Codex-Laufzeitabbildung`.
 
 [ALLOW_IF] Ohne Codex-Custom-Agents führt der aktuelle Agent die Skills selbst nach denselben fachlichen Regeln aus.

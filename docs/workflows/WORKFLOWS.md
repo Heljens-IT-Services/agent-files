@@ -24,7 +24,7 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 | `issue-to-sub-issues-flat` | Issue To Sub Issues Flat | - | Genau eine Child-Ebene erzeugt werden soll. | [issue-to-sub-issues-flat.md](https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues-flat.md) | Eine Child-Ebene erzeugen. |
 | `issue-implementation` | Issue Implementation | - | Ein einzelnes Issue oder Arbeitspaket implementiert, verifiziert, committet und gepusht werden soll. | [issue-implementation.md](https://heljens-it-services.github.io/agent-files/workflows/issue-implementation.md) | Issue implementieren. |
 | `project-implementation-planning` | Project Implementation Planning | - | Eine projektweite Zielvorstellung interaktiv klären und als Human-freigegebenen Phasenplan oberhalb der Epic-Ebene strukturieren soll. | [project-implementation-planning.md](https://heljens-it-services.github.io/agent-files/workflows/project-implementation-planning.md) | Projektweite Implementierungsphasen planen. |
-| `online-publikation-pruefen` | Online-Publikation prüfen | - | Nach einem Release oder bei Zweifeln an Erreichbarkeit, Vernetzung oder Aktualität der veröffentlichten Agent Files geprüft werden soll. | [online-publikation-pruefen.md](https://heljens-it-services.github.io/agent-files/workflows/online-publikation-pruefen.md) | Veröffentlichung über GitHub Pages prüfen. |
+| `online-publication-check` | Online Publication Check | - | Nach einem Release oder bei Zweifeln an Erreichbarkeit, Vernetzung oder Aktualität der veröffentlichten Agent Files geprüft werden soll. | [online-publication-check.md](https://heljens-it-services.github.io/agent-files/workflows/online-publication-check.md) | Veröffentlichung über GitHub Pages prüfen. |
 | `refactoring-secure` | Refactoring Secure | - | Code bei nachweisbarem Verhaltenserhalt strukturiert und abgesichert werden soll. | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Refactoring absichern. |
 | `release` | Release | `/release` | Der freigegebene Stand von `develop` nach `main` veröffentlicht werden soll. | [release.md](https://heljens-it-services.github.io/agent-files/workflows/release.md) | Develop-Stand nach Main freigeben. |
 
@@ -32,16 +32,12 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 
 [MUST] Der Hauptagent bleibt für Workflow-Auswahl, Phasenkoordination, rollenübergreifende Entscheidungen und externe GitHub-/Git-Mutationen verantwortlich.
 
-[SHOULD] Planungs- und Issue-Strukturphasen werden an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, Verifikation und Check-Beobachtung an `tester` sowie gestalterische Exploration, Prototyping und visuelle Design-Reviews an `designer` delegiert, wenn die SubAgents verfügbar sind.
+[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, müssen Planungs- und Issue-Strukturphasen an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, Verifikation und Check-Beobachtung an `tester` sowie gestalterische Exploration, Prototyping und visuelle Design-Reviews an `designer` delegiert werden.
 
 [ALLOW_IF] Ein Workflow darf diese Default-Zuordnung für einen konkreten Schritt überschreiben, wenn Verantwortung, Übergabe, Rückgabe und Verifikation im Workflow eindeutig bleiben.
 
-[MUST] Übergaben enthalten Ziel, aktuellen Workflow-Schritt, Issue-/Task-Kontext, Scope, Nicht-Scope, Entscheidungen, Constraints, relevante Dateien oder Artefakte sowie das erwartete Ergebnis.
+Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Codex-Laufzeitabbildung`.
 
-[MUST] Rückgaben enthalten Ergebnis, ausgeführte oder ausgelassene Verifikation, Abweichungen, Blocker und die Empfehlung für den nächsten Schritt oder die nächste Rolle.
-
-[MUST_NOT] Schreibende SubAgents dürfen nicht unkoordiniert parallel auf demselben Worktree arbeiten. Parallele Delegation ist auf konfliktfreie Lese-, Analyse- oder Review-Schritte zu begrenzen.
-
-[MUST_IF] Ein Developer einen echten Planbruch erkennt, muss der Orchestrator an `planner` zurückgeben. Findet `tester` einen lokalen Implementierungsfehler, muss die Korrektur an `developer` zurückgegeben werden; widersprüchliche Akzeptanzkriterien gehen an `planner` oder den Orchestrator.
+[MUST_IF] Wenn ein Developer einen echten Planbruch erkennt, muss der Orchestrator an `planner` zurückgeben. Findet `tester` einen lokalen Implementierungsfehler, muss die Korrektur an `developer` zurückgegeben werden; widersprüchliche Akzeptanzkriterien gehen an `planner` oder den Orchestrator.
 
 [ALLOW_IF] Ohne Codex-Custom-Agents führt der Hauptagent dieselben Workflow-Phasen nach den fachlichen Regeln selbst aus.

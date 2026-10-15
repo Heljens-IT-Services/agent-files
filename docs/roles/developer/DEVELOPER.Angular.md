@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-08-12
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -47,7 +47,7 @@ src/app/
 
 [MUST] Imports über diese Architekturgrenzen müssen die Aliase verwenden.
 
-[MUST_IF] Neue oder umbenannte Features müssen ihren Alias im selben Task anlegen oder anpassen.
+[MUST_IF] Wenn ein Feature neu angelegt oder umbenannt wird, muss sein Alias im selben Task angelegt oder angepasst werden.
 
 ## State und Datenzugriff
 

@@ -28,5 +28,9 @@ curl.exe -L "https://heljens-it-services.github.io/agent-files/AGENTS.md"
 Invoke-WebRequest -Uri "https://heljens-it-services.github.io/agent-files/AGENTS.md" -UseBasicParsing
 ```
 
+```bash
+curl -fsSL "https://heljens-it-services.github.io/agent-files/AGENTS.md"
+```
+
 [MUST_IF] Wenn kein verfügbarer Abrufweg funktioniert, muss der Agent dies
 melden und die Arbeit einstellen.

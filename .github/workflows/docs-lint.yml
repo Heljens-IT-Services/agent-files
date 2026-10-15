@@ -1,0 +1,20 @@
+name: docs-lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Agent Files prüfen
+        run: python3 scripts/lint_docs.py
