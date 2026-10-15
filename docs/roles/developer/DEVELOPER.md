@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-08-25
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -71,7 +71,7 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST_IF] Extern vorgegebene Namen müssen unverändert bleiben, wenn Verträge, Frameworks, Protokolle oder Fremdsysteme dies erfordern.
 
-[MUST_NOT_IF] Die Sprachregel darf lokalisierte nutzersichtbare Werte nicht auf Englisch festlegen und bestehende öffentliche Verträge oder persistierte Schemata nicht ohne erforderliche Migration umbenennen.
+[MUST_NOT] Die Sprachregel darf lokalisierte nutzersichtbare Werte nicht auf Englisch festlegen und bestehende öffentliche Verträge oder persistierte Schemata nicht ohne erforderliche Migration umbenennen.
 
 [SHOULD] Ein Name soll erklären, warum ein Konzept existiert. Abweichungen sind erlaubt, wenn ein etabliertes Framework, Protokoll oder Fremdsystem einen anderen Namen vorgibt.
 
@@ -182,5 +182,7 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST_NOT] Ausgaben dürfen keine unbeabsichtigten internen Diagnose-, Infrastruktur- oder Sicherheitsdetails enthalten.
 
 [MUST] Abhängigkeiten müssen nach den Kriterien Wartbarkeit, Sicherheit, Lizenz, Kompatibilität und Projektbedarf ausgewählt und aktualisiert werden.
+
+[MUST_IF] Wenn eine neue Laufzeit-, Build- oder Test-Abhängigkeit eingeführt werden soll, die weder der Task noch `PROJECT.md` vorgibt, muss der Agent sie vor der Einführung begründen und die Freigabe des Users einholen.
 
 [PRIORITY] Sicherheitsupdates haben Vorrang vor kosmetischen Refactorings.

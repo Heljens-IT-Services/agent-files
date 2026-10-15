@@ -1,6 +1,6 @@
 # DEVELOPER.NetWebApi.md
 
-Stand: 2026-08-12
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -46,7 +46,7 @@ Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezoge
 
 [MUST] API-Fehler müssen zentral in HTTP-Antworten gemappt werden.
 
-[MUST_IF] Fällt eine notwendige Infrastruktur- oder Upstream-Abhängigkeit ohne fachlich definierten Fallback aus, muss die API den stabilen Fehlervertrag mit einem passenden Nicht-2xx-Statuscode zurückgeben.
+[MUST_IF] Wenn eine notwendige Infrastruktur- oder Upstream-Abhängigkeit ohne fachlich definierten Fallback ausfällt, muss die API den stabilen Fehlervertrag mit einem passenden Nicht-2xx-Statuscode zurückgeben.
 
 [MUST] Der Cancellation-Token eines HTTP-Requests muss an aufgerufene Use Cases und Infrastrukturports weitergereicht werden.
 
@@ -72,4 +72,4 @@ Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezoge
 
 [MUST] WebApi-Tests müssen Routing, Statuscodes, Authentifizierung, Validierung, Fehlerantworten, HTTP-Verträge und DI-Verkabelung deterministisch prüfen.
 
-[MUST_IF] Tests geänderter oder neuer WebApi-Fehlerpfade müssen nachweisen, dass Ausfälle notwendiger Abhängigkeiten nicht als erfolgreiche `2xx`-Antwort erscheinen.
+[MUST_IF] Wenn WebApi-Fehlerpfade geändert oder neu erstellt werden, müssen ihre Tests nachweisen, dass Ausfälle notwendiger Abhängigkeiten nicht als erfolgreiche `2xx`-Antwort erscheinen.

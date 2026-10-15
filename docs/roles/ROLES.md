@@ -12,7 +12,7 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 
 [MUST_NOT] Rollen dürfen nicht allein wegen ihrer Existenz, einer Persona oder einer festen Workflow- oder Skill-Zuordnung geladen werden.
 
-[MUST_IF] Wird ein weiterer Verantwortungsbereich im Task relevant, muss die zugehörige Rolle nachgeladen werden.
+[MUST_IF] Wenn ein weiterer Verantwortungsbereich im Task relevant wird, muss die zugehörige Rolle nachgeladen werden.
 
 [MUST_IF] Wenn für eine relevante Rolle eine technologiespezifische Regeldatei über [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) relevant ist, muss der Agent zusätzlich die allgemeine Regeldatei derselben Rolle lesen.
 
@@ -22,7 +22,7 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 
 [MUST] Allgemeine Agent-Governance ohne Rollenbezug gehört in [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md).
 
-[MUST_IF] Rollen eingeführt oder entkoppelt werden, müssen bestehende Regeln auf ihren fachlich allgemeinsten Scope klassifiziert werden.
+[MUST_IF] Wenn Rollen eingeführt oder entkoppelt werden, müssen bestehende Regeln auf ihren fachlich allgemeinsten Scope klassifiziert werden.
 
 [MUST_NOT] Regeln dürfen nicht allein wegen ihrer historischen Ablage in einer Rollendatei verbleiben.
 
@@ -45,10 +45,10 @@ Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner
 
 [MUST] Rollen bleiben unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke. Die Codex-Zuordnung bildet ihre Ausführung ab und ersetzt oder dupliziert sie nicht.
 
-[MUST] Der aufrufende Agent übergibt Ziel, Scope, Nicht-Scope, relevanten bereits geladenen Kontext, getroffene Entscheidungen, Constraints und erwartetes Ergebnis.
+[MUST] Der aufrufende Agent übergibt Ziel, aktuellen Workflow-Schritt, Issue-/Task-Kontext, Scope, Nicht-Scope, relevanten bereits geladenen Kontext, relevante Dateien oder Artefakte, getroffene Entscheidungen, Constraints und erwartetes Ergebnis.
 
-[MUST] Ein SubAgent gibt Ergebnis, Verifikation, Abweichungen, Blocker und den empfohlenen nächsten Verantwortungsbereich kompakt zurück.
+[MUST] Ein SubAgent gibt Ergebnis, ausgeführte oder ausgelassene Verifikation, Abweichungen, Blocker und den empfohlenen nächsten Schritt oder Verantwortungsbereich kompakt zurück.
 
-[MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten.
+[MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten. Parallele Delegation ist auf konfliktfreie Lese-, Analyse- oder Review-Schritte zu begrenzen.
 
 [ALLOW_IF] Wenn die Laufzeit keine Codex-Custom-Agents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.

@@ -44,7 +44,7 @@ Ein tatsächliches visuelles oder interaktives Ergebnis betrachten, kritisch bew
 
 [MUST_NOT] Der Skill darf nicht von einem bestimmten Herstellerwerkzeug abhängig gemacht werden, wenn eine gleichwertige verfügbare Visualisierung den Review ermöglicht.
 
-[MUST_NOT_IF] Eine visuelle Darstellung technisch verfügbar ist, darf der Review nicht ausschließlich aus HTML, CSS, Quellcode oder einer textuellen Beschreibung abgeleitet werden.
+[MUST_NOT_IF] Wenn eine visuelle Darstellung technisch verfügbar ist, darf der Review nicht ausschließlich aus HTML, CSS, Quellcode oder einer textuellen Beschreibung abgeleitet werden.
 
 ## Output
 

@@ -1,6 +1,6 @@
 # DEVELOPER.TypeScript.md
 
-Stand: 2026-07-22
+Stand: 2026-08-21
 
 ## Zweck
 

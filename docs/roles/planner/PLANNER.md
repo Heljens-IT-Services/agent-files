@@ -1,6 +1,6 @@
 # PLANNER.md
 
-Stand: 2026-08-18
+Stand: 2026-10-13
 
 ## Zweck
 
@@ -30,9 +30,9 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 [MUST_NOT] Parent/Child darf nicht als Ausführungsreihenfolge interpretiert werden.
 
-[MUST_IF] Eine harte Ausführungsabhängigkeit besteht, muss sie richtungsstabil als native `blocked by`-Beziehung gesetzt werden.
+[MUST_IF] Wenn eine harte Ausführungsabhängigkeit besteht, muss sie richtungsstabil als native `blocked by`-Beziehung gesetzt werden.
 
-[MUST_NOT] Labels, Checklisten oder Body-Links dürfen native GitHub-Issue-Typen oder -Beziehungen ersetzen.
+[MUST_NOT] Labels, Checklisten oder Body-Links dürfen native GitHub-Issue-Typen oder -Beziehungen nicht ersetzen.
 
 ## Zerlegung und Konsistenz
 
@@ -74,4 +74,4 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 [MUST] Ein GitHub Issue darf nur geschlossen werden, wenn seine Abschluss- oder Akzeptanzkriterien nachweislich erfüllt sind.
 
-[MUST_IF] Restumfang verbleibt, muss er vor dem Schließen explizit als GitHub Issue erfasst oder als offener Umfang dokumentiert werden.
+[MUST_IF] Wenn Restumfang verbleibt, muss er vor dem Schließen explizit als GitHub Issue erfasst oder als offener Umfang dokumentiert werden.

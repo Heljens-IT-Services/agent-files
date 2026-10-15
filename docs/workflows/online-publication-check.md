@@ -1,4 +1,4 @@
-# Workflow: Online-Publikation prüfen
+# Workflow: Online Publication Check
 
 ## Ziel
 

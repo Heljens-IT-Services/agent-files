@@ -112,7 +112,7 @@ spacing     = { " " | tab } ;
 
 [MUST_IF] Wenn ein Workflow Positionsargumente dokumentiert, muss `run` sie in derselben Anzahl, Reihenfolge und demselben Format wie seine direkten Aliase akzeptieren.
 
-[MUST_NOT] Nicht dokumentierte Positionsargumente dürfen an `run` oder direkte Aliase übergeben werden.
+[MUST_NOT] Nicht dokumentierte Positionsargumente dürfen nicht an `run` oder direkte Aliase übergeben werden.
 
 [MUST_IF] Wenn die Verwendungskriterien einer gültigen ID nicht erfüllt sind, muss der Agent stoppen, die Unpassung benennen und auf einen passenden Eintrag oder eine natürliche Anfrage verweisen.
 
@@ -124,7 +124,7 @@ spacing     = { " " | tab } ;
 
 [MUST] Die allgemeine Hilfe muss direkte Aliase getrennt von Root-Commands mit Katalogtyp und kanonischem Aufruf ausweisen.
 
-[MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase als Root-Commands darstellen.
+[MUST_NOT] Die allgemeine Hilfe darf direkte Skill- oder Workflow-Aliase nicht als Root-Commands darstellen.
 
 [MUST] `/help` und `/?` müssen ohne weiteres Argument zusätzlich `README.md` und `PROJECT.md` lesen und unter `Repository-Kontext` deren aktuell relevante Kernaussagen knapp zusammenfassen.
 
