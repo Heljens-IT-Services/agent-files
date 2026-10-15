@@ -1,0 +1,47 @@
+{
+  "$schema": "./app/frontend/node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.26.0",
+    "generators": {
+      "backend": {
+        "generatorName": "aspnetcore",
+        "inputSpec": "#{cwd}/contracts/api.yaml",
+        "output": "#{cwd}/.openapi-generator-tmp/backend",
+        "templateDir": "#{cwd}/contracts/templates/aspnetcore",
+        "globalProperty": {
+          "apis": "",
+          "models": "",
+          "supportingFiles": "CustomEnumConverter.cs"
+        },
+        "additionalProperties": {
+          "aspnetCoreVersion": "10.0",
+          "packageName": "Example.WebApi.Contracts.Generated",
+          "sourceFolder": "",
+          "operationResultTask": true,
+          "nullableReferenceTypes": false,
+          "useNewtonsoft": false,
+          "useSwashbuckle": false,
+          "useDateTimeOffset": true,
+          "generateBody": false,
+          "modelClassModifier": ""
+        }
+      },
+      "frontend": {
+        "generatorName": "typescript-angular",
+        "inputSpec": "#{cwd}/contracts/api.yaml",
+        "output": "#{cwd}/.openapi-generator-tmp/frontend",
+        "additionalProperties": {
+          "ngVersion": "20.0.0",
+          "providedIn": "root",
+          "fileNaming": "kebab-case",
+          "supportsES6": true,
+          "stringEnums": true,
+          "useSingleRequestParameter": true,
+          "modelPropertyNaming": "original",
+          "paramNaming": "camelCase"
+        }
+      }
+    }
+  }
+}

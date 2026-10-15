@@ -1,0 +1,40 @@
+<Project>
+  <!-- Gilt für alle Projekte unterhalb des Repository-Roots. Projektdateien wiederholen diese Werte nicht. -->
+
+  <PropertyGroup Label="Sprache">
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Warnungen">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Schwachstellen niedriger und mittlerer Schwere bleiben sichtbar, brechen den Build aber nicht. -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1901;NU1902</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGetAudit">
+    <NuGetAudit>true</NuGetAudit>
+    <!-- Prüft auch transitive Pakete. -->
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <!-- Hohe und kritische Schwachstellen brechen den Build. -->
+    <WarningsAsErrors>$(WarningsAsErrors);NU1903;NU1904</WarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Analyse">
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+    <!-- Voraussetzung dafür, dass IDE0005 (ungenutzte usings) im Build ausgewertet wird. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Fehlende XML-Dokumentation wird über Review und Developer-Regeln gesteuert, nicht über den Build. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'" Label="CI">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+</Project>

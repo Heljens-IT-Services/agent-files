@@ -1,6 +1,6 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-10-13
+Stand: 2026-10-15
 
 ## Zweck
 
@@ -37,6 +37,8 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 [MUST_NOT] Ein generisches `IRepository<TEntity>`-Framework darf nicht pauschal als Standard vorgeschrieben werden.
 
 [MUST] Anwendungscode mit datenbankgestützter Persistenz muss die Factory-Regeln einhalten: Repository-Implementierungen konsumieren `IDbContextFactory<TContext>` und die Composition Root registriert `AddDbContextFactory<TContext>(...)`.
+
+[ALLOW_IF] Wenn Repositories ausschließlich über eine Unit of Work gemäß [C# Unit of Work](https://heljens-it-services.github.io/agent-files/snippets/csharp-unit-of-work/SNIPPET.md) erzeugt werden, darf statt der Repository-Implementierungen die Unit of Work `IDbContextFactory<TContext>` konsumieren und den Context ihres Scopes an die Repositories übergeben.
 
 [MUST_NOT] Anwendungscode darf `TContext : DbContext` nicht direkt injizieren. Die durch `AddDbContextFactory` zusätzlich registrierte Scoped-Instanz ist kein erlaubter Konsumweg.
 

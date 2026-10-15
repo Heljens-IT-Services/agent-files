@@ -1,0 +1,31 @@
+# Wird im Repository-Root als .editorconfig abgelegt.
+root = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+charset = utf-8
+insert_final_newline = true
+csharp_style_namespace_declarations = file_scoped:error
+
+# Testprojekte: Testnamen mit Unterstrichen und kein ConfigureAwait in Testmethoden
+# (xUnit1030 verbietet ConfigureAwait(false) dort ausdrücklich).
+[test/**/*.cs]
+dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.CA2007.severity = none
+dotnet_diagnostic.MA0004.severity = none
+
+# DEVELOPER.CSharpNet.md verlangt Module.cs als DI-Einstieg; Meziantou MA0048 erzwingt den gleichen
+# Klassennamen. "Module" ist nur in VB.NET ein Schlüsselwort und für C#-Code unkritisch.
+[**/Module.cs]
+dotnet_diagnostic.CA1716.severity = none
+
+# Aus contracts/api.yaml erzeugter Code; Änderungen erfolgen ausschließlich über den Vertrag.
+[**/Contracts/Generated/**.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none
+
+# EF-Core-Migrationen sind generierter Code.
+[**/Migrations/**.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none

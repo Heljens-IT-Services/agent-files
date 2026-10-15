@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-15
 
 ## Zweck
 
@@ -44,6 +44,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup für zusammengesetzte Workflows. |
 | [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) | Bei Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für Slash-Commands. |
 | [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands oder technologiespezifischer Rollenarbeit | Rollenbewusster Lookup für technologiespezifische Regeldateien. |
+| [SNIPPETS.md](https://heljens-it-services.github.io/agent-files/snippets/SNIPPETS.md) | Bei Developer-Verantwortung | Lookup für verbindliche Code-Snippets wiederkehrender technischer Muster. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.

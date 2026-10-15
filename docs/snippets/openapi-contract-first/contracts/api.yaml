@@ -1,0 +1,87 @@
+# Quelle der Wahrheit für die HTTP-API. Änderungen erfolgen zuerst hier, danach `node scripts/generate-api.mjs`.
+openapi: 3.0.3
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  /api/teams:
+    get:
+      tags: [Teams]
+      operationId: listTeams
+      summary: Listet die Teams des Mandanten seitenweise, sortiert nach Name.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Seite der Teams.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TeamPage' }
+        '400': { $ref: '#/components/responses/Problem' }
+        '401': { description: Nicht angemeldet. }
+    post:
+      tags: [Teams]
+      operationId: createTeam
+      summary: Legt ein Team an.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateTeamRequest' }
+      responses:
+        '201':
+          description: Angelegtes Team.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TeamResponse' }
+        '400': { $ref: '#/components/responses/Problem' }
+        '401': { description: Nicht angemeldet. }
+        '409': { $ref: '#/components/responses/Problem' }
+components:
+  parameters:
+    Page:
+      name: Page
+      in: header
+      required: true
+      description: Angeforderte Seite, eins-basiert.
+      schema: { type: integer, format: int32, minimum: 1, maximum: 2147483647 }
+    PageSize:
+      name: Page-Size
+      in: header
+      required: true
+      description: Elemente je Seite.
+      schema: { type: integer, format: int32, minimum: 1, maximum: 100 }
+  responses:
+    Problem:
+      description: Fachlicher Fehler mit maschinenlesbarem Fehlercode.
+      content:
+        application/problem+json:
+          schema: { $ref: '#/components/schemas/Problem' }
+  schemas:
+    Problem:
+      type: object
+      required: [status, errorCode]
+      properties:
+        status: { type: integer, format: int32 }
+        title: { type: string }
+        errorCode: { type: string, description: 'Fehlercode in snake_case, z. B. team_name_conflict.' }
+    TeamResponse:
+      type: object
+      required: [businessId, name]
+      properties:
+        businessId: { type: string, format: uuid }
+        name: { type: string }
+    TeamPage:
+      type: object
+      required: [count, items]
+      properties:
+        count: { type: integer, format: int32, description: Gesamtzahl der Treffer vor dem Seitenschnitt. }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/TeamResponse' }
+    CreateTeamRequest:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string, minLength: 1, maxLength: 100 }
