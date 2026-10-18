@@ -178,6 +178,7 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /workflows run feature-finish
 /workflows run bugfix
 /workflows run bugfix-from-default
+/workflows run dependency-update
 /bugfix
 /bugfix from-default
 /workflows run issue-graph-implementation 123
@@ -193,5 +194,6 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /sub-issues 123 flat
 /finish
 /release
+/deps
 /technologies show csharp-net
 ```
