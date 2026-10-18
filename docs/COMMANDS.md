@@ -174,6 +174,8 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /testing
 /testing e2e
 /skills run code-testing all
+/skills run decision-record
+/adr
 /workflows show feature-finish
 /workflows run feature-finish
 /workflows run bugfix
