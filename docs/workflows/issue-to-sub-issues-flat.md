@@ -1,5 +1,7 @@
 # Workflow: Issue To Sub Issues Flat
 
+Stand: 2026-08-20
+
 ## Ziel
 
 Ein Issue genau eine Ebene in klare Child-Issues zerlegen.

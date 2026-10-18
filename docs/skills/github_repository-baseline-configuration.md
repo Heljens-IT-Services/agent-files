@@ -1,5 +1,7 @@
 # Skill: GitHub Repository-Basiskonfiguration
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Die GitHub-Basiskonfiguration eines Repositorys kontrolliert gegen die zentralen Heljens-Referenzen prüfen und innerhalb eines erlaubten Repository-Pflegeauftrags gezielt ergänzen oder korrigieren.

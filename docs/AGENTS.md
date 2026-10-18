@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -44,6 +44,7 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 | [WORKFLOWS.md](https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md) | Pflicht | Lookup für zusammengesetzte Workflows. |
 | [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md) | Bei Slash-Commands | Grammatik, Auflösung und Fehlerbehandlung für Slash-Commands. |
 | [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) | Bei Technologie-Commands oder technologiespezifischer Rollenarbeit | Rollenbewusster Lookup für technologiespezifische Regeldateien. |
+| [CHANGELOG.md](https://heljens-it-services.github.io/agent-files/CHANGELOG.md) | Bei Aktualitätsprüfung bereits gelesener Regeldateien | Datierte Liste der Regeländerungen an den Agent Files. |
 | `README.md` | Bei Relevanz | Menschlicher Schnelleinstieg in Projekt, Setup und Kommandos. |
 
 [MUST] Der Agent muss alle als Pflicht gekennzeichneten Einstiegsdateien zu Beginn eines Tasks im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
@@ -55,6 +56,10 @@ Zu Beginn eines Tasks gelten diese Einstiegsdateien:
 [MUST_IF] Wenn die in der Spalte `Geltung` genannte Bedingung eintritt, muss der Agent die betreffende Einstiegsdatei im aktuellen Kontext vollständig und aktuell genug kennen und befolgen.
 
 [ALLOW_IF] Bereits gelesene verbindliche Regeldateien dürfen wiederverwendet werden, wenn kein Hinweis auf eine zwischenzeitliche Änderung besteht.
+
+[ALLOW_IF] Zur Prüfung auf eine zwischenzeitliche Änderung darf der Agent statt eines vollständigen Neuabrufs aktuell [CHANGELOG.md](https://heljens-it-services.github.io/agent-files/CHANGELOG.md) abrufen und eine Kontextfassung wiederverwenden, wenn dort kein Eintrag für diese Datei mit einem Datum am oder nach dem `Stand:` der Kontextfassung verzeichnet ist und dieser `Stand:` nicht vor dem ältesten Changelog-Eintrag liegt.
+
+[MUST_IF] Wenn der Changelog für eine bereits gelesene Regeldatei einen Eintrag mit einem Datum am oder nach dem `Stand:` ihrer Kontextfassung enthält, ihr `Stand:` vor dem ältesten Changelog-Eintrag liegt oder die Kontextfassung keine `Stand:`-Zeile trägt, gilt dies als Hinweis auf eine zwischenzeitliche Änderung.
 
 [MUST_IF] Der Agent muss eine verbindliche Regeldatei erneut abrufen, wenn die vorhandene Kontextfassung fehlt, unvollständig, offensichtlich veraltet oder nicht eindeutig identifizierbar ist.
 

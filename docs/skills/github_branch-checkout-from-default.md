@@ -1,5 +1,7 @@
 # Skill: GitHub Branch Checkout From Default
 
+Stand: 2026-08-16
+
 ## Zweck
 
 Einen aufgabenbezogenen Arbeitsbranch von einer aktuellen Standardbasis erstellen oder bestätigen, dass bereits ein passender Branch aktiv ist.

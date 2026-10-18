@@ -1,5 +1,7 @@
 # Workflow: Bugfix From Default
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Einen Fehler zielgerichtet analysieren, beheben und absichern und dafür bewusst einen neuen Arbeitsbranch von der Standardbasis bis zu einem Pull Request organisieren.

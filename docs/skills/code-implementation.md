@@ -1,5 +1,7 @@
 # Skill: Code Implementieren
 
+Stand: 2026-09-10
+
 ## Zweck
 
 Eine geklärte Änderung mit minimalem Write-Scope und der kleinsten hinreichenden Lösung im Code umsetzen. Ein enger Write-Scope begrenzt den äußeren Änderungsbereich, ersetzt aber nicht die Begründung für die Lösungsgröße innerhalb dieses Scopes.

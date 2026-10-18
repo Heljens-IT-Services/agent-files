@@ -1,5 +1,7 @@
 # Workflow: Issue Graph Implementation
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis zur verifizierten Implementierung und zu genau einem finalen Pull Request bearbeiten. Vor der Umsetzung wird der relevante Issue-Graph vollständig erfasst, der Umsetzungsscope festgelegt und ein temporärer Orchestrierungsplan erzeugt. Anschließend wird der vollständige Scope auf genau einem Arbeitsbranch sequenziell abgearbeitet.

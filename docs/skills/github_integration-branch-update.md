@@ -1,5 +1,7 @@
 # Skill: GitHub Integrationsbranch Aktualisieren
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Nach einem verifizierten Pull-Request-Merge nach `develop` auf den Integrationsbranch wechseln und ihn sicher per Fast-Forward aktualisieren.

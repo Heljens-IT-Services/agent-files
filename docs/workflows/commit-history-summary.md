@@ -1,5 +1,7 @@
 # Workflow: Commit History Summary
 
+Stand: 2026-08-20
+
 ## Ziel
 
 Commits und gemergte Pull Requests eines Repositorys für einen angegebenen Zeitraum erfassen und als tabellarisches fachliches, technisches oder detailliertes Summary ausgeben.

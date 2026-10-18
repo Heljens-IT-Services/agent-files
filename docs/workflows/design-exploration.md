@@ -1,5 +1,7 @@
 # Workflow: Design Exploration
 
+Stand: 2026-08-21
+
 ## Ziel
 
 Eine offene oder visuell relevante Designaufgabe explorativ verstehen, mehrere belastbare Richtungen entwickeln, mit leichten Prototypen tatsächlich visualisieren, reviewen und iterativ zu einer begründeten Designrichtung führen.

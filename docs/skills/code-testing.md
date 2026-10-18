@@ -1,5 +1,7 @@
 # Skill: Code Testen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Eine Änderung mit passenden Build-, Test- oder manuellen Prüfschritten verifizieren.
