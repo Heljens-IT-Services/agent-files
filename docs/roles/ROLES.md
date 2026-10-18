@@ -35,15 +35,17 @@ Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabh�
 | Planner | [PLANNER.md](https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md) | GitHub Issues oder projektweite, Human-freigegebene Implementierungspläne erstellt, fachlich geplant, strukturiert, zerlegt, typisiert, verknüpft, priorisiert oder auf Abschluss geprüft werden. | Leitplanken für Issues und projektweite Phasenpläne. |
 | Tester | [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) | Teststrategie, Testentwurf, Testerstellung, Testwartung, Regression, Verifikation oder erforderliche Checks relevant sind. | Technologieübergreifende Testregeln. |
 
-## Codex-Laufzeitabbildung
+## Laufzeitabbildung durch Rollen-SubAgents
+
+Rollen-SubAgents sind die laufzeitspezifischen Agents `planner`, `developer`, `tester` und `designer`, die gemäß [AGENTS.md](https://heljens-it-services.github.io/agent-files/AGENTS.md) als Codex-Custom-Agents unter `.codex/agents/` oder als Claude-Code-Subagents unter `.claude/agents/` bereitgestellt werden.
 
 Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner` verantwortlich; für graphweite Acceptance und die Bewertung des Status `no-checks-required` ist `Tester` verantwortlich.
 
-[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
+[MUST_IF] Wenn Rollen-SubAgents verfügbar sind, muss Designer-Verantwortung an `designer`, Planner-Verantwortung an `planner`, Developer-Verantwortung an `developer` und Tester-Verantwortung an `tester` delegiert werden.
 
 [ALLOW_IF] Bei kombinierten Verantwortungen darf der koordinierende Hauptagent die Arbeit sequenziell auf mehrere SubAgents verteilen, sofern jeder Agent nur seinen klar abgegrenzten Verantwortungsbereich übernimmt.
 
-[MUST] Rollen bleiben unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke. Die Codex-Zuordnung bildet ihre Ausführung ab und ersetzt oder dupliziert sie nicht.
+[MUST] Rollen bleiben unabhängige, kombinierbare Verantwortungs- und Qualitätsregelwerke. Die Zuordnung zu Rollen-SubAgents bildet ihre Ausführung ab und ersetzt oder dupliziert sie nicht.
 
 [MUST] Der aufrufende Agent übergibt Ziel, aktuellen Workflow-Schritt, Issue-/Task-Kontext, Scope, Nicht-Scope, relevanten bereits geladenen Kontext, relevante Dateien oder Artefakte, getroffene Entscheidungen, Constraints und erwartetes Ergebnis.
 
@@ -51,4 +53,4 @@ Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner
 
 [MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten. Parallele Delegation ist auf konfliktfreie Lese-, Analyse- oder Review-Schritte zu begrenzen.
 
-[ALLOW_IF] Wenn die Laufzeit keine Codex-Custom-Agents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.
+[ALLOW_IF] Wenn die Laufzeit keine Rollen-SubAgents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.

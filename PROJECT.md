@@ -20,6 +20,10 @@ Die veröffentlichten Quelldateien liegen unter `docs/`. GitHub Pages stellt sie
 
 [MUST] Die online veröffentlichten Codex-Agent-Vorlagen unter `docs/codex/agents/` müssen inhaltsgleich mit den ausführbaren Mustervorlagen unter `.codex/agents/` gepflegt werden.
 
+[MUST] Die online veröffentlichten Claude-Code-Subagent-Vorlagen unter `docs/claude/agents/` müssen inhaltsgleich mit den ausführbaren Mustervorlagen unter `.claude/agents/` gepflegt werden.
+
+[MUST] `docs/.nojekyll` muss erhalten bleiben, damit GitHub Pages Markdown-Dateien mit YAML-Frontmatter wie die Claude-Code-Subagent-Vorlagen unverarbeitet unter ihrer `.md`-URL ausliefert.
+
 [MUST_NOT] Es darf kein separater Build- oder Generierungsschritt vorausgesetzt werden, solange GitHub Pages die versionierten Dateien unter `docs/` direkt verteilt.
 
 [MUST] Jede Markdown-Datei unter `docs/` muss für konsumierende Agents bestimmt, über GitHub Pages abrufbar und ausgehend von `docs/AGENTS.md` durch interne Markdown-Links erreichbar sein.
@@ -67,7 +71,7 @@ Für die Pflege gelten folgende Konventionen:
 
 ### Konsistenzprüfung
 
-[MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
+[MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/`, `.claude/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
 
 [MUST] Die Prüfung ist ein reiner Lesecheck und kein Build- oder Generierungsschritt; sie darf keine Dateien unter `docs/` erzeugen oder verändern.
 
