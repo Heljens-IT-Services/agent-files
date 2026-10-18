@@ -41,11 +41,11 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `type-setting` | Type Setting | - | Der native GitHub-Issue-Type eines bestehenden oder neu erstellten Issues gesetzt werden soll. | [github_type-setting.md](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) | Issue-Type pflegen. |
 | `research` | Research | - | Web-, Repository-, Issue- oder PR-Kontext recherchiert und zusammengefasst werden soll. | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Kontext recherchieren. |
 
-## Codex-Default-Zuordnung
+## Default-Zuordnung für Rollen-SubAgents
 
-Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Workflow darf sie für einen konkreten Schritt bewusst überschreiben, ohne die fachlichen Regeln des Skills zu umgehen.
+Die Zuordnung beschreibt die fachliche Standardverantwortung, wenn Rollen-SubAgents gemäß [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) verfügbar sind. Ein Workflow darf sie für einen konkreten Schritt bewusst überschreiben, ohne die fachlichen Regeln des Skills zu umgehen.
 
-| Skill-ID | Standard unter Codex | Ausführungshinweis |
+| Skill-ID | Standard-Agent | Ausführungshinweis |
 |---|---|---|
 | `requirements-clarification` | `planner` | Ziel, Scope und offene Anforderungen klären. |
 | `brainstorming` | `planner` | Optionen strukturieren und Entscheidungen vorbereiten. |
@@ -82,6 +82,6 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 
 [MUST_IF] Wenn ein mutierender Skill von einem SubAgent ausgeführt wird, muss der aufrufende Workflow Scope, Berechtigung, Reihenfolge und anschließende Verifikation eindeutig festlegen.
 
-Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Codex-Laufzeitabbildung`.
+Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Laufzeitabbildung durch Rollen-SubAgents`.
 
-[ALLOW_IF] Ohne Codex-Custom-Agents führt der aktuelle Agent die Skills selbst nach denselben fachlichen Regeln aus.
+[ALLOW_IF] Ohne Rollen-SubAgents führt der aktuelle Agent die Skills selbst nach denselben fachlichen Regeln aus.

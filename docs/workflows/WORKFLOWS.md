@@ -28,16 +28,18 @@ Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu e
 | `refactoring-secure` | Refactoring Secure | - | Code bei nachweisbarem Verhaltenserhalt strukturiert und abgesichert werden soll. | [refactoring-secure.md](https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md) | Refactoring absichern. |
 | `release` | Release | `/release` | Der freigegebene Stand von `develop` nach `main` veröffentlicht werden soll. | [release.md](https://heljens-it-services.github.io/agent-files/workflows/release.md) | Develop-Stand nach Main freigeben. |
 
-## Codex-Orchestrierung
+## Orchestrierung mit Rollen-SubAgents
+
+Die Abschnitte `Codex-Orchestrierung` der Workflow-Dateien gelten für alle Rollen-SubAgents gemäß [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md).
 
 [MUST] Der Hauptagent bleibt für Workflow-Auswahl, Phasenkoordination, rollenübergreifende Entscheidungen und externe GitHub-/Git-Mutationen verantwortlich.
 
-[MUST_IF] Wenn Codex-Custom-Agents verfügbar sind, müssen Planungs- und Issue-Strukturphasen an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, Verifikation und Check-Beobachtung an `tester` sowie gestalterische Exploration, Prototyping und visuelle Design-Reviews an `designer` delegiert werden.
+[MUST_IF] Wenn Rollen-SubAgents verfügbar sind, müssen Planungs- und Issue-Strukturphasen an `planner`, technische Analyse, Implementierung und Refactoring an `developer`, Verifikation und Check-Beobachtung an `tester` sowie gestalterische Exploration, Prototyping und visuelle Design-Reviews an `designer` delegiert werden.
 
 [ALLOW_IF] Ein Workflow darf diese Default-Zuordnung für einen konkreten Schritt überschreiben, wenn Verantwortung, Übergabe, Rückgabe und Verifikation im Workflow eindeutig bleiben.
 
-Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Codex-Laufzeitabbildung`.
+Übergabe, Rückgabe und die Grenzen paralleler Delegation regelt ausschließlich [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md) im Abschnitt `Laufzeitabbildung durch Rollen-SubAgents`.
 
 [MUST_IF] Wenn ein Developer einen echten Planbruch erkennt, muss der Orchestrator an `planner` zurückgeben. Findet `tester` einen lokalen Implementierungsfehler, muss die Korrektur an `developer` zurückgegeben werden; widersprüchliche Akzeptanzkriterien gehen an `planner` oder den Orchestrator.
 
-[ALLOW_IF] Ohne Codex-Custom-Agents führt der Hauptagent dieselben Workflow-Phasen nach den fachlichen Regeln selbst aus.
+[ALLOW_IF] Ohne Rollen-SubAgents führt der Hauptagent dieselben Workflow-Phasen nach den fachlichen Regeln selbst aus.

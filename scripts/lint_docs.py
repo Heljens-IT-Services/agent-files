@@ -137,16 +137,25 @@ def check_catalog(catalog: Path, folder: str, text: str, aliases: dict[str, str]
         fail(catalog, None, f"{folder}/{name} fehlt im Katalog")
 
 
-def check_codex_templates() -> None:
-    source = ROOT / ".codex" / "agents"
-    published = DOCS / "codex" / "agents"
-    names = {p.name for p in source.glob("*.toml")} | {p.name for p in published.glob("*.toml")}
+def check_agent_templates(runtime: str, pattern: str) -> None:
+    """Prüft die Inhaltsgleichheit von .<runtime>/agents und docs/<runtime>/agents."""
+    source = ROOT / f".{runtime}" / "agents"
+    published = DOCS / runtime / "agents"
+    names = {p.name for p in source.glob(pattern)} | {p.name for p in published.glob(pattern)}
     for name in sorted(names):
         left, right = source / name, published / name
         if not left.exists() or not right.exists():
-            fail(published, None, f"{name} fehlt in .codex/agents oder docs/codex/agents")
+            fail(published, None, f"{name} fehlt in .{runtime}/agents oder docs/{runtime}/agents")
         elif left.read_bytes().replace(b"\r\n", b"\n") != right.read_bytes().replace(b"\r\n", b"\n"):
-            fail(right, None, "weicht von der Mustervorlage unter .codex/agents ab")
+            fail(right, None, f"weicht von der Mustervorlage unter .{runtime}/agents ab")
+
+
+def check_claude_templates() -> None:
+    check_agent_templates("claude", "*.md")
+    # Ohne .nojekyll verarbeitet GitHub Pages Markdown mit YAML-Frontmatter
+    # und liefert die Vorlagen nicht unter ihrer .md-URL aus.
+    if not (DOCS / ".nojekyll").exists():
+        fail(DOCS, None, ".nojekyll fehlt; Vorlagen mit YAML-Frontmatter würden nicht roh veröffentlicht")
 
 
 def main() -> int:
@@ -159,7 +168,8 @@ def main() -> int:
     for name, folder in (("SKILLS.md", "skills"), ("WORKFLOWS.md", "workflows")):
         catalog = DOCS / folder / name
         check_catalog(catalog, folder, texts[catalog], aliases)
-    check_codex_templates()
+    check_agent_templates("codex", "*.toml")
+    check_claude_templates()
     if errors:
         print("\n".join(errors))
         print(f"\n{len(errors)} Befund(e) in {len(files)} Markdown-Dateien.")
