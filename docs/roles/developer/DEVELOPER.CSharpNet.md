@@ -1,6 +1,6 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -57,3 +57,13 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 [ALLOW] `Program.cs` oder ein anderer Composition Root darf Module wegen transitiver Referenzierung explizit registrieren.
 
 [MUST] Direkte Projektreferenzen müssen die vorgesehenen Architekturgrenzen respektieren und dürfen nicht allein für bequeme DI-Registrierung aufgeweicht werden.
+
+## EF-Core-Abfragen
+
+[MUST] Lesende Abfragen ohne Änderungsabsicht müssen `AsNoTracking()` verwenden oder per `Select(...)` direkt in Ergebnismodelle projizieren.
+
+[MUST_NOT] `Where`, `OrderBy`, `Skip` und `Take` dürfen nicht erst nach `ToList()`, `ToListAsync()` oder `AsEnumerable()` angewendet werden, wenn sie in der Datenbank ausführbar sind.
+
+[MUST_NOT_IF] Lazy-Loading-Proxies dürfen nicht aktiviert werden, sofern `PROJECT.md` sie nicht ausdrücklich vorgibt; benötigte Navigationen müssen per Projektion oder `Include(...)` geladen werden.
+
+[SHOULD] Abfragen mit mehreren Collection-Navigationen sollen `AsSplitQuery()` verwenden, um kartesische Ergebnismengen zu vermeiden. Abweichungen sind erlaubt, wenn eine Messung zeigt, dass eine Single Query günstiger ist oder Konsistenz zwischen den Teilabfragen erforderlich ist.
