@@ -34,6 +34,7 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `issue-reading` | Issue Reading | - | Ein GitHub-Issue und seine Kommentare gelesen werden müssen. | [github_issue-reading.md](https://heljens-it-services.github.io/agent-files/skills/github_issue-reading.md) | Issue-Kontext erfassen. |
 | `pr-checks-observation` | PR Checks Observation | - | Erforderliche Pull-Request-Checks bis zu einem terminalen Zustand beobachtet werden sollen. | [github_pr-checks-observation.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-checks-observation.md) | Pull-Request-Checks beobachten. |
 | `pr-creation` | PR Creation | - | Ein Pull Request mit Titel, Body, Base und Head erstellt oder wiederverwendet werden soll. | [github_pr-creation.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-creation.md) | Pull Request bereitstellen. |
+| `pr-review-feedback` | PR Review Feedback | - | Review-Kommentare und Review-Threads eines eigenen Pull Requests gelesen und bewertet werden sollen. | [github_pr-review-feedback.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-review-feedback.md) | Review-Feedback bewerten. |
 | `github-pr-merge` | GitHub PR Merge | - | Ein freigegebener Pull Request regelkonform gemergt werden soll. | [github_pr-merge.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-merge.md) | Pull Request mergen. |
 | `github-push` | GitHub Push | `/push` | Vorhandene lokale Commits ohne neuen Commit auf den konfigurierten Upstream gepusht werden sollen. | [github_push.md](https://heljens-it-services.github.io/agent-files/skills/github_push.md) | Lokale Commits pushen. |
 | `repository-baseline-configuration` | Repository Baseline Configuration | - | Die standardisierte GitHub-Basiskonfiguration eines Repositorys geprüft oder ergänzt werden soll. | [github_repository-baseline-configuration.md](https://heljens-it-services.github.io/agent-files/skills/github_repository-baseline-configuration.md) | GitHub-Repository-Basis pflegen. |
@@ -69,6 +70,7 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `issue-reading` | `planner` | Issue-Ziel, Scope, Typen und Beziehungen erfassen. |
 | `pr-checks-observation` | `tester` | Erforderliche Checks und deren terminalen Zustand bewerten. |
 | `pr-creation` | `main/orchestrator` | PR-Schnitt, Closure-Semantik und externe Mutation koordinieren. |
+| `pr-review-feedback` | `developer` | Review-Punkte technisch bewerten; Antworten auf GitHub durch den Orchestrator kontrollieren. |
 | `github-pr-merge` | `main/orchestrator` | Freigabe, Merge-Gates und Merge-Mutation koordinieren. |
 | `github-push` | `main/orchestrator` | Upstream und externe Push-Mutation kontrollieren. |
 | `repository-baseline-configuration` | `main/orchestrator` | Repositoryweite Sollbestände und externe Wirkung koordinieren. |
