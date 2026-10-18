@@ -39,6 +39,10 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `repository-baseline-configuration` | Repository Baseline Configuration | - | Die standardisierte GitHub-Basiskonfiguration eines Repositorys geprüft oder ergänzt werden soll. | [github_repository-baseline-configuration.md](https://heljens-it-services.github.io/agent-files/skills/github_repository-baseline-configuration.md) | GitHub-Repository-Basis pflegen. |
 | `relationship-setting` | Relationship Setting | - | Native GitHub-Relationships wie Blocked-by oder Parent/Child gesetzt werden sollen. | [github_relationship-setting.md](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md) | Issue-Beziehungen pflegen. |
 | `type-setting` | Type Setting | - | Der native GitHub-Issue-Type eines bestehenden oder neu erstellten Issues gesetzt werden soll. | [github_type-setting.md](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) | Issue-Type pflegen. |
+| `worktree-inventory` | Worktree Inventory | `/worktrees`<br>`/worktree status <worktree-ref>` | Vorhandene Git-Worktrees inventarisiert oder ein Linked Worktree vor dem Entfernen lesend auditiert werden soll. | [github_worktree-inventory.md](https://heljens-it-services.github.io/agent-files/skills/github_worktree-inventory.md) | Worktrees erfassen und auditieren. |
+| `worktree-creation` | Worktree Creation | `/worktree create <issue-number>`<br>`/worktree create <issue-number> --base <branch>`<br>`/worktree open <worktree-ref>` | Ein ausdrücklich autorisierter Linked Worktree erstellt oder ein vorhandener in einem eigenen VS-Code-Fenster geöffnet werden soll. | [github_worktree-creation.md](https://heljens-it-services.github.io/agent-files/skills/github_worktree-creation.md) | Linked Worktree bereitstellen. |
+| `worktree-removal` | Worktree Removal | `/worktree remove <worktree-ref>` | Ein registrierter Linked Worktree nach bestandenem Sicherheits-Audit entfernt werden soll. | [github_worktree-removal.md](https://heljens-it-services.github.io/agent-files/skills/github_worktree-removal.md) | Linked Worktree sicher entfernen. |
+| `worktree-orphan-cleanup` | Worktree Orphan Cleanup | `/worktree cleanup`<br>`/worktree cleanup --apply` | Veraltete Worktree-Metadaten oder nicht registrierte Verzeichnisreste klassifiziert oder bereinigt werden sollen. | [github_worktree-orphan-cleanup.md](https://heljens-it-services.github.io/agent-files/skills/github_worktree-orphan-cleanup.md) | Worktree-Reste sicher bereinigen. |
 | `research` | Research | - | Web-, Repository-, Issue- oder PR-Kontext recherchiert und zusammengefasst werden soll. | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Kontext recherchieren. |
 
 ## Codex-Default-Zuordnung
@@ -74,6 +78,10 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `repository-baseline-configuration` | `main/orchestrator` | Repositoryweite Sollbestände und externe Wirkung koordinieren. |
 | `relationship-setting` | `planner` | Beziehung fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
 | `type-setting` | `planner` | Issue-Type fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
+| `worktree-inventory` | `main/orchestrator` | Worktree-Zustand als Kontext für Erstellung, Entfernung und Bereinigung lesen. |
+| `worktree-creation` | `main/orchestrator` | Autorisierung, Basiswahl und lokale Git-Mutation koordinieren; nicht parallel delegieren. |
+| `worktree-removal` | `main/orchestrator` | Audit-Gate und Entfernung koordinieren; nicht an SubAgents delegieren, die im Ziel-Worktree arbeiten. |
+| `worktree-orphan-cleanup` | `main/orchestrator` | Dry Run und freigegebene Bereinigung koordinieren. |
 | `research` | `main/orchestrator` | Je nach Gegenstand an Planner, Developer, Tester oder Designer delegierbar. |
 
 ## Delegation und Fallback

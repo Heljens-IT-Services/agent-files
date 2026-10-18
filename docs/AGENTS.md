@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -119,6 +119,30 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 [MUST_NOT] Secrets, Tokens, Zugangsdaten und personenbezogene Daten dürfen nicht in Issues, Pull Requests, Kommentare, Commit-Messages, Logs oder Antworten an den User übernommen werden.
 
 [MUST_IF] Wenn der Agent auf ein versioniertes oder offengelegtes Secret stößt, muss er Fundort und Art ohne den Wert melden.
+
+## Git-Worktrees
+
+Der Hauptworktree ist das ursprüngliche Arbeitsverzeichnis eines Repositorys mit dem eigentlichen `.git`-Verzeichnis. Linked Worktrees sind zusätzlich über `git worktree add` erzeugte Arbeitsverzeichnisse. Der Managed Worktree Root ist das ausdrücklich festgelegte Basisverzeichnis für Linked Worktrees; der Primary Remote ist der für Branch-Basis und Push maßgebliche Remote.
+
+[MUST_NOT] Der Hauptworktree darf nicht automatisiert entfernt, verschoben oder als temporärer Arbeitsbereich behandelt werden.
+
+[MUST_NOT_IF] Ein Linked Worktree darf nicht erstellt werden, solange weder eine ausdrückliche User-Autorisierung noch ein ausdrücklich ausgelöster Worktree-Command vorliegt.
+
+[MUST] Linked Worktrees müssen unter einem in `PROJECT.md` oder ausdrücklich vom User festgelegten Managed Worktree Root erstellt werden.
+
+[MUST_NOT] Der Primary Remote darf nicht pauschal als `origin` angenommen werden.
+
+[MUST_NOT_IF] Ein Linked Worktree darf nicht entfernt werden, wenn er uncommittete Änderungen oder nicht auf dem Primary Remote gesicherte Commits enthält oder das Sicherheits-Audit nicht unmittelbar vorher bestanden wurde.
+
+[MUST] Registrierte Linked Worktrees müssen mit `git worktree remove` entfernt werden.
+
+[MUST_NOT] Registrierte Worktrees dürfen nicht mit rekursiven Dateisystemoperationen entfernt werden; rekursive Löschung ist nur für geprüfte, nicht mehr registrierte Reste innerhalb des Managed Worktree Root zulässig.
+
+[MUST] Nach jeder Worktree-Mutation muss der tatsächliche Zustand mit `git worktree list --porcelain` erneut geprüft und mit absolutem Pfad, Branch und verbleibenden Worktrees berichtet werden.
+
+[SHOULD] Hauptworktree, Primary Remote, Managed Worktree Root und gegebenenfalls eine Branch-Retention-Policy sollen in `PROJECT.md` festgelegt werden.
+
+Die operative Ausführung regeln die Skills [worktree-inventory](https://heljens-it-services.github.io/agent-files/skills/github_worktree-inventory.md), [worktree-creation](https://heljens-it-services.github.io/agent-files/skills/github_worktree-creation.md), [worktree-removal](https://heljens-it-services.github.io/agent-files/skills/github_worktree-removal.md) und [worktree-orphan-cleanup](https://heljens-it-services.github.io/agent-files/skills/github_worktree-orphan-cleanup.md).
 
 ## Arbeitsabschluss
 

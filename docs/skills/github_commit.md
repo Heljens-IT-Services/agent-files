@@ -42,10 +42,10 @@ Platzhalter aus dem geprüften Commit-Scope ableiten.
 - Zustandsverändernd arbeiten: Es werden ausschließlich lokale Commits erstellt.
 - Keine Remote-Operationen ausführen; insbesondere nicht fetchen, pullen oder pushen.
 - Keine unzusammenhängenden oder fremden Änderungen in einen Commit aufnehmen.
-- Bei gemischtem Worktree logisch getrennte Commits erstellen, wenn die Trennung fachlich eindeutig ist.
+- Bei gemischtem Arbeitsbaum logisch getrennte Commits erstellen, wenn die Trennung fachlich eindeutig ist.
 - Nachfragen, wenn Dateien nicht eindeutig einem Änderungssatz zugeordnet werden können.
 - Kein Hunk-Staging verwenden; nur ganze Dateien stagen.
-- Kein `git add -A` verwenden, wenn der Scope nicht eindeutig den gesamten Worktree umfasst.
+- Kein `git add -A` verwenden, wenn der Scope nicht eindeutig den gesamten Arbeitsbaum umfasst.
 - Keine leeren Commits erstellen, außer der User verlangt das ausdrücklich.
 - Bestehende Commits nicht amendieren, umschreiben oder zusammenfassen, außer der User verlangt das ausdrücklich.
 - Keine Tests, Builds oder Diff-Reviews ersetzen; fehlende Verifikation oder Review als Blocker bzw. Risiko benennen.
