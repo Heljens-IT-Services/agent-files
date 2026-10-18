@@ -1,6 +1,6 @@
 # DEVELOPER.Angular.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -68,6 +68,16 @@ src/app/
 [SHOULD] Signal Forms sollen verwendet werden, wenn sie im verwendeten Angular-Setup stabil unterstützt werden.
 
 [MUST] Geteilte fachliche Validierung muss außerhalb der Component liegen.
+
+## Rendering und Laden
+
+[SHOULD] Components sollen `ChangeDetectionStrategy.OnPush` verwenden. Abweichungen sind erlaubt, wenn das Projekt zoneless betrieben wird und die Strategie dort keinen Unterschied macht oder eine Drittbibliothek Default Change Detection erfordert.
+
+[MUST] `@for` muss über `track` eine stabile fachliche Identität verwenden; `track $index` ist nur für statische Listen ohne Umsortierung, Einfügen oder Entfernen zulässig.
+
+[SHOULD] Feature-Routen sollen über `loadComponent` oder `loadChildren` lazy geladen werden. Abweichungen sind erlaubt, wenn die Route für den initialen Einstieg benötigt wird.
+
+[MUST_NOT] Templates dürfen keine Methoden mit aufwändiger Berechnung aufrufen; abgeleitete Werte müssen über `computed()` oder vorberechnete Properties bereitgestellt werden.
 
 ## Qualitätssicherung
 

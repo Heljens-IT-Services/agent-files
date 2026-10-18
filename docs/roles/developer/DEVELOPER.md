@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -122,6 +122,30 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST_IF] Mapper müssen externe DTOs von internen Modellen trennen, wenn Daten aus APIs, Dateien, Datenbanken oder UI-Formularen kommen.
 
 [SHOULD] Facades, Application Services, Use Cases oder Component Services sollen Abläufe koordinieren, wenn Views, Endpoints oder CLI-Einstiege sonst Wissen über Datenzugriff, Validierung, Status oder technische Abläufe enthalten würden.
+
+## Performance
+
+[MUST] Performance-Optimierungen müssen auf Messung, Profiling oder einem konkret nachgewiesenen Engpass beruhen.
+
+[MUST_NOT] Spekulative Mikrooptimierungen dürfen nicht zulasten von Lesbarkeit, Wartbarkeit oder Korrektheit eingeführt werden.
+
+[MUST_IF] Wenn eine Änderung mit Performance begründet wird, müssen Messmethode sowie Messwerte vor und nach der Änderung im Arbeitsabschluss oder Pull Request genannt werden.
+
+[MUST_NOT] Abhängige Daten dürfen nicht pro Element in Schleifen einzeln aus Datenbanken oder externen Diensten nachgeladen werden, wenn sie gesammelt oder in einer Abfrage geladen werden können.
+
+[MUST] Listen-, Such- und Exportabfragen über potenziell unbegrenzte Datenmengen müssen paginiert oder durch eine Obergrenze begrenzt werden; das gilt auch für öffentliche Schnittstellen.
+
+[MUST] Filterung, Sortierung, Paginierung und Aggregation müssen an der Datenquelle ausgeführt werden, statt vollständige Datenbestände in den Speicher zu laden.
+
+[MUST_IF] Wenn nur ein Ausschnitt eines Datensatzes benötigt wird, müssen Abfragen auf die benötigten Felder projizieren, statt vollständige Objektgraphen zu laden.
+
+[MUST_NOT] Asynchrone I/O darf nicht durch synchrones Warten auf ihr Ergebnis blockiert werden; I/O-gebundene Abläufe müssen durchgängig asynchron bleiben.
+
+[MUST_IF] Wenn Datenmengen nicht sicher in den Arbeitsspeicher passen, etwa bei Exporten, Importen oder Dateiübertragungen, müssen sie gestreamt oder in Batches verarbeitet werden.
+
+[ALLOW_IF] Caching darf nur eingesetzt werden, wenn Cache-Schlüssel, Gültigkeitsdauer und Invalidierung festgelegt sind und zwischengespeicherte Daten nach Mandant und Berechtigung getrennt bleiben.
+
+[MUST_NOT] Ein Cache darf nicht die einzige Quelle für Daten sein, deren Verlust fachliche Folgen hat.
 
 ## UI- und Präsentationsregeln
 
