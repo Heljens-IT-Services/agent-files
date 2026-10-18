@@ -1,6 +1,6 @@
 # DEVELOPER.NetWebApi.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -56,7 +56,7 @@ Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezoge
 
 [MUST_NOT] Unsichere Defaults dürfen nicht verwendet werden.
 
-[MUST_IF] Correlation IDs, strukturierte Logs und Health Checks müssen vorhanden sein, wenn die Web API produktionsnah betrieben wird.
+[MUST_IF] Wenn die Web API produktionsnah betrieben wird, müssen Health Checks über `AddHealthChecks()` registriert und mit `MapHealthChecks(...)` als technische Endpunkte ohne Fachlogik bereitgestellt werden.
 
 ## OpenAPI und API-Versionierung
 
