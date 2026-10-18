@@ -1,5 +1,7 @@
 # Skill: Design Prototyping
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Eine Designidee mit möglichst wenig technischer Reibung in ein tatsächlich renderbares und visuell beurteilbares Artefakt übersetzen.

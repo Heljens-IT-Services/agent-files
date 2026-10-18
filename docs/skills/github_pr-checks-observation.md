@@ -1,5 +1,7 @@
 # Skill: GitHub PR Checks Beobachten
 
+Stand: 2026-09-05
+
 ## Zweck
 
 Die erforderlichen Checks eines Pull Requests bis zu einem terminalen Zustand beobachten und ihr Ergebnis richtungsstabil bewerten.

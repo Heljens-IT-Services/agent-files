@@ -1,5 +1,7 @@
 # WORKFLOWS.md
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Diese Datei ist die Lookup-Datei für Workflows, die mehrere atomare Skills zu einem zusammenhängenden Ablauf kombinieren.

@@ -1,5 +1,7 @@
 # Workflow: Issue To Sub Issues
 
+Stand: 2026-09-05
+
 ## Ziel
 
 Ein Issue als Baum bis zu sauber geschnittenen, eigenständig ausführbaren Leaf-Issues zerlegen. Ohne Zusatz rekursiv, mit `flat` genau eine Ebene.

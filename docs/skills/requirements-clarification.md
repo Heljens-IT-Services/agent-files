@@ -1,5 +1,7 @@
 # Skill: Anforderungsklärung
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Unklare Anforderungen, Ziele, Nicht-Ziele und Scope-Grenzen in eine belastbare Arbeitsgrundlage überführen.

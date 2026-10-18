@@ -1,5 +1,7 @@
 # Workflow: Commit Push
 
+Stand: 2026-08-20
+
 ## Ziel
 
 Einen abgeschlossenen lokalen Änderungssatz logisch committen und die neu erstellten Commits anschließend auf den konfigurierten Upstream pushen.

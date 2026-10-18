@@ -1,5 +1,7 @@
 # Skill: GitHub Default Branch Aktualisieren
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Nach einem verifizierten Pull-Request-Merge auf den Default-Branch zurückkehren und ihn sicher per Fast-Forward aktualisieren.

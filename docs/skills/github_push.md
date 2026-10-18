@@ -1,5 +1,7 @@
 # Skill: GitHub Push
 
+Stand: 2026-08-20
+
 ## Zweck
 
 Bereits vorhandene lokale Commits eines Branches auf dessen konfigurierten Remote-Upstream pushen oder einen neuen Branch bei eindeutigem Push-Ziel erstmals veröffentlichen.

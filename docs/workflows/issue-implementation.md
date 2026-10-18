@@ -1,5 +1,7 @@
 # Workflow: Issue Implementation
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Eine einzelne Arbeitseinheit, ein einzelnes Issue oder ein klar geschnittenes Arbeitspaket implementieren, verifizieren, reviewen, committen und pushen.

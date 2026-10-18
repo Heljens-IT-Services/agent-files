@@ -1,5 +1,7 @@
 # Skill: GitHub Issue Erstellen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Aus vorhandenem Kontext ein strukturiertes GitHub-Issue erstellen.

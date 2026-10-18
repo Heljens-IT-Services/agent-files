@@ -1,5 +1,7 @@
 # Skill: Code Refactoring
 
+Stand: 2026-09-10
+
 ## Zweck
 
 Code strukturieren, ohne beabsichtigtes Verhalten zu ändern, und dabei eine konkret vorhandene strukturelle Last netto reduzieren. Neue Abstraktion, Aufteilung oder Indirektion ist kein Selbstzweck.

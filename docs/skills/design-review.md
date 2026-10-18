@@ -1,5 +1,7 @@
 # Skill: Design Review
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Ein tatsächliches visuelles oder interaktives Ergebnis betrachten, kritisch bewerten und konkrete nächste Designentscheidungen für eine Iteration oder Finalisierung ableiten.

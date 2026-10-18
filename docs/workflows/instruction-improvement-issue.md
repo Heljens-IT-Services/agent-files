@@ -1,5 +1,7 @@
 # Workflow: Instruction Improvement Issue
 
+Stand: 2026-08-20
+
 ## Ziel
 
 Schwachstellen und Verbesserungsvorschläge an Agent-Files, Leitplanken, Skills oder Workflows als GitHub-Issue in diesem Repository erfassen.

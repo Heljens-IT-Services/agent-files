@@ -1,5 +1,7 @@
 # Skill: Dokumentation
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Dokumentationsdateien gezielt erstellen oder aktualisieren, ohne fachliche oder technische Änderungen zu verstecken.
