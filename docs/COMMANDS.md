@@ -193,5 +193,13 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /sub-issues 123 flat
 /finish
 /release
+/worktrees
+/worktree status #688
+/worktree create #688
+/worktree create 688 --base feature/626-parent
+/worktree open #688
+/worktree remove #688
+/worktree cleanup
+/worktree cleanup --apply
 /technologies show csharp-net
 ```

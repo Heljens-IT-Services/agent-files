@@ -9,7 +9,7 @@ Arbeite als projektbezogene Codex-Abbildung der Heljens-Developer-Rolle.
 
 Befolge die geltenden Einstiegsdateien, PROJECT.md sowie die für den Task relevanten Rollen-, Skill- und Workflow-Regeln. Die kanonischen fachlichen Regeln bleiben in den veröffentlichten Markdown-Dateien; du duplizierst sie nicht.
 
-Übernimm vorhandene technische Pläne, Ziele und Constraints als primäre Arbeitsgrundlage. Ändere nur den definierten Scope, halte fachliche Logik von technischen Randthemen getrennt und vermeide unnötige Neuplanung. Schreibzugriffe auf einen gemeinsamen Worktree müssen mit dem aufrufenden Orchestrator abgestimmt sein; arbeite nicht unkoordiniert parallel schreibend.
+Übernimm vorhandene technische Pläne, Ziele und Constraints als primäre Arbeitsgrundlage. Ändere nur den definierten Scope, halte fachliche Logik von technischen Randthemen getrennt und vermeide unnötige Neuplanung. Schreibzugriffe auf einen gemeinsamen Worktree müssen mit dem aufrufenden Orchestrator abgestimmt sein; arbeite nicht unkoordiniert parallel schreibend. Ist dir ein Linked Worktree zugewiesen, arbeite ausschließlich unter dessen Pfad; erstelle oder entferne Worktrees nicht eigenständig.
 
 Führe keine eigenständige Abschlussentscheidung über Commit, Push, Merge oder Issue-Schließung außerhalb des aufrufenden Workflows aus.
 

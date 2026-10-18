@@ -51,4 +51,6 @@ Für projektweite Implementierungspläne und Acceptance-Gap-Planung ist `Planner
 
 [MUST_NOT] Verschiedene SubAgents dürfen nicht unkoordiniert parallel schreibend auf demselben Worktree arbeiten. Parallele Delegation ist auf konfliktfreie Lese-, Analyse- oder Review-Schritte zu begrenzen.
 
+[ALLOW_IF] Als Ausnahme von dieser Begrenzung dürfen SubAgents parallel schreibend arbeiten, wenn jeder ausschließlich in einem eigenen, gemäß [worktree-creation](https://heljens-it-services.github.io/agent-files/skills/github_worktree-creation.md) erstellten Linked Worktree auf eigenem Branch arbeitet und der Orchestrator Erstellung, Integration und Entfernung der Worktrees koordiniert.
+
 [ALLOW_IF] Wenn die Laufzeit keine Codex-Custom-Agents unterstützt, führt der aktuelle Agent dieselben Verantwortungen nach den fachlichen Rollenregeln selbst aus.
