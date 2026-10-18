@@ -21,6 +21,7 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `code-minimization` | Code Minimization | `/minimize` | Ein lokal funktionierender Änderungssatz auf unnötige, nicht hinreichend begründete Bestandteile reduziert werden soll. | [code-minimization.md](https://heljens-it-services.github.io/agent-files/skills/code-minimization.md) | Änderungssätze evidenzgetrieben minimieren. |
 | `code-reading` | Code Reading | - | Bestehender Code gezielt in den Agenten-Kontext geladen werden muss. | [code-reading.md](https://heljens-it-services.github.io/agent-files/skills/code-reading.md) | Codekontext erfassen. |
 | `code-refactoring` | Code Refactoring | `/refactor` | Struktur ohne beabsichtigte Verhaltensänderung verbessert werden soll. | [code_refactoring.md](https://heljens-it-services.github.io/agent-files/skills/code_refactoring.md) | Code strukturieren. |
+| `security-review` | Security Review | `/security-review` | Ein Änderungssatz oder abgegrenzter Bereich lesend auf Sicherheits- und Datenschutzrisiken geprüft werden soll. | [code_security-review.md](https://heljens-it-services.github.io/agent-files/skills/code_security-review.md) | Sicherheitsrisiken mit Evidenz bewerten. |
 | `code-testing` | Code Testing | `/testing`<br>`/testing <test-mode>` | Eine Änderung mit Build-, Test-, E2E- oder manuellen Prüfschritten verifiziert werden soll. | [code-testing.md](https://heljens-it-services.github.io/agent-files/skills/code-testing.md) | Änderungen gezielt oder kontextbezogen verifizieren. |
 | `design-prototyping` | Design Prototyping | `/design-prototype` | Eine Designrichtung als leichtes renderbares Artefakt visualisiert werden soll. | [design-prototyping.md](https://heljens-it-services.github.io/agent-files/skills/design-prototyping.md) | Designideen schnell visualisieren. |
 | `design-review` | Design Review | `/design-review` | Ein tatsächliches visuelles oder interaktives Ergebnis betrachtet, bewertet oder mit Varianten verglichen werden soll. | [design-review.md](https://heljens-it-services.github.io/agent-files/skills/design-review.md) | Designs visuell prüfen und Iterationen ableiten. |
@@ -56,6 +57,7 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `code-minimization` | `developer` | Bestehende Änderungsteile mutierend auf belegte Notwendigkeit reduzieren. |
 | `code-reading` | `developer` | Codekontext für technische Folgearbeit erfassen. |
 | `code-refactoring` | `developer` | Verhaltenserhaltende Strukturänderungen umsetzen. |
+| `security-review` | `developer` | Sicherheitsrisiken lesend bewerten; Behebung erfolgt getrennt über `code-implementation`. |
 | `code-testing` | `tester` | Build-, Test-, E2E- und manuelle Verifikation ausführen. |
 | `design-prototyping` | `designer` | Leichte visuelle Designartefakte für Exploration und Vergleich erzeugen. |
 | `design-review` | `designer` | Gerenderte Designs visuell bewerten, vergleichen und Iterationen ableiten. |
