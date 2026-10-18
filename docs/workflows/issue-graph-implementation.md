@@ -28,7 +28,7 @@ Ein Issue mit seinem relevanten Issue-Graph deterministisch und vollständig bis
 - `issue-implementation.md`
 - `issue-acceptance-convergence.md`
 
-## Phasen
+## Ablauf
 
 ### Phase 1: Graph lesen
 

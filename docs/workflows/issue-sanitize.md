@@ -1,6 +1,6 @@
 # Workflow: Issue Graph Sanitization
 
-## Zweck
+## Ziel
 
 Einen relevanten GitHub-Issue-Graphen lesen, fehlende oder fachlich unpassende native Issue-Types und Relationships erkennen und eindeutig ableitbare Metadaten idempotent korrigieren. Labels und Body-Links sind dabei nur Kontext und kein Ersatz für native GitHub-Metadaten.
 
