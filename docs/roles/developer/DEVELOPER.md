@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -186,3 +186,27 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST_IF] Wenn eine neue Laufzeit-, Build- oder Test-Abhängigkeit eingeführt werden soll, die weder der Task noch `PROJECT.md` vorgibt, muss der Agent sie vor der Einführung begründen und die Freigabe des Users einholen.
 
 [PRIORITY] Sicherheitsupdates haben Vorrang vor kosmetischen Refactorings.
+
+## Konfiguration und Secrets
+
+Die Grundregeln zum Laden, Binden und Validieren von Konfiguration stehen unter „Struktur und Verantwortlichkeiten“, das Versionierungsverbot für Secrets unter „Security und Datenschutz“.
+
+[MUST] Konfiguration muss beim Anwendungsstart und nicht erst bei der ersten Nutzung validiert werden; neben Pflichtwerten müssen Formate, Wertebereiche und Abhängigkeiten zwischen Werten geprüft werden.
+
+[MUST_NOT] Secrets dürfen in keiner versionierten Datei stehen, auch nicht in Konfigurationsdateien wie `appsettings*.json`, `environment*.ts` oder `.env`, in Compose-, CI- oder Deployment-Dateien oder in Testdaten.
+
+[MUST_NOT] Konfiguration, die an Clients ausgeliefert wird, etwa Frontend-Environment-Dateien oder Build-Variablen eines Bundles, darf keine Secrets enthalten.
+
+[MUST] Lokale Secrets müssen über den User-Secrets-Mechanismus der Plattform oder über ungetrackte, per `.gitignore` ausgeschlossene Dateien bereitgestellt werden.
+
+[MUST] Secrets für Test-, Staging- und Produktionsumgebungen müssen zur Laufzeit über Umgebungsvariablen oder einen Secret-Store der Betriebsplattform bereitgestellt werden.
+
+[MUST_IF] Wenn benötigte Konfiguration nicht vollständig versioniert ist, muss eine versionierte Beispielkonfiguration wie `.env.example` alle Schlüssel mit Platzhaltern oder unkritischen Beispielwerten und ohne echte Secrets enthalten.
+
+[MUST] Konfigurationsschlüssel müssen mit Zweck, Typ, Pflicht oder optional und Default-Wert dokumentiert werden, etwa in der Beispielkonfiguration oder an der typisierten Konfigurationsklasse.
+
+[MUST] Default-Werte müssen sicher sein; sicherheitsrelevante Optionen wie Authentifizierung, Zertifikatsprüfung, CORS oder detaillierte Fehlerausgaben dürfen nur durch explizite Konfiguration abgeschwächt werden.
+
+[MUST_NOT] Fachcode darf nicht nach Umgebungsnamen wie `Development` oder `Production` verzweigen; Unterschiede zwischen Umgebungen müssen über Konfigurationswerte abgebildet werden.
+
+[MUST_IF] Wenn ein Secret versioniert wurde, muss es als kompromittiert gelten; der Agent muss seine Rotation als offenen Punkt melden, da das Entfernen aus dem aktuellen Stand allein nicht genügt.
