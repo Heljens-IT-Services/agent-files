@@ -185,12 +185,15 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /workflows run issue-acceptance-convergence 123
 /workflows run issue-to-sub-issues 123
 /workflows run issue-to-sub-issues 123 flat
+/workflows run pr-review 123
 /implement #123
 /sanitize 123
 /acceptance 123
 /acceptance #123
 /sub-issues #123
 /sub-issues 123 flat
+/pr-review 123
+/pr-review #123
 /finish
 /release
 /technologies show csharp-net
