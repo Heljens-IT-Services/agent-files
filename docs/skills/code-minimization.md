@@ -64,7 +64,7 @@ Vor der Mutation ist mindestens festzuhalten:
 
 Wenn eine Änderung nur eine hypothetische zukünftige Variante unterstützt und weder der Task noch das bestehende Repository einen realen heutigen Treiber dafür belegt, soll sie als `CANDIDATE` geprüft und gegebenenfalls entfernt werden.
 
-## Grenzen und Abgrenzung
+## Grenzen
 
 - `code-minimization` entfernt oder vereinfacht vorhandene, nicht hinreichend begründete Änderungsteile. Es führt keine neue fachliche Lösung, Architektur oder Anforderung ein.
 - `code-refactoring` verbessert bewusst die Struktur bei erhaltenem Verhalten; es darf neue Struktur rechtfertigen, wenn sie bestehende Last reduziert. Minimierung verfolgt dagegen die Notwendigkeit des vorhandenen Diffs.

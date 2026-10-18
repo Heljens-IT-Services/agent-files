@@ -37,6 +37,21 @@ CATALOG_ROW = re.compile(r"^\| `([^`]+)` \|(.*)\|\s*$")
 ALIAS = re.compile(r"`(/[^`]+)`")
 RESERVED_ROOTS = {"help", "?", "skills", "workflows", "technologies", "roles", "actions"}
 
+# Verbindliche H2-Abschnitte gemäß PROJECT.md, Abschnitt "Skills und Workflows pflegen".
+REQUIRED_SECTIONS = {
+    "skills": ("Zweck", "Verwenden", "Vorgehen", "Grenzen", "Output", "Qualitätskriterien"),
+    "workflows": ("Ziel", "Verwenden", "Verwendete Skills", "Ablauf", "Rücksprungregeln", "Endergebnis"),
+}
+# Bekannte Altlasten: Der fehlende Abschnitt ist nicht ohne fachliche Entscheidung
+# ergänzbar. Einträge entfernen, sobald der Abschnitt nachgezogen ist.
+SECTION_EXEMPTIONS = {
+    "skills/design-review.md": {"Grenzen"},
+    "workflows/issue-graph-implementation.md": {"Rücksprungregeln"},
+    "workflows/issue-sanitize.md": {"Rücksprungregeln"},
+    "workflows/issue-to-sub-issues-flat.md": {"Rücksprungregeln"},
+    "workflows/issue-to-sub-issues.md": {"Ablauf"},
+}
+
 errors: list[str] = []
 
 
@@ -70,6 +85,36 @@ def check_markers(path: Path, text: str) -> None:
             fail(path, number, f"[{marker}] nennt keine Bedingung in natürlicher Sprache")
         if marker in {"MUST_NOT", "MUST_NOT_IF"} and not NEGATION_WORDS.search(sentence):
             fail(path, number, f"[{marker}] ist sprachlich nicht verneint")
+
+
+def h2_headings(text: str) -> set[str]:
+    headings: set[str] = set()
+    in_code_block = False
+    for line in text.splitlines():
+        if line.startswith("```"):
+            in_code_block = not in_code_block
+        elif not in_code_block and line.startswith("## "):
+            headings.add(line[3:].strip())
+    return headings
+
+
+def check_required_sections(texts: dict[Path, str]) -> None:
+    for folder, required in REQUIRED_SECTIONS.items():
+        catalog = folder.upper() + ".md"
+        for path in sorted((DOCS / folder).glob("*.md")):
+            if path.name == catalog:
+                continue
+            key = f"{folder}/{path.name}"
+            exempt = SECTION_EXEMPTIONS.get(key, set())
+            headings = h2_headings(texts[path])
+            for section in required:
+                if section in headings and section in exempt:
+                    fail(path, None, f"Ausnahme für Abschnitt `{section}` ist überholt und muss entfernt werden")
+                elif section not in headings and section not in exempt:
+                    fail(path, None, f"Pflichtabschnitt `## {section}` fehlt")
+    for key in sorted(SECTION_EXEMPTIONS):
+        if not (DOCS / key).exists():
+            fail(DOCS / key.split("/")[0], None, f"Ausnahme für nicht vorhandene Datei {key}")
 
 
 def resolve_link(source: Path, target: str) -> Path | None:
@@ -159,6 +204,7 @@ def main() -> int:
     for name, folder in (("SKILLS.md", "skills"), ("WORKFLOWS.md", "workflows")):
         catalog = DOCS / folder / name
         check_catalog(catalog, folder, texts[catalog], aliases)
+    check_required_sections(texts)
     check_codex_templates()
     if errors:
         print("\n".join(errors))
