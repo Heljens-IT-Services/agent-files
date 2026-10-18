@@ -170,6 +170,8 @@ Der direkte Workflow-Alias `/acceptance <issue-number>` akzeptiert eine positive
 /minimize
 /skills run code-refactoring
 /refactor
+/skills run security-review
+/security-review
 /skills run code-testing
 /testing
 /testing e2e
