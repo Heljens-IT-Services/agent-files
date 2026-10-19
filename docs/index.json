@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "base_url": "https://heljens-it-services.github.io/agent-files/",
+  "entry": "AGENTS.md",
+  "required": [
+    "AGENTS.md",
+    "roles/ROLES.md",
+    "skills/SKILLS.md",
+    "workflows/WORKFLOWS.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "url": "https://heljens-it-services.github.io/agent-files/AGENTS.md",
+      "kind": "entry",
+      "title": "AGENTS.md"
+    },
+    {
+      "path": "COMMANDS.md",
+      "url": "https://heljens-it-services.github.io/agent-files/COMMANDS.md",
+      "kind": "lookup",
+      "title": "COMMANDS.md"
+    },
+    {
+      "path": "TECHNOLOGIES.md",
+      "url": "https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md",
+      "kind": "lookup",
+      "title": "TECHNOLOGIES.md"
+    },
+    {
+      "path": "codex/agents/designer.toml",
+      "url": "https://heljens-it-services.github.io/agent-files/codex/agents/designer.toml",
+      "kind": "template"
+    },
+    {
+      "path": "codex/agents/developer.toml",
+      "url": "https://heljens-it-services.github.io/agent-files/codex/agents/developer.toml",
+      "kind": "template"
+    },
+    {
+      "path": "codex/agents/planner.toml",
+      "url": "https://heljens-it-services.github.io/agent-files/codex/agents/planner.toml",
+      "kind": "template"
+    },
+    {
+      "path": "codex/agents/tester.toml",
+      "url": "https://heljens-it-services.github.io/agent-files/codex/agents/tester.toml",
+      "kind": "template"
+    },
+    {
+      "path": "config/angular/quality/dependency-cruiser.cjs",
+      "url": "https://heljens-it-services.github.io/agent-files/config/angular/quality/dependency-cruiser.cjs",
+      "kind": "template"
+    },
+    {
+      "path": "config/angular/quality/eslint.config.mjs",
+      "url": "https://heljens-it-services.github.io/agent-files/config/angular/quality/eslint.config.mjs",
+      "kind": "template"
+    },
+    {
+      "path": "config/angular/quality/prettier.json",
+      "url": "https://heljens-it-services.github.io/agent-files/config/angular/quality/prettier.json",
+      "kind": "template"
+    },
+    {
+      "path": "github/DEPENDABOT.md",
+      "url": "https://heljens-it-services.github.io/agent-files/github/DEPENDABOT.md",
+      "kind": "reference",
+      "title": "Dependabot-Leitplanke"
+    },
+    {
+      "path": "github/ISSUE_TEMPLATES.md",
+      "url": "https://heljens-it-services.github.io/agent-files/github/ISSUE_TEMPLATES.md",
+      "kind": "reference",
+      "title": "Kanonische Heljens-Issue-Templates"
+    },
+    {
+      "path": "github/issue-templates/bug.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/bug.yml",
+      "kind": "template"
+    },
+    {
+      "path": "github/issue-templates/config.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/config.yml",
+      "kind": "template"
+    },
+    {
+      "path": "github/issue-templates/epic.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/epic.yml",
+      "kind": "template"
+    },
+    {
+      "path": "github/issue-templates/refactor.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/refactor.yml",
+      "kind": "template"
+    },
+    {
+      "path": "github/issue-templates/story.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/story.yml",
+      "kind": "template"
+    },
+    {
+      "path": "github/issue-templates/task.yml",
+      "url": "https://heljens-it-services.github.io/agent-files/github/issue-templates/task.yml",
+      "kind": "template"
+    },
+    {
+      "path": "roles/ROLES.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/ROLES.md",
+      "kind": "lookup",
+      "title": "ROLES.md"
+    },
+    {
+      "path": "roles/designer/DESIGNER.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.md",
+      "kind": "role",
+      "title": "DESIGNER.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.Angular.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Angular.md",
+      "kind": "role",
+      "id": "angular",
+      "title": "DEVELOPER.Angular.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.CSharpNet.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md",
+      "kind": "role",
+      "id": "csharp-net",
+      "title": "DEVELOPER.CSharpNet.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.Css.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Css.md",
+      "kind": "role",
+      "id": "css",
+      "title": "DEVELOPER.Css.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.Html.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Html.md",
+      "kind": "role",
+      "id": "html",
+      "title": "DEVELOPER.Html.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.NetApplication.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetApplication.md",
+      "kind": "role",
+      "id": "net-application",
+      "title": "DEVELOPER.NetApplication.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.NetConsole.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetConsole.md",
+      "kind": "role",
+      "id": "net-console",
+      "title": "DEVELOPER.NetConsole.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.NetWebApi.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.NetWebApi.md",
+      "kind": "role",
+      "id": "net-web-api",
+      "title": "DEVELOPER.NetWebApi.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.TypeScript.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.TypeScript.md",
+      "kind": "role",
+      "id": "typescript",
+      "title": "DEVELOPER.TypeScript.md"
+    },
+    {
+      "path": "roles/developer/DEVELOPER.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md",
+      "kind": "role",
+      "title": "DEVELOPER.md"
+    },
+    {
+      "path": "roles/planner/PLANNER.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/planner/PLANNER.md",
+      "kind": "role",
+      "title": "PLANNER.md"
+    },
+    {
+      "path": "roles/tester/TESTER.Angular.Playwright.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.Playwright.md",
+      "kind": "role",
+      "id": "playwright",
+      "title": "TESTER.Angular.Playwright.md"
+    },
+    {
+      "path": "roles/tester/TESTER.Angular.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.md",
+      "kind": "role",
+      "id": "angular",
+      "title": "TESTER.Angular.md"
+    },
+    {
+      "path": "roles/tester/TESTER.md",
+      "url": "https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md",
+      "kind": "role",
+      "title": "TESTER.md"
+    },
+    {
+      "path": "skills/SKILLS.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/SKILLS.md",
+      "kind": "lookup",
+      "title": "SKILLS.md"
+    },
+    {
+      "path": "skills/brainstorming.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/brainstorming.md",
+      "kind": "skill",
+      "id": "brainstorming",
+      "title": "Skill: Brainstorming"
+    },
+    {
+      "path": "skills/code-analysis.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-analysis.md",
+      "kind": "skill",
+      "id": "code-analysis",
+      "title": "Skill: Code Analyse"
+    },
+    {
+      "path": "skills/code-implementation-planning.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-implementation-planning.md",
+      "kind": "skill",
+      "id": "code-implementation-planning",
+      "title": "Skill: Code Implementierungsplanung"
+    },
+    {
+      "path": "skills/code-implementation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-implementation.md",
+      "kind": "skill",
+      "id": "code-implementation",
+      "title": "Skill: Code Implementieren"
+    },
+    {
+      "path": "skills/code-minimization.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-minimization.md",
+      "kind": "skill",
+      "id": "code-minimization",
+      "title": "Skill: Code Minimization"
+    },
+    {
+      "path": "skills/code-reading.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-reading.md",
+      "kind": "skill",
+      "id": "code-reading",
+      "title": "Skill: Code Lesen"
+    },
+    {
+      "path": "skills/code-testing.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code-testing.md",
+      "kind": "skill",
+      "id": "code-testing",
+      "title": "Skill: Code Testen"
+    },
+    {
+      "path": "skills/code_diff-review.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code_diff-review.md",
+      "kind": "skill",
+      "id": "code-diff-review",
+      "title": "Skill: Code Diff Review"
+    },
+    {
+      "path": "skills/code_refactoring.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/code_refactoring.md",
+      "kind": "skill",
+      "id": "code-refactoring",
+      "title": "Skill: Code Refactoring"
+    },
+    {
+      "path": "skills/design-prototyping.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/design-prototyping.md",
+      "kind": "skill",
+      "id": "design-prototyping",
+      "title": "Skill: Design Prototyping"
+    },
+    {
+      "path": "skills/design-review.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/design-review.md",
+      "kind": "skill",
+      "id": "design-review",
+      "title": "Skill: Design Review"
+    },
+    {
+      "path": "skills/documentation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/documentation.md",
+      "kind": "skill",
+      "id": "documentation",
+      "title": "Skill: Dokumentation"
+    },
+    {
+      "path": "skills/github_branch-checkout-from-default.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_branch-checkout-from-default.md",
+      "kind": "skill",
+      "id": "github-branch-checkout-from-default",
+      "title": "Skill: GitHub Branch Checkout From Default"
+    },
+    {
+      "path": "skills/github_commit-history-reading.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_commit-history-reading.md",
+      "kind": "skill",
+      "id": "commit-history-reading",
+      "title": "Skill: GitHub Commit History Lesen"
+    },
+    {
+      "path": "skills/github_commit.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_commit.md",
+      "kind": "skill",
+      "id": "github-commit",
+      "title": "Skill: GitHub Commit"
+    },
+    {
+      "path": "skills/github_default-branch-update.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_default-branch-update.md",
+      "kind": "skill",
+      "id": "default-branch-update",
+      "title": "Skill: GitHub Default Branch Aktualisieren"
+    },
+    {
+      "path": "skills/github_integration-branch-update.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_integration-branch-update.md",
+      "kind": "skill",
+      "id": "integration-branch-update",
+      "title": "Skill: GitHub Integrationsbranch Aktualisieren"
+    },
+    {
+      "path": "skills/github_issue-creation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_issue-creation.md",
+      "kind": "skill",
+      "id": "issue-creation",
+      "title": "Skill: GitHub Issue Erstellen"
+    },
+    {
+      "path": "skills/github_issue-reading.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_issue-reading.md",
+      "kind": "skill",
+      "id": "issue-reading",
+      "title": "Skill: GitHub Issue Lesen"
+    },
+    {
+      "path": "skills/github_pr-checks-observation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_pr-checks-observation.md",
+      "kind": "skill",
+      "id": "pr-checks-observation",
+      "title": "Skill: GitHub PR Checks Beobachten"
+    },
+    {
+      "path": "skills/github_pr-creation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_pr-creation.md",
+      "kind": "skill",
+      "id": "pr-creation",
+      "title": "Skill: GitHub PR Erstellen"
+    },
+    {
+      "path": "skills/github_pr-merge.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_pr-merge.md",
+      "kind": "skill",
+      "id": "github-pr-merge",
+      "title": "Skill: GitHub PR Merge"
+    },
+    {
+      "path": "skills/github_push.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_push.md",
+      "kind": "skill",
+      "id": "github-push",
+      "title": "Skill: GitHub Push"
+    },
+    {
+      "path": "skills/github_relationship-setting.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md",
+      "kind": "skill",
+      "id": "relationship-setting",
+      "title": "Skill: GitHub Relationship Setzen"
+    },
+    {
+      "path": "skills/github_repository-baseline-configuration.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_repository-baseline-configuration.md",
+      "kind": "skill",
+      "id": "repository-baseline-configuration",
+      "title": "Skill: GitHub Repository-Basiskonfiguration"
+    },
+    {
+      "path": "skills/github_type-setting.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md",
+      "kind": "skill",
+      "id": "type-setting",
+      "title": "Skill: GitHub Type Setzen"
+    },
+    {
+      "path": "skills/requirements-clarification.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/requirements-clarification.md",
+      "kind": "skill",
+      "id": "requirements-clarification",
+      "title": "Skill: Anforderungsklärung"
+    },
+    {
+      "path": "skills/research.md",
+      "url": "https://heljens-it-services.github.io/agent-files/skills/research.md",
+      "kind": "skill",
+      "id": "research",
+      "title": "Skill: Research"
+    },
+    {
+      "path": "workflows/WORKFLOWS.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/WORKFLOWS.md",
+      "kind": "lookup",
+      "title": "WORKFLOWS.md"
+    },
+    {
+      "path": "workflows/bugfix-from-default.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/bugfix-from-default.md",
+      "kind": "workflow",
+      "id": "bugfix-from-default",
+      "title": "Workflow: Bugfix From Default"
+    },
+    {
+      "path": "workflows/bugfix.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/bugfix.md",
+      "kind": "workflow",
+      "id": "bugfix",
+      "title": "Workflow: Bugfix"
+    },
+    {
+      "path": "workflows/commit-history-summary.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/commit-history-summary.md",
+      "kind": "workflow",
+      "id": "commit-history-summary",
+      "title": "Workflow: Commit History Summary"
+    },
+    {
+      "path": "workflows/commit-push.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/commit-push.md",
+      "kind": "workflow",
+      "id": "commit-push",
+      "title": "Workflow: Commit Push"
+    },
+    {
+      "path": "workflows/design-exploration.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/design-exploration.md",
+      "kind": "workflow",
+      "id": "design-exploration",
+      "title": "Workflow: Design Exploration"
+    },
+    {
+      "path": "workflows/feature-finish.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/feature-finish.md",
+      "kind": "workflow",
+      "id": "feature-finish",
+      "title": "Workflow: Feature Finish"
+    },
+    {
+      "path": "workflows/insight-to-issue.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/insight-to-issue.md",
+      "kind": "workflow",
+      "id": "insight-to-issue",
+      "title": "Workflow: Insight To Issue"
+    },
+    {
+      "path": "workflows/instruction-improvement-issue.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/instruction-improvement-issue.md",
+      "kind": "workflow",
+      "id": "instruction-improvement-issue",
+      "title": "Workflow: Instruction Improvement Issue"
+    },
+    {
+      "path": "workflows/issue-acceptance-convergence.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-acceptance-convergence.md",
+      "kind": "workflow",
+      "id": "issue-acceptance-convergence",
+      "title": "Workflow: Issue Acceptance Convergence"
+    },
+    {
+      "path": "workflows/issue-graph-implementation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-graph-implementation.md",
+      "kind": "workflow",
+      "id": "issue-graph-implementation",
+      "title": "Workflow: Issue Graph Implementation"
+    },
+    {
+      "path": "workflows/issue-implementation.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-implementation.md",
+      "kind": "workflow",
+      "id": "issue-implementation",
+      "title": "Workflow: Issue Implementation"
+    },
+    {
+      "path": "workflows/issue-sanitize.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-sanitize.md",
+      "kind": "workflow",
+      "id": "issue-sanitize",
+      "title": "Workflow: Issue Graph Sanitization"
+    },
+    {
+      "path": "workflows/issue-to-pr.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-to-pr.md",
+      "kind": "workflow",
+      "id": "issue-to-pr",
+      "title": "Workflow: Issue To PR"
+    },
+    {
+      "path": "workflows/issue-to-sub-issues-flat.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues-flat.md",
+      "kind": "workflow",
+      "id": "issue-to-sub-issues-flat",
+      "title": "Workflow: Issue To Sub Issues Flat"
+    },
+    {
+      "path": "workflows/issue-to-sub-issues.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/issue-to-sub-issues.md",
+      "kind": "workflow",
+      "id": "issue-to-sub-issues",
+      "title": "Workflow: Issue To Sub Issues"
+    },
+    {
+      "path": "workflows/online-publication-check.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/online-publication-check.md",
+      "kind": "workflow",
+      "id": "online-publication-check",
+      "title": "Workflow: Online Publication Check"
+    },
+    {
+      "path": "workflows/project-implementation-planning.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/project-implementation-planning.md",
+      "kind": "workflow",
+      "id": "project-implementation-planning",
+      "title": "Workflow: Project Implementation Planning"
+    },
+    {
+      "path": "workflows/refactoring-secure.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/refactoring-secure.md",
+      "kind": "workflow",
+      "id": "refactoring-secure",
+      "title": "Workflow: Refactoring Secure"
+    },
+    {
+      "path": "workflows/release.md",
+      "url": "https://heljens-it-services.github.io/agent-files/workflows/release.md",
+      "kind": "workflow",
+      "id": "release",
+      "title": "Workflow: Release"
+    }
+  ]
+}
