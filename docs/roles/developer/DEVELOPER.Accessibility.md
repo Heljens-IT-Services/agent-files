@@ -66,10 +66,8 @@ Diese Datei gilt für die barrierefreie Umsetzung von Benutzeroberflächen. Zuge
 
 [MUST_NOT] Zeitlimits dürfen nicht eingeführt werden, ohne dass Nutzer sie verlängern, anpassen oder abschalten können, außer das Zeitlimit ist fachlich zwingend.
 
-## Prüfung durch den Developer
+## Nachweis
 
-[MUST] Vor dem Abschluss einer UI-Änderung muss der Developer die geänderten Bereiche mindestens per Tastatur bedienen und vorhandene automatisierte Accessibility-Prüfungen des Projekts ausführen.
+[MUST] Die Barrierefreiheit einer UI-Änderung muss durch Tests gemäß [TESTER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Accessibility.md) nachgewiesen werden, nicht durch eine eigene Prüfung des Developers.
 
-[MUST_NOT] Ein fehlerfreier automatisierter Accessibility-Check darf nicht als Nachweis vollständiger WCAG-Konformität dargestellt werden.
-
-[MUST_NOT] Die eigene Prüfung des Developers darf nicht als Nachweis der Barrierefreiheit berichtet werden. Der Nachweis erfolgt durch Tests gemäß [TESTER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Accessibility.md).
+[MUST_NOT] Der Developer darf eine UI-Änderung nicht als barrierefrei abschließen, solange dieser Nachweis fehlt oder fehlgeschlagen ist.
