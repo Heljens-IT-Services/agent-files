@@ -6,6 +6,14 @@ Stand: 2026-10-19
 
 Diese Datei definiert Testregeln für die Barrierefreiheit von Benutzeroberflächen. Allgemeine Tester-Regeln und technologiespezifische Testregeln wie Playwright werden über [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) und [TECHNOLOGIES.md](https://heljens-it-services.github.io/agent-files/TECHNOLOGIES.md) aufgelöst. Das Zielniveau steht in [DEVELOPER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Accessibility.md).
 
+## Unabhängiger Nachweis
+
+[MUST] Die Barrierefreiheit neuer oder geänderter Oberflächen muss durch Tests nachgewiesen werden, die in Tester-Verantwortung erstellt oder ausgeführt werden.
+
+[MUST_NOT] Eigene Prüfungen des Developers während der Umsetzung dürfen nicht als Nachweis der Barrierefreiheit gelten.
+
+[MUST_IF] Wenn ein Erfolgskriterium automatisiert prüfbar ist, muss der Nachweis über einen wiederholbaren automatisierten Test erfolgen; nur nicht automatisierbare Kriterien dürfen durch dokumentierte manuelle Prüfungen des Testers nachgewiesen werden.
+
 ## Automatisierte Prüfungen
 
 [MUST_IF] Wenn das Projekt eine E2E- oder Komponenten-Testumgebung besitzt, müssen die zentralen Seiten und Zustände zusätzlich mit einer automatisierten Accessibility-Prüfung auf Basis einer etablierten Regel-Engine wie axe-core geprüft werden.

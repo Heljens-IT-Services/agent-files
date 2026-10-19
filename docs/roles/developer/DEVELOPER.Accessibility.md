@@ -71,3 +71,5 @@ Diese Datei gilt für die barrierefreie Umsetzung von Benutzeroberflächen. Zuge
 [MUST] Vor dem Abschluss einer UI-Änderung muss der Developer die geänderten Bereiche mindestens per Tastatur bedienen und vorhandene automatisierte Accessibility-Prüfungen des Projekts ausführen.
 
 [MUST_NOT] Ein fehlerfreier automatisierter Accessibility-Check darf nicht als Nachweis vollständiger WCAG-Konformität dargestellt werden.
+
+[MUST_NOT] Die eigene Prüfung des Developers darf nicht als Nachweis der Barrierefreiheit berichtet werden. Der Nachweis erfolgt durch Tests gemäß [TESTER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Accessibility.md).
