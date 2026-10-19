@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-19
 
 ## Zweck
 
@@ -65,6 +65,20 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 [MUST_IF] Wenn der Agent eine optionale Regeldatei einliest oder erneut abruft, muss er dem User unmittelbar kurz den Dokumenttitel mitteilen.
 
 [ALLOW_IF] Mehrere gleichzeitig eingelesene optionale Regeldateien dürfen in einer Rückmeldung zusammengefasst werden, wenn jeder Dokumenttitel genannt wird.
+
+## Versionierte Regelstände
+
+GitHub Pages stellt immer den aktuellen Stand von `main` bereit. Jeder Release nach `main` erhält zusätzlich ein unveränderliches Tag im Schema `vJJJJ.MM.TT`, bei einem weiteren Release am selben Tag `vJJJJ.MM.TT.<n>` ab `2`. Ein getaggter Regelstand ist unter `https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/<tag>/docs/<pfad>` abrufbar.
+
+[ALLOW] Ein konsumierendes Repository darf einen Regelstand pinnen. Dazu verweist seine lokale `AGENTS.md` über die Tag-URL auf die Einstiegsdatei, und seine `PROJECT.md` nennt den Tag im Abschnitt `## Versionsbasis`.
+
+[MUST_IF] Wenn die Einstiegsdatei über eine Tag-URL geladen wurde, muss der Agent jeden Link mit dem Präfix `https://heljens-it-services.github.io/agent-files/` auf denselben Tag auflösen, indem er das Präfix durch `https://raw.githubusercontent.com/Heljens-IT-Services/agent-files/<tag>/docs/` ersetzt.
+
+[MUST_NOT_IF] Wenn ein Repository einen Regelstand pinnt, darf der Agent keine Regeldatei aus einem anderen Stand als dem gepinnten Tag laden oder anwenden.
+
+[MUST_IF] Wenn der Tag in der lokalen `AGENTS.md` und der Tag in `PROJECT.md` voneinander abweichen, muss der Agent den Widerspruch melden und rückfragen, bevor er regelgebundene Arbeit beginnt.
+
+[MUST_NOT] Der Agent darf einen gepinnten Tag nicht eigenmächtig anheben. Eine Anhebung erfolgt nur auf ausdrücklichen Auftrag als gemeinsame Änderung der lokalen `AGENTS.md` und der `PROJECT.md`.
 
 ## Dokumentierte Kommandos
 

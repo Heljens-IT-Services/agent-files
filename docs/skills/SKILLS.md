@@ -37,6 +37,7 @@ Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.
 | `github-pr-merge` | GitHub PR Merge | - | Ein freigegebener Pull Request regelkonform gemergt werden soll. | [github_pr-merge.md](https://heljens-it-services.github.io/agent-files/skills/github_pr-merge.md) | Pull Request mergen. |
 | `github-push` | GitHub Push | `/push` | Vorhandene lokale Commits ohne neuen Commit auf den konfigurierten Upstream gepusht werden sollen. | [github_push.md](https://heljens-it-services.github.io/agent-files/skills/github_push.md) | Lokale Commits pushen. |
 | `repository-baseline-configuration` | Repository Baseline Configuration | - | Die standardisierte GitHub-Basiskonfiguration eines Repositorys geprüft oder ergänzt werden soll. | [github_repository-baseline-configuration.md](https://heljens-it-services.github.io/agent-files/skills/github_repository-baseline-configuration.md) | GitHub-Repository-Basis pflegen. |
+| `release-tagging` | Release Tagging | - | Ein verifiziert nach `main` gemergter Release-Stand mit Tag und GitHub Release versehen werden soll. | [github_release-tagging.md](https://heljens-it-services.github.io/agent-files/skills/github_release-tagging.md) | Release-Stand taggen. |
 | `relationship-setting` | Relationship Setting | - | Native GitHub-Relationships wie Blocked-by oder Parent/Child gesetzt werden sollen. | [github_relationship-setting.md](https://heljens-it-services.github.io/agent-files/skills/github_relationship-setting.md) | Issue-Beziehungen pflegen. |
 | `type-setting` | Type Setting | - | Der native GitHub-Issue-Type eines bestehenden oder neu erstellten Issues gesetzt werden soll. | [github_type-setting.md](https://heljens-it-services.github.io/agent-files/skills/github_type-setting.md) | Issue-Type pflegen. |
 | `research` | Research | - | Web-, Repository-, Issue- oder PR-Kontext recherchiert und zusammengefasst werden soll. | [research.md](https://heljens-it-services.github.io/agent-files/skills/research.md) | Kontext recherchieren. |
@@ -72,6 +73,7 @@ Die Zuordnung beschreibt die fachliche Standardverantwortung unter Codex. Ein Wo
 | `github-pr-merge` | `main/orchestrator` | Freigabe, Merge-Gates und Merge-Mutation koordinieren. |
 | `github-push` | `main/orchestrator` | Upstream und externe Push-Mutation kontrollieren. |
 | `repository-baseline-configuration` | `main/orchestrator` | Repositoryweite Sollbestände und externe Wirkung koordinieren. |
+| `release-tagging` | `main/orchestrator` | Tag und GitHub Release als externe Mutation kontrollieren; nicht parallel delegieren. |
 | `relationship-setting` | `planner` | Beziehung fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
 | `type-setting` | `planner` | Issue-Type fachlich ableiten; Mutation nur kontrolliert durch den Workflow. |
 | `research` | `main/orchestrator` | Je nach Gegenstand an Planner, Developer, Tester oder Designer delegierbar. |

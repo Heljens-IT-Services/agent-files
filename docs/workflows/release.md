@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pull Request nach `main` veröffentlichen und den lokalen Default-Branch aktualisieren.
+Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pull Request nach `main` veröffentlichen, den Release-Stand taggen und den lokalen Default-Branch aktualisieren.
 
 ## Verwenden
 
@@ -15,7 +15,7 @@ Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pu
 - Der Branch `develop` ist aktiv, der Arbeitsbaum ist sauber und der lokale Branch ist mit dem Remote synchronisiert.
 - Die Remote-Branches `develop` und `main` sind vorhanden und `main` ist der aufgelöste Default-Branch.
 - `develop` enthält gegenüber `main` zu veröffentlichende Änderungen.
-- Der User hat mit `/release` Pull Request, Check-Beobachtung und Merge von `develop` nach `main` ausdrücklich beauftragt.
+- Der User hat mit `/release` Pull Request, Check-Beobachtung, Merge von `develop` nach `main` sowie Tag und GitHub Release des gemergten Stands ausdrücklich beauftragt.
 
 ## Verwendete Skills
 
@@ -23,6 +23,7 @@ Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pu
 - `pr-creation`
 - `pr-checks-observation`
 - `github-pr-merge`
+- `release-tagging`
 - `default-branch-update`
 
 ## Ablauf
@@ -35,8 +36,9 @@ Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pu
 6. Mit `pr-creation` einen vorhandenen Pull Request von `develop` nach `main` wiederverwenden oder mit `main` als expliziter Basis und `develop` als explizitem Head erstellen. `/release` gilt als ausdrückliche Anweisung, den Pull Request als Ready for Review bereitzustellen.
 7. Mit `pr-checks-observation` die erforderlichen Checks für den unveränderten Pull-Request-Head bis zu einem terminalen Zustand beobachten.
 8. Bei vollständig erfolgreichen erforderlichen Checks oder dem zulässigen Status `no-checks-required` und erfüllten übrigen Repository-Regeln mit `github-pr-merge` und der aufgelösten Merge-Methode mergen. Bei `spending-limit-blocked` nur nach der dort vorgeschriebenen zusätzlichen Bestätigung fortfahren; eine erforderliche Merge Queue bis zum terminalen Ergebnis beobachten.
-9. Nach verifiziertem Merge mit `default-branch-update` auf `main` wechseln und ihn per Fast-Forward aktualisieren.
-10. Pull Request, enthaltene Issues, Check-Ergebnis, Merge und lokalen Abschlusszustand zusammenfassen.
+9. Nach verifiziertem Merge mit `release-tagging` den Merge-Commit taggen und das GitHub Release erstellen.
+10. Mit `default-branch-update` auf `main` wechseln und ihn per Fast-Forward aktualisieren.
+11. Pull Request, enthaltene Issues, Check-Ergebnis, Merge, Tag, Release und lokalen Abschlusszustand zusammenfassen.
 
 ## Rücksprungregeln
 
@@ -45,13 +47,14 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 - Bei `code-diff-review` mit Bewertung `nicht versandbereit` zur betroffenen Umsetzung auf einem separaten Arbeitsbranch zurückkehren; `develop` im Release-Workflow nicht direkt verändern.
 - Bei `spending-limit-blocked` zur ausdrücklichen Rückfrage in `github-pr-merge` wechseln.
 - Bei anderen fehlgeschlagenen oder abgebrochenen Checks, Konflikten, fehlenden Reviews, unklarer Merge-Methode oder fehlenden Rechten stoppen und `develop` aktiv lassen.
-- Wenn der Merge nicht verifiziert werden kann, nicht auf `main` wechseln.
+- Wenn der Merge nicht verifiziert werden kann, nicht taggen und nicht auf `main` wechseln.
+- Wenn Tag oder Release nicht erstellt werden können, den Befund melden und trotzdem mit `default-branch-update` fortfahren; der Release-Stand ist dann nicht über eine Tag-URL pinbar.
 
 ## Codex-Orchestrierung
 
 - Release-Scope und Reifekriterien: `planner` nur bei offenen fachlichen Entscheidungen.
 - Checks und Live-/Pages-Verifikation: `tester`.
-- Branchwechsel, Merge, Push und externe Veröffentlichung: `main/orchestrator`; keine parallelen Schreibmutationen.
+- Branchwechsel, Merge, Tag, Push und externe Veröffentlichung: `main/orchestrator`; keine parallelen Schreibmutationen.
 
 ## Endergebnis
 
@@ -59,6 +62,7 @@ Ein Pull Request darf bei `no-checks-required` fortgesetzt werden, wenn keine er
 - enthaltene offene Issues sind im Release-Pull-Request korrekt verknüpft
 - erforderliche Checks sind für den gemergten Head-Commit erfolgreich, oder für diesen Head-Commit ist `no-checks-required` verifiziert, oder der nachgewiesene Spending-Limit-Fall wurde ausdrücklich bestätigt
 - der Release-Pull-Request ist regelkonform gemergt
+- der Merge-Commit trägt ein Release-Tag mit zugehörigem GitHub Release, oder der Blocker ist benannt
 - der lokale Checkout steht auf dem per Fast-Forward aktualisierten Branch `main`
 
 ## Grenzen
