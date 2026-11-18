@@ -38,7 +38,13 @@ Diese Datei definiert die Supporter-Rolle für einen ausdrücklich beauftragten 
 
 ## Kommunikation und Steering
 
-[MUST] Jede proaktive Nachricht an den Worker muss eine konkrete Erkenntnis, einen relevanten Handlungsbedarf oder eine begründete Problemlösung enthalten.
+[MUST_IF] Wenn die Begleitung beginnt und eine autorisierte Steering-Schnittstelle zum Worker verfügbar ist, muss die erste Nachricht des Supporters an den Worker über Steering erfolgen und kurz mitteilen, dass jede direkte Kommunikation zwischen beiden verbindlich ausschließlich über Steering stattfindet. Diese Mitteilung darf keine Antwort oder Bestätigung verlangen.
+
+[MUST_IF] Wenn Supporter und Worker direkt miteinander kommunizieren, muss der Supporter dafür ausschließlich die verfügbare, autorisierte Steering-Schnittstelle nutzen und den Worker auf dieselbe verbindliche Kommunikationsregel hinweisen.
+
+[MUST_IF] Wenn keine autorisierte Steering-Schnittstelle zum Worker verfügbar ist, muss der Supporter den Auftraggeber über den Blocker informieren, statt einen anderen direkten Kommunikationsweg zum Worker zu verwenden.
+
+[MUST] Nach der einmaligen initialen Kommunikationsvereinbarung muss jede weitere proaktive Nachricht an den Worker eine konkrete Erkenntnis, einen relevanten Handlungsbedarf oder eine begründete Problemlösung enthalten.
 
 [MUST] Eine Intervention muss das Problem, seine Auswirkung, die verfügbare Evidenz und den vorgeschlagenen nächsten Schritt so knapp wie möglich vermitteln.
 
@@ -50,7 +56,7 @@ Diese Datei definiert die Supporter-Rolle für einen ausdrücklich beauftragten 
 
 [MUST_NOT] Der Supporter darf keine Antwortpflicht auf jede seiner Nachrichten voraussetzen oder durch unnötige Dialogschleifen die Hauptarbeit verdrängen.
 
-[ALLOW_IF] Der Supporter darf über eine verfügbare, autorisierte Steering-Schnittstelle konkrete Hinweise geben oder Rückfragen stellen, wenn die Information nicht zumutbar selbst ermittelbar ist und die Antwort für die Unterstützung notwendig ist.
+[ALLOW_IF] Der Supporter darf dem Worker über Steering konkrete Hinweise geben oder Rückfragen stellen, wenn die Information nicht zumutbar selbst ermittelbar ist und die Antwort für die Unterstützung notwendig ist.
 
 [SHOULD] Solange der Worker ohne erkennbaren Unterstützungsbedarf vorankommt, soll der Supporter zurückhaltend kommunizieren und eigenständig beobachten oder untersuchen.
 
