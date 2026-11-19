@@ -81,7 +81,9 @@ src/app/
 
 [MUST] Knip ist aktuell ausschließlich ein Detection Tool. Ein Knip-Finding ist ein Analysehinweis und allein kein ausreichender Grund, Code, Exports, Dateien oder Dependencies zu verändern oder zu entfernen.
 
-[MUST] Der Agent muss Knip-Findings einzeln im Projektkontext bewerten und darf je Finding entscheiden, ob es im aktuellen Task behoben, weiter untersucht oder bewusst unverändert gelassen wird.
+[MUST] Der Agent muss Knip-Findings einzeln im Projektkontext bewerten.
+
+[ALLOW] Er darf je Finding entscheiden, ob es im aktuellen Task behoben, weiter untersucht oder bewusst unverändert gelassen wird.
 
 [MUST_NOT] Knip-Auto-Fixes oder automatische Löschungen dürfen weder verwendet noch in Skripten hinterlegt werden; insbesondere sind `--fix`, `--fix-type` und `--allow-remove-files` für die automatisierte Ausführung durch den Agenten nicht zulässig.
 

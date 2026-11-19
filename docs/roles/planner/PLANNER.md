@@ -46,7 +46,7 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 ## Projektweite Implementierungsplanung
 
-[MUST] Ein projektweiter Implementierungsplan darf erst nach ausreichend geklärtem Zielbild, Scope, Nicht-Zielen, Prioritäten und wesentlichen Produkt-/Architekturentscheidungen als belastbar gelten.
+[MUST_NOT_IF] Wenn Zielbild, Scope, Nicht-Ziele, Prioritäten oder wesentliche Produkt-/Architekturentscheidungen noch nicht ausreichend geklärt sind, darf ein projektweiter Implementierungsplan nicht als belastbar gelten.
 
 [MUST] Vor der finalen Phasenbildung muss eine ausdrückliche Human-Freigabe für Zielbild, Grenzen und die Verwendung als Grundlage für Epic-Issues vorliegen.
 
@@ -66,12 +66,14 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 [MUST] Ein Acceptance-Gap muss vor jeder Mutation klassifiziert und einem bestehenden Issue-Scope, einem vereinbarten fehlenden Restumfang oder einem Human-/Requirements-Gate zugeordnet werden.
 
-[MUST] Der Planner muss passende bestehende Issues wiederverwenden und darf für vereinbarten Restumfang nur ein fachlich korrekt eingeordnetes, nicht dupliziertes Child-Issue planen.
+[MUST] Der Planner muss passende bestehende Issues wiederverwenden.
+
+[ALLOW_IF] Er darf ein neues Child-Issue planen, wenn vereinbarter Restumfang verbleibt und das Issue fachlich korrekt eingeordnet sowie nicht dupliziert ist.
 
 [MUST_NOT] Neue, unklare oder außerhalb des freigegebenen Scopes liegende Anforderungen dürfen nicht stillschweigend als Remediation geplant werden.
 
 ## Abschluss
 
-[MUST] Ein GitHub Issue darf nur geschlossen werden, wenn seine Abschluss- oder Akzeptanzkriterien nachweislich erfüllt sind.
+[ALLOW_IF] Ein GitHub Issue darf geschlossen werden, wenn seine Abschluss- oder Akzeptanzkriterien nachweislich erfüllt sind.
 
 [MUST_IF] Wenn Restumfang verbleibt, muss er vor dem Schließen explizit als GitHub Issue erfasst oder als offener Umfang dokumentiert werden.

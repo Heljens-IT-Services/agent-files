@@ -20,11 +20,13 @@ Minimierung ist eine mutierende Developer-Verantwortung. Sie entfernt oder verei
 
 ## Voraussetzungen und Baseline
 
-[MUST] Minimierung darf erst auf einem Änderungssatz beginnen, dessen beabsichtigtes Verhalten lokal reproduzierbar funktioniert oder für den eine belastbare lokale `PASS`-Evidenz vorliegt.
+[MUST_NOT_IF] Wenn weder das beabsichtigte Verhalten lokal reproduzierbar funktioniert noch belastbare lokale `PASS`-Evidenz vorliegt, darf Minimierung nicht beginnen.
 
 [MUST] Der Agent muss vor der ersten Reduktion die Baseline, den aktuellen Diff, den Task-/Issue-Vertrag, bekannte Invarianten und die für den Änderungssatz relevante Verifikation bestimmen.
 
-[MUST] Die Baseline muss belastbar und bevorzugt der eindeutig zuordenbare Task- oder Branch-Ausgangsstand sein. Ist sie nicht eindeutig auflösbar, darf kein Commit geraten werden; der Agent arbeitet nur auf eindeutig abgegrenzten Änderungsteilen oder beendet den Skill als `BLOCKED`.
+[MUST] Die Baseline muss belastbar und bevorzugt der eindeutig zuordenbare Task- oder Branch-Ausgangsstand sein.
+
+[MUST_IF] Wenn die Baseline nicht eindeutig auflösbar ist, muss der Agent auf eindeutig abgegrenzten Änderungsteilen arbeiten oder den Skill als `BLOCKED` beenden; ein Commit darf nicht geraten werden.
 
 [MUST] Fremde oder bereits vorhandene Änderungen müssen vom Änderungssatz getrennt und unverändert erhalten bleiben.
 
@@ -58,7 +60,7 @@ Vor der Mutation ist mindestens festzuhalten:
 
 [MUST] Security-, Autorisierungs-, Mandantentrennungs-, Validierungs-, Fehler- und Datenintegritätslogik bleibt erhalten, solange kein konkreter heutiger Vertrag ihre Entfernung trägt und die relevante Verifikation dies nachweist.
 
-[MUST] Eine bestehende klarere oder sicherere Lösung darf nicht durch kompakteren, aber schlechter verständlichen, riskanteren oder stärker gekoppelten Code ersetzt werden, nur weil der Diff kleiner wird.
+[MUST_NOT] Eine bestehende klarere oder sicherere Lösung darf nicht durch kompakteren, aber schlechter verständlichen, riskanteren oder stärker gekoppelten Code ersetzt werden, nur weil der Diff kleiner wird.
 
 [MUST_NOT_IF] Wenn dadurch Acceptance-Evidenz, ein erforderlicher Fehlerpfad oder ein konkret belegter Architektur-Constraint verletzt wird, darf eine Änderung nicht entfernt werden.
 

@@ -58,4 +58,6 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [ALLOW] `Program.cs` oder ein anderer Composition Root darf Module wegen transitiver Referenzierung explizit registrieren.
 
-[MUST] Direkte Projektreferenzen müssen die vorgesehenen Architekturgrenzen respektieren und dürfen nicht allein für bequeme DI-Registrierung aufgeweicht werden.
+[MUST] Direkte Projektreferenzen müssen die vorgesehenen Architekturgrenzen respektieren.
+
+[MUST_NOT] Architekturgrenzen dürfen nicht allein für bequeme DI-Registrierung aufgeweicht werden.

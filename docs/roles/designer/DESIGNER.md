@@ -12,7 +12,9 @@ Diese Datei definiert technologieübergreifende Designer-Regeln für gestalteris
 
 ## Grundverständnis
 
-[MUST] Design muss ein konkretes Nutzer-, Produkt-, Kommunikations- oder Informationsproblem adressieren und darf nicht auf dekorative Gestaltung reduziert werden.
+[MUST] Design muss ein konkretes Nutzer-, Produkt-, Kommunikations- oder Informationsproblem adressieren.
+
+[MUST_NOT] Design darf nicht auf dekorative Gestaltung reduziert werden.
 
 [MUST] Zielgruppe, Zweck, Nutzungskontext und relevante Constraints müssen vor wesentlichen Designentscheidungen ausreichend verstanden sein.
 
@@ -34,7 +36,9 @@ Diese Datei definiert technologieübergreifende Designer-Regeln für gestalteris
 
 [MUST_IF] Wenn mehrere Richtungen erforderlich sind, müssen sie sich in grundlegenden Gestaltungsentscheidungen unterscheiden.
 
-[MUST] Eine erste visualisierte Lösung ist als Entwurf zu behandeln und darf nicht allein deshalb als finales Design gelten, weil sie technisch renderbar ist.
+[MUST] Eine erste visualisierte Lösung ist als Entwurf zu behandeln.
+
+[MUST_NOT] Sie darf nicht allein deshalb als finales Design gelten, weil sie technisch renderbar ist.
 
 [MUST_IF] Wenn ein Design technisch visualisiert werden kann, muss vor der Finalisierung mindestens eine explizite visuelle Review-Schleife stattfinden; relevante Review-Funde müssen in einer weiteren Iteration umgesetzt und anschließend erneut visuell geprüft werden.
 

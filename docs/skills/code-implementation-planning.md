@@ -38,7 +38,9 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 
 Als neue konzeptionelle Ebene gelten insbesondere neue Interfaces oder Basisklassen, Service-/Provider-/Manager-/Repository-Layer, Strategy/Factory/Adapter/Facade/Bridge, Plugin-/Pipeline-/Handler-Modelle, öffentliche Config- oder API-Erweiterungen, neue Dependencies, Parallel-/Fallbackpfade und Generalisierungen für aktuell nicht vorhandene Variationen.
 
-[MUST] Jede neu geplante Ebene muss Current Driver und heutige Evidenz im Task oder Repository besitzen. Ein Plan darf spekulative Struktur nicht durch ihre eigene Aufnahme in den Task-Contract nachträglich legitimieren.
+[MUST] Jede neu geplante Ebene muss Current Driver und heutige Evidenz im Task oder Repository besitzen.
+
+[MUST_NOT] Ein Plan darf spekulative Struktur nicht durch ihre eigene Aufnahme in den Task-Contract nachträglich legitimieren.
 
 [MUST] Bei Variation oder Wiederverwendung müssen reale aktuelle Varianten, Implementierungen oder Consumer benannt werden. Eine erwartete zweite Variante reicht nicht.
 
