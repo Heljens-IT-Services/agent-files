@@ -16,6 +16,9 @@ Diese Datei ist die einzige Lookup-Quelle für technologiespezifische Regeldatei
 
 | ID | Technologie | Rolle | Regeldatei | Lesen und verwenden, wenn | Zweck |
 |---|---|---|---|---|---|
+| `accessibility` | Barrierefreiheit (WCAG 2.2) | Designer | [DESIGNER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/designer/DESIGNER.Accessibility.md) | Designer-Verantwortung sowie die Gestaltung nutzbarer Oberflächen relevant sind. | Barrierefreie Gestaltung und Handoff. |
+| `accessibility` | Barrierefreiheit (WCAG 2.2) | Developer | [DEVELOPER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Accessibility.md) | Developer-Verantwortung sowie Benutzeroberflächen erstellt oder geändert werden. | Zielniveau und Umsetzungsregeln für Barrierefreiheit. |
+| `accessibility` | Barrierefreiheit (WCAG 2.2) | Tester | [TESTER.Accessibility.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Accessibility.md) | Tester-Verantwortung sowie Benutzeroberflächen verifiziert werden. | Automatisierte und manuelle Accessibility-Prüfungen. |
 | `angular` | Angular | Developer | [DEVELOPER.Angular.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.Angular.md) | Developer-Verantwortung sowie Angular relevant sind. | Angular-spezifische Entwicklungsregeln. |
 | `angular` | Angular | Tester | [TESTER.Angular.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.Angular.md) | Tester-Verantwortung sowie Angular relevant sind. | Angular-spezifische Testregeln. |
 | `csharp-net` | C# und .NET | Developer | [DEVELOPER.CSharpNet.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.CSharpNet.md) | Developer-Verantwortung sowie C# oder .NET relevant sind. | Allgemeine C#- und .NET-Regeln. |
