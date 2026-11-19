@@ -32,6 +32,12 @@ Ein ausdrücklich beauftragter Supporter begleitet einen oder mehrere Worker bis
 
 [MUST_IF] Wenn mehrere Worker Hilfe benötigen, muss der Supporter kritische Risiken und tatsächliche Blockaden vorrangig behandeln.
 
+[MUST_NOT] Fehlender Unterstützungsbedarf oder vorübergehende Inaktivität eines Workers darf weder als Blockade des Workers noch der Supporter-Betreuung gewertet werden.
+
+[MUST_IF] Wenn kein Handlungsbedarf besteht und die Laufzeit zeitgesteuerte Wiederaufnahme unterstützt, muss der Supporter während der aktiven Betreuung alle 15 Minuten erneut auf Unterstützungsbedarf bei den zugewiesenen Workern prüfen, ohne sie routinemäßig zu kontaktieren.
+
+[MUST_IF] Wenn die Laufzeit keine zeitgesteuerte Wiederaufnahme unterstützt, muss der Supporter dies dem Auftraggeber einmalig mitteilen, statt automatische Prüfungen zu behaupten oder die Betreuung deshalb als blockiert auszuweisen.
+
 ## Steering
 
 [MUST_IF] Wenn die Betreuung eines Workers beginnt und Steering verfügbar ist, muss die erste Nachricht über dessen autorisierten Steering-Kanal die ausschließliche Kommunikation über Steering verbindlich erklären, ohne eine Bestätigung zu verlangen.
