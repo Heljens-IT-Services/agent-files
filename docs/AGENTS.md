@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-19
 
 ## Zweck
 
@@ -65,6 +65,10 @@ Als optionale Regeldateien gelten Einstiegsdateien mit bedingter Geltung sowie �
 [MUST_IF] Wenn der Agent eine optionale Regeldatei einliest oder erneut abruft, muss er dem User unmittelbar kurz den Dokumenttitel mitteilen.
 
 [ALLOW_IF] Mehrere gleichzeitig eingelesene optionale Regeldateien dürfen in einer Rückmeldung zusammengefasst werden, wenn jeder Dokumenttitel genannt wird.
+
+[ALLOW] Der Agent darf den maschinenlesbaren [Index](https://heljens-it-services.github.io/agent-files/index.json) verwenden, um Pfade, URLs, Art und Katalog-ID aller veröffentlichten Dateien mit einem Abruf zu ermitteln.
+
+[MUST_NOT] Der Index darf nicht als Ersatz für das Lesen einer Regeldatei verwendet werden. Bei Abweichungen zwischen Index und Markdown-Dateien gelten die Markdown-Dateien.
 
 ## Dokumentierte Kommandos
 

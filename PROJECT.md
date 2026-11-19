@@ -71,4 +71,12 @@ Für die Pflege gelten folgende Konventionen:
 
 [MUST] Die Prüfung ist ein reiner Lesecheck und kein Build- oder Generierungsschritt; sie darf keine Dateien unter `docs/` erzeugen oder verändern.
 
+[MUST] `docs/AGENTS.md` darf höchstens 24 000 Bytes und die als `Pflicht` gekennzeichnete Pflichtlektüre zusammen höchstens 64 000 Bytes umfassen, jeweils in UTF-8 gemessen. Ab 90 % eines Budgets gibt die Prüfung einen nicht blockierenden Hinweis aus.
+
+[MUST_IF] Wenn eine Änderung ein Größenbudget überschreiten würde, müssen Inhalte in passende Detaildateien verlagert oder gekürzt werden. Eine Anhebung des Budgets ist nur als eigene, begründete Änderung zulässig.
+
+[MUST_IF] Wenn Dateien unter `docs/` hinzugefügt, entfernt, umbenannt oder in Katalog-ID beziehungsweise Titel geändert werden, muss `python3 scripts/update_index.py` den Index `docs/index.json` neu schreiben und der Index mitcommittet werden. Die Prüfung schlägt bei einem veralteten Index fehl.
+
+[MUST_NOT] `docs/index.json` darf nicht von Hand bearbeitet werden.
+
 [MUST_IF] Wenn eine Datei unter `docs/` eine `Stand:`-Zeile trägt, muss diese bei jeder inhaltlichen Änderung der Datei auf das Änderungsdatum gesetzt werden.
