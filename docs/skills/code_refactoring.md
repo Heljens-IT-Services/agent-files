@@ -57,7 +57,7 @@ Als belastbare strukturelle Last gelten insbesondere reale Duplikation, hohe Ver
 - Nicht refaktorieren, wenn das zu erhaltende Verhalten unklar ist. Dann vorher `code-reading` oder `code-analysis` nutzen.
 - Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code-reading` nutzen.
 - Nur unmittelbar betroffene Dateien lesen.
-- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
+- Fokussierte lokale Tests oder Builds zur unmittelbaren Prüfung der eigenen Strukturänderung sind zulässig; die unabhängige finale Verifikation bleibt bei `code-testing`.
 - Testdateien dürfen geändert werden, wenn sie an neue Struktur, Namen oder Verantwortungsgrenzen angepasst werden und dasselbe Verhalten absichern.
 - Code-nahe Dokumentation darf angepasst werden, wenn sie direkt zu geänderten Namen, Struktur oder Verantwortungsgrenzen gehört.
 - README, Architektur-Doku, Nutzer-Doku, Changelog oder externe Dokumentation nicht automatisch aktualisieren. Dann `documentation` nutzen.

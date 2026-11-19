@@ -37,6 +37,10 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 [MUST] Tests müssen sichtbares Verhalten und fachliche Zustände prüfen.
 
+[MUST] Neue Testfälle müssen eine konkrete Änderung, ein Akzeptanzkriterium oder ein belegbares Regressionsrisiko absichern; bestehende belastbare Testabdeckung ist zu berücksichtigen.
+
+[MUST_IF] Wenn neue Test-Helper, Fixtures, Builder, Mocks, Fakes oder Stubs eingeführt werden, müssen sie für die konkrete Verifikation erforderlich sein und gegenüber bestehenden Testmitteln oder direkt im Test definierten Daten einen nachvollziehbaren Vorteil bieten.
+
 [MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
 
 [MUST_NOT] Tests dürfen private Implementierungsdetails nicht als primären Vertrag prüfen.
@@ -57,7 +61,7 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Graphweite Acceptance
 
-[MUST] Bei einer graphweiten Acceptance-Prüfung muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
+[MUST_IF] Wenn eine graphweite Acceptance-Prüfung durchgeführt wird, muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
 
 [MUST_NOT] Ein Issue-, Commit-, PR- oder früherer Teststatus darf allein keinen Acceptance-Nachweis ersetzen.
 

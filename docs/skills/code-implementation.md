@@ -71,7 +71,7 @@ Nicht hinreichend allein sind „flexibler“, „sauberer“ ohne konkrete redu
 - Während der Ausführung keine grundlegende Neuplanung oder erneute Alternativenabwägung durchführen.
 - Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code-reading` nutzen.
 - Nur unmittelbar betroffene Dateien lesen.
-- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
+- Fokussierte lokale Tests oder Builds zur unmittelbaren Prüfung der eigenen Änderung sind zulässig; die unabhängige finale Verifikation bleibt bei `code-testing`.
 - Verhalten, Logik, Feature oder API gezielt verändern; das ist der Zweck dieses Skills.
 - Kein reines Refactoring durchführen. Verhaltenserhaltende Strukturverbesserung mit Zweck Lesbarkeit, Wartbarkeit oder Redundanzabbau gehört zu `code-refactoring`.
 - Minimale strukturelle Anpassungen sind erlaubt, wenn sie unmittelbar nötig sind, um die Verhaltensänderung sauber einzubauen.
