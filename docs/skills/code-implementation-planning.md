@@ -34,7 +34,7 @@ Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetz
 3. **Evidence:** Wo ist dieser Druck sichtbar, etwa in Acceptance Criterion, bestehenden Implementierungen/Consumern, realer Duplikation, Invariante, Architekturregel, Failure Mode oder Betriebsconstraint?
 4. **Simpler alternative:** Kann der aktuelle Vertrag ohne diese Ebene über bestehende Struktur oder eine direktere Lösung gleichwertig erfüllt werden?
 
-[MUST] Wenn Frage 1 oder 3 nicht konkret beantwortet werden kann oder Frage 4 mit „ja“ beantwortet wird, darf die neue Ebene standardmäßig nicht geplant werden.
+[MUST_IF] Wenn Frage 1 oder 3 nicht konkret beantwortet werden kann oder Frage 4 mit „ja“ beantwortet wird, darf die neue Ebene standardmäßig nicht geplant werden.
 
 Als neue konzeptionelle Ebene gelten insbesondere neue Interfaces oder Basisklassen, Service-/Provider-/Manager-/Repository-Layer, Strategy/Factory/Adapter/Facade/Bridge, Plugin-/Pipeline-/Handler-Modelle, öffentliche Config- oder API-Erweiterungen, neue Dependencies, Parallel-/Fallbackpfade und Generalisierungen für aktuell nicht vorhandene Variationen.
 
@@ -46,7 +46,7 @@ Als neue konzeptionelle Ebene gelten insbesondere neue Interfaces oder Basisklas
 
 [MUST] Bei Repository-Architektur muss die relevante Boundary oder Konvention im betroffenen Bereich tatsächlich gelten; Pattern-Ähnlichkeit aus einem anderen Bereich reicht nicht automatisch.
 
-[MUST] Wenn direkte Lösung und neue Abstraktion den aktuellen Vertrag, dieselben Invarianten und die erforderliche Wartbarkeit gleichwertig erfüllen, ist die Variante mit weniger neuen Konzepten und Navigationsschritten zu planen.
+[MUST_IF] Wenn direkte Lösung und neue Abstraktion den aktuellen Vertrag, dieselben Invarianten und die erforderliche Wartbarkeit gleichwertig erfüllen, ist die Variante mit weniger neuen Konzepten und Navigationsschritten zu planen.
 
 [MUST_NOT] Zukünftige Features, Provider, Consumer, Modi, Mandanten oder Skalierungsanforderungen dürfen nicht erfunden werden, um eine zusätzliche Ebene zu rechtfertigen.
 

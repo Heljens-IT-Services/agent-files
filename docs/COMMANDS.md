@@ -40,7 +40,9 @@ spacing     = { " " | tab } ;
 
 [MUST] Mehrere Tokens müssen durch Leerraum getrennt werden. Doppelte Anführungszeichen dürfen Leerraum innerhalb eines Arguments erhalten.
 
-[MUST] Optionen müssen mit `--` beginnen. Die Formen `--name value` und `--name=value` sind zulässig, sofern der konkrete Command die Option dokumentiert.
+[MUST] Optionen müssen mit `--` beginnen.
+
+[ALLOW_IF] Die Formen `--name value` und `--name=value` dürfen verwendet werden, wenn der konkrete Command die Option dokumentiert.
 
 [MUST] Nicht dokumentierte Optionen, doppelte nicht wiederholbare Optionen und nicht geschlossene Anführungszeichen müssen als ungültige Eingabe behandelt werden.
 

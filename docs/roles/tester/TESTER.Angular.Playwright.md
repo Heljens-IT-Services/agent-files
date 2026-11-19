@@ -28,7 +28,7 @@ Diese Datei definiert Playwright-Regeln für Angular-Anwendungen. Allgemeine Tes
 
 [MUST] Das Projekt muss seine unterstützten Themes und relevanten Viewports definieren.
 
-[MUST_IF] Wenn eine visuell relevante Component neu eingeführt oder verändert wird, müssen die tatsächlich betroffenen Viewport-Theme-Kombinationen mit Playwright-Referenzbildern abgesichert werden. Weitere Kombinationen sind nur bei konkretem Darstellungsrisiko einzubeziehen.
+[MUST_IF] Wenn eine neue oder geänderte Component die sichtbare Darstellung beeinflusst, müssen die betroffenen Viewport-Theme-Kombinationen mit Playwright-Referenzbildern abgesichert werden. Weitere Kombinationen sind nur bei konkretem Darstellungsrisiko einzubeziehen.
 
 [MUST] Visuelle Tests müssen das tatsächlich im Browser gerenderte Ergebnis einschließlich Styles von Frameworks und UI-Bibliotheken prüfen.
 

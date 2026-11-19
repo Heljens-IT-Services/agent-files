@@ -60,7 +60,7 @@ Vor der Mutation ist mindestens festzuhalten:
 
 [MUST] Eine bestehende klarere oder sicherere Lösung darf nicht durch kompakteren, aber schlechter verständlichen, riskanteren oder stärker gekoppelten Code ersetzt werden, nur weil der Diff kleiner wird.
 
-[MUST_NOT] Eine Änderung darf nicht entfernt werden, wenn dadurch Acceptance-Evidenz, ein erforderlicher Fehlerpfad oder ein konkret belegter Architektur-Constraint verletzt wird.
+[MUST_NOT_IF] Wenn dadurch Acceptance-Evidenz, ein erforderlicher Fehlerpfad oder ein konkret belegter Architektur-Constraint verletzt wird, darf eine Änderung nicht entfernt werden.
 
 Wenn eine Änderung nur eine hypothetische zukünftige Variante unterstützt und weder der Task noch das bestehende Repository einen realen heutigen Treiber dafür belegt, soll sie als `CANDIDATE` geprüft und gegebenenfalls entfernt werden.
 
@@ -79,7 +79,7 @@ Wenn eine Änderung nur eine hypothetische zukünftige Variante unterstützt und
 
 [MUST] Bei unklarer Baseline, unklarem Änderungssatz, fehlender lokaler Konvergenz oder fehlendem Nachweis für das zu erhaltende Verhalten muss der Agent vor der Mutation stoppen und `BLOCKED` mit fehlendem Kontext ausgeben.
 
-[MUST] Wenn eine Reduktion erforderliches Verhalten, eine Invariante, Security-/Fehlerlogik, Acceptance-Evidenz oder einen belegten Constraint verletzt, muss sie zurückgenommen werden; weitere davon abhängige Reduktionen werden nicht begonnen.
+[MUST_IF] Wenn eine Reduktion erforderliches Verhalten, eine Invariante, Security-/Fehlerlogik, Acceptance-Evidenz oder einen belegten Constraint verletzt, muss sie zurückgenommen werden; weitere davon abhängige Reduktionen werden nicht begonnen.
 
 [MUST_NOT] Der Agent darf keinen Fehlschlag durch Abschwächen oder Entfernen der relevanten Verifikation verdecken und darf keinen Erfolg behaupten, wenn der gezielte Retest nicht erfolgreich oder nicht reproduzierbar ist.
 

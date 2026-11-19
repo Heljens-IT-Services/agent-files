@@ -17,13 +17,13 @@ Eine geklärte Änderung mit minimalem Write-Scope und der kleinsten hinreichend
 
 [MUST] Vor dem Einführen einer neuen Abstraktion, Indirektion, Konfigurationsoption, Dependency oder parallelen Implementierungsvariante muss ein konkreter aktueller Treiber im Task oder bestehenden Repository benennbar sein.
 
-[MUST] Wenn bestehende Architektur, API oder Extension Points den Task ohne zusätzliche konzeptionelle Ebene sauber tragen, muss die Implementierung diese vorhandenen Möglichkeiten bevorzugt nutzen.
+[MUST_IF] Wenn bestehende Architektur, API oder Extension Points den Task ohne zusätzliche konzeptionelle Ebene sauber tragen, muss die Implementierung diese vorhandenen Möglichkeiten bevorzugt nutzen.
 
 [MUST] Eine neue Dependency benötigt einen konkret fehlenden Capability-Baustein. Vor ihrer Einführung muss geprüft werden, ob Standardbibliothek oder bereits vorhandene Dependencies den Bedarf angemessen abdecken.
 
 [MUST] Ein zusätzlicher Fallback oder alternativer Pfad braucht einen real vorhandenen Fehler-/Kompatibilitätsfall oder eine explizite Anforderung. Ein rein hypothetischer zukünftiger Fall ist kein ausreichender Treiber.
 
-[MUST] Wenn eine direkte Lösung und eine stärker abstrahierte Lösung den heutigen Vertrag gleichermaßen sauber, sicher und wartbar erfüllen, ist die Lösung mit weniger neuen Konzepten und Indirektionen zu wählen.
+[MUST_IF] Wenn eine direkte Lösung und eine stärker abstrahierte Lösung den heutigen Vertrag gleichermaßen sauber, sicher und wartbar erfüllen, ist die Lösung mit weniger neuen Konzepten und Indirektionen zu wählen.
 
 [MUST_NOT] Ein Interface darf nicht allein wegen hypothetischer künftiger Austauschbarkeit eingeführt werden. Mehrere reale Implementierungen, ein bestehendes Repository-Pattern, Test-/Boundary-Anforderungen oder ein expliziter Architektur-Constraint können dagegen gültige Treiber sein.
 
@@ -31,9 +31,9 @@ Eine geklärte Änderung mit minimalem Write-Scope und der kleinsten hinreichend
 
 [MUST_NOT] Neue Config-Flags, Optionsobjekte oder öffentliche API-Parameter dürfen nicht vorsorglich für hypothetische zukünftige Varianten eingeführt werden.
 
-[MUST_NOT] Eine alte und eine neue Implementierung dürfen nicht parallel bestehen bleiben, wenn der Task keine Migration, Kompatibilitätsphase, Rollback-Fähigkeit oder andere aktuelle Notwendigkeit dafür verlangt.
+[MUST_NOT_IF] Wenn der Task keine Migration, Kompatibilitätsphase, Rollback-Fähigkeit oder andere aktuelle Notwendigkeit verlangt, dürfen eine alte und eine neue Implementierung nicht parallel bestehen bleiben.
 
-[MUST_NOT] Bestehenden Code darf der Agent nicht um jeden Preis wiederverwenden, wenn dadurch stärkere Kopplung, semantisch falsche Verantwortung oder riskante Sonderlogik entsteht. `reuse > new abstraction` ist eine Präferenz, kein Zwang gegen saubere Architektur.
+[MUST_NOT_IF] Wenn dadurch stärkere Kopplung, semantisch falsche Verantwortung oder riskante Sonderlogik entsteht, darf der Agent bestehenden Code nicht um jeden Preis wiederverwenden. `reuse > new abstraction` ist eine Präferenz, kein Zwang gegen saubere Architektur.
 
 [SHOULD] Vor neuer Struktur in dieser Reihenfolge prüfen: bestehende Logik direkt anpassen -> vorhandenen Extension Point nutzen -> vorhandene Abstraktion gezielt erweitern -> erst dann neue Abstraktion einführen.
 

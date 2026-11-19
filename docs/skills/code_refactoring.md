@@ -32,15 +32,15 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern, und dabei eine kon
 
 [MUST] Nach jedem Refactoring-Arbeitspaket muss eine Vorher-Nachher-Aussage belegen, welche konkrete Last reduziert wurde und welche neue Struktur oder Indirektion dafür entstanden ist.
 
-[MUST] Eine neue Abstraktion ist nur dann ein Refactoring-Gewinn, wenn ihre zusätzliche kognitive und strukturelle Last durch einen größeren konkreten Abbau bestehender Last gerechtfertigt ist.
+[MUST_IF] Wenn eine neue Abstraktion als Refactoring-Gewinn gewertet wird, muss ihre zusätzliche kognitive und strukturelle Last durch einen größeren konkreten Abbau bestehender Last gerechtfertigt sein.
 
 [MUST] Wird Komplexität lediglich in eine neue Datei, Klasse oder Ebene verschoben, ohne Duplikation, Verzweigung, Verantwortungsmischung, Kopplung oder vergleichbare Last zu reduzieren, liegt kein Strukturgewinn vor.
 
-[MUST] Bestehende unnötige Indirektion darf ausdrücklich entfernt, zusammengelegt oder inline genommen werden, sofern keine reale Boundary oder Invariante verloren geht.
+[ALLOW_IF] Bestehende unnötige Indirektion darf entfernt, zusammengelegt oder inline genommen werden, wenn dadurch keine reale Boundary oder Invariante verloren geht.
 
 [MUST_NOT] Ein Interface, Strategy-/Factory-Layer oder Wrapper darf nicht allein für hypothetische spätere Austauschbarkeit eingeführt werden.
 
-[MUST_NOT] Eine Methode oder Klasse darf nicht allein zur Verkleinerung von Dateien oder Methoden extrahiert werden, wenn dadurch Navigation oder Kontrollfluss schwerer nachvollziehbar werden und keine andere konkrete Last sinkt.
+[MUST_NOT_IF] Wenn dadurch Navigation oder Kontrollfluss schwerer nachvollziehbar werden und keine andere konkrete Last sinkt, darf eine Methode oder Klasse nicht allein zur Verkleinerung von Dateien oder Methoden extrahiert werden.
 
 [MUST_NOT] „Clean Code“, „SOLID“, „Best Practice“, „flexibler“, „modularer“ oder „testbarer“ reichen ohne konkrete vorherige Last und nachweisbaren Effekt nicht als alleinige Refactoring-Begründung.
 

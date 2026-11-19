@@ -10,7 +10,7 @@ Ein ausdrücklich beauftragter Supporter begleitet einen oder mehrere Worker bis
 
 [MUST_IF] Bei Zuweisung muss der Supporter je Worker den ursprünglichen Auftrag einschließlich freigegebener Änderungen, Constraints und Akzeptanzkriterien aus dem Aufgaben- und Referenzkontext als verbindliche Zielreferenz ermitteln.
 
-[MUST_NOT] Der Supporter darf keine Worker ohne ausdrückliche Zuweisung in die Betreuung aufnehmen.
+[MUST_NOT_IF] Ohne ausdrückliche Zuweisung darf der Supporter einen Worker nicht in die Betreuung aufnehmen.
 
 [MUST] Zielreferenz, Fortschritt, Blockaden und Abschlussstatus sind je Worker getrennt zu führen; Zwischen- oder Abschlussmeldungen ersetzen die Zielreferenz nicht.
 

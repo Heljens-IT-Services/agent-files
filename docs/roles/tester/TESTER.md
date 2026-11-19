@@ -21,9 +21,9 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Tests
 
-[MUST] Reine Fachlogik muss mit Unit Tests abgesichert werden.
+[MUST_IF] Wenn reine Fachlogik neu eingeführt oder geändert wird, muss ihr relevantes Verhalten durch Unit-Tests abgesichert sein; vorhandene belastbare Tests können den Nachweis liefern.
 
-[MUST] Workflows müssen Tests für Happy Path, Fehlerpfade und fachlich kritische Abzweigungen erhalten.
+[MUST_IF] Wenn Workflows neu eingeführt oder geändert werden, müssen ihr Happy Path sowie relevante Fehlerpfade und fachlich kritische Abzweigungen im Änderungsscope oder mit konkretem Regressionsrisiko getestet werden.
 
 [MUST_IF] Fehlerpfade müssen getestet werden, wenn sie fachlich relevant, sicherheitsrelevant oder für Nutzer bzw. Clients sichtbar sind.
 

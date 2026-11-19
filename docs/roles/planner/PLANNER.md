@@ -16,7 +16,7 @@ Diese Datei definiert Leitplanken für die Planung und Pflege von GitHub Issues 
 
 [MUST] Jedes GitHub Issue muss genau ein klares Ziel besitzen.
 
-[MUST] Scope, Nicht-Ziele und Abschluss- oder Akzeptanzkriterien müssen eindeutig sein, soweit sie für die Umsetzung oder Prüfung erforderlich sind.
+[MUST_IF] Wenn Scope, Nicht-Ziele oder Abschluss- beziehungsweise Akzeptanzkriterien für Umsetzung oder Prüfung erforderlich sind, müssen sie eindeutig sein.
 
 [MUST] Ein GitHub Issue muss eigenständig verständlich und abgrenzbar sein.
 
