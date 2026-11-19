@@ -32,15 +32,15 @@ Code strukturieren, ohne beabsichtigtes Verhalten zu ändern, und dabei eine kon
 
 [MUST] Nach jedem Refactoring-Arbeitspaket muss eine Vorher-Nachher-Aussage belegen, welche konkrete Last reduziert wurde und welche neue Struktur oder Indirektion dafür entstanden ist.
 
-[MUST] Eine neue Abstraktion ist nur dann ein Refactoring-Gewinn, wenn ihre zusätzliche kognitive und strukturelle Last durch einen größeren konkreten Abbau bestehender Last gerechtfertigt ist.
+[MUST_IF] Wenn eine neue Abstraktion als Refactoring-Gewinn gewertet wird, muss ihre zusätzliche kognitive und strukturelle Last durch einen größeren konkreten Abbau bestehender Last gerechtfertigt sein.
 
 [MUST] Wird Komplexität lediglich in eine neue Datei, Klasse oder Ebene verschoben, ohne Duplikation, Verzweigung, Verantwortungsmischung, Kopplung oder vergleichbare Last zu reduzieren, liegt kein Strukturgewinn vor.
 
-[MUST] Bestehende unnötige Indirektion darf ausdrücklich entfernt, zusammengelegt oder inline genommen werden, sofern keine reale Boundary oder Invariante verloren geht.
+[ALLOW_IF] Bestehende unnötige Indirektion darf entfernt, zusammengelegt oder inline genommen werden, wenn dadurch keine reale Boundary oder Invariante verloren geht.
 
 [MUST_NOT] Ein Interface, Strategy-/Factory-Layer oder Wrapper darf nicht allein für hypothetische spätere Austauschbarkeit eingeführt werden.
 
-[MUST_NOT] Eine Methode oder Klasse darf nicht allein zur Verkleinerung von Dateien oder Methoden extrahiert werden, wenn dadurch Navigation oder Kontrollfluss schwerer nachvollziehbar werden und keine andere konkrete Last sinkt.
+[MUST_NOT_IF] Wenn dadurch Navigation oder Kontrollfluss schwerer nachvollziehbar werden und keine andere konkrete Last sinkt, darf eine Methode oder Klasse nicht allein zur Verkleinerung von Dateien oder Methoden extrahiert werden.
 
 [MUST_NOT] „Clean Code“, „SOLID“, „Best Practice“, „flexibler“, „modularer“ oder „testbarer“ reichen ohne konkrete vorherige Last und nachweisbaren Effekt nicht als alleinige Refactoring-Begründung.
 
@@ -57,7 +57,7 @@ Als belastbare strukturelle Last gelten insbesondere reale Duplikation, hohe Ver
 - Nicht refaktorieren, wenn das zu erhaltende Verhalten unklar ist. Dann vorher `code-reading` oder `code-analysis` nutzen.
 - Keine breite Kontextsuche durchführen. Wenn Kontext fehlt, vorher `code-reading` nutzen.
 - Nur unmittelbar betroffene Dateien lesen.
-- Keine Tests, Builds oder Anwendungen ausführen. Das gehört zu `code-testing`.
+- Fokussierte lokale Tests oder Builds zur unmittelbaren Prüfung der eigenen Strukturänderung sind zulässig; die unabhängige finale Verifikation bleibt bei `code-testing`.
 - Testdateien dürfen geändert werden, wenn sie an neue Struktur, Namen oder Verantwortungsgrenzen angepasst werden und dasselbe Verhalten absichern.
 - Code-nahe Dokumentation darf angepasst werden, wenn sie direkt zu geänderten Namen, Struktur oder Verantwortungsgrenzen gehört.
 - README, Architektur-Doku, Nutzer-Doku, Changelog oder externe Dokumentation nicht automatisch aktualisieren. Dann `documentation` nutzen.
@@ -82,6 +82,6 @@ Als belastbare strukturelle Last gelten insbesondere reale Duplikation, hohe Ver
 - Jede Verhaltensänderung explizit markieren.
 - Kein Refactoring als verdeckte Feature-Arbeit.
 - Vorher-Nachher-Unterschied strukturell erklären.
-- Nicht behaupten, etwas sei getestet.
+- Ausgeführte lokale Checks konkret benennen und nicht als unabhängige Tester-Freigabe darstellen.
 - Strukturgewinn immer konkret benennen.
 - Restrisiken nur benennen, wenn sie sichtbar sind; nicht als eigene Analyse ausweiten.

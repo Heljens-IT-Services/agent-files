@@ -8,7 +8,9 @@ Diese Datei ist die einzige Lookup-Quelle für technologiespezifische Regeldatei
 
 [MUST] `/technologies show <technology-id>` muss alle rollenbezogenen Regeldatei-Mappings der Technologie-ID beschreiben, ohne dadurch eine Rolle oder Regeldatei außerhalb ihres Verwendungskriteriums zu aktivieren.
 
-[MUST] Eine Technologie-ID darf mehrere rollenbezogene Regeldatei-Mappings besitzen. Ein Mapping darf nur angewendet werden, wenn die zugehörige Rolle im aktuellen Task bereits relevant ist.
+[ALLOW] Eine Technologie-ID darf mehrere rollenbezogene Regeldatei-Mappings besitzen.
+
+[MUST_NOT_IF] Wenn die zugehörige Rolle im aktuellen Task nicht relevant ist, darf ein Mapping nicht angewendet werden.
 
 [MUST_NOT] Der Technologiekatalog darf allgemeine Rollenregeln aus [ROLES.md](https://heljens-it-services.github.io/agent-files/roles/ROLES.md), [DEVELOPER.md](https://heljens-it-services.github.io/agent-files/roles/developer/DEVELOPER.md) oder [TESTER.md](https://heljens-it-services.github.io/agent-files/roles/tester/TESTER.md) nicht duplizieren.
 

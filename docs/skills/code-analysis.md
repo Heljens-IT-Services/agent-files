@@ -37,20 +37,20 @@ Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordn
 
 [MUST] `code-analysis` arbeitet ohne ausdrücklichen Persistenzgrund im Context-only-Modus und erzeugt keine Datei im Repository.
 
-[MUST] Ein Analyseartefakt darf nur entstehen, wenn mindestens einer dieser konkreten Persistenztreiber vorliegt:
+[ALLOW_IF] Ein Analyseartefakt darf entstehen, wenn mindestens einer dieser konkreten Persistenztreiber vorliegt:
 
 1. Der User verlangt ausdrücklich eine Datei oder persistente Analyse.
 2. Ein aufrufender Workflow definiert das Analyseartefakt ausdrücklich als erforderliches Endergebnis oder Handoff.
 3. Die Analyse selbst ist das vereinbarte fachliche Deliverable und nicht nur Vorarbeit für Umsetzung.
 4. Ein benannter nachgelagerter Prozess oder Mensch benötigt denselben Befund sitzungsübergreifend als Referenz und dieser Bedarf kann nicht sinnvoll durch Issue- oder Task-Kontext abgedeckt werden.
 
-[MUST] Wenn ein Artefakt erzeugt wird, müssen Persistenztreiber, Modus, Zweck und nachgelagerter Verbraucher im Output oder im aufrufenden Kontext benannt sein.
+[MUST_IF] Wenn ein Artefakt erzeugt wird, müssen Persistenztreiber, Modus, Zweck und nachgelagerter Verbraucher im Output oder im aufrufenden Kontext benannt sein.
 
 [MUST_NOT] Ein Artefakt darf nicht allein deshalb erzeugt werden, weil die Analyse nicht-trivial, lang, technisch interessant oder später möglicherweise nützlich ist.
 
-[MUST_NOT] Root-Cause-Diagnose innerhalb eines Bugfix-, Implementierungs- oder Remediation-Workflows darf standardmäßig keine `docs/analysis-*`-Datei erzeugen, wenn die Erkenntnisse unmittelbar in denselben Arbeitsfluss einfließen.
+[MUST_NOT_IF] Wenn Erkenntnisse einer Root-Cause-Diagnose innerhalb eines Bugfix-, Implementierungs- oder Remediation-Workflows unmittelbar in denselben Arbeitsfluss einfließen, darf dafür standardmäßig keine `docs/analysis-*`-Datei erzeugt werden.
 
-[MUST_NOT] Ephemere Hypothesen, verworfene Ursachen, Debug-Spuren oder Zwischenbefunde dürfen nicht als dauerhafte Dokumentation konserviert werden, sofern sie nicht selbst relevante Nachweise des beauftragten Deliverables sind.
+[MUST_NOT_IF] Wenn ephemere Hypothesen, verworfene Ursachen, Debug-Spuren oder Zwischenbefunde keine relevanten Nachweise des beauftragten Deliverables sind, dürfen sie nicht als dauerhafte Dokumentation konserviert werden.
 
 [SHOULD] Persistenter technischer Kontext, der dauerhaft benötigt wird, soll an der fachlich richtigen kanonischen Stelle landen, zum Beispiel im Issue, in Architektur-/Nutzerdokumentation oder einem Decision Record, statt automatisch als generische Analyseakte.
 

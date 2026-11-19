@@ -35,9 +35,9 @@ Der Review bewertet wesentliche semantische Änderungseinheiten zusätzlich auf 
 
 [MUST] Ein `UNPROVEN`-Befund ist blockierend und führt zu `nicht versandbereit`, solange die Änderung weder entfernt noch konkret begründet wurde.
 
-[MUST] `UNPROVEN` wird zur mutierenden Nacharbeit bevorzugt an `code-minimization` geroutet, sofern keine neue Anforderung oder Architekturentscheidung erforderlich ist. Bei einer echten Plan- oder Anforderungslücke an `code-implementation-planning` oder `requirements-clarification` routen.
+[SHOULD] `UNPROVEN` soll zur mutierenden Nacharbeit bevorzugt an `code-minimization` geroutet werden, sofern keine neue Anforderung oder Architekturentscheidung erforderlich ist. Bei einer echten Plan- oder Anforderungslücke an `code-implementation-planning` oder `requirements-clarification` routen.
 
-[MUST] Wenn zur Rechtfertigung eines `UNPROVEN`-Elements eine neue Anforderung erfunden werden müsste, bleibt es `UNPROVEN`; der Scope darf nicht nachträglich erweitert werden.
+[MUST_IF] Wenn zur Rechtfertigung eines `UNPROVEN`-Elements eine neue Anforderung erfunden werden müsste, bleibt es `UNPROVEN`; der Scope darf nicht nachträglich erweitert werden.
 
 [MUST_NOT] „Tests sind grün“, „Best Practice“, „sauberer“, „flexibler“, „besser erweiterbar“ oder „könnte später nützlich sein“ dürfen allein keine Änderung von `UNPROVEN` zu `JUSTIFIED` bewirken.
 
