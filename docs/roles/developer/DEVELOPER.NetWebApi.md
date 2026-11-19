@@ -30,7 +30,7 @@ Diese Datei gilt für .NET-Web-APIs. Zugehörige allgemeine und anwendungsbezoge
 
 [MUST_NOT] Minimal APIs dürfen für fachliche oder ressourcenorientierte HTTP-Endpunkte nicht verwendet werden. Insbesondere dürfen solche Endpunkte nicht direkt über `MapGet`, `MapPost`, `MapPut`, `MapPatch`, `MapDelete`, `MapMethods` oder `MapGroup` definiert werden.
 
-[MUST_NOT] API-Routen dürfen nicht als Lambda- oder Delegate-Handler in `Program.cs` oder in Endpoint-Registrierungserweiterungen definiert werden, wenn sie Controller-Actions ersetzen.
+[MUST_NOT_IF] Wenn API-Routen Controller-Actions ersetzen, dürfen sie nicht als Lambda- oder Delegate-Handler in `Program.cs` oder in Endpoint-Registrierungserweiterungen definiert werden.
 
 ## HTTP-Verträge
 

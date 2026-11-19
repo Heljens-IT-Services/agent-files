@@ -85,7 +85,7 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST] Der Happy Path muss möglichst linear und ohne unnötige Verschachtelung lesbar sein.
 
-[MUST_NOT] Kontrollfluss darf nicht tiefer als zwei Ebenen verschachtelt werden, sofern die Verschachtelung nicht unmittelbar eine echte fachliche oder strukturelle Hierarchie abbildet.
+[MUST_NOT_IF] Wenn eine Verschachtelung keine echte fachliche oder strukturelle Hierarchie abbildet, darf der Kontrollfluss nicht tiefer als zwei Ebenen verschachtelt werden.
 
 [MUST] Eigenständig benennbare verschachtelte Logik muss in eine eigene Funktion, Methode oder Komponente extrahiert werden.
 
@@ -127,13 +127,13 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 
 [MUST] UI-Code muss Nutzerintentionen, sichtbare Zustände und fachliche Abläufe klar trennen.
 
-[MUST] Views, Pages und Components dürfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
+[MUST_NOT] Views, Pages und Components dürfen keine Fachlogik, Datenzugriffslogik, Persistenzlogik oder technische Orchestrierung enthalten.
 
 [MUST_IF] Sichtbare Zustände wie `loading`, `empty`, `error`, `disabled`, `readonly`, `dirty`, `saving` und `success` müssen explizit modelliert werden, wenn sie für den Nutzer relevant sind.
 
 [MUST_NOT] UI-Code darf technische Fehler, interne IDs, Debug-Daten oder Infrastrukturdetails nicht ungefiltert sichtbar machen.
 
-[MUST_NOT] Designsysteme und Komponentenbibliotheken dürfen nicht ohne ausdrückliche User-Anweisung installiert werden.
+[MUST_NOT_IF] Ohne ausdrückliche User-Anweisung dürfen Designsysteme und Komponentenbibliotheken nicht installiert werden.
 
 [MUST] Layout- und Styling-Änderungen müssen bestehende Design-, Abstands-, Typografie- und Komponenten-Konventionen respektieren.
 

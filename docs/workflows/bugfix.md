@@ -40,10 +40,10 @@ Der kanonische Aufruf lautet `/workflows run bugfix`.
 2. Den aktuell ausgecheckten Branch und den Working Tree feststellen. Den Branch nicht automatisch wechseln, neu erstellen oder auf eine andere Basis zurücksetzen.
 3. Prüfen, dass der vorhandene Arbeitsstand für den Bugfix eindeutig weiterverwendet werden kann. Bei nicht zuordenbaren oder fachfremden lokalen Änderungen stoppen und den konkreten Zustand melden.
 4. Einen vorhandenen terminalen Issue- oder Task-Plan gegen Repository-Zustand und geltende Regeln prüfen. Nur bei ungeklärter Ursache oder Planbruch mit `code-analysis` Ursache, Scope und Risiken klären.
-5. Mit `code-testing` den Bug reproduzieren.
+5. Den Bug mit dem kleinsten reproduzierbaren lokalen Prüfschritt belegen.
 6. Den vorhandenen Issue- oder Task-Plan übernehmen. Nur ohne vollständigen Plan oder bei Planbruch mit `code-implementation-planning` gezielt planen.
 7. Mit `code-implementation` den Bugfix umsetzen.
-8. Mit `code-testing` prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
+8. Mit fokussierten lokalen Checks prüfen, dass die ursprüngliche Reproduktion nicht mehr fehlschlägt und relevante Regressionen abgedeckt sind.
 9. Erst nach erfolgreicher Reproduktion und lokaler Stabilisierung mit `code-minimization` den Bugfix-Änderungssatz auf unbegründete Bestandteile prüfen und minimieren.
 10. Nach jeder akzeptierten Reduktion die ursprüngliche Reproduktion und die durch die Reduktion betroffene Regression fokussiert erneut grün prüfen. Eine fehlgeschlagene Reduktion zurücknehmen; echte Unklarheit über Invariante oder Constraint als Planbruch routen.
 11. Mit `code-testing` die unabhängige Verifikation des minimierten Bugfixes ausführen; Developer-Retests ersetzen diese nicht.

@@ -31,7 +31,7 @@ Zulässige Modi:
 
 1. Den angeforderten Modus validieren oder ohne Modus den Modus `auto` verwenden.
 2. Vorhandene Issue- oder Task-Akzeptanzkriterien und dort festgelegte Verifikationsschritte als primären Prüfplan übernehmen.
-3. Im Modus `auto` fehlende relevante Prüfebenen aus Änderungs- und Projektkontext ergänzen: Build, Unit, Integration, E2E, UI oder manuell.
+3. Im Modus `auto` auf Basis der Änderung, bestehender belastbarer Evidenz und konkreter Risiken die kleinste hinreichende Auswahl aus Build, Unit, Integration, E2E, UI oder manuellen Prüfungen bestimmen. Fehlende Nachweise gezielt ergänzen.
 4. In einem expliziten Modus die bezeichnete Prüfebene und nur ihre technisch erforderlichen Build- oder Setup-Schritte auswählen.
 5. Nicht im technischen Plan konkretisierte Kommandos aus Projektdateien, README oder CI ableiten.
 6. Passende Kommandos oder manuelle Prüfschritte ausführen, z. B. `dotnet test`, `npm test`, `npm run test`, `npm run build`, ein projektspezifisches E2E-Script oder UI-Prüfung mit verfügbaren Tools.

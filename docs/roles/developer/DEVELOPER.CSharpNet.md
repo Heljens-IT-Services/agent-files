@@ -42,13 +42,15 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [MUST] Jeder Factory-erzeugte Context muss pro fachlicher Unit of Work erzeugt und deterministisch disposed werden; in Async-Code mit `CreateDbContextAsync(cancellationToken)` und `await using`.
 
-[MUST_NOT] Ein Context darf nicht parallel verwendet oder über Requests, Jobs, Messages oder unabhängige Operationen hinweg gehalten werden. Zusammengehörige Vorgänge dürfen denselben Context innerhalb einer Unit of Work verwenden.
+[MUST_NOT] Ein Context darf nicht parallel verwendet oder über Requests, Jobs, Messages oder unabhängige Operationen hinweg gehalten werden.
+
+[ALLOW_IF] Zusammengehörige Vorgänge dürfen denselben Context verwenden, wenn sie Teil derselben Unit of Work sind.
 
 [MUST_IF] Wenn die Context-Konfiguration von scoped oder tenantabhängigen Daten abhängt, muss die Lifetime von `AddDbContextFactory` bewusst passend gewählt werden.
 
 ## Module.cs und DI
 
-[MUST] Produktive .NET-Projekte mit eigener DI-Registrierung müssen eine `Module.cs` als zentralen Einstiegspunkt für diese Registrierungen verwenden.
+[MUST_IF] Wenn ein produktives .NET-Projekt eigene DI-Registrierungen enthält, muss es `Module.cs` als zentralen Einstiegspunkt für diese Registrierungen verwenden.
 
 [MUST] Wiederverwendbare Schichten oder Projekte mit eigener Registrierungsverantwortung müssen ihre DI-Registrierung über klar benannte Erweiterungsmethoden kapseln.
 
@@ -56,4 +58,6 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 
 [ALLOW] `Program.cs` oder ein anderer Composition Root darf Module wegen transitiver Referenzierung explizit registrieren.
 
-[MUST] Direkte Projektreferenzen müssen die vorgesehenen Architekturgrenzen respektieren und dürfen nicht allein für bequeme DI-Registrierung aufgeweicht werden.
+[MUST] Direkte Projektreferenzen müssen die vorgesehenen Architekturgrenzen respektieren.
+
+[MUST_NOT] Architekturgrenzen dürfen nicht allein für bequeme DI-Registrierung aufgeweicht werden.

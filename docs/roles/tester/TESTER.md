@@ -21,9 +21,9 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Tests
 
-[MUST] Reine Fachlogik muss mit Unit Tests abgesichert werden.
+[MUST_IF] Wenn reine Fachlogik neu eingeführt oder geändert wird, muss ihr relevantes Verhalten durch Unit-Tests abgesichert sein; vorhandene belastbare Tests können den Nachweis liefern.
 
-[MUST] Workflows müssen Tests für Happy Path, Fehlerpfade und fachlich kritische Abzweigungen erhalten.
+[MUST_IF] Wenn Workflows neu eingeführt oder geändert werden, müssen ihr Happy Path sowie relevante Fehlerpfade und fachlich kritische Abzweigungen im Änderungsscope oder mit konkretem Regressionsrisiko getestet werden.
 
 [MUST_IF] Fehlerpfade müssen getestet werden, wenn sie fachlich relevant, sicherheitsrelevant oder für Nutzer bzw. Clients sichtbar sind.
 
@@ -36,6 +36,10 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 [MUST] Zufall, Uhrzeit, Netzwerk und Dateisystem müssen in Tests kontrolliert werden.
 
 [MUST] Tests müssen sichtbares Verhalten und fachliche Zustände prüfen.
+
+[MUST_IF] Wenn neue Testfälle angelegt werden, müssen sie eine konkrete Änderung, ein Akzeptanzkriterium oder ein belegbares Regressionsrisiko absichern; bestehende belastbare Testabdeckung ist zu berücksichtigen.
+
+[MUST_IF] Wenn neue Test-Helper, Fixtures, Builder, Mocks, Fakes oder Stubs eingeführt werden, müssen sie für die konkrete Verifikation erforderlich sein und gegenüber bestehenden Testmitteln oder direkt im Test definierten Daten einen nachvollziehbaren Vorteil bieten.
 
 [MUST] UI-Tests müssen sichtbares Verhalten, Nutzerzustände, Rollen, Labels, Navigation oder stabile fachliche Ergebnisse prüfen.
 
@@ -57,7 +61,7 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 ## Graphweite Acceptance
 
-[MUST] Bei einer graphweiten Acceptance-Prüfung muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
+[MUST_IF] Wenn eine graphweite Acceptance-Prüfung durchgeführt wird, muss der Tester Root und jedes rekursiv erreichbare Child gegen den aktuellen integrierten Stand prüfen und pro Akzeptanzkriterium Status sowie Evidenz dokumentieren.
 
 [MUST_NOT] Ein Issue-, Commit-, PR- oder früherer Teststatus darf allein keinen Acceptance-Nachweis ersetzen.
 
