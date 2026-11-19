@@ -82,6 +82,6 @@ Als belastbare strukturelle Last gelten insbesondere reale Duplikation, hohe Ver
 - Jede Verhaltensänderung explizit markieren.
 - Kein Refactoring als verdeckte Feature-Arbeit.
 - Vorher-Nachher-Unterschied strukturell erklären.
-- Nicht behaupten, etwas sei getestet.
+- Ausgeführte lokale Checks konkret benennen und nicht als unabhängige Tester-Freigabe darstellen.
 - Strukturgewinn immer konkret benennen.
 - Restrisiken nur benennen, wenn sie sichtbar sind; nicht als eigene Analyse ausweiten.

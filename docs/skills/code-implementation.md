@@ -96,5 +96,5 @@ Nicht hinreichend allein sind „flexibler“, „sauberer“ ohne konkrete redu
 ## Qualitätskriterien
 
 - Bestehende Architektur und Konventionen respektieren.
-- Nicht behaupten, etwas sei getestet.
+- Ausgeführte lokale Checks konkret benennen und nicht als unabhängige Tester-Freigabe darstellen.
 - Offene Punkte nur benennen, wenn sie sichtbar sind; nicht als eigene Analyse ausweiten.

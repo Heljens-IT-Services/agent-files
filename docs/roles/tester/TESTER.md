@@ -37,7 +37,7 @@ Diese Datei definiert technologieübergreifende Tester-Regeln. Technologiespezif
 
 [MUST] Tests müssen sichtbares Verhalten und fachliche Zustände prüfen.
 
-[MUST] Neue Testfälle müssen eine konkrete Änderung, ein Akzeptanzkriterium oder ein belegbares Regressionsrisiko absichern; bestehende belastbare Testabdeckung ist zu berücksichtigen.
+[MUST_IF] Wenn neue Testfälle angelegt werden, müssen sie eine konkrete Änderung, ein Akzeptanzkriterium oder ein belegbares Regressionsrisiko absichern; bestehende belastbare Testabdeckung ist zu berücksichtigen.
 
 [MUST_IF] Wenn neue Test-Helper, Fixtures, Builder, Mocks, Fakes oder Stubs eingeführt werden, müssen sie für die konkrete Verifikation erforderlich sein und gegenüber bestehenden Testmitteln oder direkt im Test definierten Daten einen nachvollziehbaren Vorteil bieten.
 
