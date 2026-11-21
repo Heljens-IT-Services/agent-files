@@ -65,6 +65,18 @@ Für die Pflege gelten folgende Konventionen:
 - Referenzierte Skills müssen vollständig aufgeführt und befolgt werden; ihre Grenzen gelten auch für extern wirksame Workflow-Schritte. Fehlt ein benötigter Skill, wird der Workflow nachgeschärft oder die Abweichung begründet. Bei blockierten Schritten gilt die Rücksprungregel oder der Blocker wird gemeldet.
 - Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien.
 
+### Interne Review-Artefakte
+
+`reviews/` enthält interne, nicht veröffentlichte Review- und Analyseartefakte zur Pflege dieses Repositorys, etwa Acceptance- oder Gap-Reviews. Sie sind keine Regeldateien und für konsumierende Agents nicht verbindlich.
+
+[MUST] Review-Artefakte müssen unter `reviews/` außerhalb von `docs/` liegen und dem Namensschema `issue-<nummer>-<thema>.md` oder `pr-<nummer>-<thema>.md` folgen; `<thema>` besteht aus Kleinbuchstaben, Ziffern und Bindestrichen.
+
+[ALLOW_IF] Ein Review-Artefakt darf nur angelegt werden, wenn der User oder ein laufender Workflow ein persistentes Review-Ergebnis zu einem konkreten Issue oder Pull Request ausdrücklich verlangt.
+
+[MUST_NOT] Regeln aus Review-Artefakten dürfen nicht ohne Übernahme in die Dateien unter `docs/` als wirksam gelten, und Dateien unter `docs/` dürfen nicht auf `reviews/` verweisen.
+
+[ALLOW_IF] Ein Review-Artefakt darf nur entfernt werden, wenn das referenzierte Issue oder der Pull Request abgeschlossen ist, seine Findings erledigt oder in Issues überführt sind und ein Pflegeauftrag die Entfernung umfasst.
+
 ### Konsistenzprüfung
 
 [MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
