@@ -1,5 +1,7 @@
 # Workflow: Online Publication Check
 
+Stand: 2026-10-13
+
 ## Ziel
 
 Die über GitHub Pages veröffentlichten Agent Files gegen den aktuellen Stand von `origin/main` auf Quelle, Erreichbarkeit, Vernetzung und Inhaltsgleichheit prüfen.

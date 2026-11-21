@@ -1,5 +1,7 @@
 # Workflow: Issue Acceptance Convergence
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Die Akzeptanzkriterien eines angegebenen Root-Issues und seines vollständigen nativen Child-Graphen gegen den aktuellen integrierten Stand prüfen. Die Prüfung ist graphweit und ersetzt weder lokale Task-Verifikation noch den technischen Branch-/PR-Abschluss.

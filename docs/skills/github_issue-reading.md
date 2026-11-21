@@ -1,5 +1,7 @@
 # Skill: GitHub Issue Lesen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Ein GitHub-Issue und seine Kommentare atomar lesen und den enthaltenen Kontext strukturiert wiedergeben. Bei explizitem Graph-Lesefokus relevante native Issue-Beziehungen kontrolliert und zyklussicher erfassen.

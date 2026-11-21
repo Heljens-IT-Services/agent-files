@@ -1,5 +1,7 @@
 # Skill: GitHub PR Erstellen
 
+Stand: 2026-09-05
+
 ## Zweck
 
 Einen vorhandenen Pull Request wiederverwenden oder einen neuen Pull Request mit passendem Titel, Body, Base und Head in GitHub erstellen.

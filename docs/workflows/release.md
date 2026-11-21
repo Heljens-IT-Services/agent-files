@@ -1,5 +1,7 @@
 # Workflow: Release
 
+Stand: 2026-10-13
+
 ## Ziel
 
 Den freigegebenen Stand von `develop` mit `/release` kontrolliert über einen Pull Request nach `main` veröffentlichen und den lokalen Default-Branch aktualisieren.

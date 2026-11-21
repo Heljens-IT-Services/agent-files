@@ -1,5 +1,7 @@
 # Skill: Research
 
+Stand: 2026-08-20
+
 ## Zweck
 
 Frei recherchieren, um externen, repo-übergreifenden oder issue-bezogenen Kontext belastbar zusammenzufassen.

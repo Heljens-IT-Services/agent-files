@@ -8,12 +8,14 @@ from __future__ import annotations
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 BASE_URL = "https://heljens-it-services.github.io/agent-files/"
 ENTRY = DOCS / "AGENTS.md"
+CHANGELOG = DOCS / "CHANGELOG.md"
 
 MARKERS = {
     "MUST", "MUST_IF", "MUST_NOT", "MUST_NOT_IF",
@@ -35,6 +37,8 @@ LINK = re.compile(r"\]\(([^)\s]+)\)")
 ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 CATALOG_ROW = re.compile(r"^\| `([^`]+)` \|(.*)\|\s*$")
 ALIAS = re.compile(r"`(/[^`]+)`")
+STAND = re.compile(r"^Stand: (\d{4}-\d{2}-\d{2})$")
+CHANGELOG_ENTRY = re.compile(r"^### (\S+)\s*$")
 RESERVED_ROOTS = {"help", "?", "skills", "workflows", "technologies", "roles", "actions"}
 
 errors: list[str] = []
@@ -70,6 +74,45 @@ def check_markers(path: Path, text: str) -> None:
             fail(path, number, f"[{marker}] nennt keine Bedingung in natürlicher Sprache")
         if marker in {"MUST_NOT", "MUST_NOT_IF"} and not NEGATION_WORDS.search(sentence):
             fail(path, number, f"[{marker}] ist sprachlich nicht verneint")
+
+
+def valid_date(value: str) -> bool:
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def check_stand(path: Path, text: str) -> None:
+    if path == CHANGELOG:
+        return
+    lines = text.splitlines()
+    following = next(((n, l) for n, l in enumerate(lines[1:], start=2) if l.strip()), None)
+    if not lines or not lines[0].startswith("# ") or following is None:
+        fail(path, 1, "Titelzeile mit nachfolgender `Stand: YYYY-MM-DD`-Zeile fehlt")
+        return
+    number, line = following
+    match = STAND.match(line)
+    if not match:
+        fail(path, number, "erste Zeile nach dem Titel ist keine `Stand: YYYY-MM-DD`-Zeile")
+    elif not valid_date(match.group(1)):
+        fail(path, number, f"ungültiges Datum in `{line}`")
+
+
+def check_changelog(text: str) -> None:
+    previous: str | None = None
+    for number, line in enumerate(text.splitlines(), start=1):
+        match = CHANGELOG_ENTRY.match(line)
+        if not match:
+            continue
+        value = match.group(1)
+        if not STAND.match(f"Stand: {value}") or not valid_date(value):
+            fail(CHANGELOG, number, f"Eintragsüberschrift `{value}` ist kein Datum YYYY-MM-DD")
+        elif previous is not None and value >= previous:
+            fail(CHANGELOG, number, f"Eintrag {value} steht nicht absteigend sortiert unter {previous}")
+        else:
+            previous = value
 
 
 def resolve_link(source: Path, target: str) -> Path | None:
@@ -154,7 +197,12 @@ def main() -> int:
     texts = {path: path.read_text(encoding="utf-8") for path in files}
     for path in files:
         check_markers(path, texts[path])
+        check_stand(path, texts[path])
     check_links(files, texts)
+    if CHANGELOG in texts:
+        check_changelog(texts[CHANGELOG])
+    else:
+        fail(CHANGELOG, None, "Changelog fehlt")
     aliases: dict[str, str] = {}
     for name, folder in (("SKILLS.md", "skills"), ("WORKFLOWS.md", "workflows")):
         catalog = DOCS / folder / name

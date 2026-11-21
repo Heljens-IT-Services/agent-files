@@ -1,5 +1,7 @@
 # Skill: Code Lesen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Bestehenden Code gezielt lesen, damit relevante Dateien, Symbole und Abläufe im Agenten-Kontext sind.

@@ -1,5 +1,7 @@
 # SKILLS.md
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Diese Datei ist die Lookup-Datei für atomare, wiederverwendbare Agenten-Skills.

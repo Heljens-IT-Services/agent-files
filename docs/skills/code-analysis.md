@@ -1,5 +1,7 @@
 # Skill: Code Analyse
 
+Stand: 2026-09-10
+
 ## Zweck
 
 Code, Branches, Legacy-Bereiche oder konkrete Fehlverhalten bewerten und einordnen.

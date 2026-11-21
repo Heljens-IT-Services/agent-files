@@ -1,5 +1,7 @@
 # Kanonische Heljens-Issue-Templates
 
+Stand: 2026-09-10
+
 Diese Dateien werden unverändert nach `.github/ISSUE_TEMPLATE/` übernommen:
 
 - [bug.yml](issue-templates/bug.yml)

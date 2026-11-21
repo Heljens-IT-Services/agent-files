@@ -1,5 +1,7 @@
 # Workflow: Insight To Issue
 
+Stand: 2026-08-20
+
 ## Ziel
 
 Aus einer vorhandenen Erkenntnis ein strukturiertes GitHub-Issue erstellen.

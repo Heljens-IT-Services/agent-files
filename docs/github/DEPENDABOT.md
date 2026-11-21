@@ -1,5 +1,7 @@
 # Dependabot-Leitplanke
 
+Stand: 2026-10-13
+
 [MUST_IF] Wenn ein Repository npm-, NuGet-, Docker-, Docker-Compose- oder GitHub-Actions-Abhängigkeiten nutzt, muss `.github/dependabot.yml` diese Quellen abdecken.
 
 [MUST] Ökosysteme und Verzeichnisse müssen vor der Konfiguration aus dem Repository abgeleitet und danach verifiziert werden. Vorhandene spezifischere Konfigurationen dürfen nur bei nachgewiesenen Lücken geändert werden.

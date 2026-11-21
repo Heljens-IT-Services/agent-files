@@ -1,5 +1,7 @@
 # Workflow: Issue To PR
 
+Stand: 2026-08-21
+
 ## Ziel
 
 Eine bereits umgesetzte Änderung mit Issue-Kontext committen, pushen und als Pull Request erstellen.

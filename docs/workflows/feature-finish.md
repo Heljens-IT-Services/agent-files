@@ -1,5 +1,7 @@
 # Workflow: Feature Finish
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Einen bereits umgesetzten und vom User freigegebenen Arbeitsbranch mit `/finish` sicher committen, veröffentlichen, prüfen und nach `develop` mergen.

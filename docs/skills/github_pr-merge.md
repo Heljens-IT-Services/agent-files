@@ -1,5 +1,7 @@
 # Skill: GitHub PR Merge
 
+Stand: 2026-09-05
+
 ## Zweck
 
 Einen freigegebenen Pull Request mit der konfigurierten Merge-Methode zusammenführen und das Ergebnis prüfen.

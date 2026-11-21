@@ -1,5 +1,7 @@
 # Skill: Code Minimization
 
+Stand: 2026-09-10
+
 ## Zweck
 
 Einen lokal funktionierenden Änderungssatz auf die kleinste hinreichend begründete Lösung reduzieren. Dabei bleiben erforderliches Verhalten, Acceptance-Evidenz, bekannte Invarianten, Security- und Fehlerpfade sowie belegte technische Constraints erhalten.

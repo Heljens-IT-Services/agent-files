@@ -1,5 +1,7 @@
 # Workflow: Project Implementation Planning
 
+Stand: 2026-09-05
+
 ## Ziel
 
 Eine noch diskutierbare projektweite Zielvorstellung durch Human-geführte Klärung in einen freigegebenen Implementierungsplan oberhalb der Epic-Ebene überführen. Der Plan beschreibt große Implementierungsphasen und keine technische Story-/Task-Zerlegung.

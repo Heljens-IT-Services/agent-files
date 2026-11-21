@@ -1,5 +1,7 @@
 # Workflow: Bugfix
 
+Stand: 2026-09-10
+
 ## Ziel
 
 Einen Fehler zielgerichtet auf dem aktuell ausgecheckten Branch analysieren, beheben und absichern, ohne den umgebenden Branch- oder Pull-Request-Lifecycle eigenständig zu verändern.

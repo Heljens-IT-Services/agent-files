@@ -1,5 +1,7 @@
 # Skill: Code Implementierungsplanung
 
+Stand: 2026-09-10
+
 ## Zweck
 
 Belastbaren vorhandenen Kontext in einen konkreten, testbaren technischen Umsetzungsplan überführen.

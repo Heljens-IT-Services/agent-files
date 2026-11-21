@@ -1,5 +1,7 @@
 # Skill: GitHub Type Setzen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Den nativen GitHub-Issue-Type eines bestehenden Issues gezielt setzen oder ändern.

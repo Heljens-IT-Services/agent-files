@@ -65,10 +65,16 @@ Für die Pflege gelten folgende Konventionen:
 - Referenzierte Skills müssen vollständig aufgeführt und befolgt werden; ihre Grenzen gelten auch für extern wirksame Workflow-Schritte. Fehlt ein benötigter Skill, wird der Workflow nachgeschärft oder die Abweichung begründet. Bei blockierten Schritten gilt die Rücksprungregel oder der Blocker wird gemeldet.
 - Formulierungen bleiben knapp und operativ, bevorzugen Listen und vermeiden allgemeine Agentenphilosophien.
 
+### Änderungsnachweis
+
+[MUST] Jede Markdown-Datei unter `docs/` außer `docs/CHANGELOG.md` muss als erste nicht leere Zeile nach der Titelzeile eine Zeile `Stand: YYYY-MM-DD` tragen. Bei jeder inhaltlichen Änderung der Datei muss sie auf das Änderungsdatum gesetzt werden.
+
+[MUST] Jede Regeländerung unter `docs/`, einschließlich neuer, umbenannter oder entfernter Regeldateien, muss im selben Commit oder Pull Request einen Eintrag in `docs/CHANGELOG.md` mit Datum, betroffener Datei und Wirkung erhalten.
+
+[ALLOW] Rein redaktionelle Änderungen ohne Regelwirkung, etwa Tippfehler oder Formatierung, dürfen im Changelog zusammengefasst werden.
+
 ### Konsistenzprüfung
 
 [MUST] Vor jedem Commit an Dateien unter `docs/`, `.codex/agents/` oder an der Prüfung selbst muss `python3 scripts/lint_docs.py` fehlerfrei durchlaufen. Der GitHub-Actions-Workflow `docs-lint` führt dieselbe Prüfung für Pull Requests und Pushes nach `develop` und `main` aus.
 
 [MUST] Die Prüfung ist ein reiner Lesecheck und kein Build- oder Generierungsschritt; sie darf keine Dateien unter `docs/` erzeugen oder verändern.
-
-[MUST_IF] Wenn eine Datei unter `docs/` eine `Stand:`-Zeile trägt, muss diese bei jeder inhaltlichen Änderung der Datei auf das Änderungsdatum gesetzt werden.

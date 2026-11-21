@@ -1,5 +1,7 @@
 # Workflow: Refactoring Secure
 
+Stand: 2026-08-21
+
 ## Ziel
 
 Bestehenden Code strukturell verbessern, ohne Verhalten zu verändern, und die Änderung bis zum Pull Request absichern.

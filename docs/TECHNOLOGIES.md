@@ -1,5 +1,7 @@
 # TECHNOLOGIES.md
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Diese Datei ist die einzige Lookup-Quelle für technologiespezifische Regeldateien. Die Command-Semantik steht in [COMMANDS.md](https://heljens-it-services.github.io/agent-files/COMMANDS.md).

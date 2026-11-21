@@ -1,5 +1,7 @@
 # COMMANDS.md
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Diese Datei definiert die host-unabhängige Slash-Command-Sprache für Navigation, Detailanzeige und bewusste Auswahl veröffentlichter Katalogeinträge.

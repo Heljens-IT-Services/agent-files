@@ -1,5 +1,7 @@
 # Skill: GitHub Commit History Lesen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Commits und gemergte Pull Requests eines Repositorys für einen abgegrenzten Zeitraum vollständig und read-only erfassen.

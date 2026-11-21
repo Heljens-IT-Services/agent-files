@@ -1,5 +1,7 @@
 # ROLES.md
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Diese Datei definiert das Rollenmodell und ist die Lookup-Datei für kontextabhängige Rollendateien.

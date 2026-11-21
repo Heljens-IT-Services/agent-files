@@ -1,5 +1,7 @@
 # Skill: Code Diff Review
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Einen Änderungssatz auf Scope, Korrektheit und Risiken prüfen.

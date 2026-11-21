@@ -1,5 +1,7 @@
 # Skill: GitHub Relationship Setzen
 
+Stand: 2026-08-21
+
 ## Zweck
 
 Native GitHub-Relationships zwischen bestehenden Issues gezielt setzen, insbesondere `blocked by` und Parent/Child-Beziehungen.

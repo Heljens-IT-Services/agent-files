@@ -1,5 +1,7 @@
 # Skill: GitHub Commit
 
+Stand: 2026-10-13
+
 ## Zweck
 
 Einen abgeschlossenen lokalen Änderungssatz logisch schneiden und als einen oder mehrere lokale Git-Commits speichern.

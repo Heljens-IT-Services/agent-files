@@ -1,5 +1,7 @@
 # Skill: Brainstorming
 
+Stand: 2026-08-20
+
 ## Zweck
 
 Interaktiv mehrere plausible Denk- oder Lösungsrichtungen entwickeln, vergleichen und mit dem User schärfen.
