@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -112,6 +112,8 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [ALLOW] README-Dateien, Architektur-Notizen, API-Beschreibungen, Beispielaufrufe oder externe Dokumentation dürfen Quellcode-Kommentare ergänzen.
 
 [MUST_NOT_IF] Externe Dokumentation darf notwendiges Verständnis nicht ersetzen, wenn dieses Verständnis direkt am Code gebraucht wird.
+
+[MUST_IF] Wenn eine nicht-triviale, schwer umkehrbare Architektur- oder Technologieentscheidung getroffen wurde, muss der Agent prüfen, ob sie gemäß [decision-record](https://heljens-it-services.github.io/agent-files/skills/decision-record.md) als ADR festzuhalten ist, und eine fehlende ADR im Arbeitsabschluss benennen.
 
 ## Design Patterns und Prinzipien
 
