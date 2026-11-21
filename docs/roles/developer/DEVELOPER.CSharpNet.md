@@ -1,6 +1,6 @@
 # DEVELOPER.CSharpNet.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -17,6 +17,14 @@ Diese Datei gilt für C#- und .NET-Projekte aller Einstiegstypen. Anwendungs- un
 [MUST] Jeder öffentliche Typ muss in einer eigenen Datei liegen.
 
 [SHOULD] Records sollen für immutable DTOs, Value Objects und Ergebnisobjekte verwendet werden. Abweichungen sind erlaubt, wenn Framework-Binding, Serialisierung oder bestehende API-Verträge Klassen erfordern.
+
+## Konfiguration
+
+[MUST] Typisierte Konfiguration muss über das Options-Pattern mit `AddOptions<TOptions>()`, `Bind(...)` oder `BindConfiguration(...)`, einer Validierung über `ValidateDataAnnotations()` oder `Validate(...)` sowie `ValidateOnStart()` registriert werden.
+
+[MUST_NOT] Anwendungscode außerhalb der Composition Root darf `IConfiguration` nicht direkt lesen; er muss `IOptions<TOptions>`, `IOptionsSnapshot<TOptions>` oder `IOptionsMonitor<TOptions>` beziehungsweise explizit übergebene Werte verwenden.
+
+[SHOULD] Lokale Secrets sollen über `dotnet user-secrets` verwaltet werden. Abweichungen sind erlaubt, wenn das Projekt einen anderen ungetrackten lokalen Mechanismus vorgibt.
 
 ## Datenbankzugriff
 
