@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -140,6 +140,26 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST_NOT] UI-Änderungen dürfen keine unnötigen Wrapper, neuen Styling-Konzepte oder redundanten Komponentenvarianten einführen.
 
 [MUST] Interaktive UI muss semantische Elemente, Tastaturbedienung, Fokusführung, Labels und verständliche Fehlermeldungen berücksichtigen.
+
+## Internationalisierung und Lokalisierung
+
+[MUST_IF] Wenn das Projekt Lokalisierung nutzt, müssen nutzersichtbare Texte einschließlich Fehlermeldungen, Labels und Alternativtexten über Ressourcen oder Übersetzungsschlüssel bereitgestellt werden und dürfen nicht hart im Code oder Markup stehen.
+
+[MUST_NOT] Nutzersichtbare Sätze dürfen nicht aus einzelnen Textfragmenten verkettet werden; variable Werte müssen über benannte Platzhalter in einer vollständigen Übersetzungseinheit eingesetzt werden.
+
+[MUST_IF] Wenn ein Text von einer Anzahl abhängt, muss der Pluralisierungsmechanismus der verwendeten Lokalisierungslösung genutzt werden, statt Pluralformen im Code zu verzweigen.
+
+[MUST] Datum, Uhrzeit, Zahlen, Prozentwerte und Währungsbeträge müssen für die Darstellung über die Formatierungs-APIs der Plattform mit der Kultur des Nutzers formatiert werden.
+
+[MUST_NOT] Darstellungsformate dürfen nicht über hartcodierte Formatmuster, Dezimal- oder Tausendertrennzeichen festgelegt werden.
+
+[MUST] Technische Formate wie Serialisierung, Parsing von Maschinendaten, Protokollformate, Dateinamen, technische Schlüssel und technische Vergleiche müssen kulturinvariant verarbeitet werden, etwa mit ISO 8601 für Datum und Uhrzeit.
+
+[MUST] Zeitpunkte müssen in UTC oder mit explizitem Offset gespeichert und übertragen werden; die Umrechnung in eine Zeitzone erfolgt erst bei der Darstellung.
+
+[MUST_IF] Wenn fachlich eine lokale Uhrzeit gemeint ist, etwa bei künftigen oder wiederkehrenden Terminen, muss zusätzlich die IANA-Zeitzone gespeichert werden.
+
+[MUST_NOT] Reine Kalenderdaten wie Geburts- oder Fälligkeitsdaten dürfen nicht als Zeitpunkt mit Uhrzeit und Zeitzone modelliert werden.
 
 ## Fehlerbehandlung
 
