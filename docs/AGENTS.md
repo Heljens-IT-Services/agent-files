@@ -1,5 +1,5 @@
 # AGENTS.md
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -159,6 +159,22 @@ Der Arbeitsabschluss ist die abschließende Rückmeldung des Agents an den User 
 [MUST_NOT] Die TOML-Dateien dürfen die vollständigen Heljens-Rollen-, Skill- oder Workflow-Regeln nicht duplizieren. Sie bilden nur die Codex-Laufzeit ab und müssen auf die geltenden Einstiegsdateien, `PROJECT.md` und den relevanten Heljens-Kontext verweisen.
 
 [MUST_IF] Wenn eine Laufzeit keine Codex-Custom-Agents unterstützt, bleiben die veröffentlichten Rollen-, Skill- und Workflow-Regeln ohne diese Laufzeitabbildung vollständig maßgeblich.
+
+## Claude-Code-Subagents
+
+[MUST_IF] Wenn ein ausführendes Repository Claude-Code-Subagents unterstützt, müssen alle Markdown-Dateien unter `.claude/agents/` inventarisiert und anhand des Frontmatter-Feldes `name` auf die kanonischen Agent-Namen `planner`, `developer`, `tester` und `designer` geprüft werden.
+
+[MUST_IF] Wenn einer der kanonischen Agent-Namen im ausführenden Repository fehlt, muss die zugehörige Online-Vorlage nachgelagert unter dem kanonischen Pfad `.claude/agents/<agent-name>.md` erstellt werden. Dies gilt für jeden fehlenden Agent einzeln und unabhängig davon, ob andere Subagents bereits vorhanden sind.
+
+[MUST_IF] Wenn der Agent `planner` fehlt, muss [planner.md](https://heljens-it-services.github.io/agent-files/claude/agents/planner.md) kopiert werden. Fehlt `developer`, muss [developer.md](https://heljens-it-services.github.io/agent-files/claude/agents/developer.md) kopiert werden. Fehlt `tester`, muss [tester.md](https://heljens-it-services.github.io/agent-files/claude/agents/tester.md) kopiert werden. Fehlt `designer`, muss [designer.md](https://heljens-it-services.github.io/agent-files/claude/agents/designer.md) kopiert werden.
+
+[MUST_NOT_IF] Wenn ein kanonischer Zielpfad bereits durch eine widersprüchliche Datei belegt ist, darf sie nicht stillschweigend überschrieben werden; der Konflikt muss gemeldet werden.
+
+[MUST] Die online veröffentlichten Vorlagen unter `docs/claude/agents/` müssen inhaltsgleich mit den Mustervorlagen unter `.claude/agents/` gepflegt werden.
+
+[MUST_NOT] Die Subagent-Dateien dürfen die vollständigen Heljens-Rollen-, Skill- oder Workflow-Regeln nicht duplizieren. Sie bilden nur die Claude-Code-Laufzeit ab und müssen auf die geltenden Einstiegsdateien, `PROJECT.md` und den relevanten Heljens-Kontext verweisen.
+
+[MUST_IF] Wenn eine Laufzeit keine Claude-Code-Subagents unterstützt, bleiben die veröffentlichten Rollen-, Skill- und Workflow-Regeln ohne diese Laufzeitabbildung vollständig maßgeblich.
 
 ## PROJECT.md
 

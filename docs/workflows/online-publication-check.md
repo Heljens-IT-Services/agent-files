@@ -21,7 +21,7 @@ Die über GitHub Pages veröffentlichten Agent Files gegen den aktuellen Stand v
 3. Den Einstiegspunkt `https://heljens-it-services.github.io/agent-files/AGENTS.md` per HTTP abrufen. Er muss HTTP-Status `200` liefern.
 4. Aus den internen Markdown-Links ab `docs/AGENTS.md` einen Graphen bilden und ihn mit den versionierten Markdown-Dateien unter `docs/` vergleichen. Kein Linkziel darf fehlen und jede Markdown-Datei muss erreichbar sein.
 5. Für jede versionierte Markdown-Datei sowie jede Codex-Agent-Vorlage unter `docs/codex/agents/` den zugehörigen Pages-Pfad per HTTP abrufen. Jede URL muss HTTP-Status `200` liefern.
-6. Den Online-Inhalt jeder geprüften Datei nach Vereinheitlichung der Zeilenenden mit dem zugehörigen Blob aus `origin/main` vergleichen. Die veröffentlichten Codex-Agent-Vorlagen zusätzlich mit `.codex/agents/` abgleichen.
+6. Den Online-Inhalt jeder geprüften Datei nach Vereinheitlichung der Zeilenenden mit dem zugehörigen Blob aus `origin/main` vergleichen. Die veröffentlichten Codex-Agent-Vorlagen zusätzlich mit `.codex/agents/` und die Claude-Code-Subagent-Vorlagen unter `docs/claude/agents/` mit `.claude/agents/` abgleichen.
 7. Referenz-SHA, Build, Datei- und Linkanzahl sowie jede Abweichung getrennt nach Quelle, Erreichbarkeit, Vernetzung und Aktualität zusammenfassen.
 
 ## Rücksprungregeln
@@ -34,7 +34,7 @@ Die über GitHub Pages veröffentlichten Agent Files gegen den aktuellen Stand v
 
 - Quelle und Build-Commit sind eindeutig bewertet.
 - Erreichbarkeit und Vernetzung aller veröffentlichten Markdown-Dateien sind nachgewiesen oder mit konkreten Befunden fehlgeschlagen.
-- Die Inhaltsgleichheit zur veröffentlichten Referenz und zu den Codex-Agent-Vorlagen ist nachgewiesen oder mit konkreten Abweichungen dokumentiert.
+- Die Inhaltsgleichheit zur veröffentlichten Referenz und zu den Codex- und Claude-Code-Agent-Vorlagen ist nachgewiesen oder mit konkreten Abweichungen dokumentiert.
 
 ## Grenzen
 
