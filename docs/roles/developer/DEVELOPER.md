@@ -1,6 +1,6 @@
 # DEVELOPER.md
 
-Stand: 2026-10-13
+Stand: 2026-10-18
 
 ## Zweck
 
@@ -170,6 +170,36 @@ Diese Datei definiert technologieübergreifende Developer-Regeln. Technologiespe
 [MUST] Logs müssen technische Ursachen und Diagnosekontext erklären.
 
 [MUST_NOT] Logs dürfen fachliche Status-, Ergebnis- oder Fehlerobjekte nicht ersetzen.
+
+## Logging und Observability
+
+[MUST] Logs müssen strukturiert über Message-Templates mit benannten Platzhaltern geschrieben werden, damit Werte als auswertbare Felder erhalten bleiben.
+
+[MUST_NOT] Log-Nachrichten dürfen nicht per String-Konkatenation oder String-Interpolation zusammengesetzt werden.
+
+[MUST] Log-Level müssen der Bedeutung des Ereignisses entsprechen: `Error` für fehlgeschlagene Operationen, die Eingriff oder Analyse erfordern, `Warning` für ungewöhnliche, aber behandelte Zustände, `Information` für relevante Ablaufereignisse und `Debug` beziehungsweise `Trace` für Diagnosedetails.
+
+[MUST_NOT] Erwartbare fachliche Fehler wie Validierungs- oder Berechtigungsablehnungen dürfen nicht als `Error` geloggt werden.
+
+[MUST] Die Logging-Verbote aus „Security und Datenschutz“ gelten auch für strukturierte Log-Felder, Log-Scopes, Exception-Nachrichten, Trace-Attribute und Metrik-Labels; sensible Werte müssen vor der Übergabe entfernt oder maskiert werden.
+
+[MUST] Eine Exception muss genau einmal an der Grenze geloggt werden, an der sie behandelt oder in eine Fehlerantwort übersetzt wird; dabei muss die Exception selbst mit Stacktrace übergeben werden, nicht nur ihre Nachricht.
+
+[MUST_NOT] Exceptions dürfen nicht geloggt und anschließend unverändert weitergeworfen werden.
+
+[MUST_IF] Wenn ein Ablauf Prozess- oder Systemgrenzen überschreitet, muss eine eingehende Correlation- beziehungsweise Trace-ID übernommen oder neu erzeugt, an nachgelagerte Aufrufe und Nachrichten weitergegeben und in allen zugehörigen Log-Einträgen mitgeführt werden.
+
+[SHOULD] Für die Weitergabe von Trace-Kontext über HTTP soll W3C Trace Context verwendet werden. Abweichungen sind erlaubt, wenn ein Fremdsystem oder ein bestehender Vertrag ein anderes Format vorgibt.
+
+[MUST_NOT] Fachliche Logik darf keine konkreten Logging-, Metrik- oder Tracing-Backends referenzieren; Sinks, Exporter und Telemetrie-Konfiguration gehören in die Composition Root.
+
+[SHOULD] Metriken und verteiltes Tracing sollen über OpenTelemetry umgesetzt werden, wenn das Projekt sie nutzt. Abweichungen sind erlaubt, wenn `PROJECT.md` oder die bestehende Betriebsplattform einen anderen Standard vorgibt.
+
+[MUST_NOT] Metrik-Labels dürfen keine unbegrenzten Wertebereiche wie IDs, E-Mail-Adressen, URLs mit Parametern oder freie Texte enthalten.
+
+[MUST_IF] Wenn ein Dienst produktionsnah betrieben wird, muss er Health Checks bereitstellen, die Liveness und Readiness getrennt abbilden; Readiness muss notwendige Abhängigkeiten prüfen.
+
+[MUST_NOT] Health-Check-Antworten dürfen keine internen Infrastrukturdetails, Verbindungszeichenfolgen oder Exception-Texte nach außen geben.
 
 ## Security und Datenschutz
 
