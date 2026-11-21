@@ -71,4 +71,6 @@ Für die Pflege gelten folgende Konventionen:
 
 [MUST] Die Prüfung ist ein reiner Lesecheck und kein Build- oder Generierungsschritt; sie darf keine Dateien unter `docs/` erzeugen oder verändern.
 
+[MUST] Die Prüfung muss die verbindlichen Abschnitte aus `Skills und Workflows pflegen` als H2-Überschriften in `docs/skills/*.md` und `docs/workflows/*.md` außer den Katalogdateien prüfen. Ausnahmen dürfen nur als begründete Altlast in `SECTION_EXEMPTIONS` stehen und müssen entfernt werden, sobald der Abschnitt ergänzt ist.
+
 [MUST_IF] Wenn eine Datei unter `docs/` eine `Stand:`-Zeile trägt, muss diese bei jeder inhaltlichen Änderung der Datei auf das Änderungsdatum gesetzt werden.
